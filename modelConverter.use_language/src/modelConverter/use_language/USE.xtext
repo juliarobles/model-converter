@@ -18,7 +18,7 @@ Type:
 	Class | AssociationType;
 
 AssociationType:
-	Association | AssociationClass | Aggregation | Composition;
+	AssociationBasic | AssociationClass | Aggregation | Composition;
 
 AllClass:
 	Class|AssociationClass;
@@ -33,9 +33,9 @@ terminal ML_COMMENT:
 
 //--------------ENUMERADO--------------
 Enumeration:
-	'enum' (name=ID)? '{' (ownedLiteral+=EnumElement)+ '}';
+	'enum' (name=ID)? '{' (ownedLiteral+=OwnedLiteral)+ '}';
 
-EnumElement:
+OwnedLiteral:
 	name=ID (',')?;
 
 //---------------CLASE-----------------
@@ -62,21 +62,21 @@ SimpleTypes:
 
 
 //-----------ASOCIACIONES-------------
-AssociationBase:
+Association:
 	name=ID 'between'		
 		(memberEnds+=MemberEnd)+;	
 
 MemberEnd:
 	type=[AllClass] '[' mul=Multiplicity ']' ('role' role=ID)? (ordered?='ordered')?;
 
-Association:
-	'association' AssociationBase 'end';
+AssociationBasic:
+	'association' Association 'end';
 
 Aggregation:
-	'aggregation' AssociationBase 'end';
+	'aggregation' Association 'end';
 	
 Composition:
-	'composition' AssociationBase 'end';
+	'composition' Association 'end';
 
 //-------------ATRIBUTOS---------------
 Attribute:

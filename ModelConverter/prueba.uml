@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:MagicDrawProfile="http://www.omg.org/spec/UML/20131001/MagicDrawProfile" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http://www.omg.org/spec/UML/20131001/MagicDrawProfile UML_Standard_Profile.MagicDraw_Profile.profile.uml#_FB6iGpvAEeufEaX9mlA9Lg">
+  <uml:Model xmi:id="eee_1045467100313_135436_1" name="Model" visibility="public" URI="" viewpoint="">
+    <ownedComment xmi:id="_18_1beta_8c90288_1415101994820_370998_4336" annotatedElement="eee_1045467100313_135436_1" body="Author:Usuario.&#xA;Created:22/03/2021 20:42.&#xA;Title:.&#xA;Comment:.&#xA;"/>
+    <packageImport xmi:id="_0primitiveTypesModel">
+      <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+    </packageImport>
+    <packageImport xmi:id="_0javaPrimitiveTypesModel">
+      <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#_0"/>
+    </packageImport>
+    <packagedElement xmi:type="uml:Class" xmi:id="_19_0_2_b7002e9_1616442588400_683132_4824" name="A" visibility="public" isAbstract="true">
+      <ownedAttribute xmi:id="_19_0_2_b7002e9_1616442852865_420910_4974" name="" visibility="private" type="_19_0_2_b7002e9_1616442822130_371777_4931" association="_19_0_2_b7002e9_1616442852865_620286_4973">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_19_0_2_b7002e9_1618253458551_976336_4873" name="" visibility="public" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_19_0_2_b7002e9_1618253458551_52814_4874" name="" visibility="public" value="*"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_19_0_2_b7002e9_1616442597810_106742_4850" name="B" visibility="public">
+      <ownedRule xmi:id="_19_0_2_b7002e9_1618253189432_6813_4867" name="unnamed1" visibility="public" constrainedElement="_19_0_2_b7002e9_1616442597810_106742_4850">
+        <specification xmi:type="uml:OpaqueExpression" xmi:id="_19_0_2_b7002e9_1618253189432_517391_4868" name="" visibility="public">
+          <language>English</language>
+          <body>hjfgfjhgh</body>
+        </specification>
+      </ownedRule>
+      <generalization xmi:id="_19_0_2_b7002e9_1616442800083_425128_4903" general="_19_0_2_b7002e9_1616442588400_683132_4824"/>
+      <ownedAttribute xmi:id="_19_0_2_b7002e9_1616442816202_102918_4922" name="" visibility="private" type="_19_0_2_b7002e9_1616442790266_134820_4876" aggregation="composite" association="_19_0_2_b7002e9_1616442816201_757966_4921"/>
+      <ownedAttribute xmi:id="_19_0_2_b7002e9_1616449145646_848377_5025" name="atributoTexto" visibility="private">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_19_0_2_b7002e9_1618252551935_449910_4850" name="unnamed1" visibility="private" type="_19_0_2_b7002e9_1616442790266_134820_4876"/>
+      <ownedAttribute xmi:id="_19_0_2_b7002e9_1618252570079_613303_4852" name="unnamed2" visibility="private"/>
+      <ownedOperation xmi:id="_19_0_2_b7002e9_1618252588576_458288_4854" name="unnamed1" visibility="public"/>
+      <ownedOperation xmi:id="_19_0_2_b7002e9_1618252595264_581968_4856" name="unnamed2" visibility="public" bodyCondition="_19_0_2_b7002e9_1618252641034_356554_4863" postcondition="_19_0_2_b7002e9_1618252630118_879843_4861" precondition="_19_0_2_b7002e9_1618252612139_165496_4859">
+        <ownedRule xmi:id="_19_0_2_b7002e9_1618252612139_165496_4859" name="pre" visibility="public">
+          <specification xmi:type="uml:OpaqueExpression" xmi:id="_19_0_2_b7002e9_1618252612140_558753_4860" name="" visibility="public">
+            <language>English</language>
+          </specification>
+        </ownedRule>
+        <ownedRule xmi:id="_19_0_2_b7002e9_1618252630118_879843_4861" name="post" visibility="public">
+          <specification xmi:type="uml:OpaqueExpression" xmi:id="_19_0_2_b7002e9_1618252630118_46533_4862" name="" visibility="public">
+            <language>English</language>
+          </specification>
+        </ownedRule>
+        <ownedRule xmi:id="_19_0_2_b7002e9_1618252641034_356554_4863" name="unnamed1" visibility="public">
+          <specification xmi:type="uml:OpaqueExpression" xmi:id="_19_0_2_b7002e9_1618252641034_348649_4864" name="" visibility="public">
+            <language>English</language>
+            <body>aaaaaaaaaaaaaaaaas</body>
+          </specification>
+        </ownedRule>
+        <ownedParameter xmi:id="_19_0_2_b7002e9_1618252601746_6611_4858" name="" visibility="public" type="_19_0_2_b7002e9_1616442597810_106742_4850" direction="return"/>
+        <ownedParameter xmi:id="_19_0_2_b7002e9_1618252714300_694941_4865" name="unnamed1" visibility="public">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="_19_0_2_b7002e9_1618252723504_950305_4866" name="unnamed2" visibility="public" type="_19_0_2_b7002e9_1616442790266_134820_4876"/>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_19_0_2_b7002e9_1616442790266_134820_4876" name="C" visibility="public">
+      <ownedAttribute xmi:id="_19_0_2_b7002e9_1616442816202_350792_4923" name="" visibility="private" type="_19_0_2_b7002e9_1616442597810_106742_4850" association="_19_0_2_b7002e9_1616442816201_757966_4921"/>
+      <ownedAttribute xmi:id="_19_0_2_b7002e9_1616442875241_447177_5016" name="" visibility="private" type="_19_0_2_b7002e9_1616442866498_487593_4983" aggregation="shared" association="_19_0_2_b7002e9_1616442875241_956299_5015"/>
+      <ownedAttribute xmi:id="_19_0_2_b7002e9_1618252524998_502213_4815" name="" visibility="private" type="_19_0_2_b7002e9_1616442822130_371777_4931" association="_19_0_2_b7002e9_1618252524997_25397_4813"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_19_0_2_b7002e9_1616442816201_757966_4921" name="" visibility="public" memberEnd="_19_0_2_b7002e9_1616442816202_102918_4922 _19_0_2_b7002e9_1616442816202_350792_4923"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_19_0_2_b7002e9_1616442822130_371777_4931" name="D" visibility="public">
+      <ownedAttribute xmi:id="_19_0_2_b7002e9_1616442852867_742352_4975" name="" visibility="private" type="_19_0_2_b7002e9_1616442588400_683132_4824" association="_19_0_2_b7002e9_1616442852865_620286_4973">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_19_0_2_b7002e9_1618253455646_784797_4869" name="" visibility="public"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_19_0_2_b7002e9_1618253455646_334033_4870" name="" visibility="public" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_19_0_2_b7002e9_1618252524998_518311_4814" name="" visibility="private" type="_19_0_2_b7002e9_1616442790266_134820_4876" association="_19_0_2_b7002e9_1618252524997_25397_4813"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_19_0_2_b7002e9_1616442852865_620286_4973" name="ESTA" visibility="public" memberEnd="_19_0_2_b7002e9_1616442852865_420910_4974 _19_0_2_b7002e9_1616442852867_742352_4975"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_19_0_2_b7002e9_1616442866498_487593_4983" name="E" visibility="public">
+      <ownedAttribute xmi:id="_19_0_2_b7002e9_1616442875242_890468_5017" name="" visibility="private" type="_19_0_2_b7002e9_1616442790266_134820_4876" association="_19_0_2_b7002e9_1616442875241_956299_5015"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_19_0_2_b7002e9_1616442875241_956299_5015" name="" visibility="public" memberEnd="_19_0_2_b7002e9_1616442875241_447177_5016 _19_0_2_b7002e9_1616442875242_890468_5017"/>
+    <packagedElement xmi:type="uml:AssociationClass" xmi:id="_19_0_2_b7002e9_1618252524997_25397_4813" name="F" visibility="public" memberEnd="_19_0_2_b7002e9_1618252524998_518311_4814 _19_0_2_b7002e9_1618252524998_502213_4815"/>
+    <packagedElement xmi:type="uml:Package" xmi:id="magicdraw_uml_standard_profile_v_0001" name="UML Standard Profile" visibility="public" URI="">
+      <ownedComment xmi:id="_be00301_1078843546940_242228_131" annotatedElement="magicdraw_uml_standard_profile_v_0001" body="UML Standard Profile contains a UML metamodel (metaclasses without properties and associations), Standard UML stereotypes defined in the annex C of UML specification, validation suites for UML model correctness and completeness checking, and stereotypes used by MagicDraw internally."/>
+    </packagedElement>
+    <profileApplication xmi:id="_be00301_1073394351331_445580_2profileApplicationModel">
+      <eAnnotations xmi:id="_FB9llZvAEeufEaX9mlA9Lg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="UML_Standard_Profile.MagicDraw_Profile.profile.uml#_FB6iGpvAEeufEaX9mlA9Lg"/>
+      </eAnnotations>
+      <appliedProfile href="UML_Standard_Profile.MagicDraw_Profile.profile.uml#_be00301_1073394351331_445580_2"/>
+    </profileApplication>
+    <profileApplication xmi:id="_11_5_be00301_1153310565718_226811_161profileApplicationModel">
+      <eAnnotations xmi:id="_FB9ll5vAEeufEaX9mlA9Lg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="UML_Standard_Profile.MagicDraw_Profile.DSL_Customization.profile.uml#_FB8-_pvAEeufEaX9mlA9Lg"/>
+      </eAnnotations>
+      <appliedProfile href="UML_Standard_Profile.MagicDraw_Profile.DSL_Customization.profile.uml#_11_5_be00301_1153310565718_226811_161"/>
+    </profileApplication>
+    <profileApplication xmi:id="_17_0_4beta_8ca0285_1361349406965_180847_3086profileApplicationModel">
+      <eAnnotations xmi:id="_FB9lmZvAEeufEaX9mlA9Lg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="UML_Standard_Profile.Dependency_Matrix_Profile.profile.uml#_FB8YqJvAEeufEaX9mlA9Lg"/>
+      </eAnnotations>
+      <appliedProfile href="UML_Standard_Profile.Dependency_Matrix_Profile.profile.uml#_17_0_4beta_8ca0285_1361349406965_180847_3086"/>
+    </profileApplication>
+    <profileApplication xmi:id="_16_6_8f90291_1254846042821_86742_517profileApplicationModel">
+      <eAnnotations xmi:id="_FB-MEZvAEeufEaX9mlA9Lg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="UML_Standard_Profile.MagicDraw_Profile.Traceability_customization.profile.uml#_FB59bJvAEeufEaX9mlA9Lg"/>
+      </eAnnotations>
+      <appliedProfile href="UML_Standard_Profile.MagicDraw_Profile.Traceability_customization.profile.uml#_16_6_8f90291_1254846042821_86742_517"/>
+    </profileApplication>
+    <profileApplication xmi:id="_19_0beta_8bb027e_1484121177637_661582_4502profileApplicationModel">
+      <eAnnotations xmi:id="_FB-ME5vAEeufEaX9mlA9Lg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="UML_Standard_Profile.MagicDraw_Profile.Find_By_Text.profile.uml#_FB56zpvAEeufEaX9mlA9Lg"/>
+      </eAnnotations>
+      <appliedProfile href="UML_Standard_Profile.MagicDraw_Profile.Find_By_Text.profile.uml#_19_0beta_8bb027e_1484121177637_661582_4502"/>
+    </profileApplication>
+    <profileApplication xmi:id="_11_5_f720368_1159529670215_231387_1profileApplicationModel">
+      <eAnnotations xmi:id="_FB-MFZvAEeufEaX9mlA9Lg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="UML_Standard_Profile.Validation_Profile.profile.uml#_FB563pvAEeufEaX9mlA9Lg"/>
+      </eAnnotations>
+      <appliedProfile href="UML_Standard_Profile.Validation_Profile.profile.uml#_11_5_f720368_1159529670215_231387_1"/>
+    </profileApplication>
+  </uml:Model>
+  <MagicDrawProfile:auxiliaryResource xmi:id="_FCGu8JvAEeufEaX9mlA9Lg" base_Element="magicdraw_uml_standard_profile_v_0001"/>
+</xmi:XMI>

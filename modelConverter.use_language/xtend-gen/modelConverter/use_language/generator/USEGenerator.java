@@ -17,10 +17,5 @@ import org.eclipse.xtext.generator.IGeneratorContext;
 public class USEGenerator extends AbstractGenerator {
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nThe method or field fullyQualifiedName is undefined for the type Model"
-      + "\nThe method or field compile is undefined for the type Model"
-      + "\ntoString cannot be resolved"
-      + "\n+ cannot be resolved");
   }
 }

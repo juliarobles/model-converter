@@ -17,10 +17,5 @@ import modelConverter.use_language.uml.Model
 class USEGenerator extends AbstractGenerator {
 
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
-		for (e : resource.allContents.toIterable.filter(Model)) {
-        	fsa.generateFile(
-            	e.fullyQualifiedName.toString("/") + ".java",
-            	e.compile)
-    	}
 	}
 }

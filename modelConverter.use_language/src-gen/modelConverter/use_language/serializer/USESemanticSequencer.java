@@ -6,24 +6,28 @@ package modelConverter.use_language.serializer;
 import com.google.inject.Inject;
 import java.util.Set;
 import modelConverter.use_language.services.USEGrammarAccess;
-import modelConverter.use_language.uml.Association;
-import modelConverter.use_language.uml.AssociationClass;
-import modelConverter.use_language.uml.Attribute;
-import modelConverter.use_language.uml.ConstrainsGeneral;
-import modelConverter.use_language.uml.ConstraintsBase;
-import modelConverter.use_language.uml.Enumeration;
-import modelConverter.use_language.uml.Generalization;
-import modelConverter.use_language.uml.InvariantContext;
-import modelConverter.use_language.uml.InvariantDefinition;
-import modelConverter.use_language.uml.MemberEnd;
-import modelConverter.use_language.uml.Model;
-import modelConverter.use_language.uml.OperationContext;
-import modelConverter.use_language.uml.OperationDeclaration;
-import modelConverter.use_language.uml.OwnedLiteral;
-import modelConverter.use_language.uml.Postcondition;
-import modelConverter.use_language.uml.Precondition;
-import modelConverter.use_language.uml.SimpleTypes;
-import modelConverter.use_language.uml.UmlPackage;
+import modelConverter.use_language.use.Association;
+import modelConverter.use_language.use.AssociationClass;
+import modelConverter.use_language.use.AssociationEnd;
+import modelConverter.use_language.use.Attribute;
+import modelConverter.use_language.use.AttributesBase;
+import modelConverter.use_language.use.ConstrainsGeneral;
+import modelConverter.use_language.use.ConstraintsBase;
+import modelConverter.use_language.use.Generalization;
+import modelConverter.use_language.use.InvariantContext;
+import modelConverter.use_language.use.InvariantDefinition;
+import modelConverter.use_language.use.Model;
+import modelConverter.use_language.use.Multiplicity;
+import modelConverter.use_language.use.OperationComplex;
+import modelConverter.use_language.use.OperationConstraints;
+import modelConverter.use_language.use.OperationContext;
+import modelConverter.use_language.use.OperationDeclaration;
+import modelConverter.use_language.use.OperationQuery;
+import modelConverter.use_language.use.OperationsBase;
+import modelConverter.use_language.use.Postcondition;
+import modelConverter.use_language.use.Precondition;
+import modelConverter.use_language.use.SimpleTypes;
+import modelConverter.use_language.use.UsePackage;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.xtext.Action;
@@ -46,79 +50,78 @@ public class USESemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		ParserRule rule = context.getParserRule();
 		Action action = context.getAssignedAction();
 		Set<Parameter> parameters = context.getEnabledBooleanParameters();
-		if (epackage == UmlPackage.eINSTANCE)
+		if (epackage == UsePackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
-			case UmlPackage.ASSOCIATION:
+			case UsePackage.ASSOCIATION:
 				sequence_Association(context, (Association) semanticObject); 
 				return; 
-			case UmlPackage.ASSOCIATION_CLASS:
+			case UsePackage.ASSOCIATION_CLASS:
 				sequence_AssociationClass(context, (AssociationClass) semanticObject); 
 				return; 
-			case UmlPackage.ATTRIBUTE:
+			case UsePackage.ASSOCIATION_END:
+				sequence_AssociationEnd(context, (AssociationEnd) semanticObject); 
+				return; 
+			case UsePackage.ATTRIBUTE:
 				sequence_Attribute(context, (Attribute) semanticObject); 
 				return; 
-			case UmlPackage.CLASS:
-				sequence_Class(context, (modelConverter.use_language.uml.Class) semanticObject); 
+			case UsePackage.ATTRIBUTES_BASE:
+				sequence_AttributesBase(context, (AttributesBase) semanticObject); 
 				return; 
-			case UmlPackage.CONSTRAINS_GENERAL:
+			case UsePackage.CLASS:
+				sequence_Class(context, (modelConverter.use_language.use.Class) semanticObject); 
+				return; 
+			case UsePackage.CONSTRAINS_GENERAL:
 				sequence_ConstrainsGeneral(context, (ConstrainsGeneral) semanticObject); 
 				return; 
-			case UmlPackage.CONSTRAINTS_BASE:
+			case UsePackage.CONSTRAINTS_BASE:
 				sequence_ConstraintsBase(context, (ConstraintsBase) semanticObject); 
 				return; 
-			case UmlPackage.ENUMERATION:
-				sequence_Enumeration(context, (Enumeration) semanticObject); 
+			case UsePackage.ENUM:
+				sequence_Enum(context, (modelConverter.use_language.use.Enum) semanticObject); 
 				return; 
-			case UmlPackage.GENERALIZATION:
+			case UsePackage.GENERALIZATION:
 				sequence_Generalization(context, (Generalization) semanticObject); 
 				return; 
-			case UmlPackage.INVARIANT_CONTEXT:
+			case UsePackage.INVARIANT_CONTEXT:
 				sequence_InvariantContext(context, (InvariantContext) semanticObject); 
 				return; 
-			case UmlPackage.INVARIANT_DEFINITION:
+			case UsePackage.INVARIANT_DEFINITION:
 				sequence_InvariantDefinition(context, (InvariantDefinition) semanticObject); 
 				return; 
-			case UmlPackage.MEMBER_END:
-				sequence_MemberEnd(context, (MemberEnd) semanticObject); 
-				return; 
-			case UmlPackage.MODEL:
+			case UsePackage.MODEL:
 				sequence_Model(context, (Model) semanticObject); 
 				return; 
-			case UmlPackage.OPERATION_CONTEXT:
+			case UsePackage.MULTIPLICITY:
+				sequence_Multiplicity(context, (Multiplicity) semanticObject); 
+				return; 
+			case UsePackage.OPERATION_COMPLEX:
+				sequence_OperationComplex(context, (OperationComplex) semanticObject); 
+				return; 
+			case UsePackage.OPERATION_CONSTRAINTS:
+				sequence_OperationConstraints(context, (OperationConstraints) semanticObject); 
+				return; 
+			case UsePackage.OPERATION_CONTEXT:
 				sequence_OperationContext(context, (OperationContext) semanticObject); 
 				return; 
-			case UmlPackage.OPERATION_DECLARATION:
-				if (rule == grammarAccess.getOperationTypeRule()) {
-					sequence_OperationBasic_OperationComplex_OperationDeclaration(context, (OperationDeclaration) semanticObject); 
-					return; 
-				}
-				else if (rule == grammarAccess.getOperationBasicRule()) {
-					sequence_OperationBasic_OperationDeclaration(context, (OperationDeclaration) semanticObject); 
-					return; 
-				}
-				else if (rule == grammarAccess.getOperationComplexRule()) {
-					sequence_OperationComplex_OperationDeclaration(context, (OperationDeclaration) semanticObject); 
-					return; 
-				}
-				else if (rule == grammarAccess.getOperationConstraintsRule()) {
-					sequence_OperationConstraints_OperationDeclaration(context, (OperationDeclaration) semanticObject); 
-					return; 
-				}
-				else if (rule == grammarAccess.getOperationDeclarationRule()) {
-					sequence_OperationDeclaration(context, (OperationDeclaration) semanticObject); 
-					return; 
-				}
-				else break;
-			case UmlPackage.OWNED_LITERAL:
-				sequence_OwnedLiteral(context, (OwnedLiteral) semanticObject); 
+			case UsePackage.OPERATION_DECLARATION:
+				sequence_OperationDeclaration(context, (OperationDeclaration) semanticObject); 
 				return; 
-			case UmlPackage.POSTCONDITION:
+			case UsePackage.OPERATION_QUERY:
+				sequence_OperationQuery(context, (OperationQuery) semanticObject); 
+				return; 
+			case UsePackage.OPERATIONS_BASE:
+				sequence_OperationsBase(context, (OperationsBase) semanticObject); 
+				return; 
+			case UsePackage.PARAMETER:
+				sequence_Parameter(context, (modelConverter.use_language.use.Parameter) semanticObject); 
+				return; 
+			case UsePackage.POSTCONDITION:
 				sequence_Postcondition(context, (Postcondition) semanticObject); 
 				return; 
-			case UmlPackage.PRECONDITION:
+			case UsePackage.PRECONDITION:
 				sequence_Precondition(context, (Precondition) semanticObject); 
 				return; 
-			case UmlPackage.SIMPLE_TYPES:
+			case UsePackage.SIMPLE_TYPES:
 				sequence_SimpleTypes(context, (SimpleTypes) semanticObject); 
 				return; 
 			}
@@ -129,7 +132,6 @@ public class USESemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	/**
 	 * Contexts:
 	 *     Type returns AssociationClass
-	 *     AssociationType returns AssociationClass
 	 *     AllClass returns AssociationClass
 	 *     AssociationClass returns AssociationClass
 	 *
@@ -138,9 +140,9 @@ public class USESemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *         abstract?='abstract'? 
 	 *         name=ID 
 	 *         generalization+=Generalization* 
-	 *         memberEnds+=MemberEnd+ 
-	 *         ownedAttribute+=Attribute* 
-	 *         operations+=OperationType* 
+	 *         associationEnds+=AssociationEnd+ 
+	 *         attributes=AttributesBase? 
+	 *         operations=OperationsBase? 
 	 *         constraints=ConstraintsBase?
 	 *     )
 	 */
@@ -151,15 +153,23 @@ public class USESemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     Type returns Association
-	 *     AssociationType returns Association
-	 *     Association returns Association
-	 *     AssociationBasic returns Association
-	 *     Aggregation returns Association
-	 *     Composition returns Association
+	 *     AssociationEnd returns AssociationEnd
 	 *
 	 * Constraint:
-	 *     (name=ID memberEnds+=MemberEnd+)
+	 *     (type=[AllClass|ID] mul=Multiplicity role=ID? ordered?='ordered'?)
+	 */
+	protected void sequence_AssociationEnd(ISerializationContext context, AssociationEnd semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Type returns Association
+	 *     Association returns Association
+	 *
+	 * Constraint:
+	 *     ((typeAssociation='association' | typeAssociation='aggregation' | typeAssociation='composition') name=ID associationEnds+=AssociationEnd+)
 	 */
 	protected void sequence_Association(ISerializationContext context, Association semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -169,22 +179,33 @@ public class USESemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	/**
 	 * Contexts:
 	 *     Attribute returns Attribute
-	 *     OwnedParameter returns Attribute
 	 *
 	 * Constraint:
 	 *     (name=ID type=SimpleTypes)
 	 */
 	protected void sequence_Attribute(ISerializationContext context, Attribute semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, UmlPackage.Literals.ATTRIBUTE__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UmlPackage.Literals.ATTRIBUTE__NAME));
-			if (transientValues.isValueTransient(semanticObject, UmlPackage.Literals.ATTRIBUTE__TYPE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UmlPackage.Literals.ATTRIBUTE__TYPE));
+			if (transientValues.isValueTransient(semanticObject, UsePackage.Literals.ATTRIBUTE__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UsePackage.Literals.ATTRIBUTE__NAME));
+			if (transientValues.isValueTransient(semanticObject, UsePackage.Literals.ATTRIBUTE__TYPE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UsePackage.Literals.ATTRIBUTE__TYPE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getAttributeAccess().getNameIDTerminalRuleCall_0_0(), semanticObject.getName());
 		feeder.accept(grammarAccess.getAttributeAccess().getTypeSimpleTypesParserRuleCall_2_0(), semanticObject.getType());
 		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     AttributesBase returns AttributesBase
+	 *
+	 * Constraint:
+	 *     attributes+=Attribute+
+	 */
+	protected void sequence_AttributesBase(ISerializationContext context, AttributesBase semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -199,12 +220,12 @@ public class USESemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *         abstract?='abstract'? 
 	 *         name=ID 
 	 *         generalization+=Generalization* 
-	 *         ownedAttribute+=Attribute* 
-	 *         ownedOperation=OperationsBase? 
+	 *         attributes=AttributesBase? 
+	 *         operations=OperationsBase? 
 	 *         constraints=ConstraintsBase?
 	 *     )
 	 */
-	protected void sequence_Class(ISerializationContext context, modelConverter.use_language.uml.Class semanticObject) {
+	protected void sequence_Class(ISerializationContext context, modelConverter.use_language.use.Class semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -235,12 +256,12 @@ public class USESemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     Enumeration returns Enumeration
+	 *     Enum returns Enum
 	 *
 	 * Constraint:
-	 *     (name=ID? ownedLiteral+=OwnedLiteral+)
+	 *     (name=ID? elements+=EnumElement+)
 	 */
-	protected void sequence_Enumeration(ISerializationContext context, Enumeration semanticObject) {
+	protected void sequence_Enum(ISerializationContext context, modelConverter.use_language.use.Enum semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -250,10 +271,16 @@ public class USESemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Generalization returns Generalization
 	 *
 	 * Constraint:
-	 *     general+=[AllClass|ID]
+	 *     general=[AllClass|ID]
 	 */
 	protected void sequence_Generalization(ISerializationContext context, Generalization semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, UsePackage.Literals.GENERALIZATION__GENERAL) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UsePackage.Literals.GENERALIZATION__GENERAL));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getGeneralizationAccess().getGeneralAllClassIDTerminalRuleCall_0_0_1(), semanticObject.eGet(UsePackage.Literals.GENERALIZATION__GENERAL, false));
+		feeder.finish();
 	}
 	
 	
@@ -275,21 +302,9 @@ public class USESemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     InvariantDefinition returns InvariantDefinition
 	 *
 	 * Constraint:
-	 *     (name=ID? oclExpression=OCLExpression)
+	 *     (name=ID? oclexpression=OCLExpression)
 	 */
 	protected void sequence_InvariantDefinition(ISerializationContext context, InvariantDefinition semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     MemberEnd returns MemberEnd
-	 *
-	 * Constraint:
-	 *     (type=[AllClass|ID] mul=Multiplicity role=ID? ordered?='ordered'?)
-	 */
-	protected void sequence_MemberEnd(ISerializationContext context, MemberEnd semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -299,7 +314,7 @@ public class USESemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Model returns Model
 	 *
 	 * Constraint:
-	 *     (name=ID packagedElement+=Enumeration* packagedElement+=Type* constraints=ConstrainsGeneral?)
+	 *     (name=ID enums+=Enum* packagedElement+=Type* constraints=ConstrainsGeneral?)
 	 */
 	protected void sequence_Model(ISerializationContext context, Model semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -308,53 +323,41 @@ public class USESemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     OperationType returns OperationDeclaration
+	 *     Multiplicity returns Multiplicity
 	 *
 	 * Constraint:
 	 *     (
-	 *         name=ID 
-	 *         ownedParameter+=OwnedParameter* 
-	 *         returnType=SimpleTypes? 
-	 *         ((oclexpression=OCLExpression? conditions+=ConditionType*) | (operationbody=OCLExpression? conditions+=ConditionType*))
+	 *         (minValue+='*' | minValue+=IntToString) 
+	 *         (maxValue+='*' | maxValue+=IntToString)? 
+	 *         ((minValue+='*' | minValue+=IntToString) (maxValue+='*' | maxValue+=IntToString)?)*
 	 *     )
 	 */
-	protected void sequence_OperationBasic_OperationComplex_OperationDeclaration(ISerializationContext context, OperationDeclaration semanticObject) {
+	protected void sequence_Multiplicity(ISerializationContext context, Multiplicity semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     OperationBasic returns OperationDeclaration
+	 *     OperationType returns OperationComplex
+	 *     OperationComplex returns OperationComplex
 	 *
 	 * Constraint:
-	 *     (name=ID ownedParameter+=OwnedParameter* returnType=SimpleTypes? oclexpression=OCLExpression? conditions+=ConditionType*)
+	 *     (operationDeclaration=OperationDeclaration operationbody=OCLExpression? conditions+=ConditionType*)
 	 */
-	protected void sequence_OperationBasic_OperationDeclaration(ISerializationContext context, OperationDeclaration semanticObject) {
+	protected void sequence_OperationComplex(ISerializationContext context, OperationComplex semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     OperationComplex returns OperationDeclaration
+	 *     OperationConstraints returns OperationConstraints
 	 *
 	 * Constraint:
-	 *     (name=ID ownedParameter+=OwnedParameter* returnType=SimpleTypes? operationbody=OCLExpression? conditions+=ConditionType*)
+	 *     (operationDeclaration=OperationDeclaration conditions+=ConditionType+)
 	 */
-	protected void sequence_OperationComplex_OperationDeclaration(ISerializationContext context, OperationDeclaration semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     OperationConstraints returns OperationDeclaration
-	 *
-	 * Constraint:
-	 *     (name=ID ownedParameter+=OwnedParameter* returnType=SimpleTypes? conditions+=ConditionType+)
-	 */
-	protected void sequence_OperationConstraints_OperationDeclaration(ISerializationContext context, OperationDeclaration semanticObject) {
+	protected void sequence_OperationConstraints(ISerializationContext context, OperationConstraints semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -369,13 +372,13 @@ public class USESemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 */
 	protected void sequence_OperationContext(ISerializationContext context, OperationContext semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, UmlPackage.Literals.CONTEXTS_TYPE__CLASSNAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UmlPackage.Literals.CONTEXTS_TYPE__CLASSNAME));
-			if (transientValues.isValueTransient(semanticObject, UmlPackage.Literals.OPERATION_CONTEXT__CONSTRAINS) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UmlPackage.Literals.OPERATION_CONTEXT__CONSTRAINS));
+			if (transientValues.isValueTransient(semanticObject, UsePackage.Literals.CONTEXTS_TYPE__CLASSNAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UsePackage.Literals.CONTEXTS_TYPE__CLASSNAME));
+			if (transientValues.isValueTransient(semanticObject, UsePackage.Literals.OPERATION_CONTEXT__CONSTRAINS) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UsePackage.Literals.OPERATION_CONTEXT__CONSTRAINS));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getOperationContextAccess().getClassnameAllClassIDTerminalRuleCall_1_0_1(), semanticObject.eGet(UmlPackage.Literals.CONTEXTS_TYPE__CLASSNAME, false));
+		feeder.accept(grammarAccess.getOperationContextAccess().getClassnameAllClassIDTerminalRuleCall_1_0_1(), semanticObject.eGet(UsePackage.Literals.CONTEXTS_TYPE__CLASSNAME, false));
 		feeder.accept(grammarAccess.getOperationContextAccess().getConstrainsOperationConstraintsParserRuleCall_2_0(), semanticObject.getConstrains());
 		feeder.finish();
 	}
@@ -386,7 +389,7 @@ public class USESemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     OperationDeclaration returns OperationDeclaration
 	 *
 	 * Constraint:
-	 *     (name=ID ownedParameter+=OwnedParameter* returnType=SimpleTypes?)
+	 *     (name=ID parameters+=Parameter* returnType=SimpleTypes?)
 	 */
 	protected void sequence_OperationDeclaration(ISerializationContext context, OperationDeclaration semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -395,18 +398,46 @@ public class USESemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     OwnedLiteral returns OwnedLiteral
+	 *     OperationType returns OperationQuery
+	 *     OperationQuery returns OperationQuery
 	 *
 	 * Constraint:
-	 *     name=ID
+	 *     (operationDeclaration=OperationDeclaration operationbody=OCLExpression conditions+=ConditionType*)
 	 */
-	protected void sequence_OwnedLiteral(ISerializationContext context, OwnedLiteral semanticObject) {
+	protected void sequence_OperationQuery(ISerializationContext context, OperationQuery semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     OperationsBase returns OperationsBase
+	 *
+	 * Constraint:
+	 *     operations+=OperationType+
+	 */
+	protected void sequence_OperationsBase(ISerializationContext context, OperationsBase semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Parameter returns Parameter
+	 *
+	 * Constraint:
+	 *     (name=ID type=SimpleTypes)
+	 */
+	protected void sequence_Parameter(ISerializationContext context, modelConverter.use_language.use.Parameter semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, UmlPackage.Literals.OWNED_LITERAL__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UmlPackage.Literals.OWNED_LITERAL__NAME));
+			if (transientValues.isValueTransient(semanticObject, UsePackage.Literals.PARAMETER__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UsePackage.Literals.PARAMETER__NAME));
+			if (transientValues.isValueTransient(semanticObject, UsePackage.Literals.PARAMETER__TYPE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UsePackage.Literals.PARAMETER__TYPE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getOwnedLiteralAccess().getNameIDTerminalRuleCall_0_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getParameterAccess().getNameIDTerminalRuleCall_0_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getParameterAccess().getTypeSimpleTypesParserRuleCall_2_0(), semanticObject.getType());
 		feeder.finish();
 	}
 	
@@ -442,16 +473,10 @@ public class USESemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     SimpleTypes returns SimpleTypes
 	 *
 	 * Constraint:
-	 *     referended=[AllClass|ID]
+	 *     (defaultType=DefaultType | referended=[AllClass|ID])
 	 */
 	protected void sequence_SimpleTypes(ISerializationContext context, SimpleTypes semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, UmlPackage.Literals.SIMPLE_TYPES__REFERENDED) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, UmlPackage.Literals.SIMPLE_TYPES__REFERENDED));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getSimpleTypesAccess().getReferendedAllClassIDTerminalRuleCall_1_0_1(), semanticObject.eGet(UmlPackage.Literals.SIMPLE_TYPES__REFERENDED, false));
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

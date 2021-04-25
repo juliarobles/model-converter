@@ -2,23 +2,30 @@ grammar modelConverter.use_language.USE with org.eclipse.xtext.common.Terminals
 
 import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 
-generate uml "http://www.USE.lenguage_use_xtext"
+generate use "http://www.USE.lenguage_use_xtext"
 
 //-------------PRINCIPAL Y TIPOS---------------
 Model:
-	'model' name=ID (packagedElement += Enumeration)* (packagedElement += Type)* constraints=(ConstrainsGeneral)?;
+	'model' name=ID ((enums += Enum)* (packagedElement += Type)* constraints=(ConstrainsGeneral)?);
 	
 Multiplicity:
-	('*' | INT) ('..' ('*' | INT))? (',' ('*' | INT) ('..' ('*' | INT))?)*;
+	minValue+=('*' | IntToString) ('..' maxValue+=('*' | IntToString))? (',' minValue+=('*' | IntToString) ('..' maxValue+=('*' | IntToString))?)*;
+
+IntToString:
+	('0'|'1'|'2'|'3'|'4'|'5'|'6'|'7'|'8'|'9')+;
+
+AllTypes:
+	CollectionType
+;
+
+CollectionType:
+	('Set' | 'Bag' | 'Sequence') '(' type+=(CollectionType | SimpleTypes | Enum)* ')';
 
 DefaultType:
 	'Integer' | 'String' | 'Real' | 'Boolean';
 
 Type:
-	Class | AssociationType;
-
-AssociationType:
-	AssociationBasic | AssociationClass | Aggregation | Composition;
+	Class | Association | AssociationClass;
 
 AllClass:
 	Class|AssociationClass;
@@ -32,75 +39,72 @@ terminal ML_COMMENT:
     '--' !('\n'|'\r')* ('\r'? '\n')?;
 
 //--------------ENUMERADO--------------
-Enumeration:
-	'enum' (name=ID)? '{' (ownedLiteral+=OwnedLiteral)+ '}';
+Enum:
+	'enum' (name=ID)? '{' (elements+=EnumElement)+ '}';
 
-OwnedLiteral:
-	name=ID (',')?;
+EnumElement:
+	ID (',')?;
 
 //---------------CLASE-----------------
 Class:
 	(abstract?='abstract')? 'class' name=ID ('<' (generalization+=Generalization)+)? 
-		('attributes' (ownedAttribute+=Attribute)*)? 
-		ownedOperation=(OperationsBase)?
-		constraints=(ConstraintsBase)? 
-	'end';
-	
-AssociationClass:
-	(abstract?='abstract')? 'associationclass' name=ID ('<' (generalization+=Generalization)*)? 
-		'between' (memberEnds+=MemberEnd)+ 
-		('attributes' (ownedAttribute+=Attribute)*)?  
-		('operations' (operations+=OperationType)*)?
+		attributes=(AttributesBase)? 
+		operations=(OperationsBase)?
 		constraints=(ConstraintsBase)? 
 	'end';
 
 Generalization:
-	general+=[AllClass] (',')?;
+	general=[AllClass] (',')?;
 
 SimpleTypes:
-	DefaultType | referended=[AllClass]; //https://www.eclipse.org/forums/index.php/m/553266/?srch=Cannot+call+enum+rule+without+assignment.#msg_553266
+	defaultType=DefaultType | referended=[AllClass]; //https://www.eclipse.org/forums/index.php/m/553266/?srch=Cannot+call+enum+rule+without+assignment.#msg_553266
 
 
 //-----------ASOCIACIONES-------------
 Association:
-	name=ID 'between'		
-		(memberEnds+=MemberEnd)+;	
+	typeAssociation=('association' | 'aggregation' | 'composition') name=ID 'between'		
+		(associationEnds+=AssociationEnd)+ 'end';	
 
-MemberEnd:
+AssociationEnd:
 	type=[AllClass] '[' mul=Multiplicity ']' ('role' role=ID)? (ordered?='ordered')?;
 
-AssociationBasic:
-	'association' Association 'end';
+AssociationClass:
+	(abstract?='abstract')? 'associationclass' name=ID ('<' (generalization+=Generalization)+)? 
+		'between' (associationEnds+=AssociationEnd)+ 
+		attributes=(AttributesBase)? 
+		operations=(OperationsBase)? 
+		constraints=(ConstraintsBase)? 
+	'end';
 
-Aggregation:
-	'aggregation' Association 'end';
-	
-Composition:
-	'composition' Association 'end';
 
 //-------------ATRIBUTOS---------------
+AttributesBase:
+	'attributes'
+		(attributes+=Attribute)*;
+
 Attribute:
 	name=ID ':' type=SimpleTypes;
+
 
 //------------OPERACIONES--------------
 OperationsBase:
 	'operations'
-		;
+		(operations+=OperationType)*;
 
 OperationType:
-	OperationBasic | OperationComplex;
+	OperationComplex | OperationQuery;
 
-OperationBasic:
-	OperationDeclaration ('=' oclexpression=OCLExpression)? (conditions+=ConditionType)*;
+OperationQuery:
+	operationDeclaration=OperationDeclaration '=' operationbody=OCLExpression (conditions+=ConditionType)*;
 
 OperationComplex:
-	OperationDeclaration 'begin' (operationbody=OCLExpression)? 'end' (conditions+=ConditionType)*;
+	operationDeclaration=OperationDeclaration ('begin' (operationbody=OCLExpression)? 'end')? (conditions+=ConditionType)*;
 
 OperationDeclaration:
-	name=ID '(' (ownedParameter+=OwnedParameter)* ')' (':' returnType=SimpleTypes)?;
+	name=ID '(' (parameters+=Parameter)* ')' (':' returnType=SimpleTypes)?;
 
-OwnedParameter:
-	Attribute (',')?;
+Parameter:
+	name=ID ':' type=SimpleTypes (',')?;
 	
 	
 //------------CONSTRAINTS---------------
@@ -119,13 +123,13 @@ InvariantContext:
 	'context' (variablename=ID ':')? classname=[AllClass] (invariants+=InvariantDefinition)*;
 
 InvariantDefinition:
-	'inv' (name=ID)? ':' oclExpression=OCLExpression;
+	'inv' (name=ID)? ':' oclexpression=OCLExpression;
 
 OperationContext:
 	'context' classname=[AllClass] constrains=OperationConstraints;
 
 OperationConstraints:
-	'::' OperationDeclaration (conditions+=ConditionType)+;
+	'::' operationDeclaration=OperationDeclaration (conditions+=ConditionType)+;
 	
 ConditionType:
 	Precondition | Postcondition;
@@ -138,9 +142,15 @@ Postcondition:
 
 OCLExpression hidden (SL_COMMENT):
 	STRING; //Esto es como ID pero separado por '', lo que necesito ahora mismo
+	
+//OCLExpressionQuery hidden (SL_COMMENT):
+	//(ID | '.' | '->' | '(' | ')' | ':' | '=' | ';'); 
 
+//AllOCLExpression:
+	//(ID | IntToString | '.' | '->' | '(' | ')' | ':' | '=' | ';' | ' ' | '\t')*;
+	
 //OCLExpression hidden(SL_COMMENT):
-	//(ID | STRING | INT | ANY_OTHER | WS)*;
+	//ocl=AllOCLExpression '\r'? '\n';
 	
 
 

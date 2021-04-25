@@ -17,13 +17,13 @@ Require-Bundle: org.eclipse.xtext,
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: modelConverter.use_language,
  modelConverter.use_language.validation,
- modelConverter.use_language.uml,
  modelConverter.use_language.parser.antlr,
  modelConverter.use_language.parser.antlr.internal,
- modelConverter.use_language.uml.impl,
  modelConverter.use_language.generator,
  modelConverter.use_language.services,
- modelConverter.use_language.uml.util,
  modelConverter.use_language.scoping,
- modelConverter.use_language.serializer
+ modelConverter.use_language.serializer,
+ modelConverter.use_language.use.impl,
+ modelConverter.use_language.use.util,
+ modelConverter.use_language.use
 Import-Package: org.apache.log4j

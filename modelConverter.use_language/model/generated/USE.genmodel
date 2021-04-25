@@ -4,75 +4,84 @@
     modelPluginID="modelConverter.use_language" forceOverwrite="true" modelName="USE"
     updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     complianceLevel="8.0" copyrightFields="false" runtimeVersion="2.20">
-  <genPackages prefix="Uml" basePackage="modelConverter.use_language" disposableProviderFactory="true"
+  <genPackages prefix="Use" basePackage="modelConverter.use_language" disposableProviderFactory="true"
       fileExtensions="use" ecorePackage="USE.ecore#/">
     <genClasses ecoreClass="USE.ecore#//Model">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute USE.ecore#//Model/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference USE.ecore#//Model/enums"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference USE.ecore#//Model/packagedElement"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference USE.ecore#//Model/constraints"/>
     </genClasses>
-    <genClasses ecoreClass="USE.ecore#//Type"/>
-    <genClasses ecoreClass="USE.ecore#//AssociationType"/>
-    <genClasses ecoreClass="USE.ecore#//AllClass"/>
-    <genClasses ecoreClass="USE.ecore#//Enumeration">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute USE.ecore#//Enumeration/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference USE.ecore#//Enumeration/ownedLiteral"/>
+    <genClasses ecoreClass="USE.ecore#//Multiplicity">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute USE.ecore#//Multiplicity/minValue"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute USE.ecore#//Multiplicity/maxValue"/>
     </genClasses>
-    <genClasses ecoreClass="USE.ecore#//OwnedLiteral">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute USE.ecore#//OwnedLiteral/name"/>
+    <genClasses ecoreClass="USE.ecore#//Type">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute USE.ecore#//Type/name"/>
+    </genClasses>
+    <genClasses ecoreClass="USE.ecore#//AllClass"/>
+    <genClasses ecoreClass="USE.ecore#//Enum">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute USE.ecore#//Enum/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute USE.ecore#//Enum/elements"/>
     </genClasses>
     <genClasses ecoreClass="USE.ecore#//Class">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute USE.ecore#//Class/abstract"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute USE.ecore#//Class/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference USE.ecore#//Class/generalization"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference USE.ecore#//Class/ownedAttribute"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute USE.ecore#//Class/ownedOperation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference USE.ecore#//Class/attributes"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference USE.ecore#//Class/operations"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference USE.ecore#//Class/constraints"/>
-    </genClasses>
-    <genClasses ecoreClass="USE.ecore#//AssociationClass">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute USE.ecore#//AssociationClass/abstract"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute USE.ecore#//AssociationClass/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference USE.ecore#//AssociationClass/generalization"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference USE.ecore#//AssociationClass/memberEnds"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference USE.ecore#//AssociationClass/ownedAttribute"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference USE.ecore#//AssociationClass/operations"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference USE.ecore#//AssociationClass/constraints"/>
     </genClasses>
     <genClasses ecoreClass="USE.ecore#//Generalization">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference USE.ecore#//Generalization/general"/>
     </genClasses>
     <genClasses ecoreClass="USE.ecore#//SimpleTypes">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute USE.ecore#//SimpleTypes/defaultType"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference USE.ecore#//SimpleTypes/referended"/>
     </genClasses>
     <genClasses ecoreClass="USE.ecore#//Association">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute USE.ecore#//Association/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference USE.ecore#//Association/memberEnds"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute USE.ecore#//Association/typeAssociation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference USE.ecore#//Association/associationEnds"/>
     </genClasses>
-    <genClasses ecoreClass="USE.ecore#//MemberEnd">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference USE.ecore#//MemberEnd/type"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute USE.ecore#//MemberEnd/mul"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute USE.ecore#//MemberEnd/role"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute USE.ecore#//MemberEnd/ordered"/>
+    <genClasses ecoreClass="USE.ecore#//AssociationEnd">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference USE.ecore#//AssociationEnd/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference USE.ecore#//AssociationEnd/mul"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute USE.ecore#//AssociationEnd/role"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute USE.ecore#//AssociationEnd/ordered"/>
     </genClasses>
-    <genClasses ecoreClass="USE.ecore#//AssociationBasic"/>
-    <genClasses ecoreClass="USE.ecore#//Aggregation"/>
-    <genClasses ecoreClass="USE.ecore#//Composition"/>
+    <genClasses ecoreClass="USE.ecore#//AssociationClass">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute USE.ecore#//AssociationClass/abstract"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference USE.ecore#//AssociationClass/generalization"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference USE.ecore#//AssociationClass/associationEnds"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference USE.ecore#//AssociationClass/attributes"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference USE.ecore#//AssociationClass/operations"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference USE.ecore#//AssociationClass/constraints"/>
+    </genClasses>
+    <genClasses ecoreClass="USE.ecore#//AttributesBase">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference USE.ecore#//AttributesBase/attributes"/>
+    </genClasses>
     <genClasses ecoreClass="USE.ecore#//Attribute">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute USE.ecore#//Attribute/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference USE.ecore#//Attribute/type"/>
     </genClasses>
-    <genClasses ecoreClass="USE.ecore#//OperationType"/>
-    <genClasses ecoreClass="USE.ecore#//OperationBasic"/>
+    <genClasses ecoreClass="USE.ecore#//OperationsBase">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference USE.ecore#//OperationsBase/operations"/>
+    </genClasses>
+    <genClasses ecoreClass="USE.ecore#//OperationType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference USE.ecore#//OperationType/operationDeclaration"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute USE.ecore#//OperationType/operationbody"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference USE.ecore#//OperationType/conditions"/>
+    </genClasses>
+    <genClasses ecoreClass="USE.ecore#//OperationQuery"/>
     <genClasses ecoreClass="USE.ecore#//OperationComplex"/>
     <genClasses ecoreClass="USE.ecore#//OperationDeclaration">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute USE.ecore#//OperationDeclaration/oclexpression"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference USE.ecore#//OperationDeclaration/conditions"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute USE.ecore#//OperationDeclaration/operationbody"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute USE.ecore#//OperationDeclaration/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference USE.ecore#//OperationDeclaration/ownedParameter"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference USE.ecore#//OperationDeclaration/parameters"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference USE.ecore#//OperationDeclaration/returnType"/>
     </genClasses>
-    <genClasses ecoreClass="USE.ecore#//OwnedParameter"/>
+    <genClasses ecoreClass="USE.ecore#//Parameter">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute USE.ecore#//Parameter/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference USE.ecore#//Parameter/type"/>
+    </genClasses>
     <genClasses ecoreClass="USE.ecore#//ConstraintsBase">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference USE.ecore#//ConstraintsBase/invariants"/>
     </genClasses>
@@ -88,12 +97,15 @@
     </genClasses>
     <genClasses ecoreClass="USE.ecore#//InvariantDefinition">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute USE.ecore#//InvariantDefinition/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute USE.ecore#//InvariantDefinition/oclExpression"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute USE.ecore#//InvariantDefinition/oclexpression"/>
     </genClasses>
     <genClasses ecoreClass="USE.ecore#//OperationContext">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference USE.ecore#//OperationContext/constrains"/>
     </genClasses>
-    <genClasses ecoreClass="USE.ecore#//OperationConstraints"/>
+    <genClasses ecoreClass="USE.ecore#//OperationConstraints">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference USE.ecore#//OperationConstraints/operationDeclaration"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference USE.ecore#//OperationConstraints/conditions"/>
+    </genClasses>
     <genClasses ecoreClass="USE.ecore#//ConditionType">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute USE.ecore#//ConditionType/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute USE.ecore#//ConditionType/oclexpression"/>

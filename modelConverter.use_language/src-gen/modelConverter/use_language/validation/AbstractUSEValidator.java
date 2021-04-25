@@ -13,7 +13,7 @@ public abstract class AbstractUSEValidator extends AbstractDeclarativeValidator 
 	@Override
 	protected List<EPackage> getEPackages() {
 		List<EPackage> result = new ArrayList<EPackage>();
-		result.add(modelConverter.use_language.uml.UmlPackage.eINSTANCE);
+		result.add(modelConverter.use_language.use.UsePackage.eINSTANCE);
 		return result;
 	}
 }

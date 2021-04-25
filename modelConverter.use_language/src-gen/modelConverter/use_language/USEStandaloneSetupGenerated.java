@@ -5,7 +5,7 @@ package modelConverter.use_language;
 
 import com.google.inject.Guice;
 import com.google.inject.Injector;
-import modelConverter.use_language.uml.UmlPackage;
+import modelConverter.use_language.use.UsePackage;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtext.ISetup;
@@ -31,7 +31,7 @@ public class USEStandaloneSetupGenerated implements ISetup {
 	
 	public void register(Injector injector) {
 		if (!EPackage.Registry.INSTANCE.containsKey("http://www.USE.lenguage_use_xtext")) {
-			EPackage.Registry.INSTANCE.put("http://www.USE.lenguage_use_xtext", UmlPackage.eINSTANCE);
+			EPackage.Registry.INSTANCE.put("http://www.USE.lenguage_use_xtext", UsePackage.eINSTANCE);
 		}
 		IResourceFactory resourceFactory = injector.getInstance(IResourceFactory.class);
 		IResourceServiceProvider serviceProvider = injector.getInstance(IResourceServiceProvider.class);

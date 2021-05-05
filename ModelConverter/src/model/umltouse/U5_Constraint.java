@@ -23,11 +23,10 @@ public class U5_Constraint {
 			name = (name != null && !name.isBlank()) ? " " + U9_Auxiliary.searchInList(name, namesUsedParticular) : "";
 			
 			if(value == null || value.isBlank()) {
-				sBuilder.append("\t--inv" + name + ":\n");
-			} else {
-				sBuilder.append("\tinv" + name+ ":\n\t\t" + value + "\n");
-			}
-			
+				value = "true";
+			} 
+		
+			sBuilder.append("\tinv" + name+ ":\n\t\t" + value + "\n");
 		}
 		
 		General.allconstraints.put(classToAnalyze.getName(), sBuilder.toString());

@@ -1,0 +1,17 @@
+model prueba
+
+class Lemon
+	operations
+		squeeze(i : String) : Integer
+end
+
+constraints
+context Lemon
+inv: i < 3
+inv patata: aaaa
+inv:true inv aa pre post 
+
+context Lemon :: squeeze(i : Integer) : Integer
+pre: i>0
+pre lessThanTenOranges: i<10
+post alwaysTrue: true

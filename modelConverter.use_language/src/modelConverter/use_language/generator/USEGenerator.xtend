@@ -3,10 +3,34 @@
  */
 package modelConverter.use_language.generator
 
+import modelConverter.use_language.use.AttributesBase
+import modelConverter.use_language.use.Class
+import modelConverter.use_language.use.Enum
+import modelConverter.use_language.use.Generalization
+import modelConverter.use_language.use.Model
+import modelConverter.use_language.use.Type
+import modelConverter.use_language.use.AssociationClass
+import modelConverter.use_language.use.Association
+import modelConverter.use_language.use.AssociationEnd
+import org.eclipse.emf.common.util.EList
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
+import com.google.common.collect.Iterables
+import modelConverter.use_language.use.OperationsBase
+import modelConverter.use_language.use.OperationQuery
+import modelConverter.use_language.use.Parameter
+import modelConverter.use_language.use.SimpleTypes
+import modelConverter.use_language.use.OperationType
+import modelConverter.use_language.use.Postcondition
+import modelConverter.use_language.use.Precondition
+import modelConverter.use_language.use.ContextsType
+import modelConverter.use_language.use.InvariantDefinition
+import modelConverter.use_language.use.InvariantContext
+import modelConverter.use_language.use.OperationContext
+import modelConverter.use_language.use.OperationConstraints
+import org.eclipse.emf.common.util.BasicEList
 
 /**
  * Generates code from your model files on save.
@@ -16,5 +40,188 @@ import org.eclipse.xtext.generator.IGeneratorContext
 class USEGenerator extends AbstractGenerator {
 
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
+		for (e : resource.allContents.toIterable.filter(Model)) {
+			fsa.generateFile("prueba.uml", e.compileModel);
+		}
 	}
+
+	private def compileModel(Model e) '''
+		<?xml version="1.0" encoding="UTF-8"?>
+		<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:MagicDrawProfile="http://www.omg.org/spec/UML/20131001/MagicDrawProfile" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http://www.omg.org/spec/UML/20131001/MagicDrawProfile UML_Standard_Profile.MagicDraw_Profile.profile.uml#_nPVN7YtIEeuebcn5BqfCXQ">
+		   <uml:Model xmi:id="«System.identityHashCode(e)»" name="«e.getName»">
+			«FOR f : e.getEnums»
+				«f.compileEnum»
+			«ENDFOR»
+			«FOR f : e.getPackagedElement»
+				«IF (e.getConstraints !== null)»
+					«f.compileType(e.getPackagedElement, e.getConstraints.getContexts)»
+				«ELSE»
+					«f.compileType(e.getPackagedElement, new BasicEList<ContextsType>())»
+				«ENDIF»
+			«ENDFOR»
+			</uml:Model>
+		</xmi:XMI>
+	'''
+
+	private def compileEnum(Enum e) '''
+		«        »<packagedElement xmi:type="uml:Enumeration" xmi:id="«System.identityHashCode(e)»" name="«e.getName»">
+		«FOR enumElement : e.getElements()»
+		«               »<ownedLiteral xmi:id="«System.identityHashCode(e)»" name="«enumElement»"/>
+		«ENDFOR»
+		«        »</packagedElement>
+	'''
+
+	private def compileType(Type e, EList<Type> elementos, EList<ContextsType> constrains) '''
+		«IF (e instanceof Class)»
+			«e.compileClass(elementos.filter(a | a instanceof Association || a instanceof AssociationClass), constrains.filter(a | a.getClassname == e))»
+		«ELSEIF (e instanceof Association)»
+			«e.compileAssociation»
+		«ELSEIF (e instanceof AssociationClass)»
+			«e.compileAssociationClass»
+		«ENDIF»
+	'''
+
+	private def compileClass(Class e, Iterable<Type> associations, Iterable<ContextsType> constraints) '''
+		<packagedElement xmi:type="uml:Class" xmi:id="«System.identityHashCode(e)»" «IF e.isAbstract» abstract="true"«ENDIF» name="«e.getName()»">
+		«IF e.getConstraints !== null»
+			«e.getConstraints.getInvariants().compileConstraintsBase(System.identityHashCode(e))»
+		«ENDIF»
+		«IF constraints !== null»
+			«FOR invContext : constraints.filter(InvariantContext)»
+				«invContext.getInvariants().compileConstraintsBase(System.identityHashCode(e))»
+			«ENDFOR»
+		«ENDIF»
+		«FOR generalization : e.getGeneralization()»
+			«generalization.compileGeneralization»
+		«ENDFOR»
+		«IF e.getAttributes !== null »
+			«e.getAttributes.compileAttributesBase»
+		«ENDIF»
+		«FOR association : associations.filter(Association).filter(a | a.getAssociationEnds().map[type].contains(e))»
+			«compileAssociationEnd(e, association.getAssociationEnds(), System.identityHashCode(association), getTypeAssociation(association).toString())»
+		«ENDFOR»
+		«FOR association : associations.filter(AssociationClass).filter(a | a.getAssociationEnds().map[type].contains(e))»
+			«compileAssociationEnd(e, association.getAssociationEnds(), System.identityHashCode(association), "")»
+		«ENDFOR»
+		«IF e.getOperations !== null »
+			«e.getOperations.compileOperationsBase(constraints.filter(OperationContext))»
+		«ENDIF»
+		</packagedElement>
+	'''
+
+	private def compileAssociationEnd(Class e, Iterable<AssociationEnd> list, int id, String aggregation) '''
+		«FOR end : list»
+			«IF end.getType() != e »
+				<ownedAttribute xmi:id="«System.identityHashCode(end)»" name="«end.getRole»" type="«System.identityHashCode(end.getType)»" association="«id»" «IF end == list.get(Iterables.size(list)-1)»«aggregation»«ENDIF»>
+				«IF end.getMul !== null && end.getMul.getMinValue !== null && end.getMul.getMinValue.length > 0»
+					<lowerValue xmi:type="«end.getMul.getMinValue.get(0).getTypeMul»" xmi:id="«System.identityHashCode(end.getType).toString() + id + "1"»" name="" value="«end.getMul.getMinValue.get(0)»"/>
+					«IF end.getMul.getMaxValue !== null && end.getMul.getMaxValue.length > 0»
+						<upperValue xmi:type="«end.getMul.getMaxValue.get(0).getTypeMul»" xmi:id="«System.identityHashCode(end.getType).toString() + id + "2"»" name="" value="«end.getMul.getMaxValue.get(0)»"/>
+					«ELSE»
+						<upperValue xmi:type="«end.getMul.getMinValue.get(0).getTypeMul»" xmi:id="«System.identityHashCode(end.getType).toString() + id + "2"»" name="" value="«end.getMul.getMinValue.get(0)»"/>
+					«ENDIF»
+				«ENDIF»
+				</ownedAttribute>
+			«ENDIF»
+		«ENDFOR»
+	'''
+
+	private def getTypeMul(String s) '''«IF s.equals("*") »uml:LiteralUnlimitedNatural«ELSE»uml:LiteralInteger«ENDIF»'''
+
+	private def getTypeAssociation(
+		Association ab) '''«IF (ab.getTypeAssociation() == "aggregation")»aggregation="shared"«ELSEIF (ab.getTypeAssociation() == "composition")»aggregation="composite"«ENDIF»'''
+
+	private def compileGeneralization(Generalization e) '''
+		<generalization xmi:id="«System.identityHashCode(e)»" general="«System.identityHashCode(e.getGeneral())»"/>
+	'''
+
+	private def compileConstraintsBase(EList<InvariantDefinition> list, int idClass) '''
+		«FOR inv : list»
+			«inv.getOclexpression.compileOwnedRule(System.identityHashCode(inv).toString, inv.getName, "constrainedElement=\"" + idClass + "\"")»
+		«ENDFOR»
+	'''
+
+	private def compileAttributesBase(AttributesBase e) '''
+		«FOR attribute : e.getAttributes()»
+			<ownedAttribute xmi:id="«System.identityHashCode(attribute)»" name="«attribute.getName»" «IF attribute.getType() !== null && attribute.getType().getReferended() !== null»type="«System.identityHashCode(attribute.getType().getReferended())»"«ENDIF»>
+			«IF attribute.getType() !== null && attribute.getType().getDefaultType !== null»
+				«attribute.getType().getDefaultType.compileDefaultType»
+			«ENDIF»
+			</ownedAttribute>
+		«ENDFOR»
+	'''
+
+	private def compileOperationsBase(OperationsBase e, Iterable<OperationContext> conditions) '''
+		«FOR op : e.getOperations()»
+			«op.compileOperation(conditions.map[constrains].filter(c | c.getOperationDeclaration.getName.equals(op.getOperationDeclaration.getName) && (c.getOperationDeclaration.getReturnType.getReferended == op.getOperationDeclaration.getReturnType.getReferended || c.getOperationDeclaration.getReturnType.getDefaultType == op.getOperationDeclaration.getReturnType.getDefaultType)))»
+		«ENDFOR»
+	'''
+
+	private def compileOperation(OperationType op, Iterable<OperationConstraints> conditions) '''
+		<ownedOperation xmi:id="«System.identityHashCode(op)»" name="«op.getOperationDeclaration.getName»" «IF (op.getOperationbody !== null)»bodyCondition="«System.identityHashCode(op).toString + System.identityHashCode(op.getOperationbody)»"«ENDIF» postcondition="«FOR post : op.getConditions.filter(Postcondition)»«System.identityHashCode(post)» «ENDFOR»«FOR context : conditions»«FOR post : context.getConditions.filter(Postcondition)»«System.identityHashCode(post)» «ENDFOR»«ENDFOR»" precondition="«FOR pre : op.getConditions.filter(Precondition)»«System.identityHashCode(pre)» «ENDFOR»«FOR context : conditions»«FOR pre : context.getConditions.filter(Precondition)»«System.identityHashCode(pre)» «ENDFOR»«ENDFOR»" «IF (op instanceof OperationQuery)»isQuery="true"«ENDIF»>
+			«IF (op.getOperationbody !== null)»
+				«op.getOperationbody.compileOwnedRule(System.identityHashCode(op).toString + System.identityHashCode(op.getOperationbody), "", "")»
+			«ENDIF»
+			«FOR cond : op.getConditions»
+				«cond.getOclexpression.compileOwnedRule(System.identityHashCode(cond).toString, cond.getName, "")»
+			«ENDFOR»
+			«FOR context : conditions»
+				«FOR cond : context.getConditions»
+					«cond.getOclexpression.compileOwnedRule(System.identityHashCode(cond).toString, cond.getName, "")»
+				«ENDFOR»
+			«ENDFOR»
+			«IF (op.getOperationDeclaration.getReturnType !== null)»
+				«op.getOperationDeclaration.getReturnType.compileReturnType(System.identityHashCode(op))»
+			«ENDIF»
+			«FOR parameter : op.getOperationDeclaration.getParameters»
+				«parameter.compileParameter»
+			«ENDFOR»
+		</ownedOperation>	
+	'''
+
+	private def compileOwnedRule(String e, String id, String name, String constrainedElement) '''
+		<ownedRule xmi:id="«id»" name="«name»" «constrainedElement»>
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="«System.identityHashCode(e).toString + id»" name="«name»">
+			   	<language>OCL2.0</language>
+			   	  	<body>«e.replaceAll("<", "&lt;").replaceAll(">", "&gt;")»</body>
+			  	</specification>
+		</ownedRule>
+	'''
+
+	private def compileReturnType(SimpleTypes e, int idOp) '''
+		<ownedParameter xmi:id="«System.identityHashCode(e).toString + idOp»" name="" «IF e !== null && e.getReferended() !== null»type="«System.identityHashCode(e.getReferended())»"«ENDIF» direction="return">
+		«IF e !== null && e.getDefaultType !== null»
+			«e.getDefaultType.compileDefaultType»
+		«ENDIF»
+		</ownedParameter>
+	'''
+
+	private def compileParameter(Parameter e) '''
+		<ownedParameter xmi:id="«System.identityHashCode(e)»" name="«e.getName»" «IF e.getType() !== null && e.getType().getReferended() !== null»type="«System.identityHashCode(e.getType().getReferended())»"«ENDIF»>
+		«IF e.getType() !== null && e.getType().getDefaultType !== null»
+			«e.getType().getDefaultType.compileDefaultType»
+		«ENDIF»
+		</ownedParameter>
+	'''
+
+	private def compileDefaultType(String e) '''
+		«IF e.equalsIgnoreCase("String")»
+			<type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+		«ELSEIF e.equalsIgnoreCase("Integer")»
+			<type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+		«ELSEIF e.equalsIgnoreCase("Real")»
+			<type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+		«ELSEIF e.equalsIgnoreCase("Boolean")»
+			<type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+		«ENDIF»
+	'''
+
+	private def compileAssociationClass(AssociationClass e) '''
+		<packagedElement xmi:type="uml:AssociationClass" xmi:id="«System.identityHashCode(e)»" name="«e.getName»" memberEnd="«FOR end : e.getAssociationEnds()»«System.identityHashCode(end)» «ENDFOR»"/>
+	'''
+
+	private def compileAssociation(Association e) '''
+		<packagedElement xmi:type="uml:Association" xmi:id="«System.identityHashCode(e)»" name="«e.getName»" memberEnd="«FOR end : e.getAssociationEnds()»«System.identityHashCode(end)» «ENDFOR»"/>
+	'''
+
 }

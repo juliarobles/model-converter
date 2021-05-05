@@ -1,0 +1,55 @@
+model Model
+
+abstract class A
+end
+
+class B < A
+	attributes
+		atributoTexto : String
+		unnamed1 : C
+		unnamed2
+	operations
+		unnamed1()
+		unnamed2(unnamed1 : Boolean, unnamed2 : C) : B
+			begin
+				aaaaaaaaaaaaaaaaas
+			end
+			pre pre:null
+			post post:null
+
+end
+
+class C
+end
+
+class D
+end
+
+class E
+end
+
+associationclass F between
+	C [1]
+	D [1]
+end
+
+composition unnamed1 between
+	B [1]
+	C [1] role c1
+end
+
+association ESTA between
+	D [1..*] role d1
+	A [0..1]
+end
+
+aggregation unnamed1 between
+	C [1] role c2
+	E [1]
+end
+
+constraints
+context B
+	inv unnamed1:
+		hjfgfjhgh
+

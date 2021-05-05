@@ -3,10 +3,45 @@
  */
 package modelConverter.use_language.generator;
 
+import com.google.common.base.Objects;
+import com.google.common.collect.Iterables;
+import modelConverter.use_language.use.AllClass;
+import modelConverter.use_language.use.Association;
+import modelConverter.use_language.use.AssociationClass;
+import modelConverter.use_language.use.AssociationEnd;
+import modelConverter.use_language.use.Attribute;
+import modelConverter.use_language.use.AttributesBase;
+import modelConverter.use_language.use.ConditionType;
+import modelConverter.use_language.use.ConstrainsGeneral;
+import modelConverter.use_language.use.ConstraintsBase;
+import modelConverter.use_language.use.ContextsType;
+import modelConverter.use_language.use.Generalization;
+import modelConverter.use_language.use.InvariantContext;
+import modelConverter.use_language.use.InvariantDefinition;
+import modelConverter.use_language.use.Model;
+import modelConverter.use_language.use.OperationConstraints;
+import modelConverter.use_language.use.OperationContext;
+import modelConverter.use_language.use.OperationQuery;
+import modelConverter.use_language.use.OperationType;
+import modelConverter.use_language.use.OperationsBase;
+import modelConverter.use_language.use.Parameter;
+import modelConverter.use_language.use.Postcondition;
+import modelConverter.use_language.use.Precondition;
+import modelConverter.use_language.use.SimpleTypes;
+import modelConverter.use_language.use.Type;
+import org.eclipse.emf.common.util.BasicEList;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
+import org.eclipse.xtext.xbase.lib.Conversions;
+import org.eclipse.xtext.xbase.lib.Functions.Function1;
+import org.eclipse.xtext.xbase.lib.IterableExtensions;
+import org.eclipse.xtext.xbase.lib.IteratorExtensions;
+import org.eclipse.xtext.xbase.lib.ListExtensions;
 
 /**
  * Generates code from your model files on save.
@@ -17,5 +52,718 @@ import org.eclipse.xtext.generator.IGeneratorContext;
 public class USEGenerator extends AbstractGenerator {
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
+    Iterable<Model> _filter = Iterables.<Model>filter(IteratorExtensions.<EObject>toIterable(resource.getAllContents()), Model.class);
+    for (final Model e : _filter) {
+      fsa.generateFile("prueba.uml", this.compileModel(e));
+    }
+  }
+  
+  private CharSequence compileModel(final Model e) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
+    _builder.newLine();
+    _builder.append("<xmi:XMI xmi:version=\"20131001\" xmlns:xmi=\"http://www.omg.org/spec/XMI/20131001\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:MagicDrawProfile=\"http://www.omg.org/spec/UML/20131001/MagicDrawProfile\" xmlns:ecore=\"http://www.eclipse.org/emf/2002/Ecore\" xmlns:uml=\"http://www.eclipse.org/uml2/5.0.0/UML\" xsi:schemaLocation=\"http://www.omg.org/spec/UML/20131001/MagicDrawProfile UML_Standard_Profile.MagicDraw_Profile.profile.uml#_nPVN7YtIEeuebcn5BqfCXQ\">");
+    _builder.newLine();
+    _builder.append("   ");
+    _builder.append("<uml:Model xmi:id=\"");
+    int _identityHashCode = System.identityHashCode(e);
+    _builder.append(_identityHashCode, "   ");
+    _builder.append("\" name=\"");
+    String _name = e.getName();
+    _builder.append(_name, "   ");
+    _builder.append("\">");
+    _builder.newLineIfNotEmpty();
+    {
+      EList<modelConverter.use_language.use.Enum> _enums = e.getEnums();
+      for(final modelConverter.use_language.use.Enum f : _enums) {
+        _builder.append("\t");
+        CharSequence _compileEnum = this.compileEnum(f);
+        _builder.append(_compileEnum, "\t");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    {
+      EList<Type> _packagedElement = e.getPackagedElement();
+      for(final Type f_1 : _packagedElement) {
+        {
+          ConstrainsGeneral _constraints = e.getConstraints();
+          boolean _tripleNotEquals = (_constraints != null);
+          if (_tripleNotEquals) {
+            _builder.append("\t");
+            CharSequence _compileType = this.compileType(f_1, e.getPackagedElement(), e.getConstraints().getContexts());
+            _builder.append(_compileType, "\t");
+            _builder.newLineIfNotEmpty();
+          } else {
+            _builder.append("\t");
+            EList<Type> _packagedElement_1 = e.getPackagedElement();
+            BasicEList<ContextsType> _basicEList = new BasicEList<ContextsType>();
+            CharSequence _compileType_1 = this.compileType(f_1, _packagedElement_1, _basicEList);
+            _builder.append(_compileType_1, "\t");
+            _builder.newLineIfNotEmpty();
+          }
+        }
+      }
+    }
+    _builder.append("\t");
+    _builder.append("</uml:Model>");
+    _builder.newLine();
+    _builder.append("</xmi:XMI>");
+    _builder.newLine();
+    return _builder;
+  }
+  
+  private CharSequence compileEnum(final modelConverter.use_language.use.Enum e) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("<packagedElement xmi:type=\"uml:Enumeration\" xmi:id=\"");
+    int _identityHashCode = System.identityHashCode(e);
+    _builder.append(_identityHashCode);
+    _builder.append("\" name=\"");
+    String _name = e.getName();
+    _builder.append(_name);
+    _builder.append("\">");
+    _builder.newLineIfNotEmpty();
+    {
+      EList<String> _elements = e.getElements();
+      for(final String enumElement : _elements) {
+        _builder.append("<ownedLiteral xmi:id=\"");
+        int _identityHashCode_1 = System.identityHashCode(e);
+        _builder.append(_identityHashCode_1);
+        _builder.append("\" name=\"");
+        _builder.append(enumElement);
+        _builder.append("\"/>");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    _builder.append("</packagedElement>");
+    _builder.newLine();
+    return _builder;
+  }
+  
+  private CharSequence compileType(final Type e, final EList<Type> elementos, final EList<ContextsType> constrains) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      if ((e instanceof modelConverter.use_language.use.Class)) {
+        final Function1<Type, Boolean> _function = (Type a) -> {
+          return Boolean.valueOf(((a instanceof Association) || (a instanceof AssociationClass)));
+        };
+        final Function1<ContextsType, Boolean> _function_1 = (ContextsType a) -> {
+          AllClass _classname = a.getClassname();
+          return Boolean.valueOf(Objects.equal(_classname, e));
+        };
+        CharSequence _compileClass = this.compileClass(((modelConverter.use_language.use.Class)e), IterableExtensions.<Type>filter(elementos, _function), IterableExtensions.<ContextsType>filter(constrains, _function_1));
+        _builder.append(_compileClass);
+        _builder.newLineIfNotEmpty();
+      } else {
+        if ((e instanceof Association)) {
+          CharSequence _compileAssociation = this.compileAssociation(((Association)e));
+          _builder.append(_compileAssociation);
+          _builder.newLineIfNotEmpty();
+        } else {
+          if ((e instanceof AssociationClass)) {
+            CharSequence _compileAssociationClass = this.compileAssociationClass(((AssociationClass)e));
+            _builder.append(_compileAssociationClass);
+            _builder.newLineIfNotEmpty();
+          }
+        }
+      }
+    }
+    return _builder;
+  }
+  
+  private CharSequence compileClass(final modelConverter.use_language.use.Class e, final Iterable<Type> associations, final Iterable<ContextsType> constraints) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("<packagedElement xmi:type=\"uml:Class\" xmi:id=\"");
+    int _identityHashCode = System.identityHashCode(e);
+    _builder.append(_identityHashCode);
+    _builder.append("\" ");
+    {
+      boolean _isAbstract = e.isAbstract();
+      if (_isAbstract) {
+        _builder.append(" abstract=\"true\"");
+      }
+    }
+    _builder.append(" name=\"");
+    String _name = e.getName();
+    _builder.append(_name);
+    _builder.append("\">");
+    _builder.newLineIfNotEmpty();
+    {
+      ConstraintsBase _constraints = e.getConstraints();
+      boolean _tripleNotEquals = (_constraints != null);
+      if (_tripleNotEquals) {
+        CharSequence _compileConstraintsBase = this.compileConstraintsBase(e.getConstraints().getInvariants(), System.identityHashCode(e));
+        _builder.append(_compileConstraintsBase);
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    {
+      if ((constraints != null)) {
+        {
+          Iterable<InvariantContext> _filter = Iterables.<InvariantContext>filter(constraints, InvariantContext.class);
+          for(final InvariantContext invContext : _filter) {
+            CharSequence _compileConstraintsBase_1 = this.compileConstraintsBase(invContext.getInvariants(), System.identityHashCode(e));
+            _builder.append(_compileConstraintsBase_1);
+            _builder.newLineIfNotEmpty();
+          }
+        }
+      }
+    }
+    {
+      EList<Generalization> _generalization = e.getGeneralization();
+      for(final Generalization generalization : _generalization) {
+        CharSequence _compileGeneralization = this.compileGeneralization(generalization);
+        _builder.append(_compileGeneralization);
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    {
+      AttributesBase _attributes = e.getAttributes();
+      boolean _tripleNotEquals_1 = (_attributes != null);
+      if (_tripleNotEquals_1) {
+        CharSequence _compileAttributesBase = this.compileAttributesBase(e.getAttributes());
+        _builder.append(_compileAttributesBase);
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    {
+      final Function1<Association, Boolean> _function = (Association a) -> {
+        final Function1<AssociationEnd, AllClass> _function_1 = (AssociationEnd it) -> {
+          return it.getType();
+        };
+        return Boolean.valueOf(ListExtensions.<AssociationEnd, AllClass>map(a.getAssociationEnds(), _function_1).contains(e));
+      };
+      Iterable<Association> _filter_1 = IterableExtensions.<Association>filter(Iterables.<Association>filter(associations, Association.class), _function);
+      for(final Association association : _filter_1) {
+        CharSequence _compileAssociationEnd = this.compileAssociationEnd(e, association.getAssociationEnds(), System.identityHashCode(association), this.getTypeAssociation(association).toString());
+        _builder.append(_compileAssociationEnd);
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    {
+      final Function1<AssociationClass, Boolean> _function_1 = (AssociationClass a) -> {
+        final Function1<AssociationEnd, AllClass> _function_2 = (AssociationEnd it) -> {
+          return it.getType();
+        };
+        return Boolean.valueOf(ListExtensions.<AssociationEnd, AllClass>map(a.getAssociationEnds(), _function_2).contains(e));
+      };
+      Iterable<AssociationClass> _filter_2 = IterableExtensions.<AssociationClass>filter(Iterables.<AssociationClass>filter(associations, AssociationClass.class), _function_1);
+      for(final AssociationClass association_1 : _filter_2) {
+        CharSequence _compileAssociationEnd_1 = this.compileAssociationEnd(e, association_1.getAssociationEnds(), System.identityHashCode(association_1), "");
+        _builder.append(_compileAssociationEnd_1);
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    {
+      OperationsBase _operations = e.getOperations();
+      boolean _tripleNotEquals_2 = (_operations != null);
+      if (_tripleNotEquals_2) {
+        CharSequence _compileOperationsBase = this.compileOperationsBase(e.getOperations(), Iterables.<OperationContext>filter(constraints, OperationContext.class));
+        _builder.append(_compileOperationsBase);
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    _builder.append("</packagedElement>");
+    _builder.newLine();
+    return _builder;
+  }
+  
+  private CharSequence compileAssociationEnd(final modelConverter.use_language.use.Class e, final Iterable<AssociationEnd> list, final int id, final String aggregation) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      for(final AssociationEnd end : list) {
+        {
+          AllClass _type = end.getType();
+          boolean _notEquals = (!Objects.equal(_type, e));
+          if (_notEquals) {
+            _builder.append("<ownedAttribute xmi:id=\"");
+            int _identityHashCode = System.identityHashCode(end);
+            _builder.append(_identityHashCode);
+            _builder.append("\" name=\"");
+            String _role = end.getRole();
+            _builder.append(_role);
+            _builder.append("\" type=\"");
+            int _identityHashCode_1 = System.identityHashCode(end.getType());
+            _builder.append(_identityHashCode_1);
+            _builder.append("\" association=\"");
+            _builder.append(id);
+            _builder.append("\" ");
+            {
+              int _size = Iterables.size(list);
+              int _minus = (_size - 1);
+              Object _get = ((Object[])Conversions.unwrapArray(list, Object.class))[_minus];
+              boolean _equals = Objects.equal(end, _get);
+              if (_equals) {
+                _builder.append(aggregation);
+              }
+            }
+            _builder.append(">");
+            _builder.newLineIfNotEmpty();
+            {
+              if ((((end.getMul() != null) && (end.getMul().getMinValue() != null)) && (((Object[])Conversions.unwrapArray(end.getMul().getMinValue(), Object.class)).length > 0))) {
+                _builder.append("<lowerValue xmi:type=\"");
+                CharSequence _typeMul = this.getTypeMul(end.getMul().getMinValue().get(0));
+                _builder.append(_typeMul);
+                _builder.append("\" xmi:id=\"");
+                String _string = Integer.valueOf(System.identityHashCode(end.getType())).toString();
+                String _plus = (_string + Integer.valueOf(id));
+                String _plus_1 = (_plus + "1");
+                _builder.append(_plus_1);
+                _builder.append("\" name=\"\" value=\"");
+                String _get_1 = end.getMul().getMinValue().get(0);
+                _builder.append(_get_1);
+                _builder.append("\"/>");
+                _builder.newLineIfNotEmpty();
+                {
+                  if (((end.getMul().getMaxValue() != null) && (((Object[])Conversions.unwrapArray(end.getMul().getMaxValue(), Object.class)).length > 0))) {
+                    _builder.append("<upperValue xmi:type=\"");
+                    CharSequence _typeMul_1 = this.getTypeMul(end.getMul().getMaxValue().get(0));
+                    _builder.append(_typeMul_1);
+                    _builder.append("\" xmi:id=\"");
+                    String _string_1 = Integer.valueOf(System.identityHashCode(end.getType())).toString();
+                    String _plus_2 = (_string_1 + Integer.valueOf(id));
+                    String _plus_3 = (_plus_2 + "2");
+                    _builder.append(_plus_3);
+                    _builder.append("\" name=\"\" value=\"");
+                    String _get_2 = end.getMul().getMaxValue().get(0);
+                    _builder.append(_get_2);
+                    _builder.append("\"/>");
+                    _builder.newLineIfNotEmpty();
+                  } else {
+                    _builder.append("<upperValue xmi:type=\"");
+                    CharSequence _typeMul_2 = this.getTypeMul(end.getMul().getMinValue().get(0));
+                    _builder.append(_typeMul_2);
+                    _builder.append("\" xmi:id=\"");
+                    String _string_2 = Integer.valueOf(System.identityHashCode(end.getType())).toString();
+                    String _plus_4 = (_string_2 + Integer.valueOf(id));
+                    String _plus_5 = (_plus_4 + "2");
+                    _builder.append(_plus_5);
+                    _builder.append("\" name=\"\" value=\"");
+                    String _get_3 = end.getMul().getMinValue().get(0);
+                    _builder.append(_get_3);
+                    _builder.append("\"/>");
+                    _builder.newLineIfNotEmpty();
+                  }
+                }
+              }
+            }
+            _builder.append("</ownedAttribute>");
+            _builder.newLine();
+          }
+        }
+      }
+    }
+    return _builder;
+  }
+  
+  private CharSequence getTypeMul(final String s) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      boolean _equals = s.equals("*");
+      if (_equals) {
+        _builder.append("uml:LiteralUnlimitedNatural");
+      } else {
+        _builder.append("uml:LiteralInteger");
+      }
+    }
+    return _builder;
+  }
+  
+  private CharSequence getTypeAssociation(final Association ab) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      String _typeAssociation = ab.getTypeAssociation();
+      boolean _equals = Objects.equal(_typeAssociation, "aggregation");
+      if (_equals) {
+        _builder.append("aggregation=\"shared\"");
+      } else {
+        String _typeAssociation_1 = ab.getTypeAssociation();
+        boolean _equals_1 = Objects.equal(_typeAssociation_1, "composition");
+        if (_equals_1) {
+          _builder.append("aggregation=\"composite\"");
+        }
+      }
+    }
+    return _builder;
+  }
+  
+  private CharSequence compileGeneralization(final Generalization e) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("<generalization xmi:id=\"");
+    int _identityHashCode = System.identityHashCode(e);
+    _builder.append(_identityHashCode);
+    _builder.append("\" general=\"");
+    int _identityHashCode_1 = System.identityHashCode(e.getGeneral());
+    _builder.append(_identityHashCode_1);
+    _builder.append("\"/>");
+    _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+  
+  private CharSequence compileConstraintsBase(final EList<InvariantDefinition> list, final int idClass) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      for(final InvariantDefinition inv : list) {
+        CharSequence _compileOwnedRule = this.compileOwnedRule(inv.getOclexpression(), Integer.valueOf(System.identityHashCode(inv)).toString(), inv.getName(), (("constrainedElement=\"" + Integer.valueOf(idClass)) + "\""));
+        _builder.append(_compileOwnedRule);
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    return _builder;
+  }
+  
+  private CharSequence compileAttributesBase(final AttributesBase e) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      EList<Attribute> _attributes = e.getAttributes();
+      for(final Attribute attribute : _attributes) {
+        _builder.append("<ownedAttribute xmi:id=\"");
+        int _identityHashCode = System.identityHashCode(attribute);
+        _builder.append(_identityHashCode);
+        _builder.append("\" name=\"");
+        String _name = attribute.getName();
+        _builder.append(_name);
+        _builder.append("\" ");
+        {
+          if (((attribute.getType() != null) && (attribute.getType().getReferended() != null))) {
+            _builder.append("type=\"");
+            int _identityHashCode_1 = System.identityHashCode(attribute.getType().getReferended());
+            _builder.append(_identityHashCode_1);
+            _builder.append("\"");
+          }
+        }
+        _builder.append(">");
+        _builder.newLineIfNotEmpty();
+        {
+          if (((attribute.getType() != null) && (attribute.getType().getDefaultType() != null))) {
+            CharSequence _compileDefaultType = this.compileDefaultType(attribute.getType().getDefaultType());
+            _builder.append(_compileDefaultType);
+            _builder.newLineIfNotEmpty();
+          }
+        }
+        _builder.append("</ownedAttribute>");
+        _builder.newLine();
+      }
+    }
+    return _builder;
+  }
+  
+  private CharSequence compileOperationsBase(final OperationsBase e, final Iterable<OperationContext> conditions) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      EList<OperationType> _operations = e.getOperations();
+      for(final OperationType op : _operations) {
+        final Function1<OperationContext, OperationConstraints> _function = (OperationContext it) -> {
+          return it.getConstrains();
+        };
+        final Function1<OperationConstraints, Boolean> _function_1 = (OperationConstraints c) -> {
+          return Boolean.valueOf((c.getOperationDeclaration().getName().equals(op.getOperationDeclaration().getName()) && (Objects.equal(c.getOperationDeclaration().getReturnType().getReferended(), op.getOperationDeclaration().getReturnType().getReferended()) || Objects.equal(c.getOperationDeclaration().getReturnType().getDefaultType(), op.getOperationDeclaration().getReturnType().getDefaultType()))));
+        };
+        CharSequence _compileOperation = this.compileOperation(op, IterableExtensions.<OperationConstraints>filter(IterableExtensions.<OperationContext, OperationConstraints>map(conditions, _function), _function_1));
+        _builder.append(_compileOperation);
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    return _builder;
+  }
+  
+  private CharSequence compileOperation(final OperationType op, final Iterable<OperationConstraints> conditions) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("<ownedOperation xmi:id=\"");
+    int _identityHashCode = System.identityHashCode(op);
+    _builder.append(_identityHashCode);
+    _builder.append("\" name=\"");
+    String _name = op.getOperationDeclaration().getName();
+    _builder.append(_name);
+    _builder.append("\" ");
+    {
+      String _operationbody = op.getOperationbody();
+      boolean _tripleNotEquals = (_operationbody != null);
+      if (_tripleNotEquals) {
+        _builder.append("bodyCondition=\"");
+        String _string = Integer.valueOf(System.identityHashCode(op)).toString();
+        int _identityHashCode_1 = System.identityHashCode(op.getOperationbody());
+        String _plus = (_string + Integer.valueOf(_identityHashCode_1));
+        _builder.append(_plus);
+        _builder.append("\"");
+      }
+    }
+    _builder.append(" postcondition=\"");
+    {
+      Iterable<Postcondition> _filter = Iterables.<Postcondition>filter(op.getConditions(), Postcondition.class);
+      for(final Postcondition post : _filter) {
+        int _identityHashCode_2 = System.identityHashCode(post);
+        _builder.append(_identityHashCode_2);
+        _builder.append(" ");
+      }
+    }
+    {
+      for(final OperationConstraints context : conditions) {
+        {
+          Iterable<Postcondition> _filter_1 = Iterables.<Postcondition>filter(context.getConditions(), Postcondition.class);
+          for(final Postcondition post_1 : _filter_1) {
+            int _identityHashCode_3 = System.identityHashCode(post_1);
+            _builder.append(_identityHashCode_3);
+            _builder.append(" ");
+          }
+        }
+      }
+    }
+    _builder.append("\" precondition=\"");
+    {
+      Iterable<Precondition> _filter_2 = Iterables.<Precondition>filter(op.getConditions(), Precondition.class);
+      for(final Precondition pre : _filter_2) {
+        int _identityHashCode_4 = System.identityHashCode(pre);
+        _builder.append(_identityHashCode_4);
+        _builder.append(" ");
+      }
+    }
+    {
+      for(final OperationConstraints context_1 : conditions) {
+        {
+          Iterable<Precondition> _filter_3 = Iterables.<Precondition>filter(context_1.getConditions(), Precondition.class);
+          for(final Precondition pre_1 : _filter_3) {
+            int _identityHashCode_5 = System.identityHashCode(pre_1);
+            _builder.append(_identityHashCode_5);
+            _builder.append(" ");
+          }
+        }
+      }
+    }
+    _builder.append("\" ");
+    {
+      if ((op instanceof OperationQuery)) {
+        _builder.append("isQuery=\"true\"");
+      }
+    }
+    _builder.append(">");
+    _builder.newLineIfNotEmpty();
+    {
+      String _operationbody_1 = op.getOperationbody();
+      boolean _tripleNotEquals_1 = (_operationbody_1 != null);
+      if (_tripleNotEquals_1) {
+        _builder.append("\t");
+        String _operationbody_2 = op.getOperationbody();
+        String _string_1 = Integer.valueOf(System.identityHashCode(op)).toString();
+        int _identityHashCode_6 = System.identityHashCode(op.getOperationbody());
+        String _plus_1 = (_string_1 + Integer.valueOf(_identityHashCode_6));
+        CharSequence _compileOwnedRule = this.compileOwnedRule(_operationbody_2, _plus_1, "", "");
+        _builder.append(_compileOwnedRule, "\t");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    {
+      EList<ConditionType> _conditions = op.getConditions();
+      for(final ConditionType cond : _conditions) {
+        _builder.append("\t");
+        CharSequence _compileOwnedRule_1 = this.compileOwnedRule(cond.getOclexpression(), Integer.valueOf(System.identityHashCode(cond)).toString(), cond.getName(), "");
+        _builder.append(_compileOwnedRule_1, "\t");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    {
+      for(final OperationConstraints context_2 : conditions) {
+        {
+          EList<ConditionType> _conditions_1 = context_2.getConditions();
+          for(final ConditionType cond_1 : _conditions_1) {
+            _builder.append("\t");
+            CharSequence _compileOwnedRule_2 = this.compileOwnedRule(cond_1.getOclexpression(), Integer.valueOf(System.identityHashCode(cond_1)).toString(), cond_1.getName(), "");
+            _builder.append(_compileOwnedRule_2, "\t");
+            _builder.newLineIfNotEmpty();
+          }
+        }
+      }
+    }
+    {
+      SimpleTypes _returnType = op.getOperationDeclaration().getReturnType();
+      boolean _tripleNotEquals_2 = (_returnType != null);
+      if (_tripleNotEquals_2) {
+        _builder.append("\t");
+        CharSequence _compileReturnType = this.compileReturnType(op.getOperationDeclaration().getReturnType(), System.identityHashCode(op));
+        _builder.append(_compileReturnType, "\t");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    {
+      EList<Parameter> _parameters = op.getOperationDeclaration().getParameters();
+      for(final Parameter parameter : _parameters) {
+        _builder.append("\t");
+        CharSequence _compileParameter = this.compileParameter(parameter);
+        _builder.append(_compileParameter, "\t");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    _builder.append("</ownedOperation>\t");
+    _builder.newLine();
+    return _builder;
+  }
+  
+  private CharSequence compileOwnedRule(final String e, final String id, final String name, final String constrainedElement) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("<ownedRule xmi:id=\"");
+    _builder.append(id);
+    _builder.append("\" name=\"");
+    _builder.append(name);
+    _builder.append("\" ");
+    _builder.append(constrainedElement);
+    _builder.append(">");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.append("<specification xmi:type=\"uml:OpaqueExpression\" xmi:id=\"");
+    String _string = Integer.valueOf(System.identityHashCode(e)).toString();
+    String _plus = (_string + id);
+    _builder.append(_plus, "\t");
+    _builder.append("\" name=\"");
+    _builder.append(name, "\t");
+    _builder.append("\">");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t   \t");
+    _builder.append("<language>OCL2.0</language>");
+    _builder.newLine();
+    _builder.append("\t   \t  \t");
+    _builder.append("<body>");
+    String _replaceAll = e.replaceAll("<", "&lt;").replaceAll(">", "&gt;");
+    _builder.append(_replaceAll, "\t   \t  \t");
+    _builder.append("</body>");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t  \t");
+    _builder.append("</specification>");
+    _builder.newLine();
+    _builder.append("</ownedRule>");
+    _builder.newLine();
+    return _builder;
+  }
+  
+  private CharSequence compileReturnType(final SimpleTypes e, final int idOp) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("<ownedParameter xmi:id=\"");
+    String _string = Integer.valueOf(System.identityHashCode(e)).toString();
+    String _plus = (_string + Integer.valueOf(idOp));
+    _builder.append(_plus);
+    _builder.append("\" name=\"\" ");
+    {
+      if (((e != null) && (e.getReferended() != null))) {
+        _builder.append("type=\"");
+        int _identityHashCode = System.identityHashCode(e.getReferended());
+        _builder.append(_identityHashCode);
+        _builder.append("\"");
+      }
+    }
+    _builder.append(" direction=\"return\">");
+    _builder.newLineIfNotEmpty();
+    {
+      if (((e != null) && (e.getDefaultType() != null))) {
+        CharSequence _compileDefaultType = this.compileDefaultType(e.getDefaultType());
+        _builder.append(_compileDefaultType);
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    _builder.append("</ownedParameter>");
+    _builder.newLine();
+    return _builder;
+  }
+  
+  private CharSequence compileParameter(final Parameter e) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("<ownedParameter xmi:id=\"");
+    int _identityHashCode = System.identityHashCode(e);
+    _builder.append(_identityHashCode);
+    _builder.append("\" name=\"");
+    String _name = e.getName();
+    _builder.append(_name);
+    _builder.append("\" ");
+    {
+      if (((e.getType() != null) && (e.getType().getReferended() != null))) {
+        _builder.append("type=\"");
+        int _identityHashCode_1 = System.identityHashCode(e.getType().getReferended());
+        _builder.append(_identityHashCode_1);
+        _builder.append("\"");
+      }
+    }
+    _builder.append(">");
+    _builder.newLineIfNotEmpty();
+    {
+      if (((e.getType() != null) && (e.getType().getDefaultType() != null))) {
+        CharSequence _compileDefaultType = this.compileDefaultType(e.getType().getDefaultType());
+        _builder.append(_compileDefaultType);
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    _builder.append("</ownedParameter>");
+    _builder.newLine();
+    return _builder;
+  }
+  
+  private CharSequence compileDefaultType(final String e) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      boolean _equalsIgnoreCase = e.equalsIgnoreCase("String");
+      if (_equalsIgnoreCase) {
+        _builder.append("<type xmi:type=\"uml:PrimitiveType\" href=\"pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String\"/>");
+        _builder.newLine();
+      } else {
+        boolean _equalsIgnoreCase_1 = e.equalsIgnoreCase("Integer");
+        if (_equalsIgnoreCase_1) {
+          _builder.append("<type xmi:type=\"uml:PrimitiveType\" href=\"pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer\"/>");
+          _builder.newLine();
+        } else {
+          boolean _equalsIgnoreCase_2 = e.equalsIgnoreCase("Real");
+          if (_equalsIgnoreCase_2) {
+            _builder.append("<type xmi:type=\"uml:PrimitiveType\" href=\"pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double\"/>");
+            _builder.newLine();
+          } else {
+            boolean _equalsIgnoreCase_3 = e.equalsIgnoreCase("Boolean");
+            if (_equalsIgnoreCase_3) {
+              _builder.append("<type xmi:type=\"uml:PrimitiveType\" href=\"pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean\"/>");
+              _builder.newLine();
+            }
+          }
+        }
+      }
+    }
+    return _builder;
+  }
+  
+  private CharSequence compileAssociationClass(final AssociationClass e) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("<packagedElement xmi:type=\"uml:AssociationClass\" xmi:id=\"");
+    int _identityHashCode = System.identityHashCode(e);
+    _builder.append(_identityHashCode);
+    _builder.append("\" name=\"");
+    String _name = e.getName();
+    _builder.append(_name);
+    _builder.append("\" memberEnd=\"");
+    {
+      EList<AssociationEnd> _associationEnds = e.getAssociationEnds();
+      for(final AssociationEnd end : _associationEnds) {
+        int _identityHashCode_1 = System.identityHashCode(end);
+        _builder.append(_identityHashCode_1);
+        _builder.append(" ");
+      }
+    }
+    _builder.append("\"/>");
+    _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+  
+  private CharSequence compileAssociation(final Association e) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("<packagedElement xmi:type=\"uml:Association\" xmi:id=\"");
+    int _identityHashCode = System.identityHashCode(e);
+    _builder.append(_identityHashCode);
+    _builder.append("\" name=\"");
+    String _name = e.getName();
+    _builder.append(_name);
+    _builder.append("\" memberEnd=\"");
+    {
+      EList<AssociationEnd> _associationEnds = e.getAssociationEnds();
+      for(final AssociationEnd end : _associationEnds) {
+        int _identityHashCode_1 = System.identityHashCode(end);
+        _builder.append(_identityHashCode_1);
+        _builder.append(" ");
+      }
+    }
+    _builder.append("\"/>");
+    _builder.newLineIfNotEmpty();
+    return _builder;
   }
 }

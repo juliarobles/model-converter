@@ -23,10 +23,10 @@ public class General {
 	private General() {}
 	
 	public static void generateUML(String source) {
-		modifyFileBeforeGenerating(source);
+		//modifyFileBeforeGenerating(source);
 		Injector injector = new USEStandaloneSetup().createInjectorAndDoEMFRegistration();
         ResourceSet rs = injector.getInstance(ResourceSet.class);
-        Resource r = rs.getResource(URI.createFileURI("pruebaoperationcontext.use"), true);
+        Resource r = rs.getResource(URI.createFileURI("comillas.use"), true);
 
         IResourceValidator validator = injector.getInstance(IResourceValidator.class);
         List<Issue> issues = validator.validate(r, CheckMode.ALL, CancelIndicator.NullImpl);
@@ -45,20 +45,62 @@ public class General {
 
 	private static void modifyFileBeforeGenerating(String source) {
 		StringBuilder sBuilder = new StringBuilder();
+		Boolean fin, primero, nuevaLinea = true;
+		String line = "", lastLine, stripLine;
 		try {
             Scanner input = new Scanner(new File(source));
             while (input.hasNextLine()) {
-            	String start = "", end = "", line = input.nextLine();
-                if((line.strip().startsWith("pre") || line.strip().startsWith("post") 
-                		|| line.strip().startsWith("inv")) && line.contains(":")) {
-                	start = line.substring(0, line.indexOf(':'));
+            	if(nuevaLinea) {
+            		line = input.nextLine();
+            	} else {
+            		nuevaLinea = true;
+            	}
+            	stripLine = line.strip();
+                if(isOclStart(stripLine)) {
+                	fin = false;
+                	primero = true;
+                	sBuilder.append(line.substring(0, line.indexOf(':')) + ": ");
                 	if(line.indexOf(':')+1 < line.length()) {
-                		end = line.substring(line.indexOf(':')+1, line.length()).strip();
+                		line = line.substring(line.indexOf(':')+1, line.length()).strip();
+                		while (input.hasNextLine() && !fin) {
+                			if(primero && line.strip().length() > 0) {
+                				line = "'" + line;
+                				primero = false;
+                			}
+                			int i = 0;
+                			String[] words = line.strip().split(" ");
+                			line = "";
+                			String word;
+                			while(i < words.length && !fin) {
+                				word = words[i];
+                				if(isOclEnd(word, words, i)) {
+                					sBuilder.append(line + "'\n");
+                					fin = true;
+                					nuevaLinea = false;
+                					line = "";
+                					for(int j = i; j < words.length; j++) {
+                						line = line + words[j] + " ";
+                					}
+                				} else {
+                					line = line + words[i] + " ";
+                					i++;
+                				}
+                			}
+                			if(!fin) {
+                				sBuilder.append(line + "\n");
+                				line = input.nextLine();
+                			}
+                		}
+                		if(!input.hasNextLine()) {
+                			sBuilder.append("'");
+                		}
+                	} else {
+                		sBuilder.append("\n");
                 	}
-                	sBuilder.append(start + ": '" + end + "'\n");
                 } else if (line.strip().equals("begin")) {
-                	String lastLine = line;
-                	Boolean fin = false, primero = true;
+                	lastLine = line;
+                	fin = false;
+                	primero = true;
                 	while (input.hasNextLine() && !fin) {
                 		lastLine = line;
                 		line = input.nextLine();
@@ -89,5 +131,18 @@ public class General {
             ex.printStackTrace();
         }
 		
+	}
+	
+	private static Boolean isOclStart(String string) {
+		return (string.startsWith("pre") || string.startsWith("post") 
+        		|| string.startsWith("inv")) && string.contains(":");
+	}
+	
+	private static Boolean isOclEnd(String word, String[] words, int i) {
+		return (word.equals("post") || word.equals("pre") || word.equals("inv"))
+				&& (i+1 >= words.length || words[i+1].contains(":") 
+				|| (i+2 < words.length && words[i+2].equals(":")))
+				|| word.startsWith("post:") || word.startsWith("pre:")
+				|| word.startsWith("inv:");
 	}
 }

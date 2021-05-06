@@ -9,7 +9,7 @@ constraints
 context Lemon
 inv: i < 3
 inv patata: aaaa
-inv:true inv aa pre post 
+inv:true aa
 
 context Lemon :: squeeze(i : Integer) : Integer
 pre: i>0

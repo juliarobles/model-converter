@@ -1,39 +1,22 @@
 package model.umltouse;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
-
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.common.util.WrappedException;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.uml2.uml.Association;
-import org.eclipse.uml2.uml.AssociationClass;
-import org.eclipse.uml2.uml.Class;
-import org.eclipse.uml2.uml.Constraint;
-import org.eclipse.uml2.uml.Enumeration;
-import org.eclipse.uml2.uml.EnumerationLiteral;
-import org.eclipse.uml2.uml.Generalization;
-import org.eclipse.uml2.uml.Operation;
 import org.eclipse.uml2.uml.Package;
-import org.eclipse.uml2.uml.PackageableElement;
-import org.eclipse.uml2.uml.Parameter;
-import org.eclipse.uml2.uml.ParameterDirectionKind;
-import org.eclipse.uml2.uml.Property;
-import org.eclipse.uml2.uml.Type;
 import org.eclipse.uml2.uml.UMLPackage;
 import org.eclipse.uml2.uml.resource.UMLResource;
+
+import model.Auxiliary;
 
 public class General {
 	
@@ -61,16 +44,9 @@ public class General {
 		U3_Association.getAll(sBuilder, warnings);
 		U5_Constraint.printAllConstraints(sBuilder, allconstraints);
 		
-		stringToFile(destination, sBuilder.toString());
+		Auxiliary.stringToFile(destination, sBuilder.toString());
 		
 		return warnings.toString();
-	}
-	
-	private static void stringToFile(String destination, String string) throws IOException {
-		File file = new File(destination);
-		try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
-		    writer.write(string);
-		}
 	}
 
 	private static void loadAndInitialize(String path) throws WrappedException, RuntimeException {

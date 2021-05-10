@@ -4,13 +4,13 @@
 package modelConverter.use_language.tests
 
 import com.google.inject.Inject
-import modelConverter.use_language.uml.Model
 import org.eclipse.xtext.testing.InjectWith
 import org.eclipse.xtext.testing.extensions.InjectionExtension
 import org.eclipse.xtext.testing.util.ParseHelper
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.^extension.ExtendWith
+import modelConverter.use_language.use.Model
 
 @ExtendWith(InjectionExtension)
 @InjectWith(USEInjectorProvider)

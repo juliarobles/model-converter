@@ -31,6 +31,8 @@ import modelConverter.use_language.use.InvariantContext
 import modelConverter.use_language.use.OperationContext
 import modelConverter.use_language.use.OperationConstraints
 import org.eclipse.emf.common.util.BasicEList
+import modelConverter.use_language.use.AllTypes
+import modelConverter.use_language.use.CollectionType
 
 /**
  * Generates code from your model files on save.
@@ -143,9 +145,16 @@ class USEGenerator extends AbstractGenerator {
 
 	private def compileAttributesBase(AttributesBase e) '''
 		«FOR attribute : e.getAttributes()»
-			<ownedAttribute xmi:id="«System.identityHashCode(attribute)»" name="«attribute.getName»" «IF attribute.getType() !== null && attribute.getType().getReferended() !== null»type="«System.identityHashCode(attribute.getType().getReferended())»"«ENDIF»>
-			«IF attribute.getType() !== null && attribute.getType().getDefaultType !== null»
-				«attribute.getType().getDefaultType.compileDefaultType»
+			<ownedAttribute xmi:id="«System.identityHashCode(attribute)»" name="«attribute.getName»" «IF attribute.getType() !== null && attribute.getType() instanceof SimpleTypes && (attribute.getType() as SimpleTypes).getReferended() !== null»type="«System.identityHashCode((attribute.getType() as SimpleTypes).getReferended())»"«ELSEIF attribute.getType() !== null && attribute.getType() instanceof CollectionType && (attribute.getType() as CollectionType).getType !== null && (attribute.getType() as CollectionType).getType.length > 0 && ((attribute.getType() as CollectionType).getType.get(0)) instanceof SimpleTypes && ((attribute.getType() as CollectionType).getType.get(0) as SimpleTypes).getReferended !== null»type="«System.identityHashCode(((attribute.getType() as CollectionType).getType.get(0) as SimpleTypes).getReferended)»"«ENDIF»>
+			«IF attribute.getType() !== null && attribute.getType() instanceof SimpleTypes && (attribute.getType() as SimpleTypes).getDefaultType !== null»
+				«(attribute.getType() as SimpleTypes).getDefaultType.compileDefaultType»
+			«ELSEIF attribute.getType() !== null && attribute.getType() instanceof CollectionType && (attribute.getType() as CollectionType).getType !== null && (attribute.getType() as CollectionType).getType.length > 0 && ((attribute.getType() as CollectionType).getType.get(0)) instanceof SimpleTypes && ((attribute.getType() as CollectionType).getType.get(0) as SimpleTypes).getDefaultType !== null»
+				«((attribute.getType() as CollectionType).getType.get(0) as SimpleTypes).getDefaultType.compileDefaultType»
+				<lowerValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="«System.identityHashCode(attribute) + "_01"»" name="" visibility="public"/>
+				<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="«System.identityHashCode(attribute) + "_02"»" name="" visibility="public" value="*"/>
+			«ELSEIF attribute.getType() !== null && attribute.getType() instanceof CollectionType && (attribute.getType() as CollectionType).getType !== null && (attribute.getType() as CollectionType).getType.length > 0 && ((attribute.getType() as CollectionType).getType.get(0)) instanceof SimpleTypes && ((attribute.getType() as CollectionType).getType.get(0) as SimpleTypes).getReferended !== null»
+				<lowerValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="«System.identityHashCode(attribute) + "_01"»" name="" visibility="public"/>
+				<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="«System.identityHashCode(attribute) + "_02"»" name="" visibility="public" value="*"/>	
 			«ENDIF»
 			</ownedAttribute>
 		«ENDFOR»
@@ -153,7 +162,7 @@ class USEGenerator extends AbstractGenerator {
 
 	private def compileOperationsBase(OperationsBase e, Iterable<OperationContext> conditions) '''
 		«FOR op : e.getOperations()»
-			«op.compileOperation(conditions.map[constrains].filter(c | c.getOperationDeclaration.getName.equals(op.getOperationDeclaration.getName) && (c.getOperationDeclaration.getReturnType.getReferended == op.getOperationDeclaration.getReturnType.getReferended || c.getOperationDeclaration.getReturnType.getDefaultType == op.getOperationDeclaration.getReturnType.getDefaultType)))»
+			«op.compileOperation(conditions.map[constrains].filter(c | c.getOperationDeclaration.getName.equals(op.getOperationDeclaration.getName) && ((c.getOperationDeclaration.getReturnType instanceof SimpleTypes && op.getOperationDeclaration.getReturnType instanceof SimpleTypes && ((c.getOperationDeclaration.getReturnType as SimpleTypes).getReferended == (op.getOperationDeclaration.getReturnType as SimpleTypes).getReferended || (c.getOperationDeclaration.getReturnType as SimpleTypes).getDefaultType == (op.getOperationDeclaration.getReturnType as SimpleTypes).getDefaultType)) || (c.getOperationDeclaration.getReturnType instanceof CollectionType && op.getOperationDeclaration.getReturnType instanceof CollectionType && (c.getOperationDeclaration.getReturnType as CollectionType).getType().length == (op.getOperationDeclaration.getReturnType as CollectionType).getType().length && (c.getOperationDeclaration.getReturnType as CollectionType).getCollection == (op.getOperationDeclaration.getReturnType as CollectionType).getCollection  && ((c.getOperationDeclaration.getReturnType as CollectionType).getType().length == 0 || (((c.getOperationDeclaration.getReturnType as CollectionType).getType().get(0) instanceof SimpleTypes && (op.getOperationDeclaration.getReturnType as CollectionType).getType().get(0) instanceof SimpleTypes &&(((c.getOperationDeclaration.getReturnType as CollectionType).getType().get(0) as SimpleTypes).getReferended == ((op.getOperationDeclaration.getReturnType as CollectionType).getType().get(0) as SimpleTypes).getReferended)|| ((c.getOperationDeclaration.getReturnType as CollectionType).getType().get(0) as SimpleTypes).getDefaultType == ((op.getOperationDeclaration.getReturnType as CollectionType).getType().get(0) as SimpleTypes).getDefaultType))|| ((c.getOperationDeclaration.getReturnType as CollectionType).getType().get(0) instanceof CollectionType && (op.getOperationDeclaration.getReturnType as CollectionType).getType().get(0) instanceof CollectionType &&((c.getOperationDeclaration.getReturnType as CollectionType).getType().get(0) as CollectionType).getCollection == ((op.getOperationDeclaration.getReturnType as CollectionType).getType().get(0) as CollectionType).getCollection))))))»
 		«ENDFOR»
 	'''
 
@@ -183,23 +192,37 @@ class USEGenerator extends AbstractGenerator {
 		<ownedRule xmi:id="«id»" name="«name»" «constrainedElement»>
 			<specification xmi:type="uml:OpaqueExpression" xmi:id="«System.identityHashCode(e).toString + id»" name="«name»">
 			   	<language>OCL2.0</language>
-			   	  	<body>«e.replaceAll("<", "&lt;").replaceAll(">", "&gt;")»</body>
+			   	  	<body>«e.replaceAll("<", "&lt;").replaceAll(">", "&gt;").substring(1, e.length-2)»</body>
 			  	</specification>
 		</ownedRule>
 	'''
 
-	private def compileReturnType(SimpleTypes e, int idOp) '''
-		<ownedParameter xmi:id="«System.identityHashCode(e).toString + idOp»" name="" «IF e !== null && e.getReferended() !== null»type="«System.identityHashCode(e.getReferended())»"«ENDIF» direction="return">
-		«IF e !== null && e.getDefaultType !== null»
-			«e.getDefaultType.compileDefaultType»
+	private def compileReturnType(AllTypes e, int idOp) '''
+		<ownedParameter xmi:id="«System.identityHashCode(e).toString + idOp»" name="" «IF e !== null && e instanceof SimpleTypes && (e as SimpleTypes).getReferended() !== null»type="«System.identityHashCode((e as SimpleTypes).getReferended())»"«ELSEIF e !== null && e instanceof CollectionType && (e as CollectionType).getType !== null && (e as CollectionType).getType.length > 0 && ((e as CollectionType).getType.get(0)) instanceof SimpleTypes && ((e as CollectionType).getType.get(0) as SimpleTypes).getReferended !== null»type="«((e as CollectionType).getType.get(0) as SimpleTypes).getReferended»"«ENDIF» direction="return">
+		«IF e !== null && e instanceof SimpleTypes && (e as SimpleTypes).getDefaultType !== null»
+			«(e as SimpleTypes).getDefaultType.compileDefaultType»
+		«ELSEIF e !== null && e instanceof CollectionType && (e as CollectionType).getType !== null && (e as CollectionType).getType.length > 0 && ((e as CollectionType).getType.get(0)) instanceof SimpleTypes && ((e as CollectionType).getType.get(0) as SimpleTypes).getDefaultType !== null»
+			«((e as CollectionType).getType.get(0) as SimpleTypes).getDefaultType.compileDefaultType»
+			<lowerValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="«System.identityHashCode(e).toString + idOp + "_01"»" name="" visibility="public"/>
+			<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="«System.identityHashCode(e).toString + idOp + "_02"»" name="" visibility="public" value="*"/>
+		«ELSEIF e !== null && e instanceof CollectionType && (e as CollectionType).getType !== null && (e as CollectionType).getType.length > 0 && ((e as CollectionType).getType.get(0)) instanceof SimpleTypes && ((e as CollectionType).getType.get(0) as SimpleTypes).getReferended !== null»
+			<lowerValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="«System.identityHashCode(e).toString + idOp + "_01"»" name="" visibility="public"/>
+			<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="«System.identityHashCode(e).toString + idOp + "_02"»" name="" visibility="public" value="*"/>
 		«ENDIF»
 		</ownedParameter>
 	'''
 
 	private def compileParameter(Parameter e) '''
-		<ownedParameter xmi:id="«System.identityHashCode(e)»" name="«e.getName»" «IF e.getType() !== null && e.getType().getReferended() !== null»type="«System.identityHashCode(e.getType().getReferended())»"«ENDIF»>
-		«IF e.getType() !== null && e.getType().getDefaultType !== null»
-			«e.getType().getDefaultType.compileDefaultType»
+		<ownedParameter xmi:id="«System.identityHashCode(e)»" name="«e.getName»" «IF e.getType() !== null && e.getType() instanceof SimpleTypes && (e.getType() as SimpleTypes).getReferended() !== null»type="«System.identityHashCode((e.getType() as SimpleTypes).getReferended())»"«ELSEIF e.getType() !== null && e.getType() instanceof CollectionType && (e.getType() as CollectionType).getType !== null && (e.getType() as CollectionType).getType.length > 0 && ((e.getType() as CollectionType).getType.get(0)) instanceof SimpleTypes && ((e.getType() as CollectionType).getType.get(0) as SimpleTypes).getReferended !== null»type="«((e.getType() as CollectionType).getType.get(0) as SimpleTypes).getReferended !== null»"«ENDIF»>
+		«IF e.getType() !== null && e.getType() instanceof SimpleTypes && (e.getType() as SimpleTypes).getDefaultType !== null»
+			«(e.getType() as SimpleTypes).getDefaultType.compileDefaultType»
+		«ELSEIF e.getType() !== null && e.getType() instanceof CollectionType && (e.getType() as CollectionType).getType !== null && (e.getType() as CollectionType).getType.length > 0 && ((e.getType() as CollectionType).getType.get(0)) instanceof SimpleTypes && ((e.getType() as CollectionType).getType.get(0) as SimpleTypes).getDefaultType !== null»
+			«((e.getType() as CollectionType).getType.get(0) as SimpleTypes).getDefaultType.compileDefaultType»
+			<lowerValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="«System.identityHashCode(e) + "_01"»" name="" visibility="public"/>
+			<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="«System.identityHashCode(e) + "_02"»" name="" visibility="public" value="*"/>
+		«ELSEIF e.getType() !== null && e.getType() instanceof CollectionType && (e.getType() as CollectionType).getType !== null && (e.getType() as CollectionType).getType.length > 0 && ((e.getType() as CollectionType).getType.get(0)) instanceof SimpleTypes && ((e.getType() as CollectionType).getType.get(0) as SimpleTypes).getReferended !== null»
+			<lowerValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="«System.identityHashCode(e) + "_01"»" name="" visibility="public"/>
+			<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="«System.identityHashCode(e) + "_02"»" name="" visibility="public" value="*"/>	
 		«ENDIF»
 		</ownedParameter>
 	'''

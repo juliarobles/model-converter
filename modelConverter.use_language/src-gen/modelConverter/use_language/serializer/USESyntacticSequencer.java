@@ -83,7 +83,7 @@ public class USESyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     ','?
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     type=SimpleTypes (ambiguity) (rule end)
+	 *     type=AllTypes (ambiguity) (rule end)
 	 */
 	protected void emit_Parameter_CommaKeyword_3_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);

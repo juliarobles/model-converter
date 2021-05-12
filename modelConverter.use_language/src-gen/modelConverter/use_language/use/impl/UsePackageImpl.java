@@ -4,11 +4,14 @@
 package modelConverter.use_language.use.impl;
 
 import modelConverter.use_language.use.AllClass;
+import modelConverter.use_language.use.AllClassAndEnum;
+import modelConverter.use_language.use.AllTypes;
 import modelConverter.use_language.use.Association;
 import modelConverter.use_language.use.AssociationClass;
 import modelConverter.use_language.use.AssociationEnd;
 import modelConverter.use_language.use.Attribute;
 import modelConverter.use_language.use.AttributesBase;
+import modelConverter.use_language.use.CollectionType;
 import modelConverter.use_language.use.ConditionType;
 import modelConverter.use_language.use.ConstrainsGeneral;
 import modelConverter.use_language.use.ConstraintsBase;
@@ -67,6 +70,13 @@ public class UsePackageImpl extends EPackageImpl implements UsePackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass allTypesEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass typeEClass = null;
 
   /**
@@ -74,7 +84,28 @@ public class UsePackageImpl extends EPackageImpl implements UsePackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass collectionTypeEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass allClassEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass allClassAndEnumEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass simpleTypesEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -96,13 +127,6 @@ public class UsePackageImpl extends EPackageImpl implements UsePackage
    * @generated
    */
   private EClass generalizationEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass simpleTypesEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -408,6 +432,17 @@ public class UsePackageImpl extends EPackageImpl implements UsePackage
    * @generated
    */
   @Override
+  public EClass getAllTypes()
+  {
+    return allTypesEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getType()
   {
     return typeEClass;
@@ -430,9 +465,86 @@ public class UsePackageImpl extends EPackageImpl implements UsePackage
    * @generated
    */
   @Override
+  public EClass getCollectionType()
+  {
+    return collectionTypeEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getCollectionType_Collection()
+  {
+    return (EAttribute)collectionTypeEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getCollectionType_Type()
+  {
+    return (EReference)collectionTypeEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getAllClass()
   {
     return allClassEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getAllClassAndEnum()
+  {
+    return allClassAndEnumEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getSimpleTypes()
+  {
+    return simpleTypesEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getSimpleTypes_DefaultType()
+  {
+    return (EAttribute)simpleTypesEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getSimpleTypes_Referended()
+  {
+    return (EReference)simpleTypesEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -554,39 +666,6 @@ public class UsePackageImpl extends EPackageImpl implements UsePackage
   public EReference getGeneralization_General()
   {
     return (EReference)generalizationEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EClass getSimpleTypes()
-  {
-    return simpleTypesEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EAttribute getSimpleTypes_DefaultType()
-  {
-    return (EAttribute)simpleTypesEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getSimpleTypes_Referended()
-  {
-    return (EReference)simpleTypesEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1257,10 +1336,22 @@ public class UsePackageImpl extends EPackageImpl implements UsePackage
     createEAttribute(multiplicityEClass, MULTIPLICITY__MIN_VALUE);
     createEAttribute(multiplicityEClass, MULTIPLICITY__MAX_VALUE);
 
+    allTypesEClass = createEClass(ALL_TYPES);
+
     typeEClass = createEClass(TYPE);
     createEAttribute(typeEClass, TYPE__NAME);
 
+    collectionTypeEClass = createEClass(COLLECTION_TYPE);
+    createEAttribute(collectionTypeEClass, COLLECTION_TYPE__COLLECTION);
+    createEReference(collectionTypeEClass, COLLECTION_TYPE__TYPE);
+
     allClassEClass = createEClass(ALL_CLASS);
+
+    allClassAndEnumEClass = createEClass(ALL_CLASS_AND_ENUM);
+
+    simpleTypesEClass = createEClass(SIMPLE_TYPES);
+    createEAttribute(simpleTypesEClass, SIMPLE_TYPES__DEFAULT_TYPE);
+    createEReference(simpleTypesEClass, SIMPLE_TYPES__REFERENDED);
 
     enumEClass = createEClass(ENUM);
     createEAttribute(enumEClass, ENUM__NAME);
@@ -1275,10 +1366,6 @@ public class UsePackageImpl extends EPackageImpl implements UsePackage
 
     generalizationEClass = createEClass(GENERALIZATION);
     createEReference(generalizationEClass, GENERALIZATION__GENERAL);
-
-    simpleTypesEClass = createEClass(SIMPLE_TYPES);
-    createEAttribute(simpleTypesEClass, SIMPLE_TYPES__DEFAULT_TYPE);
-    createEReference(simpleTypesEClass, SIMPLE_TYPES__REFERENDED);
 
     associationEClass = createEClass(ASSOCIATION);
     createEAttribute(associationEClass, ASSOCIATION__TYPE_ASSOCIATION);
@@ -1388,6 +1475,10 @@ public class UsePackageImpl extends EPackageImpl implements UsePackage
     // Set bounds for type parameters
 
     // Add supertypes to classes
+    collectionTypeEClass.getESuperTypes().add(this.getAllTypes());
+    allClassEClass.getESuperTypes().add(this.getAllClassAndEnum());
+    simpleTypesEClass.getESuperTypes().add(this.getAllTypes());
+    enumEClass.getESuperTypes().add(this.getAllClassAndEnum());
     classEClass.getESuperTypes().add(this.getType());
     classEClass.getESuperTypes().add(this.getAllClass());
     associationEClass.getESuperTypes().add(this.getType());
@@ -1411,10 +1502,22 @@ public class UsePackageImpl extends EPackageImpl implements UsePackage
     initEAttribute(getMultiplicity_MinValue(), ecorePackage.getEString(), "minValue", null, 0, -1, Multiplicity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getMultiplicity_MaxValue(), ecorePackage.getEString(), "maxValue", null, 0, -1, Multiplicity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+    initEClass(allTypesEClass, AllTypes.class, "AllTypes", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
     initEClass(typeEClass, Type.class, "Type", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getType_Name(), ecorePackage.getEString(), "name", null, 0, 1, Type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+    initEClass(collectionTypeEClass, CollectionType.class, "CollectionType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getCollectionType_Collection(), ecorePackage.getEString(), "collection", null, 0, 1, CollectionType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getCollectionType_Type(), this.getSimpleTypes(), null, "type", null, 0, -1, CollectionType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(allClassEClass, AllClass.class, "AllClass", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(allClassAndEnumEClass, AllClassAndEnum.class, "AllClassAndEnum", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(simpleTypesEClass, SimpleTypes.class, "SimpleTypes", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getSimpleTypes_DefaultType(), ecorePackage.getEString(), "defaultType", null, 0, 1, SimpleTypes.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSimpleTypes_Referended(), this.getAllClassAndEnum(), null, "referended", null, 0, 1, SimpleTypes.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(enumEClass, modelConverter.use_language.use.Enum.class, "Enum", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getEnum_Name(), ecorePackage.getEString(), "name", null, 0, 1, modelConverter.use_language.use.Enum.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1429,10 +1532,6 @@ public class UsePackageImpl extends EPackageImpl implements UsePackage
 
     initEClass(generalizationEClass, Generalization.class, "Generalization", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getGeneralization_General(), this.getAllClass(), null, "general", null, 0, 1, Generalization.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(simpleTypesEClass, SimpleTypes.class, "SimpleTypes", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getSimpleTypes_DefaultType(), ecorePackage.getEString(), "defaultType", null, 0, 1, SimpleTypes.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getSimpleTypes_Referended(), this.getAllClass(), null, "referended", null, 0, 1, SimpleTypes.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(associationEClass, Association.class, "Association", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getAssociation_TypeAssociation(), ecorePackage.getEString(), "typeAssociation", null, 0, 1, Association.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1457,7 +1556,7 @@ public class UsePackageImpl extends EPackageImpl implements UsePackage
 
     initEClass(attributeEClass, Attribute.class, "Attribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getAttribute_Name(), ecorePackage.getEString(), "name", null, 0, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getAttribute_Type(), this.getSimpleTypes(), null, "type", null, 0, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getAttribute_Type(), this.getAllTypes(), null, "type", null, 0, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(operationsBaseEClass, OperationsBase.class, "OperationsBase", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getOperationsBase_Operations(), this.getOperationType(), null, "operations", null, 0, -1, OperationsBase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1474,11 +1573,11 @@ public class UsePackageImpl extends EPackageImpl implements UsePackage
     initEClass(operationDeclarationEClass, OperationDeclaration.class, "OperationDeclaration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getOperationDeclaration_Name(), ecorePackage.getEString(), "name", null, 0, 1, OperationDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getOperationDeclaration_Parameters(), this.getParameter(), null, "parameters", null, 0, -1, OperationDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getOperationDeclaration_ReturnType(), this.getSimpleTypes(), null, "returnType", null, 0, 1, OperationDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getOperationDeclaration_ReturnType(), this.getAllTypes(), null, "returnType", null, 0, 1, OperationDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(parameterEClass, Parameter.class, "Parameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getParameter_Name(), ecorePackage.getEString(), "name", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getParameter_Type(), this.getSimpleTypes(), null, "type", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getParameter_Type(), this.getAllTypes(), null, "type", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(constraintsBaseEClass, ConstraintsBase.class, "ConstraintsBase", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getConstraintsBase_Invariants(), this.getInvariantDefinition(), null, "invariants", null, 0, -1, ConstraintsBase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

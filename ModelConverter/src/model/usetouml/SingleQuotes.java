@@ -110,6 +110,7 @@ public class SingleQuotes {
     				newLine = false;
     				line = joinWords(words, i);
     			} else {
+    				auxLine = auxLine.substring(auxLine.indexOf(word)+word.length());
     				line = line + words[i] + " ";
     				i++;
     			}
@@ -129,8 +130,10 @@ public class SingleQuotes {
 	}
 	
 	private static Boolean isOclStart(String string) {
-		return (string.startsWith("pre") || string.startsWith("post") 
-        		|| string.startsWith("inv")) && string.contains(":");
+		int index1 = string.indexOf(" derive");
+		return ((string.startsWith("pre") || string.startsWith("post") 
+        		|| string.startsWith("inv")) && string.contains(":"))
+				|| (index1 != -1 && string.substring(index1).replace(" ", "").contains("derive:"));
 	}
 	
 	private static Boolean isOclBeginStart(String line) {
@@ -170,7 +173,7 @@ public class SingleQuotes {
 						|| word.startsWith("post:") || word.startsWith("pre:")
 						|| word.startsWith("inv:") || word.equals("constraints")
 						|| word.equals("statemachines") || word.equals("context")
-						|| word.equals("end") || isOperationDeclaration(auxLine.substring(i));
+						|| word.equals("end") || isOperationDeclaration(auxLine);
 			case Begin:
 				if(beginEnd && !word.equals(";")) {
 					return true;

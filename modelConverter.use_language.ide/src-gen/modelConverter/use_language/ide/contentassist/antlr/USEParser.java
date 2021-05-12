@@ -37,8 +37,11 @@ public class USEParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getMultiplicityAccess().getMaxValueAlternatives_2_2_1_0(), "rule__Multiplicity__MaxValueAlternatives_2_2_1_0");
 			builder.put(grammarAccess.getIntToStringAccess().getAlternatives(), "rule__IntToString__Alternatives");
 			builder.put(grammarAccess.getDefaultTypeAccess().getAlternatives(), "rule__DefaultType__Alternatives");
+			builder.put(grammarAccess.getAllTypesAccess().getAlternatives(), "rule__AllTypes__Alternatives");
 			builder.put(grammarAccess.getTypeAccess().getAlternatives(), "rule__Type__Alternatives");
+			builder.put(grammarAccess.getCollectionTypeAccess().getCollectionAlternatives_0_0(), "rule__CollectionType__CollectionAlternatives_0_0");
 			builder.put(grammarAccess.getAllClassAccess().getAlternatives(), "rule__AllClass__Alternatives");
+			builder.put(grammarAccess.getAllClassAndEnumAccess().getAlternatives(), "rule__AllClassAndEnum__Alternatives");
 			builder.put(grammarAccess.getSimpleTypesAccess().getAlternatives(), "rule__SimpleTypes__Alternatives");
 			builder.put(grammarAccess.getAssociationAccess().getTypeAssociationAlternatives_0_0(), "rule__Association__TypeAssociationAlternatives_0_0");
 			builder.put(grammarAccess.getOperationTypeAccess().getAlternatives(), "rule__OperationType__Alternatives");
@@ -50,6 +53,7 @@ public class USEParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getMultiplicityAccess().getGroup_1(), "rule__Multiplicity__Group_1__0");
 			builder.put(grammarAccess.getMultiplicityAccess().getGroup_2(), "rule__Multiplicity__Group_2__0");
 			builder.put(grammarAccess.getMultiplicityAccess().getGroup_2_2(), "rule__Multiplicity__Group_2_2__0");
+			builder.put(grammarAccess.getCollectionTypeAccess().getGroup(), "rule__CollectionType__Group__0");
 			builder.put(grammarAccess.getEnumAccess().getGroup(), "rule__Enum__Group__0");
 			builder.put(grammarAccess.getEnumElementAccess().getGroup(), "rule__EnumElement__Group__0");
 			builder.put(grammarAccess.getClassAccess().getGroup(), "rule__Class__Group__0");
@@ -86,6 +90,10 @@ public class USEParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getMultiplicityAccess().getMaxValueAssignment_1_1(), "rule__Multiplicity__MaxValueAssignment_1_1");
 			builder.put(grammarAccess.getMultiplicityAccess().getMinValueAssignment_2_1(), "rule__Multiplicity__MinValueAssignment_2_1");
 			builder.put(grammarAccess.getMultiplicityAccess().getMaxValueAssignment_2_2_1(), "rule__Multiplicity__MaxValueAssignment_2_2_1");
+			builder.put(grammarAccess.getCollectionTypeAccess().getCollectionAssignment_0(), "rule__CollectionType__CollectionAssignment_0");
+			builder.put(grammarAccess.getCollectionTypeAccess().getTypeAssignment_2(), "rule__CollectionType__TypeAssignment_2");
+			builder.put(grammarAccess.getSimpleTypesAccess().getDefaultTypeAssignment_0(), "rule__SimpleTypes__DefaultTypeAssignment_0");
+			builder.put(grammarAccess.getSimpleTypesAccess().getReferendedAssignment_1(), "rule__SimpleTypes__ReferendedAssignment_1");
 			builder.put(grammarAccess.getEnumAccess().getNameAssignment_1(), "rule__Enum__NameAssignment_1");
 			builder.put(grammarAccess.getEnumAccess().getElementsAssignment_3(), "rule__Enum__ElementsAssignment_3");
 			builder.put(grammarAccess.getClassAccess().getAbstractAssignment_0(), "rule__Class__AbstractAssignment_0");
@@ -95,8 +103,6 @@ public class USEParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getClassAccess().getOperationsAssignment_5(), "rule__Class__OperationsAssignment_5");
 			builder.put(grammarAccess.getClassAccess().getConstraintsAssignment_6(), "rule__Class__ConstraintsAssignment_6");
 			builder.put(grammarAccess.getGeneralizationAccess().getGeneralAssignment_0(), "rule__Generalization__GeneralAssignment_0");
-			builder.put(grammarAccess.getSimpleTypesAccess().getDefaultTypeAssignment_0(), "rule__SimpleTypes__DefaultTypeAssignment_0");
-			builder.put(grammarAccess.getSimpleTypesAccess().getReferendedAssignment_1(), "rule__SimpleTypes__ReferendedAssignment_1");
 			builder.put(grammarAccess.getAssociationAccess().getTypeAssociationAssignment_0(), "rule__Association__TypeAssociationAssignment_0");
 			builder.put(grammarAccess.getAssociationAccess().getNameAssignment_1(), "rule__Association__NameAssignment_1");
 			builder.put(grammarAccess.getAssociationAccess().getAssociationEndsAssignment_3(), "rule__Association__AssociationEndsAssignment_3");

@@ -3,8 +3,8 @@
  */
 package modelConverter.use_language.use.impl;
 
+import modelConverter.use_language.use.AllTypes;
 import modelConverter.use_language.use.Attribute;
-import modelConverter.use_language.use.SimpleTypes;
 import modelConverter.use_language.use.UsePackage;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -60,7 +60,7 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
    * @generated
    * @ordered
    */
-  protected SimpleTypes type;
+  protected AllTypes type;
 
   /**
    * <!-- begin-user-doc -->
@@ -114,7 +114,7 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
    * @generated
    */
   @Override
-  public SimpleTypes getType()
+  public AllTypes getType()
   {
     return type;
   }
@@ -124,9 +124,9 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetType(SimpleTypes newType, NotificationChain msgs)
+  public NotificationChain basicSetType(AllTypes newType, NotificationChain msgs)
   {
-    SimpleTypes oldType = type;
+    AllTypes oldType = type;
     type = newType;
     if (eNotificationRequired())
     {
@@ -142,7 +142,7 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
    * @generated
    */
   @Override
-  public void setType(SimpleTypes newType)
+  public void setType(AllTypes newType)
   {
     if (newType != type)
     {
@@ -206,7 +206,7 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
         setName((String)newValue);
         return;
       case UsePackage.ATTRIBUTE__TYPE:
-        setType((SimpleTypes)newValue);
+        setType((AllTypes)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -226,7 +226,7 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
         setName(NAME_EDEFAULT);
         return;
       case UsePackage.ATTRIBUTE__TYPE:
-        setType((SimpleTypes)null);
+        setType((AllTypes)null);
         return;
     }
     super.eUnset(featureID);

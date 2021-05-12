@@ -1,54 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:MagicDrawProfile="http://www.omg.org/spec/UML/20131001/MagicDrawProfile" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http://www.omg.org/spec/UML/20131001/MagicDrawProfile UML_Standard_Profile.MagicDraw_Profile.profile.uml#_nPVN7YtIEeuebcn5BqfCXQ">
-   <uml:Model xmi:id="777313177" name="prueba">
-	<packagedElement xmi:type="uml:Class" xmi:id="659996839"  name="Lemon">
-	<ownedRule xmi:id="1058822905" name="" constrainedElement="659996839">
-		<specification xmi:type="uml:OpaqueExpression" xmi:id="8270354371058822905" name="">
+   <uml:Model xmi:id="1822434669" name="prueba">
+	<packagedElement xmi:type="uml:Class" xmi:id="2061440682"  name="Lemon">
+	<ownedRule xmi:id="878861517" name="" constrainedElement="2061440682">
+		<specification xmi:type="uml:OpaqueExpression" xmi:id="701487403878861517" name="">
 		   	<language>OCL2.0</language>
-		   	  	<body>'i &lt; 3'</body>
+		   	  	<body>i &l</body>
 		  	</specification>
 	</ownedRule>
-	<ownedRule xmi:id="475394679" name="patata" constrainedElement="659996839">
-		<specification xmi:type="uml:OpaqueExpression" xmi:id="1716164115475394679" name="patata">
+	<ownedRule xmi:id="1731763384" name="patata" constrainedElement="2061440682">
+		<specification xmi:type="uml:OpaqueExpression" xmi:id="5666419541731763384" name="patata">
 		   	<language>OCL2.0</language>
-		   	  	<body>'aaaa'</body>
+		   	  	<body>aaa</body>
 		  	</specification>
 	</ownedRule>
-	<ownedRule xmi:id="1049590050" name="" constrainedElement="659996839">
-		<specification xmi:type="uml:OpaqueExpression" xmi:id="13605418351049590050" name="">
+	<ownedRule xmi:id="87242619" name="" constrainedElement="2061440682">
+		<specification xmi:type="uml:OpaqueExpression" xmi:id="203998453587242619" name="">
 		   	<language>OCL2.0</language>
-		   	  	<body>'true aa 
+		   	  	<body>true aa 
 		   	  	asasad 
 		   	  	asa dad  ada  ada 
-		   	  	a sa d a dad a dad a'</body>
+		   	  	a sa d a dad a dad </body>
 		  	</specification>
 	</ownedRule>
-	<ownedOperation xmi:id="375074687" name="squeeze" bodyCondition="3750746871419125235" postcondition="" precondition="1021565761 1692375649 " >
-		<ownedRule xmi:id="3750746871419125235" name="" >
-			<specification xmi:type="uml:OpaqueExpression" xmi:id="14191252353750746871419125235" name="">
+	<ownedAttribute xmi:id="1907241392" name="lista" type="2061440682">
+	<lowerValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="1907241392_01" name="" visibility="public"/>
+	<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="1907241392_02" name="" visibility="public" value="*"/>	
+	</ownedAttribute>
+	<ownedOperation xmi:id="1313960293" name="squeeze" bodyCondition="13139602932031927175" postcondition="" precondition="" >
+		<ownedRule xmi:id="13139602932031927175" name="" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="203192717513139602932031927175" name="">
 			   	<language>OCL2.0</language>
-			   	  	<body>'aaaaaaa 
+			   	  	<body>aaaaaaa 
 			   	  	aaa asas sadasd 
-			   	  	asds asas end;'</body>
+			   	  	asds asas end</body>
 			  	</specification>
 		</ownedRule>
-		<ownedRule xmi:id="1021565761" name="" >
-			<specification xmi:type="uml:OpaqueExpression" xmi:id="8411664211021565761" name="">
-			   	<language>OCL2.0</language>
-			   	  	<body>'i&gt;0'</body>
-			  	</specification>
-		</ownedRule>
-		<ownedRule xmi:id="1692375649" name="lessThanTenOranges" >
-			<specification xmi:type="uml:OpaqueExpression" xmi:id="13773014561692375649" name="lessThanTenOranges">
-			   	<language>OCL2.0</language>
-			   	  	<body>'i&lt;10'</body>
-			  	</specification>
-		</ownedRule>
-		<ownedParameter xmi:id="466032056375074687" name=""  direction="return">
+		<ownedParameter xmi:id="11153816501313960293" name=""  direction="return">
 		<type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
 		</ownedParameter>
-		<ownedParameter xmi:id="1821100643" name="i" >
+		<ownedParameter xmi:id="1482748887" name="i" >
 		<type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+		<lowerValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="1482748887_01" name="" visibility="public"/>
+		<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="1482748887_02" name="" visibility="public" value="*"/>
 		</ownedParameter>
 	</ownedOperation>	
 	</packagedElement>

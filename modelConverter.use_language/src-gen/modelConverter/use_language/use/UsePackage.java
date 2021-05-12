@@ -150,6 +150,25 @@ public interface UsePackage extends EPackage
   int MULTIPLICITY_FEATURE_COUNT = 2;
 
   /**
+   * The meta object id for the '{@link modelConverter.use_language.use.impl.AllTypesImpl <em>All Types</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see modelConverter.use_language.use.impl.AllTypesImpl
+   * @see modelConverter.use_language.use.impl.UsePackageImpl#getAllTypes()
+   * @generated
+   */
+  int ALL_TYPES = 2;
+
+  /**
+   * The number of structural features of the '<em>All Types</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ALL_TYPES_FEATURE_COUNT = 0;
+
+  /**
    * The meta object id for the '{@link modelConverter.use_language.use.impl.TypeImpl <em>Type</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -157,7 +176,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getType()
    * @generated
    */
-  int TYPE = 2;
+  int TYPE = 3;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -178,6 +197,62 @@ public interface UsePackage extends EPackage
   int TYPE_FEATURE_COUNT = 1;
 
   /**
+   * The meta object id for the '{@link modelConverter.use_language.use.impl.CollectionTypeImpl <em>Collection Type</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see modelConverter.use_language.use.impl.CollectionTypeImpl
+   * @see modelConverter.use_language.use.impl.UsePackageImpl#getCollectionType()
+   * @generated
+   */
+  int COLLECTION_TYPE = 4;
+
+  /**
+   * The feature id for the '<em><b>Collection</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COLLECTION_TYPE__COLLECTION = ALL_TYPES_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COLLECTION_TYPE__TYPE = ALL_TYPES_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Collection Type</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COLLECTION_TYPE_FEATURE_COUNT = ALL_TYPES_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link modelConverter.use_language.use.impl.AllClassAndEnumImpl <em>All Class And Enum</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see modelConverter.use_language.use.impl.AllClassAndEnumImpl
+   * @see modelConverter.use_language.use.impl.UsePackageImpl#getAllClassAndEnum()
+   * @generated
+   */
+  int ALL_CLASS_AND_ENUM = 6;
+
+  /**
+   * The number of structural features of the '<em>All Class And Enum</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ALL_CLASS_AND_ENUM_FEATURE_COUNT = 0;
+
+  /**
    * The meta object id for the '{@link modelConverter.use_language.use.impl.AllClassImpl <em>All Class</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -185,7 +260,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getAllClass()
    * @generated
    */
-  int ALL_CLASS = 3;
+  int ALL_CLASS = 5;
 
   /**
    * The number of structural features of the '<em>All Class</em>' class.
@@ -194,7 +269,44 @@ public interface UsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int ALL_CLASS_FEATURE_COUNT = 0;
+  int ALL_CLASS_FEATURE_COUNT = ALL_CLASS_AND_ENUM_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link modelConverter.use_language.use.impl.SimpleTypesImpl <em>Simple Types</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see modelConverter.use_language.use.impl.SimpleTypesImpl
+   * @see modelConverter.use_language.use.impl.UsePackageImpl#getSimpleTypes()
+   * @generated
+   */
+  int SIMPLE_TYPES = 7;
+
+  /**
+   * The feature id for the '<em><b>Default Type</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SIMPLE_TYPES__DEFAULT_TYPE = ALL_TYPES_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Referended</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SIMPLE_TYPES__REFERENDED = ALL_TYPES_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Simple Types</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SIMPLE_TYPES_FEATURE_COUNT = ALL_TYPES_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link modelConverter.use_language.use.impl.EnumImpl <em>Enum</em>}' class.
@@ -204,7 +316,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getEnum()
    * @generated
    */
-  int ENUM = 4;
+  int ENUM = 8;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -213,7 +325,7 @@ public interface UsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int ENUM__NAME = 0;
+  int ENUM__NAME = ALL_CLASS_AND_ENUM_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Elements</b></em>' attribute list.
@@ -222,7 +334,7 @@ public interface UsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int ENUM__ELEMENTS = 1;
+  int ENUM__ELEMENTS = ALL_CLASS_AND_ENUM_FEATURE_COUNT + 1;
 
   /**
    * The number of structural features of the '<em>Enum</em>' class.
@@ -231,7 +343,7 @@ public interface UsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int ENUM_FEATURE_COUNT = 2;
+  int ENUM_FEATURE_COUNT = ALL_CLASS_AND_ENUM_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link modelConverter.use_language.use.impl.ClassImpl <em>Class</em>}' class.
@@ -241,7 +353,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getClass_()
    * @generated
    */
-  int CLASS = 5;
+  int CLASS = 9;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -314,7 +426,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getGeneralization()
    * @generated
    */
-  int GENERALIZATION = 6;
+  int GENERALIZATION = 10;
 
   /**
    * The feature id for the '<em><b>General</b></em>' reference.
@@ -335,43 +447,6 @@ public interface UsePackage extends EPackage
   int GENERALIZATION_FEATURE_COUNT = 1;
 
   /**
-   * The meta object id for the '{@link modelConverter.use_language.use.impl.SimpleTypesImpl <em>Simple Types</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see modelConverter.use_language.use.impl.SimpleTypesImpl
-   * @see modelConverter.use_language.use.impl.UsePackageImpl#getSimpleTypes()
-   * @generated
-   */
-  int SIMPLE_TYPES = 7;
-
-  /**
-   * The feature id for the '<em><b>Default Type</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SIMPLE_TYPES__DEFAULT_TYPE = 0;
-
-  /**
-   * The feature id for the '<em><b>Referended</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SIMPLE_TYPES__REFERENDED = 1;
-
-  /**
-   * The number of structural features of the '<em>Simple Types</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SIMPLE_TYPES_FEATURE_COUNT = 2;
-
-  /**
    * The meta object id for the '{@link modelConverter.use_language.use.impl.AssociationImpl <em>Association</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -379,7 +454,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getAssociation()
    * @generated
    */
-  int ASSOCIATION = 8;
+  int ASSOCIATION = 11;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -425,7 +500,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getAssociationEnd()
    * @generated
    */
-  int ASSOCIATION_END = 9;
+  int ASSOCIATION_END = 12;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' reference.
@@ -480,7 +555,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getAssociationClass()
    * @generated
    */
-  int ASSOCIATION_CLASS = 10;
+  int ASSOCIATION_CLASS = 13;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -562,7 +637,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getAttributesBase()
    * @generated
    */
-  int ATTRIBUTES_BASE = 11;
+  int ATTRIBUTES_BASE = 14;
 
   /**
    * The feature id for the '<em><b>Attributes</b></em>' containment reference list.
@@ -590,7 +665,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getAttribute()
    * @generated
    */
-  int ATTRIBUTE = 12;
+  int ATTRIBUTE = 15;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -627,7 +702,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getOperationsBase()
    * @generated
    */
-  int OPERATIONS_BASE = 13;
+  int OPERATIONS_BASE = 16;
 
   /**
    * The feature id for the '<em><b>Operations</b></em>' containment reference list.
@@ -655,7 +730,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getOperationType()
    * @generated
    */
-  int OPERATION_TYPE = 14;
+  int OPERATION_TYPE = 17;
 
   /**
    * The feature id for the '<em><b>Operation Declaration</b></em>' containment reference.
@@ -701,7 +776,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getOperationQuery()
    * @generated
    */
-  int OPERATION_QUERY = 15;
+  int OPERATION_QUERY = 18;
 
   /**
    * The feature id for the '<em><b>Operation Declaration</b></em>' containment reference.
@@ -747,7 +822,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getOperationComplex()
    * @generated
    */
-  int OPERATION_COMPLEX = 16;
+  int OPERATION_COMPLEX = 19;
 
   /**
    * The feature id for the '<em><b>Operation Declaration</b></em>' containment reference.
@@ -793,7 +868,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getOperationDeclaration()
    * @generated
    */
-  int OPERATION_DECLARATION = 17;
+  int OPERATION_DECLARATION = 20;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -839,7 +914,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getParameter()
    * @generated
    */
-  int PARAMETER = 18;
+  int PARAMETER = 21;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -876,7 +951,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getConstraintsBase()
    * @generated
    */
-  int CONSTRAINTS_BASE = 19;
+  int CONSTRAINTS_BASE = 22;
 
   /**
    * The feature id for the '<em><b>Invariants</b></em>' containment reference list.
@@ -904,7 +979,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getConstrainsGeneral()
    * @generated
    */
-  int CONSTRAINS_GENERAL = 20;
+  int CONSTRAINS_GENERAL = 23;
 
   /**
    * The feature id for the '<em><b>Contexts</b></em>' containment reference list.
@@ -932,7 +1007,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getContextsType()
    * @generated
    */
-  int CONTEXTS_TYPE = 21;
+  int CONTEXTS_TYPE = 24;
 
   /**
    * The feature id for the '<em><b>Classname</b></em>' reference.
@@ -960,7 +1035,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getInvariantContext()
    * @generated
    */
-  int INVARIANT_CONTEXT = 22;
+  int INVARIANT_CONTEXT = 25;
 
   /**
    * The feature id for the '<em><b>Classname</b></em>' reference.
@@ -1006,7 +1081,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getInvariantDefinition()
    * @generated
    */
-  int INVARIANT_DEFINITION = 23;
+  int INVARIANT_DEFINITION = 26;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1043,7 +1118,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getOperationContext()
    * @generated
    */
-  int OPERATION_CONTEXT = 24;
+  int OPERATION_CONTEXT = 27;
 
   /**
    * The feature id for the '<em><b>Classname</b></em>' reference.
@@ -1080,7 +1155,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getOperationConstraints()
    * @generated
    */
-  int OPERATION_CONSTRAINTS = 25;
+  int OPERATION_CONSTRAINTS = 28;
 
   /**
    * The feature id for the '<em><b>Operation Declaration</b></em>' containment reference.
@@ -1117,7 +1192,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getConditionType()
    * @generated
    */
-  int CONDITION_TYPE = 26;
+  int CONDITION_TYPE = 29;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1154,7 +1229,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getPrecondition()
    * @generated
    */
-  int PRECONDITION = 27;
+  int PRECONDITION = 30;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1191,7 +1266,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getPostcondition()
    * @generated
    */
-  int POSTCONDITION = 28;
+  int POSTCONDITION = 31;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1308,6 +1383,16 @@ public interface UsePackage extends EPackage
   EAttribute getMultiplicity_MaxValue();
 
   /**
+   * Returns the meta object for class '{@link modelConverter.use_language.use.AllTypes <em>All Types</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>All Types</em>'.
+   * @see modelConverter.use_language.use.AllTypes
+   * @generated
+   */
+  EClass getAllTypes();
+
+  /**
    * Returns the meta object for class '{@link modelConverter.use_language.use.Type <em>Type</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1329,6 +1414,38 @@ public interface UsePackage extends EPackage
   EAttribute getType_Name();
 
   /**
+   * Returns the meta object for class '{@link modelConverter.use_language.use.CollectionType <em>Collection Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Collection Type</em>'.
+   * @see modelConverter.use_language.use.CollectionType
+   * @generated
+   */
+  EClass getCollectionType();
+
+  /**
+   * Returns the meta object for the attribute '{@link modelConverter.use_language.use.CollectionType#getCollection <em>Collection</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Collection</em>'.
+   * @see modelConverter.use_language.use.CollectionType#getCollection()
+   * @see #getCollectionType()
+   * @generated
+   */
+  EAttribute getCollectionType_Collection();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link modelConverter.use_language.use.CollectionType#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Type</em>'.
+   * @see modelConverter.use_language.use.CollectionType#getType()
+   * @see #getCollectionType()
+   * @generated
+   */
+  EReference getCollectionType_Type();
+
+  /**
    * Returns the meta object for class '{@link modelConverter.use_language.use.AllClass <em>All Class</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1337,6 +1454,48 @@ public interface UsePackage extends EPackage
    * @generated
    */
   EClass getAllClass();
+
+  /**
+   * Returns the meta object for class '{@link modelConverter.use_language.use.AllClassAndEnum <em>All Class And Enum</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>All Class And Enum</em>'.
+   * @see modelConverter.use_language.use.AllClassAndEnum
+   * @generated
+   */
+  EClass getAllClassAndEnum();
+
+  /**
+   * Returns the meta object for class '{@link modelConverter.use_language.use.SimpleTypes <em>Simple Types</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Simple Types</em>'.
+   * @see modelConverter.use_language.use.SimpleTypes
+   * @generated
+   */
+  EClass getSimpleTypes();
+
+  /**
+   * Returns the meta object for the attribute '{@link modelConverter.use_language.use.SimpleTypes#getDefaultType <em>Default Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Default Type</em>'.
+   * @see modelConverter.use_language.use.SimpleTypes#getDefaultType()
+   * @see #getSimpleTypes()
+   * @generated
+   */
+  EAttribute getSimpleTypes_DefaultType();
+
+  /**
+   * Returns the meta object for the reference '{@link modelConverter.use_language.use.SimpleTypes#getReferended <em>Referended</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Referended</em>'.
+   * @see modelConverter.use_language.use.SimpleTypes#getReferended()
+   * @see #getSimpleTypes()
+   * @generated
+   */
+  EReference getSimpleTypes_Referended();
 
   /**
    * Returns the meta object for class '{@link modelConverter.use_language.use.Enum <em>Enum</em>}'.
@@ -1455,38 +1614,6 @@ public interface UsePackage extends EPackage
    * @generated
    */
   EReference getGeneralization_General();
-
-  /**
-   * Returns the meta object for class '{@link modelConverter.use_language.use.SimpleTypes <em>Simple Types</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Simple Types</em>'.
-   * @see modelConverter.use_language.use.SimpleTypes
-   * @generated
-   */
-  EClass getSimpleTypes();
-
-  /**
-   * Returns the meta object for the attribute '{@link modelConverter.use_language.use.SimpleTypes#getDefaultType <em>Default Type</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Default Type</em>'.
-   * @see modelConverter.use_language.use.SimpleTypes#getDefaultType()
-   * @see #getSimpleTypes()
-   * @generated
-   */
-  EAttribute getSimpleTypes_DefaultType();
-
-  /**
-   * Returns the meta object for the reference '{@link modelConverter.use_language.use.SimpleTypes#getReferended <em>Referended</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Referended</em>'.
-   * @see modelConverter.use_language.use.SimpleTypes#getReferended()
-   * @see #getSimpleTypes()
-   * @generated
-   */
-  EReference getSimpleTypes_Referended();
 
   /**
    * Returns the meta object for class '{@link modelConverter.use_language.use.Association <em>Association</em>}'.
@@ -2186,6 +2313,16 @@ public interface UsePackage extends EPackage
     EAttribute MULTIPLICITY__MAX_VALUE = eINSTANCE.getMultiplicity_MaxValue();
 
     /**
+     * The meta object literal for the '{@link modelConverter.use_language.use.impl.AllTypesImpl <em>All Types</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see modelConverter.use_language.use.impl.AllTypesImpl
+     * @see modelConverter.use_language.use.impl.UsePackageImpl#getAllTypes()
+     * @generated
+     */
+    EClass ALL_TYPES = eINSTANCE.getAllTypes();
+
+    /**
      * The meta object literal for the '{@link modelConverter.use_language.use.impl.TypeImpl <em>Type</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2204,6 +2341,32 @@ public interface UsePackage extends EPackage
     EAttribute TYPE__NAME = eINSTANCE.getType_Name();
 
     /**
+     * The meta object literal for the '{@link modelConverter.use_language.use.impl.CollectionTypeImpl <em>Collection Type</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see modelConverter.use_language.use.impl.CollectionTypeImpl
+     * @see modelConverter.use_language.use.impl.UsePackageImpl#getCollectionType()
+     * @generated
+     */
+    EClass COLLECTION_TYPE = eINSTANCE.getCollectionType();
+
+    /**
+     * The meta object literal for the '<em><b>Collection</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute COLLECTION_TYPE__COLLECTION = eINSTANCE.getCollectionType_Collection();
+
+    /**
+     * The meta object literal for the '<em><b>Type</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference COLLECTION_TYPE__TYPE = eINSTANCE.getCollectionType_Type();
+
+    /**
      * The meta object literal for the '{@link modelConverter.use_language.use.impl.AllClassImpl <em>All Class</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2212,6 +2375,42 @@ public interface UsePackage extends EPackage
      * @generated
      */
     EClass ALL_CLASS = eINSTANCE.getAllClass();
+
+    /**
+     * The meta object literal for the '{@link modelConverter.use_language.use.impl.AllClassAndEnumImpl <em>All Class And Enum</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see modelConverter.use_language.use.impl.AllClassAndEnumImpl
+     * @see modelConverter.use_language.use.impl.UsePackageImpl#getAllClassAndEnum()
+     * @generated
+     */
+    EClass ALL_CLASS_AND_ENUM = eINSTANCE.getAllClassAndEnum();
+
+    /**
+     * The meta object literal for the '{@link modelConverter.use_language.use.impl.SimpleTypesImpl <em>Simple Types</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see modelConverter.use_language.use.impl.SimpleTypesImpl
+     * @see modelConverter.use_language.use.impl.UsePackageImpl#getSimpleTypes()
+     * @generated
+     */
+    EClass SIMPLE_TYPES = eINSTANCE.getSimpleTypes();
+
+    /**
+     * The meta object literal for the '<em><b>Default Type</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SIMPLE_TYPES__DEFAULT_TYPE = eINSTANCE.getSimpleTypes_DefaultType();
+
+    /**
+     * The meta object literal for the '<em><b>Referended</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SIMPLE_TYPES__REFERENDED = eINSTANCE.getSimpleTypes_Referended();
 
     /**
      * The meta object literal for the '{@link modelConverter.use_language.use.impl.EnumImpl <em>Enum</em>}' class.
@@ -2306,32 +2505,6 @@ public interface UsePackage extends EPackage
      * @generated
      */
     EReference GENERALIZATION__GENERAL = eINSTANCE.getGeneralization_General();
-
-    /**
-     * The meta object literal for the '{@link modelConverter.use_language.use.impl.SimpleTypesImpl <em>Simple Types</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see modelConverter.use_language.use.impl.SimpleTypesImpl
-     * @see modelConverter.use_language.use.impl.UsePackageImpl#getSimpleTypes()
-     * @generated
-     */
-    EClass SIMPLE_TYPES = eINSTANCE.getSimpleTypes();
-
-    /**
-     * The meta object literal for the '<em><b>Default Type</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute SIMPLE_TYPES__DEFAULT_TYPE = eINSTANCE.getSimpleTypes_DefaultType();
-
-    /**
-     * The meta object literal for the '<em><b>Referended</b></em>' reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference SIMPLE_TYPES__REFERENDED = eINSTANCE.getSimpleTypes_Referended();
 
     /**
      * The meta object literal for the '{@link modelConverter.use_language.use.impl.AssociationImpl <em>Association</em>}' class.

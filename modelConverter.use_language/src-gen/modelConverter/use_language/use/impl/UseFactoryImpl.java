@@ -4,11 +4,14 @@
 package modelConverter.use_language.use.impl;
 
 import modelConverter.use_language.use.AllClass;
+import modelConverter.use_language.use.AllClassAndEnum;
+import modelConverter.use_language.use.AllTypes;
 import modelConverter.use_language.use.Association;
 import modelConverter.use_language.use.AssociationClass;
 import modelConverter.use_language.use.AssociationEnd;
 import modelConverter.use_language.use.Attribute;
 import modelConverter.use_language.use.AttributesBase;
+import modelConverter.use_language.use.CollectionType;
 import modelConverter.use_language.use.ConditionType;
 import modelConverter.use_language.use.ConstrainsGeneral;
 import modelConverter.use_language.use.ConstraintsBase;
@@ -95,12 +98,15 @@ public class UseFactoryImpl extends EFactoryImpl implements UseFactory
     {
       case UsePackage.MODEL: return createModel();
       case UsePackage.MULTIPLICITY: return createMultiplicity();
+      case UsePackage.ALL_TYPES: return createAllTypes();
       case UsePackage.TYPE: return createType();
+      case UsePackage.COLLECTION_TYPE: return createCollectionType();
       case UsePackage.ALL_CLASS: return createAllClass();
+      case UsePackage.ALL_CLASS_AND_ENUM: return createAllClassAndEnum();
+      case UsePackage.SIMPLE_TYPES: return createSimpleTypes();
       case UsePackage.ENUM: return createEnum();
       case UsePackage.CLASS: return createClass();
       case UsePackage.GENERALIZATION: return createGeneralization();
-      case UsePackage.SIMPLE_TYPES: return createSimpleTypes();
       case UsePackage.ASSOCIATION: return createAssociation();
       case UsePackage.ASSOCIATION_END: return createAssociationEnd();
       case UsePackage.ASSOCIATION_CLASS: return createAssociationClass();
@@ -157,6 +163,18 @@ public class UseFactoryImpl extends EFactoryImpl implements UseFactory
    * @generated
    */
   @Override
+  public AllTypes createAllTypes()
+  {
+    AllTypesImpl allTypes = new AllTypesImpl();
+    return allTypes;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public Type createType()
   {
     TypeImpl type = new TypeImpl();
@@ -169,10 +187,46 @@ public class UseFactoryImpl extends EFactoryImpl implements UseFactory
    * @generated
    */
   @Override
+  public CollectionType createCollectionType()
+  {
+    CollectionTypeImpl collectionType = new CollectionTypeImpl();
+    return collectionType;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public AllClass createAllClass()
   {
     AllClassImpl allClass = new AllClassImpl();
     return allClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public AllClassAndEnum createAllClassAndEnum()
+  {
+    AllClassAndEnumImpl allClassAndEnum = new AllClassAndEnumImpl();
+    return allClassAndEnum;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public SimpleTypes createSimpleTypes()
+  {
+    SimpleTypesImpl simpleTypes = new SimpleTypesImpl();
+    return simpleTypes;
   }
 
   /**
@@ -209,18 +263,6 @@ public class UseFactoryImpl extends EFactoryImpl implements UseFactory
   {
     GeneralizationImpl generalization = new GeneralizationImpl();
     return generalization;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public SimpleTypes createSimpleTypes()
-  {
-    SimpleTypesImpl simpleTypes = new SimpleTypesImpl();
-    return simpleTypes;
   }
 
   /**

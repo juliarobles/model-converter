@@ -3,7 +3,7 @@
  */
 package modelConverter.use_language.use.impl;
 
-import modelConverter.use_language.use.AllClass;
+import modelConverter.use_language.use.AllClassAndEnum;
 import modelConverter.use_language.use.SimpleTypes;
 import modelConverter.use_language.use.UsePackage;
 
@@ -13,7 +13,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,7 +28,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *
  * @generated
  */
-public class SimpleTypesImpl extends MinimalEObjectImpl.Container implements SimpleTypes
+public class SimpleTypesImpl extends AllTypesImpl implements SimpleTypes
 {
   /**
    * The default value of the '{@link #getDefaultType() <em>Default Type</em>}' attribute.
@@ -59,7 +58,7 @@ public class SimpleTypesImpl extends MinimalEObjectImpl.Container implements Sim
    * @generated
    * @ordered
    */
-  protected AllClass referended;
+  protected AllClassAndEnum referended;
 
   /**
    * <!-- begin-user-doc -->
@@ -113,12 +112,12 @@ public class SimpleTypesImpl extends MinimalEObjectImpl.Container implements Sim
    * @generated
    */
   @Override
-  public AllClass getReferended()
+  public AllClassAndEnum getReferended()
   {
     if (referended != null && referended.eIsProxy())
     {
       InternalEObject oldReferended = (InternalEObject)referended;
-      referended = (AllClass)eResolveProxy(oldReferended);
+      referended = (AllClassAndEnum)eResolveProxy(oldReferended);
       if (referended != oldReferended)
       {
         if (eNotificationRequired())
@@ -133,7 +132,7 @@ public class SimpleTypesImpl extends MinimalEObjectImpl.Container implements Sim
    * <!-- end-user-doc -->
    * @generated
    */
-  public AllClass basicGetReferended()
+  public AllClassAndEnum basicGetReferended()
   {
     return referended;
   }
@@ -144,9 +143,9 @@ public class SimpleTypesImpl extends MinimalEObjectImpl.Container implements Sim
    * @generated
    */
   @Override
-  public void setReferended(AllClass newReferended)
+  public void setReferended(AllClassAndEnum newReferended)
   {
-    AllClass oldReferended = referended;
+    AllClassAndEnum oldReferended = referended;
     referended = newReferended;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, UsePackage.SIMPLE_TYPES__REFERENDED, oldReferended, referended));
@@ -185,7 +184,7 @@ public class SimpleTypesImpl extends MinimalEObjectImpl.Container implements Sim
         setDefaultType((String)newValue);
         return;
       case UsePackage.SIMPLE_TYPES__REFERENDED:
-        setReferended((AllClass)newValue);
+        setReferended((AllClassAndEnum)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -205,7 +204,7 @@ public class SimpleTypesImpl extends MinimalEObjectImpl.Container implements Sim
         setDefaultType(DEFAULT_TYPE_EDEFAULT);
         return;
       case UsePackage.SIMPLE_TYPES__REFERENDED:
-        setReferended((AllClass)null);
+        setReferended((AllClassAndEnum)null);
         return;
     }
     super.eUnset(featureID);

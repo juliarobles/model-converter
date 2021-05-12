@@ -51,12 +51,12 @@ public interface Parameter extends EObject
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Type</em>' containment reference.
-   * @see #setType(SimpleTypes)
+   * @see #setType(AllTypes)
    * @see modelConverter.use_language.use.UsePackage#getParameter_Type()
    * @model containment="true"
    * @generated
    */
-  SimpleTypes getType();
+  AllTypes getType();
 
   /**
    * Sets the value of the '{@link modelConverter.use_language.use.Parameter#getType <em>Type</em>}' containment reference.
@@ -66,6 +66,6 @@ public interface Parameter extends EObject
    * @see #getType()
    * @generated
    */
-  void setType(SimpleTypes value);
+  void setType(AllTypes value);
 
 } // Parameter

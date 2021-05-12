@@ -42,6 +42,15 @@ public interface UseFactory extends EFactory
   Multiplicity createMultiplicity();
 
   /**
+   * Returns a new object of class '<em>All Types</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>All Types</em>'.
+   * @generated
+   */
+  AllTypes createAllTypes();
+
+  /**
    * Returns a new object of class '<em>Type</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -51,6 +60,15 @@ public interface UseFactory extends EFactory
   Type createType();
 
   /**
+   * Returns a new object of class '<em>Collection Type</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Collection Type</em>'.
+   * @generated
+   */
+  CollectionType createCollectionType();
+
+  /**
    * Returns a new object of class '<em>All Class</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -58,6 +76,24 @@ public interface UseFactory extends EFactory
    * @generated
    */
   AllClass createAllClass();
+
+  /**
+   * Returns a new object of class '<em>All Class And Enum</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>All Class And Enum</em>'.
+   * @generated
+   */
+  AllClassAndEnum createAllClassAndEnum();
+
+  /**
+   * Returns a new object of class '<em>Simple Types</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Simple Types</em>'.
+   * @generated
+   */
+  SimpleTypes createSimpleTypes();
 
   /**
    * Returns a new object of class '<em>Enum</em>'.
@@ -85,15 +121,6 @@ public interface UseFactory extends EFactory
    * @generated
    */
   Generalization createGeneralization();
-
-  /**
-   * Returns a new object of class '<em>Simple Types</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Simple Types</em>'.
-   * @generated
-   */
-  SimpleTypes createSimpleTypes();
 
   /**
    * Returns a new object of class '<em>Association</em>'.

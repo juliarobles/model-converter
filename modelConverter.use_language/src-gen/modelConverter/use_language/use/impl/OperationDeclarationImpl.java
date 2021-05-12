@@ -5,9 +5,9 @@ package modelConverter.use_language.use.impl;
 
 import java.util.Collection;
 
+import modelConverter.use_language.use.AllTypes;
 import modelConverter.use_language.use.OperationDeclaration;
 import modelConverter.use_language.use.Parameter;
-import modelConverter.use_language.use.SimpleTypes;
 import modelConverter.use_language.use.UsePackage;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -79,7 +79,7 @@ public class OperationDeclarationImpl extends MinimalEObjectImpl.Container imple
    * @generated
    * @ordered
    */
-  protected SimpleTypes returnType;
+  protected AllTypes returnType;
 
   /**
    * <!-- begin-user-doc -->
@@ -148,7 +148,7 @@ public class OperationDeclarationImpl extends MinimalEObjectImpl.Container imple
    * @generated
    */
   @Override
-  public SimpleTypes getReturnType()
+  public AllTypes getReturnType()
   {
     return returnType;
   }
@@ -158,9 +158,9 @@ public class OperationDeclarationImpl extends MinimalEObjectImpl.Container imple
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetReturnType(SimpleTypes newReturnType, NotificationChain msgs)
+  public NotificationChain basicSetReturnType(AllTypes newReturnType, NotificationChain msgs)
   {
-    SimpleTypes oldReturnType = returnType;
+    AllTypes oldReturnType = returnType;
     returnType = newReturnType;
     if (eNotificationRequired())
     {
@@ -176,7 +176,7 @@ public class OperationDeclarationImpl extends MinimalEObjectImpl.Container imple
    * @generated
    */
   @Override
-  public void setReturnType(SimpleTypes newReturnType)
+  public void setReturnType(AllTypes newReturnType)
   {
     if (newReturnType != returnType)
     {
@@ -249,7 +249,7 @@ public class OperationDeclarationImpl extends MinimalEObjectImpl.Container imple
         getParameters().addAll((Collection<? extends Parameter>)newValue);
         return;
       case UsePackage.OPERATION_DECLARATION__RETURN_TYPE:
-        setReturnType((SimpleTypes)newValue);
+        setReturnType((AllTypes)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -272,7 +272,7 @@ public class OperationDeclarationImpl extends MinimalEObjectImpl.Container imple
         getParameters().clear();
         return;
       case UsePackage.OPERATION_DECLARATION__RETURN_TYPE:
-        setReturnType((SimpleTypes)null);
+        setReturnType((AllTypes)null);
         return;
     }
     super.eUnset(featureID);

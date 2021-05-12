@@ -1,8 +1,10 @@
 model prueba
 
 class Lemon
+	attributes
+		lista: Sequence(Lemon)
 	operations
-		squeeze(i : String) : Integer
+		squeeze(i : Set(String)) : Integer
 			begin
 				aaaaaaa
 				aaa asas sadasd
@@ -21,7 +23,7 @@ inv:true aa
      a sa d a dad a dad a
      
 
-context Lemon :: squeeze(i : Integer) : Integer
+context Lemon :: squeeze(i : Integer) : Bag(Integer)
 pre: i>0
 pre lessThanTenOranges: i<10
 post alwaysTrue: true

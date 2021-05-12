@@ -4,11 +4,14 @@
 package modelConverter.use_language.use.util;
 
 import modelConverter.use_language.use.AllClass;
+import modelConverter.use_language.use.AllClassAndEnum;
+import modelConverter.use_language.use.AllTypes;
 import modelConverter.use_language.use.Association;
 import modelConverter.use_language.use.AssociationClass;
 import modelConverter.use_language.use.AssociationEnd;
 import modelConverter.use_language.use.Attribute;
 import modelConverter.use_language.use.AttributesBase;
+import modelConverter.use_language.use.CollectionType;
 import modelConverter.use_language.use.ConditionType;
 import modelConverter.use_language.use.ConstrainsGeneral;
 import modelConverter.use_language.use.ConstraintsBase;
@@ -113,14 +116,34 @@ public class UseAdapterFactory extends AdapterFactoryImpl
         return createMultiplicityAdapter();
       }
       @Override
+      public Adapter caseAllTypes(AllTypes object)
+      {
+        return createAllTypesAdapter();
+      }
+      @Override
       public Adapter caseType(Type object)
       {
         return createTypeAdapter();
       }
       @Override
+      public Adapter caseCollectionType(CollectionType object)
+      {
+        return createCollectionTypeAdapter();
+      }
+      @Override
       public Adapter caseAllClass(AllClass object)
       {
         return createAllClassAdapter();
+      }
+      @Override
+      public Adapter caseAllClassAndEnum(AllClassAndEnum object)
+      {
+        return createAllClassAndEnumAdapter();
+      }
+      @Override
+      public Adapter caseSimpleTypes(SimpleTypes object)
+      {
+        return createSimpleTypesAdapter();
       }
       @Override
       public Adapter caseEnum(modelConverter.use_language.use.Enum object)
@@ -136,11 +159,6 @@ public class UseAdapterFactory extends AdapterFactoryImpl
       public Adapter caseGeneralization(Generalization object)
       {
         return createGeneralizationAdapter();
-      }
-      @Override
-      public Adapter caseSimpleTypes(SimpleTypes object)
-      {
-        return createSimpleTypesAdapter();
       }
       @Override
       public Adapter caseAssociation(Association object)
@@ -300,6 +318,21 @@ public class UseAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link modelConverter.use_language.use.AllTypes <em>All Types</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see modelConverter.use_language.use.AllTypes
+   * @generated
+   */
+  public Adapter createAllTypesAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link modelConverter.use_language.use.Type <em>Type</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -315,6 +348,21 @@ public class UseAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link modelConverter.use_language.use.CollectionType <em>Collection Type</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see modelConverter.use_language.use.CollectionType
+   * @generated
+   */
+  public Adapter createCollectionTypeAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link modelConverter.use_language.use.AllClass <em>All Class</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -325,6 +373,36 @@ public class UseAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createAllClassAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link modelConverter.use_language.use.AllClassAndEnum <em>All Class And Enum</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see modelConverter.use_language.use.AllClassAndEnum
+   * @generated
+   */
+  public Adapter createAllClassAndEnumAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link modelConverter.use_language.use.SimpleTypes <em>Simple Types</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see modelConverter.use_language.use.SimpleTypes
+   * @generated
+   */
+  public Adapter createSimpleTypesAdapter()
   {
     return null;
   }
@@ -370,21 +448,6 @@ public class UseAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createGeneralizationAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link modelConverter.use_language.use.SimpleTypes <em>Simple Types</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see modelConverter.use_language.use.SimpleTypes
-   * @generated
-   */
-  public Adapter createSimpleTypesAdapter()
   {
     return null;
   }

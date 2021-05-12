@@ -14,21 +14,27 @@ Multiplicity:
 IntToString:
 	('0'|'1'|'2'|'3'|'4'|'5'|'6'|'7'|'8'|'9')+;
 
-AllTypes:
-	CollectionType
-;
-
-CollectionType:
-	('Set' | 'Bag' | 'Sequence') '(' type+=(CollectionType | SimpleTypes | Enum)* ')';
-
 DefaultType:
 	'Integer' | 'String' | 'Real' | 'Boolean';
+
+AllTypes:
+	CollectionType | SimpleTypes;
 
 Type:
 	Class | Association | AssociationClass;
 
+CollectionType:
+	collection=('Set' | 'Bag' | 'Sequence') '(' (type+=SimpleTypes)* ')';
+
 AllClass:
 	Class|AssociationClass;
+
+AllClassAndEnum:
+	AllClass | Enum;
+	
+SimpleTypes:
+	defaultType=DefaultType | referended=[AllClassAndEnum]; //https://www.eclipse.org/forums/index.php/m/553266/?srch=Cannot+call+enum+rule+without+assignment.#msg_553266
+
 
 @Override
 terminal SL_COMMENT:
@@ -56,8 +62,6 @@ Class:
 Generalization:
 	general=[AllClass] (',')?;
 
-SimpleTypes:
-	defaultType=DefaultType | referended=[AllClass]; //https://www.eclipse.org/forums/index.php/m/553266/?srch=Cannot+call+enum+rule+without+assignment.#msg_553266
 
 
 //-----------ASOCIACIONES-------------
@@ -83,7 +87,7 @@ AttributesBase:
 		(attributes+=Attribute)*;
 
 Attribute:
-	name=ID ':' type=SimpleTypes;
+	name=ID ':' type=AllTypes;
 
 
 //------------OPERACIONES--------------
@@ -101,10 +105,10 @@ OperationComplex:
 	operationDeclaration=OperationDeclaration ('begin' (operationbody=OCLExpression)? 'end')? (conditions+=ConditionType)*;
 
 OperationDeclaration:
-	name=ID '(' (parameters+=Parameter)* ')' (':' returnType=SimpleTypes)?;
+	name=ID '(' (parameters+=Parameter)* ')' (':' returnType=AllTypes)?;
 
 Parameter:
-	name=ID ':' type=SimpleTypes (',')?;
+	name=ID ':' type=AllTypes (',')?;
 	
 	
 //------------CONSTRAINTS---------------

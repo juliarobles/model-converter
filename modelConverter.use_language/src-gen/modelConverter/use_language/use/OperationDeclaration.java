@@ -66,12 +66,12 @@ public interface OperationDeclaration extends EObject
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Return Type</em>' containment reference.
-   * @see #setReturnType(SimpleTypes)
+   * @see #setReturnType(AllTypes)
    * @see modelConverter.use_language.use.UsePackage#getOperationDeclaration_ReturnType()
    * @model containment="true"
    * @generated
    */
-  SimpleTypes getReturnType();
+  AllTypes getReturnType();
 
   /**
    * Sets the value of the '{@link modelConverter.use_language.use.OperationDeclaration#getReturnType <em>Return Type</em>}' containment reference.
@@ -81,6 +81,6 @@ public interface OperationDeclaration extends EObject
    * @see #getReturnType()
    * @generated
    */
-  void setReturnType(SimpleTypes value);
+  void setReturnType(AllTypes value);
 
 } // OperationDeclaration

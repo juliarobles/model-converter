@@ -11,6 +11,7 @@ import modelConverter.use_language.use.AssociationClass;
 import modelConverter.use_language.use.AssociationEnd;
 import modelConverter.use_language.use.Attribute;
 import modelConverter.use_language.use.AttributesBase;
+import modelConverter.use_language.use.CollectionType;
 import modelConverter.use_language.use.ConstrainsGeneral;
 import modelConverter.use_language.use.ConstraintsBase;
 import modelConverter.use_language.use.Generalization;
@@ -69,6 +70,9 @@ public class USESemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				return; 
 			case UsePackage.CLASS:
 				sequence_Class(context, (modelConverter.use_language.use.Class) semanticObject); 
+				return; 
+			case UsePackage.COLLECTION_TYPE:
+				sequence_CollectionType(context, (CollectionType) semanticObject); 
 				return; 
 			case UsePackage.CONSTRAINS_GENERAL:
 				sequence_ConstrainsGeneral(context, (ConstrainsGeneral) semanticObject); 
@@ -133,6 +137,7 @@ public class USESemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 * Contexts:
 	 *     Type returns AssociationClass
 	 *     AllClass returns AssociationClass
+	 *     AllClassAndEnum returns AssociationClass
 	 *     AssociationClass returns AssociationClass
 	 *
 	 * Constraint:
@@ -181,7 +186,7 @@ public class USESemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Attribute returns Attribute
 	 *
 	 * Constraint:
-	 *     (name=ID type=SimpleTypes)
+	 *     (name=ID type=AllTypes)
 	 */
 	protected void sequence_Attribute(ISerializationContext context, Attribute semanticObject) {
 		if (errorAcceptor != null) {
@@ -192,7 +197,7 @@ public class USESemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getAttributeAccess().getNameIDTerminalRuleCall_0_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getAttributeAccess().getTypeSimpleTypesParserRuleCall_2_0(), semanticObject.getType());
+		feeder.accept(grammarAccess.getAttributeAccess().getTypeAllTypesParserRuleCall_2_0(), semanticObject.getType());
 		feeder.finish();
 	}
 	
@@ -213,6 +218,7 @@ public class USESemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 * Contexts:
 	 *     Type returns Class
 	 *     AllClass returns Class
+	 *     AllClassAndEnum returns Class
 	 *     Class returns Class
 	 *
 	 * Constraint:
@@ -226,6 +232,19 @@ public class USESemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     )
 	 */
 	protected void sequence_Class(ISerializationContext context, modelConverter.use_language.use.Class semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     AllTypes returns CollectionType
+	 *     CollectionType returns CollectionType
+	 *
+	 * Constraint:
+	 *     ((collection='Set' | collection='Bag' | collection='Sequence') type+=SimpleTypes*)
+	 */
+	protected void sequence_CollectionType(ISerializationContext context, CollectionType semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -256,6 +275,7 @@ public class USESemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
+	 *     AllClassAndEnum returns Enum
 	 *     Enum returns Enum
 	 *
 	 * Constraint:
@@ -389,7 +409,7 @@ public class USESemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     OperationDeclaration returns OperationDeclaration
 	 *
 	 * Constraint:
-	 *     (name=ID parameters+=Parameter* returnType=SimpleTypes?)
+	 *     (name=ID parameters+=Parameter* returnType=AllTypes?)
 	 */
 	protected void sequence_OperationDeclaration(ISerializationContext context, OperationDeclaration semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -426,7 +446,7 @@ public class USESemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Parameter returns Parameter
 	 *
 	 * Constraint:
-	 *     (name=ID type=SimpleTypes)
+	 *     (name=ID type=AllTypes)
 	 */
 	protected void sequence_Parameter(ISerializationContext context, modelConverter.use_language.use.Parameter semanticObject) {
 		if (errorAcceptor != null) {
@@ -437,7 +457,7 @@ public class USESemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getParameterAccess().getNameIDTerminalRuleCall_0_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getParameterAccess().getTypeSimpleTypesParserRuleCall_2_0(), semanticObject.getType());
+		feeder.accept(grammarAccess.getParameterAccess().getTypeAllTypesParserRuleCall_2_0(), semanticObject.getType());
 		feeder.finish();
 	}
 	
@@ -470,10 +490,11 @@ public class USESemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
+	 *     AllTypes returns SimpleTypes
 	 *     SimpleTypes returns SimpleTypes
 	 *
 	 * Constraint:
-	 *     (defaultType=DefaultType | referended=[AllClass|ID])
+	 *     (defaultType=DefaultType | referended=[AllClassAndEnum|ID])
 	 */
 	protected void sequence_SimpleTypes(ISerializationContext context, SimpleTypes semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

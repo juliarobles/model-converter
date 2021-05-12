@@ -16,11 +16,22 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxValue" unique="false"
         upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AllTypes"/>
   <eClassifiers xsi:type="ecore:EClass" name="Type">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="AllClass"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Enum">
+  <eClassifiers xsi:type="ecore:EClass" name="CollectionType" eSuperTypes="#//AllTypes">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="collection" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" upperBound="-1" eType="#//SimpleTypes"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AllClass" eSuperTypes="#//AllClassAndEnum"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AllClassAndEnum"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SimpleTypes" eSuperTypes="#//AllTypes">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="defaultType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="referended" eType="#//AllClassAndEnum"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Enum" eSuperTypes="#//AllClassAndEnum">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="elements" unique="false"
         upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -38,10 +49,6 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Generalization">
     <eStructuralFeatures xsi:type="ecore:EReference" name="general" eType="#//AllClass"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SimpleTypes">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="defaultType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="referended" eType="#//AllClass"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Association" eSuperTypes="#//Type">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="typeAssociation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -74,7 +81,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Attribute">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//SimpleTypes"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//AllTypes"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="OperationsBase">
@@ -94,12 +101,12 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
         eType="#//Parameter" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="returnType" eType="#//SimpleTypes"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="returnType" eType="#//AllTypes"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Parameter">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//SimpleTypes"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//AllTypes"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ConstraintsBase">

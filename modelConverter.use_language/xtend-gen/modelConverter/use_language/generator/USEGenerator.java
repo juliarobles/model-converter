@@ -6,11 +6,14 @@ package modelConverter.use_language.generator;
 import com.google.common.base.Objects;
 import com.google.common.collect.Iterables;
 import modelConverter.use_language.use.AllClass;
+import modelConverter.use_language.use.AllClassAndEnum;
+import modelConverter.use_language.use.AllTypes;
 import modelConverter.use_language.use.Association;
 import modelConverter.use_language.use.AssociationClass;
 import modelConverter.use_language.use.AssociationEnd;
 import modelConverter.use_language.use.Attribute;
 import modelConverter.use_language.use.AttributesBase;
+import modelConverter.use_language.use.CollectionType;
 import modelConverter.use_language.use.ConditionType;
 import modelConverter.use_language.use.ConstrainsGeneral;
 import modelConverter.use_language.use.ConstraintsBase;
@@ -424,20 +427,66 @@ public class USEGenerator extends AbstractGenerator {
         _builder.append(_name);
         _builder.append("\" ");
         {
-          if (((attribute.getType() != null) && (attribute.getType().getReferended() != null))) {
+          if ((((attribute.getType() != null) && (attribute.getType() instanceof SimpleTypes)) && (((SimpleTypes) attribute.getType()).getReferended() != null))) {
             _builder.append("type=\"");
-            int _identityHashCode_1 = System.identityHashCode(attribute.getType().getReferended());
+            AllTypes _type = attribute.getType();
+            int _identityHashCode_1 = System.identityHashCode(((SimpleTypes) _type).getReferended());
             _builder.append(_identityHashCode_1);
             _builder.append("\"");
+          } else {
+            if (((((((attribute.getType() != null) && (attribute.getType() instanceof CollectionType)) && (((CollectionType) attribute.getType()).getType() != null)) && (((Object[])Conversions.unwrapArray(((CollectionType) attribute.getType()).getType(), Object.class)).length > 0)) && (((CollectionType) attribute.getType()).getType().get(0) instanceof SimpleTypes)) && (((SimpleTypes) ((CollectionType) attribute.getType()).getType().get(0)).getReferended() != null))) {
+              _builder.append("type=\"");
+              AllTypes _type_1 = attribute.getType();
+              SimpleTypes _get = ((CollectionType) _type_1).getType().get(0);
+              int _identityHashCode_2 = System.identityHashCode(((SimpleTypes) _get).getReferended());
+              _builder.append(_identityHashCode_2);
+              _builder.append("\"");
+            }
           }
         }
         _builder.append(">");
         _builder.newLineIfNotEmpty();
         {
-          if (((attribute.getType() != null) && (attribute.getType().getDefaultType() != null))) {
-            CharSequence _compileDefaultType = this.compileDefaultType(attribute.getType().getDefaultType());
+          if ((((attribute.getType() != null) && (attribute.getType() instanceof SimpleTypes)) && (((SimpleTypes) attribute.getType()).getDefaultType() != null))) {
+            AllTypes _type_2 = attribute.getType();
+            CharSequence _compileDefaultType = this.compileDefaultType(((SimpleTypes) _type_2).getDefaultType());
             _builder.append(_compileDefaultType);
             _builder.newLineIfNotEmpty();
+          } else {
+            if (((((((attribute.getType() != null) && (attribute.getType() instanceof CollectionType)) && (((CollectionType) attribute.getType()).getType() != null)) && (((Object[])Conversions.unwrapArray(((CollectionType) attribute.getType()).getType(), Object.class)).length > 0)) && (((CollectionType) attribute.getType()).getType().get(0) instanceof SimpleTypes)) && (((SimpleTypes) ((CollectionType) attribute.getType()).getType().get(0)).getDefaultType() != null))) {
+              AllTypes _type_3 = attribute.getType();
+              SimpleTypes _get_1 = ((CollectionType) _type_3).getType().get(0);
+              CharSequence _compileDefaultType_1 = this.compileDefaultType(((SimpleTypes) _get_1).getDefaultType());
+              _builder.append(_compileDefaultType_1);
+              _builder.newLineIfNotEmpty();
+              _builder.append("<lowerValue xmi:type=\"uml:LiteralUnlimitedNatural\" xmi:id=\"");
+              int _identityHashCode_3 = System.identityHashCode(attribute);
+              String _plus = (Integer.valueOf(_identityHashCode_3) + "_01");
+              _builder.append(_plus);
+              _builder.append("\" name=\"\" visibility=\"public\"/>");
+              _builder.newLineIfNotEmpty();
+              _builder.append("<upperValue xmi:type=\"uml:LiteralUnlimitedNatural\" xmi:id=\"");
+              int _identityHashCode_4 = System.identityHashCode(attribute);
+              String _plus_1 = (Integer.valueOf(_identityHashCode_4) + "_02");
+              _builder.append(_plus_1);
+              _builder.append("\" name=\"\" visibility=\"public\" value=\"*\"/>");
+              _builder.newLineIfNotEmpty();
+            } else {
+              if (((((((attribute.getType() != null) && (attribute.getType() instanceof CollectionType)) && (((CollectionType) attribute.getType()).getType() != null)) && (((Object[])Conversions.unwrapArray(((CollectionType) attribute.getType()).getType(), Object.class)).length > 0)) && (((CollectionType) attribute.getType()).getType().get(0) instanceof SimpleTypes)) && (((SimpleTypes) ((CollectionType) attribute.getType()).getType().get(0)).getReferended() != null))) {
+                _builder.append("<lowerValue xmi:type=\"uml:LiteralUnlimitedNatural\" xmi:id=\"");
+                int _identityHashCode_5 = System.identityHashCode(attribute);
+                String _plus_2 = (Integer.valueOf(_identityHashCode_5) + "_01");
+                _builder.append(_plus_2);
+                _builder.append("\" name=\"\" visibility=\"public\"/>");
+                _builder.newLineIfNotEmpty();
+                _builder.append("<upperValue xmi:type=\"uml:LiteralUnlimitedNatural\" xmi:id=\"");
+                int _identityHashCode_6 = System.identityHashCode(attribute);
+                String _plus_3 = (Integer.valueOf(_identityHashCode_6) + "_02");
+                _builder.append(_plus_3);
+                _builder.append("\" name=\"\" visibility=\"public\" value=\"*\"/>\t");
+                _builder.newLineIfNotEmpty();
+              }
+            }
           }
         }
         _builder.append("</ownedAttribute>");
@@ -456,7 +505,7 @@ public class USEGenerator extends AbstractGenerator {
           return it.getConstrains();
         };
         final Function1<OperationConstraints, Boolean> _function_1 = (OperationConstraints c) -> {
-          return Boolean.valueOf((c.getOperationDeclaration().getName().equals(op.getOperationDeclaration().getName()) && (Objects.equal(c.getOperationDeclaration().getReturnType().getReferended(), op.getOperationDeclaration().getReturnType().getReferended()) || Objects.equal(c.getOperationDeclaration().getReturnType().getDefaultType(), op.getOperationDeclaration().getReturnType().getDefaultType()))));
+          return Boolean.valueOf((c.getOperationDeclaration().getName().equals(op.getOperationDeclaration().getName()) && ((((c.getOperationDeclaration().getReturnType() instanceof SimpleTypes) && (op.getOperationDeclaration().getReturnType() instanceof SimpleTypes)) && (Objects.equal(((SimpleTypes) c.getOperationDeclaration().getReturnType()).getReferended(), ((SimpleTypes) op.getOperationDeclaration().getReturnType()).getReferended()) || Objects.equal(((SimpleTypes) c.getOperationDeclaration().getReturnType()).getDefaultType(), ((SimpleTypes) op.getOperationDeclaration().getReturnType()).getDefaultType()))) || (((((c.getOperationDeclaration().getReturnType() instanceof CollectionType) && (op.getOperationDeclaration().getReturnType() instanceof CollectionType)) && (((Object[])Conversions.unwrapArray(((CollectionType) c.getOperationDeclaration().getReturnType()).getType(), Object.class)).length == ((Object[])Conversions.unwrapArray(((CollectionType) op.getOperationDeclaration().getReturnType()).getType(), Object.class)).length)) && Objects.equal(((CollectionType) c.getOperationDeclaration().getReturnType()).getCollection(), ((CollectionType) op.getOperationDeclaration().getReturnType()).getCollection())) && (((((Object[])Conversions.unwrapArray(((CollectionType) c.getOperationDeclaration().getReturnType()).getType(), Object.class)).length == 0) || ((((((CollectionType) c.getOperationDeclaration().getReturnType()).getType().get(0) instanceof SimpleTypes) && (((CollectionType) op.getOperationDeclaration().getReturnType()).getType().get(0) instanceof SimpleTypes)) && Objects.equal(((SimpleTypes) ((CollectionType) c.getOperationDeclaration().getReturnType()).getType().get(0)).getReferended(), ((SimpleTypes) ((CollectionType) op.getOperationDeclaration().getReturnType()).getType().get(0)).getReferended())) || Objects.equal(((SimpleTypes) ((CollectionType) c.getOperationDeclaration().getReturnType()).getType().get(0)).getDefaultType(), ((SimpleTypes) ((CollectionType) op.getOperationDeclaration().getReturnType()).getType().get(0)).getDefaultType()))) || (((((CollectionType) c.getOperationDeclaration().getReturnType()).getType().get(0) instanceof CollectionType) && (((CollectionType) op.getOperationDeclaration().getReturnType()).getType().get(0) instanceof CollectionType)) && Objects.equal(((CollectionType) ((CollectionType) c.getOperationDeclaration().getReturnType()).getType().get(0)).getCollection(), ((CollectionType) ((CollectionType) op.getOperationDeclaration().getReturnType()).getType().get(0)).getCollection())))))));
         };
         CharSequence _compileOperation = this.compileOperation(op, IterableExtensions.<OperationConstraints>filter(IterableExtensions.<OperationContext, OperationConstraints>map(conditions, _function), _function_1));
         _builder.append(_compileOperation);
@@ -574,7 +623,7 @@ public class USEGenerator extends AbstractGenerator {
       }
     }
     {
-      SimpleTypes _returnType = op.getOperationDeclaration().getReturnType();
+      AllTypes _returnType = op.getOperationDeclaration().getReturnType();
       boolean _tripleNotEquals_2 = (_returnType != null);
       if (_tripleNotEquals_2) {
         _builder.append("\t");
@@ -622,7 +671,10 @@ public class USEGenerator extends AbstractGenerator {
     _builder.append("\t   \t  \t");
     _builder.append("<body>");
     String _replaceAll = e.replaceAll("<", "&lt;").replaceAll(">", "&gt;");
-    _builder.append(_replaceAll, "\t   \t  \t");
+    int _length = e.length();
+    int _minus = (_length - 2);
+    String _substring = _replaceAll.substring(1, _minus);
+    _builder.append(_substring, "\t   \t  \t");
     _builder.append("</body>");
     _builder.newLineIfNotEmpty();
     _builder.append("\t  \t");
@@ -633,7 +685,7 @@ public class USEGenerator extends AbstractGenerator {
     return _builder;
   }
   
-  private CharSequence compileReturnType(final SimpleTypes e, final int idOp) {
+  private CharSequence compileReturnType(final AllTypes e, final int idOp) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("<ownedParameter xmi:id=\"");
     String _string = Integer.valueOf(System.identityHashCode(e)).toString();
@@ -641,20 +693,66 @@ public class USEGenerator extends AbstractGenerator {
     _builder.append(_plus);
     _builder.append("\" name=\"\" ");
     {
-      if (((e != null) && (e.getReferended() != null))) {
+      if ((((e != null) && (e instanceof SimpleTypes)) && (((SimpleTypes) e).getReferended() != null))) {
         _builder.append("type=\"");
-        int _identityHashCode = System.identityHashCode(e.getReferended());
+        int _identityHashCode = System.identityHashCode(((SimpleTypes) e).getReferended());
         _builder.append(_identityHashCode);
         _builder.append("\"");
+      } else {
+        if (((((((e != null) && (e instanceof CollectionType)) && (((CollectionType) e).getType() != null)) && (((Object[])Conversions.unwrapArray(((CollectionType) e).getType(), Object.class)).length > 0)) && (((CollectionType) e).getType().get(0) instanceof SimpleTypes)) && (((SimpleTypes) ((CollectionType) e).getType().get(0)).getReferended() != null))) {
+          _builder.append("type=\"");
+          SimpleTypes _get = ((CollectionType) e).getType().get(0);
+          AllClassAndEnum _referended = ((SimpleTypes) _get).getReferended();
+          _builder.append(_referended);
+          _builder.append("\"");
+        }
       }
     }
     _builder.append(" direction=\"return\">");
     _builder.newLineIfNotEmpty();
     {
-      if (((e != null) && (e.getDefaultType() != null))) {
-        CharSequence _compileDefaultType = this.compileDefaultType(e.getDefaultType());
+      if ((((e != null) && (e instanceof SimpleTypes)) && (((SimpleTypes) e).getDefaultType() != null))) {
+        CharSequence _compileDefaultType = this.compileDefaultType(((SimpleTypes) e).getDefaultType());
         _builder.append(_compileDefaultType);
         _builder.newLineIfNotEmpty();
+      } else {
+        if (((((((e != null) && (e instanceof CollectionType)) && (((CollectionType) e).getType() != null)) && (((Object[])Conversions.unwrapArray(((CollectionType) e).getType(), Object.class)).length > 0)) && (((CollectionType) e).getType().get(0) instanceof SimpleTypes)) && (((SimpleTypes) ((CollectionType) e).getType().get(0)).getDefaultType() != null))) {
+          SimpleTypes _get_1 = ((CollectionType) e).getType().get(0);
+          CharSequence _compileDefaultType_1 = this.compileDefaultType(((SimpleTypes) _get_1).getDefaultType());
+          _builder.append(_compileDefaultType_1);
+          _builder.newLineIfNotEmpty();
+          _builder.append("<lowerValue xmi:type=\"uml:LiteralUnlimitedNatural\" xmi:id=\"");
+          String _string_1 = Integer.valueOf(System.identityHashCode(e)).toString();
+          String _plus_1 = (_string_1 + Integer.valueOf(idOp));
+          String _plus_2 = (_plus_1 + "_01");
+          _builder.append(_plus_2);
+          _builder.append("\" name=\"\" visibility=\"public\"/>");
+          _builder.newLineIfNotEmpty();
+          _builder.append("<upperValue xmi:type=\"uml:LiteralUnlimitedNatural\" xmi:id=\"");
+          String _string_2 = Integer.valueOf(System.identityHashCode(e)).toString();
+          String _plus_3 = (_string_2 + Integer.valueOf(idOp));
+          String _plus_4 = (_plus_3 + "_02");
+          _builder.append(_plus_4);
+          _builder.append("\" name=\"\" visibility=\"public\" value=\"*\"/>");
+          _builder.newLineIfNotEmpty();
+        } else {
+          if (((((((e != null) && (e instanceof CollectionType)) && (((CollectionType) e).getType() != null)) && (((Object[])Conversions.unwrapArray(((CollectionType) e).getType(), Object.class)).length > 0)) && (((CollectionType) e).getType().get(0) instanceof SimpleTypes)) && (((SimpleTypes) ((CollectionType) e).getType().get(0)).getReferended() != null))) {
+            _builder.append("<lowerValue xmi:type=\"uml:LiteralUnlimitedNatural\" xmi:id=\"");
+            String _string_3 = Integer.valueOf(System.identityHashCode(e)).toString();
+            String _plus_5 = (_string_3 + Integer.valueOf(idOp));
+            String _plus_6 = (_plus_5 + "_01");
+            _builder.append(_plus_6);
+            _builder.append("\" name=\"\" visibility=\"public\"/>");
+            _builder.newLineIfNotEmpty();
+            _builder.append("<upperValue xmi:type=\"uml:LiteralUnlimitedNatural\" xmi:id=\"");
+            String _string_4 = Integer.valueOf(System.identityHashCode(e)).toString();
+            String _plus_7 = (_string_4 + Integer.valueOf(idOp));
+            String _plus_8 = (_plus_7 + "_02");
+            _builder.append(_plus_8);
+            _builder.append("\" name=\"\" visibility=\"public\" value=\"*\"/>");
+            _builder.newLineIfNotEmpty();
+          }
+        }
       }
     }
     _builder.append("</ownedParameter>");
@@ -672,20 +770,67 @@ public class USEGenerator extends AbstractGenerator {
     _builder.append(_name);
     _builder.append("\" ");
     {
-      if (((e.getType() != null) && (e.getType().getReferended() != null))) {
+      if ((((e.getType() != null) && (e.getType() instanceof SimpleTypes)) && (((SimpleTypes) e.getType()).getReferended() != null))) {
         _builder.append("type=\"");
-        int _identityHashCode_1 = System.identityHashCode(e.getType().getReferended());
+        AllTypes _type = e.getType();
+        int _identityHashCode_1 = System.identityHashCode(((SimpleTypes) _type).getReferended());
         _builder.append(_identityHashCode_1);
         _builder.append("\"");
+      } else {
+        if (((((((e.getType() != null) && (e.getType() instanceof CollectionType)) && (((CollectionType) e.getType()).getType() != null)) && (((Object[])Conversions.unwrapArray(((CollectionType) e.getType()).getType(), Object.class)).length > 0)) && (((CollectionType) e.getType()).getType().get(0) instanceof SimpleTypes)) && (((SimpleTypes) ((CollectionType) e.getType()).getType().get(0)).getReferended() != null))) {
+          _builder.append("type=\"");
+          AllTypes _type_1 = e.getType();
+          SimpleTypes _get = ((CollectionType) _type_1).getType().get(0);
+          AllClassAndEnum _referended = ((SimpleTypes) _get).getReferended();
+          boolean _tripleNotEquals = (_referended != null);
+          _builder.append(_tripleNotEquals);
+          _builder.append("\"");
+        }
       }
     }
     _builder.append(">");
     _builder.newLineIfNotEmpty();
     {
-      if (((e.getType() != null) && (e.getType().getDefaultType() != null))) {
-        CharSequence _compileDefaultType = this.compileDefaultType(e.getType().getDefaultType());
+      if ((((e.getType() != null) && (e.getType() instanceof SimpleTypes)) && (((SimpleTypes) e.getType()).getDefaultType() != null))) {
+        AllTypes _type_2 = e.getType();
+        CharSequence _compileDefaultType = this.compileDefaultType(((SimpleTypes) _type_2).getDefaultType());
         _builder.append(_compileDefaultType);
         _builder.newLineIfNotEmpty();
+      } else {
+        if (((((((e.getType() != null) && (e.getType() instanceof CollectionType)) && (((CollectionType) e.getType()).getType() != null)) && (((Object[])Conversions.unwrapArray(((CollectionType) e.getType()).getType(), Object.class)).length > 0)) && (((CollectionType) e.getType()).getType().get(0) instanceof SimpleTypes)) && (((SimpleTypes) ((CollectionType) e.getType()).getType().get(0)).getDefaultType() != null))) {
+          AllTypes _type_3 = e.getType();
+          SimpleTypes _get_1 = ((CollectionType) _type_3).getType().get(0);
+          CharSequence _compileDefaultType_1 = this.compileDefaultType(((SimpleTypes) _get_1).getDefaultType());
+          _builder.append(_compileDefaultType_1);
+          _builder.newLineIfNotEmpty();
+          _builder.append("<lowerValue xmi:type=\"uml:LiteralUnlimitedNatural\" xmi:id=\"");
+          int _identityHashCode_2 = System.identityHashCode(e);
+          String _plus = (Integer.valueOf(_identityHashCode_2) + "_01");
+          _builder.append(_plus);
+          _builder.append("\" name=\"\" visibility=\"public\"/>");
+          _builder.newLineIfNotEmpty();
+          _builder.append("<upperValue xmi:type=\"uml:LiteralUnlimitedNatural\" xmi:id=\"");
+          int _identityHashCode_3 = System.identityHashCode(e);
+          String _plus_1 = (Integer.valueOf(_identityHashCode_3) + "_02");
+          _builder.append(_plus_1);
+          _builder.append("\" name=\"\" visibility=\"public\" value=\"*\"/>");
+          _builder.newLineIfNotEmpty();
+        } else {
+          if (((((((e.getType() != null) && (e.getType() instanceof CollectionType)) && (((CollectionType) e.getType()).getType() != null)) && (((Object[])Conversions.unwrapArray(((CollectionType) e.getType()).getType(), Object.class)).length > 0)) && (((CollectionType) e.getType()).getType().get(0) instanceof SimpleTypes)) && (((SimpleTypes) ((CollectionType) e.getType()).getType().get(0)).getReferended() != null))) {
+            _builder.append("<lowerValue xmi:type=\"uml:LiteralUnlimitedNatural\" xmi:id=\"");
+            int _identityHashCode_4 = System.identityHashCode(e);
+            String _plus_2 = (Integer.valueOf(_identityHashCode_4) + "_01");
+            _builder.append(_plus_2);
+            _builder.append("\" name=\"\" visibility=\"public\"/>");
+            _builder.newLineIfNotEmpty();
+            _builder.append("<upperValue xmi:type=\"uml:LiteralUnlimitedNatural\" xmi:id=\"");
+            int _identityHashCode_5 = System.identityHashCode(e);
+            String _plus_3 = (Integer.valueOf(_identityHashCode_5) + "_02");
+            _builder.append(_plus_3);
+            _builder.append("\" name=\"\" visibility=\"public\" value=\"*\"/>\t");
+            _builder.newLineIfNotEmpty();
+          }
+        }
       }
     }
     _builder.append("</ownedParameter>");

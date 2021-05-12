@@ -252,6 +252,25 @@ public class USEGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//'Boolean'
 		public Keyword getBooleanKeyword_3() { return cBooleanKeyword_3; }
 	}
+	public class AllTypesElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "modelConverter.use_language.USE.AllTypes");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cCollectionTypeParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cSimpleTypesParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		
+		//AllTypes:
+		//    CollectionType | SimpleTypes;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//CollectionType | SimpleTypes
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//CollectionType
+		public RuleCall getCollectionTypeParserRuleCall_0() { return cCollectionTypeParserRuleCall_0; }
+		
+		//SimpleTypes
+		public RuleCall getSimpleTypesParserRuleCall_1() { return cSimpleTypesParserRuleCall_1; }
+	}
 	public class TypeElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "modelConverter.use_language.USE.Type");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
@@ -275,6 +294,53 @@ public class USEGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//AssociationClass
 		public RuleCall getAssociationClassParserRuleCall_2() { return cAssociationClassParserRuleCall_2; }
 	}
+	public class CollectionTypeElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "modelConverter.use_language.USE.CollectionType");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cCollectionAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final Alternatives cCollectionAlternatives_0_0 = (Alternatives)cCollectionAssignment_0.eContents().get(0);
+		private final Keyword cCollectionSetKeyword_0_0_0 = (Keyword)cCollectionAlternatives_0_0.eContents().get(0);
+		private final Keyword cCollectionBagKeyword_0_0_1 = (Keyword)cCollectionAlternatives_0_0.eContents().get(1);
+		private final Keyword cCollectionSequenceKeyword_0_0_2 = (Keyword)cCollectionAlternatives_0_0.eContents().get(2);
+		private final Keyword cLeftParenthesisKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cTypeAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cTypeSimpleTypesParserRuleCall_2_0 = (RuleCall)cTypeAssignment_2.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		
+		//CollectionType:
+		//    collection=('Set' | 'Bag' | 'Sequence') '(' (type+=SimpleTypes)* ')';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//collection=('Set' | 'Bag' | 'Sequence') '(' (type+=SimpleTypes)* ')'
+		public Group getGroup() { return cGroup; }
+		
+		//collection=('Set' | 'Bag' | 'Sequence')
+		public Assignment getCollectionAssignment_0() { return cCollectionAssignment_0; }
+		
+		//('Set' | 'Bag' | 'Sequence')
+		public Alternatives getCollectionAlternatives_0_0() { return cCollectionAlternatives_0_0; }
+		
+		//'Set'
+		public Keyword getCollectionSetKeyword_0_0_0() { return cCollectionSetKeyword_0_0_0; }
+		
+		//'Bag'
+		public Keyword getCollectionBagKeyword_0_0_1() { return cCollectionBagKeyword_0_0_1; }
+		
+		//'Sequence'
+		public Keyword getCollectionSequenceKeyword_0_0_2() { return cCollectionSequenceKeyword_0_0_2; }
+		
+		//'('
+		public Keyword getLeftParenthesisKeyword_1() { return cLeftParenthesisKeyword_1; }
+		
+		//(type+=SimpleTypes)*
+		public Assignment getTypeAssignment_2() { return cTypeAssignment_2; }
+		
+		//SimpleTypes
+		public RuleCall getTypeSimpleTypesParserRuleCall_2_0() { return cTypeSimpleTypesParserRuleCall_2_0; }
+		
+		//')'
+		public Keyword getRightParenthesisKeyword_3() { return cRightParenthesisKeyword_3; }
+	}
 	public class AllClassElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "modelConverter.use_language.USE.AllClass");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
@@ -293,6 +359,56 @@ public class USEGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		
 		//AssociationClass
 		public RuleCall getAssociationClassParserRuleCall_1() { return cAssociationClassParserRuleCall_1; }
+	}
+	public class AllClassAndEnumElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "modelConverter.use_language.USE.AllClassAndEnum");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cAllClassParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cEnumParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		
+		//AllClassAndEnum:
+		//    AllClass | Enum;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//AllClass | Enum
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//AllClass
+		public RuleCall getAllClassParserRuleCall_0() { return cAllClassParserRuleCall_0; }
+		
+		//Enum
+		public RuleCall getEnumParserRuleCall_1() { return cEnumParserRuleCall_1; }
+	}
+	public class SimpleTypesElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "modelConverter.use_language.USE.SimpleTypes");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Assignment cDefaultTypeAssignment_0 = (Assignment)cAlternatives.eContents().get(0);
+		private final RuleCall cDefaultTypeDefaultTypeParserRuleCall_0_0 = (RuleCall)cDefaultTypeAssignment_0.eContents().get(0);
+		private final Assignment cReferendedAssignment_1 = (Assignment)cAlternatives.eContents().get(1);
+		private final CrossReference cReferendedAllClassAndEnumCrossReference_1_0 = (CrossReference)cReferendedAssignment_1.eContents().get(0);
+		private final RuleCall cReferendedAllClassAndEnumIDTerminalRuleCall_1_0_1 = (RuleCall)cReferendedAllClassAndEnumCrossReference_1_0.eContents().get(1);
+		
+		//SimpleTypes:
+		//    defaultType=DefaultType | referended=[AllClassAndEnum];
+		@Override public ParserRule getRule() { return rule; }
+		
+		//defaultType=DefaultType | referended=[AllClassAndEnum]
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//defaultType=DefaultType
+		public Assignment getDefaultTypeAssignment_0() { return cDefaultTypeAssignment_0; }
+		
+		//DefaultType
+		public RuleCall getDefaultTypeDefaultTypeParserRuleCall_0_0() { return cDefaultTypeDefaultTypeParserRuleCall_0_0; }
+		
+		//referended=[AllClassAndEnum]
+		public Assignment getReferendedAssignment_1() { return cReferendedAssignment_1; }
+		
+		//[AllClassAndEnum]
+		public CrossReference getReferendedAllClassAndEnumCrossReference_1_0() { return cReferendedAllClassAndEnumCrossReference_1_0; }
+		
+		//ID
+		public RuleCall getReferendedAllClassAndEnumIDTerminalRuleCall_1_0_1() { return cReferendedAllClassAndEnumIDTerminalRuleCall_1_0_1; }
 	}
 	public class EnumElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "modelConverter.use_language.USE.Enum");
@@ -464,37 +580,6 @@ public class USEGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//(',')?
 		public Keyword getCommaKeyword_1() { return cCommaKeyword_1; }
 	}
-	public class SimpleTypesElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "modelConverter.use_language.USE.SimpleTypes");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final Assignment cDefaultTypeAssignment_0 = (Assignment)cAlternatives.eContents().get(0);
-		private final RuleCall cDefaultTypeDefaultTypeParserRuleCall_0_0 = (RuleCall)cDefaultTypeAssignment_0.eContents().get(0);
-		private final Assignment cReferendedAssignment_1 = (Assignment)cAlternatives.eContents().get(1);
-		private final CrossReference cReferendedAllClassCrossReference_1_0 = (CrossReference)cReferendedAssignment_1.eContents().get(0);
-		private final RuleCall cReferendedAllClassIDTerminalRuleCall_1_0_1 = (RuleCall)cReferendedAllClassCrossReference_1_0.eContents().get(1);
-		
-		//SimpleTypes:
-		//    defaultType=DefaultType | referended=[AllClass];
-		@Override public ParserRule getRule() { return rule; }
-		
-		//defaultType=DefaultType | referended=[AllClass]
-		public Alternatives getAlternatives() { return cAlternatives; }
-		
-		//defaultType=DefaultType
-		public Assignment getDefaultTypeAssignment_0() { return cDefaultTypeAssignment_0; }
-		
-		//DefaultType
-		public RuleCall getDefaultTypeDefaultTypeParserRuleCall_0_0() { return cDefaultTypeDefaultTypeParserRuleCall_0_0; }
-		
-		//referended=[AllClass]
-		public Assignment getReferendedAssignment_1() { return cReferendedAssignment_1; }
-		
-		//[AllClass]
-		public CrossReference getReferendedAllClassCrossReference_1_0() { return cReferendedAllClassCrossReference_1_0; }
-		
-		//ID
-		public RuleCall getReferendedAllClassIDTerminalRuleCall_1_0_1() { return cReferendedAllClassIDTerminalRuleCall_1_0_1; }
-	}
 	public class AssociationElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "modelConverter.use_language.USE.Association");
 		private final Group cGroup = (Group)rule.eContents().get(1);
@@ -510,7 +595,6 @@ public class USEGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final RuleCall cAssociationEndsAssociationEndParserRuleCall_3_0 = (RuleCall)cAssociationEndsAssignment_3.eContents().get(0);
 		private final Keyword cEndKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
-		// //https://www.eclipse.org/forums/index.php/m/553266/?srch=Cannot+call+enum+rule+without+assignment.#msg_553266
 		////-----------ASOCIACIONES-------------
 		//Association:
 		//    typeAssociation=('association' | 'aggregation' | 'composition') name=ID 'between'
@@ -747,13 +831,13 @@ public class USEGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final RuleCall cNameIDTerminalRuleCall_0_0 = (RuleCall)cNameAssignment_0.eContents().get(0);
 		private final Keyword cColonKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cTypeAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cTypeSimpleTypesParserRuleCall_2_0 = (RuleCall)cTypeAssignment_2.eContents().get(0);
+		private final RuleCall cTypeAllTypesParserRuleCall_2_0 = (RuleCall)cTypeAssignment_2.eContents().get(0);
 		
 		//Attribute:
-		//    name=ID ':' type=SimpleTypes;
+		//    name=ID ':' type=AllTypes;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//name=ID ':' type=SimpleTypes
+		//name=ID ':' type=AllTypes
 		public Group getGroup() { return cGroup; }
 		
 		//name=ID
@@ -765,11 +849,11 @@ public class USEGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//':'
 		public Keyword getColonKeyword_1() { return cColonKeyword_1; }
 		
-		//type=SimpleTypes
+		//type=AllTypes
 		public Assignment getTypeAssignment_2() { return cTypeAssignment_2; }
 		
-		//SimpleTypes
-		public RuleCall getTypeSimpleTypesParserRuleCall_2_0() { return cTypeSimpleTypesParserRuleCall_2_0; }
+		//AllTypes
+		public RuleCall getTypeAllTypesParserRuleCall_2_0() { return cTypeAllTypesParserRuleCall_2_0; }
 	}
 	public class OperationsBaseElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "modelConverter.use_language.USE.OperationsBase");
@@ -914,13 +998,13 @@ public class USEGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
 		private final Keyword cColonKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
 		private final Assignment cReturnTypeAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final RuleCall cReturnTypeSimpleTypesParserRuleCall_4_1_0 = (RuleCall)cReturnTypeAssignment_4_1.eContents().get(0);
+		private final RuleCall cReturnTypeAllTypesParserRuleCall_4_1_0 = (RuleCall)cReturnTypeAssignment_4_1.eContents().get(0);
 		
 		//OperationDeclaration:
-		//    name=ID '(' (parameters+=Parameter)* ')' (':' returnType=SimpleTypes)?;
+		//    name=ID '(' (parameters+=Parameter)* ')' (':' returnType=AllTypes)?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//name=ID '(' (parameters+=Parameter)* ')' (':' returnType=SimpleTypes)?
+		//name=ID '(' (parameters+=Parameter)* ')' (':' returnType=AllTypes)?
 		public Group getGroup() { return cGroup; }
 		
 		//name=ID
@@ -941,17 +1025,17 @@ public class USEGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//')'
 		public Keyword getRightParenthesisKeyword_3() { return cRightParenthesisKeyword_3; }
 		
-		//(':' returnType=SimpleTypes)?
+		//(':' returnType=AllTypes)?
 		public Group getGroup_4() { return cGroup_4; }
 		
 		//':'
 		public Keyword getColonKeyword_4_0() { return cColonKeyword_4_0; }
 		
-		//returnType=SimpleTypes
+		//returnType=AllTypes
 		public Assignment getReturnTypeAssignment_4_1() { return cReturnTypeAssignment_4_1; }
 		
-		//SimpleTypes
-		public RuleCall getReturnTypeSimpleTypesParserRuleCall_4_1_0() { return cReturnTypeSimpleTypesParserRuleCall_4_1_0; }
+		//AllTypes
+		public RuleCall getReturnTypeAllTypesParserRuleCall_4_1_0() { return cReturnTypeAllTypesParserRuleCall_4_1_0; }
 	}
 	public class ParameterElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "modelConverter.use_language.USE.Parameter");
@@ -960,14 +1044,14 @@ public class USEGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final RuleCall cNameIDTerminalRuleCall_0_0 = (RuleCall)cNameAssignment_0.eContents().get(0);
 		private final Keyword cColonKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cTypeAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cTypeSimpleTypesParserRuleCall_2_0 = (RuleCall)cTypeAssignment_2.eContents().get(0);
+		private final RuleCall cTypeAllTypesParserRuleCall_2_0 = (RuleCall)cTypeAssignment_2.eContents().get(0);
 		private final Keyword cCommaKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
 		//Parameter:
-		//    name=ID ':' type=SimpleTypes (',')?;
+		//    name=ID ':' type=AllTypes (',')?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//name=ID ':' type=SimpleTypes (',')?
+		//name=ID ':' type=AllTypes (',')?
 		public Group getGroup() { return cGroup; }
 		
 		//name=ID
@@ -979,11 +1063,11 @@ public class USEGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//':'
 		public Keyword getColonKeyword_1() { return cColonKeyword_1; }
 		
-		//type=SimpleTypes
+		//type=AllTypes
 		public Assignment getTypeAssignment_2() { return cTypeAssignment_2; }
 		
-		//SimpleTypes
-		public RuleCall getTypeSimpleTypesParserRuleCall_2_0() { return cTypeSimpleTypesParserRuleCall_2_0; }
+		//AllTypes
+		public RuleCall getTypeAllTypesParserRuleCall_2_0() { return cTypeAllTypesParserRuleCall_2_0; }
 		
 		//(',')?
 		public Keyword getCommaKeyword_3() { return cCommaKeyword_3; }
@@ -1316,15 +1400,18 @@ public class USEGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	private final MultiplicityElements pMultiplicity;
 	private final IntToStringElements pIntToString;
 	private final DefaultTypeElements pDefaultType;
+	private final AllTypesElements pAllTypes;
 	private final TypeElements pType;
+	private final CollectionTypeElements pCollectionType;
 	private final AllClassElements pAllClass;
+	private final AllClassAndEnumElements pAllClassAndEnum;
+	private final SimpleTypesElements pSimpleTypes;
 	private final TerminalRule tSL_COMMENT;
 	private final TerminalRule tML_COMMENT;
 	private final EnumElements pEnum;
 	private final EnumElementElements pEnumElement;
 	private final ClassElements pClass;
 	private final GeneralizationElements pGeneralization;
-	private final SimpleTypesElements pSimpleTypes;
 	private final AssociationElements pAssociation;
 	private final AssociationEndElements pAssociationEnd;
 	private final AssociationClassElements pAssociationClass;
@@ -1361,15 +1448,18 @@ public class USEGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		this.pMultiplicity = new MultiplicityElements();
 		this.pIntToString = new IntToStringElements();
 		this.pDefaultType = new DefaultTypeElements();
+		this.pAllTypes = new AllTypesElements();
 		this.pType = new TypeElements();
+		this.pCollectionType = new CollectionTypeElements();
 		this.pAllClass = new AllClassElements();
+		this.pAllClassAndEnum = new AllClassAndEnumElements();
+		this.pSimpleTypes = new SimpleTypesElements();
 		this.tSL_COMMENT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "modelConverter.use_language.USE.SL_COMMENT");
 		this.tML_COMMENT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "modelConverter.use_language.USE.ML_COMMENT");
 		this.pEnum = new EnumElements();
 		this.pEnumElement = new EnumElementElements();
 		this.pClass = new ClassElements();
 		this.pGeneralization = new GeneralizationElements();
-		this.pSimpleTypes = new SimpleTypesElements();
 		this.pAssociation = new AssociationElements();
 		this.pAssociationEnd = new AssociationEndElements();
 		this.pAssociationClass = new AssociationClassElements();
@@ -1462,6 +1552,16 @@ public class USEGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		return getDefaultTypeAccess().getRule();
 	}
 	
+	//AllTypes:
+	//    CollectionType | SimpleTypes;
+	public AllTypesElements getAllTypesAccess() {
+		return pAllTypes;
+	}
+	
+	public ParserRule getAllTypesRule() {
+		return getAllTypesAccess().getRule();
+	}
+	
 	//Type:
 	//    Class | Association | AssociationClass;
 	public TypeElements getTypeAccess() {
@@ -1470,6 +1570,16 @@ public class USEGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	
 	public ParserRule getTypeRule() {
 		return getTypeAccess().getRule();
+	}
+	
+	//CollectionType:
+	//    collection=('Set' | 'Bag' | 'Sequence') '(' (type+=SimpleTypes)* ')';
+	public CollectionTypeElements getCollectionTypeAccess() {
+		return pCollectionType;
+	}
+	
+	public ParserRule getCollectionTypeRule() {
+		return getCollectionTypeAccess().getRule();
 	}
 	
 	//AllClass:
@@ -1482,6 +1592,27 @@ public class USEGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		return getAllClassAccess().getRule();
 	}
 	
+	//AllClassAndEnum:
+	//    AllClass | Enum;
+	public AllClassAndEnumElements getAllClassAndEnumAccess() {
+		return pAllClassAndEnum;
+	}
+	
+	public ParserRule getAllClassAndEnumRule() {
+		return getAllClassAndEnumAccess().getRule();
+	}
+	
+	//SimpleTypes:
+	//    defaultType=DefaultType | referended=[AllClassAndEnum];
+	public SimpleTypesElements getSimpleTypesAccess() {
+		return pSimpleTypes;
+	}
+	
+	public ParserRule getSimpleTypesRule() {
+		return getSimpleTypesAccess().getRule();
+	}
+	
+	// //https://www.eclipse.org/forums/index.php/m/553266/?srch=Cannot+call+enum+rule+without+assignment.#msg_553266
 	//@Override
 	//terminal SL_COMMENT:
 	//    '--' !('\n'|'\r')* ('\r'? '\n')?;
@@ -1542,17 +1673,6 @@ public class USEGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		return getGeneralizationAccess().getRule();
 	}
 	
-	//SimpleTypes:
-	//    defaultType=DefaultType | referended=[AllClass];
-	public SimpleTypesElements getSimpleTypesAccess() {
-		return pSimpleTypes;
-	}
-	
-	public ParserRule getSimpleTypesRule() {
-		return getSimpleTypesAccess().getRule();
-	}
-	
-	// //https://www.eclipse.org/forums/index.php/m/553266/?srch=Cannot+call+enum+rule+without+assignment.#msg_553266
 	////-----------ASOCIACIONES-------------
 	//Association:
 	//    typeAssociation=('association' | 'aggregation' | 'composition') name=ID 'between'
@@ -1603,7 +1723,7 @@ public class USEGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	}
 	
 	//Attribute:
-	//    name=ID ':' type=SimpleTypes;
+	//    name=ID ':' type=AllTypes;
 	public AttributeElements getAttributeAccess() {
 		return pAttribute;
 	}
@@ -1655,7 +1775,7 @@ public class USEGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	}
 	
 	//OperationDeclaration:
-	//    name=ID '(' (parameters+=Parameter)* ')' (':' returnType=SimpleTypes)?;
+	//    name=ID '(' (parameters+=Parameter)* ')' (':' returnType=AllTypes)?;
 	public OperationDeclarationElements getOperationDeclarationAccess() {
 		return pOperationDeclaration;
 	}
@@ -1665,7 +1785,7 @@ public class USEGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	}
 	
 	//Parameter:
-	//    name=ID ':' type=SimpleTypes (',')?;
+	//    name=ID ':' type=AllTypes (',')?;
 	public ParameterElements getParameterAccess() {
 		return pParameter;
 	}

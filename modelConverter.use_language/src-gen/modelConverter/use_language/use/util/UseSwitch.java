@@ -4,11 +4,14 @@
 package modelConverter.use_language.use.util;
 
 import modelConverter.use_language.use.AllClass;
+import modelConverter.use_language.use.AllClassAndEnum;
+import modelConverter.use_language.use.AllTypes;
 import modelConverter.use_language.use.Association;
 import modelConverter.use_language.use.AssociationClass;
 import modelConverter.use_language.use.AssociationEnd;
 import modelConverter.use_language.use.Attribute;
 import modelConverter.use_language.use.AttributesBase;
+import modelConverter.use_language.use.CollectionType;
 import modelConverter.use_language.use.ConditionType;
 import modelConverter.use_language.use.ConstrainsGeneral;
 import modelConverter.use_language.use.ConstraintsBase;
@@ -114,6 +117,13 @@ public class UseSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case UsePackage.ALL_TYPES:
+      {
+        AllTypes allTypes = (AllTypes)theEObject;
+        T result = caseAllTypes(allTypes);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case UsePackage.TYPE:
       {
         Type type = (Type)theEObject;
@@ -121,10 +131,34 @@ public class UseSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case UsePackage.COLLECTION_TYPE:
+      {
+        CollectionType collectionType = (CollectionType)theEObject;
+        T result = caseCollectionType(collectionType);
+        if (result == null) result = caseAllTypes(collectionType);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case UsePackage.ALL_CLASS:
       {
         AllClass allClass = (AllClass)theEObject;
         T result = caseAllClass(allClass);
+        if (result == null) result = caseAllClassAndEnum(allClass);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case UsePackage.ALL_CLASS_AND_ENUM:
+      {
+        AllClassAndEnum allClassAndEnum = (AllClassAndEnum)theEObject;
+        T result = caseAllClassAndEnum(allClassAndEnum);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case UsePackage.SIMPLE_TYPES:
+      {
+        SimpleTypes simpleTypes = (SimpleTypes)theEObject;
+        T result = caseSimpleTypes(simpleTypes);
+        if (result == null) result = caseAllTypes(simpleTypes);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -132,6 +166,7 @@ public class UseSwitch<T> extends Switch<T>
       {
         modelConverter.use_language.use.Enum enum_ = (modelConverter.use_language.use.Enum)theEObject;
         T result = caseEnum(enum_);
+        if (result == null) result = caseAllClassAndEnum(enum_);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -141,6 +176,7 @@ public class UseSwitch<T> extends Switch<T>
         T result = caseClass(class_);
         if (result == null) result = caseType(class_);
         if (result == null) result = caseAllClass(class_);
+        if (result == null) result = caseAllClassAndEnum(class_);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -148,13 +184,6 @@ public class UseSwitch<T> extends Switch<T>
       {
         Generalization generalization = (Generalization)theEObject;
         T result = caseGeneralization(generalization);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case UsePackage.SIMPLE_TYPES:
-      {
-        SimpleTypes simpleTypes = (SimpleTypes)theEObject;
-        T result = caseSimpleTypes(simpleTypes);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -179,6 +208,7 @@ public class UseSwitch<T> extends Switch<T>
         T result = caseAssociationClass(associationClass);
         if (result == null) result = caseType(associationClass);
         if (result == null) result = caseAllClass(associationClass);
+        if (result == null) result = caseAllClassAndEnum(associationClass);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -351,6 +381,22 @@ public class UseSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>All Types</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>All Types</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseAllTypes(AllTypes object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Type</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -367,6 +413,22 @@ public class UseSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Collection Type</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Collection Type</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseCollectionType(CollectionType object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>All Class</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -378,6 +440,38 @@ public class UseSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseAllClass(AllClass object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>All Class And Enum</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>All Class And Enum</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseAllClassAndEnum(AllClassAndEnum object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Simple Types</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Simple Types</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseSimpleTypes(SimpleTypes object)
   {
     return null;
   }
@@ -426,22 +520,6 @@ public class UseSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseGeneralization(Generalization object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Simple Types</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Simple Types</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseSimpleTypes(SimpleTypes object)
   {
     return null;
   }

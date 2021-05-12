@@ -3,26 +3,28 @@
  */
 package modelConverter.use_language.use.impl;
 
-import modelConverter.use_language.use.AllClass;
+import modelConverter.use_language.use.AllClassAndEnum;
 import modelConverter.use_language.use.UsePackage;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>All Class</b></em>'.
+ * An implementation of the model object '<em><b>All Class And Enum</b></em>'.
  * <!-- end-user-doc -->
  *
  * @generated
  */
-public class AllClassImpl extends AllClassAndEnumImpl implements AllClass
+public class AllClassAndEnumImpl extends MinimalEObjectImpl.Container implements AllClassAndEnum
 {
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected AllClassImpl()
+  protected AllClassAndEnumImpl()
   {
     super();
   }
@@ -35,7 +37,7 @@ public class AllClassImpl extends AllClassAndEnumImpl implements AllClass
   @Override
   protected EClass eStaticClass()
   {
-    return UsePackage.Literals.ALL_CLASS;
+    return UsePackage.Literals.ALL_CLASS_AND_ENUM;
   }
 
-} //AllClassImpl
+} //AllClassAndEnumImpl

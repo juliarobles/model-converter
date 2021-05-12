@@ -16,10 +16,20 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute USE.ecore#//Multiplicity/minValue"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute USE.ecore#//Multiplicity/maxValue"/>
     </genClasses>
+    <genClasses ecoreClass="USE.ecore#//AllTypes"/>
     <genClasses ecoreClass="USE.ecore#//Type">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute USE.ecore#//Type/name"/>
     </genClasses>
+    <genClasses ecoreClass="USE.ecore#//CollectionType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute USE.ecore#//CollectionType/collection"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference USE.ecore#//CollectionType/type"/>
+    </genClasses>
     <genClasses ecoreClass="USE.ecore#//AllClass"/>
+    <genClasses ecoreClass="USE.ecore#//AllClassAndEnum"/>
+    <genClasses ecoreClass="USE.ecore#//SimpleTypes">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute USE.ecore#//SimpleTypes/defaultType"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference USE.ecore#//SimpleTypes/referended"/>
+    </genClasses>
     <genClasses ecoreClass="USE.ecore#//Enum">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute USE.ecore#//Enum/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute USE.ecore#//Enum/elements"/>
@@ -33,10 +43,6 @@
     </genClasses>
     <genClasses ecoreClass="USE.ecore#//Generalization">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference USE.ecore#//Generalization/general"/>
-    </genClasses>
-    <genClasses ecoreClass="USE.ecore#//SimpleTypes">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute USE.ecore#//SimpleTypes/defaultType"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference USE.ecore#//SimpleTypes/referended"/>
     </genClasses>
     <genClasses ecoreClass="USE.ecore#//Association">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute USE.ecore#//Association/typeAssociation"/>

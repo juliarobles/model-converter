@@ -6,6 +6,7 @@ package modelConverter.use_language.use.impl;
 import java.util.Collection;
 
 import modelConverter.use_language.use.ConditionType;
+import modelConverter.use_language.use.ContextCS;
 import modelConverter.use_language.use.OperationDeclaration;
 import modelConverter.use_language.use.OperationType;
 import modelConverter.use_language.use.UsePackage;
@@ -52,24 +53,14 @@ public class OperationTypeImpl extends MinimalEObjectImpl.Container implements O
   protected OperationDeclaration operationDeclaration;
 
   /**
-   * The default value of the '{@link #getOperationbody() <em>Operationbody</em>}' attribute.
+   * The cached value of the '{@link #getOperationbody() <em>Operationbody</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getOperationbody()
    * @generated
    * @ordered
    */
-  protected static final String OPERATIONBODY_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getOperationbody() <em>Operationbody</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getOperationbody()
-   * @generated
-   * @ordered
-   */
-  protected String operationbody = OPERATIONBODY_EDEFAULT;
+  protected ContextCS operationbody;
 
   /**
    * The cached value of the '{@link #getConditions() <em>Conditions</em>}' containment reference list.
@@ -158,7 +149,7 @@ public class OperationTypeImpl extends MinimalEObjectImpl.Container implements O
    * @generated
    */
   @Override
-  public String getOperationbody()
+  public ContextCS getOperationbody()
   {
     return operationbody;
   }
@@ -168,13 +159,38 @@ public class OperationTypeImpl extends MinimalEObjectImpl.Container implements O
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public void setOperationbody(String newOperationbody)
+  public NotificationChain basicSetOperationbody(ContextCS newOperationbody, NotificationChain msgs)
   {
-    String oldOperationbody = operationbody;
+    ContextCS oldOperationbody = operationbody;
     operationbody = newOperationbody;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, UsePackage.OPERATION_TYPE__OPERATIONBODY, oldOperationbody, operationbody));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, UsePackage.OPERATION_TYPE__OPERATIONBODY, oldOperationbody, newOperationbody);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setOperationbody(ContextCS newOperationbody)
+  {
+    if (newOperationbody != operationbody)
+    {
+      NotificationChain msgs = null;
+      if (operationbody != null)
+        msgs = ((InternalEObject)operationbody).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UsePackage.OPERATION_TYPE__OPERATIONBODY, null, msgs);
+      if (newOperationbody != null)
+        msgs = ((InternalEObject)newOperationbody).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UsePackage.OPERATION_TYPE__OPERATIONBODY, null, msgs);
+      msgs = basicSetOperationbody(newOperationbody, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, UsePackage.OPERATION_TYPE__OPERATIONBODY, newOperationbody, newOperationbody));
   }
 
   /**
@@ -204,6 +220,8 @@ public class OperationTypeImpl extends MinimalEObjectImpl.Container implements O
     {
       case UsePackage.OPERATION_TYPE__OPERATION_DECLARATION:
         return basicSetOperationDeclaration(null, msgs);
+      case UsePackage.OPERATION_TYPE__OPERATIONBODY:
+        return basicSetOperationbody(null, msgs);
       case UsePackage.OPERATION_TYPE__CONDITIONS:
         return ((InternalEList<?>)getConditions()).basicRemove(otherEnd, msgs);
     }
@@ -245,7 +263,7 @@ public class OperationTypeImpl extends MinimalEObjectImpl.Container implements O
         setOperationDeclaration((OperationDeclaration)newValue);
         return;
       case UsePackage.OPERATION_TYPE__OPERATIONBODY:
-        setOperationbody((String)newValue);
+        setOperationbody((ContextCS)newValue);
         return;
       case UsePackage.OPERATION_TYPE__CONDITIONS:
         getConditions().clear();
@@ -269,7 +287,7 @@ public class OperationTypeImpl extends MinimalEObjectImpl.Container implements O
         setOperationDeclaration((OperationDeclaration)null);
         return;
       case UsePackage.OPERATION_TYPE__OPERATIONBODY:
-        setOperationbody(OPERATIONBODY_EDEFAULT);
+        setOperationbody((ContextCS)null);
         return;
       case UsePackage.OPERATION_TYPE__CONDITIONS:
         getConditions().clear();
@@ -291,28 +309,11 @@ public class OperationTypeImpl extends MinimalEObjectImpl.Container implements O
       case UsePackage.OPERATION_TYPE__OPERATION_DECLARATION:
         return operationDeclaration != null;
       case UsePackage.OPERATION_TYPE__OPERATIONBODY:
-        return OPERATIONBODY_EDEFAULT == null ? operationbody != null : !OPERATIONBODY_EDEFAULT.equals(operationbody);
+        return operationbody != null;
       case UsePackage.OPERATION_TYPE__CONDITIONS:
         return conditions != null && !conditions.isEmpty();
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (operationbody: ");
-    result.append(operationbody);
-    result.append(')');
-    return result.toString();
   }
 
 } //OperationTypeImpl

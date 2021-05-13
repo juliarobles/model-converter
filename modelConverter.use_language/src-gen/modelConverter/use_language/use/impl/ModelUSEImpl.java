@@ -6,7 +6,7 @@ package modelConverter.use_language.use.impl;
 import java.util.Collection;
 
 import modelConverter.use_language.use.ConstrainsGeneral;
-import modelConverter.use_language.use.Model;
+import modelConverter.use_language.use.ModelUSE;
 import modelConverter.use_language.use.Type;
 import modelConverter.use_language.use.UsePackage;
 
@@ -26,21 +26,21 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Model</b></em>'.
+ * An implementation of the model object '<em><b>Model USE</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link modelConverter.use_language.use.impl.ModelImpl#getName <em>Name</em>}</li>
- *   <li>{@link modelConverter.use_language.use.impl.ModelImpl#getEnums <em>Enums</em>}</li>
- *   <li>{@link modelConverter.use_language.use.impl.ModelImpl#getPackagedElement <em>Packaged Element</em>}</li>
- *   <li>{@link modelConverter.use_language.use.impl.ModelImpl#getConstraints <em>Constraints</em>}</li>
+ *   <li>{@link modelConverter.use_language.use.impl.ModelUSEImpl#getName <em>Name</em>}</li>
+ *   <li>{@link modelConverter.use_language.use.impl.ModelUSEImpl#getEnums <em>Enums</em>}</li>
+ *   <li>{@link modelConverter.use_language.use.impl.ModelUSEImpl#getPackagedElement <em>Packaged Element</em>}</li>
+ *   <li>{@link modelConverter.use_language.use.impl.ModelUSEImpl#getConstraints <em>Constraints</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ModelImpl extends MinimalEObjectImpl.Container implements Model
+public class ModelUSEImpl extends MinimalEObjectImpl.Container implements ModelUSE
 {
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -97,7 +97,7 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * <!-- end-user-doc -->
    * @generated
    */
-  protected ModelImpl()
+  protected ModelUSEImpl()
   {
     super();
   }
@@ -110,7 +110,7 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   @Override
   protected EClass eStaticClass()
   {
-    return UsePackage.Literals.MODEL;
+    return UsePackage.Literals.MODEL_USE;
   }
 
   /**
@@ -135,7 +135,7 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
     String oldName = name;
     name = newName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, UsePackage.MODEL__NAME, oldName, name));
+      eNotify(new ENotificationImpl(this, Notification.SET, UsePackage.MODEL_USE__NAME, oldName, name));
   }
 
   /**
@@ -148,7 +148,7 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     if (enums == null)
     {
-      enums = new EObjectContainmentEList<modelConverter.use_language.use.Enum>(modelConverter.use_language.use.Enum.class, this, UsePackage.MODEL__ENUMS);
+      enums = new EObjectContainmentEList<modelConverter.use_language.use.Enum>(modelConverter.use_language.use.Enum.class, this, UsePackage.MODEL_USE__ENUMS);
     }
     return enums;
   }
@@ -163,7 +163,7 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     if (packagedElement == null)
     {
-      packagedElement = new EObjectContainmentEList<Type>(Type.class, this, UsePackage.MODEL__PACKAGED_ELEMENT);
+      packagedElement = new EObjectContainmentEList<Type>(Type.class, this, UsePackage.MODEL_USE__PACKAGED_ELEMENT);
     }
     return packagedElement;
   }
@@ -190,7 +190,7 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
     constraints = newConstraints;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, UsePackage.MODEL__CONSTRAINTS, oldConstraints, newConstraints);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, UsePackage.MODEL_USE__CONSTRAINTS, oldConstraints, newConstraints);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -208,14 +208,14 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
     {
       NotificationChain msgs = null;
       if (constraints != null)
-        msgs = ((InternalEObject)constraints).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UsePackage.MODEL__CONSTRAINTS, null, msgs);
+        msgs = ((InternalEObject)constraints).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UsePackage.MODEL_USE__CONSTRAINTS, null, msgs);
       if (newConstraints != null)
-        msgs = ((InternalEObject)newConstraints).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UsePackage.MODEL__CONSTRAINTS, null, msgs);
+        msgs = ((InternalEObject)newConstraints).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UsePackage.MODEL_USE__CONSTRAINTS, null, msgs);
       msgs = basicSetConstraints(newConstraints, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, UsePackage.MODEL__CONSTRAINTS, newConstraints, newConstraints));
+      eNotify(new ENotificationImpl(this, Notification.SET, UsePackage.MODEL_USE__CONSTRAINTS, newConstraints, newConstraints));
   }
 
   /**
@@ -228,11 +228,11 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case UsePackage.MODEL__ENUMS:
+      case UsePackage.MODEL_USE__ENUMS:
         return ((InternalEList<?>)getEnums()).basicRemove(otherEnd, msgs);
-      case UsePackage.MODEL__PACKAGED_ELEMENT:
+      case UsePackage.MODEL_USE__PACKAGED_ELEMENT:
         return ((InternalEList<?>)getPackagedElement()).basicRemove(otherEnd, msgs);
-      case UsePackage.MODEL__CONSTRAINTS:
+      case UsePackage.MODEL_USE__CONSTRAINTS:
         return basicSetConstraints(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -248,13 +248,13 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case UsePackage.MODEL__NAME:
+      case UsePackage.MODEL_USE__NAME:
         return getName();
-      case UsePackage.MODEL__ENUMS:
+      case UsePackage.MODEL_USE__ENUMS:
         return getEnums();
-      case UsePackage.MODEL__PACKAGED_ELEMENT:
+      case UsePackage.MODEL_USE__PACKAGED_ELEMENT:
         return getPackagedElement();
-      case UsePackage.MODEL__CONSTRAINTS:
+      case UsePackage.MODEL_USE__CONSTRAINTS:
         return getConstraints();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -271,18 +271,18 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case UsePackage.MODEL__NAME:
+      case UsePackage.MODEL_USE__NAME:
         setName((String)newValue);
         return;
-      case UsePackage.MODEL__ENUMS:
+      case UsePackage.MODEL_USE__ENUMS:
         getEnums().clear();
         getEnums().addAll((Collection<? extends modelConverter.use_language.use.Enum>)newValue);
         return;
-      case UsePackage.MODEL__PACKAGED_ELEMENT:
+      case UsePackage.MODEL_USE__PACKAGED_ELEMENT:
         getPackagedElement().clear();
         getPackagedElement().addAll((Collection<? extends Type>)newValue);
         return;
-      case UsePackage.MODEL__CONSTRAINTS:
+      case UsePackage.MODEL_USE__CONSTRAINTS:
         setConstraints((ConstrainsGeneral)newValue);
         return;
     }
@@ -299,16 +299,16 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case UsePackage.MODEL__NAME:
+      case UsePackage.MODEL_USE__NAME:
         setName(NAME_EDEFAULT);
         return;
-      case UsePackage.MODEL__ENUMS:
+      case UsePackage.MODEL_USE__ENUMS:
         getEnums().clear();
         return;
-      case UsePackage.MODEL__PACKAGED_ELEMENT:
+      case UsePackage.MODEL_USE__PACKAGED_ELEMENT:
         getPackagedElement().clear();
         return;
-      case UsePackage.MODEL__CONSTRAINTS:
+      case UsePackage.MODEL_USE__CONSTRAINTS:
         setConstraints((ConstrainsGeneral)null);
         return;
     }
@@ -325,13 +325,13 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case UsePackage.MODEL__NAME:
+      case UsePackage.MODEL_USE__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case UsePackage.MODEL__ENUMS:
+      case UsePackage.MODEL_USE__ENUMS:
         return enums != null && !enums.isEmpty();
-      case UsePackage.MODEL__PACKAGED_ELEMENT:
+      case UsePackage.MODEL_USE__PACKAGED_ELEMENT:
         return packagedElement != null && !packagedElement.isEmpty();
-      case UsePackage.MODEL__CONSTRAINTS:
+      case UsePackage.MODEL_USE__CONSTRAINTS:
         return constraints != null;
     }
     return super.eIsSet(featureID);
@@ -354,4 +354,4 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
     return result.toString();
   }
 
-} //ModelImpl
+} //ModelUSEImpl

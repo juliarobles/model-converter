@@ -3,6 +3,7 @@
  */
 package modelConverter.use_language.use;
 
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -14,6 +15,6 @@ package modelConverter.use_language.use;
  * @model
  * @generated
  */
-public interface AllClass extends AllClassAndEnum
+public interface AllClass extends EObject
 {
 } // AllClass

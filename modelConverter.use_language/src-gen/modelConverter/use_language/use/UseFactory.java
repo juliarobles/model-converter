@@ -24,13 +24,13 @@ public interface UseFactory extends EFactory
   UseFactory eINSTANCE = modelConverter.use_language.use.impl.UseFactoryImpl.init();
 
   /**
-   * Returns a new object of class '<em>Model</em>'.
+   * Returns a new object of class '<em>Model USE</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Model</em>'.
+   * @return a new object of class '<em>Model USE</em>'.
    * @generated
    */
-  Model createModel();
+  ModelUSE createModelUSE();
 
   /**
    * Returns a new object of class '<em>Multiplicity</em>'.
@@ -76,15 +76,6 @@ public interface UseFactory extends EFactory
    * @generated
    */
   AllClass createAllClass();
-
-  /**
-   * Returns a new object of class '<em>All Class And Enum</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>All Class And Enum</em>'.
-   * @generated
-   */
-  AllClassAndEnum createAllClassAndEnum();
 
   /**
    * Returns a new object of class '<em>Simple Types</em>'.
@@ -310,6 +301,15 @@ public interface UseFactory extends EFactory
    * @generated
    */
   Postcondition createPostcondition();
+
+  /**
+   * Returns a new object of class '<em>Context CS</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Context CS</em>'.
+   * @generated
+   */
+  ContextCS createContextCS();
 
   /**
    * Returns the package supported by this factory.

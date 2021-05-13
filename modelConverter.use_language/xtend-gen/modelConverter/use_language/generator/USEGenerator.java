@@ -6,7 +6,6 @@ package modelConverter.use_language.generator;
 import com.google.common.base.Objects;
 import com.google.common.collect.Iterables;
 import modelConverter.use_language.use.AllClass;
-import modelConverter.use_language.use.AllClassAndEnum;
 import modelConverter.use_language.use.AllTypes;
 import modelConverter.use_language.use.Association;
 import modelConverter.use_language.use.AssociationClass;
@@ -17,11 +16,12 @@ import modelConverter.use_language.use.CollectionType;
 import modelConverter.use_language.use.ConditionType;
 import modelConverter.use_language.use.ConstrainsGeneral;
 import modelConverter.use_language.use.ConstraintsBase;
+import modelConverter.use_language.use.ContextCS;
 import modelConverter.use_language.use.ContextsType;
 import modelConverter.use_language.use.Generalization;
 import modelConverter.use_language.use.InvariantContext;
 import modelConverter.use_language.use.InvariantDefinition;
-import modelConverter.use_language.use.Model;
+import modelConverter.use_language.use.ModelUSE;
 import modelConverter.use_language.use.OperationConstraints;
 import modelConverter.use_language.use.OperationContext;
 import modelConverter.use_language.use.OperationQuery;
@@ -36,6 +36,7 @@ import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.ocl.xtext.essentialoclcs.ExpCS;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
@@ -55,13 +56,13 @@ import org.eclipse.xtext.xbase.lib.ListExtensions;
 public class USEGenerator extends AbstractGenerator {
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
-    Iterable<Model> _filter = Iterables.<Model>filter(IteratorExtensions.<EObject>toIterable(resource.getAllContents()), Model.class);
-    for (final Model e : _filter) {
+    Iterable<ModelUSE> _filter = Iterables.<ModelUSE>filter(IteratorExtensions.<EObject>toIterable(resource.getAllContents()), ModelUSE.class);
+    for (final ModelUSE e : _filter) {
       fsa.generateFile("prueba.uml", this.compileModel(e));
     }
   }
   
-  private CharSequence compileModel(final Model e) {
+  private CharSequence compileModel(final ModelUSE e) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
     _builder.newLine();
@@ -525,7 +526,7 @@ public class USEGenerator extends AbstractGenerator {
     _builder.append(_name);
     _builder.append("\" ");
     {
-      String _operationbody = op.getOperationbody();
+      ContextCS _operationbody = op.getOperationbody();
       boolean _tripleNotEquals = (_operationbody != null);
       if (_tripleNotEquals) {
         _builder.append("bodyCondition=\"");
@@ -587,11 +588,11 @@ public class USEGenerator extends AbstractGenerator {
     _builder.append(">");
     _builder.newLineIfNotEmpty();
     {
-      String _operationbody_1 = op.getOperationbody();
+      ContextCS _operationbody_1 = op.getOperationbody();
       boolean _tripleNotEquals_1 = (_operationbody_1 != null);
       if (_tripleNotEquals_1) {
         _builder.append("\t");
-        String _operationbody_2 = op.getOperationbody();
+        ContextCS _operationbody_2 = op.getOperationbody();
         String _string_1 = Integer.valueOf(System.identityHashCode(op)).toString();
         int _identityHashCode_6 = System.identityHashCode(op.getOperationbody());
         String _plus_1 = (_string_1 + Integer.valueOf(_identityHashCode_6));
@@ -646,7 +647,7 @@ public class USEGenerator extends AbstractGenerator {
     return _builder;
   }
   
-  private CharSequence compileOwnedRule(final String e, final String id, final String name, final String constrainedElement) {
+  private CharSequence compileOwnedRule(final ContextCS e, final String id, final String name, final String constrainedElement) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("<ownedRule xmi:id=\"");
     _builder.append(id);
@@ -670,17 +671,21 @@ public class USEGenerator extends AbstractGenerator {
     _builder.newLine();
     _builder.append("\t   \t  \t");
     _builder.append("<body>");
-    String _replaceAll = e.replaceAll("<", "&lt;").replaceAll(">", "&gt;");
-    int _length = e.length();
-    int _minus = (_length - 2);
-    String _substring = _replaceAll.substring(1, _minus);
-    _builder.append(_substring, "\t   \t  \t");
+    CharSequence _compileOCL = this.compileOCL(e.getOwnedExpression());
+    _builder.append(_compileOCL, "\t   \t  \t");
     _builder.append("</body>");
     _builder.newLineIfNotEmpty();
     _builder.append("\t  \t");
     _builder.append("</specification>");
     _builder.newLine();
     _builder.append("</ownedRule>");
+    _builder.newLine();
+    return _builder;
+  }
+  
+  private CharSequence compileOCL(final ExpCS e) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("\t");
     _builder.newLine();
     return _builder;
   }
@@ -702,7 +707,7 @@ public class USEGenerator extends AbstractGenerator {
         if (((((((e != null) && (e instanceof CollectionType)) && (((CollectionType) e).getType() != null)) && (((Object[])Conversions.unwrapArray(((CollectionType) e).getType(), Object.class)).length > 0)) && (((CollectionType) e).getType().get(0) instanceof SimpleTypes)) && (((SimpleTypes) ((CollectionType) e).getType().get(0)).getReferended() != null))) {
           _builder.append("type=\"");
           SimpleTypes _get = ((CollectionType) e).getType().get(0);
-          AllClassAndEnum _referended = ((SimpleTypes) _get).getReferended();
+          EObject _referended = ((SimpleTypes) _get).getReferended();
           _builder.append(_referended);
           _builder.append("\"");
         }
@@ -781,7 +786,7 @@ public class USEGenerator extends AbstractGenerator {
           _builder.append("type=\"");
           AllTypes _type_1 = e.getType();
           SimpleTypes _get = ((CollectionType) _type_1).getType().get(0);
-          AllClassAndEnum _referended = ((SimpleTypes) _get).getReferended();
+          EObject _referended = ((SimpleTypes) _get).getReferended();
           boolean _tripleNotEquals = (_referended != null);
           _builder.append(_tripleNotEquals);
           _builder.append("\"");

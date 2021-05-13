@@ -4,7 +4,6 @@
 package modelConverter.use_language.use.util;
 
 import modelConverter.use_language.use.AllClass;
-import modelConverter.use_language.use.AllClassAndEnum;
 import modelConverter.use_language.use.AllTypes;
 import modelConverter.use_language.use.Association;
 import modelConverter.use_language.use.AssociationClass;
@@ -15,11 +14,12 @@ import modelConverter.use_language.use.CollectionType;
 import modelConverter.use_language.use.ConditionType;
 import modelConverter.use_language.use.ConstrainsGeneral;
 import modelConverter.use_language.use.ConstraintsBase;
+import modelConverter.use_language.use.ContextCS;
 import modelConverter.use_language.use.ContextsType;
 import modelConverter.use_language.use.Generalization;
 import modelConverter.use_language.use.InvariantContext;
 import modelConverter.use_language.use.InvariantDefinition;
-import modelConverter.use_language.use.Model;
+import modelConverter.use_language.use.ModelUSE;
 import modelConverter.use_language.use.Multiplicity;
 import modelConverter.use_language.use.OperationComplex;
 import modelConverter.use_language.use.OperationConstraints;
@@ -103,10 +103,10 @@ public class UseSwitch<T> extends Switch<T>
   {
     switch (classifierID)
     {
-      case UsePackage.MODEL:
+      case UsePackage.MODEL_USE:
       {
-        Model model = (Model)theEObject;
-        T result = caseModel(model);
+        ModelUSE modelUSE = (ModelUSE)theEObject;
+        T result = caseModelUSE(modelUSE);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -143,14 +143,6 @@ public class UseSwitch<T> extends Switch<T>
       {
         AllClass allClass = (AllClass)theEObject;
         T result = caseAllClass(allClass);
-        if (result == null) result = caseAllClassAndEnum(allClass);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case UsePackage.ALL_CLASS_AND_ENUM:
-      {
-        AllClassAndEnum allClassAndEnum = (AllClassAndEnum)theEObject;
-        T result = caseAllClassAndEnum(allClassAndEnum);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -166,7 +158,6 @@ public class UseSwitch<T> extends Switch<T>
       {
         modelConverter.use_language.use.Enum enum_ = (modelConverter.use_language.use.Enum)theEObject;
         T result = caseEnum(enum_);
-        if (result == null) result = caseAllClassAndEnum(enum_);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -176,7 +167,6 @@ public class UseSwitch<T> extends Switch<T>
         T result = caseClass(class_);
         if (result == null) result = caseType(class_);
         if (result == null) result = caseAllClass(class_);
-        if (result == null) result = caseAllClassAndEnum(class_);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -208,7 +198,6 @@ public class UseSwitch<T> extends Switch<T>
         T result = caseAssociationClass(associationClass);
         if (result == null) result = caseType(associationClass);
         if (result == null) result = caseAllClass(associationClass);
-        if (result == null) result = caseAllClassAndEnum(associationClass);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -344,22 +333,29 @@ public class UseSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case UsePackage.CONTEXT_CS:
+      {
+        ContextCS contextCS = (ContextCS)theEObject;
+        T result = caseContextCS(contextCS);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       default: return defaultCase(theEObject);
     }
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Model</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Model USE</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Model</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Model USE</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseModel(Model object)
+  public T caseModelUSE(ModelUSE object)
   {
     return null;
   }
@@ -440,22 +436,6 @@ public class UseSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseAllClass(AllClass object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>All Class And Enum</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>All Class And Enum</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseAllClassAndEnum(AllClassAndEnum object)
   {
     return null;
   }
@@ -856,6 +836,22 @@ public class UseSwitch<T> extends Switch<T>
    * @generated
    */
   public T casePostcondition(Postcondition object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Context CS</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Context CS</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseContextCS(ContextCS object)
   {
     return null;
   }

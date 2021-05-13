@@ -4,11 +4,14 @@
 package modelConverter.use_language.use.impl;
 
 import modelConverter.use_language.use.ConditionType;
+import modelConverter.use_language.use.ContextCS;
 import modelConverter.use_language.use.UsePackage;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
@@ -50,24 +53,14 @@ public class ConditionTypeImpl extends MinimalEObjectImpl.Container implements C
   protected String name = NAME_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getOclexpression() <em>Oclexpression</em>}' attribute.
+   * The cached value of the '{@link #getOclexpression() <em>Oclexpression</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getOclexpression()
    * @generated
    * @ordered
    */
-  protected static final String OCLEXPRESSION_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getOclexpression() <em>Oclexpression</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getOclexpression()
-   * @generated
-   * @ordered
-   */
-  protected String oclexpression = OCLEXPRESSION_EDEFAULT;
+  protected ContextCS oclexpression;
 
   /**
    * <!-- begin-user-doc -->
@@ -121,7 +114,7 @@ public class ConditionTypeImpl extends MinimalEObjectImpl.Container implements C
    * @generated
    */
   @Override
-  public String getOclexpression()
+  public ContextCS getOclexpression()
   {
     return oclexpression;
   }
@@ -131,13 +124,54 @@ public class ConditionTypeImpl extends MinimalEObjectImpl.Container implements C
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public void setOclexpression(String newOclexpression)
+  public NotificationChain basicSetOclexpression(ContextCS newOclexpression, NotificationChain msgs)
   {
-    String oldOclexpression = oclexpression;
+    ContextCS oldOclexpression = oclexpression;
     oclexpression = newOclexpression;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, UsePackage.CONDITION_TYPE__OCLEXPRESSION, oldOclexpression, oclexpression));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, UsePackage.CONDITION_TYPE__OCLEXPRESSION, oldOclexpression, newOclexpression);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setOclexpression(ContextCS newOclexpression)
+  {
+    if (newOclexpression != oclexpression)
+    {
+      NotificationChain msgs = null;
+      if (oclexpression != null)
+        msgs = ((InternalEObject)oclexpression).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UsePackage.CONDITION_TYPE__OCLEXPRESSION, null, msgs);
+      if (newOclexpression != null)
+        msgs = ((InternalEObject)newOclexpression).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UsePackage.CONDITION_TYPE__OCLEXPRESSION, null, msgs);
+      msgs = basicSetOclexpression(newOclexpression, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, UsePackage.CONDITION_TYPE__OCLEXPRESSION, newOclexpression, newOclexpression));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case UsePackage.CONDITION_TYPE__OCLEXPRESSION:
+        return basicSetOclexpression(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
   }
 
   /**
@@ -172,7 +206,7 @@ public class ConditionTypeImpl extends MinimalEObjectImpl.Container implements C
         setName((String)newValue);
         return;
       case UsePackage.CONDITION_TYPE__OCLEXPRESSION:
-        setOclexpression((String)newValue);
+        setOclexpression((ContextCS)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -192,7 +226,7 @@ public class ConditionTypeImpl extends MinimalEObjectImpl.Container implements C
         setName(NAME_EDEFAULT);
         return;
       case UsePackage.CONDITION_TYPE__OCLEXPRESSION:
-        setOclexpression(OCLEXPRESSION_EDEFAULT);
+        setOclexpression((ContextCS)null);
         return;
     }
     super.eUnset(featureID);
@@ -211,7 +245,7 @@ public class ConditionTypeImpl extends MinimalEObjectImpl.Container implements C
       case UsePackage.CONDITION_TYPE__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case UsePackage.CONDITION_TYPE__OCLEXPRESSION:
-        return OCLEXPRESSION_EDEFAULT == null ? oclexpression != null : !OCLEXPRESSION_EDEFAULT.equals(oclexpression);
+        return oclexpression != null;
     }
     return super.eIsSet(featureID);
   }
@@ -229,8 +263,6 @@ public class ConditionTypeImpl extends MinimalEObjectImpl.Container implements C
     StringBuilder result = new StringBuilder(super.toString());
     result.append(" (name: ");
     result.append(name);
-    result.append(", oclexpression: ");
-    result.append(oclexpression);
     result.append(')');
     return result.toString();
   }

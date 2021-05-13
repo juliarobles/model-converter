@@ -50,26 +50,26 @@ public interface OperationType extends EObject
   void setOperationDeclaration(OperationDeclaration value);
 
   /**
-   * Returns the value of the '<em><b>Operationbody</b></em>' attribute.
+   * Returns the value of the '<em><b>Operationbody</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Operationbody</em>' attribute.
-   * @see #setOperationbody(String)
+   * @return the value of the '<em>Operationbody</em>' containment reference.
+   * @see #setOperationbody(ContextCS)
    * @see modelConverter.use_language.use.UsePackage#getOperationType_Operationbody()
-   * @model
+   * @model containment="true"
    * @generated
    */
-  String getOperationbody();
+  ContextCS getOperationbody();
 
   /**
-   * Sets the value of the '{@link modelConverter.use_language.use.OperationType#getOperationbody <em>Operationbody</em>}' attribute.
+   * Sets the value of the '{@link modelConverter.use_language.use.OperationType#getOperationbody <em>Operationbody</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Operationbody</em>' attribute.
+   * @param value the new value of the '<em>Operationbody</em>' containment reference.
    * @see #getOperationbody()
    * @generated
    */
-  void setOperationbody(String value);
+  void setOperationbody(ContextCS value);
 
   /**
    * Returns the value of the '<em><b>Conditions</b></em>' containment reference list.

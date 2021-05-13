@@ -1,11 +1,11 @@
-grammar modelConverter.use_language.USE with org.eclipse.xtext.common.Terminals
+grammar modelConverter.use_language.USE with org.eclipse.ocl.xtext.essentialocl.EssentialOCL
 
 import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 
 generate use "http://www.USE.lenguage_use_xtext"
 
 //-------------PRINCIPAL Y TIPOS---------------
-Model:
+ModelUSE:
 	'model' name=ID ((enums += Enum)* (packagedElement += Type)* constraints=(ConstrainsGeneral)?);
 	
 Multiplicity:
@@ -28,21 +28,18 @@ CollectionType:
 
 AllClass:
 	Class|AssociationClass;
-
-AllClassAndEnum:
-	AllClass | Enum;
 	
 SimpleTypes:
-	defaultType=DefaultType | referended=[AllClassAndEnum]; //https://www.eclipse.org/forums/index.php/m/553266/?srch=Cannot+call+enum+rule+without+assignment.#msg_553266
+	defaultType=DefaultType | referended=[AllClass] | referended=[Enum]; //https://www.eclipse.org/forums/index.php/m/553266/?srch=Cannot+call+enum+rule+without+assignment.#msg_553266
 
 
-@Override
-terminal SL_COMMENT:
-    '--' !('\n'|'\r')* ('\r'? '\n')?;
+//@Override
+//terminal SL_COMMENT:
+    //'--' !('\n'|'\r')* ('\r'? '\n')?;
     
-@Override
-terminal ML_COMMENT:
-    '--' !('\n'|'\r')* ('\r'? '\n')?;
+//@Override
+//terminal ML_COMMENT:
+    //'--' !('\n'|'\r')* ('\r'? '\n')?;
 
 //--------------ENUMERADO--------------
 Enum:
@@ -144,8 +141,8 @@ Precondition:
 Postcondition:
 	'post' (name=ID)? ':' oclexpression=OCLExpression;
 
-OCLExpression hidden (SL_COMMENT):
-	STRING; //Esto es como ID pero separado por '', lo que necesito ahora mismo
+//OCLExpression hidden (SL_COMMENT):
+	//STRING; //Esto es como ID pero separado por '', lo que necesito ahora mismo
 	
 //OCLExpressionQuery hidden (SL_COMMENT):
 	//(ID | '.' | '->' | '(' | ')' | ':' | '=' | ';'); 
@@ -156,5 +153,6 @@ OCLExpression hidden (SL_COMMENT):
 //OCLExpression hidden(SL_COMMENT):
 	//ocl=AllOCLExpression '\r'? '\n';
 	
-
+OCLExpression returns ContextCS hidden(SL_COMMENT):
+	ownedExpression=ExpCS;
 

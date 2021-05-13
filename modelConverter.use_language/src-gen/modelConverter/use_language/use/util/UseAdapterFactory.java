@@ -4,7 +4,6 @@
 package modelConverter.use_language.use.util;
 
 import modelConverter.use_language.use.AllClass;
-import modelConverter.use_language.use.AllClassAndEnum;
 import modelConverter.use_language.use.AllTypes;
 import modelConverter.use_language.use.Association;
 import modelConverter.use_language.use.AssociationClass;
@@ -15,11 +14,12 @@ import modelConverter.use_language.use.CollectionType;
 import modelConverter.use_language.use.ConditionType;
 import modelConverter.use_language.use.ConstrainsGeneral;
 import modelConverter.use_language.use.ConstraintsBase;
+import modelConverter.use_language.use.ContextCS;
 import modelConverter.use_language.use.ContextsType;
 import modelConverter.use_language.use.Generalization;
 import modelConverter.use_language.use.InvariantContext;
 import modelConverter.use_language.use.InvariantDefinition;
-import modelConverter.use_language.use.Model;
+import modelConverter.use_language.use.ModelUSE;
 import modelConverter.use_language.use.Multiplicity;
 import modelConverter.use_language.use.OperationComplex;
 import modelConverter.use_language.use.OperationConstraints;
@@ -106,9 +106,9 @@ public class UseAdapterFactory extends AdapterFactoryImpl
     new UseSwitch<Adapter>()
     {
       @Override
-      public Adapter caseModel(Model object)
+      public Adapter caseModelUSE(ModelUSE object)
       {
-        return createModelAdapter();
+        return createModelUSEAdapter();
       }
       @Override
       public Adapter caseMultiplicity(Multiplicity object)
@@ -134,11 +134,6 @@ public class UseAdapterFactory extends AdapterFactoryImpl
       public Adapter caseAllClass(AllClass object)
       {
         return createAllClassAdapter();
-      }
-      @Override
-      public Adapter caseAllClassAndEnum(AllClassAndEnum object)
-      {
-        return createAllClassAndEnumAdapter();
       }
       @Override
       public Adapter caseSimpleTypes(SimpleTypes object)
@@ -266,6 +261,11 @@ public class UseAdapterFactory extends AdapterFactoryImpl
         return createPostconditionAdapter();
       }
       @Override
+      public Adapter caseContextCS(ContextCS object)
+      {
+        return createContextCSAdapter();
+      }
+      @Override
       public Adapter defaultCase(EObject object)
       {
         return createEObjectAdapter();
@@ -288,16 +288,16 @@ public class UseAdapterFactory extends AdapterFactoryImpl
 
 
   /**
-   * Creates a new adapter for an object of class '{@link modelConverter.use_language.use.Model <em>Model</em>}'.
+   * Creates a new adapter for an object of class '{@link modelConverter.use_language.use.ModelUSE <em>Model USE</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see modelConverter.use_language.use.Model
+   * @see modelConverter.use_language.use.ModelUSE
    * @generated
    */
-  public Adapter createModelAdapter()
+  public Adapter createModelUSEAdapter()
   {
     return null;
   }
@@ -373,21 +373,6 @@ public class UseAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createAllClassAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link modelConverter.use_language.use.AllClassAndEnum <em>All Class And Enum</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see modelConverter.use_language.use.AllClassAndEnum
-   * @generated
-   */
-  public Adapter createAllClassAndEnumAdapter()
   {
     return null;
   }
@@ -763,6 +748,21 @@ public class UseAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createPostconditionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link modelConverter.use_language.use.ContextCS <em>Context CS</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see modelConverter.use_language.use.ContextCS
+   * @generated
+   */
+  public Adapter createContextCSAdapter()
   {
     return null;
   }

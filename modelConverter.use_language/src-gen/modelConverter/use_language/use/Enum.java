@@ -5,6 +5,8 @@ package modelConverter.use_language.use;
 
 import org.eclipse.emf.common.util.EList;
 
+import org.eclipse.emf.ecore.EObject;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Enum</b></em>'.
@@ -22,7 +24,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface Enum extends AllClassAndEnum
+public interface Enum extends EObject
 {
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.

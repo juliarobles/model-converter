@@ -58,14 +58,14 @@ public interface UsePackage extends EPackage
   UsePackage eINSTANCE = modelConverter.use_language.use.impl.UsePackageImpl.init();
 
   /**
-   * The meta object id for the '{@link modelConverter.use_language.use.impl.ModelImpl <em>Model</em>}' class.
+   * The meta object id for the '{@link modelConverter.use_language.use.impl.ModelUSEImpl <em>Model USE</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see modelConverter.use_language.use.impl.ModelImpl
-   * @see modelConverter.use_language.use.impl.UsePackageImpl#getModel()
+   * @see modelConverter.use_language.use.impl.ModelUSEImpl
+   * @see modelConverter.use_language.use.impl.UsePackageImpl#getModelUSE()
    * @generated
    */
-  int MODEL = 0;
+  int MODEL_USE = 0;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -74,7 +74,7 @@ public interface UsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int MODEL__NAME = 0;
+  int MODEL_USE__NAME = 0;
 
   /**
    * The feature id for the '<em><b>Enums</b></em>' containment reference list.
@@ -83,7 +83,7 @@ public interface UsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int MODEL__ENUMS = 1;
+  int MODEL_USE__ENUMS = 1;
 
   /**
    * The feature id for the '<em><b>Packaged Element</b></em>' containment reference list.
@@ -92,7 +92,7 @@ public interface UsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int MODEL__PACKAGED_ELEMENT = 2;
+  int MODEL_USE__PACKAGED_ELEMENT = 2;
 
   /**
    * The feature id for the '<em><b>Constraints</b></em>' containment reference.
@@ -101,16 +101,16 @@ public interface UsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int MODEL__CONSTRAINTS = 3;
+  int MODEL_USE__CONSTRAINTS = 3;
 
   /**
-   * The number of structural features of the '<em>Model</em>' class.
+   * The number of structural features of the '<em>Model USE</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MODEL_FEATURE_COUNT = 4;
+  int MODEL_USE_FEATURE_COUNT = 4;
 
   /**
    * The meta object id for the '{@link modelConverter.use_language.use.impl.MultiplicityImpl <em>Multiplicity</em>}' class.
@@ -234,25 +234,6 @@ public interface UsePackage extends EPackage
   int COLLECTION_TYPE_FEATURE_COUNT = ALL_TYPES_FEATURE_COUNT + 2;
 
   /**
-   * The meta object id for the '{@link modelConverter.use_language.use.impl.AllClassAndEnumImpl <em>All Class And Enum</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see modelConverter.use_language.use.impl.AllClassAndEnumImpl
-   * @see modelConverter.use_language.use.impl.UsePackageImpl#getAllClassAndEnum()
-   * @generated
-   */
-  int ALL_CLASS_AND_ENUM = 6;
-
-  /**
-   * The number of structural features of the '<em>All Class And Enum</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ALL_CLASS_AND_ENUM_FEATURE_COUNT = 0;
-
-  /**
    * The meta object id for the '{@link modelConverter.use_language.use.impl.AllClassImpl <em>All Class</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -269,7 +250,7 @@ public interface UsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int ALL_CLASS_FEATURE_COUNT = ALL_CLASS_AND_ENUM_FEATURE_COUNT + 0;
+  int ALL_CLASS_FEATURE_COUNT = 0;
 
   /**
    * The meta object id for the '{@link modelConverter.use_language.use.impl.SimpleTypesImpl <em>Simple Types</em>}' class.
@@ -279,7 +260,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getSimpleTypes()
    * @generated
    */
-  int SIMPLE_TYPES = 7;
+  int SIMPLE_TYPES = 6;
 
   /**
    * The feature id for the '<em><b>Default Type</b></em>' attribute.
@@ -316,7 +297,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getEnum()
    * @generated
    */
-  int ENUM = 8;
+  int ENUM = 7;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -325,7 +306,7 @@ public interface UsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int ENUM__NAME = ALL_CLASS_AND_ENUM_FEATURE_COUNT + 0;
+  int ENUM__NAME = 0;
 
   /**
    * The feature id for the '<em><b>Elements</b></em>' attribute list.
@@ -334,7 +315,7 @@ public interface UsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int ENUM__ELEMENTS = ALL_CLASS_AND_ENUM_FEATURE_COUNT + 1;
+  int ENUM__ELEMENTS = 1;
 
   /**
    * The number of structural features of the '<em>Enum</em>' class.
@@ -343,7 +324,7 @@ public interface UsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int ENUM_FEATURE_COUNT = ALL_CLASS_AND_ENUM_FEATURE_COUNT + 2;
+  int ENUM_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link modelConverter.use_language.use.impl.ClassImpl <em>Class</em>}' class.
@@ -353,7 +334,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getClass_()
    * @generated
    */
-  int CLASS = 9;
+  int CLASS = 8;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -426,7 +407,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getGeneralization()
    * @generated
    */
-  int GENERALIZATION = 10;
+  int GENERALIZATION = 9;
 
   /**
    * The feature id for the '<em><b>General</b></em>' reference.
@@ -454,7 +435,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getAssociation()
    * @generated
    */
-  int ASSOCIATION = 11;
+  int ASSOCIATION = 10;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -500,7 +481,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getAssociationEnd()
    * @generated
    */
-  int ASSOCIATION_END = 12;
+  int ASSOCIATION_END = 11;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' reference.
@@ -555,7 +536,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getAssociationClass()
    * @generated
    */
-  int ASSOCIATION_CLASS = 13;
+  int ASSOCIATION_CLASS = 12;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -637,7 +618,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getAttributesBase()
    * @generated
    */
-  int ATTRIBUTES_BASE = 14;
+  int ATTRIBUTES_BASE = 13;
 
   /**
    * The feature id for the '<em><b>Attributes</b></em>' containment reference list.
@@ -665,7 +646,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getAttribute()
    * @generated
    */
-  int ATTRIBUTE = 15;
+  int ATTRIBUTE = 14;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -702,7 +683,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getOperationsBase()
    * @generated
    */
-  int OPERATIONS_BASE = 16;
+  int OPERATIONS_BASE = 15;
 
   /**
    * The feature id for the '<em><b>Operations</b></em>' containment reference list.
@@ -730,7 +711,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getOperationType()
    * @generated
    */
-  int OPERATION_TYPE = 17;
+  int OPERATION_TYPE = 16;
 
   /**
    * The feature id for the '<em><b>Operation Declaration</b></em>' containment reference.
@@ -742,7 +723,7 @@ public interface UsePackage extends EPackage
   int OPERATION_TYPE__OPERATION_DECLARATION = 0;
 
   /**
-   * The feature id for the '<em><b>Operationbody</b></em>' attribute.
+   * The feature id for the '<em><b>Operationbody</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -776,7 +757,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getOperationQuery()
    * @generated
    */
-  int OPERATION_QUERY = 18;
+  int OPERATION_QUERY = 17;
 
   /**
    * The feature id for the '<em><b>Operation Declaration</b></em>' containment reference.
@@ -788,7 +769,7 @@ public interface UsePackage extends EPackage
   int OPERATION_QUERY__OPERATION_DECLARATION = OPERATION_TYPE__OPERATION_DECLARATION;
 
   /**
-   * The feature id for the '<em><b>Operationbody</b></em>' attribute.
+   * The feature id for the '<em><b>Operationbody</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -822,7 +803,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getOperationComplex()
    * @generated
    */
-  int OPERATION_COMPLEX = 19;
+  int OPERATION_COMPLEX = 18;
 
   /**
    * The feature id for the '<em><b>Operation Declaration</b></em>' containment reference.
@@ -834,7 +815,7 @@ public interface UsePackage extends EPackage
   int OPERATION_COMPLEX__OPERATION_DECLARATION = OPERATION_TYPE__OPERATION_DECLARATION;
 
   /**
-   * The feature id for the '<em><b>Operationbody</b></em>' attribute.
+   * The feature id for the '<em><b>Operationbody</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -868,7 +849,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getOperationDeclaration()
    * @generated
    */
-  int OPERATION_DECLARATION = 20;
+  int OPERATION_DECLARATION = 19;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -914,7 +895,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getParameter()
    * @generated
    */
-  int PARAMETER = 21;
+  int PARAMETER = 20;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -951,7 +932,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getConstraintsBase()
    * @generated
    */
-  int CONSTRAINTS_BASE = 22;
+  int CONSTRAINTS_BASE = 21;
 
   /**
    * The feature id for the '<em><b>Invariants</b></em>' containment reference list.
@@ -979,7 +960,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getConstrainsGeneral()
    * @generated
    */
-  int CONSTRAINS_GENERAL = 23;
+  int CONSTRAINS_GENERAL = 22;
 
   /**
    * The feature id for the '<em><b>Contexts</b></em>' containment reference list.
@@ -1007,7 +988,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getContextsType()
    * @generated
    */
-  int CONTEXTS_TYPE = 24;
+  int CONTEXTS_TYPE = 23;
 
   /**
    * The feature id for the '<em><b>Classname</b></em>' reference.
@@ -1035,7 +1016,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getInvariantContext()
    * @generated
    */
-  int INVARIANT_CONTEXT = 25;
+  int INVARIANT_CONTEXT = 24;
 
   /**
    * The feature id for the '<em><b>Classname</b></em>' reference.
@@ -1081,7 +1062,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getInvariantDefinition()
    * @generated
    */
-  int INVARIANT_DEFINITION = 26;
+  int INVARIANT_DEFINITION = 25;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1093,7 +1074,7 @@ public interface UsePackage extends EPackage
   int INVARIANT_DEFINITION__NAME = 0;
 
   /**
-   * The feature id for the '<em><b>Oclexpression</b></em>' attribute.
+   * The feature id for the '<em><b>Oclexpression</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -1118,7 +1099,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getOperationContext()
    * @generated
    */
-  int OPERATION_CONTEXT = 27;
+  int OPERATION_CONTEXT = 26;
 
   /**
    * The feature id for the '<em><b>Classname</b></em>' reference.
@@ -1155,7 +1136,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getOperationConstraints()
    * @generated
    */
-  int OPERATION_CONSTRAINTS = 28;
+  int OPERATION_CONSTRAINTS = 27;
 
   /**
    * The feature id for the '<em><b>Operation Declaration</b></em>' containment reference.
@@ -1192,7 +1173,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getConditionType()
    * @generated
    */
-  int CONDITION_TYPE = 29;
+  int CONDITION_TYPE = 28;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1204,7 +1185,7 @@ public interface UsePackage extends EPackage
   int CONDITION_TYPE__NAME = 0;
 
   /**
-   * The feature id for the '<em><b>Oclexpression</b></em>' attribute.
+   * The feature id for the '<em><b>Oclexpression</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -1229,7 +1210,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getPrecondition()
    * @generated
    */
-  int PRECONDITION = 30;
+  int PRECONDITION = 29;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1241,7 +1222,7 @@ public interface UsePackage extends EPackage
   int PRECONDITION__NAME = CONDITION_TYPE__NAME;
 
   /**
-   * The feature id for the '<em><b>Oclexpression</b></em>' attribute.
+   * The feature id for the '<em><b>Oclexpression</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -1266,7 +1247,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getPostcondition()
    * @generated
    */
-  int POSTCONDITION = 31;
+  int POSTCONDITION = 30;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1278,7 +1259,7 @@ public interface UsePackage extends EPackage
   int POSTCONDITION__NAME = CONDITION_TYPE__NAME;
 
   /**
-   * The feature id for the '<em><b>Oclexpression</b></em>' attribute.
+   * The feature id for the '<em><b>Oclexpression</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -1295,60 +1276,88 @@ public interface UsePackage extends EPackage
    */
   int POSTCONDITION_FEATURE_COUNT = CONDITION_TYPE_FEATURE_COUNT + 0;
 
-
   /**
-   * Returns the meta object for class '{@link modelConverter.use_language.use.Model <em>Model</em>}'.
+   * The meta object id for the '{@link modelConverter.use_language.use.impl.ContextCSImpl <em>Context CS</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Model</em>'.
-   * @see modelConverter.use_language.use.Model
+   * @see modelConverter.use_language.use.impl.ContextCSImpl
+   * @see modelConverter.use_language.use.impl.UsePackageImpl#getContextCS()
    * @generated
    */
-  EClass getModel();
+  int CONTEXT_CS = 31;
 
   /**
-   * Returns the meta object for the attribute '{@link modelConverter.use_language.use.Model#getName <em>Name</em>}'.
+   * The feature id for the '<em><b>Owned Expression</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONTEXT_CS__OWNED_EXPRESSION = 0;
+
+  /**
+   * The number of structural features of the '<em>Context CS</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONTEXT_CS_FEATURE_COUNT = 1;
+
+
+  /**
+   * Returns the meta object for class '{@link modelConverter.use_language.use.ModelUSE <em>Model USE</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Model USE</em>'.
+   * @see modelConverter.use_language.use.ModelUSE
+   * @generated
+   */
+  EClass getModelUSE();
+
+  /**
+   * Returns the meta object for the attribute '{@link modelConverter.use_language.use.ModelUSE#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Name</em>'.
-   * @see modelConverter.use_language.use.Model#getName()
-   * @see #getModel()
+   * @see modelConverter.use_language.use.ModelUSE#getName()
+   * @see #getModelUSE()
    * @generated
    */
-  EAttribute getModel_Name();
+  EAttribute getModelUSE_Name();
 
   /**
-   * Returns the meta object for the containment reference list '{@link modelConverter.use_language.use.Model#getEnums <em>Enums</em>}'.
+   * Returns the meta object for the containment reference list '{@link modelConverter.use_language.use.ModelUSE#getEnums <em>Enums</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference list '<em>Enums</em>'.
-   * @see modelConverter.use_language.use.Model#getEnums()
-   * @see #getModel()
+   * @see modelConverter.use_language.use.ModelUSE#getEnums()
+   * @see #getModelUSE()
    * @generated
    */
-  EReference getModel_Enums();
+  EReference getModelUSE_Enums();
 
   /**
-   * Returns the meta object for the containment reference list '{@link modelConverter.use_language.use.Model#getPackagedElement <em>Packaged Element</em>}'.
+   * Returns the meta object for the containment reference list '{@link modelConverter.use_language.use.ModelUSE#getPackagedElement <em>Packaged Element</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference list '<em>Packaged Element</em>'.
-   * @see modelConverter.use_language.use.Model#getPackagedElement()
-   * @see #getModel()
+   * @see modelConverter.use_language.use.ModelUSE#getPackagedElement()
+   * @see #getModelUSE()
    * @generated
    */
-  EReference getModel_PackagedElement();
+  EReference getModelUSE_PackagedElement();
 
   /**
-   * Returns the meta object for the containment reference '{@link modelConverter.use_language.use.Model#getConstraints <em>Constraints</em>}'.
+   * Returns the meta object for the containment reference '{@link modelConverter.use_language.use.ModelUSE#getConstraints <em>Constraints</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>Constraints</em>'.
-   * @see modelConverter.use_language.use.Model#getConstraints()
-   * @see #getModel()
+   * @see modelConverter.use_language.use.ModelUSE#getConstraints()
+   * @see #getModelUSE()
    * @generated
    */
-  EReference getModel_Constraints();
+  EReference getModelUSE_Constraints();
 
   /**
    * Returns the meta object for class '{@link modelConverter.use_language.use.Multiplicity <em>Multiplicity</em>}'.
@@ -1454,16 +1463,6 @@ public interface UsePackage extends EPackage
    * @generated
    */
   EClass getAllClass();
-
-  /**
-   * Returns the meta object for class '{@link modelConverter.use_language.use.AllClassAndEnum <em>All Class And Enum</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>All Class And Enum</em>'.
-   * @see modelConverter.use_language.use.AllClassAndEnum
-   * @generated
-   */
-  EClass getAllClassAndEnum();
 
   /**
    * Returns the meta object for class '{@link modelConverter.use_language.use.SimpleTypes <em>Simple Types</em>}'.
@@ -1873,15 +1872,15 @@ public interface UsePackage extends EPackage
   EReference getOperationType_OperationDeclaration();
 
   /**
-   * Returns the meta object for the attribute '{@link modelConverter.use_language.use.OperationType#getOperationbody <em>Operationbody</em>}'.
+   * Returns the meta object for the containment reference '{@link modelConverter.use_language.use.OperationType#getOperationbody <em>Operationbody</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Operationbody</em>'.
+   * @return the meta object for the containment reference '<em>Operationbody</em>'.
    * @see modelConverter.use_language.use.OperationType#getOperationbody()
    * @see #getOperationType()
    * @generated
    */
-  EAttribute getOperationType_Operationbody();
+  EReference getOperationType_Operationbody();
 
   /**
    * Returns the meta object for the containment reference list '{@link modelConverter.use_language.use.OperationType#getConditions <em>Conditions</em>}'.
@@ -2106,15 +2105,15 @@ public interface UsePackage extends EPackage
   EAttribute getInvariantDefinition_Name();
 
   /**
-   * Returns the meta object for the attribute '{@link modelConverter.use_language.use.InvariantDefinition#getOclexpression <em>Oclexpression</em>}'.
+   * Returns the meta object for the containment reference '{@link modelConverter.use_language.use.InvariantDefinition#getOclexpression <em>Oclexpression</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Oclexpression</em>'.
+   * @return the meta object for the containment reference '<em>Oclexpression</em>'.
    * @see modelConverter.use_language.use.InvariantDefinition#getOclexpression()
    * @see #getInvariantDefinition()
    * @generated
    */
-  EAttribute getInvariantDefinition_Oclexpression();
+  EReference getInvariantDefinition_Oclexpression();
 
   /**
    * Returns the meta object for class '{@link modelConverter.use_language.use.OperationContext <em>Operation Context</em>}'.
@@ -2191,15 +2190,15 @@ public interface UsePackage extends EPackage
   EAttribute getConditionType_Name();
 
   /**
-   * Returns the meta object for the attribute '{@link modelConverter.use_language.use.ConditionType#getOclexpression <em>Oclexpression</em>}'.
+   * Returns the meta object for the containment reference '{@link modelConverter.use_language.use.ConditionType#getOclexpression <em>Oclexpression</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Oclexpression</em>'.
+   * @return the meta object for the containment reference '<em>Oclexpression</em>'.
    * @see modelConverter.use_language.use.ConditionType#getOclexpression()
    * @see #getConditionType()
    * @generated
    */
-  EAttribute getConditionType_Oclexpression();
+  EReference getConditionType_Oclexpression();
 
   /**
    * Returns the meta object for class '{@link modelConverter.use_language.use.Precondition <em>Precondition</em>}'.
@@ -2220,6 +2219,27 @@ public interface UsePackage extends EPackage
    * @generated
    */
   EClass getPostcondition();
+
+  /**
+   * Returns the meta object for class '{@link modelConverter.use_language.use.ContextCS <em>Context CS</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Context CS</em>'.
+   * @see modelConverter.use_language.use.ContextCS
+   * @generated
+   */
+  EClass getContextCS();
+
+  /**
+   * Returns the meta object for the containment reference '{@link modelConverter.use_language.use.ContextCS#getOwnedExpression <em>Owned Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Owned Expression</em>'.
+   * @see modelConverter.use_language.use.ContextCS#getOwnedExpression()
+   * @see #getContextCS()
+   * @generated
+   */
+  EReference getContextCS_OwnedExpression();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -2245,14 +2265,14 @@ public interface UsePackage extends EPackage
   interface Literals
   {
     /**
-     * The meta object literal for the '{@link modelConverter.use_language.use.impl.ModelImpl <em>Model</em>}' class.
+     * The meta object literal for the '{@link modelConverter.use_language.use.impl.ModelUSEImpl <em>Model USE</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see modelConverter.use_language.use.impl.ModelImpl
-     * @see modelConverter.use_language.use.impl.UsePackageImpl#getModel()
+     * @see modelConverter.use_language.use.impl.ModelUSEImpl
+     * @see modelConverter.use_language.use.impl.UsePackageImpl#getModelUSE()
      * @generated
      */
-    EClass MODEL = eINSTANCE.getModel();
+    EClass MODEL_USE = eINSTANCE.getModelUSE();
 
     /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -2260,7 +2280,7 @@ public interface UsePackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute MODEL__NAME = eINSTANCE.getModel_Name();
+    EAttribute MODEL_USE__NAME = eINSTANCE.getModelUSE_Name();
 
     /**
      * The meta object literal for the '<em><b>Enums</b></em>' containment reference list feature.
@@ -2268,7 +2288,7 @@ public interface UsePackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference MODEL__ENUMS = eINSTANCE.getModel_Enums();
+    EReference MODEL_USE__ENUMS = eINSTANCE.getModelUSE_Enums();
 
     /**
      * The meta object literal for the '<em><b>Packaged Element</b></em>' containment reference list feature.
@@ -2276,7 +2296,7 @@ public interface UsePackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference MODEL__PACKAGED_ELEMENT = eINSTANCE.getModel_PackagedElement();
+    EReference MODEL_USE__PACKAGED_ELEMENT = eINSTANCE.getModelUSE_PackagedElement();
 
     /**
      * The meta object literal for the '<em><b>Constraints</b></em>' containment reference feature.
@@ -2284,7 +2304,7 @@ public interface UsePackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference MODEL__CONSTRAINTS = eINSTANCE.getModel_Constraints();
+    EReference MODEL_USE__CONSTRAINTS = eINSTANCE.getModelUSE_Constraints();
 
     /**
      * The meta object literal for the '{@link modelConverter.use_language.use.impl.MultiplicityImpl <em>Multiplicity</em>}' class.
@@ -2375,16 +2395,6 @@ public interface UsePackage extends EPackage
      * @generated
      */
     EClass ALL_CLASS = eINSTANCE.getAllClass();
-
-    /**
-     * The meta object literal for the '{@link modelConverter.use_language.use.impl.AllClassAndEnumImpl <em>All Class And Enum</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see modelConverter.use_language.use.impl.AllClassAndEnumImpl
-     * @see modelConverter.use_language.use.impl.UsePackageImpl#getAllClassAndEnum()
-     * @generated
-     */
-    EClass ALL_CLASS_AND_ENUM = eINSTANCE.getAllClassAndEnum();
 
     /**
      * The meta object literal for the '{@link modelConverter.use_language.use.impl.SimpleTypesImpl <em>Simple Types</em>}' class.
@@ -2713,12 +2723,12 @@ public interface UsePackage extends EPackage
     EReference OPERATION_TYPE__OPERATION_DECLARATION = eINSTANCE.getOperationType_OperationDeclaration();
 
     /**
-     * The meta object literal for the '<em><b>Operationbody</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Operationbody</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute OPERATION_TYPE__OPERATIONBODY = eINSTANCE.getOperationType_Operationbody();
+    EReference OPERATION_TYPE__OPERATIONBODY = eINSTANCE.getOperationType_Operationbody();
 
     /**
      * The meta object literal for the '<em><b>Conditions</b></em>' containment reference list feature.
@@ -2907,12 +2917,12 @@ public interface UsePackage extends EPackage
     EAttribute INVARIANT_DEFINITION__NAME = eINSTANCE.getInvariantDefinition_Name();
 
     /**
-     * The meta object literal for the '<em><b>Oclexpression</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Oclexpression</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute INVARIANT_DEFINITION__OCLEXPRESSION = eINSTANCE.getInvariantDefinition_Oclexpression();
+    EReference INVARIANT_DEFINITION__OCLEXPRESSION = eINSTANCE.getInvariantDefinition_Oclexpression();
 
     /**
      * The meta object literal for the '{@link modelConverter.use_language.use.impl.OperationContextImpl <em>Operation Context</em>}' class.
@@ -2977,12 +2987,12 @@ public interface UsePackage extends EPackage
     EAttribute CONDITION_TYPE__NAME = eINSTANCE.getConditionType_Name();
 
     /**
-     * The meta object literal for the '<em><b>Oclexpression</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Oclexpression</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute CONDITION_TYPE__OCLEXPRESSION = eINSTANCE.getConditionType_Oclexpression();
+    EReference CONDITION_TYPE__OCLEXPRESSION = eINSTANCE.getConditionType_Oclexpression();
 
     /**
      * The meta object literal for the '{@link modelConverter.use_language.use.impl.PreconditionImpl <em>Precondition</em>}' class.
@@ -3003,6 +3013,24 @@ public interface UsePackage extends EPackage
      * @generated
      */
     EClass POSTCONDITION = eINSTANCE.getPostcondition();
+
+    /**
+     * The meta object literal for the '{@link modelConverter.use_language.use.impl.ContextCSImpl <em>Context CS</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see modelConverter.use_language.use.impl.ContextCSImpl
+     * @see modelConverter.use_language.use.impl.UsePackageImpl#getContextCS()
+     * @generated
+     */
+    EClass CONTEXT_CS = eINSTANCE.getContextCS();
+
+    /**
+     * The meta object literal for the '<em><b>Owned Expression</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CONTEXT_CS__OWNED_EXPRESSION = eINSTANCE.getContextCS_OwnedExpression();
 
   }
 

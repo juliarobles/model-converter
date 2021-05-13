@@ -7,7 +7,6 @@ import modelConverter.use_language.use.AttributesBase
 import modelConverter.use_language.use.Class
 import modelConverter.use_language.use.Enum
 import modelConverter.use_language.use.Generalization
-import modelConverter.use_language.use.Model
 import modelConverter.use_language.use.Type
 import modelConverter.use_language.use.AssociationClass
 import modelConverter.use_language.use.Association
@@ -33,6 +32,9 @@ import modelConverter.use_language.use.OperationConstraints
 import org.eclipse.emf.common.util.BasicEList
 import modelConverter.use_language.use.AllTypes
 import modelConverter.use_language.use.CollectionType
+import org.eclipse.ocl.xtext.essentialoclcs.ExpCS
+import modelConverter.use_language.use.ContextCS
+import modelConverter.use_language.use.ModelUSE
 
 /**
  * Generates code from your model files on save.
@@ -42,12 +44,12 @@ import modelConverter.use_language.use.CollectionType
 class USEGenerator extends AbstractGenerator {
 
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
-		for (e : resource.allContents.toIterable.filter(Model)) {
+		for (e : resource.allContents.toIterable.filter(ModelUSE)) {
 			fsa.generateFile("prueba.uml", e.compileModel);
 		}
 	}
 
-	private def compileModel(Model e) '''
+	private def compileModel(ModelUSE e) '''
 		<?xml version="1.0" encoding="UTF-8"?>
 		<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:MagicDrawProfile="http://www.omg.org/spec/UML/20131001/MagicDrawProfile" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http://www.omg.org/spec/UML/20131001/MagicDrawProfile UML_Standard_Profile.MagicDraw_Profile.profile.uml#_nPVN7YtIEeuebcn5BqfCXQ">
 		   <uml:Model xmi:id="«System.identityHashCode(e)»" name="«e.getName»">
@@ -188,13 +190,16 @@ class USEGenerator extends AbstractGenerator {
 		</ownedOperation>	
 	'''
 
-	private def compileOwnedRule(String e, String id, String name, String constrainedElement) '''
+	private def compileOwnedRule(ContextCS e, String id, String name, String constrainedElement) '''
 		<ownedRule xmi:id="«id»" name="«name»" «constrainedElement»>
 			<specification xmi:type="uml:OpaqueExpression" xmi:id="«System.identityHashCode(e).toString + id»" name="«name»">
 			   	<language>OCL2.0</language>
-			   	  	<body>«e.replaceAll("<", "&lt;").replaceAll(">", "&gt;").substring(1, e.length-2)»</body>
+			   	  	<body>«e.getOwnedExpression.compileOCL»</body>
 			  	</specification>
 		</ownedRule>
+	'''
+	private def compileOCL(ExpCS e) '''
+	
 	'''
 
 	private def compileReturnType(AllTypes e, int idOp) '''

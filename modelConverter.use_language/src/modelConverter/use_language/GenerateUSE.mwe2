@@ -34,6 +34,9 @@ Workflow {
 			name = "modelConverter.use_language.USE"
 			fileExtensions = "use"
 
+			referencedResource = "platform:/resource/org.eclipse.ocl.xtext.essentialocl/model/EssentialOCLCS.genmodel"
+			referencedResource = "platform:/resource/org.eclipse.emf.ecore/model/Ecore.genmodel"
+
 			serializer = {
 				generateStub = false
 			}
@@ -47,6 +50,12 @@ Workflow {
 			}
 			junitSupport = {
 				junitVersion = "5"
+			}
+			
+			parserGenerator = {
+  				options = {
+    				backtrack = true
+  				}
 			}
 		}
 	}

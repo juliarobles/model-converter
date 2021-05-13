@@ -10,13 +10,13 @@ import org.eclipse.xtext.testing.util.ParseHelper
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.^extension.ExtendWith
-import modelConverter.use_language.use.Model
+import modelConverter.use_language.use.ModelUSE
 
 @ExtendWith(InjectionExtension)
 @InjectWith(USEInjectorProvider)
 class USEParsingTest {
 	@Inject
-	ParseHelper<Model> parseHelper
+	ParseHelper<ModelUSE> parseHelper
 	
 	@Test
 	def void loadModel() {

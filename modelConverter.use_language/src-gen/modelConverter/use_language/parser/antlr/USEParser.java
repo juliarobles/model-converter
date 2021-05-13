@@ -27,7 +27,7 @@ public class USEParser extends AbstractAntlrParser {
 
 	@Override 
 	protected String getDefaultRuleName() {
-		return "Model";
+		return "ModelUSE";
 	}
 
 	public USEGrammarAccess getGrammarAccess() {

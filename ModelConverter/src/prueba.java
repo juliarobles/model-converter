@@ -31,7 +31,7 @@ public class prueba {
 				} catch (WrappedException e) {
 					System.err.println("El nombre del archivo es incorrecto o se ha producido un error");
 				} catch (RuntimeException e) {
-					System.err.println("No se ha podido crear el recurso.");
+					System.err.println("No se ha podido crear el recurso." + e.getMessage().substring(0, 1000));
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					System.err.println("No se ha podido crear el fichero destino.");

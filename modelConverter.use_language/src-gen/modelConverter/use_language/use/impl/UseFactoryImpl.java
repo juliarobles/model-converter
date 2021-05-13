@@ -4,7 +4,6 @@
 package modelConverter.use_language.use.impl;
 
 import modelConverter.use_language.use.AllClass;
-import modelConverter.use_language.use.AllClassAndEnum;
 import modelConverter.use_language.use.AllTypes;
 import modelConverter.use_language.use.Association;
 import modelConverter.use_language.use.AssociationClass;
@@ -15,11 +14,12 @@ import modelConverter.use_language.use.CollectionType;
 import modelConverter.use_language.use.ConditionType;
 import modelConverter.use_language.use.ConstrainsGeneral;
 import modelConverter.use_language.use.ConstraintsBase;
+import modelConverter.use_language.use.ContextCS;
 import modelConverter.use_language.use.ContextsType;
 import modelConverter.use_language.use.Generalization;
 import modelConverter.use_language.use.InvariantContext;
 import modelConverter.use_language.use.InvariantDefinition;
-import modelConverter.use_language.use.Model;
+import modelConverter.use_language.use.ModelUSE;
 import modelConverter.use_language.use.Multiplicity;
 import modelConverter.use_language.use.OperationComplex;
 import modelConverter.use_language.use.OperationConstraints;
@@ -96,13 +96,12 @@ public class UseFactoryImpl extends EFactoryImpl implements UseFactory
   {
     switch (eClass.getClassifierID())
     {
-      case UsePackage.MODEL: return createModel();
+      case UsePackage.MODEL_USE: return createModelUSE();
       case UsePackage.MULTIPLICITY: return createMultiplicity();
       case UsePackage.ALL_TYPES: return createAllTypes();
       case UsePackage.TYPE: return createType();
       case UsePackage.COLLECTION_TYPE: return createCollectionType();
       case UsePackage.ALL_CLASS: return createAllClass();
-      case UsePackage.ALL_CLASS_AND_ENUM: return createAllClassAndEnum();
       case UsePackage.SIMPLE_TYPES: return createSimpleTypes();
       case UsePackage.ENUM: return createEnum();
       case UsePackage.CLASS: return createClass();
@@ -128,6 +127,7 @@ public class UseFactoryImpl extends EFactoryImpl implements UseFactory
       case UsePackage.CONDITION_TYPE: return createConditionType();
       case UsePackage.PRECONDITION: return createPrecondition();
       case UsePackage.POSTCONDITION: return createPostcondition();
+      case UsePackage.CONTEXT_CS: return createContextCS();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -139,10 +139,10 @@ public class UseFactoryImpl extends EFactoryImpl implements UseFactory
    * @generated
    */
   @Override
-  public Model createModel()
+  public ModelUSE createModelUSE()
   {
-    ModelImpl model = new ModelImpl();
-    return model;
+    ModelUSEImpl modelUSE = new ModelUSEImpl();
+    return modelUSE;
   }
 
   /**
@@ -203,18 +203,6 @@ public class UseFactoryImpl extends EFactoryImpl implements UseFactory
   {
     AllClassImpl allClass = new AllClassImpl();
     return allClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public AllClassAndEnum createAllClassAndEnum()
-  {
-    AllClassAndEnumImpl allClassAndEnum = new AllClassAndEnumImpl();
-    return allClassAndEnum;
   }
 
   /**
@@ -515,6 +503,18 @@ public class UseFactoryImpl extends EFactoryImpl implements UseFactory
   {
     PostconditionImpl postcondition = new PostconditionImpl();
     return postcondition;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public ContextCS createContextCS()
+  {
+    ContextCSImpl contextCS = new ContextCSImpl();
+    return contextCS;
   }
 
   /**

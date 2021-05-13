@@ -8,6 +8,8 @@ import modelConverter.use_language.use.UsePackage;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>All Class</b></em>'.
@@ -15,7 +17,7 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public class AllClassImpl extends AllClassAndEnumImpl implements AllClass
+public class AllClassImpl extends MinimalEObjectImpl.Container implements AllClass
 {
   /**
    * <!-- begin-user-doc -->

@@ -9,24 +9,24 @@ import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Model</b></em>'.
+ * A representation of the model object '<em><b>Model USE</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link modelConverter.use_language.use.Model#getName <em>Name</em>}</li>
- *   <li>{@link modelConverter.use_language.use.Model#getEnums <em>Enums</em>}</li>
- *   <li>{@link modelConverter.use_language.use.Model#getPackagedElement <em>Packaged Element</em>}</li>
- *   <li>{@link modelConverter.use_language.use.Model#getConstraints <em>Constraints</em>}</li>
+ *   <li>{@link modelConverter.use_language.use.ModelUSE#getName <em>Name</em>}</li>
+ *   <li>{@link modelConverter.use_language.use.ModelUSE#getEnums <em>Enums</em>}</li>
+ *   <li>{@link modelConverter.use_language.use.ModelUSE#getPackagedElement <em>Packaged Element</em>}</li>
+ *   <li>{@link modelConverter.use_language.use.ModelUSE#getConstraints <em>Constraints</em>}</li>
  * </ul>
  *
- * @see modelConverter.use_language.use.UsePackage#getModel()
+ * @see modelConverter.use_language.use.UsePackage#getModelUSE()
  * @model
  * @generated
  */
-public interface Model extends EObject
+public interface ModelUSE extends EObject
 {
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.
@@ -34,14 +34,14 @@ public interface Model extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Name</em>' attribute.
    * @see #setName(String)
-   * @see modelConverter.use_language.use.UsePackage#getModel_Name()
+   * @see modelConverter.use_language.use.UsePackage#getModelUSE_Name()
    * @model
    * @generated
    */
   String getName();
 
   /**
-   * Sets the value of the '{@link modelConverter.use_language.use.Model#getName <em>Name</em>}' attribute.
+   * Sets the value of the '{@link modelConverter.use_language.use.ModelUSE#getName <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Name</em>' attribute.
@@ -56,7 +56,7 @@ public interface Model extends EObject
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Enums</em>' containment reference list.
-   * @see modelConverter.use_language.use.UsePackage#getModel_Enums()
+   * @see modelConverter.use_language.use.UsePackage#getModelUSE_Enums()
    * @model containment="true"
    * @generated
    */
@@ -68,7 +68,7 @@ public interface Model extends EObject
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Packaged Element</em>' containment reference list.
-   * @see modelConverter.use_language.use.UsePackage#getModel_PackagedElement()
+   * @see modelConverter.use_language.use.UsePackage#getModelUSE_PackagedElement()
    * @model containment="true"
    * @generated
    */
@@ -80,14 +80,14 @@ public interface Model extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Constraints</em>' containment reference.
    * @see #setConstraints(ConstrainsGeneral)
-   * @see modelConverter.use_language.use.UsePackage#getModel_Constraints()
+   * @see modelConverter.use_language.use.UsePackage#getModelUSE_Constraints()
    * @model containment="true"
    * @generated
    */
   ConstrainsGeneral getConstraints();
 
   /**
-   * Sets the value of the '{@link modelConverter.use_language.use.Model#getConstraints <em>Constraints</em>}' containment reference.
+   * Sets the value of the '{@link modelConverter.use_language.use.ModelUSE#getConstraints <em>Constraints</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Constraints</em>' containment reference.
@@ -96,4 +96,4 @@ public interface Model extends EObject
    */
   void setConstraints(ConstrainsGeneral value);
 
-} // Model
+} // ModelUSE

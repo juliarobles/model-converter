@@ -4,7 +4,7 @@
 package modelConverter.use_language.tests;
 
 import com.google.inject.Inject;
-import modelConverter.use_language.use.Model;
+import modelConverter.use_language.use.ModelUSE;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtend2.lib.StringConcatenation;
@@ -22,7 +22,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 @SuppressWarnings("all")
 public class USEParsingTest {
   @Inject
-  private ParseHelper<Model> parseHelper;
+  private ParseHelper<ModelUSE> parseHelper;
   
   @Test
   public void loadModel() {
@@ -30,7 +30,7 @@ public class USEParsingTest {
       StringConcatenation _builder = new StringConcatenation();
       _builder.append("Hello Xtext!");
       _builder.newLine();
-      final Model result = this.parseHelper.parse(_builder);
+      final ModelUSE result = this.parseHelper.parse(_builder);
       Assertions.assertNotNull(result);
       final EList<Resource.Diagnostic> errors = result.eResource().getErrors();
       boolean _isEmpty = errors.isEmpty();

@@ -47,25 +47,25 @@ public interface ConditionType extends EObject
   void setName(String value);
 
   /**
-   * Returns the value of the '<em><b>Oclexpression</b></em>' attribute.
+   * Returns the value of the '<em><b>Oclexpression</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Oclexpression</em>' attribute.
-   * @see #setOclexpression(String)
+   * @return the value of the '<em>Oclexpression</em>' containment reference.
+   * @see #setOclexpression(ContextCS)
    * @see modelConverter.use_language.use.UsePackage#getConditionType_Oclexpression()
-   * @model
+   * @model containment="true"
    * @generated
    */
-  String getOclexpression();
+  ContextCS getOclexpression();
 
   /**
-   * Sets the value of the '{@link modelConverter.use_language.use.ConditionType#getOclexpression <em>Oclexpression</em>}' attribute.
+   * Sets the value of the '{@link modelConverter.use_language.use.ConditionType#getOclexpression <em>Oclexpression</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Oclexpression</em>' attribute.
+   * @param value the new value of the '<em>Oclexpression</em>' containment reference.
    * @see #getOclexpression()
    * @generated
    */
-  void setOclexpression(String value);
+  void setOclexpression(ContextCS value);
 
 } // ConditionType

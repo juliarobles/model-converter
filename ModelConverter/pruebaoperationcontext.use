@@ -1,6 +1,9 @@
 model prueba
 
-class Lemon
+abstract class Fruta
+end
+
+class Lemon < Fruta
 	attributes
 		lista: Sequence(Lemon)
 	operations

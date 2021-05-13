@@ -22,15 +22,19 @@ public class USESyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected USEGrammarAccess grammarAccess;
 	protected AbstractElementAlias match_Generalization_CommaKeyword_1_q;
+	protected AbstractElementAlias match_MultiplicityCS_VerticalLineQuestionMarkKeyword_2_0_q;
 	protected AbstractElementAlias match_OperationComplex___BeginKeyword_1_0_EndKeyword_1_2__q;
 	protected AbstractElementAlias match_Parameter_CommaKeyword_3_q;
+	protected AbstractElementAlias match_TupleTypeCS___LeftParenthesisKeyword_1_0_RightParenthesisKeyword_1_2__q;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (USEGrammarAccess) access;
 		match_Generalization_CommaKeyword_1_q = new TokenAlias(false, true, grammarAccess.getGeneralizationAccess().getCommaKeyword_1());
+		match_MultiplicityCS_VerticalLineQuestionMarkKeyword_2_0_q = new TokenAlias(false, true, grammarAccess.getMultiplicityCSAccess().getVerticalLineQuestionMarkKeyword_2_0());
 		match_OperationComplex___BeginKeyword_1_0_EndKeyword_1_2__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getOperationComplexAccess().getBeginKeyword_1_0()), new TokenAlias(false, false, grammarAccess.getOperationComplexAccess().getEndKeyword_1_2()));
 		match_Parameter_CommaKeyword_3_q = new TokenAlias(false, true, grammarAccess.getParameterAccess().getCommaKeyword_3());
+		match_TupleTypeCS___LeftParenthesisKeyword_1_0_RightParenthesisKeyword_1_2__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getTupleTypeCSAccess().getLeftParenthesisKeyword_1_0()), new TokenAlias(false, false, grammarAccess.getTupleTypeCSAccess().getRightParenthesisKeyword_1_2()));
 	}
 	
 	@Override
@@ -47,10 +51,14 @@ public class USESyntacticSequencer extends AbstractSyntacticSequencer {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
 			if (match_Generalization_CommaKeyword_1_q.equals(syntax))
 				emit_Generalization_CommaKeyword_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_MultiplicityCS_VerticalLineQuestionMarkKeyword_2_0_q.equals(syntax))
+				emit_MultiplicityCS_VerticalLineQuestionMarkKeyword_2_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_OperationComplex___BeginKeyword_1_0_EndKeyword_1_2__q.equals(syntax))
 				emit_OperationComplex___BeginKeyword_1_0_EndKeyword_1_2__q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_Parameter_CommaKeyword_3_q.equals(syntax))
 				emit_Parameter_CommaKeyword_3_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_TupleTypeCS___LeftParenthesisKeyword_1_0_RightParenthesisKeyword_1_2__q.equals(syntax))
+				emit_TupleTypeCS___LeftParenthesisKeyword_1_0_RightParenthesisKeyword_1_2__q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
@@ -63,6 +71,21 @@ public class USESyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     general=[AllClass|ID] (ambiguity) (rule end)
 	 */
 	protected void emit_Generalization_CommaKeyword_1_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     '|?'?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     lowerBound=LOWER (ambiguity) ']' (rule end)
+	 *     stringBounds='*' (ambiguity) ']' (rule end)
+	 *     stringBounds='+' (ambiguity) ']' (rule end)
+	 *     stringBounds='?' (ambiguity) ']' (rule end)
+	 *     upperBound=UPPER (ambiguity) ']' (rule end)
+	 */
+	protected void emit_MultiplicityCS_VerticalLineQuestionMarkKeyword_2_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
@@ -86,6 +109,18 @@ public class USESyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     type=AllTypes (ambiguity) (rule end)
 	 */
 	protected void emit_Parameter_CommaKeyword_3_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     ('(' ')')?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     name='Tuple' (ambiguity) (rule end)
+	 *     name='Tuple' (ambiguity) ownedMultiplicity=MultiplicityCS
+	 */
+	protected void emit_TupleTypeCS___LeftParenthesisKeyword_1_0_RightParenthesisKeyword_1_2__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

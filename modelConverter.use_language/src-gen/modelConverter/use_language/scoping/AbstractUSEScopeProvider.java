@@ -3,7 +3,7 @@
  */
 package modelConverter.use_language.scoping;
 
-import org.eclipse.ocl.xtext.essentialocl.scoping.EssentialOCLScopeProvider;
+import org.eclipse.xtext.scoping.impl.DelegatingScopeProvider;
 
-public abstract class AbstractUSEScopeProvider extends EssentialOCLScopeProvider {
+public abstract class AbstractUSEScopeProvider extends DelegatingScopeProvider {
 }

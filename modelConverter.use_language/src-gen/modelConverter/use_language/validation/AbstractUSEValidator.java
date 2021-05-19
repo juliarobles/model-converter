@@ -6,16 +6,14 @@ package modelConverter.use_language.validation;
 import java.util.ArrayList;
 import java.util.List;
 import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.ocl.xtext.essentialocl.validation.EssentialOCLJavaValidator;
+import org.eclipse.xtext.validation.AbstractDeclarativeValidator;
 
-public abstract class AbstractUSEValidator extends EssentialOCLJavaValidator {
+public abstract class AbstractUSEValidator extends AbstractDeclarativeValidator {
 	
 	@Override
 	protected List<EPackage> getEPackages() {
-		List<EPackage> result = new ArrayList<EPackage>(super.getEPackages());
+		List<EPackage> result = new ArrayList<EPackage>();
 		result.add(modelConverter.use_language.use.UsePackage.eINSTANCE);
-		result.add(EPackage.Registry.INSTANCE.getEPackage("http://www.eclipse.org/ocl/2015/EssentialOCLCS"));
-		result.add(EPackage.Registry.INSTANCE.getEPackage("http://www.eclipse.org/ocl/2015/BaseCS"));
 		return result;
 	}
 }

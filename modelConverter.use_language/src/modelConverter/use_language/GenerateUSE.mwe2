@@ -2,6 +2,15 @@ module modelConverter.use_language.GenerateUSE
 
 import org.eclipse.xtext.xtext.generator.*
 import org.eclipse.xtext.xtext.generator.model.project.*
+import org.eclipse.emf.mwe.utils.*
+import org.eclipse.ocl.examples.build.*
+import org.eclipse.ocl.examples.build.utilities.*
+import org.eclipse.ocl.examples.build.xtend.*
+import de.itemis.xtext.antlr.*
+import org.antlr.generator.*
+import org.eclipse.xtext.generator.*
+import org.eclipse.xtext.ui.generator.*
+import org.eclipse.emf.ecore.resource.impl.*
 
 var rootPath = ".."
 
@@ -34,9 +43,6 @@ Workflow {
 			name = "modelConverter.use_language.USE"
 			fileExtensions = "use"
 
-			referencedResource = "platform:/resource/org.eclipse.ocl.xtext.essentialocl/model/EssentialOCLCS.genmodel"
-			referencedResource = "platform:/resource/org.eclipse.emf.ecore/model/Ecore.genmodel"
-
 			serializer = {
 				generateStub = false
 			}
@@ -51,11 +57,13 @@ Workflow {
 			junitSupport = {
 				junitVersion = "5"
 			}
-			
+			 
 			parserGenerator = {
   				options = {
     				backtrack = true
+    				//classSplitting = true
   				}
+  				//antlrParam = "-Xconversiontimeout" antlrParam = "10000"
 			}
 		}
 	}

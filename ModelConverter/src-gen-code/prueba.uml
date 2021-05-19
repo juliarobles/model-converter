@@ -1,50 +1,218 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:MagicDrawProfile="http://www.omg.org/spec/UML/20131001/MagicDrawProfile" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http://www.omg.org/spec/UML/20131001/MagicDrawProfile UML_Standard_Profile.MagicDraw_Profile.profile.uml#_nPVN7YtIEeuebcn5BqfCXQ">
-   <uml:Model xmi:id="1822434669" name="prueba">
-	<packagedElement xmi:type="uml:Class" xmi:id="2061440682"  name="Lemon">
-	<ownedRule xmi:id="878861517" name="" constrainedElement="2061440682">
-		<specification xmi:type="uml:OpaqueExpression" xmi:id="701487403878861517" name="">
-		   	<language>OCL2.0</language>
-		   	  	<body>i &l</body>
-		  	</specification>
-	</ownedRule>
-	<ownedRule xmi:id="1731763384" name="patata" constrainedElement="2061440682">
-		<specification xmi:type="uml:OpaqueExpression" xmi:id="5666419541731763384" name="patata">
-		   	<language>OCL2.0</language>
-		   	  	<body>aaa</body>
-		  	</specification>
-	</ownedRule>
-	<ownedRule xmi:id="87242619" name="" constrainedElement="2061440682">
-		<specification xmi:type="uml:OpaqueExpression" xmi:id="203998453587242619" name="">
-		   	<language>OCL2.0</language>
-		   	  	<body>true aa 
-		   	  	asasad 
-		   	  	asa dad  ada  ada 
-		   	  	a sa d a dad a dad </body>
-		  	</specification>
-	</ownedRule>
-	<ownedAttribute xmi:id="1907241392" name="lista" type="2061440682">
-	<lowerValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="1907241392_01" name="" visibility="public"/>
-	<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="1907241392_02" name="" visibility="public" value="*"/>	
+   <uml:Model xmi:id="1850874910" name="universidad">
+	<packagedElement xmi:type="uml:Class" xmi:id="633131207"  name="Universidad">
+	<ownedAttribute xmi:id="443110940" name="titulacion" type="1088239991" association="515520300" >
+	<lowerValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="10882399915155203001" name="" value="*"/>
+	<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="10882399915155203002" name="" value="*"/>
 	</ownedAttribute>
-	<ownedOperation xmi:id="1313960293" name="squeeze" bodyCondition="13139602932031927175" postcondition="" precondition="" >
-		<ownedRule xmi:id="13139602932031927175" name="" >
-			<specification xmi:type="uml:OpaqueExpression" xmi:id="203192717513139602932031927175" name="">
+	<ownedAttribute xmi:id="173060252" name="titulo" type="707635461" association="1139609587" >
+	<lowerValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="70763546111396095871" name="" value="*"/>
+	<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="70763546111396095872" name="" value="*"/>
+	</ownedAttribute>
+	</packagedElement>
+	<packagedElement xmi:type="uml:Class" xmi:id="1088239991"  abstract="true" name="Titulacion">
+	<ownedAttribute xmi:id="637091966" name="universidad" type="633131207" association="515520300" >
+	<lowerValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="6331312075155203001" name="" value="*"/>
+	<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="6331312075155203002" name="" value="*"/>
+	</ownedAttribute>
+	<ownedAttribute xmi:id="1584918772" name="asignatura" type="961859592" association="910123336" aggregation="shared">
+	<lowerValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="9618595929101233361" name="" value="*"/>
+	<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="9618595929101233362" name="" value="*"/>
+	</ownedAttribute>
+	<ownedAttribute xmi:id="1306535359" name="titulo" type="707635461" association="777813771" >
+	<lowerValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="7076354617778137711" name="" value="*"/>
+	<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="7076354617778137712" name="" value="*"/>
+	</ownedAttribute>
+	</packagedElement>
+	<packagedElement xmi:type="uml:Class" xmi:id="1780293706"  name="Grado">
+	<generalization xmi:id="1264941544" general="1088239991"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:Class" xmi:id="1878992188"  name="Posgrado">
+	<generalization xmi:id="1495161082" general="1088239991"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:Class" xmi:id="961859592"  name="Asignatura">
+	<ownedAttribute xmi:id="1926027290" name="creditosECTS" >
+	<type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+	</ownedAttribute>
+	<ownedAttribute xmi:id="455668354" name="titulacion" type="1088239991" association="910123336" >
+	<lowerValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="10882399919101233361" name="" value="*"/>
+	<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="10882399919101233362" name="" value="*"/>
+	</ownedAttribute>
+	<ownedAttribute xmi:id="373437697" name="imparticion" type="2080643905" association="1163088324" >
+	<lowerValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="208064390511630883241" name="" value="*"/>
+	<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="208064390511630883242" name="" value="*"/>
+	</ownedAttribute>
+	</packagedElement>
+	<packagedElement xmi:type="uml:Class" xmi:id="1228798862"  name="Curso">
+	<ownedRule xmi:id="1187972599" name="noUndefined" constrainedElement="1228798862">
+		<specification xmi:type="uml:OpaqueExpression" xmi:id="20941158651187972599" name="noUndefined">
+		   	<language>OCL2.0</language>
+		   	  	<body></body>
+		  	</specification>
+	</ownedRule>
+	<ownedAttribute xmi:id="164714495" name="anioInicio" >
+	<type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+	</ownedAttribute>
+	<ownedAttribute xmi:id="748006558" name="imparticion" type="2080643905" association="2048102341" >
+	<lowerValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="208064390520481023411" name="" value="*"/>
+	<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="208064390520481023412" name="" value="*"/>
+	</ownedAttribute>
+	<ownedAttribute xmi:id="1545327692" name="titulo" type="707635461" association="1572442646" >
+	<lowerValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="70763546115724426461" name="" value="*"/>
+	<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="70763546115724426462" name="" value="*"/>
+	</ownedAttribute>
+	</packagedElement>
+	<packagedElement xmi:type="uml:Class" xmi:id="2080643905"  name="Imparticion">
+	<ownedAttribute xmi:id="1209451152" name="asignatura" type="961859592" association="1163088324" >
+	<lowerValue xmi:type="uml:LiteralInteger" xmi:id="96185959211630883241" name="" value="1"/>
+	<upperValue xmi:type="uml:LiteralInteger" xmi:id="96185959211630883242" name="" value="1"/>
+	</ownedAttribute>
+	<ownedAttribute xmi:id="813131188" name="curso" type="1228798862" association="2048102341" >
+	<lowerValue xmi:type="uml:LiteralInteger" xmi:id="122879886220481023411" name="" value="1"/>
+	<upperValue xmi:type="uml:LiteralInteger" xmi:id="122879886220481023412" name="" value="1"/>
+	</ownedAttribute>
+	<ownedAttribute xmi:id="2109027570" name="profesor" type="546796969" association="1168079523" >
+	<lowerValue xmi:type="uml:LiteralInteger" xmi:id="54679696911680795231" name="" value="1"/>
+	<upperValue xmi:type="uml:LiteralInteger" xmi:id="54679696911680795232" name="" value="1"/>
+	</ownedAttribute>
+	<ownedAttribute xmi:id="1997344422" name="alumno" type="1076966140" association="1624211687" >
+	<lowerValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="107696614016242116871" name="" value="*"/>
+	<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="107696614016242116872" name="" value="*"/>
+	</ownedAttribute>
+	</packagedElement>
+	<packagedElement xmi:type="uml:Class" xmi:id="1076966140"  name="Alumno">
+	<ownedRule xmi:id="983767354" name="todosTitulosGradosCorrectos" constrainedElement="1076966140">
+		<specification xmi:type="uml:OpaqueExpression" xmi:id="1504083002983767354" name="todosTitulosGradosCorrectos">
+		   	<language>OCL2.0</language>
+		   	  	<body></body>
+		  	</specification>
+	</ownedRule>
+	<ownedRule xmi:id="502891368" name="todosTitulosPosGradosCorrectos" constrainedElement="1076966140">
+		<specification xmi:type="uml:OpaqueExpression" xmi:id="577734751502891368" name="todosTitulosPosGradosCorrectos">
+		   	<language>OCL2.0</language>
+		   	  	<body></body>
+		  	</specification>
+	</ownedRule>
+	<ownedRule xmi:id="695248316" name="tituloGradoParaPosgrado" constrainedElement="1076966140">
+		<specification xmi:type="uml:OpaqueExpression" xmi:id="1928312257695248316" name="tituloGradoParaPosgrado">
+		   	<language>OCL2.0</language>
+		   	  	<body></body>
+		  	</specification>
+	</ownedRule>
+	<ownedRule xmi:id="405252209" name="noMatriculaEnAsigAprobada" constrainedElement="1076966140">
+		<specification xmi:type="uml:OpaqueExpression" xmi:id="1917442783405252209" name="noMatriculaEnAsigAprobada">
+		   	<language>OCL2.0</language>
+		   	  	<body></body>
+		  	</specification>
+	</ownedRule>
+	<ownedRule xmi:id="1369468094" name="noTitulosDuplicados" constrainedElement="1076966140">
+		<specification xmi:type="uml:OpaqueExpression" xmi:id="12356355861369468094" name="noTitulosDuplicados">
+		   	<language>OCL2.0</language>
+		   	  	<body></body>
+		  	</specification>
+	</ownedRule>
+	<ownedAttribute xmi:id="15094126" name="titulo" type="707635461" association="2125470482" >
+	<lowerValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="70763546121254704821" name="" value="*"/>
+	<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="70763546121254704822" name="" value="*"/>
+	</ownedAttribute>
+	<ownedAttribute xmi:id="1410367298" name="imparticion" type="2080643905" association="1624211687" >
+	<lowerValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="208064390516242116871" name="" value="*"/>
+	<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="208064390516242116872" name="" value="*"/>
+	</ownedAttribute>
+	<ownedOperation xmi:id="796553753" name="aprobada" bodyCondition="796553753827035437" postcondition="" precondition="" isQuery="true">
+		<ownedRule xmi:id="796553753827035437" name="" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="827035437796553753827035437" name="">
 			   	<language>OCL2.0</language>
-			   	  	<body>aaaaaaa 
-			   	  	aaa asas sadasd 
-			   	  	asds asas end</body>
+			   	  	<body></body>
 			  	</specification>
 		</ownedRule>
-		<ownedParameter xmi:id="11153816501313960293" name=""  direction="return">
-		<type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+		<ownedParameter xmi:id="677217562796553753" name=""  direction="return">
+		<type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
 		</ownedParameter>
-		<ownedParameter xmi:id="1482748887" name="i" >
-		<type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-		<lowerValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="1482748887_01" name="" visibility="public"/>
-		<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="1482748887_02" name="" visibility="public" value="*"/>
+		<ownedParameter xmi:id="1250582716" name="a" type="961859592">
 		</ownedParameter>
 	</ownedOperation>	
 	</packagedElement>
+	<packagedElement xmi:type="uml:Class" xmi:id="546796969"  name="Profesor">
+	<ownedRule xmi:id="669053685" name="noMatriculaEnSuAsignatura" constrainedElement="546796969">
+		<specification xmi:type="uml:OpaqueExpression" xmi:id="1840670774669053685" name="noMatriculaEnSuAsignatura">
+		   	<language>OCL2.0</language>
+		   	  	<body></body>
+		  	</specification>
+	</ownedRule>
+	<generalization xmi:id="261845810" general="1076966140"/>
+	<ownedAttribute xmi:id="2052489518" name="imparteProfesor" type="2080643905" association="1168079523" >
+	<lowerValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="208064390511680795231" name="" value="*"/>
+	<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="208064390511680795232" name="" value="*"/>
+	</ownedAttribute>
+	<ownedOperation xmi:id="1877986974" name="evaluar" bodyCondition="18779869741599556802" postcondition="1193841543 " precondition="701487403 2075372030 1004430079 " >
+		<ownedRule xmi:id="18779869741599556802" name="" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="159955680218779869741599556802" name="">
+			   	<language>OCL2.0</language>
+			   	  	<body>(a.matricula -> any(m | m.alumno = a and m.imparticion = i)).calificacion := calificacion;</body>
+			  	</specification>
+		</ownedRule>
+		<ownedRule xmi:id="701487403" name="esSuAlumno" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="2039984535701487403" name="esSuAlumno">
+			   	<language>OCL2.0</language>
+			   	  	<body></body>
+			  	</specification>
+		</ownedRule>
+		<ownedRule xmi:id="2075372030" name="esSuImparticion" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="21391680002075372030" name="esSuImparticion">
+			   	<language>OCL2.0</language>
+			   	  	<body></body>
+			  	</specification>
+		</ownedRule>
+		<ownedRule xmi:id="1004430079" name="existeMatricula" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="7325976341004430079" name="existeMatricula">
+			   	<language>OCL2.0</language>
+			   	  	<body></body>
+			  	</specification>
+		</ownedRule>
+		<ownedRule xmi:id="1193841543" name="notaPuesta" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="2900965781193841543" name="notaPuesta">
+			   	<language>OCL2.0</language>
+			   	  	<body></body>
+			  	</specification>
+		</ownedRule>
+		<ownedParameter xmi:id="422522663" name="a" type="1076966140">
+		</ownedParameter>
+		<ownedParameter xmi:id="1800500978" name="i" type="2080643905">
+		</ownedParameter>
+		<ownedParameter xmi:id="247515192" name="calificacion" >
+		<type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+		</ownedParameter>
+	</ownedOperation>	
+	</packagedElement>
+	<packagedElement xmi:type="uml:Class" xmi:id="707635461"  name="Titulo">
+	<ownedAttribute xmi:id="1641672672" name="alumno" type="1076966140" association="2125470482" >
+	<lowerValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="107696614021254704821" name="" value="*"/>
+	<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="107696614021254704822" name="" value="*"/>
+	</ownedAttribute>
+	<ownedAttribute xmi:id="1720797452" name="universidad" type="633131207" association="1139609587" >
+	<lowerValue xmi:type="uml:LiteralInteger" xmi:id="63313120711396095871" name="" value="1"/>
+	<upperValue xmi:type="uml:LiteralInteger" xmi:id="63313120711396095872" name="" value="1"/>
+	</ownedAttribute>
+	<ownedAttribute xmi:id="519019247" name="titulacion" type="1088239991" association="777813771" >
+	<lowerValue xmi:type="uml:LiteralInteger" xmi:id="10882399917778137711" name="" value="1"/>
+	<upperValue xmi:type="uml:LiteralInteger" xmi:id="10882399917778137712" name="" value="1"/>
+	</ownedAttribute>
+	<ownedAttribute xmi:id="416049054" name="curso" type="1228798862" association="1572442646" >
+	<lowerValue xmi:type="uml:LiteralInteger" xmi:id="122879886215724426461" name="" value="1"/>
+	<upperValue xmi:type="uml:LiteralInteger" xmi:id="122879886215724426462" name="" value="1"/>
+	</ownedAttribute>
+	</packagedElement>
+	<packagedElement xmi:type="uml:AssociationClass" xmi:id="1624211687" name="Matricula" memberEnd="1997344422 1410367298 "/>
+	<packagedElement xmi:type="uml:Association" xmi:id="515520300" name="Oferta" memberEnd="637091966 443110940 "/>
+	<packagedElement xmi:type="uml:Association" xmi:id="910123336" name="Combinacion" memberEnd="455668354 1584918772 "/>
+	<packagedElement xmi:type="uml:Association" xmi:id="1163088324" name="Contenido" memberEnd="1209451152 373437697 "/>
+	<packagedElement xmi:type="uml:Association" xmi:id="2048102341" name="Realizacion" memberEnd="813131188 748006558 "/>
+	<packagedElement xmi:type="uml:Association" xmi:id="1168079523" name="Ensenanza" memberEnd="2109027570 2052489518 "/>
+	<packagedElement xmi:type="uml:Association" xmi:id="2125470482" name="Obtencion" memberEnd="1641672672 15094126 "/>
+	<packagedElement xmi:type="uml:Association" xmi:id="1139609587" name="Composicion" memberEnd="173060252 1720797452 "/>
+	<packagedElement xmi:type="uml:Association" xmi:id="777813771" name="Composicion2" memberEnd="1306535359 519019247 "/>
+	<packagedElement xmi:type="uml:Association" xmi:id="1572442646" name="Composicion3" memberEnd="1545327692 416049054 "/>
 	</uml:Model>
 </xmi:XMI>

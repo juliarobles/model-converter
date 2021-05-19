@@ -4,23 +4,48 @@
 package modelConverter.use_language.use.util;
 
 import modelConverter.use_language.use.AllClass;
+import modelConverter.use_language.use.AllClassAndEnum;
 import modelConverter.use_language.use.AllTypes;
 import modelConverter.use_language.use.Association;
 import modelConverter.use_language.use.AssociationClass;
 import modelConverter.use_language.use.AssociationEnd;
 import modelConverter.use_language.use.Attribute;
 import modelConverter.use_language.use.AttributesBase;
+import modelConverter.use_language.use.BooleanLiteralExpCS;
+import modelConverter.use_language.use.CollectionLiteralExpCS;
+import modelConverter.use_language.use.CollectionLiteralPartCS;
+import modelConverter.use_language.use.CollectionPatternCS;
 import modelConverter.use_language.use.CollectionType;
+import modelConverter.use_language.use.CollectionTypeCS;
 import modelConverter.use_language.use.ConditionType;
 import modelConverter.use_language.use.ConstrainsGeneral;
 import modelConverter.use_language.use.ConstraintsBase;
-import modelConverter.use_language.use.ContextCS;
 import modelConverter.use_language.use.ContextsType;
+import modelConverter.use_language.use.CurlyBracketedClauseCS;
+import modelConverter.use_language.use.ExpCS;
 import modelConverter.use_language.use.Generalization;
+import modelConverter.use_language.use.IfExpCS;
+import modelConverter.use_language.use.IfThenExpCS;
+import modelConverter.use_language.use.InfixExpCS;
+import modelConverter.use_language.use.InvalidLiteralExpCS;
 import modelConverter.use_language.use.InvariantContext;
 import modelConverter.use_language.use.InvariantDefinition;
+import modelConverter.use_language.use.LambdaLiteralExpCS;
+import modelConverter.use_language.use.LetExpCS;
+import modelConverter.use_language.use.LetVariableCS;
+import modelConverter.use_language.use.MapLiteralExpCS;
+import modelConverter.use_language.use.MapLiteralPartCS;
+import modelConverter.use_language.use.MapTypeCS;
 import modelConverter.use_language.use.ModelUSE;
 import modelConverter.use_language.use.Multiplicity;
+import modelConverter.use_language.use.MultiplicityBoundsCS;
+import modelConverter.use_language.use.MultiplicityCS;
+import modelConverter.use_language.use.MultiplicityStringCS;
+import modelConverter.use_language.use.NameExpCS;
+import modelConverter.use_language.use.NavigatingArgCS;
+import modelConverter.use_language.use.NestedExpCS;
+import modelConverter.use_language.use.NullLiteralExpCS;
+import modelConverter.use_language.use.NumberLiteralExpCS;
 import modelConverter.use_language.use.OperationComplex;
 import modelConverter.use_language.use.OperationConstraints;
 import modelConverter.use_language.use.OperationContext;
@@ -29,11 +54,30 @@ import modelConverter.use_language.use.OperationQuery;
 import modelConverter.use_language.use.OperationType;
 import modelConverter.use_language.use.OperationsBase;
 import modelConverter.use_language.use.Parameter;
+import modelConverter.use_language.use.PathNameCS;
+import modelConverter.use_language.use.PatternExpCS;
 import modelConverter.use_language.use.Postcondition;
 import modelConverter.use_language.use.Precondition;
+import modelConverter.use_language.use.PrefixExpCS;
+import modelConverter.use_language.use.PrimitiveLiteralExpCS;
+import modelConverter.use_language.use.PrimitiveTypeRefCS;
+import modelConverter.use_language.use.RoundBracketedClauseCS;
+import modelConverter.use_language.use.SelfExpCS;
+import modelConverter.use_language.use.ShadowPartCS;
 import modelConverter.use_language.use.SimpleTypes;
+import modelConverter.use_language.use.SquareBracketedClauseCS;
+import modelConverter.use_language.use.StringLiteralExpCS;
+import modelConverter.use_language.use.TupleLiteralExpCS;
+import modelConverter.use_language.use.TupleLiteralPartCS;
+import modelConverter.use_language.use.TuplePartCS;
+import modelConverter.use_language.use.TupleTypeCS;
 import modelConverter.use_language.use.Type;
+import modelConverter.use_language.use.TypeLiteralExpCS;
+import modelConverter.use_language.use.TypeNameExpCS;
+import modelConverter.use_language.use.TypedRefCS;
+import modelConverter.use_language.use.UnlimitedNaturalLiteralExpCS;
 import modelConverter.use_language.use.UsePackage;
+import modelConverter.use_language.use.VariableCS;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
@@ -134,6 +178,11 @@ public class UseAdapterFactory extends AdapterFactoryImpl
       public Adapter caseAllClass(AllClass object)
       {
         return createAllClassAdapter();
+      }
+      @Override
+      public Adapter caseAllClassAndEnum(AllClassAndEnum object)
+      {
+        return createAllClassAndEnumAdapter();
       }
       @Override
       public Adapter caseSimpleTypes(SimpleTypes object)
@@ -261,9 +310,224 @@ public class UseAdapterFactory extends AdapterFactoryImpl
         return createPostconditionAdapter();
       }
       @Override
-      public Adapter caseContextCS(ContextCS object)
+      public Adapter casePrimitiveTypeRefCS(PrimitiveTypeRefCS object)
       {
-        return createContextCSAdapter();
+        return createPrimitiveTypeRefCSAdapter();
+      }
+      @Override
+      public Adapter caseCollectionTypeCS(CollectionTypeCS object)
+      {
+        return createCollectionTypeCSAdapter();
+      }
+      @Override
+      public Adapter caseMapTypeCS(MapTypeCS object)
+      {
+        return createMapTypeCSAdapter();
+      }
+      @Override
+      public Adapter caseTupleTypeCS(TupleTypeCS object)
+      {
+        return createTupleTypeCSAdapter();
+      }
+      @Override
+      public Adapter caseTuplePartCS(TuplePartCS object)
+      {
+        return createTuplePartCSAdapter();
+      }
+      @Override
+      public Adapter caseCollectionPatternCS(CollectionPatternCS object)
+      {
+        return createCollectionPatternCSAdapter();
+      }
+      @Override
+      public Adapter casePatternExpCS(PatternExpCS object)
+      {
+        return createPatternExpCSAdapter();
+      }
+      @Override
+      public Adapter caseTypedRefCS(TypedRefCS object)
+      {
+        return createTypedRefCSAdapter();
+      }
+      @Override
+      public Adapter caseTypeLiteralExpCS(TypeLiteralExpCS object)
+      {
+        return createTypeLiteralExpCSAdapter();
+      }
+      @Override
+      public Adapter caseTypeNameExpCS(TypeNameExpCS object)
+      {
+        return createTypeNameExpCSAdapter();
+      }
+      @Override
+      public Adapter caseCurlyBracketedClauseCS(CurlyBracketedClauseCS object)
+      {
+        return createCurlyBracketedClauseCSAdapter();
+      }
+      @Override
+      public Adapter caseShadowPartCS(ShadowPartCS object)
+      {
+        return createShadowPartCSAdapter();
+      }
+      @Override
+      public Adapter caseStringLiteralExpCS(StringLiteralExpCS object)
+      {
+        return createStringLiteralExpCSAdapter();
+      }
+      @Override
+      public Adapter caseMultiplicityBoundsCS(MultiplicityBoundsCS object)
+      {
+        return createMultiplicityBoundsCSAdapter();
+      }
+      @Override
+      public Adapter caseMultiplicityCS(MultiplicityCS object)
+      {
+        return createMultiplicityCSAdapter();
+      }
+      @Override
+      public Adapter caseMultiplicityStringCS(MultiplicityStringCS object)
+      {
+        return createMultiplicityStringCSAdapter();
+      }
+      @Override
+      public Adapter casePathNameCS(PathNameCS object)
+      {
+        return createPathNameCSAdapter();
+      }
+      @Override
+      public Adapter caseExpCS(ExpCS object)
+      {
+        return createExpCSAdapter();
+      }
+      @Override
+      public Adapter casePrimitiveLiteralExpCS(PrimitiveLiteralExpCS object)
+      {
+        return createPrimitiveLiteralExpCSAdapter();
+      }
+      @Override
+      public Adapter caseNameExpCS(NameExpCS object)
+      {
+        return createNameExpCSAdapter();
+      }
+      @Override
+      public Adapter caseSquareBracketedClauseCS(SquareBracketedClauseCS object)
+      {
+        return createSquareBracketedClauseCSAdapter();
+      }
+      @Override
+      public Adapter caseCollectionLiteralExpCS(CollectionLiteralExpCS object)
+      {
+        return createCollectionLiteralExpCSAdapter();
+      }
+      @Override
+      public Adapter caseCollectionLiteralPartCS(CollectionLiteralPartCS object)
+      {
+        return createCollectionLiteralPartCSAdapter();
+      }
+      @Override
+      public Adapter caseLambdaLiteralExpCS(LambdaLiteralExpCS object)
+      {
+        return createLambdaLiteralExpCSAdapter();
+      }
+      @Override
+      public Adapter caseMapLiteralExpCS(MapLiteralExpCS object)
+      {
+        return createMapLiteralExpCSAdapter();
+      }
+      @Override
+      public Adapter caseMapLiteralPartCS(MapLiteralPartCS object)
+      {
+        return createMapLiteralPartCSAdapter();
+      }
+      @Override
+      public Adapter caseTupleLiteralExpCS(TupleLiteralExpCS object)
+      {
+        return createTupleLiteralExpCSAdapter();
+      }
+      @Override
+      public Adapter caseTupleLiteralPartCS(TupleLiteralPartCS object)
+      {
+        return createTupleLiteralPartCSAdapter();
+      }
+      @Override
+      public Adapter caseNumberLiteralExpCS(NumberLiteralExpCS object)
+      {
+        return createNumberLiteralExpCSAdapter();
+      }
+      @Override
+      public Adapter caseBooleanLiteralExpCS(BooleanLiteralExpCS object)
+      {
+        return createBooleanLiteralExpCSAdapter();
+      }
+      @Override
+      public Adapter caseUnlimitedNaturalLiteralExpCS(UnlimitedNaturalLiteralExpCS object)
+      {
+        return createUnlimitedNaturalLiteralExpCSAdapter();
+      }
+      @Override
+      public Adapter caseInvalidLiteralExpCS(InvalidLiteralExpCS object)
+      {
+        return createInvalidLiteralExpCSAdapter();
+      }
+      @Override
+      public Adapter caseNullLiteralExpCS(NullLiteralExpCS object)
+      {
+        return createNullLiteralExpCSAdapter();
+      }
+      @Override
+      public Adapter caseNestedExpCS(NestedExpCS object)
+      {
+        return createNestedExpCSAdapter();
+      }
+      @Override
+      public Adapter caseSelfExpCS(SelfExpCS object)
+      {
+        return createSelfExpCSAdapter();
+      }
+      @Override
+      public Adapter caseIfExpCS(IfExpCS object)
+      {
+        return createIfExpCSAdapter();
+      }
+      @Override
+      public Adapter caseIfThenExpCS(IfThenExpCS object)
+      {
+        return createIfThenExpCSAdapter();
+      }
+      @Override
+      public Adapter caseLetExpCS(LetExpCS object)
+      {
+        return createLetExpCSAdapter();
+      }
+      @Override
+      public Adapter caseLetVariableCS(LetVariableCS object)
+      {
+        return createLetVariableCSAdapter();
+      }
+      @Override
+      public Adapter caseRoundBracketedClauseCS(RoundBracketedClauseCS object)
+      {
+        return createRoundBracketedClauseCSAdapter();
+      }
+      @Override
+      public Adapter caseNavigatingArgCS(NavigatingArgCS object)
+      {
+        return createNavigatingArgCSAdapter();
+      }
+      @Override
+      public Adapter caseVariableCS(VariableCS object)
+      {
+        return createVariableCSAdapter();
+      }
+      @Override
+      public Adapter caseInfixExpCS(InfixExpCS object)
+      {
+        return createInfixExpCSAdapter();
+      }
+      @Override
+      public Adapter casePrefixExpCS(PrefixExpCS object)
+      {
+        return createPrefixExpCSAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -373,6 +637,21 @@ public class UseAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createAllClassAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link modelConverter.use_language.use.AllClassAndEnum <em>All Class And Enum</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see modelConverter.use_language.use.AllClassAndEnum
+   * @generated
+   */
+  public Adapter createAllClassAndEnumAdapter()
   {
     return null;
   }
@@ -753,16 +1032,661 @@ public class UseAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link modelConverter.use_language.use.ContextCS <em>Context CS</em>}'.
+   * Creates a new adapter for an object of class '{@link modelConverter.use_language.use.PrimitiveTypeRefCS <em>Primitive Type Ref CS</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see modelConverter.use_language.use.ContextCS
+   * @see modelConverter.use_language.use.PrimitiveTypeRefCS
    * @generated
    */
-  public Adapter createContextCSAdapter()
+  public Adapter createPrimitiveTypeRefCSAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link modelConverter.use_language.use.CollectionTypeCS <em>Collection Type CS</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see modelConverter.use_language.use.CollectionTypeCS
+   * @generated
+   */
+  public Adapter createCollectionTypeCSAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link modelConverter.use_language.use.MapTypeCS <em>Map Type CS</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see modelConverter.use_language.use.MapTypeCS
+   * @generated
+   */
+  public Adapter createMapTypeCSAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link modelConverter.use_language.use.TupleTypeCS <em>Tuple Type CS</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see modelConverter.use_language.use.TupleTypeCS
+   * @generated
+   */
+  public Adapter createTupleTypeCSAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link modelConverter.use_language.use.TuplePartCS <em>Tuple Part CS</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see modelConverter.use_language.use.TuplePartCS
+   * @generated
+   */
+  public Adapter createTuplePartCSAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link modelConverter.use_language.use.CollectionPatternCS <em>Collection Pattern CS</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see modelConverter.use_language.use.CollectionPatternCS
+   * @generated
+   */
+  public Adapter createCollectionPatternCSAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link modelConverter.use_language.use.PatternExpCS <em>Pattern Exp CS</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see modelConverter.use_language.use.PatternExpCS
+   * @generated
+   */
+  public Adapter createPatternExpCSAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link modelConverter.use_language.use.TypedRefCS <em>Typed Ref CS</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see modelConverter.use_language.use.TypedRefCS
+   * @generated
+   */
+  public Adapter createTypedRefCSAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link modelConverter.use_language.use.TypeLiteralExpCS <em>Type Literal Exp CS</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see modelConverter.use_language.use.TypeLiteralExpCS
+   * @generated
+   */
+  public Adapter createTypeLiteralExpCSAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link modelConverter.use_language.use.TypeNameExpCS <em>Type Name Exp CS</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see modelConverter.use_language.use.TypeNameExpCS
+   * @generated
+   */
+  public Adapter createTypeNameExpCSAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link modelConverter.use_language.use.CurlyBracketedClauseCS <em>Curly Bracketed Clause CS</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see modelConverter.use_language.use.CurlyBracketedClauseCS
+   * @generated
+   */
+  public Adapter createCurlyBracketedClauseCSAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link modelConverter.use_language.use.ShadowPartCS <em>Shadow Part CS</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see modelConverter.use_language.use.ShadowPartCS
+   * @generated
+   */
+  public Adapter createShadowPartCSAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link modelConverter.use_language.use.StringLiteralExpCS <em>String Literal Exp CS</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see modelConverter.use_language.use.StringLiteralExpCS
+   * @generated
+   */
+  public Adapter createStringLiteralExpCSAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link modelConverter.use_language.use.MultiplicityBoundsCS <em>Multiplicity Bounds CS</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see modelConverter.use_language.use.MultiplicityBoundsCS
+   * @generated
+   */
+  public Adapter createMultiplicityBoundsCSAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link modelConverter.use_language.use.MultiplicityCS <em>Multiplicity CS</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see modelConverter.use_language.use.MultiplicityCS
+   * @generated
+   */
+  public Adapter createMultiplicityCSAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link modelConverter.use_language.use.MultiplicityStringCS <em>Multiplicity String CS</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see modelConverter.use_language.use.MultiplicityStringCS
+   * @generated
+   */
+  public Adapter createMultiplicityStringCSAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link modelConverter.use_language.use.PathNameCS <em>Path Name CS</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see modelConverter.use_language.use.PathNameCS
+   * @generated
+   */
+  public Adapter createPathNameCSAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link modelConverter.use_language.use.ExpCS <em>Exp CS</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see modelConverter.use_language.use.ExpCS
+   * @generated
+   */
+  public Adapter createExpCSAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link modelConverter.use_language.use.PrimitiveLiteralExpCS <em>Primitive Literal Exp CS</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see modelConverter.use_language.use.PrimitiveLiteralExpCS
+   * @generated
+   */
+  public Adapter createPrimitiveLiteralExpCSAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link modelConverter.use_language.use.NameExpCS <em>Name Exp CS</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see modelConverter.use_language.use.NameExpCS
+   * @generated
+   */
+  public Adapter createNameExpCSAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link modelConverter.use_language.use.SquareBracketedClauseCS <em>Square Bracketed Clause CS</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see modelConverter.use_language.use.SquareBracketedClauseCS
+   * @generated
+   */
+  public Adapter createSquareBracketedClauseCSAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link modelConverter.use_language.use.CollectionLiteralExpCS <em>Collection Literal Exp CS</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see modelConverter.use_language.use.CollectionLiteralExpCS
+   * @generated
+   */
+  public Adapter createCollectionLiteralExpCSAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link modelConverter.use_language.use.CollectionLiteralPartCS <em>Collection Literal Part CS</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see modelConverter.use_language.use.CollectionLiteralPartCS
+   * @generated
+   */
+  public Adapter createCollectionLiteralPartCSAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link modelConverter.use_language.use.LambdaLiteralExpCS <em>Lambda Literal Exp CS</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see modelConverter.use_language.use.LambdaLiteralExpCS
+   * @generated
+   */
+  public Adapter createLambdaLiteralExpCSAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link modelConverter.use_language.use.MapLiteralExpCS <em>Map Literal Exp CS</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see modelConverter.use_language.use.MapLiteralExpCS
+   * @generated
+   */
+  public Adapter createMapLiteralExpCSAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link modelConverter.use_language.use.MapLiteralPartCS <em>Map Literal Part CS</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see modelConverter.use_language.use.MapLiteralPartCS
+   * @generated
+   */
+  public Adapter createMapLiteralPartCSAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link modelConverter.use_language.use.TupleLiteralExpCS <em>Tuple Literal Exp CS</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see modelConverter.use_language.use.TupleLiteralExpCS
+   * @generated
+   */
+  public Adapter createTupleLiteralExpCSAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link modelConverter.use_language.use.TupleLiteralPartCS <em>Tuple Literal Part CS</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see modelConverter.use_language.use.TupleLiteralPartCS
+   * @generated
+   */
+  public Adapter createTupleLiteralPartCSAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link modelConverter.use_language.use.NumberLiteralExpCS <em>Number Literal Exp CS</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see modelConverter.use_language.use.NumberLiteralExpCS
+   * @generated
+   */
+  public Adapter createNumberLiteralExpCSAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link modelConverter.use_language.use.BooleanLiteralExpCS <em>Boolean Literal Exp CS</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see modelConverter.use_language.use.BooleanLiteralExpCS
+   * @generated
+   */
+  public Adapter createBooleanLiteralExpCSAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link modelConverter.use_language.use.UnlimitedNaturalLiteralExpCS <em>Unlimited Natural Literal Exp CS</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see modelConverter.use_language.use.UnlimitedNaturalLiteralExpCS
+   * @generated
+   */
+  public Adapter createUnlimitedNaturalLiteralExpCSAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link modelConverter.use_language.use.InvalidLiteralExpCS <em>Invalid Literal Exp CS</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see modelConverter.use_language.use.InvalidLiteralExpCS
+   * @generated
+   */
+  public Adapter createInvalidLiteralExpCSAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link modelConverter.use_language.use.NullLiteralExpCS <em>Null Literal Exp CS</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see modelConverter.use_language.use.NullLiteralExpCS
+   * @generated
+   */
+  public Adapter createNullLiteralExpCSAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link modelConverter.use_language.use.NestedExpCS <em>Nested Exp CS</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see modelConverter.use_language.use.NestedExpCS
+   * @generated
+   */
+  public Adapter createNestedExpCSAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link modelConverter.use_language.use.SelfExpCS <em>Self Exp CS</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see modelConverter.use_language.use.SelfExpCS
+   * @generated
+   */
+  public Adapter createSelfExpCSAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link modelConverter.use_language.use.IfExpCS <em>If Exp CS</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see modelConverter.use_language.use.IfExpCS
+   * @generated
+   */
+  public Adapter createIfExpCSAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link modelConverter.use_language.use.IfThenExpCS <em>If Then Exp CS</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see modelConverter.use_language.use.IfThenExpCS
+   * @generated
+   */
+  public Adapter createIfThenExpCSAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link modelConverter.use_language.use.LetExpCS <em>Let Exp CS</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see modelConverter.use_language.use.LetExpCS
+   * @generated
+   */
+  public Adapter createLetExpCSAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link modelConverter.use_language.use.LetVariableCS <em>Let Variable CS</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see modelConverter.use_language.use.LetVariableCS
+   * @generated
+   */
+  public Adapter createLetVariableCSAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link modelConverter.use_language.use.RoundBracketedClauseCS <em>Round Bracketed Clause CS</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see modelConverter.use_language.use.RoundBracketedClauseCS
+   * @generated
+   */
+  public Adapter createRoundBracketedClauseCSAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link modelConverter.use_language.use.NavigatingArgCS <em>Navigating Arg CS</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see modelConverter.use_language.use.NavigatingArgCS
+   * @generated
+   */
+  public Adapter createNavigatingArgCSAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link modelConverter.use_language.use.VariableCS <em>Variable CS</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see modelConverter.use_language.use.VariableCS
+   * @generated
+   */
+  public Adapter createVariableCSAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link modelConverter.use_language.use.InfixExpCS <em>Infix Exp CS</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see modelConverter.use_language.use.InfixExpCS
+   * @generated
+   */
+  public Adapter createInfixExpCSAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link modelConverter.use_language.use.PrefixExpCS <em>Prefix Exp CS</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see modelConverter.use_language.use.PrefixExpCS
+   * @generated
+   */
+  public Adapter createPrefixExpCSAdapter()
   {
     return null;
   }

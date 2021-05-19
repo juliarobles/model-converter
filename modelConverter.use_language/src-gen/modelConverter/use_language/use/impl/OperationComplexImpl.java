@@ -6,17 +6,47 @@ package modelConverter.use_language.use.impl;
 import modelConverter.use_language.use.OperationComplex;
 import modelConverter.use_language.use.UsePackage;
 
+import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.ecore.EClass;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Operation Complex</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following features are implemented:
+ * </p>
+ * <ul>
+ *   <li>{@link modelConverter.use_language.use.impl.OperationComplexImpl#getOperationbody <em>Operationbody</em>}</li>
+ * </ul>
  *
  * @generated
  */
 public class OperationComplexImpl extends OperationTypeImpl implements OperationComplex
 {
+  /**
+   * The default value of the '{@link #getOperationbody() <em>Operationbody</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getOperationbody()
+   * @generated
+   * @ordered
+   */
+  protected static final String OPERATIONBODY_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getOperationbody() <em>Operationbody</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getOperationbody()
+   * @generated
+   * @ordered
+   */
+  protected String operationbody = OPERATIONBODY_EDEFAULT;
+
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -36,6 +66,114 @@ public class OperationComplexImpl extends OperationTypeImpl implements Operation
   protected EClass eStaticClass()
   {
     return UsePackage.Literals.OPERATION_COMPLEX;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String getOperationbody()
+  {
+    return operationbody;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setOperationbody(String newOperationbody)
+  {
+    String oldOperationbody = operationbody;
+    operationbody = newOperationbody;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, UsePackage.OPERATION_COMPLEX__OPERATIONBODY, oldOperationbody, operationbody));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Object eGet(int featureID, boolean resolve, boolean coreType)
+  {
+    switch (featureID)
+    {
+      case UsePackage.OPERATION_COMPLEX__OPERATIONBODY:
+        return getOperationbody();
+    }
+    return super.eGet(featureID, resolve, coreType);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void eSet(int featureID, Object newValue)
+  {
+    switch (featureID)
+    {
+      case UsePackage.OPERATION_COMPLEX__OPERATIONBODY:
+        setOperationbody((String)newValue);
+        return;
+    }
+    super.eSet(featureID, newValue);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void eUnset(int featureID)
+  {
+    switch (featureID)
+    {
+      case UsePackage.OPERATION_COMPLEX__OPERATIONBODY:
+        setOperationbody(OPERATIONBODY_EDEFAULT);
+        return;
+    }
+    super.eUnset(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public boolean eIsSet(int featureID)
+  {
+    switch (featureID)
+    {
+      case UsePackage.OPERATION_COMPLEX__OPERATIONBODY:
+        return OPERATIONBODY_EDEFAULT == null ? operationbody != null : !OPERATIONBODY_EDEFAULT.equals(operationbody);
+    }
+    return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuilder result = new StringBuilder(super.toString());
+    result.append(" (operationbody: ");
+    result.append(operationbody);
+    result.append(')');
+    return result.toString();
   }
 
 } //OperationComplexImpl

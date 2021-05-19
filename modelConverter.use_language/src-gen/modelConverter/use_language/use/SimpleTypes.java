@@ -3,7 +3,6 @@
  */
 package modelConverter.use_language.use;
 
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -51,12 +50,12 @@ public interface SimpleTypes extends AllTypes
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Referended</em>' reference.
-   * @see #setReferended(EObject)
+   * @see #setReferended(AllClassAndEnum)
    * @see modelConverter.use_language.use.UsePackage#getSimpleTypes_Referended()
    * @model
    * @generated
    */
-  EObject getReferended();
+  AllClassAndEnum getReferended();
 
   /**
    * Sets the value of the '{@link modelConverter.use_language.use.SimpleTypes#getReferended <em>Referended</em>}' reference.
@@ -66,6 +65,6 @@ public interface SimpleTypes extends AllTypes
    * @see #getReferended()
    * @generated
    */
-  void setReferended(EObject value);
+  void setReferended(AllClassAndEnum value);
 
 } // SimpleTypes

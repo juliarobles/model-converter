@@ -234,6 +234,25 @@ public interface UsePackage extends EPackage
   int COLLECTION_TYPE_FEATURE_COUNT = ALL_TYPES_FEATURE_COUNT + 2;
 
   /**
+   * The meta object id for the '{@link modelConverter.use_language.use.impl.AllClassAndEnumImpl <em>All Class And Enum</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see modelConverter.use_language.use.impl.AllClassAndEnumImpl
+   * @see modelConverter.use_language.use.impl.UsePackageImpl#getAllClassAndEnum()
+   * @generated
+   */
+  int ALL_CLASS_AND_ENUM = 6;
+
+  /**
+   * The number of structural features of the '<em>All Class And Enum</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ALL_CLASS_AND_ENUM_FEATURE_COUNT = 0;
+
+  /**
    * The meta object id for the '{@link modelConverter.use_language.use.impl.AllClassImpl <em>All Class</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -250,7 +269,7 @@ public interface UsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int ALL_CLASS_FEATURE_COUNT = 0;
+  int ALL_CLASS_FEATURE_COUNT = ALL_CLASS_AND_ENUM_FEATURE_COUNT + 0;
 
   /**
    * The meta object id for the '{@link modelConverter.use_language.use.impl.SimpleTypesImpl <em>Simple Types</em>}' class.
@@ -260,7 +279,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getSimpleTypes()
    * @generated
    */
-  int SIMPLE_TYPES = 6;
+  int SIMPLE_TYPES = 7;
 
   /**
    * The feature id for the '<em><b>Default Type</b></em>' attribute.
@@ -297,7 +316,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getEnum()
    * @generated
    */
-  int ENUM = 7;
+  int ENUM = 8;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -306,7 +325,7 @@ public interface UsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int ENUM__NAME = 0;
+  int ENUM__NAME = ALL_CLASS_AND_ENUM_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Elements</b></em>' attribute list.
@@ -315,7 +334,7 @@ public interface UsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int ENUM__ELEMENTS = 1;
+  int ENUM__ELEMENTS = ALL_CLASS_AND_ENUM_FEATURE_COUNT + 1;
 
   /**
    * The number of structural features of the '<em>Enum</em>' class.
@@ -324,7 +343,7 @@ public interface UsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int ENUM_FEATURE_COUNT = 2;
+  int ENUM_FEATURE_COUNT = ALL_CLASS_AND_ENUM_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link modelConverter.use_language.use.impl.ClassImpl <em>Class</em>}' class.
@@ -334,7 +353,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getClass_()
    * @generated
    */
-  int CLASS = 8;
+  int CLASS = 9;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -407,7 +426,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getGeneralization()
    * @generated
    */
-  int GENERALIZATION = 9;
+  int GENERALIZATION = 10;
 
   /**
    * The feature id for the '<em><b>General</b></em>' reference.
@@ -435,7 +454,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getAssociation()
    * @generated
    */
-  int ASSOCIATION = 10;
+  int ASSOCIATION = 11;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -481,7 +500,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getAssociationEnd()
    * @generated
    */
-  int ASSOCIATION_END = 11;
+  int ASSOCIATION_END = 12;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' reference.
@@ -536,7 +555,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getAssociationClass()
    * @generated
    */
-  int ASSOCIATION_CLASS = 12;
+  int ASSOCIATION_CLASS = 13;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -618,7 +637,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getAttributesBase()
    * @generated
    */
-  int ATTRIBUTES_BASE = 13;
+  int ATTRIBUTES_BASE = 14;
 
   /**
    * The feature id for the '<em><b>Attributes</b></em>' containment reference list.
@@ -646,7 +665,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getAttribute()
    * @generated
    */
-  int ATTRIBUTE = 14;
+  int ATTRIBUTE = 15;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -683,7 +702,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getOperationsBase()
    * @generated
    */
-  int OPERATIONS_BASE = 15;
+  int OPERATIONS_BASE = 16;
 
   /**
    * The feature id for the '<em><b>Operations</b></em>' containment reference list.
@@ -711,7 +730,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getOperationType()
    * @generated
    */
-  int OPERATION_TYPE = 16;
+  int OPERATION_TYPE = 17;
 
   /**
    * The feature id for the '<em><b>Operation Declaration</b></em>' containment reference.
@@ -723,22 +742,13 @@ public interface UsePackage extends EPackage
   int OPERATION_TYPE__OPERATION_DECLARATION = 0;
 
   /**
-   * The feature id for the '<em><b>Operationbody</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int OPERATION_TYPE__OPERATIONBODY = 1;
-
-  /**
    * The feature id for the '<em><b>Conditions</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int OPERATION_TYPE__CONDITIONS = 2;
+  int OPERATION_TYPE__CONDITIONS = 1;
 
   /**
    * The number of structural features of the '<em>Operation Type</em>' class.
@@ -747,7 +757,7 @@ public interface UsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int OPERATION_TYPE_FEATURE_COUNT = 3;
+  int OPERATION_TYPE_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link modelConverter.use_language.use.impl.OperationQueryImpl <em>Operation Query</em>}' class.
@@ -757,7 +767,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getOperationQuery()
    * @generated
    */
-  int OPERATION_QUERY = 17;
+  int OPERATION_QUERY = 18;
 
   /**
    * The feature id for the '<em><b>Operation Declaration</b></em>' containment reference.
@@ -769,15 +779,6 @@ public interface UsePackage extends EPackage
   int OPERATION_QUERY__OPERATION_DECLARATION = OPERATION_TYPE__OPERATION_DECLARATION;
 
   /**
-   * The feature id for the '<em><b>Operationbody</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int OPERATION_QUERY__OPERATIONBODY = OPERATION_TYPE__OPERATIONBODY;
-
-  /**
    * The feature id for the '<em><b>Conditions</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -787,13 +788,22 @@ public interface UsePackage extends EPackage
   int OPERATION_QUERY__CONDITIONS = OPERATION_TYPE__CONDITIONS;
 
   /**
+   * The feature id for the '<em><b>Operationbody</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OPERATION_QUERY__OPERATIONBODY = OPERATION_TYPE_FEATURE_COUNT + 0;
+
+  /**
    * The number of structural features of the '<em>Operation Query</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int OPERATION_QUERY_FEATURE_COUNT = OPERATION_TYPE_FEATURE_COUNT + 0;
+  int OPERATION_QUERY_FEATURE_COUNT = OPERATION_TYPE_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link modelConverter.use_language.use.impl.OperationComplexImpl <em>Operation Complex</em>}' class.
@@ -803,7 +813,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getOperationComplex()
    * @generated
    */
-  int OPERATION_COMPLEX = 18;
+  int OPERATION_COMPLEX = 19;
 
   /**
    * The feature id for the '<em><b>Operation Declaration</b></em>' containment reference.
@@ -815,15 +825,6 @@ public interface UsePackage extends EPackage
   int OPERATION_COMPLEX__OPERATION_DECLARATION = OPERATION_TYPE__OPERATION_DECLARATION;
 
   /**
-   * The feature id for the '<em><b>Operationbody</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int OPERATION_COMPLEX__OPERATIONBODY = OPERATION_TYPE__OPERATIONBODY;
-
-  /**
    * The feature id for the '<em><b>Conditions</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -833,13 +834,22 @@ public interface UsePackage extends EPackage
   int OPERATION_COMPLEX__CONDITIONS = OPERATION_TYPE__CONDITIONS;
 
   /**
+   * The feature id for the '<em><b>Operationbody</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OPERATION_COMPLEX__OPERATIONBODY = OPERATION_TYPE_FEATURE_COUNT + 0;
+
+  /**
    * The number of structural features of the '<em>Operation Complex</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int OPERATION_COMPLEX_FEATURE_COUNT = OPERATION_TYPE_FEATURE_COUNT + 0;
+  int OPERATION_COMPLEX_FEATURE_COUNT = OPERATION_TYPE_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link modelConverter.use_language.use.impl.OperationDeclarationImpl <em>Operation Declaration</em>}' class.
@@ -849,7 +859,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getOperationDeclaration()
    * @generated
    */
-  int OPERATION_DECLARATION = 19;
+  int OPERATION_DECLARATION = 20;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -895,7 +905,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getParameter()
    * @generated
    */
-  int PARAMETER = 20;
+  int PARAMETER = 21;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -932,7 +942,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getConstraintsBase()
    * @generated
    */
-  int CONSTRAINTS_BASE = 21;
+  int CONSTRAINTS_BASE = 22;
 
   /**
    * The feature id for the '<em><b>Invariants</b></em>' containment reference list.
@@ -960,7 +970,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getConstrainsGeneral()
    * @generated
    */
-  int CONSTRAINS_GENERAL = 22;
+  int CONSTRAINS_GENERAL = 23;
 
   /**
    * The feature id for the '<em><b>Contexts</b></em>' containment reference list.
@@ -988,7 +998,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getContextsType()
    * @generated
    */
-  int CONTEXTS_TYPE = 23;
+  int CONTEXTS_TYPE = 24;
 
   /**
    * The feature id for the '<em><b>Classname</b></em>' reference.
@@ -1016,7 +1026,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getInvariantContext()
    * @generated
    */
-  int INVARIANT_CONTEXT = 24;
+  int INVARIANT_CONTEXT = 25;
 
   /**
    * The feature id for the '<em><b>Classname</b></em>' reference.
@@ -1062,7 +1072,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getInvariantDefinition()
    * @generated
    */
-  int INVARIANT_DEFINITION = 25;
+  int INVARIANT_DEFINITION = 26;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1099,7 +1109,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getOperationContext()
    * @generated
    */
-  int OPERATION_CONTEXT = 26;
+  int OPERATION_CONTEXT = 27;
 
   /**
    * The feature id for the '<em><b>Classname</b></em>' reference.
@@ -1136,7 +1146,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getOperationConstraints()
    * @generated
    */
-  int OPERATION_CONSTRAINTS = 27;
+  int OPERATION_CONSTRAINTS = 28;
 
   /**
    * The feature id for the '<em><b>Operation Declaration</b></em>' containment reference.
@@ -1173,7 +1183,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getConditionType()
    * @generated
    */
-  int CONDITION_TYPE = 28;
+  int CONDITION_TYPE = 29;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1210,7 +1220,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getPrecondition()
    * @generated
    */
-  int PRECONDITION = 29;
+  int PRECONDITION = 30;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1247,7 +1257,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getPostcondition()
    * @generated
    */
-  int POSTCONDITION = 30;
+  int POSTCONDITION = 31;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1277,14 +1287,846 @@ public interface UsePackage extends EPackage
   int POSTCONDITION_FEATURE_COUNT = CONDITION_TYPE_FEATURE_COUNT + 0;
 
   /**
-   * The meta object id for the '{@link modelConverter.use_language.use.impl.ContextCSImpl <em>Context CS</em>}' class.
+   * The meta object id for the '{@link modelConverter.use_language.use.impl.TypedRefCSImpl <em>Typed Ref CS</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see modelConverter.use_language.use.impl.ContextCSImpl
-   * @see modelConverter.use_language.use.impl.UsePackageImpl#getContextCS()
+   * @see modelConverter.use_language.use.impl.TypedRefCSImpl
+   * @see modelConverter.use_language.use.impl.UsePackageImpl#getTypedRefCS()
    * @generated
    */
-  int CONTEXT_CS = 31;
+  int TYPED_REF_CS = 39;
+
+  /**
+   * The feature id for the '<em><b>Owned Multiplicity</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPED_REF_CS__OWNED_MULTIPLICITY = 0;
+
+  /**
+   * The number of structural features of the '<em>Typed Ref CS</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPED_REF_CS_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link modelConverter.use_language.use.impl.PrimitiveTypeRefCSImpl <em>Primitive Type Ref CS</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see modelConverter.use_language.use.impl.PrimitiveTypeRefCSImpl
+   * @see modelConverter.use_language.use.impl.UsePackageImpl#getPrimitiveTypeRefCS()
+   * @generated
+   */
+  int PRIMITIVE_TYPE_REF_CS = 32;
+
+  /**
+   * The feature id for the '<em><b>Owned Multiplicity</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PRIMITIVE_TYPE_REF_CS__OWNED_MULTIPLICITY = TYPED_REF_CS__OWNED_MULTIPLICITY;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PRIMITIVE_TYPE_REF_CS__NAME = TYPED_REF_CS_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Primitive Type Ref CS</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PRIMITIVE_TYPE_REF_CS_FEATURE_COUNT = TYPED_REF_CS_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link modelConverter.use_language.use.impl.CollectionTypeCSImpl <em>Collection Type CS</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see modelConverter.use_language.use.impl.CollectionTypeCSImpl
+   * @see modelConverter.use_language.use.impl.UsePackageImpl#getCollectionTypeCS()
+   * @generated
+   */
+  int COLLECTION_TYPE_CS = 33;
+
+  /**
+   * The feature id for the '<em><b>Owned Multiplicity</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COLLECTION_TYPE_CS__OWNED_MULTIPLICITY = TYPED_REF_CS__OWNED_MULTIPLICITY;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COLLECTION_TYPE_CS__NAME = TYPED_REF_CS_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Owned Type</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COLLECTION_TYPE_CS__OWNED_TYPE = TYPED_REF_CS_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Owned Collection Multiplicity</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COLLECTION_TYPE_CS__OWNED_COLLECTION_MULTIPLICITY = TYPED_REF_CS_FEATURE_COUNT + 2;
+
+  /**
+   * The number of structural features of the '<em>Collection Type CS</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COLLECTION_TYPE_CS_FEATURE_COUNT = TYPED_REF_CS_FEATURE_COUNT + 3;
+
+  /**
+   * The meta object id for the '{@link modelConverter.use_language.use.impl.MapTypeCSImpl <em>Map Type CS</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see modelConverter.use_language.use.impl.MapTypeCSImpl
+   * @see modelConverter.use_language.use.impl.UsePackageImpl#getMapTypeCS()
+   * @generated
+   */
+  int MAP_TYPE_CS = 34;
+
+  /**
+   * The feature id for the '<em><b>Owned Multiplicity</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MAP_TYPE_CS__OWNED_MULTIPLICITY = TYPED_REF_CS__OWNED_MULTIPLICITY;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MAP_TYPE_CS__NAME = TYPED_REF_CS_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Owned Key Type</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MAP_TYPE_CS__OWNED_KEY_TYPE = TYPED_REF_CS_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Owned Value Type</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MAP_TYPE_CS__OWNED_VALUE_TYPE = TYPED_REF_CS_FEATURE_COUNT + 2;
+
+  /**
+   * The number of structural features of the '<em>Map Type CS</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MAP_TYPE_CS_FEATURE_COUNT = TYPED_REF_CS_FEATURE_COUNT + 3;
+
+  /**
+   * The meta object id for the '{@link modelConverter.use_language.use.impl.TupleTypeCSImpl <em>Tuple Type CS</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see modelConverter.use_language.use.impl.TupleTypeCSImpl
+   * @see modelConverter.use_language.use.impl.UsePackageImpl#getTupleTypeCS()
+   * @generated
+   */
+  int TUPLE_TYPE_CS = 35;
+
+  /**
+   * The feature id for the '<em><b>Owned Multiplicity</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TUPLE_TYPE_CS__OWNED_MULTIPLICITY = TYPED_REF_CS__OWNED_MULTIPLICITY;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TUPLE_TYPE_CS__NAME = TYPED_REF_CS_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Owned Parts</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TUPLE_TYPE_CS__OWNED_PARTS = TYPED_REF_CS_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Tuple Type CS</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TUPLE_TYPE_CS_FEATURE_COUNT = TYPED_REF_CS_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link modelConverter.use_language.use.impl.TuplePartCSImpl <em>Tuple Part CS</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see modelConverter.use_language.use.impl.TuplePartCSImpl
+   * @see modelConverter.use_language.use.impl.UsePackageImpl#getTuplePartCS()
+   * @generated
+   */
+  int TUPLE_PART_CS = 36;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TUPLE_PART_CS__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Owned Type</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TUPLE_PART_CS__OWNED_TYPE = 1;
+
+  /**
+   * The number of structural features of the '<em>Tuple Part CS</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TUPLE_PART_CS_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link modelConverter.use_language.use.impl.CollectionPatternCSImpl <em>Collection Pattern CS</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see modelConverter.use_language.use.impl.CollectionPatternCSImpl
+   * @see modelConverter.use_language.use.impl.UsePackageImpl#getCollectionPatternCS()
+   * @generated
+   */
+  int COLLECTION_PATTERN_CS = 37;
+
+  /**
+   * The feature id for the '<em><b>Owned Multiplicity</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COLLECTION_PATTERN_CS__OWNED_MULTIPLICITY = TYPED_REF_CS__OWNED_MULTIPLICITY;
+
+  /**
+   * The feature id for the '<em><b>Owned Type</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COLLECTION_PATTERN_CS__OWNED_TYPE = TYPED_REF_CS_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Owned Parts</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COLLECTION_PATTERN_CS__OWNED_PARTS = TYPED_REF_CS_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Rest Variable Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COLLECTION_PATTERN_CS__REST_VARIABLE_NAME = TYPED_REF_CS_FEATURE_COUNT + 2;
+
+  /**
+   * The number of structural features of the '<em>Collection Pattern CS</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COLLECTION_PATTERN_CS_FEATURE_COUNT = TYPED_REF_CS_FEATURE_COUNT + 3;
+
+  /**
+   * The meta object id for the '{@link modelConverter.use_language.use.impl.PatternExpCSImpl <em>Pattern Exp CS</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see modelConverter.use_language.use.impl.PatternExpCSImpl
+   * @see modelConverter.use_language.use.impl.UsePackageImpl#getPatternExpCS()
+   * @generated
+   */
+  int PATTERN_EXP_CS = 38;
+
+  /**
+   * The feature id for the '<em><b>Pattern Variable Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PATTERN_EXP_CS__PATTERN_VARIABLE_NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Owned Pattern Type</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PATTERN_EXP_CS__OWNED_PATTERN_TYPE = 1;
+
+  /**
+   * The number of structural features of the '<em>Pattern Exp CS</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PATTERN_EXP_CS_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link modelConverter.use_language.use.impl.ExpCSImpl <em>Exp CS</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see modelConverter.use_language.use.impl.ExpCSImpl
+   * @see modelConverter.use_language.use.impl.UsePackageImpl#getExpCS()
+   * @generated
+   */
+  int EXP_CS = 49;
+
+  /**
+   * The number of structural features of the '<em>Exp CS</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXP_CS_FEATURE_COUNT = 0;
+
+  /**
+   * The meta object id for the '{@link modelConverter.use_language.use.impl.TypeLiteralExpCSImpl <em>Type Literal Exp CS</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see modelConverter.use_language.use.impl.TypeLiteralExpCSImpl
+   * @see modelConverter.use_language.use.impl.UsePackageImpl#getTypeLiteralExpCS()
+   * @generated
+   */
+  int TYPE_LITERAL_EXP_CS = 40;
+
+  /**
+   * The feature id for the '<em><b>Owned Type</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE_LITERAL_EXP_CS__OWNED_TYPE = EXP_CS_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Type Literal Exp CS</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE_LITERAL_EXP_CS_FEATURE_COUNT = EXP_CS_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link modelConverter.use_language.use.impl.TypeNameExpCSImpl <em>Type Name Exp CS</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see modelConverter.use_language.use.impl.TypeNameExpCSImpl
+   * @see modelConverter.use_language.use.impl.UsePackageImpl#getTypeNameExpCS()
+   * @generated
+   */
+  int TYPE_NAME_EXP_CS = 41;
+
+  /**
+   * The feature id for the '<em><b>Owned Multiplicity</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE_NAME_EXP_CS__OWNED_MULTIPLICITY = TYPED_REF_CS__OWNED_MULTIPLICITY;
+
+  /**
+   * The feature id for the '<em><b>Owned Path Name</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE_NAME_EXP_CS__OWNED_PATH_NAME = TYPED_REF_CS_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Owned Curly Bracketed Clause</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE_NAME_EXP_CS__OWNED_CURLY_BRACKETED_CLAUSE = TYPED_REF_CS_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Owned Pattern Guard</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE_NAME_EXP_CS__OWNED_PATTERN_GUARD = TYPED_REF_CS_FEATURE_COUNT + 2;
+
+  /**
+   * The number of structural features of the '<em>Type Name Exp CS</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE_NAME_EXP_CS_FEATURE_COUNT = TYPED_REF_CS_FEATURE_COUNT + 3;
+
+  /**
+   * The meta object id for the '{@link modelConverter.use_language.use.impl.CurlyBracketedClauseCSImpl <em>Curly Bracketed Clause CS</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see modelConverter.use_language.use.impl.CurlyBracketedClauseCSImpl
+   * @see modelConverter.use_language.use.impl.UsePackageImpl#getCurlyBracketedClauseCS()
+   * @generated
+   */
+  int CURLY_BRACKETED_CLAUSE_CS = 42;
+
+  /**
+   * The feature id for the '<em><b>Owned Parts</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CURLY_BRACKETED_CLAUSE_CS__OWNED_PARTS = 0;
+
+  /**
+   * The number of structural features of the '<em>Curly Bracketed Clause CS</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CURLY_BRACKETED_CLAUSE_CS_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link modelConverter.use_language.use.impl.ShadowPartCSImpl <em>Shadow Part CS</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see modelConverter.use_language.use.impl.ShadowPartCSImpl
+   * @see modelConverter.use_language.use.impl.UsePackageImpl#getShadowPartCS()
+   * @generated
+   */
+  int SHADOW_PART_CS = 43;
+
+  /**
+   * The feature id for the '<em><b>Referred Property</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SHADOW_PART_CS__REFERRED_PROPERTY = 0;
+
+  /**
+   * The feature id for the '<em><b>Owned Init Expression</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SHADOW_PART_CS__OWNED_INIT_EXPRESSION = 1;
+
+  /**
+   * The number of structural features of the '<em>Shadow Part CS</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SHADOW_PART_CS_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link modelConverter.use_language.use.impl.PrimitiveLiteralExpCSImpl <em>Primitive Literal Exp CS</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see modelConverter.use_language.use.impl.PrimitiveLiteralExpCSImpl
+   * @see modelConverter.use_language.use.impl.UsePackageImpl#getPrimitiveLiteralExpCS()
+   * @generated
+   */
+  int PRIMITIVE_LITERAL_EXP_CS = 50;
+
+  /**
+   * The number of structural features of the '<em>Primitive Literal Exp CS</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PRIMITIVE_LITERAL_EXP_CS_FEATURE_COUNT = EXP_CS_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link modelConverter.use_language.use.impl.StringLiteralExpCSImpl <em>String Literal Exp CS</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see modelConverter.use_language.use.impl.StringLiteralExpCSImpl
+   * @see modelConverter.use_language.use.impl.UsePackageImpl#getStringLiteralExpCS()
+   * @generated
+   */
+  int STRING_LITERAL_EXP_CS = 44;
+
+  /**
+   * The feature id for the '<em><b>Segments</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STRING_LITERAL_EXP_CS__SEGMENTS = PRIMITIVE_LITERAL_EXP_CS_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>String Literal Exp CS</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STRING_LITERAL_EXP_CS_FEATURE_COUNT = PRIMITIVE_LITERAL_EXP_CS_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link modelConverter.use_language.use.impl.MultiplicityCSImpl <em>Multiplicity CS</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see modelConverter.use_language.use.impl.MultiplicityCSImpl
+   * @see modelConverter.use_language.use.impl.UsePackageImpl#getMultiplicityCS()
+   * @generated
+   */
+  int MULTIPLICITY_CS = 46;
+
+  /**
+   * The feature id for the '<em><b>Is Null Free</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MULTIPLICITY_CS__IS_NULL_FREE = 0;
+
+  /**
+   * The number of structural features of the '<em>Multiplicity CS</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MULTIPLICITY_CS_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link modelConverter.use_language.use.impl.MultiplicityBoundsCSImpl <em>Multiplicity Bounds CS</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see modelConverter.use_language.use.impl.MultiplicityBoundsCSImpl
+   * @see modelConverter.use_language.use.impl.UsePackageImpl#getMultiplicityBoundsCS()
+   * @generated
+   */
+  int MULTIPLICITY_BOUNDS_CS = 45;
+
+  /**
+   * The feature id for the '<em><b>Is Null Free</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MULTIPLICITY_BOUNDS_CS__IS_NULL_FREE = MULTIPLICITY_CS__IS_NULL_FREE;
+
+  /**
+   * The feature id for the '<em><b>Lower Bound</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MULTIPLICITY_BOUNDS_CS__LOWER_BOUND = MULTIPLICITY_CS_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Upper Bound</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MULTIPLICITY_BOUNDS_CS__UPPER_BOUND = MULTIPLICITY_CS_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Multiplicity Bounds CS</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MULTIPLICITY_BOUNDS_CS_FEATURE_COUNT = MULTIPLICITY_CS_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link modelConverter.use_language.use.impl.MultiplicityStringCSImpl <em>Multiplicity String CS</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see modelConverter.use_language.use.impl.MultiplicityStringCSImpl
+   * @see modelConverter.use_language.use.impl.UsePackageImpl#getMultiplicityStringCS()
+   * @generated
+   */
+  int MULTIPLICITY_STRING_CS = 47;
+
+  /**
+   * The feature id for the '<em><b>Is Null Free</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MULTIPLICITY_STRING_CS__IS_NULL_FREE = MULTIPLICITY_CS__IS_NULL_FREE;
+
+  /**
+   * The feature id for the '<em><b>String Bounds</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MULTIPLICITY_STRING_CS__STRING_BOUNDS = MULTIPLICITY_CS_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Multiplicity String CS</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MULTIPLICITY_STRING_CS_FEATURE_COUNT = MULTIPLICITY_CS_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link modelConverter.use_language.use.impl.PathNameCSImpl <em>Path Name CS</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see modelConverter.use_language.use.impl.PathNameCSImpl
+   * @see modelConverter.use_language.use.impl.UsePackageImpl#getPathNameCS()
+   * @generated
+   */
+  int PATH_NAME_CS = 48;
+
+  /**
+   * The feature id for the '<em><b>Owned Path Elements</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PATH_NAME_CS__OWNED_PATH_ELEMENTS = 0;
+
+  /**
+   * The number of structural features of the '<em>Path Name CS</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PATH_NAME_CS_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link modelConverter.use_language.use.impl.NameExpCSImpl <em>Name Exp CS</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see modelConverter.use_language.use.impl.NameExpCSImpl
+   * @see modelConverter.use_language.use.impl.UsePackageImpl#getNameExpCS()
+   * @generated
+   */
+  int NAME_EXP_CS = 51;
+
+  /**
+   * The feature id for the '<em><b>Owned Path Name</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NAME_EXP_CS__OWNED_PATH_NAME = EXP_CS_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Owned Square Bracketed Clauses</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NAME_EXP_CS__OWNED_SQUARE_BRACKETED_CLAUSES = EXP_CS_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Owned Round Bracketed Clause</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NAME_EXP_CS__OWNED_ROUND_BRACKETED_CLAUSE = EXP_CS_FEATURE_COUNT + 2;
+
+  /**
+   * The feature id for the '<em><b>Owned Curly Bracketed Clause</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NAME_EXP_CS__OWNED_CURLY_BRACKETED_CLAUSE = EXP_CS_FEATURE_COUNT + 3;
+
+  /**
+   * The feature id for the '<em><b>Is Pre</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NAME_EXP_CS__IS_PRE = EXP_CS_FEATURE_COUNT + 4;
+
+  /**
+   * The number of structural features of the '<em>Name Exp CS</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NAME_EXP_CS_FEATURE_COUNT = EXP_CS_FEATURE_COUNT + 5;
+
+  /**
+   * The meta object id for the '{@link modelConverter.use_language.use.impl.SquareBracketedClauseCSImpl <em>Square Bracketed Clause CS</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see modelConverter.use_language.use.impl.SquareBracketedClauseCSImpl
+   * @see modelConverter.use_language.use.impl.UsePackageImpl#getSquareBracketedClauseCS()
+   * @generated
+   */
+  int SQUARE_BRACKETED_CLAUSE_CS = 52;
+
+  /**
+   * The feature id for the '<em><b>Owned Terms</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SQUARE_BRACKETED_CLAUSE_CS__OWNED_TERMS = 0;
+
+  /**
+   * The number of structural features of the '<em>Square Bracketed Clause CS</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SQUARE_BRACKETED_CLAUSE_CS_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link modelConverter.use_language.use.impl.CollectionLiteralExpCSImpl <em>Collection Literal Exp CS</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see modelConverter.use_language.use.impl.CollectionLiteralExpCSImpl
+   * @see modelConverter.use_language.use.impl.UsePackageImpl#getCollectionLiteralExpCS()
+   * @generated
+   */
+  int COLLECTION_LITERAL_EXP_CS = 53;
+
+  /**
+   * The feature id for the '<em><b>Owned Type</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COLLECTION_LITERAL_EXP_CS__OWNED_TYPE = EXP_CS_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Owned Parts</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COLLECTION_LITERAL_EXP_CS__OWNED_PARTS = EXP_CS_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Collection Literal Exp CS</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COLLECTION_LITERAL_EXP_CS_FEATURE_COUNT = EXP_CS_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link modelConverter.use_language.use.impl.CollectionLiteralPartCSImpl <em>Collection Literal Part CS</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see modelConverter.use_language.use.impl.CollectionLiteralPartCSImpl
+   * @see modelConverter.use_language.use.impl.UsePackageImpl#getCollectionLiteralPartCS()
+   * @generated
+   */
+  int COLLECTION_LITERAL_PART_CS = 54;
 
   /**
    * The feature id for the '<em><b>Owned Expression</b></em>' containment reference.
@@ -1293,16 +2135,757 @@ public interface UsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int CONTEXT_CS__OWNED_EXPRESSION = 0;
+  int COLLECTION_LITERAL_PART_CS__OWNED_EXPRESSION = 0;
 
   /**
-   * The number of structural features of the '<em>Context CS</em>' class.
+   * The feature id for the '<em><b>Owned Last Expression</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CONTEXT_CS_FEATURE_COUNT = 1;
+  int COLLECTION_LITERAL_PART_CS__OWNED_LAST_EXPRESSION = 1;
+
+  /**
+   * The number of structural features of the '<em>Collection Literal Part CS</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COLLECTION_LITERAL_PART_CS_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link modelConverter.use_language.use.impl.LambdaLiteralExpCSImpl <em>Lambda Literal Exp CS</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see modelConverter.use_language.use.impl.LambdaLiteralExpCSImpl
+   * @see modelConverter.use_language.use.impl.UsePackageImpl#getLambdaLiteralExpCS()
+   * @generated
+   */
+  int LAMBDA_LITERAL_EXP_CS = 55;
+
+  /**
+   * The feature id for the '<em><b>Owned Expression CS</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LAMBDA_LITERAL_EXP_CS__OWNED_EXPRESSION_CS = EXP_CS_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Lambda Literal Exp CS</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LAMBDA_LITERAL_EXP_CS_FEATURE_COUNT = EXP_CS_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link modelConverter.use_language.use.impl.MapLiteralExpCSImpl <em>Map Literal Exp CS</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see modelConverter.use_language.use.impl.MapLiteralExpCSImpl
+   * @see modelConverter.use_language.use.impl.UsePackageImpl#getMapLiteralExpCS()
+   * @generated
+   */
+  int MAP_LITERAL_EXP_CS = 56;
+
+  /**
+   * The feature id for the '<em><b>Owned Type</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MAP_LITERAL_EXP_CS__OWNED_TYPE = EXP_CS_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Owned Parts</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MAP_LITERAL_EXP_CS__OWNED_PARTS = EXP_CS_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Map Literal Exp CS</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MAP_LITERAL_EXP_CS_FEATURE_COUNT = EXP_CS_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link modelConverter.use_language.use.impl.MapLiteralPartCSImpl <em>Map Literal Part CS</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see modelConverter.use_language.use.impl.MapLiteralPartCSImpl
+   * @see modelConverter.use_language.use.impl.UsePackageImpl#getMapLiteralPartCS()
+   * @generated
+   */
+  int MAP_LITERAL_PART_CS = 57;
+
+  /**
+   * The feature id for the '<em><b>Owned Key</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MAP_LITERAL_PART_CS__OWNED_KEY = 0;
+
+  /**
+   * The feature id for the '<em><b>Owned Value</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MAP_LITERAL_PART_CS__OWNED_VALUE = 1;
+
+  /**
+   * The number of structural features of the '<em>Map Literal Part CS</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MAP_LITERAL_PART_CS_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link modelConverter.use_language.use.impl.TupleLiteralExpCSImpl <em>Tuple Literal Exp CS</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see modelConverter.use_language.use.impl.TupleLiteralExpCSImpl
+   * @see modelConverter.use_language.use.impl.UsePackageImpl#getTupleLiteralExpCS()
+   * @generated
+   */
+  int TUPLE_LITERAL_EXP_CS = 58;
+
+  /**
+   * The feature id for the '<em><b>Owned Parts</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TUPLE_LITERAL_EXP_CS__OWNED_PARTS = EXP_CS_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Tuple Literal Exp CS</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TUPLE_LITERAL_EXP_CS_FEATURE_COUNT = EXP_CS_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link modelConverter.use_language.use.impl.TupleLiteralPartCSImpl <em>Tuple Literal Part CS</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see modelConverter.use_language.use.impl.TupleLiteralPartCSImpl
+   * @see modelConverter.use_language.use.impl.UsePackageImpl#getTupleLiteralPartCS()
+   * @generated
+   */
+  int TUPLE_LITERAL_PART_CS = 59;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TUPLE_LITERAL_PART_CS__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Owned Type</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TUPLE_LITERAL_PART_CS__OWNED_TYPE = 1;
+
+  /**
+   * The feature id for the '<em><b>Owned Init Expression</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TUPLE_LITERAL_PART_CS__OWNED_INIT_EXPRESSION = 2;
+
+  /**
+   * The number of structural features of the '<em>Tuple Literal Part CS</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TUPLE_LITERAL_PART_CS_FEATURE_COUNT = 3;
+
+  /**
+   * The meta object id for the '{@link modelConverter.use_language.use.impl.NumberLiteralExpCSImpl <em>Number Literal Exp CS</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see modelConverter.use_language.use.impl.NumberLiteralExpCSImpl
+   * @see modelConverter.use_language.use.impl.UsePackageImpl#getNumberLiteralExpCS()
+   * @generated
+   */
+  int NUMBER_LITERAL_EXP_CS = 60;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NUMBER_LITERAL_EXP_CS__VALUE = PRIMITIVE_LITERAL_EXP_CS_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Number Literal Exp CS</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NUMBER_LITERAL_EXP_CS_FEATURE_COUNT = PRIMITIVE_LITERAL_EXP_CS_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link modelConverter.use_language.use.impl.BooleanLiteralExpCSImpl <em>Boolean Literal Exp CS</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see modelConverter.use_language.use.impl.BooleanLiteralExpCSImpl
+   * @see modelConverter.use_language.use.impl.UsePackageImpl#getBooleanLiteralExpCS()
+   * @generated
+   */
+  int BOOLEAN_LITERAL_EXP_CS = 61;
+
+  /**
+   * The feature id for the '<em><b>Symbol</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BOOLEAN_LITERAL_EXP_CS__SYMBOL = PRIMITIVE_LITERAL_EXP_CS_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Boolean Literal Exp CS</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BOOLEAN_LITERAL_EXP_CS_FEATURE_COUNT = PRIMITIVE_LITERAL_EXP_CS_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link modelConverter.use_language.use.impl.UnlimitedNaturalLiteralExpCSImpl <em>Unlimited Natural Literal Exp CS</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see modelConverter.use_language.use.impl.UnlimitedNaturalLiteralExpCSImpl
+   * @see modelConverter.use_language.use.impl.UsePackageImpl#getUnlimitedNaturalLiteralExpCS()
+   * @generated
+   */
+  int UNLIMITED_NATURAL_LITERAL_EXP_CS = 62;
+
+  /**
+   * The number of structural features of the '<em>Unlimited Natural Literal Exp CS</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UNLIMITED_NATURAL_LITERAL_EXP_CS_FEATURE_COUNT = PRIMITIVE_LITERAL_EXP_CS_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link modelConverter.use_language.use.impl.InvalidLiteralExpCSImpl <em>Invalid Literal Exp CS</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see modelConverter.use_language.use.impl.InvalidLiteralExpCSImpl
+   * @see modelConverter.use_language.use.impl.UsePackageImpl#getInvalidLiteralExpCS()
+   * @generated
+   */
+  int INVALID_LITERAL_EXP_CS = 63;
+
+  /**
+   * The number of structural features of the '<em>Invalid Literal Exp CS</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INVALID_LITERAL_EXP_CS_FEATURE_COUNT = PRIMITIVE_LITERAL_EXP_CS_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link modelConverter.use_language.use.impl.NullLiteralExpCSImpl <em>Null Literal Exp CS</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see modelConverter.use_language.use.impl.NullLiteralExpCSImpl
+   * @see modelConverter.use_language.use.impl.UsePackageImpl#getNullLiteralExpCS()
+   * @generated
+   */
+  int NULL_LITERAL_EXP_CS = 64;
+
+  /**
+   * The number of structural features of the '<em>Null Literal Exp CS</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NULL_LITERAL_EXP_CS_FEATURE_COUNT = PRIMITIVE_LITERAL_EXP_CS_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link modelConverter.use_language.use.impl.NestedExpCSImpl <em>Nested Exp CS</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see modelConverter.use_language.use.impl.NestedExpCSImpl
+   * @see modelConverter.use_language.use.impl.UsePackageImpl#getNestedExpCS()
+   * @generated
+   */
+  int NESTED_EXP_CS = 65;
+
+  /**
+   * The feature id for the '<em><b>Owned Expression</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NESTED_EXP_CS__OWNED_EXPRESSION = EXP_CS_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Nested Exp CS</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NESTED_EXP_CS_FEATURE_COUNT = EXP_CS_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link modelConverter.use_language.use.impl.SelfExpCSImpl <em>Self Exp CS</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see modelConverter.use_language.use.impl.SelfExpCSImpl
+   * @see modelConverter.use_language.use.impl.UsePackageImpl#getSelfExpCS()
+   * @generated
+   */
+  int SELF_EXP_CS = 66;
+
+  /**
+   * The number of structural features of the '<em>Self Exp CS</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SELF_EXP_CS_FEATURE_COUNT = EXP_CS_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link modelConverter.use_language.use.impl.IfExpCSImpl <em>If Exp CS</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see modelConverter.use_language.use.impl.IfExpCSImpl
+   * @see modelConverter.use_language.use.impl.UsePackageImpl#getIfExpCS()
+   * @generated
+   */
+  int IF_EXP_CS = 67;
+
+  /**
+   * The feature id for the '<em><b>Owned Condition</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IF_EXP_CS__OWNED_CONDITION = EXP_CS_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Owned Then Expression</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IF_EXP_CS__OWNED_THEN_EXPRESSION = EXP_CS_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Owned If Then Expressions</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IF_EXP_CS__OWNED_IF_THEN_EXPRESSIONS = EXP_CS_FEATURE_COUNT + 2;
+
+  /**
+   * The feature id for the '<em><b>Owned Else Expression</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IF_EXP_CS__OWNED_ELSE_EXPRESSION = EXP_CS_FEATURE_COUNT + 3;
+
+  /**
+   * The number of structural features of the '<em>If Exp CS</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IF_EXP_CS_FEATURE_COUNT = EXP_CS_FEATURE_COUNT + 4;
+
+  /**
+   * The meta object id for the '{@link modelConverter.use_language.use.impl.IfThenExpCSImpl <em>If Then Exp CS</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see modelConverter.use_language.use.impl.IfThenExpCSImpl
+   * @see modelConverter.use_language.use.impl.UsePackageImpl#getIfThenExpCS()
+   * @generated
+   */
+  int IF_THEN_EXP_CS = 68;
+
+  /**
+   * The feature id for the '<em><b>Owned Condition</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IF_THEN_EXP_CS__OWNED_CONDITION = 0;
+
+  /**
+   * The feature id for the '<em><b>Owned Then Expression</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IF_THEN_EXP_CS__OWNED_THEN_EXPRESSION = 1;
+
+  /**
+   * The number of structural features of the '<em>If Then Exp CS</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IF_THEN_EXP_CS_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link modelConverter.use_language.use.impl.LetExpCSImpl <em>Let Exp CS</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see modelConverter.use_language.use.impl.LetExpCSImpl
+   * @see modelConverter.use_language.use.impl.UsePackageImpl#getLetExpCS()
+   * @generated
+   */
+  int LET_EXP_CS = 69;
+
+  /**
+   * The feature id for the '<em><b>Owned Variables</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LET_EXP_CS__OWNED_VARIABLES = EXP_CS_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Owned In Expression</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LET_EXP_CS__OWNED_IN_EXPRESSION = EXP_CS_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Let Exp CS</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LET_EXP_CS_FEATURE_COUNT = EXP_CS_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link modelConverter.use_language.use.impl.LetVariableCSImpl <em>Let Variable CS</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see modelConverter.use_language.use.impl.LetVariableCSImpl
+   * @see modelConverter.use_language.use.impl.UsePackageImpl#getLetVariableCS()
+   * @generated
+   */
+  int LET_VARIABLE_CS = 70;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LET_VARIABLE_CS__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Owned Round Bracketed Clause</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LET_VARIABLE_CS__OWNED_ROUND_BRACKETED_CLAUSE = 1;
+
+  /**
+   * The feature id for the '<em><b>Owned Type</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LET_VARIABLE_CS__OWNED_TYPE = 2;
+
+  /**
+   * The feature id for the '<em><b>Owned Init Expression</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LET_VARIABLE_CS__OWNED_INIT_EXPRESSION = 3;
+
+  /**
+   * The number of structural features of the '<em>Let Variable CS</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LET_VARIABLE_CS_FEATURE_COUNT = 4;
+
+  /**
+   * The meta object id for the '{@link modelConverter.use_language.use.impl.RoundBracketedClauseCSImpl <em>Round Bracketed Clause CS</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see modelConverter.use_language.use.impl.RoundBracketedClauseCSImpl
+   * @see modelConverter.use_language.use.impl.UsePackageImpl#getRoundBracketedClauseCS()
+   * @generated
+   */
+  int ROUND_BRACKETED_CLAUSE_CS = 71;
+
+  /**
+   * The feature id for the '<em><b>Owned Arguments</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ROUND_BRACKETED_CLAUSE_CS__OWNED_ARGUMENTS = 0;
+
+  /**
+   * The number of structural features of the '<em>Round Bracketed Clause CS</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ROUND_BRACKETED_CLAUSE_CS_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link modelConverter.use_language.use.impl.NavigatingArgCSImpl <em>Navigating Arg CS</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see modelConverter.use_language.use.impl.NavigatingArgCSImpl
+   * @see modelConverter.use_language.use.impl.UsePackageImpl#getNavigatingArgCS()
+   * @generated
+   */
+  int NAVIGATING_ARG_CS = 72;
+
+  /**
+   * The feature id for the '<em><b>Prefix</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NAVIGATING_ARG_CS__PREFIX = 0;
+
+  /**
+   * The feature id for the '<em><b>Owned Name Expression</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NAVIGATING_ARG_CS__OWNED_NAME_EXPRESSION = 1;
+
+  /**
+   * The feature id for the '<em><b>Owned Type</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NAVIGATING_ARG_CS__OWNED_TYPE = 2;
+
+  /**
+   * The feature id for the '<em><b>Owned Init Expression</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NAVIGATING_ARG_CS__OWNED_INIT_EXPRESSION = 3;
+
+  /**
+   * The feature id for the '<em><b>Owned Co Iterator</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NAVIGATING_ARG_CS__OWNED_CO_ITERATOR = 4;
+
+  /**
+   * The number of structural features of the '<em>Navigating Arg CS</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NAVIGATING_ARG_CS_FEATURE_COUNT = 5;
+
+  /**
+   * The meta object id for the '{@link modelConverter.use_language.use.impl.VariableCSImpl <em>Variable CS</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see modelConverter.use_language.use.impl.VariableCSImpl
+   * @see modelConverter.use_language.use.impl.UsePackageImpl#getVariableCS()
+   * @generated
+   */
+  int VARIABLE_CS = 73;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VARIABLE_CS__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Owned Type</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VARIABLE_CS__OWNED_TYPE = 1;
+
+  /**
+   * The number of structural features of the '<em>Variable CS</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VARIABLE_CS_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link modelConverter.use_language.use.impl.InfixExpCSImpl <em>Infix Exp CS</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see modelConverter.use_language.use.impl.InfixExpCSImpl
+   * @see modelConverter.use_language.use.impl.UsePackageImpl#getInfixExpCS()
+   * @generated
+   */
+  int INFIX_EXP_CS = 74;
+
+  /**
+   * The feature id for the '<em><b>Owned Left</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INFIX_EXP_CS__OWNED_LEFT = EXP_CS_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Operator</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INFIX_EXP_CS__OPERATOR = EXP_CS_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Owned Right</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INFIX_EXP_CS__OWNED_RIGHT = EXP_CS_FEATURE_COUNT + 2;
+
+  /**
+   * The number of structural features of the '<em>Infix Exp CS</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INFIX_EXP_CS_FEATURE_COUNT = EXP_CS_FEATURE_COUNT + 3;
+
+  /**
+   * The meta object id for the '{@link modelConverter.use_language.use.impl.PrefixExpCSImpl <em>Prefix Exp CS</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see modelConverter.use_language.use.impl.PrefixExpCSImpl
+   * @see modelConverter.use_language.use.impl.UsePackageImpl#getPrefixExpCS()
+   * @generated
+   */
+  int PREFIX_EXP_CS = 75;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PREFIX_EXP_CS__NAME = EXP_CS_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Owned Right</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PREFIX_EXP_CS__OWNED_RIGHT = EXP_CS_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Prefix Exp CS</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PREFIX_EXP_CS_FEATURE_COUNT = EXP_CS_FEATURE_COUNT + 2;
 
 
   /**
@@ -1463,6 +3046,16 @@ public interface UsePackage extends EPackage
    * @generated
    */
   EClass getAllClass();
+
+  /**
+   * Returns the meta object for class '{@link modelConverter.use_language.use.AllClassAndEnum <em>All Class And Enum</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>All Class And Enum</em>'.
+   * @see modelConverter.use_language.use.AllClassAndEnum
+   * @generated
+   */
+  EClass getAllClassAndEnum();
 
   /**
    * Returns the meta object for class '{@link modelConverter.use_language.use.SimpleTypes <em>Simple Types</em>}'.
@@ -1872,17 +3465,6 @@ public interface UsePackage extends EPackage
   EReference getOperationType_OperationDeclaration();
 
   /**
-   * Returns the meta object for the containment reference '{@link modelConverter.use_language.use.OperationType#getOperationbody <em>Operationbody</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Operationbody</em>'.
-   * @see modelConverter.use_language.use.OperationType#getOperationbody()
-   * @see #getOperationType()
-   * @generated
-   */
-  EReference getOperationType_Operationbody();
-
-  /**
    * Returns the meta object for the containment reference list '{@link modelConverter.use_language.use.OperationType#getConditions <em>Conditions</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1904,6 +3486,17 @@ public interface UsePackage extends EPackage
   EClass getOperationQuery();
 
   /**
+   * Returns the meta object for the containment reference '{@link modelConverter.use_language.use.OperationQuery#getOperationbody <em>Operationbody</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Operationbody</em>'.
+   * @see modelConverter.use_language.use.OperationQuery#getOperationbody()
+   * @see #getOperationQuery()
+   * @generated
+   */
+  EReference getOperationQuery_Operationbody();
+
+  /**
    * Returns the meta object for class '{@link modelConverter.use_language.use.OperationComplex <em>Operation Complex</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1912,6 +3505,17 @@ public interface UsePackage extends EPackage
    * @generated
    */
   EClass getOperationComplex();
+
+  /**
+   * Returns the meta object for the attribute '{@link modelConverter.use_language.use.OperationComplex#getOperationbody <em>Operationbody</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Operationbody</em>'.
+   * @see modelConverter.use_language.use.OperationComplex#getOperationbody()
+   * @see #getOperationComplex()
+   * @generated
+   */
+  EAttribute getOperationComplex_Operationbody();
 
   /**
    * Returns the meta object for class '{@link modelConverter.use_language.use.OperationDeclaration <em>Operation Declaration</em>}'.
@@ -2221,25 +3825,1291 @@ public interface UsePackage extends EPackage
   EClass getPostcondition();
 
   /**
-   * Returns the meta object for class '{@link modelConverter.use_language.use.ContextCS <em>Context CS</em>}'.
+   * Returns the meta object for class '{@link modelConverter.use_language.use.PrimitiveTypeRefCS <em>Primitive Type Ref CS</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Context CS</em>'.
-   * @see modelConverter.use_language.use.ContextCS
+   * @return the meta object for class '<em>Primitive Type Ref CS</em>'.
+   * @see modelConverter.use_language.use.PrimitiveTypeRefCS
    * @generated
    */
-  EClass getContextCS();
+  EClass getPrimitiveTypeRefCS();
 
   /**
-   * Returns the meta object for the containment reference '{@link modelConverter.use_language.use.ContextCS#getOwnedExpression <em>Owned Expression</em>}'.
+   * Returns the meta object for the attribute '{@link modelConverter.use_language.use.PrimitiveTypeRefCS#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see modelConverter.use_language.use.PrimitiveTypeRefCS#getName()
+   * @see #getPrimitiveTypeRefCS()
+   * @generated
+   */
+  EAttribute getPrimitiveTypeRefCS_Name();
+
+  /**
+   * Returns the meta object for class '{@link modelConverter.use_language.use.CollectionTypeCS <em>Collection Type CS</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Collection Type CS</em>'.
+   * @see modelConverter.use_language.use.CollectionTypeCS
+   * @generated
+   */
+  EClass getCollectionTypeCS();
+
+  /**
+   * Returns the meta object for the attribute '{@link modelConverter.use_language.use.CollectionTypeCS#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see modelConverter.use_language.use.CollectionTypeCS#getName()
+   * @see #getCollectionTypeCS()
+   * @generated
+   */
+  EAttribute getCollectionTypeCS_Name();
+
+  /**
+   * Returns the meta object for the containment reference '{@link modelConverter.use_language.use.CollectionTypeCS#getOwnedType <em>Owned Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Owned Type</em>'.
+   * @see modelConverter.use_language.use.CollectionTypeCS#getOwnedType()
+   * @see #getCollectionTypeCS()
+   * @generated
+   */
+  EReference getCollectionTypeCS_OwnedType();
+
+  /**
+   * Returns the meta object for the containment reference '{@link modelConverter.use_language.use.CollectionTypeCS#getOwnedCollectionMultiplicity <em>Owned Collection Multiplicity</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Owned Collection Multiplicity</em>'.
+   * @see modelConverter.use_language.use.CollectionTypeCS#getOwnedCollectionMultiplicity()
+   * @see #getCollectionTypeCS()
+   * @generated
+   */
+  EReference getCollectionTypeCS_OwnedCollectionMultiplicity();
+
+  /**
+   * Returns the meta object for class '{@link modelConverter.use_language.use.MapTypeCS <em>Map Type CS</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Map Type CS</em>'.
+   * @see modelConverter.use_language.use.MapTypeCS
+   * @generated
+   */
+  EClass getMapTypeCS();
+
+  /**
+   * Returns the meta object for the attribute '{@link modelConverter.use_language.use.MapTypeCS#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see modelConverter.use_language.use.MapTypeCS#getName()
+   * @see #getMapTypeCS()
+   * @generated
+   */
+  EAttribute getMapTypeCS_Name();
+
+  /**
+   * Returns the meta object for the containment reference '{@link modelConverter.use_language.use.MapTypeCS#getOwnedKeyType <em>Owned Key Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Owned Key Type</em>'.
+   * @see modelConverter.use_language.use.MapTypeCS#getOwnedKeyType()
+   * @see #getMapTypeCS()
+   * @generated
+   */
+  EReference getMapTypeCS_OwnedKeyType();
+
+  /**
+   * Returns the meta object for the containment reference '{@link modelConverter.use_language.use.MapTypeCS#getOwnedValueType <em>Owned Value Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Owned Value Type</em>'.
+   * @see modelConverter.use_language.use.MapTypeCS#getOwnedValueType()
+   * @see #getMapTypeCS()
+   * @generated
+   */
+  EReference getMapTypeCS_OwnedValueType();
+
+  /**
+   * Returns the meta object for class '{@link modelConverter.use_language.use.TupleTypeCS <em>Tuple Type CS</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Tuple Type CS</em>'.
+   * @see modelConverter.use_language.use.TupleTypeCS
+   * @generated
+   */
+  EClass getTupleTypeCS();
+
+  /**
+   * Returns the meta object for the attribute '{@link modelConverter.use_language.use.TupleTypeCS#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see modelConverter.use_language.use.TupleTypeCS#getName()
+   * @see #getTupleTypeCS()
+   * @generated
+   */
+  EAttribute getTupleTypeCS_Name();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link modelConverter.use_language.use.TupleTypeCS#getOwnedParts <em>Owned Parts</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Owned Parts</em>'.
+   * @see modelConverter.use_language.use.TupleTypeCS#getOwnedParts()
+   * @see #getTupleTypeCS()
+   * @generated
+   */
+  EReference getTupleTypeCS_OwnedParts();
+
+  /**
+   * Returns the meta object for class '{@link modelConverter.use_language.use.TuplePartCS <em>Tuple Part CS</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Tuple Part CS</em>'.
+   * @see modelConverter.use_language.use.TuplePartCS
+   * @generated
+   */
+  EClass getTuplePartCS();
+
+  /**
+   * Returns the meta object for the attribute '{@link modelConverter.use_language.use.TuplePartCS#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see modelConverter.use_language.use.TuplePartCS#getName()
+   * @see #getTuplePartCS()
+   * @generated
+   */
+  EAttribute getTuplePartCS_Name();
+
+  /**
+   * Returns the meta object for the containment reference '{@link modelConverter.use_language.use.TuplePartCS#getOwnedType <em>Owned Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Owned Type</em>'.
+   * @see modelConverter.use_language.use.TuplePartCS#getOwnedType()
+   * @see #getTuplePartCS()
+   * @generated
+   */
+  EReference getTuplePartCS_OwnedType();
+
+  /**
+   * Returns the meta object for class '{@link modelConverter.use_language.use.CollectionPatternCS <em>Collection Pattern CS</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Collection Pattern CS</em>'.
+   * @see modelConverter.use_language.use.CollectionPatternCS
+   * @generated
+   */
+  EClass getCollectionPatternCS();
+
+  /**
+   * Returns the meta object for the containment reference '{@link modelConverter.use_language.use.CollectionPatternCS#getOwnedType <em>Owned Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Owned Type</em>'.
+   * @see modelConverter.use_language.use.CollectionPatternCS#getOwnedType()
+   * @see #getCollectionPatternCS()
+   * @generated
+   */
+  EReference getCollectionPatternCS_OwnedType();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link modelConverter.use_language.use.CollectionPatternCS#getOwnedParts <em>Owned Parts</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Owned Parts</em>'.
+   * @see modelConverter.use_language.use.CollectionPatternCS#getOwnedParts()
+   * @see #getCollectionPatternCS()
+   * @generated
+   */
+  EReference getCollectionPatternCS_OwnedParts();
+
+  /**
+   * Returns the meta object for the attribute '{@link modelConverter.use_language.use.CollectionPatternCS#getRestVariableName <em>Rest Variable Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Rest Variable Name</em>'.
+   * @see modelConverter.use_language.use.CollectionPatternCS#getRestVariableName()
+   * @see #getCollectionPatternCS()
+   * @generated
+   */
+  EAttribute getCollectionPatternCS_RestVariableName();
+
+  /**
+   * Returns the meta object for class '{@link modelConverter.use_language.use.PatternExpCS <em>Pattern Exp CS</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Pattern Exp CS</em>'.
+   * @see modelConverter.use_language.use.PatternExpCS
+   * @generated
+   */
+  EClass getPatternExpCS();
+
+  /**
+   * Returns the meta object for the attribute '{@link modelConverter.use_language.use.PatternExpCS#getPatternVariableName <em>Pattern Variable Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Pattern Variable Name</em>'.
+   * @see modelConverter.use_language.use.PatternExpCS#getPatternVariableName()
+   * @see #getPatternExpCS()
+   * @generated
+   */
+  EAttribute getPatternExpCS_PatternVariableName();
+
+  /**
+   * Returns the meta object for the containment reference '{@link modelConverter.use_language.use.PatternExpCS#getOwnedPatternType <em>Owned Pattern Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Owned Pattern Type</em>'.
+   * @see modelConverter.use_language.use.PatternExpCS#getOwnedPatternType()
+   * @see #getPatternExpCS()
+   * @generated
+   */
+  EReference getPatternExpCS_OwnedPatternType();
+
+  /**
+   * Returns the meta object for class '{@link modelConverter.use_language.use.TypedRefCS <em>Typed Ref CS</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Typed Ref CS</em>'.
+   * @see modelConverter.use_language.use.TypedRefCS
+   * @generated
+   */
+  EClass getTypedRefCS();
+
+  /**
+   * Returns the meta object for the containment reference '{@link modelConverter.use_language.use.TypedRefCS#getOwnedMultiplicity <em>Owned Multiplicity</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Owned Multiplicity</em>'.
+   * @see modelConverter.use_language.use.TypedRefCS#getOwnedMultiplicity()
+   * @see #getTypedRefCS()
+   * @generated
+   */
+  EReference getTypedRefCS_OwnedMultiplicity();
+
+  /**
+   * Returns the meta object for class '{@link modelConverter.use_language.use.TypeLiteralExpCS <em>Type Literal Exp CS</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Type Literal Exp CS</em>'.
+   * @see modelConverter.use_language.use.TypeLiteralExpCS
+   * @generated
+   */
+  EClass getTypeLiteralExpCS();
+
+  /**
+   * Returns the meta object for the containment reference '{@link modelConverter.use_language.use.TypeLiteralExpCS#getOwnedType <em>Owned Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Owned Type</em>'.
+   * @see modelConverter.use_language.use.TypeLiteralExpCS#getOwnedType()
+   * @see #getTypeLiteralExpCS()
+   * @generated
+   */
+  EReference getTypeLiteralExpCS_OwnedType();
+
+  /**
+   * Returns the meta object for class '{@link modelConverter.use_language.use.TypeNameExpCS <em>Type Name Exp CS</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Type Name Exp CS</em>'.
+   * @see modelConverter.use_language.use.TypeNameExpCS
+   * @generated
+   */
+  EClass getTypeNameExpCS();
+
+  /**
+   * Returns the meta object for the containment reference '{@link modelConverter.use_language.use.TypeNameExpCS#getOwnedPathName <em>Owned Path Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Owned Path Name</em>'.
+   * @see modelConverter.use_language.use.TypeNameExpCS#getOwnedPathName()
+   * @see #getTypeNameExpCS()
+   * @generated
+   */
+  EReference getTypeNameExpCS_OwnedPathName();
+
+  /**
+   * Returns the meta object for the containment reference '{@link modelConverter.use_language.use.TypeNameExpCS#getOwnedCurlyBracketedClause <em>Owned Curly Bracketed Clause</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Owned Curly Bracketed Clause</em>'.
+   * @see modelConverter.use_language.use.TypeNameExpCS#getOwnedCurlyBracketedClause()
+   * @see #getTypeNameExpCS()
+   * @generated
+   */
+  EReference getTypeNameExpCS_OwnedCurlyBracketedClause();
+
+  /**
+   * Returns the meta object for the containment reference '{@link modelConverter.use_language.use.TypeNameExpCS#getOwnedPatternGuard <em>Owned Pattern Guard</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Owned Pattern Guard</em>'.
+   * @see modelConverter.use_language.use.TypeNameExpCS#getOwnedPatternGuard()
+   * @see #getTypeNameExpCS()
+   * @generated
+   */
+  EReference getTypeNameExpCS_OwnedPatternGuard();
+
+  /**
+   * Returns the meta object for class '{@link modelConverter.use_language.use.CurlyBracketedClauseCS <em>Curly Bracketed Clause CS</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Curly Bracketed Clause CS</em>'.
+   * @see modelConverter.use_language.use.CurlyBracketedClauseCS
+   * @generated
+   */
+  EClass getCurlyBracketedClauseCS();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link modelConverter.use_language.use.CurlyBracketedClauseCS#getOwnedParts <em>Owned Parts</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Owned Parts</em>'.
+   * @see modelConverter.use_language.use.CurlyBracketedClauseCS#getOwnedParts()
+   * @see #getCurlyBracketedClauseCS()
+   * @generated
+   */
+  EReference getCurlyBracketedClauseCS_OwnedParts();
+
+  /**
+   * Returns the meta object for class '{@link modelConverter.use_language.use.ShadowPartCS <em>Shadow Part CS</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Shadow Part CS</em>'.
+   * @see modelConverter.use_language.use.ShadowPartCS
+   * @generated
+   */
+  EClass getShadowPartCS();
+
+  /**
+   * Returns the meta object for the attribute '{@link modelConverter.use_language.use.ShadowPartCS#getReferredProperty <em>Referred Property</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Referred Property</em>'.
+   * @see modelConverter.use_language.use.ShadowPartCS#getReferredProperty()
+   * @see #getShadowPartCS()
+   * @generated
+   */
+  EAttribute getShadowPartCS_ReferredProperty();
+
+  /**
+   * Returns the meta object for the containment reference '{@link modelConverter.use_language.use.ShadowPartCS#getOwnedInitExpression <em>Owned Init Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Owned Init Expression</em>'.
+   * @see modelConverter.use_language.use.ShadowPartCS#getOwnedInitExpression()
+   * @see #getShadowPartCS()
+   * @generated
+   */
+  EReference getShadowPartCS_OwnedInitExpression();
+
+  /**
+   * Returns the meta object for class '{@link modelConverter.use_language.use.StringLiteralExpCS <em>String Literal Exp CS</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>String Literal Exp CS</em>'.
+   * @see modelConverter.use_language.use.StringLiteralExpCS
+   * @generated
+   */
+  EClass getStringLiteralExpCS();
+
+  /**
+   * Returns the meta object for the attribute list '{@link modelConverter.use_language.use.StringLiteralExpCS#getSegments <em>Segments</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Segments</em>'.
+   * @see modelConverter.use_language.use.StringLiteralExpCS#getSegments()
+   * @see #getStringLiteralExpCS()
+   * @generated
+   */
+  EAttribute getStringLiteralExpCS_Segments();
+
+  /**
+   * Returns the meta object for class '{@link modelConverter.use_language.use.MultiplicityBoundsCS <em>Multiplicity Bounds CS</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Multiplicity Bounds CS</em>'.
+   * @see modelConverter.use_language.use.MultiplicityBoundsCS
+   * @generated
+   */
+  EClass getMultiplicityBoundsCS();
+
+  /**
+   * Returns the meta object for the attribute '{@link modelConverter.use_language.use.MultiplicityBoundsCS#getLowerBound <em>Lower Bound</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Lower Bound</em>'.
+   * @see modelConverter.use_language.use.MultiplicityBoundsCS#getLowerBound()
+   * @see #getMultiplicityBoundsCS()
+   * @generated
+   */
+  EAttribute getMultiplicityBoundsCS_LowerBound();
+
+  /**
+   * Returns the meta object for the attribute '{@link modelConverter.use_language.use.MultiplicityBoundsCS#getUpperBound <em>Upper Bound</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Upper Bound</em>'.
+   * @see modelConverter.use_language.use.MultiplicityBoundsCS#getUpperBound()
+   * @see #getMultiplicityBoundsCS()
+   * @generated
+   */
+  EAttribute getMultiplicityBoundsCS_UpperBound();
+
+  /**
+   * Returns the meta object for class '{@link modelConverter.use_language.use.MultiplicityCS <em>Multiplicity CS</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Multiplicity CS</em>'.
+   * @see modelConverter.use_language.use.MultiplicityCS
+   * @generated
+   */
+  EClass getMultiplicityCS();
+
+  /**
+   * Returns the meta object for the attribute '{@link modelConverter.use_language.use.MultiplicityCS#isIsNullFree <em>Is Null Free</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Is Null Free</em>'.
+   * @see modelConverter.use_language.use.MultiplicityCS#isIsNullFree()
+   * @see #getMultiplicityCS()
+   * @generated
+   */
+  EAttribute getMultiplicityCS_IsNullFree();
+
+  /**
+   * Returns the meta object for class '{@link modelConverter.use_language.use.MultiplicityStringCS <em>Multiplicity String CS</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Multiplicity String CS</em>'.
+   * @see modelConverter.use_language.use.MultiplicityStringCS
+   * @generated
+   */
+  EClass getMultiplicityStringCS();
+
+  /**
+   * Returns the meta object for the attribute '{@link modelConverter.use_language.use.MultiplicityStringCS#getStringBounds <em>String Bounds</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>String Bounds</em>'.
+   * @see modelConverter.use_language.use.MultiplicityStringCS#getStringBounds()
+   * @see #getMultiplicityStringCS()
+   * @generated
+   */
+  EAttribute getMultiplicityStringCS_StringBounds();
+
+  /**
+   * Returns the meta object for class '{@link modelConverter.use_language.use.PathNameCS <em>Path Name CS</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Path Name CS</em>'.
+   * @see modelConverter.use_language.use.PathNameCS
+   * @generated
+   */
+  EClass getPathNameCS();
+
+  /**
+   * Returns the meta object for the attribute list '{@link modelConverter.use_language.use.PathNameCS#getOwnedPathElements <em>Owned Path Elements</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Owned Path Elements</em>'.
+   * @see modelConverter.use_language.use.PathNameCS#getOwnedPathElements()
+   * @see #getPathNameCS()
+   * @generated
+   */
+  EAttribute getPathNameCS_OwnedPathElements();
+
+  /**
+   * Returns the meta object for class '{@link modelConverter.use_language.use.ExpCS <em>Exp CS</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Exp CS</em>'.
+   * @see modelConverter.use_language.use.ExpCS
+   * @generated
+   */
+  EClass getExpCS();
+
+  /**
+   * Returns the meta object for class '{@link modelConverter.use_language.use.PrimitiveLiteralExpCS <em>Primitive Literal Exp CS</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Primitive Literal Exp CS</em>'.
+   * @see modelConverter.use_language.use.PrimitiveLiteralExpCS
+   * @generated
+   */
+  EClass getPrimitiveLiteralExpCS();
+
+  /**
+   * Returns the meta object for class '{@link modelConverter.use_language.use.NameExpCS <em>Name Exp CS</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Name Exp CS</em>'.
+   * @see modelConverter.use_language.use.NameExpCS
+   * @generated
+   */
+  EClass getNameExpCS();
+
+  /**
+   * Returns the meta object for the containment reference '{@link modelConverter.use_language.use.NameExpCS#getOwnedPathName <em>Owned Path Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Owned Path Name</em>'.
+   * @see modelConverter.use_language.use.NameExpCS#getOwnedPathName()
+   * @see #getNameExpCS()
+   * @generated
+   */
+  EReference getNameExpCS_OwnedPathName();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link modelConverter.use_language.use.NameExpCS#getOwnedSquareBracketedClauses <em>Owned Square Bracketed Clauses</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Owned Square Bracketed Clauses</em>'.
+   * @see modelConverter.use_language.use.NameExpCS#getOwnedSquareBracketedClauses()
+   * @see #getNameExpCS()
+   * @generated
+   */
+  EReference getNameExpCS_OwnedSquareBracketedClauses();
+
+  /**
+   * Returns the meta object for the containment reference '{@link modelConverter.use_language.use.NameExpCS#getOwnedRoundBracketedClause <em>Owned Round Bracketed Clause</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Owned Round Bracketed Clause</em>'.
+   * @see modelConverter.use_language.use.NameExpCS#getOwnedRoundBracketedClause()
+   * @see #getNameExpCS()
+   * @generated
+   */
+  EReference getNameExpCS_OwnedRoundBracketedClause();
+
+  /**
+   * Returns the meta object for the containment reference '{@link modelConverter.use_language.use.NameExpCS#getOwnedCurlyBracketedClause <em>Owned Curly Bracketed Clause</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Owned Curly Bracketed Clause</em>'.
+   * @see modelConverter.use_language.use.NameExpCS#getOwnedCurlyBracketedClause()
+   * @see #getNameExpCS()
+   * @generated
+   */
+  EReference getNameExpCS_OwnedCurlyBracketedClause();
+
+  /**
+   * Returns the meta object for the attribute '{@link modelConverter.use_language.use.NameExpCS#isIsPre <em>Is Pre</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Is Pre</em>'.
+   * @see modelConverter.use_language.use.NameExpCS#isIsPre()
+   * @see #getNameExpCS()
+   * @generated
+   */
+  EAttribute getNameExpCS_IsPre();
+
+  /**
+   * Returns the meta object for class '{@link modelConverter.use_language.use.SquareBracketedClauseCS <em>Square Bracketed Clause CS</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Square Bracketed Clause CS</em>'.
+   * @see modelConverter.use_language.use.SquareBracketedClauseCS
+   * @generated
+   */
+  EClass getSquareBracketedClauseCS();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link modelConverter.use_language.use.SquareBracketedClauseCS#getOwnedTerms <em>Owned Terms</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Owned Terms</em>'.
+   * @see modelConverter.use_language.use.SquareBracketedClauseCS#getOwnedTerms()
+   * @see #getSquareBracketedClauseCS()
+   * @generated
+   */
+  EReference getSquareBracketedClauseCS_OwnedTerms();
+
+  /**
+   * Returns the meta object for class '{@link modelConverter.use_language.use.CollectionLiteralExpCS <em>Collection Literal Exp CS</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Collection Literal Exp CS</em>'.
+   * @see modelConverter.use_language.use.CollectionLiteralExpCS
+   * @generated
+   */
+  EClass getCollectionLiteralExpCS();
+
+  /**
+   * Returns the meta object for the containment reference '{@link modelConverter.use_language.use.CollectionLiteralExpCS#getOwnedType <em>Owned Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Owned Type</em>'.
+   * @see modelConverter.use_language.use.CollectionLiteralExpCS#getOwnedType()
+   * @see #getCollectionLiteralExpCS()
+   * @generated
+   */
+  EReference getCollectionLiteralExpCS_OwnedType();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link modelConverter.use_language.use.CollectionLiteralExpCS#getOwnedParts <em>Owned Parts</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Owned Parts</em>'.
+   * @see modelConverter.use_language.use.CollectionLiteralExpCS#getOwnedParts()
+   * @see #getCollectionLiteralExpCS()
+   * @generated
+   */
+  EReference getCollectionLiteralExpCS_OwnedParts();
+
+  /**
+   * Returns the meta object for class '{@link modelConverter.use_language.use.CollectionLiteralPartCS <em>Collection Literal Part CS</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Collection Literal Part CS</em>'.
+   * @see modelConverter.use_language.use.CollectionLiteralPartCS
+   * @generated
+   */
+  EClass getCollectionLiteralPartCS();
+
+  /**
+   * Returns the meta object for the containment reference '{@link modelConverter.use_language.use.CollectionLiteralPartCS#getOwnedExpression <em>Owned Expression</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>Owned Expression</em>'.
-   * @see modelConverter.use_language.use.ContextCS#getOwnedExpression()
-   * @see #getContextCS()
+   * @see modelConverter.use_language.use.CollectionLiteralPartCS#getOwnedExpression()
+   * @see #getCollectionLiteralPartCS()
    * @generated
    */
-  EReference getContextCS_OwnedExpression();
+  EReference getCollectionLiteralPartCS_OwnedExpression();
+
+  /**
+   * Returns the meta object for the containment reference '{@link modelConverter.use_language.use.CollectionLiteralPartCS#getOwnedLastExpression <em>Owned Last Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Owned Last Expression</em>'.
+   * @see modelConverter.use_language.use.CollectionLiteralPartCS#getOwnedLastExpression()
+   * @see #getCollectionLiteralPartCS()
+   * @generated
+   */
+  EReference getCollectionLiteralPartCS_OwnedLastExpression();
+
+  /**
+   * Returns the meta object for class '{@link modelConverter.use_language.use.LambdaLiteralExpCS <em>Lambda Literal Exp CS</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Lambda Literal Exp CS</em>'.
+   * @see modelConverter.use_language.use.LambdaLiteralExpCS
+   * @generated
+   */
+  EClass getLambdaLiteralExpCS();
+
+  /**
+   * Returns the meta object for the containment reference '{@link modelConverter.use_language.use.LambdaLiteralExpCS#getOwnedExpressionCS <em>Owned Expression CS</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Owned Expression CS</em>'.
+   * @see modelConverter.use_language.use.LambdaLiteralExpCS#getOwnedExpressionCS()
+   * @see #getLambdaLiteralExpCS()
+   * @generated
+   */
+  EReference getLambdaLiteralExpCS_OwnedExpressionCS();
+
+  /**
+   * Returns the meta object for class '{@link modelConverter.use_language.use.MapLiteralExpCS <em>Map Literal Exp CS</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Map Literal Exp CS</em>'.
+   * @see modelConverter.use_language.use.MapLiteralExpCS
+   * @generated
+   */
+  EClass getMapLiteralExpCS();
+
+  /**
+   * Returns the meta object for the containment reference '{@link modelConverter.use_language.use.MapLiteralExpCS#getOwnedType <em>Owned Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Owned Type</em>'.
+   * @see modelConverter.use_language.use.MapLiteralExpCS#getOwnedType()
+   * @see #getMapLiteralExpCS()
+   * @generated
+   */
+  EReference getMapLiteralExpCS_OwnedType();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link modelConverter.use_language.use.MapLiteralExpCS#getOwnedParts <em>Owned Parts</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Owned Parts</em>'.
+   * @see modelConverter.use_language.use.MapLiteralExpCS#getOwnedParts()
+   * @see #getMapLiteralExpCS()
+   * @generated
+   */
+  EReference getMapLiteralExpCS_OwnedParts();
+
+  /**
+   * Returns the meta object for class '{@link modelConverter.use_language.use.MapLiteralPartCS <em>Map Literal Part CS</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Map Literal Part CS</em>'.
+   * @see modelConverter.use_language.use.MapLiteralPartCS
+   * @generated
+   */
+  EClass getMapLiteralPartCS();
+
+  /**
+   * Returns the meta object for the containment reference '{@link modelConverter.use_language.use.MapLiteralPartCS#getOwnedKey <em>Owned Key</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Owned Key</em>'.
+   * @see modelConverter.use_language.use.MapLiteralPartCS#getOwnedKey()
+   * @see #getMapLiteralPartCS()
+   * @generated
+   */
+  EReference getMapLiteralPartCS_OwnedKey();
+
+  /**
+   * Returns the meta object for the containment reference '{@link modelConverter.use_language.use.MapLiteralPartCS#getOwnedValue <em>Owned Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Owned Value</em>'.
+   * @see modelConverter.use_language.use.MapLiteralPartCS#getOwnedValue()
+   * @see #getMapLiteralPartCS()
+   * @generated
+   */
+  EReference getMapLiteralPartCS_OwnedValue();
+
+  /**
+   * Returns the meta object for class '{@link modelConverter.use_language.use.TupleLiteralExpCS <em>Tuple Literal Exp CS</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Tuple Literal Exp CS</em>'.
+   * @see modelConverter.use_language.use.TupleLiteralExpCS
+   * @generated
+   */
+  EClass getTupleLiteralExpCS();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link modelConverter.use_language.use.TupleLiteralExpCS#getOwnedParts <em>Owned Parts</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Owned Parts</em>'.
+   * @see modelConverter.use_language.use.TupleLiteralExpCS#getOwnedParts()
+   * @see #getTupleLiteralExpCS()
+   * @generated
+   */
+  EReference getTupleLiteralExpCS_OwnedParts();
+
+  /**
+   * Returns the meta object for class '{@link modelConverter.use_language.use.TupleLiteralPartCS <em>Tuple Literal Part CS</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Tuple Literal Part CS</em>'.
+   * @see modelConverter.use_language.use.TupleLiteralPartCS
+   * @generated
+   */
+  EClass getTupleLiteralPartCS();
+
+  /**
+   * Returns the meta object for the attribute '{@link modelConverter.use_language.use.TupleLiteralPartCS#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see modelConverter.use_language.use.TupleLiteralPartCS#getName()
+   * @see #getTupleLiteralPartCS()
+   * @generated
+   */
+  EAttribute getTupleLiteralPartCS_Name();
+
+  /**
+   * Returns the meta object for the containment reference '{@link modelConverter.use_language.use.TupleLiteralPartCS#getOwnedType <em>Owned Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Owned Type</em>'.
+   * @see modelConverter.use_language.use.TupleLiteralPartCS#getOwnedType()
+   * @see #getTupleLiteralPartCS()
+   * @generated
+   */
+  EReference getTupleLiteralPartCS_OwnedType();
+
+  /**
+   * Returns the meta object for the containment reference '{@link modelConverter.use_language.use.TupleLiteralPartCS#getOwnedInitExpression <em>Owned Init Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Owned Init Expression</em>'.
+   * @see modelConverter.use_language.use.TupleLiteralPartCS#getOwnedInitExpression()
+   * @see #getTupleLiteralPartCS()
+   * @generated
+   */
+  EReference getTupleLiteralPartCS_OwnedInitExpression();
+
+  /**
+   * Returns the meta object for class '{@link modelConverter.use_language.use.NumberLiteralExpCS <em>Number Literal Exp CS</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Number Literal Exp CS</em>'.
+   * @see modelConverter.use_language.use.NumberLiteralExpCS
+   * @generated
+   */
+  EClass getNumberLiteralExpCS();
+
+  /**
+   * Returns the meta object for the attribute '{@link modelConverter.use_language.use.NumberLiteralExpCS#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Value</em>'.
+   * @see modelConverter.use_language.use.NumberLiteralExpCS#getValue()
+   * @see #getNumberLiteralExpCS()
+   * @generated
+   */
+  EAttribute getNumberLiteralExpCS_Value();
+
+  /**
+   * Returns the meta object for class '{@link modelConverter.use_language.use.BooleanLiteralExpCS <em>Boolean Literal Exp CS</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Boolean Literal Exp CS</em>'.
+   * @see modelConverter.use_language.use.BooleanLiteralExpCS
+   * @generated
+   */
+  EClass getBooleanLiteralExpCS();
+
+  /**
+   * Returns the meta object for the attribute '{@link modelConverter.use_language.use.BooleanLiteralExpCS#getSymbol <em>Symbol</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Symbol</em>'.
+   * @see modelConverter.use_language.use.BooleanLiteralExpCS#getSymbol()
+   * @see #getBooleanLiteralExpCS()
+   * @generated
+   */
+  EAttribute getBooleanLiteralExpCS_Symbol();
+
+  /**
+   * Returns the meta object for class '{@link modelConverter.use_language.use.UnlimitedNaturalLiteralExpCS <em>Unlimited Natural Literal Exp CS</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Unlimited Natural Literal Exp CS</em>'.
+   * @see modelConverter.use_language.use.UnlimitedNaturalLiteralExpCS
+   * @generated
+   */
+  EClass getUnlimitedNaturalLiteralExpCS();
+
+  /**
+   * Returns the meta object for class '{@link modelConverter.use_language.use.InvalidLiteralExpCS <em>Invalid Literal Exp CS</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Invalid Literal Exp CS</em>'.
+   * @see modelConverter.use_language.use.InvalidLiteralExpCS
+   * @generated
+   */
+  EClass getInvalidLiteralExpCS();
+
+  /**
+   * Returns the meta object for class '{@link modelConverter.use_language.use.NullLiteralExpCS <em>Null Literal Exp CS</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Null Literal Exp CS</em>'.
+   * @see modelConverter.use_language.use.NullLiteralExpCS
+   * @generated
+   */
+  EClass getNullLiteralExpCS();
+
+  /**
+   * Returns the meta object for class '{@link modelConverter.use_language.use.NestedExpCS <em>Nested Exp CS</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Nested Exp CS</em>'.
+   * @see modelConverter.use_language.use.NestedExpCS
+   * @generated
+   */
+  EClass getNestedExpCS();
+
+  /**
+   * Returns the meta object for the containment reference '{@link modelConverter.use_language.use.NestedExpCS#getOwnedExpression <em>Owned Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Owned Expression</em>'.
+   * @see modelConverter.use_language.use.NestedExpCS#getOwnedExpression()
+   * @see #getNestedExpCS()
+   * @generated
+   */
+  EReference getNestedExpCS_OwnedExpression();
+
+  /**
+   * Returns the meta object for class '{@link modelConverter.use_language.use.SelfExpCS <em>Self Exp CS</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Self Exp CS</em>'.
+   * @see modelConverter.use_language.use.SelfExpCS
+   * @generated
+   */
+  EClass getSelfExpCS();
+
+  /**
+   * Returns the meta object for class '{@link modelConverter.use_language.use.IfExpCS <em>If Exp CS</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>If Exp CS</em>'.
+   * @see modelConverter.use_language.use.IfExpCS
+   * @generated
+   */
+  EClass getIfExpCS();
+
+  /**
+   * Returns the meta object for the containment reference '{@link modelConverter.use_language.use.IfExpCS#getOwnedCondition <em>Owned Condition</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Owned Condition</em>'.
+   * @see modelConverter.use_language.use.IfExpCS#getOwnedCondition()
+   * @see #getIfExpCS()
+   * @generated
+   */
+  EReference getIfExpCS_OwnedCondition();
+
+  /**
+   * Returns the meta object for the containment reference '{@link modelConverter.use_language.use.IfExpCS#getOwnedThenExpression <em>Owned Then Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Owned Then Expression</em>'.
+   * @see modelConverter.use_language.use.IfExpCS#getOwnedThenExpression()
+   * @see #getIfExpCS()
+   * @generated
+   */
+  EReference getIfExpCS_OwnedThenExpression();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link modelConverter.use_language.use.IfExpCS#getOwnedIfThenExpressions <em>Owned If Then Expressions</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Owned If Then Expressions</em>'.
+   * @see modelConverter.use_language.use.IfExpCS#getOwnedIfThenExpressions()
+   * @see #getIfExpCS()
+   * @generated
+   */
+  EReference getIfExpCS_OwnedIfThenExpressions();
+
+  /**
+   * Returns the meta object for the containment reference '{@link modelConverter.use_language.use.IfExpCS#getOwnedElseExpression <em>Owned Else Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Owned Else Expression</em>'.
+   * @see modelConverter.use_language.use.IfExpCS#getOwnedElseExpression()
+   * @see #getIfExpCS()
+   * @generated
+   */
+  EReference getIfExpCS_OwnedElseExpression();
+
+  /**
+   * Returns the meta object for class '{@link modelConverter.use_language.use.IfThenExpCS <em>If Then Exp CS</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>If Then Exp CS</em>'.
+   * @see modelConverter.use_language.use.IfThenExpCS
+   * @generated
+   */
+  EClass getIfThenExpCS();
+
+  /**
+   * Returns the meta object for the containment reference '{@link modelConverter.use_language.use.IfThenExpCS#getOwnedCondition <em>Owned Condition</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Owned Condition</em>'.
+   * @see modelConverter.use_language.use.IfThenExpCS#getOwnedCondition()
+   * @see #getIfThenExpCS()
+   * @generated
+   */
+  EReference getIfThenExpCS_OwnedCondition();
+
+  /**
+   * Returns the meta object for the containment reference '{@link modelConverter.use_language.use.IfThenExpCS#getOwnedThenExpression <em>Owned Then Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Owned Then Expression</em>'.
+   * @see modelConverter.use_language.use.IfThenExpCS#getOwnedThenExpression()
+   * @see #getIfThenExpCS()
+   * @generated
+   */
+  EReference getIfThenExpCS_OwnedThenExpression();
+
+  /**
+   * Returns the meta object for class '{@link modelConverter.use_language.use.LetExpCS <em>Let Exp CS</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Let Exp CS</em>'.
+   * @see modelConverter.use_language.use.LetExpCS
+   * @generated
+   */
+  EClass getLetExpCS();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link modelConverter.use_language.use.LetExpCS#getOwnedVariables <em>Owned Variables</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Owned Variables</em>'.
+   * @see modelConverter.use_language.use.LetExpCS#getOwnedVariables()
+   * @see #getLetExpCS()
+   * @generated
+   */
+  EReference getLetExpCS_OwnedVariables();
+
+  /**
+   * Returns the meta object for the containment reference '{@link modelConverter.use_language.use.LetExpCS#getOwnedInExpression <em>Owned In Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Owned In Expression</em>'.
+   * @see modelConverter.use_language.use.LetExpCS#getOwnedInExpression()
+   * @see #getLetExpCS()
+   * @generated
+   */
+  EReference getLetExpCS_OwnedInExpression();
+
+  /**
+   * Returns the meta object for class '{@link modelConverter.use_language.use.LetVariableCS <em>Let Variable CS</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Let Variable CS</em>'.
+   * @see modelConverter.use_language.use.LetVariableCS
+   * @generated
+   */
+  EClass getLetVariableCS();
+
+  /**
+   * Returns the meta object for the attribute '{@link modelConverter.use_language.use.LetVariableCS#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see modelConverter.use_language.use.LetVariableCS#getName()
+   * @see #getLetVariableCS()
+   * @generated
+   */
+  EAttribute getLetVariableCS_Name();
+
+  /**
+   * Returns the meta object for the containment reference '{@link modelConverter.use_language.use.LetVariableCS#getOwnedRoundBracketedClause <em>Owned Round Bracketed Clause</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Owned Round Bracketed Clause</em>'.
+   * @see modelConverter.use_language.use.LetVariableCS#getOwnedRoundBracketedClause()
+   * @see #getLetVariableCS()
+   * @generated
+   */
+  EReference getLetVariableCS_OwnedRoundBracketedClause();
+
+  /**
+   * Returns the meta object for the containment reference '{@link modelConverter.use_language.use.LetVariableCS#getOwnedType <em>Owned Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Owned Type</em>'.
+   * @see modelConverter.use_language.use.LetVariableCS#getOwnedType()
+   * @see #getLetVariableCS()
+   * @generated
+   */
+  EReference getLetVariableCS_OwnedType();
+
+  /**
+   * Returns the meta object for the containment reference '{@link modelConverter.use_language.use.LetVariableCS#getOwnedInitExpression <em>Owned Init Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Owned Init Expression</em>'.
+   * @see modelConverter.use_language.use.LetVariableCS#getOwnedInitExpression()
+   * @see #getLetVariableCS()
+   * @generated
+   */
+  EReference getLetVariableCS_OwnedInitExpression();
+
+  /**
+   * Returns the meta object for class '{@link modelConverter.use_language.use.RoundBracketedClauseCS <em>Round Bracketed Clause CS</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Round Bracketed Clause CS</em>'.
+   * @see modelConverter.use_language.use.RoundBracketedClauseCS
+   * @generated
+   */
+  EClass getRoundBracketedClauseCS();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link modelConverter.use_language.use.RoundBracketedClauseCS#getOwnedArguments <em>Owned Arguments</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Owned Arguments</em>'.
+   * @see modelConverter.use_language.use.RoundBracketedClauseCS#getOwnedArguments()
+   * @see #getRoundBracketedClauseCS()
+   * @generated
+   */
+  EReference getRoundBracketedClauseCS_OwnedArguments();
+
+  /**
+   * Returns the meta object for class '{@link modelConverter.use_language.use.NavigatingArgCS <em>Navigating Arg CS</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Navigating Arg CS</em>'.
+   * @see modelConverter.use_language.use.NavigatingArgCS
+   * @generated
+   */
+  EClass getNavigatingArgCS();
+
+  /**
+   * Returns the meta object for the attribute '{@link modelConverter.use_language.use.NavigatingArgCS#getPrefix <em>Prefix</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Prefix</em>'.
+   * @see modelConverter.use_language.use.NavigatingArgCS#getPrefix()
+   * @see #getNavigatingArgCS()
+   * @generated
+   */
+  EAttribute getNavigatingArgCS_Prefix();
+
+  /**
+   * Returns the meta object for the containment reference '{@link modelConverter.use_language.use.NavigatingArgCS#getOwnedNameExpression <em>Owned Name Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Owned Name Expression</em>'.
+   * @see modelConverter.use_language.use.NavigatingArgCS#getOwnedNameExpression()
+   * @see #getNavigatingArgCS()
+   * @generated
+   */
+  EReference getNavigatingArgCS_OwnedNameExpression();
+
+  /**
+   * Returns the meta object for the containment reference '{@link modelConverter.use_language.use.NavigatingArgCS#getOwnedType <em>Owned Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Owned Type</em>'.
+   * @see modelConverter.use_language.use.NavigatingArgCS#getOwnedType()
+   * @see #getNavigatingArgCS()
+   * @generated
+   */
+  EReference getNavigatingArgCS_OwnedType();
+
+  /**
+   * Returns the meta object for the containment reference '{@link modelConverter.use_language.use.NavigatingArgCS#getOwnedInitExpression <em>Owned Init Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Owned Init Expression</em>'.
+   * @see modelConverter.use_language.use.NavigatingArgCS#getOwnedInitExpression()
+   * @see #getNavigatingArgCS()
+   * @generated
+   */
+  EReference getNavigatingArgCS_OwnedInitExpression();
+
+  /**
+   * Returns the meta object for the containment reference '{@link modelConverter.use_language.use.NavigatingArgCS#getOwnedCoIterator <em>Owned Co Iterator</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Owned Co Iterator</em>'.
+   * @see modelConverter.use_language.use.NavigatingArgCS#getOwnedCoIterator()
+   * @see #getNavigatingArgCS()
+   * @generated
+   */
+  EReference getNavigatingArgCS_OwnedCoIterator();
+
+  /**
+   * Returns the meta object for class '{@link modelConverter.use_language.use.VariableCS <em>Variable CS</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Variable CS</em>'.
+   * @see modelConverter.use_language.use.VariableCS
+   * @generated
+   */
+  EClass getVariableCS();
+
+  /**
+   * Returns the meta object for the attribute '{@link modelConverter.use_language.use.VariableCS#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see modelConverter.use_language.use.VariableCS#getName()
+   * @see #getVariableCS()
+   * @generated
+   */
+  EAttribute getVariableCS_Name();
+
+  /**
+   * Returns the meta object for the containment reference '{@link modelConverter.use_language.use.VariableCS#getOwnedType <em>Owned Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Owned Type</em>'.
+   * @see modelConverter.use_language.use.VariableCS#getOwnedType()
+   * @see #getVariableCS()
+   * @generated
+   */
+  EReference getVariableCS_OwnedType();
+
+  /**
+   * Returns the meta object for class '{@link modelConverter.use_language.use.InfixExpCS <em>Infix Exp CS</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Infix Exp CS</em>'.
+   * @see modelConverter.use_language.use.InfixExpCS
+   * @generated
+   */
+  EClass getInfixExpCS();
+
+  /**
+   * Returns the meta object for the containment reference '{@link modelConverter.use_language.use.InfixExpCS#getOwnedLeft <em>Owned Left</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Owned Left</em>'.
+   * @see modelConverter.use_language.use.InfixExpCS#getOwnedLeft()
+   * @see #getInfixExpCS()
+   * @generated
+   */
+  EReference getInfixExpCS_OwnedLeft();
+
+  /**
+   * Returns the meta object for the attribute '{@link modelConverter.use_language.use.InfixExpCS#getOperator <em>Operator</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Operator</em>'.
+   * @see modelConverter.use_language.use.InfixExpCS#getOperator()
+   * @see #getInfixExpCS()
+   * @generated
+   */
+  EAttribute getInfixExpCS_Operator();
+
+  /**
+   * Returns the meta object for the containment reference '{@link modelConverter.use_language.use.InfixExpCS#getOwnedRight <em>Owned Right</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Owned Right</em>'.
+   * @see modelConverter.use_language.use.InfixExpCS#getOwnedRight()
+   * @see #getInfixExpCS()
+   * @generated
+   */
+  EReference getInfixExpCS_OwnedRight();
+
+  /**
+   * Returns the meta object for class '{@link modelConverter.use_language.use.PrefixExpCS <em>Prefix Exp CS</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Prefix Exp CS</em>'.
+   * @see modelConverter.use_language.use.PrefixExpCS
+   * @generated
+   */
+  EClass getPrefixExpCS();
+
+  /**
+   * Returns the meta object for the attribute '{@link modelConverter.use_language.use.PrefixExpCS#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see modelConverter.use_language.use.PrefixExpCS#getName()
+   * @see #getPrefixExpCS()
+   * @generated
+   */
+  EAttribute getPrefixExpCS_Name();
+
+  /**
+   * Returns the meta object for the containment reference '{@link modelConverter.use_language.use.PrefixExpCS#getOwnedRight <em>Owned Right</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Owned Right</em>'.
+   * @see modelConverter.use_language.use.PrefixExpCS#getOwnedRight()
+   * @see #getPrefixExpCS()
+   * @generated
+   */
+  EReference getPrefixExpCS_OwnedRight();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -2395,6 +5265,16 @@ public interface UsePackage extends EPackage
      * @generated
      */
     EClass ALL_CLASS = eINSTANCE.getAllClass();
+
+    /**
+     * The meta object literal for the '{@link modelConverter.use_language.use.impl.AllClassAndEnumImpl <em>All Class And Enum</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see modelConverter.use_language.use.impl.AllClassAndEnumImpl
+     * @see modelConverter.use_language.use.impl.UsePackageImpl#getAllClassAndEnum()
+     * @generated
+     */
+    EClass ALL_CLASS_AND_ENUM = eINSTANCE.getAllClassAndEnum();
 
     /**
      * The meta object literal for the '{@link modelConverter.use_language.use.impl.SimpleTypesImpl <em>Simple Types</em>}' class.
@@ -2723,14 +5603,6 @@ public interface UsePackage extends EPackage
     EReference OPERATION_TYPE__OPERATION_DECLARATION = eINSTANCE.getOperationType_OperationDeclaration();
 
     /**
-     * The meta object literal for the '<em><b>Operationbody</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference OPERATION_TYPE__OPERATIONBODY = eINSTANCE.getOperationType_Operationbody();
-
-    /**
      * The meta object literal for the '<em><b>Conditions</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2749,6 +5621,14 @@ public interface UsePackage extends EPackage
     EClass OPERATION_QUERY = eINSTANCE.getOperationQuery();
 
     /**
+     * The meta object literal for the '<em><b>Operationbody</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference OPERATION_QUERY__OPERATIONBODY = eINSTANCE.getOperationQuery_Operationbody();
+
+    /**
      * The meta object literal for the '{@link modelConverter.use_language.use.impl.OperationComplexImpl <em>Operation Complex</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2757,6 +5637,14 @@ public interface UsePackage extends EPackage
      * @generated
      */
     EClass OPERATION_COMPLEX = eINSTANCE.getOperationComplex();
+
+    /**
+     * The meta object literal for the '<em><b>Operationbody</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute OPERATION_COMPLEX__OPERATIONBODY = eINSTANCE.getOperationComplex_Operationbody();
 
     /**
      * The meta object literal for the '{@link modelConverter.use_language.use.impl.OperationDeclarationImpl <em>Operation Declaration</em>}' class.
@@ -3015,14 +5903,538 @@ public interface UsePackage extends EPackage
     EClass POSTCONDITION = eINSTANCE.getPostcondition();
 
     /**
-     * The meta object literal for the '{@link modelConverter.use_language.use.impl.ContextCSImpl <em>Context CS</em>}' class.
+     * The meta object literal for the '{@link modelConverter.use_language.use.impl.PrimitiveTypeRefCSImpl <em>Primitive Type Ref CS</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see modelConverter.use_language.use.impl.ContextCSImpl
-     * @see modelConverter.use_language.use.impl.UsePackageImpl#getContextCS()
+     * @see modelConverter.use_language.use.impl.PrimitiveTypeRefCSImpl
+     * @see modelConverter.use_language.use.impl.UsePackageImpl#getPrimitiveTypeRefCS()
      * @generated
      */
-    EClass CONTEXT_CS = eINSTANCE.getContextCS();
+    EClass PRIMITIVE_TYPE_REF_CS = eINSTANCE.getPrimitiveTypeRefCS();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PRIMITIVE_TYPE_REF_CS__NAME = eINSTANCE.getPrimitiveTypeRefCS_Name();
+
+    /**
+     * The meta object literal for the '{@link modelConverter.use_language.use.impl.CollectionTypeCSImpl <em>Collection Type CS</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see modelConverter.use_language.use.impl.CollectionTypeCSImpl
+     * @see modelConverter.use_language.use.impl.UsePackageImpl#getCollectionTypeCS()
+     * @generated
+     */
+    EClass COLLECTION_TYPE_CS = eINSTANCE.getCollectionTypeCS();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute COLLECTION_TYPE_CS__NAME = eINSTANCE.getCollectionTypeCS_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Owned Type</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference COLLECTION_TYPE_CS__OWNED_TYPE = eINSTANCE.getCollectionTypeCS_OwnedType();
+
+    /**
+     * The meta object literal for the '<em><b>Owned Collection Multiplicity</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference COLLECTION_TYPE_CS__OWNED_COLLECTION_MULTIPLICITY = eINSTANCE.getCollectionTypeCS_OwnedCollectionMultiplicity();
+
+    /**
+     * The meta object literal for the '{@link modelConverter.use_language.use.impl.MapTypeCSImpl <em>Map Type CS</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see modelConverter.use_language.use.impl.MapTypeCSImpl
+     * @see modelConverter.use_language.use.impl.UsePackageImpl#getMapTypeCS()
+     * @generated
+     */
+    EClass MAP_TYPE_CS = eINSTANCE.getMapTypeCS();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute MAP_TYPE_CS__NAME = eINSTANCE.getMapTypeCS_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Owned Key Type</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MAP_TYPE_CS__OWNED_KEY_TYPE = eINSTANCE.getMapTypeCS_OwnedKeyType();
+
+    /**
+     * The meta object literal for the '<em><b>Owned Value Type</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MAP_TYPE_CS__OWNED_VALUE_TYPE = eINSTANCE.getMapTypeCS_OwnedValueType();
+
+    /**
+     * The meta object literal for the '{@link modelConverter.use_language.use.impl.TupleTypeCSImpl <em>Tuple Type CS</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see modelConverter.use_language.use.impl.TupleTypeCSImpl
+     * @see modelConverter.use_language.use.impl.UsePackageImpl#getTupleTypeCS()
+     * @generated
+     */
+    EClass TUPLE_TYPE_CS = eINSTANCE.getTupleTypeCS();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute TUPLE_TYPE_CS__NAME = eINSTANCE.getTupleTypeCS_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Owned Parts</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TUPLE_TYPE_CS__OWNED_PARTS = eINSTANCE.getTupleTypeCS_OwnedParts();
+
+    /**
+     * The meta object literal for the '{@link modelConverter.use_language.use.impl.TuplePartCSImpl <em>Tuple Part CS</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see modelConverter.use_language.use.impl.TuplePartCSImpl
+     * @see modelConverter.use_language.use.impl.UsePackageImpl#getTuplePartCS()
+     * @generated
+     */
+    EClass TUPLE_PART_CS = eINSTANCE.getTuplePartCS();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute TUPLE_PART_CS__NAME = eINSTANCE.getTuplePartCS_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Owned Type</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TUPLE_PART_CS__OWNED_TYPE = eINSTANCE.getTuplePartCS_OwnedType();
+
+    /**
+     * The meta object literal for the '{@link modelConverter.use_language.use.impl.CollectionPatternCSImpl <em>Collection Pattern CS</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see modelConverter.use_language.use.impl.CollectionPatternCSImpl
+     * @see modelConverter.use_language.use.impl.UsePackageImpl#getCollectionPatternCS()
+     * @generated
+     */
+    EClass COLLECTION_PATTERN_CS = eINSTANCE.getCollectionPatternCS();
+
+    /**
+     * The meta object literal for the '<em><b>Owned Type</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference COLLECTION_PATTERN_CS__OWNED_TYPE = eINSTANCE.getCollectionPatternCS_OwnedType();
+
+    /**
+     * The meta object literal for the '<em><b>Owned Parts</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference COLLECTION_PATTERN_CS__OWNED_PARTS = eINSTANCE.getCollectionPatternCS_OwnedParts();
+
+    /**
+     * The meta object literal for the '<em><b>Rest Variable Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute COLLECTION_PATTERN_CS__REST_VARIABLE_NAME = eINSTANCE.getCollectionPatternCS_RestVariableName();
+
+    /**
+     * The meta object literal for the '{@link modelConverter.use_language.use.impl.PatternExpCSImpl <em>Pattern Exp CS</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see modelConverter.use_language.use.impl.PatternExpCSImpl
+     * @see modelConverter.use_language.use.impl.UsePackageImpl#getPatternExpCS()
+     * @generated
+     */
+    EClass PATTERN_EXP_CS = eINSTANCE.getPatternExpCS();
+
+    /**
+     * The meta object literal for the '<em><b>Pattern Variable Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PATTERN_EXP_CS__PATTERN_VARIABLE_NAME = eINSTANCE.getPatternExpCS_PatternVariableName();
+
+    /**
+     * The meta object literal for the '<em><b>Owned Pattern Type</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PATTERN_EXP_CS__OWNED_PATTERN_TYPE = eINSTANCE.getPatternExpCS_OwnedPatternType();
+
+    /**
+     * The meta object literal for the '{@link modelConverter.use_language.use.impl.TypedRefCSImpl <em>Typed Ref CS</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see modelConverter.use_language.use.impl.TypedRefCSImpl
+     * @see modelConverter.use_language.use.impl.UsePackageImpl#getTypedRefCS()
+     * @generated
+     */
+    EClass TYPED_REF_CS = eINSTANCE.getTypedRefCS();
+
+    /**
+     * The meta object literal for the '<em><b>Owned Multiplicity</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TYPED_REF_CS__OWNED_MULTIPLICITY = eINSTANCE.getTypedRefCS_OwnedMultiplicity();
+
+    /**
+     * The meta object literal for the '{@link modelConverter.use_language.use.impl.TypeLiteralExpCSImpl <em>Type Literal Exp CS</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see modelConverter.use_language.use.impl.TypeLiteralExpCSImpl
+     * @see modelConverter.use_language.use.impl.UsePackageImpl#getTypeLiteralExpCS()
+     * @generated
+     */
+    EClass TYPE_LITERAL_EXP_CS = eINSTANCE.getTypeLiteralExpCS();
+
+    /**
+     * The meta object literal for the '<em><b>Owned Type</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TYPE_LITERAL_EXP_CS__OWNED_TYPE = eINSTANCE.getTypeLiteralExpCS_OwnedType();
+
+    /**
+     * The meta object literal for the '{@link modelConverter.use_language.use.impl.TypeNameExpCSImpl <em>Type Name Exp CS</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see modelConverter.use_language.use.impl.TypeNameExpCSImpl
+     * @see modelConverter.use_language.use.impl.UsePackageImpl#getTypeNameExpCS()
+     * @generated
+     */
+    EClass TYPE_NAME_EXP_CS = eINSTANCE.getTypeNameExpCS();
+
+    /**
+     * The meta object literal for the '<em><b>Owned Path Name</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TYPE_NAME_EXP_CS__OWNED_PATH_NAME = eINSTANCE.getTypeNameExpCS_OwnedPathName();
+
+    /**
+     * The meta object literal for the '<em><b>Owned Curly Bracketed Clause</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TYPE_NAME_EXP_CS__OWNED_CURLY_BRACKETED_CLAUSE = eINSTANCE.getTypeNameExpCS_OwnedCurlyBracketedClause();
+
+    /**
+     * The meta object literal for the '<em><b>Owned Pattern Guard</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TYPE_NAME_EXP_CS__OWNED_PATTERN_GUARD = eINSTANCE.getTypeNameExpCS_OwnedPatternGuard();
+
+    /**
+     * The meta object literal for the '{@link modelConverter.use_language.use.impl.CurlyBracketedClauseCSImpl <em>Curly Bracketed Clause CS</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see modelConverter.use_language.use.impl.CurlyBracketedClauseCSImpl
+     * @see modelConverter.use_language.use.impl.UsePackageImpl#getCurlyBracketedClauseCS()
+     * @generated
+     */
+    EClass CURLY_BRACKETED_CLAUSE_CS = eINSTANCE.getCurlyBracketedClauseCS();
+
+    /**
+     * The meta object literal for the '<em><b>Owned Parts</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CURLY_BRACKETED_CLAUSE_CS__OWNED_PARTS = eINSTANCE.getCurlyBracketedClauseCS_OwnedParts();
+
+    /**
+     * The meta object literal for the '{@link modelConverter.use_language.use.impl.ShadowPartCSImpl <em>Shadow Part CS</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see modelConverter.use_language.use.impl.ShadowPartCSImpl
+     * @see modelConverter.use_language.use.impl.UsePackageImpl#getShadowPartCS()
+     * @generated
+     */
+    EClass SHADOW_PART_CS = eINSTANCE.getShadowPartCS();
+
+    /**
+     * The meta object literal for the '<em><b>Referred Property</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SHADOW_PART_CS__REFERRED_PROPERTY = eINSTANCE.getShadowPartCS_ReferredProperty();
+
+    /**
+     * The meta object literal for the '<em><b>Owned Init Expression</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SHADOW_PART_CS__OWNED_INIT_EXPRESSION = eINSTANCE.getShadowPartCS_OwnedInitExpression();
+
+    /**
+     * The meta object literal for the '{@link modelConverter.use_language.use.impl.StringLiteralExpCSImpl <em>String Literal Exp CS</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see modelConverter.use_language.use.impl.StringLiteralExpCSImpl
+     * @see modelConverter.use_language.use.impl.UsePackageImpl#getStringLiteralExpCS()
+     * @generated
+     */
+    EClass STRING_LITERAL_EXP_CS = eINSTANCE.getStringLiteralExpCS();
+
+    /**
+     * The meta object literal for the '<em><b>Segments</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute STRING_LITERAL_EXP_CS__SEGMENTS = eINSTANCE.getStringLiteralExpCS_Segments();
+
+    /**
+     * The meta object literal for the '{@link modelConverter.use_language.use.impl.MultiplicityBoundsCSImpl <em>Multiplicity Bounds CS</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see modelConverter.use_language.use.impl.MultiplicityBoundsCSImpl
+     * @see modelConverter.use_language.use.impl.UsePackageImpl#getMultiplicityBoundsCS()
+     * @generated
+     */
+    EClass MULTIPLICITY_BOUNDS_CS = eINSTANCE.getMultiplicityBoundsCS();
+
+    /**
+     * The meta object literal for the '<em><b>Lower Bound</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute MULTIPLICITY_BOUNDS_CS__LOWER_BOUND = eINSTANCE.getMultiplicityBoundsCS_LowerBound();
+
+    /**
+     * The meta object literal for the '<em><b>Upper Bound</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute MULTIPLICITY_BOUNDS_CS__UPPER_BOUND = eINSTANCE.getMultiplicityBoundsCS_UpperBound();
+
+    /**
+     * The meta object literal for the '{@link modelConverter.use_language.use.impl.MultiplicityCSImpl <em>Multiplicity CS</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see modelConverter.use_language.use.impl.MultiplicityCSImpl
+     * @see modelConverter.use_language.use.impl.UsePackageImpl#getMultiplicityCS()
+     * @generated
+     */
+    EClass MULTIPLICITY_CS = eINSTANCE.getMultiplicityCS();
+
+    /**
+     * The meta object literal for the '<em><b>Is Null Free</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute MULTIPLICITY_CS__IS_NULL_FREE = eINSTANCE.getMultiplicityCS_IsNullFree();
+
+    /**
+     * The meta object literal for the '{@link modelConverter.use_language.use.impl.MultiplicityStringCSImpl <em>Multiplicity String CS</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see modelConverter.use_language.use.impl.MultiplicityStringCSImpl
+     * @see modelConverter.use_language.use.impl.UsePackageImpl#getMultiplicityStringCS()
+     * @generated
+     */
+    EClass MULTIPLICITY_STRING_CS = eINSTANCE.getMultiplicityStringCS();
+
+    /**
+     * The meta object literal for the '<em><b>String Bounds</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute MULTIPLICITY_STRING_CS__STRING_BOUNDS = eINSTANCE.getMultiplicityStringCS_StringBounds();
+
+    /**
+     * The meta object literal for the '{@link modelConverter.use_language.use.impl.PathNameCSImpl <em>Path Name CS</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see modelConverter.use_language.use.impl.PathNameCSImpl
+     * @see modelConverter.use_language.use.impl.UsePackageImpl#getPathNameCS()
+     * @generated
+     */
+    EClass PATH_NAME_CS = eINSTANCE.getPathNameCS();
+
+    /**
+     * The meta object literal for the '<em><b>Owned Path Elements</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PATH_NAME_CS__OWNED_PATH_ELEMENTS = eINSTANCE.getPathNameCS_OwnedPathElements();
+
+    /**
+     * The meta object literal for the '{@link modelConverter.use_language.use.impl.ExpCSImpl <em>Exp CS</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see modelConverter.use_language.use.impl.ExpCSImpl
+     * @see modelConverter.use_language.use.impl.UsePackageImpl#getExpCS()
+     * @generated
+     */
+    EClass EXP_CS = eINSTANCE.getExpCS();
+
+    /**
+     * The meta object literal for the '{@link modelConverter.use_language.use.impl.PrimitiveLiteralExpCSImpl <em>Primitive Literal Exp CS</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see modelConverter.use_language.use.impl.PrimitiveLiteralExpCSImpl
+     * @see modelConverter.use_language.use.impl.UsePackageImpl#getPrimitiveLiteralExpCS()
+     * @generated
+     */
+    EClass PRIMITIVE_LITERAL_EXP_CS = eINSTANCE.getPrimitiveLiteralExpCS();
+
+    /**
+     * The meta object literal for the '{@link modelConverter.use_language.use.impl.NameExpCSImpl <em>Name Exp CS</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see modelConverter.use_language.use.impl.NameExpCSImpl
+     * @see modelConverter.use_language.use.impl.UsePackageImpl#getNameExpCS()
+     * @generated
+     */
+    EClass NAME_EXP_CS = eINSTANCE.getNameExpCS();
+
+    /**
+     * The meta object literal for the '<em><b>Owned Path Name</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference NAME_EXP_CS__OWNED_PATH_NAME = eINSTANCE.getNameExpCS_OwnedPathName();
+
+    /**
+     * The meta object literal for the '<em><b>Owned Square Bracketed Clauses</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference NAME_EXP_CS__OWNED_SQUARE_BRACKETED_CLAUSES = eINSTANCE.getNameExpCS_OwnedSquareBracketedClauses();
+
+    /**
+     * The meta object literal for the '<em><b>Owned Round Bracketed Clause</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference NAME_EXP_CS__OWNED_ROUND_BRACKETED_CLAUSE = eINSTANCE.getNameExpCS_OwnedRoundBracketedClause();
+
+    /**
+     * The meta object literal for the '<em><b>Owned Curly Bracketed Clause</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference NAME_EXP_CS__OWNED_CURLY_BRACKETED_CLAUSE = eINSTANCE.getNameExpCS_OwnedCurlyBracketedClause();
+
+    /**
+     * The meta object literal for the '<em><b>Is Pre</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute NAME_EXP_CS__IS_PRE = eINSTANCE.getNameExpCS_IsPre();
+
+    /**
+     * The meta object literal for the '{@link modelConverter.use_language.use.impl.SquareBracketedClauseCSImpl <em>Square Bracketed Clause CS</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see modelConverter.use_language.use.impl.SquareBracketedClauseCSImpl
+     * @see modelConverter.use_language.use.impl.UsePackageImpl#getSquareBracketedClauseCS()
+     * @generated
+     */
+    EClass SQUARE_BRACKETED_CLAUSE_CS = eINSTANCE.getSquareBracketedClauseCS();
+
+    /**
+     * The meta object literal for the '<em><b>Owned Terms</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SQUARE_BRACKETED_CLAUSE_CS__OWNED_TERMS = eINSTANCE.getSquareBracketedClauseCS_OwnedTerms();
+
+    /**
+     * The meta object literal for the '{@link modelConverter.use_language.use.impl.CollectionLiteralExpCSImpl <em>Collection Literal Exp CS</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see modelConverter.use_language.use.impl.CollectionLiteralExpCSImpl
+     * @see modelConverter.use_language.use.impl.UsePackageImpl#getCollectionLiteralExpCS()
+     * @generated
+     */
+    EClass COLLECTION_LITERAL_EXP_CS = eINSTANCE.getCollectionLiteralExpCS();
+
+    /**
+     * The meta object literal for the '<em><b>Owned Type</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference COLLECTION_LITERAL_EXP_CS__OWNED_TYPE = eINSTANCE.getCollectionLiteralExpCS_OwnedType();
+
+    /**
+     * The meta object literal for the '<em><b>Owned Parts</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference COLLECTION_LITERAL_EXP_CS__OWNED_PARTS = eINSTANCE.getCollectionLiteralExpCS_OwnedParts();
+
+    /**
+     * The meta object literal for the '{@link modelConverter.use_language.use.impl.CollectionLiteralPartCSImpl <em>Collection Literal Part CS</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see modelConverter.use_language.use.impl.CollectionLiteralPartCSImpl
+     * @see modelConverter.use_language.use.impl.UsePackageImpl#getCollectionLiteralPartCS()
+     * @generated
+     */
+    EClass COLLECTION_LITERAL_PART_CS = eINSTANCE.getCollectionLiteralPartCS();
 
     /**
      * The meta object literal for the '<em><b>Owned Expression</b></em>' containment reference feature.
@@ -3030,7 +6442,521 @@ public interface UsePackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference CONTEXT_CS__OWNED_EXPRESSION = eINSTANCE.getContextCS_OwnedExpression();
+    EReference COLLECTION_LITERAL_PART_CS__OWNED_EXPRESSION = eINSTANCE.getCollectionLiteralPartCS_OwnedExpression();
+
+    /**
+     * The meta object literal for the '<em><b>Owned Last Expression</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference COLLECTION_LITERAL_PART_CS__OWNED_LAST_EXPRESSION = eINSTANCE.getCollectionLiteralPartCS_OwnedLastExpression();
+
+    /**
+     * The meta object literal for the '{@link modelConverter.use_language.use.impl.LambdaLiteralExpCSImpl <em>Lambda Literal Exp CS</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see modelConverter.use_language.use.impl.LambdaLiteralExpCSImpl
+     * @see modelConverter.use_language.use.impl.UsePackageImpl#getLambdaLiteralExpCS()
+     * @generated
+     */
+    EClass LAMBDA_LITERAL_EXP_CS = eINSTANCE.getLambdaLiteralExpCS();
+
+    /**
+     * The meta object literal for the '<em><b>Owned Expression CS</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference LAMBDA_LITERAL_EXP_CS__OWNED_EXPRESSION_CS = eINSTANCE.getLambdaLiteralExpCS_OwnedExpressionCS();
+
+    /**
+     * The meta object literal for the '{@link modelConverter.use_language.use.impl.MapLiteralExpCSImpl <em>Map Literal Exp CS</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see modelConverter.use_language.use.impl.MapLiteralExpCSImpl
+     * @see modelConverter.use_language.use.impl.UsePackageImpl#getMapLiteralExpCS()
+     * @generated
+     */
+    EClass MAP_LITERAL_EXP_CS = eINSTANCE.getMapLiteralExpCS();
+
+    /**
+     * The meta object literal for the '<em><b>Owned Type</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MAP_LITERAL_EXP_CS__OWNED_TYPE = eINSTANCE.getMapLiteralExpCS_OwnedType();
+
+    /**
+     * The meta object literal for the '<em><b>Owned Parts</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MAP_LITERAL_EXP_CS__OWNED_PARTS = eINSTANCE.getMapLiteralExpCS_OwnedParts();
+
+    /**
+     * The meta object literal for the '{@link modelConverter.use_language.use.impl.MapLiteralPartCSImpl <em>Map Literal Part CS</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see modelConverter.use_language.use.impl.MapLiteralPartCSImpl
+     * @see modelConverter.use_language.use.impl.UsePackageImpl#getMapLiteralPartCS()
+     * @generated
+     */
+    EClass MAP_LITERAL_PART_CS = eINSTANCE.getMapLiteralPartCS();
+
+    /**
+     * The meta object literal for the '<em><b>Owned Key</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MAP_LITERAL_PART_CS__OWNED_KEY = eINSTANCE.getMapLiteralPartCS_OwnedKey();
+
+    /**
+     * The meta object literal for the '<em><b>Owned Value</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MAP_LITERAL_PART_CS__OWNED_VALUE = eINSTANCE.getMapLiteralPartCS_OwnedValue();
+
+    /**
+     * The meta object literal for the '{@link modelConverter.use_language.use.impl.TupleLiteralExpCSImpl <em>Tuple Literal Exp CS</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see modelConverter.use_language.use.impl.TupleLiteralExpCSImpl
+     * @see modelConverter.use_language.use.impl.UsePackageImpl#getTupleLiteralExpCS()
+     * @generated
+     */
+    EClass TUPLE_LITERAL_EXP_CS = eINSTANCE.getTupleLiteralExpCS();
+
+    /**
+     * The meta object literal for the '<em><b>Owned Parts</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TUPLE_LITERAL_EXP_CS__OWNED_PARTS = eINSTANCE.getTupleLiteralExpCS_OwnedParts();
+
+    /**
+     * The meta object literal for the '{@link modelConverter.use_language.use.impl.TupleLiteralPartCSImpl <em>Tuple Literal Part CS</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see modelConverter.use_language.use.impl.TupleLiteralPartCSImpl
+     * @see modelConverter.use_language.use.impl.UsePackageImpl#getTupleLiteralPartCS()
+     * @generated
+     */
+    EClass TUPLE_LITERAL_PART_CS = eINSTANCE.getTupleLiteralPartCS();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute TUPLE_LITERAL_PART_CS__NAME = eINSTANCE.getTupleLiteralPartCS_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Owned Type</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TUPLE_LITERAL_PART_CS__OWNED_TYPE = eINSTANCE.getTupleLiteralPartCS_OwnedType();
+
+    /**
+     * The meta object literal for the '<em><b>Owned Init Expression</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TUPLE_LITERAL_PART_CS__OWNED_INIT_EXPRESSION = eINSTANCE.getTupleLiteralPartCS_OwnedInitExpression();
+
+    /**
+     * The meta object literal for the '{@link modelConverter.use_language.use.impl.NumberLiteralExpCSImpl <em>Number Literal Exp CS</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see modelConverter.use_language.use.impl.NumberLiteralExpCSImpl
+     * @see modelConverter.use_language.use.impl.UsePackageImpl#getNumberLiteralExpCS()
+     * @generated
+     */
+    EClass NUMBER_LITERAL_EXP_CS = eINSTANCE.getNumberLiteralExpCS();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute NUMBER_LITERAL_EXP_CS__VALUE = eINSTANCE.getNumberLiteralExpCS_Value();
+
+    /**
+     * The meta object literal for the '{@link modelConverter.use_language.use.impl.BooleanLiteralExpCSImpl <em>Boolean Literal Exp CS</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see modelConverter.use_language.use.impl.BooleanLiteralExpCSImpl
+     * @see modelConverter.use_language.use.impl.UsePackageImpl#getBooleanLiteralExpCS()
+     * @generated
+     */
+    EClass BOOLEAN_LITERAL_EXP_CS = eINSTANCE.getBooleanLiteralExpCS();
+
+    /**
+     * The meta object literal for the '<em><b>Symbol</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute BOOLEAN_LITERAL_EXP_CS__SYMBOL = eINSTANCE.getBooleanLiteralExpCS_Symbol();
+
+    /**
+     * The meta object literal for the '{@link modelConverter.use_language.use.impl.UnlimitedNaturalLiteralExpCSImpl <em>Unlimited Natural Literal Exp CS</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see modelConverter.use_language.use.impl.UnlimitedNaturalLiteralExpCSImpl
+     * @see modelConverter.use_language.use.impl.UsePackageImpl#getUnlimitedNaturalLiteralExpCS()
+     * @generated
+     */
+    EClass UNLIMITED_NATURAL_LITERAL_EXP_CS = eINSTANCE.getUnlimitedNaturalLiteralExpCS();
+
+    /**
+     * The meta object literal for the '{@link modelConverter.use_language.use.impl.InvalidLiteralExpCSImpl <em>Invalid Literal Exp CS</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see modelConverter.use_language.use.impl.InvalidLiteralExpCSImpl
+     * @see modelConverter.use_language.use.impl.UsePackageImpl#getInvalidLiteralExpCS()
+     * @generated
+     */
+    EClass INVALID_LITERAL_EXP_CS = eINSTANCE.getInvalidLiteralExpCS();
+
+    /**
+     * The meta object literal for the '{@link modelConverter.use_language.use.impl.NullLiteralExpCSImpl <em>Null Literal Exp CS</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see modelConverter.use_language.use.impl.NullLiteralExpCSImpl
+     * @see modelConverter.use_language.use.impl.UsePackageImpl#getNullLiteralExpCS()
+     * @generated
+     */
+    EClass NULL_LITERAL_EXP_CS = eINSTANCE.getNullLiteralExpCS();
+
+    /**
+     * The meta object literal for the '{@link modelConverter.use_language.use.impl.NestedExpCSImpl <em>Nested Exp CS</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see modelConverter.use_language.use.impl.NestedExpCSImpl
+     * @see modelConverter.use_language.use.impl.UsePackageImpl#getNestedExpCS()
+     * @generated
+     */
+    EClass NESTED_EXP_CS = eINSTANCE.getNestedExpCS();
+
+    /**
+     * The meta object literal for the '<em><b>Owned Expression</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference NESTED_EXP_CS__OWNED_EXPRESSION = eINSTANCE.getNestedExpCS_OwnedExpression();
+
+    /**
+     * The meta object literal for the '{@link modelConverter.use_language.use.impl.SelfExpCSImpl <em>Self Exp CS</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see modelConverter.use_language.use.impl.SelfExpCSImpl
+     * @see modelConverter.use_language.use.impl.UsePackageImpl#getSelfExpCS()
+     * @generated
+     */
+    EClass SELF_EXP_CS = eINSTANCE.getSelfExpCS();
+
+    /**
+     * The meta object literal for the '{@link modelConverter.use_language.use.impl.IfExpCSImpl <em>If Exp CS</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see modelConverter.use_language.use.impl.IfExpCSImpl
+     * @see modelConverter.use_language.use.impl.UsePackageImpl#getIfExpCS()
+     * @generated
+     */
+    EClass IF_EXP_CS = eINSTANCE.getIfExpCS();
+
+    /**
+     * The meta object literal for the '<em><b>Owned Condition</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference IF_EXP_CS__OWNED_CONDITION = eINSTANCE.getIfExpCS_OwnedCondition();
+
+    /**
+     * The meta object literal for the '<em><b>Owned Then Expression</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference IF_EXP_CS__OWNED_THEN_EXPRESSION = eINSTANCE.getIfExpCS_OwnedThenExpression();
+
+    /**
+     * The meta object literal for the '<em><b>Owned If Then Expressions</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference IF_EXP_CS__OWNED_IF_THEN_EXPRESSIONS = eINSTANCE.getIfExpCS_OwnedIfThenExpressions();
+
+    /**
+     * The meta object literal for the '<em><b>Owned Else Expression</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference IF_EXP_CS__OWNED_ELSE_EXPRESSION = eINSTANCE.getIfExpCS_OwnedElseExpression();
+
+    /**
+     * The meta object literal for the '{@link modelConverter.use_language.use.impl.IfThenExpCSImpl <em>If Then Exp CS</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see modelConverter.use_language.use.impl.IfThenExpCSImpl
+     * @see modelConverter.use_language.use.impl.UsePackageImpl#getIfThenExpCS()
+     * @generated
+     */
+    EClass IF_THEN_EXP_CS = eINSTANCE.getIfThenExpCS();
+
+    /**
+     * The meta object literal for the '<em><b>Owned Condition</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference IF_THEN_EXP_CS__OWNED_CONDITION = eINSTANCE.getIfThenExpCS_OwnedCondition();
+
+    /**
+     * The meta object literal for the '<em><b>Owned Then Expression</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference IF_THEN_EXP_CS__OWNED_THEN_EXPRESSION = eINSTANCE.getIfThenExpCS_OwnedThenExpression();
+
+    /**
+     * The meta object literal for the '{@link modelConverter.use_language.use.impl.LetExpCSImpl <em>Let Exp CS</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see modelConverter.use_language.use.impl.LetExpCSImpl
+     * @see modelConverter.use_language.use.impl.UsePackageImpl#getLetExpCS()
+     * @generated
+     */
+    EClass LET_EXP_CS = eINSTANCE.getLetExpCS();
+
+    /**
+     * The meta object literal for the '<em><b>Owned Variables</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference LET_EXP_CS__OWNED_VARIABLES = eINSTANCE.getLetExpCS_OwnedVariables();
+
+    /**
+     * The meta object literal for the '<em><b>Owned In Expression</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference LET_EXP_CS__OWNED_IN_EXPRESSION = eINSTANCE.getLetExpCS_OwnedInExpression();
+
+    /**
+     * The meta object literal for the '{@link modelConverter.use_language.use.impl.LetVariableCSImpl <em>Let Variable CS</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see modelConverter.use_language.use.impl.LetVariableCSImpl
+     * @see modelConverter.use_language.use.impl.UsePackageImpl#getLetVariableCS()
+     * @generated
+     */
+    EClass LET_VARIABLE_CS = eINSTANCE.getLetVariableCS();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute LET_VARIABLE_CS__NAME = eINSTANCE.getLetVariableCS_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Owned Round Bracketed Clause</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference LET_VARIABLE_CS__OWNED_ROUND_BRACKETED_CLAUSE = eINSTANCE.getLetVariableCS_OwnedRoundBracketedClause();
+
+    /**
+     * The meta object literal for the '<em><b>Owned Type</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference LET_VARIABLE_CS__OWNED_TYPE = eINSTANCE.getLetVariableCS_OwnedType();
+
+    /**
+     * The meta object literal for the '<em><b>Owned Init Expression</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference LET_VARIABLE_CS__OWNED_INIT_EXPRESSION = eINSTANCE.getLetVariableCS_OwnedInitExpression();
+
+    /**
+     * The meta object literal for the '{@link modelConverter.use_language.use.impl.RoundBracketedClauseCSImpl <em>Round Bracketed Clause CS</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see modelConverter.use_language.use.impl.RoundBracketedClauseCSImpl
+     * @see modelConverter.use_language.use.impl.UsePackageImpl#getRoundBracketedClauseCS()
+     * @generated
+     */
+    EClass ROUND_BRACKETED_CLAUSE_CS = eINSTANCE.getRoundBracketedClauseCS();
+
+    /**
+     * The meta object literal for the '<em><b>Owned Arguments</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ROUND_BRACKETED_CLAUSE_CS__OWNED_ARGUMENTS = eINSTANCE.getRoundBracketedClauseCS_OwnedArguments();
+
+    /**
+     * The meta object literal for the '{@link modelConverter.use_language.use.impl.NavigatingArgCSImpl <em>Navigating Arg CS</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see modelConverter.use_language.use.impl.NavigatingArgCSImpl
+     * @see modelConverter.use_language.use.impl.UsePackageImpl#getNavigatingArgCS()
+     * @generated
+     */
+    EClass NAVIGATING_ARG_CS = eINSTANCE.getNavigatingArgCS();
+
+    /**
+     * The meta object literal for the '<em><b>Prefix</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute NAVIGATING_ARG_CS__PREFIX = eINSTANCE.getNavigatingArgCS_Prefix();
+
+    /**
+     * The meta object literal for the '<em><b>Owned Name Expression</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference NAVIGATING_ARG_CS__OWNED_NAME_EXPRESSION = eINSTANCE.getNavigatingArgCS_OwnedNameExpression();
+
+    /**
+     * The meta object literal for the '<em><b>Owned Type</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference NAVIGATING_ARG_CS__OWNED_TYPE = eINSTANCE.getNavigatingArgCS_OwnedType();
+
+    /**
+     * The meta object literal for the '<em><b>Owned Init Expression</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference NAVIGATING_ARG_CS__OWNED_INIT_EXPRESSION = eINSTANCE.getNavigatingArgCS_OwnedInitExpression();
+
+    /**
+     * The meta object literal for the '<em><b>Owned Co Iterator</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference NAVIGATING_ARG_CS__OWNED_CO_ITERATOR = eINSTANCE.getNavigatingArgCS_OwnedCoIterator();
+
+    /**
+     * The meta object literal for the '{@link modelConverter.use_language.use.impl.VariableCSImpl <em>Variable CS</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see modelConverter.use_language.use.impl.VariableCSImpl
+     * @see modelConverter.use_language.use.impl.UsePackageImpl#getVariableCS()
+     * @generated
+     */
+    EClass VARIABLE_CS = eINSTANCE.getVariableCS();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute VARIABLE_CS__NAME = eINSTANCE.getVariableCS_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Owned Type</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference VARIABLE_CS__OWNED_TYPE = eINSTANCE.getVariableCS_OwnedType();
+
+    /**
+     * The meta object literal for the '{@link modelConverter.use_language.use.impl.InfixExpCSImpl <em>Infix Exp CS</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see modelConverter.use_language.use.impl.InfixExpCSImpl
+     * @see modelConverter.use_language.use.impl.UsePackageImpl#getInfixExpCS()
+     * @generated
+     */
+    EClass INFIX_EXP_CS = eINSTANCE.getInfixExpCS();
+
+    /**
+     * The meta object literal for the '<em><b>Owned Left</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference INFIX_EXP_CS__OWNED_LEFT = eINSTANCE.getInfixExpCS_OwnedLeft();
+
+    /**
+     * The meta object literal for the '<em><b>Operator</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute INFIX_EXP_CS__OPERATOR = eINSTANCE.getInfixExpCS_Operator();
+
+    /**
+     * The meta object literal for the '<em><b>Owned Right</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference INFIX_EXP_CS__OWNED_RIGHT = eINSTANCE.getInfixExpCS_OwnedRight();
+
+    /**
+     * The meta object literal for the '{@link modelConverter.use_language.use.impl.PrefixExpCSImpl <em>Prefix Exp CS</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see modelConverter.use_language.use.impl.PrefixExpCSImpl
+     * @see modelConverter.use_language.use.impl.UsePackageImpl#getPrefixExpCS()
+     * @generated
+     */
+    EClass PREFIX_EXP_CS = eINSTANCE.getPrefixExpCS();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PREFIX_EXP_CS__NAME = eINSTANCE.getPrefixExpCS_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Owned Right</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PREFIX_EXP_CS__OWNED_RIGHT = eINSTANCE.getPrefixExpCS_OwnedRight();
 
   }
 

@@ -17,7 +17,6 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link modelConverter.use_language.use.OperationType#getOperationDeclaration <em>Operation Declaration</em>}</li>
- *   <li>{@link modelConverter.use_language.use.OperationType#getOperationbody <em>Operationbody</em>}</li>
  *   <li>{@link modelConverter.use_language.use.OperationType#getConditions <em>Conditions</em>}</li>
  * </ul>
  *
@@ -48,28 +47,6 @@ public interface OperationType extends EObject
    * @generated
    */
   void setOperationDeclaration(OperationDeclaration value);
-
-  /**
-   * Returns the value of the '<em><b>Operationbody</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Operationbody</em>' containment reference.
-   * @see #setOperationbody(ContextCS)
-   * @see modelConverter.use_language.use.UsePackage#getOperationType_Operationbody()
-   * @model containment="true"
-   * @generated
-   */
-  ContextCS getOperationbody();
-
-  /**
-   * Sets the value of the '{@link modelConverter.use_language.use.OperationType#getOperationbody <em>Operationbody</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Operationbody</em>' containment reference.
-   * @see #getOperationbody()
-   * @generated
-   */
-  void setOperationbody(ContextCS value);
 
   /**
    * Returns the value of the '<em><b>Conditions</b></em>' containment reference list.

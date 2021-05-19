@@ -3,7 +3,6 @@
  */
 package modelConverter.use_language.scoping;
 
-
 /**
  * This class contains custom scoping description.
  * 

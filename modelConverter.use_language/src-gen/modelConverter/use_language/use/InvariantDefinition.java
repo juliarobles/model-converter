@@ -51,12 +51,12 @@ public interface InvariantDefinition extends EObject
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Oclexpression</em>' containment reference.
-   * @see #setOclexpression(ContextCS)
+   * @see #setOclexpression(ExpCS)
    * @see modelConverter.use_language.use.UsePackage#getInvariantDefinition_Oclexpression()
    * @model containment="true"
    * @generated
    */
-  ContextCS getOclexpression();
+  ExpCS getOclexpression();
 
   /**
    * Sets the value of the '{@link modelConverter.use_language.use.InvariantDefinition#getOclexpression <em>Oclexpression</em>}' containment reference.
@@ -66,6 +66,6 @@ public interface InvariantDefinition extends EObject
    * @see #getOclexpression()
    * @generated
    */
-  void setOclexpression(ContextCS value);
+  void setOclexpression(ExpCS value);
 
 } // InvariantDefinition

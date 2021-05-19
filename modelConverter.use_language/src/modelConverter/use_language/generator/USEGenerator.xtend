@@ -32,9 +32,9 @@ import modelConverter.use_language.use.OperationConstraints
 import org.eclipse.emf.common.util.BasicEList
 import modelConverter.use_language.use.AllTypes
 import modelConverter.use_language.use.CollectionType
-import org.eclipse.ocl.xtext.essentialoclcs.ExpCS
-import modelConverter.use_language.use.ContextCS
 import modelConverter.use_language.use.ModelUSE
+import modelConverter.use_language.use.ExpCS
+import modelConverter.use_language.use.OperationComplex
 
 /**
  * Generates code from your model files on save.
@@ -169,9 +169,11 @@ class USEGenerator extends AbstractGenerator {
 	'''
 
 	private def compileOperation(OperationType op, Iterable<OperationConstraints> conditions) '''
-		<ownedOperation xmi:id="«System.identityHashCode(op)»" name="«op.getOperationDeclaration.getName»" «IF (op.getOperationbody !== null)»bodyCondition="«System.identityHashCode(op).toString + System.identityHashCode(op.getOperationbody)»"«ENDIF» postcondition="«FOR post : op.getConditions.filter(Postcondition)»«System.identityHashCode(post)» «ENDFOR»«FOR context : conditions»«FOR post : context.getConditions.filter(Postcondition)»«System.identityHashCode(post)» «ENDFOR»«ENDFOR»" precondition="«FOR pre : op.getConditions.filter(Precondition)»«System.identityHashCode(pre)» «ENDFOR»«FOR context : conditions»«FOR pre : context.getConditions.filter(Precondition)»«System.identityHashCode(pre)» «ENDFOR»«ENDFOR»" «IF (op instanceof OperationQuery)»isQuery="true"«ENDIF»>
-			«IF (op.getOperationbody !== null)»
-				«op.getOperationbody.compileOwnedRule(System.identityHashCode(op).toString + System.identityHashCode(op.getOperationbody), "", "")»
+		<ownedOperation xmi:id="«System.identityHashCode(op)»" name="«op.getOperationDeclaration.getName»" «IF (op instanceof OperationQuery && (op as OperationQuery).getOperationbody !== null)»bodyCondition="«System.identityHashCode(op).toString + System.identityHashCode((op as OperationQuery).getOperationbody)»"«ELSEIF (op instanceof OperationComplex && (op as OperationComplex).getOperationbody !== null)»bodyCondition="«System.identityHashCode(op).toString + System.identityHashCode((op as OperationComplex).getOperationbody)»"«ENDIF» postcondition="«FOR post : op.getConditions.filter(Postcondition)»«System.identityHashCode(post)» «ENDFOR»«FOR context : conditions»«FOR post : context.getConditions.filter(Postcondition)»«System.identityHashCode(post)» «ENDFOR»«ENDFOR»" precondition="«FOR pre : op.getConditions.filter(Precondition)»«System.identityHashCode(pre)» «ENDFOR»«FOR context : conditions»«FOR pre : context.getConditions.filter(Precondition)»«System.identityHashCode(pre)» «ENDFOR»«ENDFOR»" «IF (op instanceof OperationQuery)»isQuery="true"«ENDIF»>
+			«IF (op instanceof OperationQuery && (op as OperationQuery).getOperationbody !== null)»
+				«(op as OperationQuery).getOperationbody.compileOwnedRule(System.identityHashCode(op).toString + System.identityHashCode((op as OperationQuery).getOperationbody), "", "")»
+			«ELSEIF (op instanceof OperationComplex && (op as OperationComplex).getOperationbody !== null)»
+				«(op as OperationComplex).getOperationbody.compileOwnedRuleString(System.identityHashCode(op).toString + System.identityHashCode((op as OperationComplex).getOperationbody), "", "")»
 			«ENDIF»
 			«FOR cond : op.getConditions»
 				«cond.getOclexpression.compileOwnedRule(System.identityHashCode(cond).toString, cond.getName, "")»
@@ -190,14 +192,24 @@ class USEGenerator extends AbstractGenerator {
 		</ownedOperation>	
 	'''
 
-	private def compileOwnedRule(ContextCS e, String id, String name, String constrainedElement) '''
+	private def compileOwnedRule(ExpCS e, String id, String name, String constrainedElement) '''
 		<ownedRule xmi:id="«id»" name="«name»" «constrainedElement»>
 			<specification xmi:type="uml:OpaqueExpression" xmi:id="«System.identityHashCode(e).toString + id»" name="«name»">
 			   	<language>OCL2.0</language>
-			   	  	<body>«e.getOwnedExpression.compileOCL»</body>
+			   	  	<body>« »</body>
 			  	</specification>
 		</ownedRule>
 	'''
+	
+	private def compileOwnedRuleString(String e, String id, String name, String constrainedElement) '''
+		<ownedRule xmi:id="«id»" name="«name»" «constrainedElement»>
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="«System.identityHashCode(e).toString + id»" name="«name»">
+			   	<language>OCL2.0</language>
+			   	  	<body>«e.substring(1, e.length-1)»</body>
+			  	</specification>
+		</ownedRule>
+	'''
+	
 	private def compileOCL(ExpCS e) '''
 	
 	'''

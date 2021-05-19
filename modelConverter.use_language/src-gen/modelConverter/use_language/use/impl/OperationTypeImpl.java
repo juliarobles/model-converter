@@ -6,7 +6,6 @@ package modelConverter.use_language.use.impl;
 import java.util.Collection;
 
 import modelConverter.use_language.use.ConditionType;
-import modelConverter.use_language.use.ContextCS;
 import modelConverter.use_language.use.OperationDeclaration;
 import modelConverter.use_language.use.OperationType;
 import modelConverter.use_language.use.UsePackage;
@@ -34,7 +33,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link modelConverter.use_language.use.impl.OperationTypeImpl#getOperationDeclaration <em>Operation Declaration</em>}</li>
- *   <li>{@link modelConverter.use_language.use.impl.OperationTypeImpl#getOperationbody <em>Operationbody</em>}</li>
  *   <li>{@link modelConverter.use_language.use.impl.OperationTypeImpl#getConditions <em>Conditions</em>}</li>
  * </ul>
  *
@@ -51,16 +49,6 @@ public class OperationTypeImpl extends MinimalEObjectImpl.Container implements O
    * @ordered
    */
   protected OperationDeclaration operationDeclaration;
-
-  /**
-   * The cached value of the '{@link #getOperationbody() <em>Operationbody</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getOperationbody()
-   * @generated
-   * @ordered
-   */
-  protected ContextCS operationbody;
 
   /**
    * The cached value of the '{@link #getConditions() <em>Conditions</em>}' containment reference list.
@@ -149,56 +137,6 @@ public class OperationTypeImpl extends MinimalEObjectImpl.Container implements O
    * @generated
    */
   @Override
-  public ContextCS getOperationbody()
-  {
-    return operationbody;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetOperationbody(ContextCS newOperationbody, NotificationChain msgs)
-  {
-    ContextCS oldOperationbody = operationbody;
-    operationbody = newOperationbody;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, UsePackage.OPERATION_TYPE__OPERATIONBODY, oldOperationbody, newOperationbody);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setOperationbody(ContextCS newOperationbody)
-  {
-    if (newOperationbody != operationbody)
-    {
-      NotificationChain msgs = null;
-      if (operationbody != null)
-        msgs = ((InternalEObject)operationbody).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UsePackage.OPERATION_TYPE__OPERATIONBODY, null, msgs);
-      if (newOperationbody != null)
-        msgs = ((InternalEObject)newOperationbody).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UsePackage.OPERATION_TYPE__OPERATIONBODY, null, msgs);
-      msgs = basicSetOperationbody(newOperationbody, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, UsePackage.OPERATION_TYPE__OPERATIONBODY, newOperationbody, newOperationbody));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public EList<ConditionType> getConditions()
   {
     if (conditions == null)
@@ -220,8 +158,6 @@ public class OperationTypeImpl extends MinimalEObjectImpl.Container implements O
     {
       case UsePackage.OPERATION_TYPE__OPERATION_DECLARATION:
         return basicSetOperationDeclaration(null, msgs);
-      case UsePackage.OPERATION_TYPE__OPERATIONBODY:
-        return basicSetOperationbody(null, msgs);
       case UsePackage.OPERATION_TYPE__CONDITIONS:
         return ((InternalEList<?>)getConditions()).basicRemove(otherEnd, msgs);
     }
@@ -240,8 +176,6 @@ public class OperationTypeImpl extends MinimalEObjectImpl.Container implements O
     {
       case UsePackage.OPERATION_TYPE__OPERATION_DECLARATION:
         return getOperationDeclaration();
-      case UsePackage.OPERATION_TYPE__OPERATIONBODY:
-        return getOperationbody();
       case UsePackage.OPERATION_TYPE__CONDITIONS:
         return getConditions();
     }
@@ -261,9 +195,6 @@ public class OperationTypeImpl extends MinimalEObjectImpl.Container implements O
     {
       case UsePackage.OPERATION_TYPE__OPERATION_DECLARATION:
         setOperationDeclaration((OperationDeclaration)newValue);
-        return;
-      case UsePackage.OPERATION_TYPE__OPERATIONBODY:
-        setOperationbody((ContextCS)newValue);
         return;
       case UsePackage.OPERATION_TYPE__CONDITIONS:
         getConditions().clear();
@@ -286,9 +217,6 @@ public class OperationTypeImpl extends MinimalEObjectImpl.Container implements O
       case UsePackage.OPERATION_TYPE__OPERATION_DECLARATION:
         setOperationDeclaration((OperationDeclaration)null);
         return;
-      case UsePackage.OPERATION_TYPE__OPERATIONBODY:
-        setOperationbody((ContextCS)null);
-        return;
       case UsePackage.OPERATION_TYPE__CONDITIONS:
         getConditions().clear();
         return;
@@ -308,8 +236,6 @@ public class OperationTypeImpl extends MinimalEObjectImpl.Container implements O
     {
       case UsePackage.OPERATION_TYPE__OPERATION_DECLARATION:
         return operationDeclaration != null;
-      case UsePackage.OPERATION_TYPE__OPERATIONBODY:
-        return operationbody != null;
       case UsePackage.OPERATION_TYPE__CONDITIONS:
         return conditions != null && !conditions.isEmpty();
     }

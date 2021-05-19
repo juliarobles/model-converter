@@ -3,7 +3,8 @@
  */
 package modelConverter.use_language.use.impl;
 
-import modelConverter.use_language.use.ContextCS;
+import modelConverter.use_language.use.ExpCS;
+import modelConverter.use_language.use.NestedExpCS;
 import modelConverter.use_language.use.UsePackage;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -13,24 +14,21 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.ocl.xtext.essentialoclcs.ExpCS;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Context CS</b></em>'.
+ * An implementation of the model object '<em><b>Nested Exp CS</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link modelConverter.use_language.use.impl.ContextCSImpl#getOwnedExpression <em>Owned Expression</em>}</li>
+ *   <li>{@link modelConverter.use_language.use.impl.NestedExpCSImpl#getOwnedExpression <em>Owned Expression</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ContextCSImpl extends MinimalEObjectImpl.Container implements ContextCS
+public class NestedExpCSImpl extends ExpCSImpl implements NestedExpCS
 {
   /**
    * The cached value of the '{@link #getOwnedExpression() <em>Owned Expression</em>}' containment reference.
@@ -47,7 +45,7 @@ public class ContextCSImpl extends MinimalEObjectImpl.Container implements Conte
    * <!-- end-user-doc -->
    * @generated
    */
-  protected ContextCSImpl()
+  protected NestedExpCSImpl()
   {
     super();
   }
@@ -60,7 +58,7 @@ public class ContextCSImpl extends MinimalEObjectImpl.Container implements Conte
   @Override
   protected EClass eStaticClass()
   {
-    return UsePackage.Literals.CONTEXT_CS;
+    return UsePackage.Literals.NESTED_EXP_CS;
   }
 
   /**
@@ -85,7 +83,7 @@ public class ContextCSImpl extends MinimalEObjectImpl.Container implements Conte
     ownedExpression = newOwnedExpression;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, UsePackage.CONTEXT_CS__OWNED_EXPRESSION, oldOwnedExpression, newOwnedExpression);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, UsePackage.NESTED_EXP_CS__OWNED_EXPRESSION, oldOwnedExpression, newOwnedExpression);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -103,14 +101,14 @@ public class ContextCSImpl extends MinimalEObjectImpl.Container implements Conte
     {
       NotificationChain msgs = null;
       if (ownedExpression != null)
-        msgs = ((InternalEObject)ownedExpression).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UsePackage.CONTEXT_CS__OWNED_EXPRESSION, null, msgs);
+        msgs = ((InternalEObject)ownedExpression).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UsePackage.NESTED_EXP_CS__OWNED_EXPRESSION, null, msgs);
       if (newOwnedExpression != null)
-        msgs = ((InternalEObject)newOwnedExpression).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UsePackage.CONTEXT_CS__OWNED_EXPRESSION, null, msgs);
+        msgs = ((InternalEObject)newOwnedExpression).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UsePackage.NESTED_EXP_CS__OWNED_EXPRESSION, null, msgs);
       msgs = basicSetOwnedExpression(newOwnedExpression, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, UsePackage.CONTEXT_CS__OWNED_EXPRESSION, newOwnedExpression, newOwnedExpression));
+      eNotify(new ENotificationImpl(this, Notification.SET, UsePackage.NESTED_EXP_CS__OWNED_EXPRESSION, newOwnedExpression, newOwnedExpression));
   }
 
   /**
@@ -123,7 +121,7 @@ public class ContextCSImpl extends MinimalEObjectImpl.Container implements Conte
   {
     switch (featureID)
     {
-      case UsePackage.CONTEXT_CS__OWNED_EXPRESSION:
+      case UsePackage.NESTED_EXP_CS__OWNED_EXPRESSION:
         return basicSetOwnedExpression(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -139,7 +137,7 @@ public class ContextCSImpl extends MinimalEObjectImpl.Container implements Conte
   {
     switch (featureID)
     {
-      case UsePackage.CONTEXT_CS__OWNED_EXPRESSION:
+      case UsePackage.NESTED_EXP_CS__OWNED_EXPRESSION:
         return getOwnedExpression();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -155,7 +153,7 @@ public class ContextCSImpl extends MinimalEObjectImpl.Container implements Conte
   {
     switch (featureID)
     {
-      case UsePackage.CONTEXT_CS__OWNED_EXPRESSION:
+      case UsePackage.NESTED_EXP_CS__OWNED_EXPRESSION:
         setOwnedExpression((ExpCS)newValue);
         return;
     }
@@ -172,7 +170,7 @@ public class ContextCSImpl extends MinimalEObjectImpl.Container implements Conte
   {
     switch (featureID)
     {
-      case UsePackage.CONTEXT_CS__OWNED_EXPRESSION:
+      case UsePackage.NESTED_EXP_CS__OWNED_EXPRESSION:
         setOwnedExpression((ExpCS)null);
         return;
     }
@@ -189,10 +187,10 @@ public class ContextCSImpl extends MinimalEObjectImpl.Container implements Conte
   {
     switch (featureID)
     {
-      case UsePackage.CONTEXT_CS__OWNED_EXPRESSION:
+      case UsePackage.NESTED_EXP_CS__OWNED_EXPRESSION:
         return ownedExpression != null;
     }
     return super.eIsSet(featureID);
   }
 
-} //ContextCSImpl
+} //NestedExpCSImpl

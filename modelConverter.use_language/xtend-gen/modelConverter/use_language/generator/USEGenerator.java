@@ -6,6 +6,7 @@ package modelConverter.use_language.generator;
 import com.google.common.base.Objects;
 import com.google.common.collect.Iterables;
 import modelConverter.use_language.use.AllClass;
+import modelConverter.use_language.use.AllClassAndEnum;
 import modelConverter.use_language.use.AllTypes;
 import modelConverter.use_language.use.Association;
 import modelConverter.use_language.use.AssociationClass;
@@ -16,12 +17,13 @@ import modelConverter.use_language.use.CollectionType;
 import modelConverter.use_language.use.ConditionType;
 import modelConverter.use_language.use.ConstrainsGeneral;
 import modelConverter.use_language.use.ConstraintsBase;
-import modelConverter.use_language.use.ContextCS;
 import modelConverter.use_language.use.ContextsType;
+import modelConverter.use_language.use.ExpCS;
 import modelConverter.use_language.use.Generalization;
 import modelConverter.use_language.use.InvariantContext;
 import modelConverter.use_language.use.InvariantDefinition;
 import modelConverter.use_language.use.ModelUSE;
+import modelConverter.use_language.use.OperationComplex;
 import modelConverter.use_language.use.OperationConstraints;
 import modelConverter.use_language.use.OperationContext;
 import modelConverter.use_language.use.OperationQuery;
@@ -36,7 +38,6 @@ import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.ocl.xtext.essentialoclcs.ExpCS;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
@@ -526,23 +527,30 @@ public class USEGenerator extends AbstractGenerator {
     _builder.append(_name);
     _builder.append("\" ");
     {
-      ContextCS _operationbody = op.getOperationbody();
-      boolean _tripleNotEquals = (_operationbody != null);
-      if (_tripleNotEquals) {
+      if (((op instanceof OperationQuery) && (((OperationQuery) op).getOperationbody() != null))) {
         _builder.append("bodyCondition=\"");
         String _string = Integer.valueOf(System.identityHashCode(op)).toString();
-        int _identityHashCode_1 = System.identityHashCode(op.getOperationbody());
+        int _identityHashCode_1 = System.identityHashCode(((OperationQuery) op).getOperationbody());
         String _plus = (_string + Integer.valueOf(_identityHashCode_1));
         _builder.append(_plus);
         _builder.append("\"");
+      } else {
+        if (((op instanceof OperationComplex) && (((OperationComplex) op).getOperationbody() != null))) {
+          _builder.append("bodyCondition=\"");
+          String _string_1 = Integer.valueOf(System.identityHashCode(op)).toString();
+          int _identityHashCode_2 = System.identityHashCode(((OperationComplex) op).getOperationbody());
+          String _plus_1 = (_string_1 + Integer.valueOf(_identityHashCode_2));
+          _builder.append(_plus_1);
+          _builder.append("\"");
+        }
       }
     }
     _builder.append(" postcondition=\"");
     {
       Iterable<Postcondition> _filter = Iterables.<Postcondition>filter(op.getConditions(), Postcondition.class);
       for(final Postcondition post : _filter) {
-        int _identityHashCode_2 = System.identityHashCode(post);
-        _builder.append(_identityHashCode_2);
+        int _identityHashCode_3 = System.identityHashCode(post);
+        _builder.append(_identityHashCode_3);
         _builder.append(" ");
       }
     }
@@ -551,8 +559,8 @@ public class USEGenerator extends AbstractGenerator {
         {
           Iterable<Postcondition> _filter_1 = Iterables.<Postcondition>filter(context.getConditions(), Postcondition.class);
           for(final Postcondition post_1 : _filter_1) {
-            int _identityHashCode_3 = System.identityHashCode(post_1);
-            _builder.append(_identityHashCode_3);
+            int _identityHashCode_4 = System.identityHashCode(post_1);
+            _builder.append(_identityHashCode_4);
             _builder.append(" ");
           }
         }
@@ -562,8 +570,8 @@ public class USEGenerator extends AbstractGenerator {
     {
       Iterable<Precondition> _filter_2 = Iterables.<Precondition>filter(op.getConditions(), Precondition.class);
       for(final Precondition pre : _filter_2) {
-        int _identityHashCode_4 = System.identityHashCode(pre);
-        _builder.append(_identityHashCode_4);
+        int _identityHashCode_5 = System.identityHashCode(pre);
+        _builder.append(_identityHashCode_5);
         _builder.append(" ");
       }
     }
@@ -572,8 +580,8 @@ public class USEGenerator extends AbstractGenerator {
         {
           Iterable<Precondition> _filter_3 = Iterables.<Precondition>filter(context_1.getConditions(), Precondition.class);
           for(final Precondition pre_1 : _filter_3) {
-            int _identityHashCode_5 = System.identityHashCode(pre_1);
-            _builder.append(_identityHashCode_5);
+            int _identityHashCode_6 = System.identityHashCode(pre_1);
+            _builder.append(_identityHashCode_6);
             _builder.append(" ");
           }
         }
@@ -588,17 +596,26 @@ public class USEGenerator extends AbstractGenerator {
     _builder.append(">");
     _builder.newLineIfNotEmpty();
     {
-      ContextCS _operationbody_1 = op.getOperationbody();
-      boolean _tripleNotEquals_1 = (_operationbody_1 != null);
-      if (_tripleNotEquals_1) {
+      if (((op instanceof OperationQuery) && (((OperationQuery) op).getOperationbody() != null))) {
         _builder.append("\t");
-        ContextCS _operationbody_2 = op.getOperationbody();
-        String _string_1 = Integer.valueOf(System.identityHashCode(op)).toString();
-        int _identityHashCode_6 = System.identityHashCode(op.getOperationbody());
-        String _plus_1 = (_string_1 + Integer.valueOf(_identityHashCode_6));
-        CharSequence _compileOwnedRule = this.compileOwnedRule(_operationbody_2, _plus_1, "", "");
+        ExpCS _operationbody = ((OperationQuery) op).getOperationbody();
+        String _string_2 = Integer.valueOf(System.identityHashCode(op)).toString();
+        int _identityHashCode_7 = System.identityHashCode(((OperationQuery) op).getOperationbody());
+        String _plus_2 = (_string_2 + Integer.valueOf(_identityHashCode_7));
+        CharSequence _compileOwnedRule = this.compileOwnedRule(_operationbody, _plus_2, "", "");
         _builder.append(_compileOwnedRule, "\t");
         _builder.newLineIfNotEmpty();
+      } else {
+        if (((op instanceof OperationComplex) && (((OperationComplex) op).getOperationbody() != null))) {
+          _builder.append("\t");
+          String _operationbody_1 = ((OperationComplex) op).getOperationbody();
+          String _string_3 = Integer.valueOf(System.identityHashCode(op)).toString();
+          int _identityHashCode_8 = System.identityHashCode(((OperationComplex) op).getOperationbody());
+          String _plus_3 = (_string_3 + Integer.valueOf(_identityHashCode_8));
+          CharSequence _compileOwnedRuleString = this.compileOwnedRuleString(_operationbody_1, _plus_3, "", "");
+          _builder.append(_compileOwnedRuleString, "\t");
+          _builder.newLineIfNotEmpty();
+        }
       }
     }
     {
@@ -625,8 +642,8 @@ public class USEGenerator extends AbstractGenerator {
     }
     {
       AllTypes _returnType = op.getOperationDeclaration().getReturnType();
-      boolean _tripleNotEquals_2 = (_returnType != null);
-      if (_tripleNotEquals_2) {
+      boolean _tripleNotEquals = (_returnType != null);
+      if (_tripleNotEquals) {
         _builder.append("\t");
         CharSequence _compileReturnType = this.compileReturnType(op.getOperationDeclaration().getReturnType(), System.identityHashCode(op));
         _builder.append(_compileReturnType, "\t");
@@ -647,7 +664,7 @@ public class USEGenerator extends AbstractGenerator {
     return _builder;
   }
   
-  private CharSequence compileOwnedRule(final ContextCS e, final String id, final String name, final String constrainedElement) {
+  private CharSequence compileOwnedRule(final ExpCS e, final String id, final String name, final String constrainedElement) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("<ownedRule xmi:id=\"");
     _builder.append(id);
@@ -671,8 +688,44 @@ public class USEGenerator extends AbstractGenerator {
     _builder.newLine();
     _builder.append("\t   \t  \t");
     _builder.append("<body>");
-    CharSequence _compileOCL = this.compileOCL(e.getOwnedExpression());
-    _builder.append(_compileOCL, "\t   \t  \t");
+    _builder.append("</body>");
+    _builder.newLine();
+    _builder.append("\t  \t");
+    _builder.append("</specification>");
+    _builder.newLine();
+    _builder.append("</ownedRule>");
+    _builder.newLine();
+    return _builder;
+  }
+  
+  private CharSequence compileOwnedRuleString(final String e, final String id, final String name, final String constrainedElement) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("<ownedRule xmi:id=\"");
+    _builder.append(id);
+    _builder.append("\" name=\"");
+    _builder.append(name);
+    _builder.append("\" ");
+    _builder.append(constrainedElement);
+    _builder.append(">");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.append("<specification xmi:type=\"uml:OpaqueExpression\" xmi:id=\"");
+    String _string = Integer.valueOf(System.identityHashCode(e)).toString();
+    String _plus = (_string + id);
+    _builder.append(_plus, "\t");
+    _builder.append("\" name=\"");
+    _builder.append(name, "\t");
+    _builder.append("\">");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t   \t");
+    _builder.append("<language>OCL2.0</language>");
+    _builder.newLine();
+    _builder.append("\t   \t  \t");
+    _builder.append("<body>");
+    int _length = e.length();
+    int _minus = (_length - 1);
+    String _substring = e.substring(1, _minus);
+    _builder.append(_substring, "\t   \t  \t");
     _builder.append("</body>");
     _builder.newLineIfNotEmpty();
     _builder.append("\t  \t");
@@ -707,7 +760,7 @@ public class USEGenerator extends AbstractGenerator {
         if (((((((e != null) && (e instanceof CollectionType)) && (((CollectionType) e).getType() != null)) && (((Object[])Conversions.unwrapArray(((CollectionType) e).getType(), Object.class)).length > 0)) && (((CollectionType) e).getType().get(0) instanceof SimpleTypes)) && (((SimpleTypes) ((CollectionType) e).getType().get(0)).getReferended() != null))) {
           _builder.append("type=\"");
           SimpleTypes _get = ((CollectionType) e).getType().get(0);
-          EObject _referended = ((SimpleTypes) _get).getReferended();
+          AllClassAndEnum _referended = ((SimpleTypes) _get).getReferended();
           _builder.append(_referended);
           _builder.append("\"");
         }
@@ -786,7 +839,7 @@ public class USEGenerator extends AbstractGenerator {
           _builder.append("type=\"");
           AllTypes _type_1 = e.getType();
           SimpleTypes _get = ((CollectionType) _type_1).getType().get(0);
-          EObject _referended = ((SimpleTypes) _get).getReferended();
+          AllClassAndEnum _referended = ((SimpleTypes) _get).getReferended();
           boolean _tripleNotEquals = (_referended != null);
           _builder.append(_tripleNotEquals);
           _builder.append("\"");

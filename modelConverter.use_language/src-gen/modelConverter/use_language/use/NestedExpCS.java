@@ -3,27 +3,24 @@
  */
 package modelConverter.use_language.use;
 
-import org.eclipse.emf.ecore.EObject;
-
-import org.eclipse.ocl.xtext.essentialoclcs.ExpCS;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Context CS</b></em>'.
+ * A representation of the model object '<em><b>Nested Exp CS</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link modelConverter.use_language.use.ContextCS#getOwnedExpression <em>Owned Expression</em>}</li>
+ *   <li>{@link modelConverter.use_language.use.NestedExpCS#getOwnedExpression <em>Owned Expression</em>}</li>
  * </ul>
  *
- * @see modelConverter.use_language.use.UsePackage#getContextCS()
+ * @see modelConverter.use_language.use.UsePackage#getNestedExpCS()
  * @model
  * @generated
  */
-public interface ContextCS extends EObject
+public interface NestedExpCS extends ExpCS
 {
   /**
    * Returns the value of the '<em><b>Owned Expression</b></em>' containment reference.
@@ -31,14 +28,14 @@ public interface ContextCS extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Owned Expression</em>' containment reference.
    * @see #setOwnedExpression(ExpCS)
-   * @see modelConverter.use_language.use.UsePackage#getContextCS_OwnedExpression()
+   * @see modelConverter.use_language.use.UsePackage#getNestedExpCS_OwnedExpression()
    * @model containment="true"
    * @generated
    */
   ExpCS getOwnedExpression();
 
   /**
-   * Sets the value of the '{@link modelConverter.use_language.use.ContextCS#getOwnedExpression <em>Owned Expression</em>}' containment reference.
+   * Sets the value of the '{@link modelConverter.use_language.use.NestedExpCS#getOwnedExpression <em>Owned Expression</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Owned Expression</em>' containment reference.
@@ -47,4 +44,4 @@ public interface ContextCS extends EObject
    */
   void setOwnedExpression(ExpCS value);
 
-} // ContextCS
+} // NestedExpCS

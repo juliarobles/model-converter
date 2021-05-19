@@ -4,7 +4,7 @@
 package modelConverter.use_language.use.impl;
 
 import modelConverter.use_language.use.ConditionType;
-import modelConverter.use_language.use.ContextCS;
+import modelConverter.use_language.use.ExpCS;
 import modelConverter.use_language.use.UsePackage;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -60,7 +60,7 @@ public class ConditionTypeImpl extends MinimalEObjectImpl.Container implements C
    * @generated
    * @ordered
    */
-  protected ContextCS oclexpression;
+  protected ExpCS oclexpression;
 
   /**
    * <!-- begin-user-doc -->
@@ -114,7 +114,7 @@ public class ConditionTypeImpl extends MinimalEObjectImpl.Container implements C
    * @generated
    */
   @Override
-  public ContextCS getOclexpression()
+  public ExpCS getOclexpression()
   {
     return oclexpression;
   }
@@ -124,9 +124,9 @@ public class ConditionTypeImpl extends MinimalEObjectImpl.Container implements C
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetOclexpression(ContextCS newOclexpression, NotificationChain msgs)
+  public NotificationChain basicSetOclexpression(ExpCS newOclexpression, NotificationChain msgs)
   {
-    ContextCS oldOclexpression = oclexpression;
+    ExpCS oldOclexpression = oclexpression;
     oclexpression = newOclexpression;
     if (eNotificationRequired())
     {
@@ -142,7 +142,7 @@ public class ConditionTypeImpl extends MinimalEObjectImpl.Container implements C
    * @generated
    */
   @Override
-  public void setOclexpression(ContextCS newOclexpression)
+  public void setOclexpression(ExpCS newOclexpression)
   {
     if (newOclexpression != oclexpression)
     {
@@ -206,7 +206,7 @@ public class ConditionTypeImpl extends MinimalEObjectImpl.Container implements C
         setName((String)newValue);
         return;
       case UsePackage.CONDITION_TYPE__OCLEXPRESSION:
-        setOclexpression((ContextCS)newValue);
+        setOclexpression((ExpCS)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -226,7 +226,7 @@ public class ConditionTypeImpl extends MinimalEObjectImpl.Container implements C
         setName(NAME_EDEFAULT);
         return;
       case UsePackage.CONDITION_TYPE__OCLEXPRESSION:
-        setOclexpression((ContextCS)null);
+        setOclexpression((ExpCS)null);
         return;
     }
     super.eUnset(featureID);

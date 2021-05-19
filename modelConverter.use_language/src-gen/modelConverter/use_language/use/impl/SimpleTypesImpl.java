@@ -3,13 +3,13 @@
  */
 package modelConverter.use_language.use.impl;
 
+import modelConverter.use_language.use.AllClassAndEnum;
 import modelConverter.use_language.use.SimpleTypes;
 import modelConverter.use_language.use.UsePackage;
 
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -58,7 +58,7 @@ public class SimpleTypesImpl extends AllTypesImpl implements SimpleTypes
    * @generated
    * @ordered
    */
-  protected EObject referended;
+  protected AllClassAndEnum referended;
 
   /**
    * <!-- begin-user-doc -->
@@ -112,12 +112,12 @@ public class SimpleTypesImpl extends AllTypesImpl implements SimpleTypes
    * @generated
    */
   @Override
-  public EObject getReferended()
+  public AllClassAndEnum getReferended()
   {
     if (referended != null && referended.eIsProxy())
     {
       InternalEObject oldReferended = (InternalEObject)referended;
-      referended = eResolveProxy(oldReferended);
+      referended = (AllClassAndEnum)eResolveProxy(oldReferended);
       if (referended != oldReferended)
       {
         if (eNotificationRequired())
@@ -132,7 +132,7 @@ public class SimpleTypesImpl extends AllTypesImpl implements SimpleTypes
    * <!-- end-user-doc -->
    * @generated
    */
-  public EObject basicGetReferended()
+  public AllClassAndEnum basicGetReferended()
   {
     return referended;
   }
@@ -143,9 +143,9 @@ public class SimpleTypesImpl extends AllTypesImpl implements SimpleTypes
    * @generated
    */
   @Override
-  public void setReferended(EObject newReferended)
+  public void setReferended(AllClassAndEnum newReferended)
   {
-    EObject oldReferended = referended;
+    AllClassAndEnum oldReferended = referended;
     referended = newReferended;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, UsePackage.SIMPLE_TYPES__REFERENDED, oldReferended, referended));
@@ -184,7 +184,7 @@ public class SimpleTypesImpl extends AllTypesImpl implements SimpleTypes
         setDefaultType((String)newValue);
         return;
       case UsePackage.SIMPLE_TYPES__REFERENDED:
-        setReferended((EObject)newValue);
+        setReferended((AllClassAndEnum)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -204,7 +204,7 @@ public class SimpleTypesImpl extends AllTypesImpl implements SimpleTypes
         setDefaultType(DEFAULT_TYPE_EDEFAULT);
         return;
       case UsePackage.SIMPLE_TYPES__REFERENDED:
-        setReferended((EObject)null);
+        setReferended((AllClassAndEnum)null);
         return;
     }
     super.eUnset(featureID);

@@ -16,7 +16,63 @@ public class SingleQuotes {
 	
 	private SingleQuotes() {}
 	
-	static void modifyFileBeforeGenerating(String source) {
+	static void modifyFileBeforeGeneratingOnlyBeginEnd(String source) {
+		StringBuilder sBuilder = new StringBuilder();
+		Boolean fin;
+		String auxLine;
+		
+		try {
+            Scanner input = new Scanner(new File(source));
+            
+            line = input.nextLine();
+            while (input.hasNextLine()) {
+            	if(isOclBeginStartSimple(line)) {
+            		StringBuilder oclBuilder = new StringBuilder();
+            		sBuilder.append(line + "\n");
+                	
+                	fin = false;
+            		while(input.hasNextLine() && !fin) {
+            			line = input.nextLine();
+            			if(line.strip().equals("end")) {
+            				auxLine = line;
+            				line = input.nextLine();
+            				
+            				if(line.strip().equals("end")) { //NO era el final, ahora si
+            					oclBuilder.append(auxLine + "\n");
+            					if(!oclBuilder.toString().strip().isBlank()) {
+            						sBuilder.append("'" + oclBuilder.toString() + "'");
+            					}
+            					sBuilder.append(line + "\n");
+            					line = input.nextLine();
+            					
+            				} else { //SI era el final
+            					if(!oclBuilder.toString().strip().isBlank()) {
+            						sBuilder.append("'" + oclBuilder.toString().strip() + "'\n");
+            					}
+            					sBuilder.append(auxLine + "\n");
+            				}
+            				fin = true;
+            			} else {
+            				oclBuilder.append(line + "\n");
+            			}
+            		}
+            		
+            	} else {
+            		sBuilder.append(line + "\n");
+            		line = input.nextLine();
+            	}
+            }
+            sBuilder.append(line + "\n");
+            input.close();
+            Auxiliary.stringToFile("auxiliary.use", sBuilder.toString());
+            
+		} catch (Exception ex) {
+            ex.printStackTrace();
+        }
+	}
+	
+	
+	static void modifyFileBeforeGenerating(String source, Boolean completo) {
 		StringBuilder sBuilder = new StringBuilder();
 		int indexStart, aux;
 		newLine = true;
@@ -31,7 +87,7 @@ public class SingleQuotes {
             		newLine = true;
             	}
             	stripLine = line.strip();
-                if(isOclStart(stripLine)) {
+                if(completo && isOclStart(stripLine)) {
                 	indexStart = line.indexOf(':');
                 	sBuilder.append(line.substring(0, indexStart) + ": ");
                 	obteinOCL(sBuilder, input, indexStart, Mode.Normal);
@@ -46,7 +102,7 @@ public class SingleQuotes {
                 	
                 	sBuilder.append("begin\n");
                 	obteinOCL(sBuilder, input, indexStart, Mode.Begin);
-                } else if (isOclQueryStart(stripLine)) {
+                } else if (completo && isOclQueryStart(stripLine)) {
                 	indexStart = line.indexOf('=');
                 	sBuilder.append(line.substring(0, indexStart) + "= ");
                 	obteinOCL(sBuilder, input, indexStart, Mode.Normal);
@@ -64,6 +120,7 @@ public class SingleQuotes {
 	}
 	
 	private static void obteinOCL(StringBuilder sBuilder, Scanner input, int indexStart, Mode mode) {
+		StringBuilder oclBuilder = new StringBuilder();
 		Boolean fin = false, primero = true;
 		int i, aux;
 		String word;
@@ -76,7 +133,7 @@ public class SingleQuotes {
 				primero = false;
 			}
     	} else {
-    		sBuilder.append("\n");
+    		oclBuilder.append("\n");
     		line = input.nextLine().strip();
     	}
     		
@@ -94,17 +151,21 @@ public class SingleQuotes {
     		while(i < words.length && !fin) {
     			word = words[i];
     			if(isOclEnd(word, words, i, mode)) {
-    				deleteLastLineBreak(sBuilder);
+    				deleteLastLineBreak(oclBuilder);
     				if(beginEnd) {
-    					aux = sBuilder.lastIndexOf("end");
+    					aux = oclBuilder.lastIndexOf("end");
     					if(aux != -1) {
-    						sBuilder.delete(aux, aux + ("end").length());
-    						deleteLastLineBreak(sBuilder);
+    						oclBuilder.delete(aux, aux + ("end").length());
+    						deleteLastLineBreak(oclBuilder);
     					}
-    					sBuilder.append(line + "'\n end\n");
+    					if(oclBuilder.toString().strip().isBlank()) {
+    						oclBuilder.append(line + "\n end\n");
+    					} else {
+    						oclBuilder.append(line + "'\n end\n");
+    					}
     					beginEnd = false;
     				} else {
-    					sBuilder.append(line + "'\n");
+    					oclBuilder.append(line + "'\n");
     				}
     				fin = true;
     				newLine = false;
@@ -116,7 +177,7 @@ public class SingleQuotes {
     			}
     		}
     		if(!fin) {											//Si hemos analizado toda la frase y no se ha terminado,
-    			sBuilder.append(line + "\n");					//seguimos con la siguiente linea
+    			oclBuilder.append(line + "\n");					//seguimos con la siguiente linea
     			do {
     				line = input.nextLine().strip();
     			} while (line.length() == 0);
@@ -124,9 +185,11 @@ public class SingleQuotes {
     	}
     		
     	if(!input.hasNextLine()) {
-    		deleteLastLineBreak(sBuilder);
-    		sBuilder.append("'");
+    		deleteLastLineBreak(oclBuilder);
+    		oclBuilder.append("'");
     	}
+    	
+    	sBuilder.append(oclBuilder.toString());
 	}
 	
 	private static Boolean isOclStart(String string) {
@@ -139,6 +202,19 @@ public class SingleQuotes {
 	private static Boolean isOclBeginStart(String line) {
 		int ini, fin;
 		if (line.contains("begin")) {
+        	ini = line.indexOf("begin");
+        	fin = ini+("begin").length();
+        	return ((ini-1 > 0 && line.charAt(ini-1) != ' ') 			 
+        			|| (fin+1 < line.length() && line.charAt(fin+1) != ' ')
+        			|| (ini-1 <= 0 && fin+1 >= line.length()));
+		} else {
+			return false;
+		}
+	}
+	
+	private static Boolean isOclBeginStartSimple(String line) {
+		int ini, fin;
+		if (line.strip().startsWith("begin")) {
         	ini = line.indexOf("begin");
         	fin = ini+("begin").length();
         	return ((ini-1 > 0 && line.charAt(ini-1) != ' ') 			 

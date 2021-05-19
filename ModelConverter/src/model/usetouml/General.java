@@ -21,10 +21,10 @@ public class General {
 	private General() {}
 	
 	public static void generateUML(String source) {
-		//SingleQuotes.modifyFileBeforeGenerating(source);
+		SingleQuotes.modifyFileBeforeGeneratingOnlyBeginEnd(source);
 		Injector injector = new USEStandaloneSetup().createInjectorAndDoEMFRegistration();
         ResourceSet rs = injector.getInstance(ResourceSet.class);
-        Resource r = rs.getResource(URI.createFileURI(source), true);
+        Resource r = rs.getResource(URI.createFileURI("auxiliary.use"), true);
 
         IResourceValidator validator = injector.getInstance(IResourceValidator.class);
         List<Issue> issues = validator.validate(r, CheckMode.ALL, CancelIndicator.NullImpl);

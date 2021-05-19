@@ -14,7 +14,6 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EDataTypeEList;
 
@@ -32,7 +31,7 @@ import org.eclipse.emf.ecore.util.EDataTypeEList;
  *
  * @generated
  */
-public class EnumImpl extends MinimalEObjectImpl.Container implements modelConverter.use_language.use.Enum
+public class EnumImpl extends AllClassAndEnumImpl implements modelConverter.use_language.use.Enum
 {
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.

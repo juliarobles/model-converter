@@ -38,6 +38,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link modelConverter.use_language.use.impl.NameExpCSImpl#getOwnedRoundBracketedClause <em>Owned Round Bracketed Clause</em>}</li>
  *   <li>{@link modelConverter.use_language.use.impl.NameExpCSImpl#getOwnedCurlyBracketedClause <em>Owned Curly Bracketed Clause</em>}</li>
  *   <li>{@link modelConverter.use_language.use.impl.NameExpCSImpl#isIsPre <em>Is Pre</em>}</li>
+ *   <li>{@link modelConverter.use_language.use.impl.NameExpCSImpl#isPre <em>Pre</em>}</li>
  * </ul>
  *
  * @generated
@@ -103,6 +104,26 @@ public class NameExpCSImpl extends ExpCSImpl implements NameExpCS
    * @ordered
    */
   protected boolean isPre = IS_PRE_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #isPre() <em>Pre</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isPre()
+   * @generated
+   * @ordered
+   */
+  protected static final boolean PRE_EDEFAULT = false;
+
+  /**
+   * The cached value of the '{@link #isPre() <em>Pre</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isPre()
+   * @generated
+   * @ordered
+   */
+  protected boolean pre = PRE_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -321,6 +342,31 @@ public class NameExpCSImpl extends ExpCSImpl implements NameExpCS
    * @generated
    */
   @Override
+  public boolean isPre()
+  {
+    return pre;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setPre(boolean newPre)
+  {
+    boolean oldPre = pre;
+    pre = newPre;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, UsePackage.NAME_EXP_CS__PRE, oldPre, pre));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
     switch (featureID)
@@ -357,6 +403,8 @@ public class NameExpCSImpl extends ExpCSImpl implements NameExpCS
         return getOwnedCurlyBracketedClause();
       case UsePackage.NAME_EXP_CS__IS_PRE:
         return isIsPre();
+      case UsePackage.NAME_EXP_CS__PRE:
+        return isPre();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -388,6 +436,9 @@ public class NameExpCSImpl extends ExpCSImpl implements NameExpCS
       case UsePackage.NAME_EXP_CS__IS_PRE:
         setIsPre((Boolean)newValue);
         return;
+      case UsePackage.NAME_EXP_CS__PRE:
+        setPre((Boolean)newValue);
+        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -417,6 +468,9 @@ public class NameExpCSImpl extends ExpCSImpl implements NameExpCS
       case UsePackage.NAME_EXP_CS__IS_PRE:
         setIsPre(IS_PRE_EDEFAULT);
         return;
+      case UsePackage.NAME_EXP_CS__PRE:
+        setPre(PRE_EDEFAULT);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -441,6 +495,8 @@ public class NameExpCSImpl extends ExpCSImpl implements NameExpCS
         return ownedCurlyBracketedClause != null;
       case UsePackage.NAME_EXP_CS__IS_PRE:
         return isPre != IS_PRE_EDEFAULT;
+      case UsePackage.NAME_EXP_CS__PRE:
+        return pre != PRE_EDEFAULT;
     }
     return super.eIsSet(featureID);
   }
@@ -458,6 +514,8 @@ public class NameExpCSImpl extends ExpCSImpl implements NameExpCS
     StringBuilder result = new StringBuilder(super.toString());
     result.append(" (isPre: ");
     result.append(isPre);
+    result.append(", pre: ");
+    result.append(pre);
     result.append(')');
     return result.toString();
   }

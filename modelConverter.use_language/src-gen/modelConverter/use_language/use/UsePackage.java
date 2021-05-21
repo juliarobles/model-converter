@@ -1861,13 +1861,13 @@ public interface UsePackage extends EPackage
   int MULTIPLICITY_CS = 46;
 
   /**
-   * The feature id for the '<em><b>Is Null Free</b></em>' attribute.
+   * The feature id for the '<em><b>Symbol</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MULTIPLICITY_CS__IS_NULL_FREE = 0;
+  int MULTIPLICITY_CS__SYMBOL = 0;
 
   /**
    * The number of structural features of the '<em>Multiplicity CS</em>' class.
@@ -1889,13 +1889,13 @@ public interface UsePackage extends EPackage
   int MULTIPLICITY_BOUNDS_CS = 45;
 
   /**
-   * The feature id for the '<em><b>Is Null Free</b></em>' attribute.
+   * The feature id for the '<em><b>Symbol</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MULTIPLICITY_BOUNDS_CS__IS_NULL_FREE = MULTIPLICITY_CS__IS_NULL_FREE;
+  int MULTIPLICITY_BOUNDS_CS__SYMBOL = MULTIPLICITY_CS__SYMBOL;
 
   /**
    * The feature id for the '<em><b>Lower Bound</b></em>' attribute.
@@ -1935,13 +1935,13 @@ public interface UsePackage extends EPackage
   int MULTIPLICITY_STRING_CS = 47;
 
   /**
-   * The feature id for the '<em><b>Is Null Free</b></em>' attribute.
+   * The feature id for the '<em><b>Symbol</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MULTIPLICITY_STRING_CS__IS_NULL_FREE = MULTIPLICITY_CS__IS_NULL_FREE;
+  int MULTIPLICITY_STRING_CS__SYMBOL = MULTIPLICITY_CS__SYMBOL;
 
   /**
    * The feature id for the '<em><b>String Bounds</b></em>' attribute.
@@ -2045,13 +2045,22 @@ public interface UsePackage extends EPackage
   int NAME_EXP_CS__IS_PRE = EXP_CS_FEATURE_COUNT + 4;
 
   /**
+   * The feature id for the '<em><b>Pre</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NAME_EXP_CS__PRE = EXP_CS_FEATURE_COUNT + 5;
+
+  /**
    * The number of structural features of the '<em>Name Exp CS</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int NAME_EXP_CS_FEATURE_COUNT = EXP_CS_FEATURE_COUNT + 5;
+  int NAME_EXP_CS_FEATURE_COUNT = EXP_CS_FEATURE_COUNT + 6;
 
   /**
    * The meta object id for the '{@link modelConverter.use_language.use.impl.SquareBracketedClauseCSImpl <em>Square Bracketed Clause CS</em>}' class.
@@ -2732,13 +2741,31 @@ public interface UsePackage extends EPackage
   int NAVIGATING_ARG_CS__OWNED_NAME_EXPRESSION = 1;
 
   /**
+   * The feature id for the '<em><b>Symbol T</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NAVIGATING_ARG_CS__SYMBOL_T = 2;
+
+  /**
    * The feature id for the '<em><b>Owned Type</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int NAVIGATING_ARG_CS__OWNED_TYPE = 2;
+  int NAVIGATING_ARG_CS__OWNED_TYPE = 3;
+
+  /**
+   * The feature id for the '<em><b>Symbol IE</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NAVIGATING_ARG_CS__SYMBOL_IE = 4;
 
   /**
    * The feature id for the '<em><b>Owned Init Expression</b></em>' containment reference.
@@ -2747,7 +2774,16 @@ public interface UsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int NAVIGATING_ARG_CS__OWNED_INIT_EXPRESSION = 3;
+  int NAVIGATING_ARG_CS__OWNED_INIT_EXPRESSION = 5;
+
+  /**
+   * The feature id for the '<em><b>Symbol CI</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NAVIGATING_ARG_CS__SYMBOL_CI = 6;
 
   /**
    * The feature id for the '<em><b>Owned Co Iterator</b></em>' containment reference.
@@ -2756,7 +2792,7 @@ public interface UsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int NAVIGATING_ARG_CS__OWNED_CO_ITERATOR = 4;
+  int NAVIGATING_ARG_CS__OWNED_CO_ITERATOR = 7;
 
   /**
    * The number of structural features of the '<em>Navigating Arg CS</em>' class.
@@ -2765,7 +2801,7 @@ public interface UsePackage extends EPackage
    * @generated
    * @ordered
    */
-  int NAVIGATING_ARG_CS_FEATURE_COUNT = 5;
+  int NAVIGATING_ARG_CS_FEATURE_COUNT = 8;
 
   /**
    * The meta object id for the '{@link modelConverter.use_language.use.impl.VariableCSImpl <em>Variable CS</em>}' class.
@@ -4272,15 +4308,15 @@ public interface UsePackage extends EPackage
   EClass getMultiplicityCS();
 
   /**
-   * Returns the meta object for the attribute '{@link modelConverter.use_language.use.MultiplicityCS#isIsNullFree <em>Is Null Free</em>}'.
+   * Returns the meta object for the attribute '{@link modelConverter.use_language.use.MultiplicityCS#getSymbol <em>Symbol</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Is Null Free</em>'.
-   * @see modelConverter.use_language.use.MultiplicityCS#isIsNullFree()
+   * @return the meta object for the attribute '<em>Symbol</em>'.
+   * @see modelConverter.use_language.use.MultiplicityCS#getSymbol()
    * @see #getMultiplicityCS()
    * @generated
    */
-  EAttribute getMultiplicityCS_IsNullFree();
+  EAttribute getMultiplicityCS_Symbol();
 
   /**
    * Returns the meta object for class '{@link modelConverter.use_language.use.MultiplicityStringCS <em>Multiplicity String CS</em>}'.
@@ -4408,6 +4444,17 @@ public interface UsePackage extends EPackage
    * @generated
    */
   EAttribute getNameExpCS_IsPre();
+
+  /**
+   * Returns the meta object for the attribute '{@link modelConverter.use_language.use.NameExpCS#isPre <em>Pre</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Pre</em>'.
+   * @see modelConverter.use_language.use.NameExpCS#isPre()
+   * @see #getNameExpCS()
+   * @generated
+   */
+  EAttribute getNameExpCS_Pre();
 
   /**
    * Returns the meta object for class '{@link modelConverter.use_language.use.SquareBracketedClauseCS <em>Square Bracketed Clause CS</em>}'.
@@ -4972,6 +5019,17 @@ public interface UsePackage extends EPackage
   EReference getNavigatingArgCS_OwnedNameExpression();
 
   /**
+   * Returns the meta object for the attribute '{@link modelConverter.use_language.use.NavigatingArgCS#getSymbolT <em>Symbol T</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Symbol T</em>'.
+   * @see modelConverter.use_language.use.NavigatingArgCS#getSymbolT()
+   * @see #getNavigatingArgCS()
+   * @generated
+   */
+  EAttribute getNavigatingArgCS_SymbolT();
+
+  /**
    * Returns the meta object for the containment reference '{@link modelConverter.use_language.use.NavigatingArgCS#getOwnedType <em>Owned Type</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4983,6 +5041,17 @@ public interface UsePackage extends EPackage
   EReference getNavigatingArgCS_OwnedType();
 
   /**
+   * Returns the meta object for the attribute '{@link modelConverter.use_language.use.NavigatingArgCS#getSymbolIE <em>Symbol IE</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Symbol IE</em>'.
+   * @see modelConverter.use_language.use.NavigatingArgCS#getSymbolIE()
+   * @see #getNavigatingArgCS()
+   * @generated
+   */
+  EAttribute getNavigatingArgCS_SymbolIE();
+
+  /**
    * Returns the meta object for the containment reference '{@link modelConverter.use_language.use.NavigatingArgCS#getOwnedInitExpression <em>Owned Init Expression</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4992,6 +5061,17 @@ public interface UsePackage extends EPackage
    * @generated
    */
   EReference getNavigatingArgCS_OwnedInitExpression();
+
+  /**
+   * Returns the meta object for the attribute '{@link modelConverter.use_language.use.NavigatingArgCS#getSymbolCI <em>Symbol CI</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Symbol CI</em>'.
+   * @see modelConverter.use_language.use.NavigatingArgCS#getSymbolCI()
+   * @see #getNavigatingArgCS()
+   * @generated
+   */
+  EAttribute getNavigatingArgCS_SymbolCI();
 
   /**
    * Returns the meta object for the containment reference '{@link modelConverter.use_language.use.NavigatingArgCS#getOwnedCoIterator <em>Owned Co Iterator</em>}'.
@@ -6269,12 +6349,12 @@ public interface UsePackage extends EPackage
     EClass MULTIPLICITY_CS = eINSTANCE.getMultiplicityCS();
 
     /**
-     * The meta object literal for the '<em><b>Is Null Free</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Symbol</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute MULTIPLICITY_CS__IS_NULL_FREE = eINSTANCE.getMultiplicityCS_IsNullFree();
+    EAttribute MULTIPLICITY_CS__SYMBOL = eINSTANCE.getMultiplicityCS_Symbol();
 
     /**
      * The meta object literal for the '{@link modelConverter.use_language.use.impl.MultiplicityStringCSImpl <em>Multiplicity String CS</em>}' class.
@@ -6381,6 +6461,14 @@ public interface UsePackage extends EPackage
      * @generated
      */
     EAttribute NAME_EXP_CS__IS_PRE = eINSTANCE.getNameExpCS_IsPre();
+
+    /**
+     * The meta object literal for the '<em><b>Pre</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute NAME_EXP_CS__PRE = eINSTANCE.getNameExpCS_Pre();
 
     /**
      * The meta object literal for the '{@link modelConverter.use_language.use.impl.SquareBracketedClauseCSImpl <em>Square Bracketed Clause CS</em>}' class.
@@ -6849,6 +6937,14 @@ public interface UsePackage extends EPackage
     EReference NAVIGATING_ARG_CS__OWNED_NAME_EXPRESSION = eINSTANCE.getNavigatingArgCS_OwnedNameExpression();
 
     /**
+     * The meta object literal for the '<em><b>Symbol T</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute NAVIGATING_ARG_CS__SYMBOL_T = eINSTANCE.getNavigatingArgCS_SymbolT();
+
+    /**
      * The meta object literal for the '<em><b>Owned Type</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -6857,12 +6953,28 @@ public interface UsePackage extends EPackage
     EReference NAVIGATING_ARG_CS__OWNED_TYPE = eINSTANCE.getNavigatingArgCS_OwnedType();
 
     /**
+     * The meta object literal for the '<em><b>Symbol IE</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute NAVIGATING_ARG_CS__SYMBOL_IE = eINSTANCE.getNavigatingArgCS_SymbolIE();
+
+    /**
      * The meta object literal for the '<em><b>Owned Init Expression</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     EReference NAVIGATING_ARG_CS__OWNED_INIT_EXPRESSION = eINSTANCE.getNavigatingArgCS_OwnedInitExpression();
+
+    /**
+     * The meta object literal for the '<em><b>Symbol CI</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute NAVIGATING_ARG_CS__SYMBOL_CI = eINSTANCE.getNavigatingArgCS_SymbolCI();
 
     /**
      * The meta object literal for the '<em><b>Owned Co Iterator</b></em>' containment reference feature.

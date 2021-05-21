@@ -4085,29 +4085,35 @@ ruleMultiplicityCS returns [EObject current=null]
 			}
 		)
 		(
-			otherlv_3='|?'
-			{
-				newLeafNode(otherlv_3, grammarAccess.getMultiplicityCSAccess().getVerticalLineQuestionMarkKeyword_2_0());
-			}
-			    |
 			(
 				(
-					lv_isNullFree_4_0='|1'
+					lv_symbol_3_1='|?'
 					{
-						newLeafNode(lv_isNullFree_4_0, grammarAccess.getMultiplicityCSAccess().getIsNullFree1Keyword_2_1_0());
+						newLeafNode(lv_symbol_3_1, grammarAccess.getMultiplicityCSAccess().getSymbolVerticalLineQuestionMarkKeyword_2_0_0());
 					}
 					{
 						if ($current==null) {
 							$current = createModelElement(grammarAccess.getMultiplicityCSRule());
 						}
-						setWithLastConsumed($current, "isNullFree", lv_isNullFree_4_0 != null, "|1");
+						setWithLastConsumed($current, "symbol", lv_symbol_3_1, null);
+					}
+					    |
+					lv_symbol_3_2='|1'
+					{
+						newLeafNode(lv_symbol_3_2, grammarAccess.getMultiplicityCSAccess().getSymbol1Keyword_2_0_1());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getMultiplicityCSRule());
+						}
+						setWithLastConsumed($current, "symbol", lv_symbol_3_2, null);
 					}
 				)
 			)
 		)?
-		otherlv_5=']'
+		otherlv_4=']'
 		{
-			newLeafNode(otherlv_5, grammarAccess.getMultiplicityCSAccess().getRightSquareBracketKeyword_3());
+			newLeafNode(otherlv_4, grammarAccess.getMultiplicityCSAccess().getRightSquareBracketKeyword_3());
 		}
 	)
 ;
@@ -4881,10 +4887,20 @@ ruleNameExpCS returns [EObject current=null]
 					}
 				)
 			)
-			otherlv_5='pre'
-			{
-				newLeafNode(otherlv_5, grammarAccess.getNameExpCSAccess().getPreKeyword_4_1());
-			}
+			(
+				(
+					lv_pre_5_0='pre'
+					{
+						newLeafNode(lv_pre_5_0, grammarAccess.getNameExpCSAccess().getPrePreKeyword_4_1_0());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getNameExpCSRule());
+						}
+						setWithLastConsumed($current, "pre", lv_pre_5_0 != null, "pre");
+					}
+				)
+			)
 		)?
 	)
 ;
@@ -6313,10 +6329,20 @@ ruleNavigatingBarArgCS returns [EObject current=null]
 			)
 		)
 		(
-			otherlv_2=':'
-			{
-				newLeafNode(otherlv_2, grammarAccess.getNavigatingBarArgCSAccess().getColonKeyword_2_0());
-			}
+			(
+				(
+					lv_symbolT_2_0=':'
+					{
+						newLeafNode(lv_symbolT_2_0, grammarAccess.getNavigatingBarArgCSAccess().getSymbolTColonKeyword_2_0_0());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getNavigatingBarArgCSRule());
+						}
+						setWithLastConsumed($current, "symbolT", lv_symbolT_2_0, ":");
+					}
+				)
+			)
 			(
 				(
 					{
@@ -6337,10 +6363,20 @@ ruleNavigatingBarArgCS returns [EObject current=null]
 				)
 			)
 			(
-				otherlv_4='='
-				{
-					newLeafNode(otherlv_4, grammarAccess.getNavigatingBarArgCSAccess().getEqualsSignKeyword_2_2_0());
-				}
+				(
+					(
+						lv_symbolIE_4_0='='
+						{
+							newLeafNode(lv_symbolIE_4_0, grammarAccess.getNavigatingBarArgCSAccess().getSymbolIEEqualsSignKeyword_2_2_0_0());
+						}
+						{
+							if ($current==null) {
+								$current = createModelElement(grammarAccess.getNavigatingBarArgCSRule());
+							}
+							setWithLastConsumed($current, "symbolIE", lv_symbolIE_4_0, "=");
+						}
+					)
+				)
 				(
 					(
 						{
@@ -6416,10 +6452,20 @@ ruleNavigatingCommaArgCS returns [EObject current=null]
 		)
 		(
 			(
-				otherlv_2='<-'
-				{
-					newLeafNode(otherlv_2, grammarAccess.getNavigatingCommaArgCSAccess().getLessThanSignHyphenMinusKeyword_2_0_0());
-				}
+				(
+					(
+						lv_symbolCI_2_0='<-'
+						{
+							newLeafNode(lv_symbolCI_2_0, grammarAccess.getNavigatingCommaArgCSAccess().getSymbolCILessThanSignHyphenMinusKeyword_2_0_0_0());
+						}
+						{
+							if ($current==null) {
+								$current = createModelElement(grammarAccess.getNavigatingCommaArgCSRule());
+							}
+							setWithLastConsumed($current, "symbolCI", lv_symbolCI_2_0, "<-");
+						}
+					)
+				)
 				(
 					(
 						{
@@ -6440,10 +6486,20 @@ ruleNavigatingCommaArgCS returns [EObject current=null]
 					)
 				)
 				(
-					otherlv_4='='
-					{
-						newLeafNode(otherlv_4, grammarAccess.getNavigatingCommaArgCSAccess().getEqualsSignKeyword_2_0_2_0());
-					}
+					(
+						(
+							lv_symbolIE_4_0='='
+							{
+								newLeafNode(lv_symbolIE_4_0, grammarAccess.getNavigatingCommaArgCSAccess().getSymbolIEEqualsSignKeyword_2_0_2_0_0());
+							}
+							{
+								if ($current==null) {
+									$current = createModelElement(grammarAccess.getNavigatingCommaArgCSRule());
+								}
+								setWithLastConsumed($current, "symbolIE", lv_symbolIE_4_0, "=");
+							}
+						)
+					)
 					(
 						(
 							{
@@ -6467,10 +6523,20 @@ ruleNavigatingCommaArgCS returns [EObject current=null]
 			)
 			    |
 			(
-				otherlv_6=':'
-				{
-					newLeafNode(otherlv_6, grammarAccess.getNavigatingCommaArgCSAccess().getColonKeyword_2_1_0());
-				}
+				(
+					(
+						lv_symbolT_6_0=':'
+						{
+							newLeafNode(lv_symbolT_6_0, grammarAccess.getNavigatingCommaArgCSAccess().getSymbolTColonKeyword_2_1_0_0());
+						}
+						{
+							if ($current==null) {
+								$current = createModelElement(grammarAccess.getNavigatingCommaArgCSRule());
+							}
+							setWithLastConsumed($current, "symbolT", lv_symbolT_6_0, ":");
+						}
+					)
+				)
 				(
 					(
 						{
@@ -6491,10 +6557,20 @@ ruleNavigatingCommaArgCS returns [EObject current=null]
 					)
 				)
 				(
-					otherlv_8='<-'
-					{
-						newLeafNode(otherlv_8, grammarAccess.getNavigatingCommaArgCSAccess().getLessThanSignHyphenMinusKeyword_2_1_2_0());
-					}
+					(
+						(
+							lv_symbolCI_8_0='<-'
+							{
+								newLeafNode(lv_symbolCI_8_0, grammarAccess.getNavigatingCommaArgCSAccess().getSymbolCILessThanSignHyphenMinusKeyword_2_1_2_0_0());
+							}
+							{
+								if ($current==null) {
+									$current = createModelElement(grammarAccess.getNavigatingCommaArgCSRule());
+								}
+								setWithLastConsumed($current, "symbolCI", lv_symbolCI_8_0, "<-");
+							}
+						)
+					)
 					(
 						(
 							{
@@ -6516,10 +6592,20 @@ ruleNavigatingCommaArgCS returns [EObject current=null]
 					)
 				)?
 				(
-					otherlv_10='='
-					{
-						newLeafNode(otherlv_10, grammarAccess.getNavigatingCommaArgCSAccess().getEqualsSignKeyword_2_1_3_0());
-					}
+					(
+						(
+							lv_symbolIE_10_0='='
+							{
+								newLeafNode(lv_symbolIE_10_0, grammarAccess.getNavigatingCommaArgCSAccess().getSymbolIEEqualsSignKeyword_2_1_3_0_0());
+							}
+							{
+								if ($current==null) {
+									$current = createModelElement(grammarAccess.getNavigatingCommaArgCSRule());
+								}
+								setWithLastConsumed($current, "symbolIE", lv_symbolIE_10_0, "=");
+							}
+						)
+					)
 					(
 						(
 							{
@@ -6544,10 +6630,20 @@ ruleNavigatingCommaArgCS returns [EObject current=null]
 			    |
 			(
 				(
-					otherlv_12=':'
-					{
-						newLeafNode(otherlv_12, grammarAccess.getNavigatingCommaArgCSAccess().getColonKeyword_2_2_0_0());
-					}
+					(
+						(
+							lv_symbolT_12_0=':'
+							{
+								newLeafNode(lv_symbolT_12_0, grammarAccess.getNavigatingCommaArgCSAccess().getSymbolTColonKeyword_2_2_0_0_0());
+							}
+							{
+								if ($current==null) {
+									$current = createModelElement(grammarAccess.getNavigatingCommaArgCSRule());
+								}
+								setWithLastConsumed($current, "symbolT", lv_symbolT_12_0, ":");
+							}
+						)
+					)
 					(
 						(
 							{
@@ -6569,10 +6665,20 @@ ruleNavigatingCommaArgCS returns [EObject current=null]
 					)
 				)?
 				(
-					otherlv_14='<-'
-					{
-						newLeafNode(otherlv_14, grammarAccess.getNavigatingCommaArgCSAccess().getLessThanSignHyphenMinusKeyword_2_2_1_0());
-					}
+					(
+						(
+							lv_symbolCI_14_0='<-'
+							{
+								newLeafNode(lv_symbolCI_14_0, grammarAccess.getNavigatingCommaArgCSAccess().getSymbolCILessThanSignHyphenMinusKeyword_2_2_1_0_0());
+							}
+							{
+								if ($current==null) {
+									$current = createModelElement(grammarAccess.getNavigatingCommaArgCSRule());
+								}
+								setWithLastConsumed($current, "symbolCI", lv_symbolCI_14_0, "<-");
+							}
+						)
+					)
 					(
 						(
 							{
@@ -6593,10 +6699,20 @@ ruleNavigatingCommaArgCS returns [EObject current=null]
 						)
 					)
 				)?
-				otherlv_16='in'
-				{
-					newLeafNode(otherlv_16, grammarAccess.getNavigatingCommaArgCSAccess().getInKeyword_2_2_2());
-				}
+				(
+					(
+						lv_symbolIE_16_0='in'
+						{
+							newLeafNode(lv_symbolIE_16_0, grammarAccess.getNavigatingCommaArgCSAccess().getSymbolIEInKeyword_2_2_2_0());
+						}
+						{
+							if ($current==null) {
+								$current = createModelElement(grammarAccess.getNavigatingCommaArgCSRule());
+							}
+							setWithLastConsumed($current, "symbolIE", lv_symbolIE_16_0, "in");
+						}
+					)
+				)
 				(
 					(
 						{
@@ -6671,10 +6787,20 @@ ruleNavigatingSemiArgCS returns [EObject current=null]
 			)
 		)
 		(
-			otherlv_2=':'
-			{
-				newLeafNode(otherlv_2, grammarAccess.getNavigatingSemiArgCSAccess().getColonKeyword_2_0());
-			}
+			(
+				(
+					lv_symbolT_2_0=':'
+					{
+						newLeafNode(lv_symbolT_2_0, grammarAccess.getNavigatingSemiArgCSAccess().getSymbolTColonKeyword_2_0_0());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getNavigatingSemiArgCSRule());
+						}
+						setWithLastConsumed($current, "symbolT", lv_symbolT_2_0, ":");
+					}
+				)
+			)
 			(
 				(
 					{
@@ -6695,10 +6821,20 @@ ruleNavigatingSemiArgCS returns [EObject current=null]
 				)
 			)
 			(
-				otherlv_4='='
-				{
-					newLeafNode(otherlv_4, grammarAccess.getNavigatingSemiArgCSAccess().getEqualsSignKeyword_2_2_0());
-				}
+				(
+					(
+						lv_symbolIE_4_0='='
+						{
+							newLeafNode(lv_symbolIE_4_0, grammarAccess.getNavigatingSemiArgCSAccess().getSymbolIEEqualsSignKeyword_2_2_0_0());
+						}
+						{
+							if ($current==null) {
+								$current = createModelElement(grammarAccess.getNavigatingSemiArgCSRule());
+							}
+							setWithLastConsumed($current, "symbolIE", lv_symbolIE_4_0, "=");
+						}
+					)
+				)
 				(
 					(
 						{
@@ -6761,10 +6897,20 @@ ruleNavigatingArgCS returns [EObject current=null]
 			)
 			(
 				(
-					otherlv_1='<-'
-					{
-						newLeafNode(otherlv_1, grammarAccess.getNavigatingArgCSAccess().getLessThanSignHyphenMinusKeyword_0_1_0_0());
-					}
+					(
+						(
+							lv_symbolCI_1_0='<-'
+							{
+								newLeafNode(lv_symbolCI_1_0, grammarAccess.getNavigatingArgCSAccess().getSymbolCILessThanSignHyphenMinusKeyword_0_1_0_0_0());
+							}
+							{
+								if ($current==null) {
+									$current = createModelElement(grammarAccess.getNavigatingArgCSRule());
+								}
+								setWithLastConsumed($current, "symbolCI", lv_symbolCI_1_0, "<-");
+							}
+						)
+					)
 					(
 						(
 							{
@@ -6785,10 +6931,20 @@ ruleNavigatingArgCS returns [EObject current=null]
 						)
 					)
 					(
-						otherlv_3='='
-						{
-							newLeafNode(otherlv_3, grammarAccess.getNavigatingArgCSAccess().getEqualsSignKeyword_0_1_0_2_0());
-						}
+						(
+							(
+								lv_symbolIE_3_0='='
+								{
+									newLeafNode(lv_symbolIE_3_0, grammarAccess.getNavigatingArgCSAccess().getSymbolIEEqualsSignKeyword_0_1_0_2_0_0());
+								}
+								{
+									if ($current==null) {
+										$current = createModelElement(grammarAccess.getNavigatingArgCSRule());
+									}
+									setWithLastConsumed($current, "symbolIE", lv_symbolIE_3_0, "=");
+								}
+							)
+						)
 						(
 							(
 								{
@@ -6812,10 +6968,20 @@ ruleNavigatingArgCS returns [EObject current=null]
 				)
 				    |
 				(
-					otherlv_5=':'
-					{
-						newLeafNode(otherlv_5, grammarAccess.getNavigatingArgCSAccess().getColonKeyword_0_1_1_0());
-					}
+					(
+						(
+							lv_symbolT_5_0=':'
+							{
+								newLeafNode(lv_symbolT_5_0, grammarAccess.getNavigatingArgCSAccess().getSymbolTColonKeyword_0_1_1_0_0());
+							}
+							{
+								if ($current==null) {
+									$current = createModelElement(grammarAccess.getNavigatingArgCSRule());
+								}
+								setWithLastConsumed($current, "symbolT", lv_symbolT_5_0, ":");
+							}
+						)
+					)
 					(
 						(
 							{
@@ -6836,10 +7002,20 @@ ruleNavigatingArgCS returns [EObject current=null]
 						)
 					)
 					(
-						otherlv_7='<-'
-						{
-							newLeafNode(otherlv_7, grammarAccess.getNavigatingArgCSAccess().getLessThanSignHyphenMinusKeyword_0_1_1_2_0());
-						}
+						(
+							(
+								lv_symbolCI_7_0='<-'
+								{
+									newLeafNode(lv_symbolCI_7_0, grammarAccess.getNavigatingArgCSAccess().getSymbolCILessThanSignHyphenMinusKeyword_0_1_1_2_0_0());
+								}
+								{
+									if ($current==null) {
+										$current = createModelElement(grammarAccess.getNavigatingArgCSRule());
+									}
+									setWithLastConsumed($current, "symbolCI", lv_symbolCI_7_0, "<-");
+								}
+							)
+						)
 						(
 							(
 								{
@@ -6861,10 +7037,20 @@ ruleNavigatingArgCS returns [EObject current=null]
 						)
 					)?
 					(
-						otherlv_9='='
-						{
-							newLeafNode(otherlv_9, grammarAccess.getNavigatingArgCSAccess().getEqualsSignKeyword_0_1_1_3_0());
-						}
+						(
+							(
+								lv_symbolIE_9_0='='
+								{
+									newLeafNode(lv_symbolIE_9_0, grammarAccess.getNavigatingArgCSAccess().getSymbolIEEqualsSignKeyword_0_1_1_3_0_0());
+								}
+								{
+									if ($current==null) {
+										$current = createModelElement(grammarAccess.getNavigatingArgCSRule());
+									}
+									setWithLastConsumed($current, "symbolIE", lv_symbolIE_9_0, "=");
+								}
+							)
+						)
 						(
 							(
 								{
@@ -6889,10 +7075,20 @@ ruleNavigatingArgCS returns [EObject current=null]
 				    |
 				(
 					(
-						otherlv_11=':'
-						{
-							newLeafNode(otherlv_11, grammarAccess.getNavigatingArgCSAccess().getColonKeyword_0_1_2_0_0());
-						}
+						(
+							(
+								lv_symbolT_11_0=':'
+								{
+									newLeafNode(lv_symbolT_11_0, grammarAccess.getNavigatingArgCSAccess().getSymbolTColonKeyword_0_1_2_0_0_0());
+								}
+								{
+									if ($current==null) {
+										$current = createModelElement(grammarAccess.getNavigatingArgCSRule());
+									}
+									setWithLastConsumed($current, "symbolT", lv_symbolT_11_0, ":");
+								}
+							)
+						)
 						(
 							(
 								{
@@ -6914,10 +7110,20 @@ ruleNavigatingArgCS returns [EObject current=null]
 						)
 					)?
 					(
-						otherlv_13='<-'
-						{
-							newLeafNode(otherlv_13, grammarAccess.getNavigatingArgCSAccess().getLessThanSignHyphenMinusKeyword_0_1_2_1_0());
-						}
+						(
+							(
+								lv_symbolCI_13_0='<-'
+								{
+									newLeafNode(lv_symbolCI_13_0, grammarAccess.getNavigatingArgCSAccess().getSymbolCILessThanSignHyphenMinusKeyword_0_1_2_1_0_0());
+								}
+								{
+									if ($current==null) {
+										$current = createModelElement(grammarAccess.getNavigatingArgCSRule());
+									}
+									setWithLastConsumed($current, "symbolCI", lv_symbolCI_13_0, "<-");
+								}
+							)
+						)
 						(
 							(
 								{
@@ -6938,10 +7144,20 @@ ruleNavigatingArgCS returns [EObject current=null]
 							)
 						)
 					)?
-					otherlv_15='in'
-					{
-						newLeafNode(otherlv_15, grammarAccess.getNavigatingArgCSAccess().getInKeyword_0_1_2_2());
-					}
+					(
+						(
+							lv_symbolIE_15_0='in'
+							{
+								newLeafNode(lv_symbolIE_15_0, grammarAccess.getNavigatingArgCSAccess().getSymbolIEInKeyword_0_1_2_2_0());
+							}
+							{
+								if ($current==null) {
+									$current = createModelElement(grammarAccess.getNavigatingArgCSRule());
+								}
+								setWithLastConsumed($current, "symbolIE", lv_symbolIE_15_0, "in");
+							}
+						)
+					)
 					(
 						(
 							{
@@ -6966,10 +7182,20 @@ ruleNavigatingArgCS returns [EObject current=null]
 		)
 		    |
 		(
-			otherlv_17=':'
-			{
-				newLeafNode(otherlv_17, grammarAccess.getNavigatingArgCSAccess().getColonKeyword_1_0());
-			}
+			(
+				(
+					lv_symbolT_17_0=':'
+					{
+						newLeafNode(lv_symbolT_17_0, grammarAccess.getNavigatingArgCSAccess().getSymbolTColonKeyword_1_0_0());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getNavigatingArgCSRule());
+						}
+						setWithLastConsumed($current, "symbolT", lv_symbolT_17_0, ":");
+					}
+				)
+			)
 			(
 				(
 					{

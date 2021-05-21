@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link modelConverter.use_language.use.MultiplicityCS#isIsNullFree <em>Is Null Free</em>}</li>
+ *   <li>{@link modelConverter.use_language.use.MultiplicityCS#getSymbol <em>Symbol</em>}</li>
  * </ul>
  *
  * @see modelConverter.use_language.use.UsePackage#getMultiplicityCS()
@@ -24,25 +24,25 @@ import org.eclipse.emf.ecore.EObject;
 public interface MultiplicityCS extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Is Null Free</b></em>' attribute.
+   * Returns the value of the '<em><b>Symbol</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Is Null Free</em>' attribute.
-   * @see #setIsNullFree(boolean)
-   * @see modelConverter.use_language.use.UsePackage#getMultiplicityCS_IsNullFree()
+   * @return the value of the '<em>Symbol</em>' attribute.
+   * @see #setSymbol(String)
+   * @see modelConverter.use_language.use.UsePackage#getMultiplicityCS_Symbol()
    * @model
    * @generated
    */
-  boolean isIsNullFree();
+  String getSymbol();
 
   /**
-   * Sets the value of the '{@link modelConverter.use_language.use.MultiplicityCS#isIsNullFree <em>Is Null Free</em>}' attribute.
+   * Sets the value of the '{@link modelConverter.use_language.use.MultiplicityCS#getSymbol <em>Symbol</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Is Null Free</em>' attribute.
-   * @see #isIsNullFree()
+   * @param value the new value of the '<em>Symbol</em>' attribute.
+   * @see #getSymbol()
    * @generated
    */
-  void setIsNullFree(boolean value);
+  void setSymbol(String value);
 
 } // MultiplicityCS

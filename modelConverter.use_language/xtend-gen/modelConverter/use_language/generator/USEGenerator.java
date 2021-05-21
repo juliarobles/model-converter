@@ -5,6 +5,7 @@ package modelConverter.use_language.generator;
 
 import com.google.common.base.Objects;
 import com.google.common.collect.Iterables;
+import java.util.List;
 import modelConverter.use_language.use.AllClass;
 import modelConverter.use_language.use.AllClassAndEnum;
 import modelConverter.use_language.use.AllTypes;
@@ -13,16 +14,40 @@ import modelConverter.use_language.use.AssociationClass;
 import modelConverter.use_language.use.AssociationEnd;
 import modelConverter.use_language.use.Attribute;
 import modelConverter.use_language.use.AttributesBase;
+import modelConverter.use_language.use.BooleanLiteralExpCS;
+import modelConverter.use_language.use.CollectionLiteralExpCS;
+import modelConverter.use_language.use.CollectionLiteralPartCS;
+import modelConverter.use_language.use.CollectionPatternCS;
 import modelConverter.use_language.use.CollectionType;
+import modelConverter.use_language.use.CollectionTypeCS;
 import modelConverter.use_language.use.ConditionType;
 import modelConverter.use_language.use.ConstrainsGeneral;
 import modelConverter.use_language.use.ConstraintsBase;
 import modelConverter.use_language.use.ContextsType;
+import modelConverter.use_language.use.CurlyBracketedClauseCS;
 import modelConverter.use_language.use.ExpCS;
 import modelConverter.use_language.use.Generalization;
+import modelConverter.use_language.use.IfExpCS;
+import modelConverter.use_language.use.IfThenExpCS;
+import modelConverter.use_language.use.InfixExpCS;
+import modelConverter.use_language.use.InvalidLiteralExpCS;
 import modelConverter.use_language.use.InvariantContext;
 import modelConverter.use_language.use.InvariantDefinition;
+import modelConverter.use_language.use.LambdaLiteralExpCS;
+import modelConverter.use_language.use.LetExpCS;
+import modelConverter.use_language.use.LetVariableCS;
+import modelConverter.use_language.use.MapLiteralExpCS;
+import modelConverter.use_language.use.MapLiteralPartCS;
+import modelConverter.use_language.use.MapTypeCS;
 import modelConverter.use_language.use.ModelUSE;
+import modelConverter.use_language.use.MultiplicityBoundsCS;
+import modelConverter.use_language.use.MultiplicityCS;
+import modelConverter.use_language.use.MultiplicityStringCS;
+import modelConverter.use_language.use.NameExpCS;
+import modelConverter.use_language.use.NavigatingArgCS;
+import modelConverter.use_language.use.NestedExpCS;
+import modelConverter.use_language.use.NullLiteralExpCS;
+import modelConverter.use_language.use.NumberLiteralExpCS;
 import modelConverter.use_language.use.OperationComplex;
 import modelConverter.use_language.use.OperationConstraints;
 import modelConverter.use_language.use.OperationContext;
@@ -30,10 +55,29 @@ import modelConverter.use_language.use.OperationQuery;
 import modelConverter.use_language.use.OperationType;
 import modelConverter.use_language.use.OperationsBase;
 import modelConverter.use_language.use.Parameter;
+import modelConverter.use_language.use.PathNameCS;
+import modelConverter.use_language.use.PatternExpCS;
 import modelConverter.use_language.use.Postcondition;
 import modelConverter.use_language.use.Precondition;
+import modelConverter.use_language.use.PrefixExpCS;
+import modelConverter.use_language.use.PrimitiveLiteralExpCS;
+import modelConverter.use_language.use.PrimitiveTypeRefCS;
+import modelConverter.use_language.use.RoundBracketedClauseCS;
+import modelConverter.use_language.use.SelfExpCS;
+import modelConverter.use_language.use.ShadowPartCS;
 import modelConverter.use_language.use.SimpleTypes;
+import modelConverter.use_language.use.SquareBracketedClauseCS;
+import modelConverter.use_language.use.StringLiteralExpCS;
+import modelConverter.use_language.use.TupleLiteralExpCS;
+import modelConverter.use_language.use.TupleLiteralPartCS;
+import modelConverter.use_language.use.TuplePartCS;
+import modelConverter.use_language.use.TupleTypeCS;
 import modelConverter.use_language.use.Type;
+import modelConverter.use_language.use.TypeLiteralExpCS;
+import modelConverter.use_language.use.TypeNameExpCS;
+import modelConverter.use_language.use.TypedRefCS;
+import modelConverter.use_language.use.UnlimitedNaturalLiteralExpCS;
+import modelConverter.use_language.use.VariableCS;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
@@ -688,8 +732,10 @@ public class USEGenerator extends AbstractGenerator {
     _builder.newLine();
     _builder.append("\t   \t  \t");
     _builder.append("<body>");
+    String _replaceAll = this.compileExpCS(e).toString().replaceAll(System.getProperty("line.separator"), "");
+    _builder.append(_replaceAll, "\t   \t  \t");
     _builder.append("</body>");
-    _builder.newLine();
+    _builder.newLineIfNotEmpty();
     _builder.append("\t  \t");
     _builder.append("</specification>");
     _builder.newLine();
@@ -732,13 +778,6 @@ public class USEGenerator extends AbstractGenerator {
     _builder.append("</specification>");
     _builder.newLine();
     _builder.append("</ownedRule>");
-    _builder.newLine();
-    return _builder;
-  }
-  
-  private CharSequence compileOCL(final ExpCS e) {
-    StringConcatenation _builder = new StringConcatenation();
-    _builder.append("\t");
     _builder.newLine();
     return _builder;
   }
@@ -967,6 +1006,1045 @@ public class USEGenerator extends AbstractGenerator {
     }
     _builder.append("\"/>");
     _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+  
+  private CharSequence compileExpCS(final ExpCS e) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      if ((e instanceof CollectionLiteralExpCS)) {
+        CharSequence _compileCollectionLiteralExpCS = this.compileCollectionLiteralExpCS(((CollectionLiteralExpCS)e));
+        _builder.append(_compileCollectionLiteralExpCS);
+        _builder.newLineIfNotEmpty();
+      } else {
+        if ((e instanceof IfExpCS)) {
+          CharSequence _compileIfExpCS = this.compileIfExpCS(((IfExpCS)e));
+          _builder.append(_compileIfExpCS);
+          _builder.newLineIfNotEmpty();
+        } else {
+          if ((e instanceof InfixExpCS)) {
+            CharSequence _compileInfixExpCS = this.compileInfixExpCS(((InfixExpCS)e));
+            _builder.append(_compileInfixExpCS);
+            _builder.newLineIfNotEmpty();
+          } else {
+            if ((e instanceof LambdaLiteralExpCS)) {
+              CharSequence _compileLambdaLiteralExpCS = this.compileLambdaLiteralExpCS(((LambdaLiteralExpCS)e));
+              _builder.append(_compileLambdaLiteralExpCS);
+              _builder.newLineIfNotEmpty();
+            } else {
+              if ((e instanceof LetExpCS)) {
+                CharSequence _compileLetExpCS = this.compileLetExpCS(((LetExpCS)e));
+                _builder.append(_compileLetExpCS);
+                _builder.newLineIfNotEmpty();
+              } else {
+                if ((e instanceof MapLiteralExpCS)) {
+                  CharSequence _compileMapLiteralExpCS = this.compileMapLiteralExpCS(((MapLiteralExpCS)e));
+                  _builder.append(_compileMapLiteralExpCS);
+                  _builder.newLineIfNotEmpty();
+                } else {
+                  if ((e instanceof NameExpCS)) {
+                    CharSequence _compileNameExpCS = this.compileNameExpCS(((NameExpCS)e));
+                    _builder.append(_compileNameExpCS);
+                    _builder.newLineIfNotEmpty();
+                  } else {
+                    if ((e instanceof NestedExpCS)) {
+                      CharSequence _compileNestedExpCS = this.compileNestedExpCS(((NestedExpCS)e));
+                      _builder.append(_compileNestedExpCS);
+                      _builder.newLineIfNotEmpty();
+                    } else {
+                      if ((e instanceof PrefixExpCS)) {
+                        CharSequence _compilePrefixExpCS = this.compilePrefixExpCS(((PrefixExpCS)e));
+                        _builder.append(_compilePrefixExpCS);
+                        _builder.newLineIfNotEmpty();
+                      } else {
+                        if ((e instanceof PrimitiveLiteralExpCS)) {
+                          CharSequence _compilePrimitiveLiteralExpCS = this.compilePrimitiveLiteralExpCS(((PrimitiveLiteralExpCS)e));
+                          _builder.append(_compilePrimitiveLiteralExpCS);
+                          _builder.newLineIfNotEmpty();
+                        } else {
+                          if ((e instanceof SelfExpCS)) {
+                            CharSequence _compileSelfExpCS = this.compileSelfExpCS(((SelfExpCS)e));
+                            _builder.append(_compileSelfExpCS);
+                            _builder.newLineIfNotEmpty();
+                          } else {
+                            if ((e instanceof TupleLiteralExpCS)) {
+                              CharSequence _compileTupleLiteralExpCS = this.compileTupleLiteralExpCS(((TupleLiteralExpCS)e));
+                              _builder.append(_compileTupleLiteralExpCS);
+                              _builder.newLineIfNotEmpty();
+                            } else {
+                              if ((e instanceof TypeLiteralExpCS)) {
+                                CharSequence _compileTypeLiteralExpCS = this.compileTypeLiteralExpCS(((TypeLiteralExpCS)e));
+                                _builder.append(_compileTypeLiteralExpCS);
+                                _builder.newLineIfNotEmpty();
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    return _builder;
+  }
+  
+  private CharSequence compileTypedRefCS(final TypedRefCS e) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      if ((e instanceof CollectionPatternCS)) {
+        CharSequence _compileCollectionPatternCS = this.compileCollectionPatternCS(((CollectionPatternCS)e));
+        _builder.append(_compileCollectionPatternCS);
+        _builder.append(" ");
+        {
+          MultiplicityCS _ownedMultiplicity = ((CollectionPatternCS)e).getOwnedMultiplicity();
+          boolean _tripleNotEquals = (_ownedMultiplicity != null);
+          if (_tripleNotEquals) {
+            _builder.append(" ");
+            CharSequence _compileMultiplicityCS = this.compileMultiplicityCS(((CollectionPatternCS)e).getOwnedMultiplicity());
+            _builder.append(_compileMultiplicityCS);
+          }
+        }
+        _builder.newLineIfNotEmpty();
+      } else {
+        if ((e instanceof CollectionTypeCS)) {
+          Object _compileCollectionTypeCS = this.compileCollectionTypeCS(((CollectionTypeCS)e));
+          _builder.append(_compileCollectionTypeCS);
+          _builder.append(" ");
+          {
+            MultiplicityCS _ownedMultiplicity_1 = ((CollectionTypeCS)e).getOwnedMultiplicity();
+            boolean _tripleNotEquals_1 = (_ownedMultiplicity_1 != null);
+            if (_tripleNotEquals_1) {
+              _builder.append(" ");
+              CharSequence _compileMultiplicityCS_1 = this.compileMultiplicityCS(((CollectionTypeCS)e).getOwnedMultiplicity());
+              _builder.append(_compileMultiplicityCS_1);
+            }
+          }
+          _builder.newLineIfNotEmpty();
+        } else {
+          if ((e instanceof MapTypeCS)) {
+            CharSequence _compileMapTypeCS = this.compileMapTypeCS(((MapTypeCS)e));
+            _builder.append(_compileMapTypeCS);
+            _builder.append(" ");
+            {
+              MultiplicityCS _ownedMultiplicity_2 = ((MapTypeCS)e).getOwnedMultiplicity();
+              boolean _tripleNotEquals_2 = (_ownedMultiplicity_2 != null);
+              if (_tripleNotEquals_2) {
+                _builder.append(" ");
+                CharSequence _compileMultiplicityCS_2 = this.compileMultiplicityCS(((MapTypeCS)e).getOwnedMultiplicity());
+                _builder.append(_compileMultiplicityCS_2);
+              }
+            }
+            _builder.newLineIfNotEmpty();
+          } else {
+            if ((e instanceof PrimitiveTypeRefCS)) {
+              CharSequence _compilePrimitiveTypeRefCS = this.compilePrimitiveTypeRefCS(((PrimitiveTypeRefCS)e));
+              _builder.append(_compilePrimitiveTypeRefCS);
+              _builder.append(" ");
+              {
+                MultiplicityCS _ownedMultiplicity_3 = ((PrimitiveTypeRefCS)e).getOwnedMultiplicity();
+                boolean _tripleNotEquals_3 = (_ownedMultiplicity_3 != null);
+                if (_tripleNotEquals_3) {
+                  _builder.append(" ");
+                  CharSequence _compileMultiplicityCS_3 = this.compileMultiplicityCS(((PrimitiveTypeRefCS)e).getOwnedMultiplicity());
+                  _builder.append(_compileMultiplicityCS_3);
+                }
+              }
+              _builder.newLineIfNotEmpty();
+            } else {
+              if ((e instanceof TupleTypeCS)) {
+                CharSequence _compileTupleTypeCS = this.compileTupleTypeCS(((TupleTypeCS)e));
+                _builder.append(_compileTupleTypeCS);
+                _builder.append(" ");
+                {
+                  MultiplicityCS _ownedMultiplicity_4 = ((TupleTypeCS)e).getOwnedMultiplicity();
+                  boolean _tripleNotEquals_4 = (_ownedMultiplicity_4 != null);
+                  if (_tripleNotEquals_4) {
+                    _builder.append(" ");
+                    CharSequence _compileMultiplicityCS_4 = this.compileMultiplicityCS(((TupleTypeCS)e).getOwnedMultiplicity());
+                    _builder.append(_compileMultiplicityCS_4);
+                  }
+                }
+                _builder.newLineIfNotEmpty();
+              } else {
+                if ((e instanceof TypeNameExpCS)) {
+                  CharSequence _compileTypeNameExpCS = this.compileTypeNameExpCS(((TypeNameExpCS)e));
+                  _builder.append(_compileTypeNameExpCS);
+                  _builder.append(" ");
+                  {
+                    MultiplicityCS _ownedMultiplicity_5 = ((TypeNameExpCS)e).getOwnedMultiplicity();
+                    boolean _tripleNotEquals_5 = (_ownedMultiplicity_5 != null);
+                    if (_tripleNotEquals_5) {
+                      _builder.append(" ");
+                      CharSequence _compileMultiplicityCS_5 = this.compileMultiplicityCS(((TypeNameExpCS)e).getOwnedMultiplicity());
+                      _builder.append(_compileMultiplicityCS_5);
+                    }
+                  }
+                  _builder.newLineIfNotEmpty();
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    return _builder;
+  }
+  
+  private CharSequence compileMultiplicityCS(final MultiplicityCS e) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      if ((e instanceof MultiplicityBoundsCS)) {
+        _builder.append("[");
+        String _lowerBound = ((MultiplicityBoundsCS)e).getLowerBound();
+        _builder.append(_lowerBound);
+        {
+          String _upperBound = ((MultiplicityBoundsCS)e).getUpperBound();
+          boolean _tripleNotEquals = (_upperBound != null);
+          if (_tripleNotEquals) {
+            _builder.append("..");
+            String _upperBound_1 = ((MultiplicityBoundsCS)e).getUpperBound();
+            _builder.append(_upperBound_1);
+          }
+        }
+        {
+          String _symbol = ((MultiplicityBoundsCS)e).getSymbol();
+          boolean _tripleNotEquals_1 = (_symbol != null);
+          if (_tripleNotEquals_1) {
+            _builder.append(" ");
+            String _symbol_1 = ((MultiplicityBoundsCS)e).getSymbol();
+            _builder.append(_symbol_1);
+          }
+        }
+        _builder.append("]");
+        _builder.newLineIfNotEmpty();
+      } else {
+        if ((e instanceof MultiplicityStringCS)) {
+          _builder.append("[");
+          String _stringBounds = ((MultiplicityStringCS)e).getStringBounds();
+          _builder.append(_stringBounds);
+          {
+            String _symbol_2 = ((MultiplicityStringCS)e).getSymbol();
+            boolean _tripleNotEquals_2 = (_symbol_2 != null);
+            if (_tripleNotEquals_2) {
+              _builder.append(" ");
+              String _symbol_3 = ((MultiplicityStringCS)e).getSymbol();
+              _builder.append(_symbol_3);
+            }
+          }
+          _builder.append("]");
+          _builder.newLineIfNotEmpty();
+        }
+      }
+    }
+    return _builder;
+  }
+  
+  private CharSequence compileCollectionTypeCS(final CollectionTypeCS e) {
+    StringConcatenation _builder = new StringConcatenation();
+    String _name = e.getName();
+    _builder.append(_name);
+    {
+      TypedRefCS _ownedType = e.getOwnedType();
+      boolean _tripleNotEquals = (_ownedType != null);
+      if (_tripleNotEquals) {
+        _builder.append("(");
+        CharSequence _compileTypedRefCS = this.compileTypedRefCS(e.getOwnedType());
+        _builder.append(_compileTypedRefCS);
+        {
+          MultiplicityCS _ownedCollectionMultiplicity = e.getOwnedCollectionMultiplicity();
+          boolean _tripleNotEquals_1 = (_ownedCollectionMultiplicity != null);
+          if (_tripleNotEquals_1) {
+            _builder.append(" ");
+            CharSequence _compileMultiplicityCS = this.compileMultiplicityCS(e.getOwnedCollectionMultiplicity());
+            _builder.append(_compileMultiplicityCS);
+          }
+        }
+        _builder.append(")");
+      }
+    }
+    return _builder;
+  }
+  
+  private CharSequence compileCollectionLiteralExpCS(final CollectionLiteralExpCS e) {
+    StringConcatenation _builder = new StringConcatenation();
+    CharSequence _compileCollectionTypeCS = this.compileCollectionTypeCS(e.getOwnedType());
+    _builder.append(_compileCollectionTypeCS);
+    _builder.append("{");
+    {
+      int _length = ((Object[])Conversions.unwrapArray(e.getOwnedParts(), Object.class)).length;
+      boolean _greaterThan = (_length > 0);
+      if (_greaterThan) {
+        CharSequence _compileCollectionLiteralPartCS = this.compileCollectionLiteralPartCS(e.getOwnedParts().get(0));
+        _builder.append(_compileCollectionLiteralPartCS);
+        {
+          List<CollectionLiteralPartCS> _subList = e.getOwnedParts().subList(1, ((Object[])Conversions.unwrapArray(e.getOwnedParts(), Object.class)).length);
+          for(final CollectionLiteralPartCS part : _subList) {
+            _builder.append(", ");
+            CharSequence _compileCollectionLiteralPartCS_1 = this.compileCollectionLiteralPartCS(part);
+            _builder.append(_compileCollectionLiteralPartCS_1);
+          }
+        }
+      }
+    }
+    _builder.append("}");
+    return _builder;
+  }
+  
+  private CharSequence compileCollectionLiteralPartCS(final CollectionLiteralPartCS e) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      EObject _ownedExpression = e.getOwnedExpression();
+      if ((_ownedExpression instanceof ExpCS)) {
+        EObject _ownedExpression_1 = e.getOwnedExpression();
+        Object _compileExpCS = this.compileExpCS(((ExpCS) _ownedExpression_1));
+        _builder.append(_compileExpCS);
+        {
+          ExpCS _ownedLastExpression = e.getOwnedLastExpression();
+          boolean _tripleNotEquals = (_ownedLastExpression != null);
+          if (_tripleNotEquals) {
+            _builder.append("..");
+            Object _compileExpCS_1 = this.compileExpCS(e.getOwnedLastExpression());
+            _builder.append(_compileExpCS_1);
+          }
+        }
+        _builder.newLineIfNotEmpty();
+      } else {
+        EObject _ownedExpression_2 = e.getOwnedExpression();
+        if ((_ownedExpression_2 instanceof PatternExpCS)) {
+          EObject _ownedExpression_3 = e.getOwnedExpression();
+          CharSequence _compilePatternExpCS = this.compilePatternExpCS(((PatternExpCS) _ownedExpression_3));
+          _builder.append(_compilePatternExpCS);
+          _builder.newLineIfNotEmpty();
+        }
+      }
+    }
+    return _builder;
+  }
+  
+  private CharSequence compilePatternExpCS(final PatternExpCS e) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      String _patternVariableName = e.getPatternVariableName();
+      boolean _tripleNotEquals = (_patternVariableName != null);
+      if (_tripleNotEquals) {
+        String _patternVariableName_1 = e.getPatternVariableName();
+        _builder.append(_patternVariableName_1);
+      }
+    }
+    _builder.append(" : ");
+    Object _compileTypedRefCS = this.compileTypedRefCS(e.getOwnedPatternType());
+    _builder.append(_compileTypedRefCS);
+    return _builder;
+  }
+  
+  private CharSequence compileIfExpCS(final IfExpCS e) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      EObject _ownedCondition = e.getOwnedCondition();
+      if ((_ownedCondition instanceof ExpCS)) {
+        _builder.append("if ");
+        EObject _ownedCondition_1 = e.getOwnedCondition();
+        Object _compileExpCS = this.compileExpCS(((ExpCS) _ownedCondition_1));
+        _builder.append(_compileExpCS);
+        _builder.append(" then ");
+        Object _compileExpCS_1 = this.compileExpCS(e.getOwnedThenExpression());
+        _builder.append(_compileExpCS_1);
+        _builder.append(" ");
+        {
+          EList<IfThenExpCS> _ownedIfThenExpressions = e.getOwnedIfThenExpressions();
+          for(final IfThenExpCS i : _ownedIfThenExpressions) {
+            _builder.append(" ");
+            CharSequence _compileIfThenExpCS = this.compileIfThenExpCS(i);
+            _builder.append(_compileIfThenExpCS);
+          }
+        }
+        _builder.append(" else ");
+        Object _compileExpCS_2 = this.compileExpCS(e.getOwnedElseExpression());
+        _builder.append(_compileExpCS_2);
+        _builder.append(" endif");
+        _builder.newLineIfNotEmpty();
+      } else {
+        EObject _ownedCondition_2 = e.getOwnedCondition();
+        if ((_ownedCondition_2 instanceof PatternExpCS)) {
+          _builder.append("if ");
+          EObject _ownedCondition_3 = e.getOwnedCondition();
+          CharSequence _compilePatternExpCS = this.compilePatternExpCS(((PatternExpCS) _ownedCondition_3));
+          _builder.append(_compilePatternExpCS);
+          _builder.append(" then ");
+          Object _compileExpCS_3 = this.compileExpCS(e.getOwnedThenExpression());
+          _builder.append(_compileExpCS_3);
+          _builder.append(" ");
+          {
+            EList<IfThenExpCS> _ownedIfThenExpressions_1 = e.getOwnedIfThenExpressions();
+            for(final IfThenExpCS i_1 : _ownedIfThenExpressions_1) {
+              _builder.append(" ");
+              CharSequence _compileIfThenExpCS_1 = this.compileIfThenExpCS(i_1);
+              _builder.append(_compileIfThenExpCS_1);
+            }
+          }
+          _builder.append(" else ");
+          Object _compileExpCS_4 = this.compileExpCS(e.getOwnedElseExpression());
+          _builder.append(_compileExpCS_4);
+          _builder.append(" endif");
+          _builder.newLineIfNotEmpty();
+        }
+      }
+    }
+    return _builder;
+  }
+  
+  private CharSequence compileIfThenExpCS(final IfThenExpCS e) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("elseif ");
+    Object _compileExpCS = this.compileExpCS(e.getOwnedCondition());
+    _builder.append(_compileExpCS);
+    _builder.append(" then ");
+    Object _compileExpCS_1 = this.compileExpCS(e.getOwnedThenExpression());
+    _builder.append(_compileExpCS_1);
+    return _builder;
+  }
+  
+  private CharSequence compileInfixExpCS(final InfixExpCS e) {
+    StringConcatenation _builder = new StringConcatenation();
+    Object _compileExpCS = this.compileExpCS(e.getOwnedLeft());
+    _builder.append(_compileExpCS);
+    {
+      boolean _equals = e.getOperator().equals(".");
+      boolean _not = (!_equals);
+      if (_not) {
+        _builder.append(" ");
+      }
+    }
+    String _operator = e.getOperator();
+    _builder.append(_operator);
+    {
+      boolean _equals_1 = e.getOperator().equals(".");
+      boolean _not_1 = (!_equals_1);
+      if (_not_1) {
+        _builder.append(" ");
+      }
+    }
+    Object _compileExpCS_1 = this.compileExpCS(e.getOwnedRight());
+    _builder.append(_compileExpCS_1);
+    return _builder;
+  }
+  
+  private CharSequence compileLambdaLiteralExpCS(final LambdaLiteralExpCS e) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("Lambda { ");
+    Object _compileExpCS = this.compileExpCS(e.getOwnedExpressionCS());
+    _builder.append(_compileExpCS);
+    _builder.append(" }");
+    return _builder;
+  }
+  
+  private CharSequence compileLetExpCS(final LetExpCS e) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("let ");
+    {
+      int _length = ((Object[])Conversions.unwrapArray(e.getOwnedVariables(), Object.class)).length;
+      boolean _greaterThan = (_length > 0);
+      if (_greaterThan) {
+        CharSequence _compileLetVariableCS = this.compileLetVariableCS(e.getOwnedVariables().get(0));
+        _builder.append(_compileLetVariableCS);
+        {
+          List<LetVariableCS> _subList = e.getOwnedVariables().subList(1, ((Object[])Conversions.unwrapArray(e.getOwnedVariables(), Object.class)).length);
+          for(final LetVariableCS part : _subList) {
+            _builder.append(", ");
+            CharSequence _compileLetVariableCS_1 = this.compileLetVariableCS(part);
+            _builder.append(_compileLetVariableCS_1);
+          }
+        }
+      }
+    }
+    _builder.append(" in ");
+    Object _compileExpCS = this.compileExpCS(e.getOwnedInExpression());
+    _builder.append(_compileExpCS);
+    return _builder;
+  }
+  
+  private CharSequence compileLetVariableCS(final LetVariableCS e) {
+    StringConcatenation _builder = new StringConcatenation();
+    String _name = e.getName();
+    _builder.append(_name);
+    {
+      RoundBracketedClauseCS _ownedRoundBracketedClause = e.getOwnedRoundBracketedClause();
+      boolean _tripleNotEquals = (_ownedRoundBracketedClause != null);
+      if (_tripleNotEquals) {
+        _builder.append(" ");
+        CharSequence _compileRoundBracketedClauseCS = this.compileRoundBracketedClauseCS(e.getOwnedRoundBracketedClause());
+        _builder.append(_compileRoundBracketedClauseCS);
+      }
+    }
+    {
+      TypedRefCS _ownedType = e.getOwnedType();
+      boolean _tripleNotEquals_1 = (_ownedType != null);
+      if (_tripleNotEquals_1) {
+        _builder.append(" : ");
+        CharSequence _compileTypedRefCS = this.compileTypedRefCS(e.getOwnedType());
+        _builder.append(_compileTypedRefCS);
+      }
+    }
+    _builder.append(" = ");
+    Object _compileExpCS = this.compileExpCS(e.getOwnedInitExpression());
+    _builder.append(_compileExpCS);
+    return _builder;
+  }
+  
+  private CharSequence compileRoundBracketedClauseCS(final RoundBracketedClauseCS e) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("(");
+    {
+      int _length = ((Object[])Conversions.unwrapArray(e.getOwnedArguments(), Object.class)).length;
+      boolean _greaterThan = (_length > 0);
+      if (_greaterThan) {
+        CharSequence _compileNavigatingArgCS = this.compileNavigatingArgCS(e.getOwnedArguments().get(0));
+        _builder.append(_compileNavigatingArgCS);
+        {
+          List<NavigatingArgCS> _subList = e.getOwnedArguments().subList(1, ((Object[])Conversions.unwrapArray(e.getOwnedArguments(), Object.class)).length);
+          for(final NavigatingArgCS part : _subList) {
+            CharSequence _compileNavigatingArgCS_1 = this.compileNavigatingArgCS(part);
+            _builder.append(_compileNavigatingArgCS_1);
+          }
+        }
+      }
+    }
+    _builder.append(")");
+    return _builder;
+  }
+  
+  private CharSequence compileNavigatingArgCS(final NavigatingArgCS e) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      String _prefix = e.getPrefix();
+      boolean _tripleNotEquals = (_prefix != null);
+      if (_tripleNotEquals) {
+        String _prefix_1 = e.getPrefix();
+        _builder.append(_prefix_1);
+      }
+    }
+    {
+      ExpCS _ownedNameExpression = e.getOwnedNameExpression();
+      boolean _tripleNotEquals_1 = (_ownedNameExpression != null);
+      if (_tripleNotEquals_1) {
+        Object _compileExpCS = this.compileExpCS(e.getOwnedNameExpression());
+        _builder.append(_compileExpCS);
+      }
+    }
+    {
+      TypedRefCS _ownedType = e.getOwnedType();
+      boolean _tripleNotEquals_2 = (_ownedType != null);
+      if (_tripleNotEquals_2) {
+        _builder.append(" ");
+        String _symbolT = e.getSymbolT();
+        _builder.append(_symbolT);
+        _builder.append(" ");
+        CharSequence _compileTypedRefCS = this.compileTypedRefCS(e.getOwnedType());
+        _builder.append(_compileTypedRefCS);
+      }
+    }
+    {
+      VariableCS _ownedCoIterator = e.getOwnedCoIterator();
+      boolean _tripleNotEquals_3 = (_ownedCoIterator != null);
+      if (_tripleNotEquals_3) {
+        _builder.append(" ");
+        String _symbolCI = e.getSymbolCI();
+        _builder.append(_symbolCI);
+        _builder.append(" ");
+        CharSequence _compileVariableCS = this.compileVariableCS(e.getOwnedCoIterator());
+        _builder.append(_compileVariableCS);
+      }
+    }
+    {
+      ExpCS _ownedInitExpression = e.getOwnedInitExpression();
+      boolean _tripleNotEquals_4 = (_ownedInitExpression != null);
+      if (_tripleNotEquals_4) {
+        _builder.append(" ");
+        String _symbolIE = e.getSymbolIE();
+        _builder.append(_symbolIE);
+        _builder.append(" ");
+        Object _compileExpCS_1 = this.compileExpCS(e.getOwnedInitExpression());
+        _builder.append(_compileExpCS_1);
+      }
+    }
+    return _builder;
+  }
+  
+  private CharSequence compileVariableCS(final VariableCS e) {
+    StringConcatenation _builder = new StringConcatenation();
+    String _name = e.getName();
+    _builder.append(_name);
+    {
+      TypedRefCS _ownedType = e.getOwnedType();
+      boolean _tripleNotEquals = (_ownedType != null);
+      if (_tripleNotEquals) {
+        _builder.append(" ");
+        CharSequence _compileTypedRefCS = this.compileTypedRefCS(e.getOwnedType());
+        _builder.append(_compileTypedRefCS);
+      }
+    }
+    return _builder;
+  }
+  
+  private CharSequence compileSquareBracketedClauseCS(final SquareBracketedClauseCS e) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("[");
+    {
+      int _length = ((Object[])Conversions.unwrapArray(e.getOwnedTerms(), Object.class)).length;
+      boolean _greaterThan = (_length > 0);
+      if (_greaterThan) {
+        Object _compileExpCS = this.compileExpCS(e.getOwnedTerms().get(0));
+        _builder.append(_compileExpCS);
+        {
+          List<ExpCS> _subList = e.getOwnedTerms().subList(1, ((Object[])Conversions.unwrapArray(e.getOwnedTerms(), Object.class)).length);
+          for(final ExpCS part : _subList) {
+            _builder.append(", ");
+            Object _compileExpCS_1 = this.compileExpCS(part);
+            _builder.append(_compileExpCS_1);
+          }
+        }
+      }
+    }
+    _builder.append("]");
+    return _builder;
+  }
+  
+  private CharSequence compileCurlyBracketedClauseCS(final CurlyBracketedClauseCS e) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("{");
+    {
+      int _length = ((Object[])Conversions.unwrapArray(e.getOwnedParts(), Object.class)).length;
+      boolean _greaterThan = (_length > 0);
+      if (_greaterThan) {
+        CharSequence _compileShadowPartCS = this.compileShadowPartCS(e.getOwnedParts().get(0));
+        _builder.append(_compileShadowPartCS);
+        {
+          List<ShadowPartCS> _subList = e.getOwnedParts().subList(1, ((Object[])Conversions.unwrapArray(e.getOwnedParts(), Object.class)).length);
+          for(final ShadowPartCS part : _subList) {
+            _builder.append(", ");
+            CharSequence _compileShadowPartCS_1 = this.compileShadowPartCS(part);
+            _builder.append(_compileShadowPartCS_1);
+          }
+        }
+      }
+    }
+    _builder.append("}");
+    return _builder;
+  }
+  
+  private CharSequence compileShadowPartCS(final ShadowPartCS e) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      EObject _ownedInitExpression = e.getOwnedInitExpression();
+      if ((_ownedInitExpression instanceof ExpCS)) {
+        String _referredProperty = e.getReferredProperty();
+        _builder.append(_referredProperty);
+        _builder.append(" = ");
+        EObject _ownedInitExpression_1 = e.getOwnedInitExpression();
+        Object _compileExpCS = this.compileExpCS(((ExpCS) _ownedInitExpression_1));
+        _builder.append(_compileExpCS);
+        _builder.newLineIfNotEmpty();
+      } else {
+        EObject _ownedInitExpression_2 = e.getOwnedInitExpression();
+        if ((_ownedInitExpression_2 instanceof PatternExpCS)) {
+          String _referredProperty_1 = e.getReferredProperty();
+          _builder.append(_referredProperty_1);
+          _builder.append(" = ");
+          EObject _ownedInitExpression_3 = e.getOwnedInitExpression();
+          CharSequence _compilePatternExpCS = this.compilePatternExpCS(((PatternExpCS) _ownedInitExpression_3));
+          _builder.append(_compilePatternExpCS);
+          _builder.newLineIfNotEmpty();
+        } else {
+          EObject _ownedInitExpression_4 = e.getOwnedInitExpression();
+          if ((_ownedInitExpression_4 instanceof StringLiteralExpCS)) {
+            EObject _ownedInitExpression_5 = e.getOwnedInitExpression();
+            CharSequence _compileStringLiteralExpCS = this.compileStringLiteralExpCS(((StringLiteralExpCS) _ownedInitExpression_5));
+            _builder.append(_compileStringLiteralExpCS);
+            _builder.newLineIfNotEmpty();
+          }
+        }
+      }
+    }
+    return _builder;
+  }
+  
+  private CharSequence compileMapLiteralExpCS(final MapLiteralExpCS e) {
+    StringConcatenation _builder = new StringConcatenation();
+    CharSequence _compileMapTypeCS = this.compileMapTypeCS(e.getOwnedType());
+    _builder.append(_compileMapTypeCS);
+    _builder.append(" { ");
+    {
+      int _length = ((Object[])Conversions.unwrapArray(e.getOwnedParts(), Object.class)).length;
+      boolean _greaterThan = (_length > 0);
+      if (_greaterThan) {
+        CharSequence _compileMapLiteralPartCS = this.compileMapLiteralPartCS(e.getOwnedParts().get(0));
+        _builder.append(_compileMapLiteralPartCS);
+        {
+          List<MapLiteralPartCS> _subList = e.getOwnedParts().subList(1, ((Object[])Conversions.unwrapArray(e.getOwnedParts(), Object.class)).length);
+          for(final MapLiteralPartCS part : _subList) {
+            _builder.append(", ");
+            CharSequence _compileMapLiteralPartCS_1 = this.compileMapLiteralPartCS(part);
+            _builder.append(_compileMapLiteralPartCS_1);
+          }
+        }
+      }
+    }
+    _builder.append(" }");
+    return _builder;
+  }
+  
+  private CharSequence compileMapLiteralPartCS(final MapLiteralPartCS e) {
+    StringConcatenation _builder = new StringConcatenation();
+    Object _compileExpCS = this.compileExpCS(e.getOwnedKey());
+    _builder.append(_compileExpCS);
+    _builder.append(" <- ");
+    Object _compileExpCS_1 = this.compileExpCS(e.getOwnedValue());
+    _builder.append(_compileExpCS_1);
+    return _builder;
+  }
+  
+  private CharSequence compileNameExpCS(final NameExpCS e) {
+    StringConcatenation _builder = new StringConcatenation();
+    CharSequence _compilePathNameCS = this.compilePathNameCS(e.getOwnedPathName());
+    _builder.append(_compilePathNameCS);
+    {
+      EList<SquareBracketedClauseCS> _ownedSquareBracketedClauses = e.getOwnedSquareBracketedClauses();
+      for(final SquareBracketedClauseCS part : _ownedSquareBracketedClauses) {
+        CharSequence _compileSquareBracketedClauseCS = this.compileSquareBracketedClauseCS(part);
+        _builder.append(_compileSquareBracketedClauseCS);
+      }
+    }
+    {
+      RoundBracketedClauseCS _ownedRoundBracketedClause = e.getOwnedRoundBracketedClause();
+      boolean _tripleNotEquals = (_ownedRoundBracketedClause != null);
+      if (_tripleNotEquals) {
+        CharSequence _compileRoundBracketedClauseCS = this.compileRoundBracketedClauseCS(e.getOwnedRoundBracketedClause());
+        _builder.append(_compileRoundBracketedClauseCS);
+      }
+    }
+    {
+      CurlyBracketedClauseCS _ownedCurlyBracketedClause = e.getOwnedCurlyBracketedClause();
+      boolean _tripleNotEquals_1 = (_ownedCurlyBracketedClause != null);
+      if (_tripleNotEquals_1) {
+        CharSequence _compileCurlyBracketedClauseCS = this.compileCurlyBracketedClauseCS(e.getOwnedCurlyBracketedClause());
+        _builder.append(_compileCurlyBracketedClauseCS);
+      }
+    }
+    {
+      boolean _isIsPre = e.isIsPre();
+      if (_isIsPre) {
+        _builder.append("@");
+      }
+    }
+    {
+      boolean _isPre = e.isPre();
+      if (_isPre) {
+        _builder.append("pre");
+      }
+    }
+    return _builder;
+  }
+  
+  private CharSequence compilePathNameCS(final PathNameCS e) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      int _length = ((Object[])Conversions.unwrapArray(e.getOwnedPathElements(), Object.class)).length;
+      boolean _greaterThan = (_length > 0);
+      if (_greaterThan) {
+        String _get = e.getOwnedPathElements().get(0);
+        _builder.append(_get);
+        {
+          List<String> _subList = e.getOwnedPathElements().subList(1, ((Object[])Conversions.unwrapArray(e.getOwnedPathElements(), Object.class)).length);
+          for(final String part : _subList) {
+            _builder.append(" :: ");
+            _builder.append(part);
+          }
+        }
+      }
+    }
+    return _builder;
+  }
+  
+  private CharSequence compileNestedExpCS(final NestedExpCS e) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("(");
+    Object _compileExpCS = this.compileExpCS(e.getOwnedExpression());
+    _builder.append(_compileExpCS);
+    _builder.append(")");
+    return _builder;
+  }
+  
+  private CharSequence compilePrefixExpCS(final PrefixExpCS e) {
+    StringConcatenation _builder = new StringConcatenation();
+    String _name = e.getName();
+    _builder.append(_name);
+    _builder.append(" ");
+    Object _compileExpCS = this.compileExpCS(e.getOwnedRight());
+    _builder.append(_compileExpCS);
+    return _builder;
+  }
+  
+  private CharSequence compilePrimitiveLiteralExpCS(final PrimitiveLiteralExpCS e) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      if ((e instanceof NumberLiteralExpCS)) {
+        CharSequence _compileNumberLiteralExpCS = this.compileNumberLiteralExpCS(((NumberLiteralExpCS)e));
+        _builder.append(_compileNumberLiteralExpCS);
+        _builder.newLineIfNotEmpty();
+      } else {
+        if ((e instanceof StringLiteralExpCS)) {
+          CharSequence _compileStringLiteralExpCS = this.compileStringLiteralExpCS(((StringLiteralExpCS)e));
+          _builder.append(_compileStringLiteralExpCS);
+          _builder.newLineIfNotEmpty();
+        } else {
+          if ((e instanceof BooleanLiteralExpCS)) {
+            CharSequence _compileBooleanLiteralExpCS = this.compileBooleanLiteralExpCS(((BooleanLiteralExpCS)e));
+            _builder.append(_compileBooleanLiteralExpCS);
+            _builder.newLineIfNotEmpty();
+          } else {
+            if ((e instanceof UnlimitedNaturalLiteralExpCS)) {
+              CharSequence _compileUnlimitedNaturalLiteralExpCS = this.compileUnlimitedNaturalLiteralExpCS(((UnlimitedNaturalLiteralExpCS)e));
+              _builder.append(_compileUnlimitedNaturalLiteralExpCS);
+              _builder.newLineIfNotEmpty();
+            } else {
+              if ((e instanceof InvalidLiteralExpCS)) {
+                CharSequence _compileInvalidLiteralExpCS = this.compileInvalidLiteralExpCS(((InvalidLiteralExpCS)e));
+                _builder.append(_compileInvalidLiteralExpCS);
+                _builder.newLineIfNotEmpty();
+              } else {
+                if ((e instanceof NullLiteralExpCS)) {
+                  CharSequence _compileNullLiteralExpCS = this.compileNullLiteralExpCS(((NullLiteralExpCS)e));
+                  _builder.append(_compileNullLiteralExpCS);
+                  _builder.newLineIfNotEmpty();
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    return _builder;
+  }
+  
+  private CharSequence compileNumberLiteralExpCS(final NumberLiteralExpCS e) {
+    StringConcatenation _builder = new StringConcatenation();
+    String _value = e.getValue();
+    _builder.append(_value);
+    return _builder;
+  }
+  
+  private CharSequence compileStringLiteralExpCS(final StringLiteralExpCS e) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      EList<String> _segments = e.getSegments();
+      for(final String part : _segments) {
+        _builder.append(" ");
+        _builder.append(part);
+      }
+    }
+    return _builder;
+  }
+  
+  private CharSequence compileBooleanLiteralExpCS(final BooleanLiteralExpCS e) {
+    StringConcatenation _builder = new StringConcatenation();
+    String _symbol = e.getSymbol();
+    _builder.append(_symbol);
+    return _builder;
+  }
+  
+  private CharSequence compileUnlimitedNaturalLiteralExpCS(final UnlimitedNaturalLiteralExpCS e) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("*");
+    return _builder;
+  }
+  
+  private CharSequence compileInvalidLiteralExpCS(final InvalidLiteralExpCS e) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("invalid");
+    return _builder;
+  }
+  
+  private CharSequence compileNullLiteralExpCS(final NullLiteralExpCS e) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("null");
+    return _builder;
+  }
+  
+  private CharSequence compileSelfExpCS(final SelfExpCS e) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("self");
+    return _builder;
+  }
+  
+  private CharSequence compileTupleLiteralExpCS(final TupleLiteralExpCS e) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("Tuple { ");
+    {
+      int _length = ((Object[])Conversions.unwrapArray(e.getOwnedParts(), Object.class)).length;
+      boolean _greaterThan = (_length > 0);
+      if (_greaterThan) {
+        CharSequence _compileTupleLiteralPartCS = this.compileTupleLiteralPartCS(e.getOwnedParts().get(0));
+        _builder.append(_compileTupleLiteralPartCS);
+        {
+          List<TupleLiteralPartCS> _subList = e.getOwnedParts().subList(1, ((Object[])Conversions.unwrapArray(e.getOwnedParts(), Object.class)).length);
+          for(final TupleLiteralPartCS part : _subList) {
+            _builder.append(", ");
+            CharSequence _compileTupleLiteralPartCS_1 = this.compileTupleLiteralPartCS(part);
+            _builder.append(_compileTupleLiteralPartCS_1);
+          }
+        }
+      }
+    }
+    _builder.append(" }");
+    return _builder;
+  }
+  
+  private CharSequence compileTupleLiteralPartCS(final TupleLiteralPartCS e) {
+    StringConcatenation _builder = new StringConcatenation();
+    String _name = e.getName();
+    _builder.append(_name);
+    _builder.append(" ");
+    {
+      TypedRefCS _ownedType = e.getOwnedType();
+      boolean _tripleNotEquals = (_ownedType != null);
+      if (_tripleNotEquals) {
+        _builder.append(": ");
+        CharSequence _compileTypedRefCS = this.compileTypedRefCS(e.getOwnedType());
+        _builder.append(_compileTypedRefCS);
+      }
+    }
+    _builder.append("= ");
+    Object _compileExpCS = this.compileExpCS(e.getOwnedInitExpression());
+    _builder.append(_compileExpCS);
+    return _builder;
+  }
+  
+  private CharSequence compileTypeLiteralExpCS(final TypeLiteralExpCS e) {
+    StringConcatenation _builder = new StringConcatenation();
+    CharSequence _compileTypedRefCS = this.compileTypedRefCS(e.getOwnedType());
+    _builder.append(_compileTypedRefCS);
+    return _builder;
+  }
+  
+  private CharSequence compileCollectionPatternCS(final CollectionPatternCS e) {
+    StringConcatenation _builder = new StringConcatenation();
+    Object _compileCollectionTypeCS = this.compileCollectionTypeCS(e.getOwnedType());
+    _builder.append(_compileCollectionTypeCS);
+    _builder.append(" { ");
+    {
+      int _length = ((Object[])Conversions.unwrapArray(e.getOwnedParts(), Object.class)).length;
+      boolean _greaterThan = (_length > 0);
+      if (_greaterThan) {
+        CharSequence _compilePatternExpCS = this.compilePatternExpCS(e.getOwnedParts().get(0));
+        _builder.append(_compilePatternExpCS);
+        {
+          List<PatternExpCS> _subList = e.getOwnedParts().subList(1, ((Object[])Conversions.unwrapArray(e.getOwnedParts(), Object.class)).length);
+          for(final PatternExpCS part : _subList) {
+            _builder.append(", ");
+            CharSequence _compilePatternExpCS_1 = this.compilePatternExpCS(part);
+            _builder.append(_compilePatternExpCS_1);
+          }
+        }
+        _builder.append(" ++ ");
+        String _restVariableName = e.getRestVariableName();
+        _builder.append(_restVariableName);
+      }
+    }
+    _builder.append("}");
+    return _builder;
+  }
+  
+  private CharSequence compileMapTypeCS(final MapTypeCS e) {
+    StringConcatenation _builder = new StringConcatenation();
+    String _name = e.getName();
+    _builder.append(_name);
+    _builder.append(" ");
+    {
+      if (((e.getOwnedKeyType() != null) && (e.getOwnedValueType() != null))) {
+        _builder.append("(");
+        Object _compileTypedRefCS = this.compileTypedRefCS(e.getOwnedKeyType());
+        _builder.append(_compileTypedRefCS);
+        _builder.append(", ");
+        Object _compileTypedRefCS_1 = this.compileTypedRefCS(e.getOwnedValueType());
+        _builder.append(_compileTypedRefCS_1);
+        _builder.append(")");
+      }
+    }
+    return _builder;
+  }
+  
+  private CharSequence compilePrimitiveTypeRefCS(final PrimitiveTypeRefCS e) {
+    StringConcatenation _builder = new StringConcatenation();
+    String _name = e.getName();
+    _builder.append(_name);
+    return _builder;
+  }
+  
+  private CharSequence compileTupleTypeCS(final TupleTypeCS e) {
+    StringConcatenation _builder = new StringConcatenation();
+    String _name = e.getName();
+    _builder.append(_name);
+    _builder.append(" ");
+    {
+      int _length = ((Object[])Conversions.unwrapArray(e.getOwnedParts(), Object.class)).length;
+      boolean _greaterThan = (_length > 0);
+      if (_greaterThan) {
+        _builder.append("(");
+        CharSequence _compileTuplePartCS = this.compileTuplePartCS(e.getOwnedParts().get(0));
+        _builder.append(_compileTuplePartCS);
+        {
+          List<TuplePartCS> _subList = e.getOwnedParts().subList(1, ((Object[])Conversions.unwrapArray(e.getOwnedParts(), Object.class)).length);
+          for(final TuplePartCS part : _subList) {
+            _builder.append(", ");
+            CharSequence _compileTuplePartCS_1 = this.compileTuplePartCS(part);
+            _builder.append(_compileTuplePartCS_1);
+          }
+        }
+        _builder.append(")");
+      }
+    }
+    return _builder;
+  }
+  
+  private CharSequence compileTuplePartCS(final TuplePartCS e) {
+    StringConcatenation _builder = new StringConcatenation();
+    String _name = e.getName();
+    _builder.append(_name);
+    _builder.append(" : ");
+    Object _compileTypedRefCS = this.compileTypedRefCS(e.getOwnedType());
+    _builder.append(_compileTypedRefCS);
+    return _builder;
+  }
+  
+  private CharSequence compileTypeNameExpCS(final TypeNameExpCS e) {
+    StringConcatenation _builder = new StringConcatenation();
+    PathNameCS _ownedPathName = e.getOwnedPathName();
+    _builder.append(_ownedPathName);
+    _builder.append(" ");
+    {
+      CurlyBracketedClauseCS _ownedCurlyBracketedClause = e.getOwnedCurlyBracketedClause();
+      boolean _tripleNotEquals = (_ownedCurlyBracketedClause != null);
+      if (_tripleNotEquals) {
+        CharSequence _compileCurlyBracketedClauseCS = this.compileCurlyBracketedClauseCS(e.getOwnedCurlyBracketedClause());
+        _builder.append(_compileCurlyBracketedClauseCS);
+        _builder.append(" ");
+        {
+          ExpCS _ownedPatternGuard = e.getOwnedPatternGuard();
+          boolean _tripleNotEquals_1 = (_ownedPatternGuard != null);
+          if (_tripleNotEquals_1) {
+            _builder.append("{");
+            Object _compileExpCS = this.compileExpCS(e.getOwnedPatternGuard());
+            _builder.append(_compileExpCS);
+            _builder.append("}");
+          }
+        }
+      }
+    }
     return _builder;
   }
 }

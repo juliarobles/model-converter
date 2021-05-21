@@ -16,8 +16,11 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link modelConverter.use_language.use.NavigatingArgCS#getPrefix <em>Prefix</em>}</li>
  *   <li>{@link modelConverter.use_language.use.NavigatingArgCS#getOwnedNameExpression <em>Owned Name Expression</em>}</li>
+ *   <li>{@link modelConverter.use_language.use.NavigatingArgCS#getSymbolT <em>Symbol T</em>}</li>
  *   <li>{@link modelConverter.use_language.use.NavigatingArgCS#getOwnedType <em>Owned Type</em>}</li>
+ *   <li>{@link modelConverter.use_language.use.NavigatingArgCS#getSymbolIE <em>Symbol IE</em>}</li>
  *   <li>{@link modelConverter.use_language.use.NavigatingArgCS#getOwnedInitExpression <em>Owned Init Expression</em>}</li>
+ *   <li>{@link modelConverter.use_language.use.NavigatingArgCS#getSymbolCI <em>Symbol CI</em>}</li>
  *   <li>{@link modelConverter.use_language.use.NavigatingArgCS#getOwnedCoIterator <em>Owned Co Iterator</em>}</li>
  * </ul>
  *
@@ -72,6 +75,28 @@ public interface NavigatingArgCS extends EObject
   void setOwnedNameExpression(ExpCS value);
 
   /**
+   * Returns the value of the '<em><b>Symbol T</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Symbol T</em>' attribute.
+   * @see #setSymbolT(String)
+   * @see modelConverter.use_language.use.UsePackage#getNavigatingArgCS_SymbolT()
+   * @model
+   * @generated
+   */
+  String getSymbolT();
+
+  /**
+   * Sets the value of the '{@link modelConverter.use_language.use.NavigatingArgCS#getSymbolT <em>Symbol T</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Symbol T</em>' attribute.
+   * @see #getSymbolT()
+   * @generated
+   */
+  void setSymbolT(String value);
+
+  /**
    * Returns the value of the '<em><b>Owned Type</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -94,6 +119,28 @@ public interface NavigatingArgCS extends EObject
   void setOwnedType(TypedRefCS value);
 
   /**
+   * Returns the value of the '<em><b>Symbol IE</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Symbol IE</em>' attribute.
+   * @see #setSymbolIE(String)
+   * @see modelConverter.use_language.use.UsePackage#getNavigatingArgCS_SymbolIE()
+   * @model
+   * @generated
+   */
+  String getSymbolIE();
+
+  /**
+   * Sets the value of the '{@link modelConverter.use_language.use.NavigatingArgCS#getSymbolIE <em>Symbol IE</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Symbol IE</em>' attribute.
+   * @see #getSymbolIE()
+   * @generated
+   */
+  void setSymbolIE(String value);
+
+  /**
    * Returns the value of the '<em><b>Owned Init Expression</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -114,6 +161,28 @@ public interface NavigatingArgCS extends EObject
    * @generated
    */
   void setOwnedInitExpression(ExpCS value);
+
+  /**
+   * Returns the value of the '<em><b>Symbol CI</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Symbol CI</em>' attribute.
+   * @see #setSymbolCI(String)
+   * @see modelConverter.use_language.use.UsePackage#getNavigatingArgCS_SymbolCI()
+   * @model
+   * @generated
+   */
+  String getSymbolCI();
+
+  /**
+   * Sets the value of the '{@link modelConverter.use_language.use.NavigatingArgCS#getSymbolCI <em>Symbol CI</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Symbol CI</em>' attribute.
+   * @see #getSymbolCI()
+   * @generated
+   */
+  void setSymbolCI(String value);
 
   /**
    * Returns the value of the '<em><b>Owned Co Iterator</b></em>' containment reference.

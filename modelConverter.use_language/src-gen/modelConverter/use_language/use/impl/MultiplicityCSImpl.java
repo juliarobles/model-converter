@@ -21,7 +21,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link modelConverter.use_language.use.impl.MultiplicityCSImpl#isIsNullFree <em>Is Null Free</em>}</li>
+ *   <li>{@link modelConverter.use_language.use.impl.MultiplicityCSImpl#getSymbol <em>Symbol</em>}</li>
  * </ul>
  *
  * @generated
@@ -29,24 +29,24 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 public class MultiplicityCSImpl extends MinimalEObjectImpl.Container implements MultiplicityCS
 {
   /**
-   * The default value of the '{@link #isIsNullFree() <em>Is Null Free</em>}' attribute.
+   * The default value of the '{@link #getSymbol() <em>Symbol</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #isIsNullFree()
+   * @see #getSymbol()
    * @generated
    * @ordered
    */
-  protected static final boolean IS_NULL_FREE_EDEFAULT = false;
+  protected static final String SYMBOL_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #isIsNullFree() <em>Is Null Free</em>}' attribute.
+   * The cached value of the '{@link #getSymbol() <em>Symbol</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #isIsNullFree()
+   * @see #getSymbol()
    * @generated
    * @ordered
    */
-  protected boolean isNullFree = IS_NULL_FREE_EDEFAULT;
+  protected String symbol = SYMBOL_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -75,9 +75,9 @@ public class MultiplicityCSImpl extends MinimalEObjectImpl.Container implements 
    * @generated
    */
   @Override
-  public boolean isIsNullFree()
+  public String getSymbol()
   {
-    return isNullFree;
+    return symbol;
   }
 
   /**
@@ -86,12 +86,12 @@ public class MultiplicityCSImpl extends MinimalEObjectImpl.Container implements 
    * @generated
    */
   @Override
-  public void setIsNullFree(boolean newIsNullFree)
+  public void setSymbol(String newSymbol)
   {
-    boolean oldIsNullFree = isNullFree;
-    isNullFree = newIsNullFree;
+    String oldSymbol = symbol;
+    symbol = newSymbol;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, UsePackage.MULTIPLICITY_CS__IS_NULL_FREE, oldIsNullFree, isNullFree));
+      eNotify(new ENotificationImpl(this, Notification.SET, UsePackage.MULTIPLICITY_CS__SYMBOL, oldSymbol, symbol));
   }
 
   /**
@@ -104,8 +104,8 @@ public class MultiplicityCSImpl extends MinimalEObjectImpl.Container implements 
   {
     switch (featureID)
     {
-      case UsePackage.MULTIPLICITY_CS__IS_NULL_FREE:
-        return isIsNullFree();
+      case UsePackage.MULTIPLICITY_CS__SYMBOL:
+        return getSymbol();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -120,8 +120,8 @@ public class MultiplicityCSImpl extends MinimalEObjectImpl.Container implements 
   {
     switch (featureID)
     {
-      case UsePackage.MULTIPLICITY_CS__IS_NULL_FREE:
-        setIsNullFree((Boolean)newValue);
+      case UsePackage.MULTIPLICITY_CS__SYMBOL:
+        setSymbol((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -137,8 +137,8 @@ public class MultiplicityCSImpl extends MinimalEObjectImpl.Container implements 
   {
     switch (featureID)
     {
-      case UsePackage.MULTIPLICITY_CS__IS_NULL_FREE:
-        setIsNullFree(IS_NULL_FREE_EDEFAULT);
+      case UsePackage.MULTIPLICITY_CS__SYMBOL:
+        setSymbol(SYMBOL_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -154,8 +154,8 @@ public class MultiplicityCSImpl extends MinimalEObjectImpl.Container implements 
   {
     switch (featureID)
     {
-      case UsePackage.MULTIPLICITY_CS__IS_NULL_FREE:
-        return isNullFree != IS_NULL_FREE_EDEFAULT;
+      case UsePackage.MULTIPLICITY_CS__SYMBOL:
+        return SYMBOL_EDEFAULT == null ? symbol != null : !SYMBOL_EDEFAULT.equals(symbol);
     }
     return super.eIsSet(featureID);
   }
@@ -171,8 +171,8 @@ public class MultiplicityCSImpl extends MinimalEObjectImpl.Container implements 
     if (eIsProxy()) return super.toString();
 
     StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (isNullFree: ");
-    result.append(isNullFree);
+    result.append(" (symbol: ");
+    result.append(symbol);
     result.append(')');
     return result.toString();
   }

@@ -23,7 +23,7 @@ import java.util.HashMap;
 @SuppressWarnings("all")
 public class InternalUSEParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_INT", "RULE_STRING", "RULE_ID", "RULE_SL_COMMENT", "RULE_ML_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'*'", "'Integer'", "'String'", "'Real'", "'Boolean'", "'Set'", "'Bag'", "'Sequence'", "'association'", "'aggregation'", "'composition'", "'UnlimitedNatural'", "'OclAny'", "'OclInvalid'", "'OclVoid'", "'Collection'", "'OrderedSet'", "'/'", "'+'", "'-'", "'>'", "'<'", "'>='", "'<='", "'='", "':='", "'<>'", "'and'", "'and2'", "'implies'", "'implies2'", "'or'", "'or2'", "'xor'", "'xor2'", "'.'", "'->'", "'?.'", "'?->'", "'not'", "'not2'", "'|?'", "'?'", "'model'", "'..'", "','", "'('", "')'", "'enum'", "'{'", "'}'", "'class'", "'end'", "'between'", "'['", "']'", "'role'", "'associationclass'", "'attributes'", "':'", "'operations'", "'begin'", "'constraints'", "'context'", "'inv'", "'::'", "'pre'", "'post'", "'++'", "'Lambda'", "'<-'", "'Tuple'", "'invalid'", "'null'", "'self'", "'if'", "'then'", "'else'", "'endif'", "'elseif'", "'let'", "'in'", "'abstract'", "'ordered'", "'Map'", "'|1'", "'@'", "'true'", "'false'", "'|'", "';'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_INT", "RULE_STRING", "RULE_ID", "RULE_SL_COMMENT", "RULE_ML_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'*'", "'Integer'", "'String'", "'Real'", "'Boolean'", "'Set'", "'Bag'", "'Sequence'", "'association'", "'aggregation'", "'composition'", "'UnlimitedNatural'", "'OclAny'", "'OclInvalid'", "'OclVoid'", "'Collection'", "'OrderedSet'", "'/'", "'+'", "'-'", "'>'", "'<'", "'>='", "'<='", "'='", "':='", "'<>'", "'and'", "'and2'", "'implies'", "'implies2'", "'or'", "'or2'", "'xor'", "'xor2'", "'.'", "'->'", "'?.'", "'?->'", "'not'", "'not2'", "'|?'", "'|1'", "'?'", "'model'", "'..'", "','", "'('", "')'", "'enum'", "'{'", "'}'", "'class'", "'end'", "'between'", "'['", "']'", "'role'", "'associationclass'", "'attributes'", "':'", "'operations'", "'begin'", "'constraints'", "'context'", "'inv'", "'::'", "'pre'", "'post'", "'++'", "'Lambda'", "'<-'", "'Tuple'", "'invalid'", "'null'", "'self'", "'if'", "'then'", "'else'", "'endif'", "'elseif'", "'let'", "'in'", "'abstract'", "'ordered'", "'Map'", "'@'", "'true'", "'false'", "'|'", "';'"
     };
     public static final int T__50=50;
     public static final int T__59=59;
@@ -9124,14 +9124,14 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             // InternalUSE.g:2677:1: ( ( ruleClass ) | ( ruleAssociation ) | ( ruleAssociationClass ) )
             int alt8=3;
             switch ( input.LA(1) ) {
-            case 93:
+            case 94:
                 {
                 int LA8_1 = input.LA(2);
 
-                if ( (LA8_1==62) ) {
+                if ( (LA8_1==63) ) {
                     alt8=1;
                 }
-                else if ( (LA8_1==68) ) {
+                else if ( (LA8_1==69) ) {
                     alt8=3;
                 }
                 else {
@@ -9143,7 +9143,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
                 }
                 }
                 break;
-            case 62:
+            case 63:
                 {
                 alt8=1;
                 }
@@ -9155,7 +9155,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
                 alt8=2;
                 }
                 break;
-            case 68:
+            case 69:
                 {
                 alt8=3;
                 }
@@ -9373,14 +9373,14 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             // InternalUSE.g:2731:1: ( ( ruleClass ) | ( ruleAssociationClass ) )
             int alt10=2;
             switch ( input.LA(1) ) {
-            case 93:
+            case 94:
                 {
                 int LA10_1 = input.LA(2);
 
-                if ( (LA10_1==62) ) {
+                if ( (LA10_1==63) ) {
                     alt10=1;
                 }
-                else if ( (LA10_1==68) ) {
+                else if ( (LA10_1==69) ) {
                     alt10=2;
                 }
                 else {
@@ -9392,12 +9392,12 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
                 }
                 }
                 break;
-            case 62:
+            case 63:
                 {
                 alt10=1;
                 }
                 break;
-            case 68:
+            case 69:
                 {
                 alt10=2;
                 }
@@ -9767,17 +9767,17 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             int alt14=2;
             int LA14_0 = input.LA(1);
 
-            if ( (LA14_0==74) ) {
+            if ( (LA14_0==75) ) {
                 int LA14_1 = input.LA(2);
 
                 if ( (LA14_1==RULE_ID) ) {
                     int LA14_2 = input.LA(3);
 
-                    if ( (LA14_2==EOF||LA14_2==70||(LA14_2>=74 && LA14_2<=75)) ) {
-                        alt14=1;
-                    }
-                    else if ( (LA14_2==76) ) {
+                    if ( (LA14_2==77) ) {
                         alt14=2;
+                    }
+                    else if ( (LA14_2==EOF||LA14_2==71||(LA14_2>=75 && LA14_2<=76)) ) {
+                        alt14=1;
                     }
                     else {
                         if (state.backtracking>0) {state.failed=true; return ;}
@@ -9877,10 +9877,10 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             int alt15=2;
             int LA15_0 = input.LA(1);
 
-            if ( (LA15_0==77) ) {
+            if ( (LA15_0==78) ) {
                 alt15=1;
             }
-            else if ( (LA15_0==78) ) {
+            else if ( (LA15_0==79) ) {
                 alt15=2;
             }
             else {
@@ -11286,12 +11286,12 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
                 alt23=2;
                 }
                 break;
-            case 95:
+            case 96:
                 {
                 alt23=3;
                 }
                 break;
-            case 82:
+            case 83:
                 {
                 alt23=4;
                 }
@@ -11543,15 +11543,15 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             case 30:
             case 50:
             case 51:
-            case 57:
-            case 80:
-            case 82:
+            case 58:
+            case 81:
             case 83:
             case 84:
             case 85:
             case 86:
-            case 91:
-            case 95:
+            case 87:
+            case 92:
+            case 96:
             case 98:
             case 99:
                 {
@@ -11562,11 +11562,11 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
                 {
                 int LA25_2 = input.LA(2);
 
-                if ( (LA25_2==70) ) {
-                    alt25=2;
-                }
-                else if ( (LA25_2==EOF||LA25_2==11||(LA25_2>=28 && LA25_2<=49)||(LA25_2>=56 && LA25_2<=57)||(LA25_2>=60 && LA25_2<=61)||LA25_2==65||LA25_2==76||LA25_2==97) ) {
+                if ( (LA25_2==EOF||LA25_2==11||(LA25_2>=28 && LA25_2<=49)||(LA25_2>=57 && LA25_2<=58)||(LA25_2>=61 && LA25_2<=62)||LA25_2==66||LA25_2==77||LA25_2==97) ) {
                     alt25=1;
+                }
+                else if ( (LA25_2==71) ) {
+                    alt25=2;
                 }
                 else {
                     if (state.backtracking>0) {state.failed=true; return ;}
@@ -11577,7 +11577,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
                 }
                 }
                 break;
-            case 70:
+            case 71:
                 {
                 alt25=2;
                 }
@@ -11668,7 +11668,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             if ( (LA26_0==RULE_INT) ) {
                 alt26=1;
             }
-            else if ( (LA26_0==11||LA26_0==29||LA26_0==53) ) {
+            else if ( (LA26_0==11||LA26_0==29||LA26_0==54) ) {
                 alt26=2;
             }
             else {
@@ -11742,21 +11742,21 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__MultiplicityCS__Alternatives_1"
 
 
-    // $ANTLR start "rule__MultiplicityCS__Alternatives_2"
-    // InternalUSE.g:3282:1: rule__MultiplicityCS__Alternatives_2 : ( ( '|?' ) | ( ( rule__MultiplicityCS__IsNullFreeAssignment_2_1 ) ) );
-    public final void rule__MultiplicityCS__Alternatives_2() throws RecognitionException {
+    // $ANTLR start "rule__MultiplicityCS__SymbolAlternatives_2_0"
+    // InternalUSE.g:3282:1: rule__MultiplicityCS__SymbolAlternatives_2_0 : ( ( '|?' ) | ( '|1' ) );
+    public final void rule__MultiplicityCS__SymbolAlternatives_2_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalUSE.g:3286:1: ( ( '|?' ) | ( ( rule__MultiplicityCS__IsNullFreeAssignment_2_1 ) ) )
+            // InternalUSE.g:3286:1: ( ( '|?' ) | ( '|1' ) )
             int alt27=2;
             int LA27_0 = input.LA(1);
 
             if ( (LA27_0==52) ) {
                 alt27=1;
             }
-            else if ( (LA27_0==96) ) {
+            else if ( (LA27_0==53) ) {
                 alt27=2;
             }
             else {
@@ -11774,11 +11774,11 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
                     // InternalUSE.g:3288:3: '|?'
                     {
                     if ( state.backtracking==0 ) {
-                       before(grammarAccess.getMultiplicityCSAccess().getVerticalLineQuestionMarkKeyword_2_0()); 
+                       before(grammarAccess.getMultiplicityCSAccess().getSymbolVerticalLineQuestionMarkKeyword_2_0_0()); 
                     }
                     match(input,52,FOLLOW_2); if (state.failed) return ;
                     if ( state.backtracking==0 ) {
-                       after(grammarAccess.getMultiplicityCSAccess().getVerticalLineQuestionMarkKeyword_2_0()); 
+                       after(grammarAccess.getMultiplicityCSAccess().getSymbolVerticalLineQuestionMarkKeyword_2_0_0()); 
                     }
 
                     }
@@ -11787,27 +11787,17 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 2 :
-                    // InternalUSE.g:3293:2: ( ( rule__MultiplicityCS__IsNullFreeAssignment_2_1 ) )
+                    // InternalUSE.g:3293:2: ( '|1' )
                     {
-                    // InternalUSE.g:3293:2: ( ( rule__MultiplicityCS__IsNullFreeAssignment_2_1 ) )
-                    // InternalUSE.g:3294:3: ( rule__MultiplicityCS__IsNullFreeAssignment_2_1 )
+                    // InternalUSE.g:3293:2: ( '|1' )
+                    // InternalUSE.g:3294:3: '|1'
                     {
                     if ( state.backtracking==0 ) {
-                       before(grammarAccess.getMultiplicityCSAccess().getIsNullFreeAssignment_2_1()); 
+                       before(grammarAccess.getMultiplicityCSAccess().getSymbol1Keyword_2_0_1()); 
                     }
-                    // InternalUSE.g:3295:3: ( rule__MultiplicityCS__IsNullFreeAssignment_2_1 )
-                    // InternalUSE.g:3295:4: rule__MultiplicityCS__IsNullFreeAssignment_2_1
-                    {
-                    pushFollow(FOLLOW_2);
-                    rule__MultiplicityCS__IsNullFreeAssignment_2_1();
-
-                    state._fsp--;
-                    if (state.failed) return ;
-
-                    }
-
+                    match(input,53,FOLLOW_2); if (state.failed) return ;
                     if ( state.backtracking==0 ) {
-                       after(grammarAccess.getMultiplicityCSAccess().getIsNullFreeAssignment_2_1()); 
+                       after(grammarAccess.getMultiplicityCSAccess().getSymbol1Keyword_2_0_1()); 
                     }
 
                     }
@@ -11829,7 +11819,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__MultiplicityCS__Alternatives_2"
+    // $ANTLR end "rule__MultiplicityCS__SymbolAlternatives_2_0"
 
 
     // $ANTLR start "rule__MultiplicityStringCS__StringBoundsAlternatives_0"
@@ -11852,7 +11842,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
                 alt28=2;
                 }
                 break;
-            case 53:
+            case 54:
                 {
                 alt28=3;
                 }
@@ -11913,7 +11903,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
                     if ( state.backtracking==0 ) {
                        before(grammarAccess.getMultiplicityStringCSAccess().getStringBoundsQuestionMarkKeyword_0_2()); 
                     }
-                    match(input,53,FOLLOW_2); if (state.failed) return ;
+                    match(input,54,FOLLOW_2); if (state.failed) return ;
                     if ( state.backtracking==0 ) {
                        after(grammarAccess.getMultiplicityStringCSAccess().getStringBoundsQuestionMarkKeyword_0_2()); 
                     }
@@ -12118,7 +12108,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             if ( (LA31_0==30||(LA31_0>=50 && LA31_0<=51)) ) {
                 alt31=1;
             }
-            else if ( (LA31_0==91) ) {
+            else if ( (LA31_0==92) ) {
                 alt31=2;
             }
             else {
@@ -12212,7 +12202,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             if ( (LA32_0==30||(LA32_0>=50 && LA32_0<=51)) ) {
                 alt32=1;
             }
-            else if ( ((LA32_0>=RULE_INT && LA32_0<=RULE_ID)||(LA32_0>=11 && LA32_0<=18)||(LA32_0>=22 && LA32_0<=27)||LA32_0==57||LA32_0==80||(LA32_0>=82 && LA32_0<=86)||LA32_0==95||(LA32_0>=98 && LA32_0<=99)) ) {
+            else if ( ((LA32_0>=RULE_INT && LA32_0<=RULE_ID)||(LA32_0>=11 && LA32_0<=18)||(LA32_0>=22 && LA32_0<=27)||LA32_0==58||LA32_0==81||(LA32_0>=83 && LA32_0<=87)||LA32_0==96||(LA32_0>=98 && LA32_0<=99)) ) {
                 alt32=2;
             }
             else {
@@ -12581,12 +12571,12 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
                 alt34=4;
                 }
                 break;
-            case 83:
+            case 84:
                 {
                 alt34=5;
                 }
                 break;
-            case 84:
+            case 85:
                 {
                 alt34=6;
                 }
@@ -12784,15 +12774,15 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             case 30:
             case 50:
             case 51:
-            case 57:
-            case 80:
-            case 82:
+            case 58:
+            case 81:
             case 83:
             case 84:
             case 85:
             case 86:
-            case 91:
-            case 95:
+            case 87:
+            case 92:
+            case 96:
             case 98:
             case 99:
                 {
@@ -12803,10 +12793,10 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
                 {
                 int LA35_2 = input.LA(2);
 
-                if ( (LA35_2==70) ) {
+                if ( (LA35_2==71) ) {
                     alt35=2;
                 }
-                else if ( (LA35_2==EOF||LA35_2==11||(LA35_2>=28 && LA35_2<=49)||(LA35_2>=55 && LA35_2<=57)||(LA35_2>=60 && LA35_2<=61)||LA35_2==65||LA35_2==76||LA35_2==97) ) {
+                else if ( (LA35_2==EOF||LA35_2==11||(LA35_2>=28 && LA35_2<=49)||(LA35_2>=56 && LA35_2<=58)||(LA35_2>=61 && LA35_2<=62)||LA35_2==66||LA35_2==77||LA35_2==97) ) {
                     alt35=1;
                 }
                 else {
@@ -12818,7 +12808,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
                 }
                 }
                 break;
-            case 70:
+            case 71:
                 {
                 alt35=2;
                 }
@@ -13036,15 +13026,15 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             case 30:
             case 50:
             case 51:
-            case 57:
-            case 80:
-            case 82:
+            case 58:
+            case 81:
             case 83:
             case 84:
             case 85:
             case 86:
-            case 91:
-            case 95:
+            case 87:
+            case 92:
+            case 96:
             case 98:
             case 99:
                 {
@@ -13055,11 +13045,11 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
                 {
                 int LA37_2 = input.LA(2);
 
-                if ( (LA37_2==11||(LA37_2>=28 && LA37_2<=49)||LA37_2==57||LA37_2==60||LA37_2==65||LA37_2==76||LA37_2==87||LA37_2==97) ) {
-                    alt37=1;
-                }
-                else if ( (LA37_2==70) ) {
+                if ( (LA37_2==71) ) {
                     alt37=2;
+                }
+                else if ( (LA37_2==11||(LA37_2>=28 && LA37_2<=49)||LA37_2==58||LA37_2==61||LA37_2==66||LA37_2==77||LA37_2==88||LA37_2==97) ) {
+                    alt37=1;
                 }
                 else {
                     if (state.backtracking>0) {state.failed=true; return ;}
@@ -13070,7 +13060,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
                 }
                 }
                 break;
-            case 70:
+            case 71:
                 {
                 alt37=2;
                 }
@@ -13157,7 +13147,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             // InternalUSE.g:3595:1: ( ( ruleNavigatingCommaArgCS ) | ( ruleNavigatingSemiArgCS ) | ( ruleNavigatingBarArgCS ) )
             int alt38=3;
             switch ( input.LA(1) ) {
-            case 56:
+            case 57:
                 {
                 alt38=1;
                 }
@@ -13277,7 +13267,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             // InternalUSE.g:3622:1: ( ( ( rule__NavigatingCommaArgCS__Group_2_0__0 ) ) | ( ( rule__NavigatingCommaArgCS__Group_2_1__0 ) ) | ( ( rule__NavigatingCommaArgCS__Group_2_2__0 ) ) )
             int alt39=3;
             switch ( input.LA(1) ) {
-            case 81:
+            case 82:
                 {
                 int LA39_1 = input.LA(2);
 
@@ -13296,7 +13286,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
                 }
                 }
                 break;
-            case 70:
+            case 71:
                 {
                 int LA39_2 = input.LA(2);
 
@@ -13315,7 +13305,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
                 }
                 }
                 break;
-            case 92:
+            case 93:
                 {
                 alt39=3;
                 }
@@ -13444,10 +13434,10 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             int alt40=2;
             int LA40_0 = input.LA(1);
 
-            if ( ((LA40_0>=RULE_INT && LA40_0<=RULE_ID)||(LA40_0>=11 && LA40_0<=18)||(LA40_0>=22 && LA40_0<=27)||LA40_0==30||(LA40_0>=50 && LA40_0<=51)||LA40_0==57||LA40_0==80||(LA40_0>=82 && LA40_0<=86)||LA40_0==91||LA40_0==95||(LA40_0>=98 && LA40_0<=99)) ) {
+            if ( ((LA40_0>=RULE_INT && LA40_0<=RULE_ID)||(LA40_0>=11 && LA40_0<=18)||(LA40_0>=22 && LA40_0<=27)||LA40_0==30||(LA40_0>=50 && LA40_0<=51)||LA40_0==58||LA40_0==81||(LA40_0>=83 && LA40_0<=87)||LA40_0==92||LA40_0==96||(LA40_0>=98 && LA40_0<=99)) ) {
                 alt40=1;
             }
-            else if ( (LA40_0==70) ) {
+            else if ( (LA40_0==71) ) {
                 alt40=2;
             }
             else {
@@ -13543,7 +13533,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             // InternalUSE.g:3670:1: ( ( ( rule__NavigatingArgCS__Group_0_1_0__0 ) ) | ( ( rule__NavigatingArgCS__Group_0_1_1__0 ) ) | ( ( rule__NavigatingArgCS__Group_0_1_2__0 ) ) )
             int alt41=3;
             switch ( input.LA(1) ) {
-            case 81:
+            case 82:
                 {
                 int LA41_1 = input.LA(2);
 
@@ -13562,7 +13552,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
                 }
                 }
                 break;
-            case 70:
+            case 71:
                 {
                 int LA41_2 = input.LA(2);
 
@@ -13581,7 +13571,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
                 }
                 }
                 break;
-            case 92:
+            case 93:
                 {
                 alt41=3;
                 }
@@ -13753,7 +13743,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getModelUSEAccess().getModelKeyword_0()); 
             }
-            match(input,54,FOLLOW_2); if (state.failed) return ;
+            match(input,55,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getModelUSEAccess().getModelKeyword_0()); 
             }
@@ -14011,7 +14001,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
                 int alt42=2;
                 int LA42_0 = input.LA(1);
 
-                if ( (LA42_0==59) ) {
+                if ( (LA42_0==60) ) {
                     alt42=1;
                 }
 
@@ -14118,7 +14108,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
                 int alt43=2;
                 int LA43_0 = input.LA(1);
 
-                if ( ((LA43_0>=19 && LA43_0<=21)||LA43_0==62||LA43_0==68||LA43_0==93) ) {
+                if ( ((LA43_0>=19 && LA43_0<=21)||LA43_0==63||LA43_0==69||LA43_0==94) ) {
                     alt43=1;
                 }
 
@@ -14218,7 +14208,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             int alt44=2;
             int LA44_0 = input.LA(1);
 
-            if ( (LA44_0==73) ) {
+            if ( (LA44_0==74) ) {
                 alt44=1;
             }
             switch (alt44) {
@@ -14407,7 +14397,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             int alt45=2;
             int LA45_0 = input.LA(1);
 
-            if ( (LA45_0==55) ) {
+            if ( (LA45_0==56) ) {
                 alt45=1;
             }
             switch (alt45) {
@@ -14504,7 +14494,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
                 int alt46=2;
                 int LA46_0 = input.LA(1);
 
-                if ( (LA46_0==56) ) {
+                if ( (LA46_0==57) ) {
                     alt46=1;
                 }
 
@@ -14605,7 +14595,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getMultiplicityAccess().getFullStopFullStopKeyword_1_0()); 
             }
-            match(input,55,FOLLOW_2); if (state.failed) return ;
+            match(input,56,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getMultiplicityAccess().getFullStopFullStopKeyword_1_0()); 
             }
@@ -14768,7 +14758,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getMultiplicityAccess().getCommaKeyword_2_0()); 
             }
-            match(input,56,FOLLOW_2); if (state.failed) return ;
+            match(input,57,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getMultiplicityAccess().getCommaKeyword_2_0()); 
             }
@@ -14935,7 +14925,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             int alt47=2;
             int LA47_0 = input.LA(1);
 
-            if ( (LA47_0==55) ) {
+            if ( (LA47_0==56) ) {
                 alt47=1;
             }
             switch (alt47) {
@@ -15031,7 +15021,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getMultiplicityAccess().getFullStopFullStopKeyword_2_2_0()); 
             }
-            match(input,55,FOLLOW_2); if (state.failed) return ;
+            match(input,56,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getMultiplicityAccess().getFullStopFullStopKeyword_2_2_0()); 
             }
@@ -15283,7 +15273,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getCollectionTypeAccess().getLeftParenthesisKeyword_1()); 
             }
-            match(input,57,FOLLOW_2); if (state.failed) return ;
+            match(input,58,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getCollectionTypeAccess().getLeftParenthesisKeyword_1()); 
             }
@@ -15464,7 +15454,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getCollectionTypeAccess().getRightParenthesisKeyword_3()); 
             }
-            match(input,58,FOLLOW_2); if (state.failed) return ;
+            match(input,59,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getCollectionTypeAccess().getRightParenthesisKeyword_3()); 
             }
@@ -15543,7 +15533,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getEnumAccess().getEnumKeyword_0()); 
             }
-            match(input,59,FOLLOW_2); if (state.failed) return ;
+            match(input,60,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getEnumAccess().getEnumKeyword_0()); 
             }
@@ -15722,7 +15712,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getEnumAccess().getLeftCurlyBracketKeyword_2()); 
             }
-            match(input,60,FOLLOW_2); if (state.failed) return ;
+            match(input,61,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getEnumAccess().getLeftCurlyBracketKeyword_2()); 
             }
@@ -15932,7 +15922,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getEnumAccess().getRightCurlyBracketKeyword_4()); 
             }
-            match(input,61,FOLLOW_2); if (state.failed) return ;
+            match(input,62,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getEnumAccess().getRightCurlyBracketKeyword_4()); 
             }
@@ -16089,14 +16079,14 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             int alt51=2;
             int LA51_0 = input.LA(1);
 
-            if ( (LA51_0==56) ) {
+            if ( (LA51_0==57) ) {
                 alt51=1;
             }
             switch (alt51) {
                 case 1 :
                     // InternalUSE.g:4420:3: ','
                     {
-                    match(input,56,FOLLOW_2); if (state.failed) return ;
+                    match(input,57,FOLLOW_2); if (state.failed) return ;
 
                     }
                     break;
@@ -16185,7 +16175,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             int alt52=2;
             int LA52_0 = input.LA(1);
 
-            if ( (LA52_0==93) ) {
+            if ( (LA52_0==94) ) {
                 alt52=1;
             }
             switch (alt52) {
@@ -16281,7 +16271,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getClassAccess().getClassKeyword_1()); 
             }
-            match(input,62,FOLLOW_2); if (state.failed) return ;
+            match(input,63,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getClassAccess().getClassKeyword_1()); 
             }
@@ -16553,7 +16543,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             int alt54=2;
             int LA54_0 = input.LA(1);
 
-            if ( (LA54_0==69) ) {
+            if ( (LA54_0==70) ) {
                 alt54=1;
             }
             switch (alt54) {
@@ -16653,7 +16643,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             int alt55=2;
             int LA55_0 = input.LA(1);
 
-            if ( (LA55_0==71) ) {
+            if ( (LA55_0==72) ) {
                 alt55=1;
             }
             switch (alt55) {
@@ -16753,7 +16743,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             int alt56=2;
             int LA56_0 = input.LA(1);
 
-            if ( (LA56_0==73) ) {
+            if ( (LA56_0==74) ) {
                 alt56=1;
             }
             switch (alt56) {
@@ -16844,7 +16834,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getClassAccess().getEndKeyword_7()); 
             }
-            match(input,63,FOLLOW_2); if (state.failed) return ;
+            match(input,64,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getClassAccess().getEndKeyword_7()); 
             }
@@ -17221,14 +17211,14 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             int alt58=2;
             int LA58_0 = input.LA(1);
 
-            if ( (LA58_0==56) ) {
+            if ( (LA58_0==57) ) {
                 alt58=1;
             }
             switch (alt58) {
                 case 1 :
                     // InternalUSE.g:4751:3: ','
                     {
-                    match(input,56,FOLLOW_2); if (state.failed) return ;
+                    match(input,57,FOLLOW_2); if (state.failed) return ;
 
                     }
                     break;
@@ -17491,7 +17481,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getAssociationAccess().getBetweenKeyword_2()); 
             }
-            match(input,64,FOLLOW_2); if (state.failed) return ;
+            match(input,65,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getAssociationAccess().getBetweenKeyword_2()); 
             }
@@ -17701,7 +17691,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getAssociationAccess().getEndKeyword_4()); 
             }
-            match(input,63,FOLLOW_2); if (state.failed) return ;
+            match(input,64,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getAssociationAccess().getEndKeyword_4()); 
             }
@@ -17869,7 +17859,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getAssociationEndAccess().getLeftSquareBracketKeyword_1()); 
             }
-            match(input,65,FOLLOW_2); if (state.failed) return ;
+            match(input,66,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getAssociationEndAccess().getLeftSquareBracketKeyword_1()); 
             }
@@ -18037,7 +18027,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getAssociationEndAccess().getRightSquareBracketKeyword_3()); 
             }
-            match(input,66,FOLLOW_2); if (state.failed) return ;
+            match(input,67,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getAssociationEndAccess().getRightSquareBracketKeyword_3()); 
             }
@@ -18120,7 +18110,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             int alt60=2;
             int LA60_0 = input.LA(1);
 
-            if ( (LA60_0==67) ) {
+            if ( (LA60_0==68) ) {
                 alt60=1;
             }
             switch (alt60) {
@@ -18215,7 +18205,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             int alt61=2;
             int LA61_0 = input.LA(1);
 
-            if ( (LA61_0==94) ) {
+            if ( (LA61_0==95) ) {
                 alt61=1;
             }
             switch (alt61) {
@@ -18311,7 +18301,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getAssociationEndAccess().getRoleKeyword_4_0()); 
             }
-            match(input,67,FOLLOW_2); if (state.failed) return ;
+            match(input,68,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getAssociationEndAccess().getRoleKeyword_4_0()); 
             }
@@ -18478,7 +18468,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             int alt62=2;
             int LA62_0 = input.LA(1);
 
-            if ( (LA62_0==93) ) {
+            if ( (LA62_0==94) ) {
                 alt62=1;
             }
             switch (alt62) {
@@ -18574,7 +18564,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getAssociationClassAccess().getAssociationclassKeyword_1()); 
             }
-            match(input,68,FOLLOW_2); if (state.failed) return ;
+            match(input,69,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getAssociationClassAccess().getAssociationclassKeyword_1()); 
             }
@@ -18842,7 +18832,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getAssociationClassAccess().getBetweenKeyword_4()); 
             }
-            match(input,64,FOLLOW_2); if (state.failed) return ;
+            match(input,65,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getAssociationClassAccess().getBetweenKeyword_4()); 
             }
@@ -19061,7 +19051,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             int alt65=2;
             int LA65_0 = input.LA(1);
 
-            if ( (LA65_0==69) ) {
+            if ( (LA65_0==70) ) {
                 alt65=1;
             }
             switch (alt65) {
@@ -19161,7 +19151,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             int alt66=2;
             int LA66_0 = input.LA(1);
 
-            if ( (LA66_0==71) ) {
+            if ( (LA66_0==72) ) {
                 alt66=1;
             }
             switch (alt66) {
@@ -19261,7 +19251,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             int alt67=2;
             int LA67_0 = input.LA(1);
 
-            if ( (LA67_0==73) ) {
+            if ( (LA67_0==74) ) {
                 alt67=1;
             }
             switch (alt67) {
@@ -19352,7 +19342,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getAssociationClassAccess().getEndKeyword_9()); 
             }
-            match(input,63,FOLLOW_2); if (state.failed) return ;
+            match(input,64,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getAssociationClassAccess().getEndKeyword_9()); 
             }
@@ -19641,7 +19631,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getAttributesBaseAccess().getAttributesKeyword_0()); 
             }
-            match(input,69,FOLLOW_2); if (state.failed) return ;
+            match(input,70,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getAttributesBaseAccess().getAttributesKeyword_0()); 
             }
@@ -19911,7 +19901,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getAttributeAccess().getColonKeyword_1()); 
             }
-            match(input,70,FOLLOW_2); if (state.failed) return ;
+            match(input,71,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getAttributeAccess().getColonKeyword_1()); 
             }
@@ -20074,7 +20064,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getOperationsBaseAccess().getOperationsKeyword_0()); 
             }
-            match(input,71,FOLLOW_2); if (state.failed) return ;
+            match(input,72,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getOperationsBaseAccess().getOperationsKeyword_0()); 
             }
@@ -20513,7 +20503,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
                 int alt71=2;
                 int LA71_0 = input.LA(1);
 
-                if ( ((LA71_0>=77 && LA71_0<=78)) ) {
+                if ( ((LA71_0>=78 && LA71_0<=79)) ) {
                     alt71=1;
                 }
 
@@ -20707,7 +20697,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             int alt72=2;
             int LA72_0 = input.LA(1);
 
-            if ( (LA72_0==72) ) {
+            if ( (LA72_0==73) ) {
                 alt72=1;
             }
             switch (alt72) {
@@ -20804,7 +20794,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
                 int alt73=2;
                 int LA73_0 = input.LA(1);
 
-                if ( ((LA73_0>=77 && LA73_0<=78)) ) {
+                if ( ((LA73_0>=78 && LA73_0<=79)) ) {
                     alt73=1;
                 }
 
@@ -20905,7 +20895,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getOperationComplexAccess().getBeginKeyword_1_0()); 
             }
-            match(input,72,FOLLOW_2); if (state.failed) return ;
+            match(input,73,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getOperationComplexAccess().getBeginKeyword_1_0()); 
             }
@@ -21079,7 +21069,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getOperationComplexAccess().getEndKeyword_1_2()); 
             }
-            match(input,63,FOLLOW_2); if (state.failed) return ;
+            match(input,64,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getOperationComplexAccess().getEndKeyword_1_2()); 
             }
@@ -21247,7 +21237,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getOperationDeclarationAccess().getLeftParenthesisKeyword_1()); 
             }
-            match(input,57,FOLLOW_2); if (state.failed) return ;
+            match(input,58,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getOperationDeclarationAccess().getLeftParenthesisKeyword_1()); 
             }
@@ -21433,7 +21423,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getOperationDeclarationAccess().getRightParenthesisKeyword_3()); 
             }
-            match(input,58,FOLLOW_2); if (state.failed) return ;
+            match(input,59,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getOperationDeclarationAccess().getRightParenthesisKeyword_3()); 
             }
@@ -21511,7 +21501,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             int alt76=2;
             int LA76_0 = input.LA(1);
 
-            if ( (LA76_0==70) ) {
+            if ( (LA76_0==71) ) {
                 alt76=1;
             }
             switch (alt76) {
@@ -21607,7 +21597,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getOperationDeclarationAccess().getColonKeyword_4_0()); 
             }
-            match(input,70,FOLLOW_2); if (state.failed) return ;
+            match(input,71,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getOperationDeclarationAccess().getColonKeyword_4_0()); 
             }
@@ -21859,7 +21849,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getParameterAccess().getColonKeyword_1()); 
             }
-            match(input,70,FOLLOW_2); if (state.failed) return ;
+            match(input,71,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getParameterAccess().getColonKeyword_1()); 
             }
@@ -22026,14 +22016,14 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             int alt77=2;
             int LA77_0 = input.LA(1);
 
-            if ( (LA77_0==56) ) {
+            if ( (LA77_0==57) ) {
                 alt77=1;
             }
             switch (alt77) {
                 case 1 :
                     // InternalUSE.g:6203:3: ','
                     {
-                    match(input,56,FOLLOW_2); if (state.failed) return ;
+                    match(input,57,FOLLOW_2); if (state.failed) return ;
 
                     }
                     break;
@@ -22118,7 +22108,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getConstraintsBaseAccess().getConstraintsKeyword_0()); 
             }
-            match(input,73,FOLLOW_2); if (state.failed) return ;
+            match(input,74,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getConstraintsBaseAccess().getConstraintsKeyword_0()); 
             }
@@ -22198,7 +22188,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
                 int alt78=2;
                 int LA78_0 = input.LA(1);
 
-                if ( (LA78_0==75) ) {
+                if ( (LA78_0==76) ) {
                     alt78=1;
                 }
 
@@ -22299,7 +22289,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getConstrainsGeneralAccess().getConstraintsKeyword_0()); 
             }
-            match(input,73,FOLLOW_2); if (state.failed) return ;
+            match(input,74,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getConstrainsGeneralAccess().getConstraintsKeyword_0()); 
             }
@@ -22379,7 +22369,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
                 int alt79=2;
                 int LA79_0 = input.LA(1);
 
-                if ( (LA79_0==74) ) {
+                if ( (LA79_0==75) ) {
                     alt79=1;
                 }
 
@@ -22480,7 +22470,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getInvariantContextAccess().getContextKeyword_0()); 
             }
-            match(input,74,FOLLOW_2); if (state.failed) return ;
+            match(input,75,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getInvariantContextAccess().getContextKeyword_0()); 
             }
@@ -22566,7 +22556,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             if ( (LA80_0==RULE_ID) ) {
                 int LA80_1 = input.LA(2);
 
-                if ( (LA80_1==70) ) {
+                if ( (LA80_1==71) ) {
                     alt80=1;
                 }
             }
@@ -22753,7 +22743,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
                 int alt81=2;
                 int LA81_0 = input.LA(1);
 
-                if ( (LA81_0==75) ) {
+                if ( (LA81_0==76) ) {
                     alt81=1;
                 }
 
@@ -22938,7 +22928,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getInvariantContextAccess().getColonKeyword_1_1()); 
             }
-            match(input,70,FOLLOW_2); if (state.failed) return ;
+            match(input,71,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getInvariantContextAccess().getColonKeyword_1_1()); 
             }
@@ -23017,7 +23007,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getInvariantDefinitionAccess().getInvKeyword_0()); 
             }
-            match(input,75,FOLLOW_2); if (state.failed) return ;
+            match(input,76,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getInvariantDefinitionAccess().getInvKeyword_0()); 
             }
@@ -23196,7 +23186,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getInvariantDefinitionAccess().getColonKeyword_2()); 
             }
-            match(input,70,FOLLOW_2); if (state.failed) return ;
+            match(input,71,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getInvariantDefinitionAccess().getColonKeyword_2()); 
             }
@@ -23359,7 +23349,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getOperationContextAccess().getContextKeyword_0()); 
             }
-            match(input,74,FOLLOW_2); if (state.failed) return ;
+            match(input,75,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getOperationContextAccess().getContextKeyword_0()); 
             }
@@ -23611,7 +23601,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getOperationConstraintsAccess().getColonColonKeyword_0()); 
             }
-            match(input,76,FOLLOW_2); if (state.failed) return ;
+            match(input,77,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getOperationConstraintsAccess().getColonColonKeyword_0()); 
             }
@@ -23806,7 +23796,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
                 int alt83=2;
                 int LA83_0 = input.LA(1);
 
-                if ( ((LA83_0>=77 && LA83_0<=78)) ) {
+                if ( ((LA83_0>=78 && LA83_0<=79)) ) {
                     alt83=1;
                 }
 
@@ -23910,7 +23900,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getPreconditionAccess().getPreKeyword_0()); 
             }
-            match(input,77,FOLLOW_2); if (state.failed) return ;
+            match(input,78,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getPreconditionAccess().getPreKeyword_0()); 
             }
@@ -24089,7 +24079,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getPreconditionAccess().getColonKeyword_2()); 
             }
-            match(input,70,FOLLOW_2); if (state.failed) return ;
+            match(input,71,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getPreconditionAccess().getColonKeyword_2()); 
             }
@@ -24252,7 +24242,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getPostconditionAccess().getPostKeyword_0()); 
             }
-            match(input,78,FOLLOW_2); if (state.failed) return ;
+            match(input,79,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getPostconditionAccess().getPostKeyword_0()); 
             }
@@ -24431,7 +24421,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getPostconditionAccess().getColonKeyword_2()); 
             }
-            match(input,70,FOLLOW_2); if (state.failed) return ;
+            match(input,71,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getPostconditionAccess().getColonKeyword_2()); 
             }
@@ -24682,7 +24672,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             int alt86=2;
             int LA86_0 = input.LA(1);
 
-            if ( (LA86_0==57) ) {
+            if ( (LA86_0==58) ) {
                 alt86=1;
             }
             switch (alt86) {
@@ -24778,7 +24768,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getCollectionTypeCSAccess().getLeftParenthesisKeyword_1_0()); 
             }
-            match(input,57,FOLLOW_2); if (state.failed) return ;
+            match(input,58,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getCollectionTypeCSAccess().getLeftParenthesisKeyword_1_0()); 
             }
@@ -24950,7 +24940,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             int alt87=2;
             int LA87_0 = input.LA(1);
 
-            if ( (LA87_0==65) ) {
+            if ( (LA87_0==66) ) {
                 alt87=1;
             }
             switch (alt87) {
@@ -25041,7 +25031,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getCollectionTypeCSAccess().getRightParenthesisKeyword_1_3()); 
             }
-            match(input,58,FOLLOW_2); if (state.failed) return ;
+            match(input,59,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getCollectionTypeCSAccess().getRightParenthesisKeyword_1_3()); 
             }
@@ -25208,7 +25198,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             int alt88=2;
             int LA88_0 = input.LA(1);
 
-            if ( (LA88_0==57) ) {
+            if ( (LA88_0==58) ) {
                 alt88=1;
             }
             switch (alt88) {
@@ -25304,7 +25294,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getMapTypeCSAccess().getLeftParenthesisKeyword_1_0()); 
             }
-            match(input,57,FOLLOW_2); if (state.failed) return ;
+            match(input,58,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getMapTypeCSAccess().getLeftParenthesisKeyword_1_0()); 
             }
@@ -25472,7 +25462,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getMapTypeCSAccess().getCommaKeyword_1_2()); 
             }
-            match(input,56,FOLLOW_2); if (state.failed) return ;
+            match(input,57,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getMapTypeCSAccess().getCommaKeyword_1_2()); 
             }
@@ -25635,7 +25625,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getMapTypeCSAccess().getRightParenthesisKeyword_1_4()); 
             }
-            match(input,58,FOLLOW_2); if (state.failed) return ;
+            match(input,59,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getMapTypeCSAccess().getRightParenthesisKeyword_1_4()); 
             }
@@ -25802,7 +25792,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             int alt89=2;
             int LA89_0 = input.LA(1);
 
-            if ( (LA89_0==57) ) {
+            if ( (LA89_0==58) ) {
                 alt89=1;
             }
             switch (alt89) {
@@ -25898,7 +25888,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getTupleTypeCSAccess().getLeftParenthesisKeyword_1_0()); 
             }
-            match(input,57,FOLLOW_2); if (state.failed) return ;
+            match(input,58,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getTupleTypeCSAccess().getLeftParenthesisKeyword_1_0()); 
             }
@@ -26072,7 +26062,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getTupleTypeCSAccess().getRightParenthesisKeyword_1_2()); 
             }
-            match(input,58,FOLLOW_2); if (state.failed) return ;
+            match(input,59,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getTupleTypeCSAccess().getRightParenthesisKeyword_1_2()); 
             }
@@ -26241,7 +26231,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
                 int alt91=2;
                 int LA91_0 = input.LA(1);
 
-                if ( (LA91_0==56) ) {
+                if ( (LA91_0==57) ) {
                     alt91=1;
                 }
 
@@ -26342,7 +26332,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getTupleTypeCSAccess().getCommaKeyword_1_1_1_0()); 
             }
-            match(input,56,FOLLOW_2); if (state.failed) return ;
+            match(input,57,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getTupleTypeCSAccess().getCommaKeyword_1_1_1_0()); 
             }
@@ -26594,7 +26584,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getTuplePartCSAccess().getColonKeyword_1()); 
             }
-            match(input,70,FOLLOW_2); if (state.failed) return ;
+            match(input,71,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getTuplePartCSAccess().getColonKeyword_1()); 
             }
@@ -26846,7 +26836,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getCollectionPatternCSAccess().getLeftCurlyBracketKeyword_1()); 
             }
-            match(input,60,FOLLOW_2); if (state.failed) return ;
+            match(input,61,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getCollectionPatternCSAccess().getLeftCurlyBracketKeyword_1()); 
             }
@@ -26929,7 +26919,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             int alt92=2;
             int LA92_0 = input.LA(1);
 
-            if ( (LA92_0==RULE_ID||LA92_0==70) ) {
+            if ( (LA92_0==RULE_ID||LA92_0==71) ) {
                 alt92=1;
             }
             switch (alt92) {
@@ -27020,7 +27010,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getCollectionPatternCSAccess().getRightCurlyBracketKeyword_3()); 
             }
-            match(input,61,FOLLOW_2); if (state.failed) return ;
+            match(input,62,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getCollectionPatternCSAccess().getRightCurlyBracketKeyword_3()); 
             }
@@ -27194,7 +27184,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
                 int alt93=2;
                 int LA93_0 = input.LA(1);
 
-                if ( (LA93_0==56) ) {
+                if ( (LA93_0==57) ) {
                     alt93=1;
                 }
 
@@ -27379,7 +27369,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getCollectionPatternCSAccess().getCommaKeyword_2_1_0()); 
             }
-            match(input,56,FOLLOW_2); if (state.failed) return ;
+            match(input,57,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getCollectionPatternCSAccess().getCommaKeyword_2_1_0()); 
             }
@@ -27542,7 +27532,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getCollectionPatternCSAccess().getPlusSignPlusSignKeyword_2_2_0()); 
             }
-            match(input,79,FOLLOW_2); if (state.failed) return ;
+            match(input,80,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getCollectionPatternCSAccess().getPlusSignPlusSignKeyword_2_2_0()); 
             }
@@ -27805,7 +27795,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getPatternExpCSAccess().getColonKeyword_1()); 
             }
-            match(input,70,FOLLOW_2); if (state.failed) return ;
+            match(input,71,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getPatternExpCSAccess().getColonKeyword_1()); 
             }
@@ -28050,7 +28040,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             int alt95=2;
             int LA95_0 = input.LA(1);
 
-            if ( (LA95_0==65) ) {
+            if ( (LA95_0==66) ) {
                 alt95=1;
             }
             switch (alt95) {
@@ -28228,7 +28218,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             int alt96=2;
             int LA96_0 = input.LA(1);
 
-            if ( (LA96_0==65) ) {
+            if ( (LA96_0==66) ) {
                 alt96=1;
             }
             switch (alt96) {
@@ -28412,7 +28402,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             int alt97=2;
             int LA97_0 = input.LA(1);
 
-            if ( (LA97_0==60) ) {
+            if ( (LA97_0==61) ) {
                 alt97=1;
             }
             switch (alt97) {
@@ -28596,7 +28586,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             int alt98=2;
             int LA98_0 = input.LA(1);
 
-            if ( (LA98_0==60) ) {
+            if ( (LA98_0==61) ) {
                 alt98=1;
             }
             switch (alt98) {
@@ -28692,7 +28682,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getTypeNameExpCSAccess().getLeftCurlyBracketKeyword_1_1_0()); 
             }
-            match(input,60,FOLLOW_2); if (state.failed) return ;
+            match(input,61,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getTypeNameExpCSAccess().getLeftCurlyBracketKeyword_1_1_0()); 
             }
@@ -28855,7 +28845,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getTypeNameExpCSAccess().getRightCurlyBracketKeyword_1_1_2()); 
             }
-            match(input,61,FOLLOW_2); if (state.failed) return ;
+            match(input,62,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getTypeNameExpCSAccess().getRightCurlyBracketKeyword_1_1_2()); 
             }
@@ -29013,7 +29003,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getCurlyBracketedClauseCSAccess().getLeftCurlyBracketKeyword_1()); 
             }
-            match(input,60,FOLLOW_2); if (state.failed) return ;
+            match(input,61,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getCurlyBracketedClauseCSAccess().getLeftCurlyBracketKeyword_1()); 
             }
@@ -29187,7 +29177,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getCurlyBracketedClauseCSAccess().getRightCurlyBracketKeyword_3()); 
             }
-            match(input,61,FOLLOW_2); if (state.failed) return ;
+            match(input,62,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getCurlyBracketedClauseCSAccess().getRightCurlyBracketKeyword_3()); 
             }
@@ -29356,7 +29346,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
                 int alt100=2;
                 int LA100_0 = input.LA(1);
 
-                if ( (LA100_0==56) ) {
+                if ( (LA100_0==57) ) {
                     alt100=1;
                 }
 
@@ -29457,7 +29447,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getCurlyBracketedClauseCSAccess().getCommaKeyword_2_1_0()); 
             }
-            match(input,56,FOLLOW_2); if (state.failed) return ;
+            match(input,57,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getCurlyBracketedClauseCSAccess().getCommaKeyword_2_1_0()); 
             }
@@ -29960,7 +29950,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             int alt101=2;
             int LA101_0 = input.LA(1);
 
-            if ( (LA101_0==55) ) {
+            if ( (LA101_0==56) ) {
                 alt101=1;
             }
             switch (alt101) {
@@ -30056,7 +30046,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getMultiplicityBoundsCSAccess().getFullStopFullStopKeyword_1_0()); 
             }
-            match(input,55,FOLLOW_2); if (state.failed) return ;
+            match(input,56,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getMultiplicityBoundsCSAccess().getFullStopFullStopKeyword_1_0()); 
             }
@@ -30219,7 +30209,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getMultiplicityCSAccess().getLeftSquareBracketKeyword_0()); 
             }
-            match(input,65,FOLLOW_2); if (state.failed) return ;
+            match(input,66,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getMultiplicityCSAccess().getLeftSquareBracketKeyword_0()); 
             }
@@ -30372,34 +30362,34 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MultiplicityCS__Group__2__Impl"
-    // InternalUSE.g:8796:1: rule__MultiplicityCS__Group__2__Impl : ( ( rule__MultiplicityCS__Alternatives_2 )? ) ;
+    // InternalUSE.g:8796:1: rule__MultiplicityCS__Group__2__Impl : ( ( rule__MultiplicityCS__SymbolAssignment_2 )? ) ;
     public final void rule__MultiplicityCS__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalUSE.g:8800:1: ( ( ( rule__MultiplicityCS__Alternatives_2 )? ) )
-            // InternalUSE.g:8801:1: ( ( rule__MultiplicityCS__Alternatives_2 )? )
+            // InternalUSE.g:8800:1: ( ( ( rule__MultiplicityCS__SymbolAssignment_2 )? ) )
+            // InternalUSE.g:8801:1: ( ( rule__MultiplicityCS__SymbolAssignment_2 )? )
             {
-            // InternalUSE.g:8801:1: ( ( rule__MultiplicityCS__Alternatives_2 )? )
-            // InternalUSE.g:8802:2: ( rule__MultiplicityCS__Alternatives_2 )?
+            // InternalUSE.g:8801:1: ( ( rule__MultiplicityCS__SymbolAssignment_2 )? )
+            // InternalUSE.g:8802:2: ( rule__MultiplicityCS__SymbolAssignment_2 )?
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getMultiplicityCSAccess().getAlternatives_2()); 
+               before(grammarAccess.getMultiplicityCSAccess().getSymbolAssignment_2()); 
             }
-            // InternalUSE.g:8803:2: ( rule__MultiplicityCS__Alternatives_2 )?
+            // InternalUSE.g:8803:2: ( rule__MultiplicityCS__SymbolAssignment_2 )?
             int alt102=2;
             int LA102_0 = input.LA(1);
 
-            if ( (LA102_0==52||LA102_0==96) ) {
+            if ( ((LA102_0>=52 && LA102_0<=53)) ) {
                 alt102=1;
             }
             switch (alt102) {
                 case 1 :
-                    // InternalUSE.g:8803:3: rule__MultiplicityCS__Alternatives_2
+                    // InternalUSE.g:8803:3: rule__MultiplicityCS__SymbolAssignment_2
                     {
                     pushFollow(FOLLOW_2);
-                    rule__MultiplicityCS__Alternatives_2();
+                    rule__MultiplicityCS__SymbolAssignment_2();
 
                     state._fsp--;
                     if (state.failed) return ;
@@ -30410,7 +30400,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getMultiplicityCSAccess().getAlternatives_2()); 
+               after(grammarAccess.getMultiplicityCSAccess().getSymbolAssignment_2()); 
             }
 
             }
@@ -30482,7 +30472,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getMultiplicityCSAccess().getRightSquareBracketKeyword_3()); 
             }
-            match(input,66,FOLLOW_2); if (state.failed) return ;
+            match(input,67,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getMultiplicityCSAccess().getRightSquareBracketKeyword_3()); 
             }
@@ -30651,7 +30641,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
                 int alt103=2;
                 int LA103_0 = input.LA(1);
 
-                if ( (LA103_0==76) ) {
+                if ( (LA103_0==77) ) {
                     alt103=1;
                 }
 
@@ -30752,7 +30742,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getPathNameCSAccess().getColonColonKeyword_1_0()); 
             }
-            match(input,76,FOLLOW_2); if (state.failed) return ;
+            match(input,77,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getPathNameCSAccess().getColonColonKeyword_1_0()); 
             }
@@ -31944,7 +31934,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
                 int alt105=2;
                 int LA105_0 = input.LA(1);
 
-                if ( (LA105_0==65) ) {
+                if ( (LA105_0==66) ) {
                     alt105=1;
                 }
 
@@ -32049,7 +32039,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             int alt106=2;
             int LA106_0 = input.LA(1);
 
-            if ( (LA106_0==57) ) {
+            if ( (LA106_0==58) ) {
                 alt106=1;
             }
             switch (alt106) {
@@ -32149,7 +32139,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             int alt107=2;
             int LA107_0 = input.LA(1);
 
-            if ( (LA107_0==60) ) {
+            if ( (LA107_0==61) ) {
                 alt107=1;
             }
             switch (alt107) {
@@ -32409,24 +32399,34 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__NameExpCS__Group_4__1__Impl"
-    // InternalUSE.g:9416:1: rule__NameExpCS__Group_4__1__Impl : ( 'pre' ) ;
+    // InternalUSE.g:9416:1: rule__NameExpCS__Group_4__1__Impl : ( ( rule__NameExpCS__PreAssignment_4_1 ) ) ;
     public final void rule__NameExpCS__Group_4__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalUSE.g:9420:1: ( ( 'pre' ) )
-            // InternalUSE.g:9421:1: ( 'pre' )
+            // InternalUSE.g:9420:1: ( ( ( rule__NameExpCS__PreAssignment_4_1 ) ) )
+            // InternalUSE.g:9421:1: ( ( rule__NameExpCS__PreAssignment_4_1 ) )
             {
-            // InternalUSE.g:9421:1: ( 'pre' )
-            // InternalUSE.g:9422:2: 'pre'
+            // InternalUSE.g:9421:1: ( ( rule__NameExpCS__PreAssignment_4_1 ) )
+            // InternalUSE.g:9422:2: ( rule__NameExpCS__PreAssignment_4_1 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getNameExpCSAccess().getPreKeyword_4_1()); 
+               before(grammarAccess.getNameExpCSAccess().getPreAssignment_4_1()); 
             }
-            match(input,77,FOLLOW_2); if (state.failed) return ;
+            // InternalUSE.g:9423:2: ( rule__NameExpCS__PreAssignment_4_1 )
+            // InternalUSE.g:9423:3: rule__NameExpCS__PreAssignment_4_1
+            {
+            pushFollow(FOLLOW_2);
+            rule__NameExpCS__PreAssignment_4_1();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getNameExpCSAccess().getPreKeyword_4_1()); 
+               after(grammarAccess.getNameExpCSAccess().getPreAssignment_4_1()); 
             }
 
             }
@@ -32503,7 +32503,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSquareBracketedClauseCSAccess().getLeftSquareBracketKeyword_0()); 
             }
-            match(input,65,FOLLOW_2); if (state.failed) return ;
+            match(input,66,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSquareBracketedClauseCSAccess().getLeftSquareBracketKeyword_0()); 
             }
@@ -32677,7 +32677,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
                 int alt109=2;
                 int LA109_0 = input.LA(1);
 
-                if ( (LA109_0==56) ) {
+                if ( (LA109_0==57) ) {
                     alt109=1;
                 }
 
@@ -32773,7 +32773,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSquareBracketedClauseCSAccess().getRightSquareBracketKeyword_3()); 
             }
-            match(input,66,FOLLOW_2); if (state.failed) return ;
+            match(input,67,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSquareBracketedClauseCSAccess().getRightSquareBracketKeyword_3()); 
             }
@@ -32852,7 +32852,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSquareBracketedClauseCSAccess().getCommaKeyword_2_0()); 
             }
-            match(input,56,FOLLOW_2); if (state.failed) return ;
+            match(input,57,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSquareBracketedClauseCSAccess().getCommaKeyword_2_0()); 
             }
@@ -33104,7 +33104,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getCollectionLiteralExpCSAccess().getLeftCurlyBracketKeyword_1()); 
             }
-            match(input,60,FOLLOW_2); if (state.failed) return ;
+            match(input,61,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getCollectionLiteralExpCSAccess().getLeftCurlyBracketKeyword_1()); 
             }
@@ -33187,7 +33187,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             int alt110=2;
             int LA110_0 = input.LA(1);
 
-            if ( ((LA110_0>=RULE_INT && LA110_0<=RULE_ID)||(LA110_0>=11 && LA110_0<=18)||(LA110_0>=22 && LA110_0<=27)||LA110_0==30||(LA110_0>=50 && LA110_0<=51)||LA110_0==57||LA110_0==70||LA110_0==80||(LA110_0>=82 && LA110_0<=86)||LA110_0==91||LA110_0==95||(LA110_0>=98 && LA110_0<=99)) ) {
+            if ( ((LA110_0>=RULE_INT && LA110_0<=RULE_ID)||(LA110_0>=11 && LA110_0<=18)||(LA110_0>=22 && LA110_0<=27)||LA110_0==30||(LA110_0>=50 && LA110_0<=51)||LA110_0==58||LA110_0==71||LA110_0==81||(LA110_0>=83 && LA110_0<=87)||LA110_0==92||LA110_0==96||(LA110_0>=98 && LA110_0<=99)) ) {
                 alt110=1;
             }
             switch (alt110) {
@@ -33278,7 +33278,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getCollectionLiteralExpCSAccess().getRightCurlyBracketKeyword_3()); 
             }
-            match(input,61,FOLLOW_2); if (state.failed) return ;
+            match(input,62,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getCollectionLiteralExpCSAccess().getRightCurlyBracketKeyword_3()); 
             }
@@ -33447,7 +33447,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
                 int alt111=2;
                 int LA111_0 = input.LA(1);
 
-                if ( (LA111_0==56) ) {
+                if ( (LA111_0==57) ) {
                     alt111=1;
                 }
 
@@ -33548,7 +33548,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getCollectionLiteralExpCSAccess().getCommaKeyword_2_1_0()); 
             }
-            match(input,56,FOLLOW_2); if (state.failed) return ;
+            match(input,57,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getCollectionLiteralExpCSAccess().getCommaKeyword_2_1_0()); 
             }
@@ -33799,7 +33799,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             int alt112=2;
             int LA112_0 = input.LA(1);
 
-            if ( (LA112_0==55) ) {
+            if ( (LA112_0==56) ) {
                 alt112=1;
             }
             switch (alt112) {
@@ -33895,7 +33895,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getCollectionLiteralPartCSAccess().getFullStopFullStopKeyword_0_1_0()); 
             }
-            match(input,55,FOLLOW_2); if (state.failed) return ;
+            match(input,56,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getCollectionLiteralPartCSAccess().getFullStopFullStopKeyword_0_1_0()); 
             }
@@ -34058,7 +34058,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getLambdaLiteralExpCSAccess().getLambdaKeyword_0()); 
             }
-            match(input,80,FOLLOW_2); if (state.failed) return ;
+            match(input,81,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getLambdaLiteralExpCSAccess().getLambdaKeyword_0()); 
             }
@@ -34137,7 +34137,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getLambdaLiteralExpCSAccess().getLeftCurlyBracketKeyword_1()); 
             }
-            match(input,60,FOLLOW_2); if (state.failed) return ;
+            match(input,61,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getLambdaLiteralExpCSAccess().getLeftCurlyBracketKeyword_1()); 
             }
@@ -34300,7 +34300,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getLambdaLiteralExpCSAccess().getRightCurlyBracketKeyword_3()); 
             }
-            match(input,61,FOLLOW_2); if (state.failed) return ;
+            match(input,62,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getLambdaLiteralExpCSAccess().getRightCurlyBracketKeyword_3()); 
             }
@@ -34468,7 +34468,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getMapLiteralExpCSAccess().getLeftCurlyBracketKeyword_1()); 
             }
-            match(input,60,FOLLOW_2); if (state.failed) return ;
+            match(input,61,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getMapLiteralExpCSAccess().getLeftCurlyBracketKeyword_1()); 
             }
@@ -34551,7 +34551,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             int alt113=2;
             int LA113_0 = input.LA(1);
 
-            if ( ((LA113_0>=RULE_INT && LA113_0<=RULE_ID)||(LA113_0>=11 && LA113_0<=18)||(LA113_0>=22 && LA113_0<=27)||LA113_0==30||(LA113_0>=50 && LA113_0<=51)||LA113_0==57||LA113_0==80||(LA113_0>=82 && LA113_0<=86)||LA113_0==91||LA113_0==95||(LA113_0>=98 && LA113_0<=99)) ) {
+            if ( ((LA113_0>=RULE_INT && LA113_0<=RULE_ID)||(LA113_0>=11 && LA113_0<=18)||(LA113_0>=22 && LA113_0<=27)||LA113_0==30||(LA113_0>=50 && LA113_0<=51)||LA113_0==58||LA113_0==81||(LA113_0>=83 && LA113_0<=87)||LA113_0==92||LA113_0==96||(LA113_0>=98 && LA113_0<=99)) ) {
                 alt113=1;
             }
             switch (alt113) {
@@ -34642,7 +34642,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getMapLiteralExpCSAccess().getRightCurlyBracketKeyword_3()); 
             }
-            match(input,61,FOLLOW_2); if (state.failed) return ;
+            match(input,62,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getMapLiteralExpCSAccess().getRightCurlyBracketKeyword_3()); 
             }
@@ -34811,7 +34811,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
                 int alt114=2;
                 int LA114_0 = input.LA(1);
 
-                if ( (LA114_0==56) ) {
+                if ( (LA114_0==57) ) {
                     alt114=1;
                 }
 
@@ -34912,7 +34912,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getMapLiteralExpCSAccess().getCommaKeyword_2_1_0()); 
             }
-            match(input,56,FOLLOW_2); if (state.failed) return ;
+            match(input,57,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getMapLiteralExpCSAccess().getCommaKeyword_2_1_0()); 
             }
@@ -35164,7 +35164,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getMapLiteralPartCSAccess().getLessThanSignHyphenMinusKeyword_1()); 
             }
-            match(input,81,FOLLOW_2); if (state.failed) return ;
+            match(input,82,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getMapLiteralPartCSAccess().getLessThanSignHyphenMinusKeyword_1()); 
             }
@@ -35327,7 +35327,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getTupleLiteralExpCSAccess().getTupleKeyword_0()); 
             }
-            match(input,82,FOLLOW_2); if (state.failed) return ;
+            match(input,83,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getTupleLiteralExpCSAccess().getTupleKeyword_0()); 
             }
@@ -35406,7 +35406,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getTupleLiteralExpCSAccess().getLeftCurlyBracketKeyword_1()); 
             }
-            match(input,60,FOLLOW_2); if (state.failed) return ;
+            match(input,61,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getTupleLiteralExpCSAccess().getLeftCurlyBracketKeyword_1()); 
             }
@@ -35580,7 +35580,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
                 int alt115=2;
                 int LA115_0 = input.LA(1);
 
-                if ( (LA115_0==56) ) {
+                if ( (LA115_0==57) ) {
                     alt115=1;
                 }
 
@@ -35676,7 +35676,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getTupleLiteralExpCSAccess().getRightCurlyBracketKeyword_4()); 
             }
-            match(input,61,FOLLOW_2); if (state.failed) return ;
+            match(input,62,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getTupleLiteralExpCSAccess().getRightCurlyBracketKeyword_4()); 
             }
@@ -35755,7 +35755,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getTupleLiteralExpCSAccess().getCommaKeyword_3_0()); 
             }
-            match(input,56,FOLLOW_2); if (state.failed) return ;
+            match(input,57,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getTupleLiteralExpCSAccess().getCommaKeyword_3_0()); 
             }
@@ -36011,7 +36011,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             int alt116=2;
             int LA116_0 = input.LA(1);
 
-            if ( (LA116_0==70) ) {
+            if ( (LA116_0==71) ) {
                 alt116=1;
             }
             switch (alt116) {
@@ -36270,7 +36270,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getTupleLiteralPartCSAccess().getColonKeyword_1_0()); 
             }
-            match(input,70,FOLLOW_2); if (state.failed) return ;
+            match(input,71,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getTupleLiteralPartCSAccess().getColonKeyword_1_0()); 
             }
@@ -36660,7 +36660,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getInvalidLiteralExpCSAccess().getInvalidKeyword_1()); 
             }
-            match(input,83,FOLLOW_2); if (state.failed) return ;
+            match(input,84,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getInvalidLiteralExpCSAccess().getInvalidKeyword_1()); 
             }
@@ -36813,7 +36813,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getNullLiteralExpCSAccess().getNullKeyword_1()); 
             }
-            match(input,84,FOLLOW_2); if (state.failed) return ;
+            match(input,85,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getNullLiteralExpCSAccess().getNullKeyword_1()); 
             }
@@ -36892,7 +36892,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getNestedExpCSAccess().getLeftParenthesisKeyword_0()); 
             }
-            match(input,57,FOLLOW_2); if (state.failed) return ;
+            match(input,58,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getNestedExpCSAccess().getLeftParenthesisKeyword_0()); 
             }
@@ -37055,7 +37055,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getNestedExpCSAccess().getRightParenthesisKeyword_2()); 
             }
-            match(input,58,FOLLOW_2); if (state.failed) return ;
+            match(input,59,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getNestedExpCSAccess().getRightParenthesisKeyword_2()); 
             }
@@ -37208,7 +37208,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSelfExpCSAccess().getSelfKeyword_1()); 
             }
-            match(input,85,FOLLOW_2); if (state.failed) return ;
+            match(input,86,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSelfExpCSAccess().getSelfKeyword_1()); 
             }
@@ -37287,7 +37287,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getIfExpCSAccess().getIfKeyword_0()); 
             }
-            match(input,86,FOLLOW_2); if (state.failed) return ;
+            match(input,87,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getIfExpCSAccess().getIfKeyword_0()); 
             }
@@ -37455,7 +37455,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getIfExpCSAccess().getThenKeyword_2()); 
             }
-            match(input,87,FOLLOW_2); if (state.failed) return ;
+            match(input,88,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getIfExpCSAccess().getThenKeyword_2()); 
             }
@@ -37629,7 +37629,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
                 int alt117=2;
                 int LA117_0 = input.LA(1);
 
-                if ( (LA117_0==90) ) {
+                if ( (LA117_0==91) ) {
                     alt117=1;
                 }
 
@@ -37730,7 +37730,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getIfExpCSAccess().getElseKeyword_5()); 
             }
-            match(input,88,FOLLOW_2); if (state.failed) return ;
+            match(input,89,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getIfExpCSAccess().getElseKeyword_5()); 
             }
@@ -37893,7 +37893,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getIfExpCSAccess().getEndifKeyword_7()); 
             }
-            match(input,89,FOLLOW_2); if (state.failed) return ;
+            match(input,90,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getIfExpCSAccess().getEndifKeyword_7()); 
             }
@@ -37972,7 +37972,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getElseIfThenExpCSAccess().getElseifKeyword_0()); 
             }
-            match(input,90,FOLLOW_2); if (state.failed) return ;
+            match(input,91,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getElseIfThenExpCSAccess().getElseifKeyword_0()); 
             }
@@ -38140,7 +38140,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getElseIfThenExpCSAccess().getThenKeyword_2()); 
             }
-            match(input,87,FOLLOW_2); if (state.failed) return ;
+            match(input,88,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getElseIfThenExpCSAccess().getThenKeyword_2()); 
             }
@@ -38303,7 +38303,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getLetExpCSAccess().getLetKeyword_0()); 
             }
-            match(input,91,FOLLOW_2); if (state.failed) return ;
+            match(input,92,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getLetExpCSAccess().getLetKeyword_0()); 
             }
@@ -38477,7 +38477,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
                 int alt118=2;
                 int LA118_0 = input.LA(1);
 
-                if ( (LA118_0==56) ) {
+                if ( (LA118_0==57) ) {
                     alt118=1;
                 }
 
@@ -38578,7 +38578,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getLetExpCSAccess().getInKeyword_3()); 
             }
-            match(input,92,FOLLOW_2); if (state.failed) return ;
+            match(input,93,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getLetExpCSAccess().getInKeyword_3()); 
             }
@@ -38741,7 +38741,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getLetExpCSAccess().getCommaKeyword_2_0()); 
             }
-            match(input,56,FOLLOW_2); if (state.failed) return ;
+            match(input,57,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getLetExpCSAccess().getCommaKeyword_2_0()); 
             }
@@ -38997,7 +38997,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             int alt119=2;
             int LA119_0 = input.LA(1);
 
-            if ( (LA119_0==57) ) {
+            if ( (LA119_0==58) ) {
                 alt119=1;
             }
             switch (alt119) {
@@ -39097,7 +39097,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             int alt120=2;
             int LA120_0 = input.LA(1);
 
-            if ( (LA120_0==70) ) {
+            if ( (LA120_0==71) ) {
                 alt120=1;
             }
             switch (alt120) {
@@ -39356,7 +39356,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getLetVariableCSAccess().getColonKeyword_2_0()); 
             }
-            match(input,70,FOLLOW_2); if (state.failed) return ;
+            match(input,71,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getLetVariableCSAccess().getColonKeyword_2_0()); 
             }
@@ -39598,7 +39598,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getRoundBracketedClauseCSAccess().getLeftParenthesisKeyword_1()); 
             }
-            match(input,57,FOLLOW_2); if (state.failed) return ;
+            match(input,58,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getRoundBracketedClauseCSAccess().getLeftParenthesisKeyword_1()); 
             }
@@ -39681,7 +39681,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             int alt121=2;
             int LA121_0 = input.LA(1);
 
-            if ( ((LA121_0>=RULE_INT && LA121_0<=RULE_ID)||(LA121_0>=11 && LA121_0<=18)||(LA121_0>=22 && LA121_0<=27)||LA121_0==30||(LA121_0>=50 && LA121_0<=51)||LA121_0==57||LA121_0==70||LA121_0==80||(LA121_0>=82 && LA121_0<=86)||LA121_0==91||LA121_0==95||(LA121_0>=98 && LA121_0<=99)) ) {
+            if ( ((LA121_0>=RULE_INT && LA121_0<=RULE_ID)||(LA121_0>=11 && LA121_0<=18)||(LA121_0>=22 && LA121_0<=27)||LA121_0==30||(LA121_0>=50 && LA121_0<=51)||LA121_0==58||LA121_0==71||LA121_0==81||(LA121_0>=83 && LA121_0<=87)||LA121_0==92||LA121_0==96||(LA121_0>=98 && LA121_0<=99)) ) {
                 alt121=1;
             }
             switch (alt121) {
@@ -39772,7 +39772,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getRoundBracketedClauseCSAccess().getRightParenthesisKeyword_3()); 
             }
-            match(input,58,FOLLOW_2); if (state.failed) return ;
+            match(input,59,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getRoundBracketedClauseCSAccess().getRightParenthesisKeyword_3()); 
             }
@@ -39941,7 +39941,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
                 int alt122=2;
                 int LA122_0 = input.LA(1);
 
-                if ( (LA122_0==56||(LA122_0>=100 && LA122_0<=101)) ) {
+                if ( (LA122_0==57||(LA122_0>=100 && LA122_0<=101)) ) {
                     alt122=1;
                 }
 
@@ -40219,7 +40219,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             int alt123=2;
             int LA123_0 = input.LA(1);
 
-            if ( (LA123_0==70) ) {
+            if ( (LA123_0==71) ) {
                 alt123=1;
             }
             switch (alt123) {
@@ -40300,24 +40300,34 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__NavigatingBarArgCS__Group_2__0__Impl"
-    // InternalUSE.g:11928:1: rule__NavigatingBarArgCS__Group_2__0__Impl : ( ':' ) ;
+    // InternalUSE.g:11928:1: rule__NavigatingBarArgCS__Group_2__0__Impl : ( ( rule__NavigatingBarArgCS__SymbolTAssignment_2_0 ) ) ;
     public final void rule__NavigatingBarArgCS__Group_2__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalUSE.g:11932:1: ( ( ':' ) )
-            // InternalUSE.g:11933:1: ( ':' )
+            // InternalUSE.g:11932:1: ( ( ( rule__NavigatingBarArgCS__SymbolTAssignment_2_0 ) ) )
+            // InternalUSE.g:11933:1: ( ( rule__NavigatingBarArgCS__SymbolTAssignment_2_0 ) )
             {
-            // InternalUSE.g:11933:1: ( ':' )
-            // InternalUSE.g:11934:2: ':'
+            // InternalUSE.g:11933:1: ( ( rule__NavigatingBarArgCS__SymbolTAssignment_2_0 ) )
+            // InternalUSE.g:11934:2: ( rule__NavigatingBarArgCS__SymbolTAssignment_2_0 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getNavigatingBarArgCSAccess().getColonKeyword_2_0()); 
+               before(grammarAccess.getNavigatingBarArgCSAccess().getSymbolTAssignment_2_0()); 
             }
-            match(input,70,FOLLOW_2); if (state.failed) return ;
+            // InternalUSE.g:11935:2: ( rule__NavigatingBarArgCS__SymbolTAssignment_2_0 )
+            // InternalUSE.g:11935:3: rule__NavigatingBarArgCS__SymbolTAssignment_2_0
+            {
+            pushFollow(FOLLOW_2);
+            rule__NavigatingBarArgCS__SymbolTAssignment_2_0();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getNavigatingBarArgCSAccess().getColonKeyword_2_0()); 
+               after(grammarAccess.getNavigatingBarArgCSAccess().getSymbolTAssignment_2_0()); 
             }
 
             }
@@ -40563,24 +40573,34 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__NavigatingBarArgCS__Group_2_2__0__Impl"
-    // InternalUSE.g:12009:1: rule__NavigatingBarArgCS__Group_2_2__0__Impl : ( '=' ) ;
+    // InternalUSE.g:12009:1: rule__NavigatingBarArgCS__Group_2_2__0__Impl : ( ( rule__NavigatingBarArgCS__SymbolIEAssignment_2_2_0 ) ) ;
     public final void rule__NavigatingBarArgCS__Group_2_2__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalUSE.g:12013:1: ( ( '=' ) )
-            // InternalUSE.g:12014:1: ( '=' )
+            // InternalUSE.g:12013:1: ( ( ( rule__NavigatingBarArgCS__SymbolIEAssignment_2_2_0 ) ) )
+            // InternalUSE.g:12014:1: ( ( rule__NavigatingBarArgCS__SymbolIEAssignment_2_2_0 ) )
             {
-            // InternalUSE.g:12014:1: ( '=' )
-            // InternalUSE.g:12015:2: '='
+            // InternalUSE.g:12014:1: ( ( rule__NavigatingBarArgCS__SymbolIEAssignment_2_2_0 ) )
+            // InternalUSE.g:12015:2: ( rule__NavigatingBarArgCS__SymbolIEAssignment_2_2_0 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getNavigatingBarArgCSAccess().getEqualsSignKeyword_2_2_0()); 
+               before(grammarAccess.getNavigatingBarArgCSAccess().getSymbolIEAssignment_2_2_0()); 
             }
-            match(input,35,FOLLOW_2); if (state.failed) return ;
+            // InternalUSE.g:12016:2: ( rule__NavigatingBarArgCS__SymbolIEAssignment_2_2_0 )
+            // InternalUSE.g:12016:3: rule__NavigatingBarArgCS__SymbolIEAssignment_2_2_0
+            {
+            pushFollow(FOLLOW_2);
+            rule__NavigatingBarArgCS__SymbolIEAssignment_2_2_0();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getNavigatingBarArgCSAccess().getEqualsSignKeyword_2_2_0()); 
+               after(grammarAccess.getNavigatingBarArgCSAccess().getSymbolIEAssignment_2_2_0()); 
             }
 
             }
@@ -40918,7 +40938,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             int alt125=2;
             int LA125_0 = input.LA(1);
 
-            if ( (LA125_0==70||LA125_0==81||LA125_0==92) ) {
+            if ( (LA125_0==71||LA125_0==82||LA125_0==93) ) {
                 alt125=1;
             }
             switch (alt125) {
@@ -40999,24 +41019,34 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__NavigatingCommaArgCS__Group_2_0__0__Impl"
-    // InternalUSE.g:12144:1: rule__NavigatingCommaArgCS__Group_2_0__0__Impl : ( '<-' ) ;
+    // InternalUSE.g:12144:1: rule__NavigatingCommaArgCS__Group_2_0__0__Impl : ( ( rule__NavigatingCommaArgCS__SymbolCIAssignment_2_0_0 ) ) ;
     public final void rule__NavigatingCommaArgCS__Group_2_0__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalUSE.g:12148:1: ( ( '<-' ) )
-            // InternalUSE.g:12149:1: ( '<-' )
+            // InternalUSE.g:12148:1: ( ( ( rule__NavigatingCommaArgCS__SymbolCIAssignment_2_0_0 ) ) )
+            // InternalUSE.g:12149:1: ( ( rule__NavigatingCommaArgCS__SymbolCIAssignment_2_0_0 ) )
             {
-            // InternalUSE.g:12149:1: ( '<-' )
-            // InternalUSE.g:12150:2: '<-'
+            // InternalUSE.g:12149:1: ( ( rule__NavigatingCommaArgCS__SymbolCIAssignment_2_0_0 ) )
+            // InternalUSE.g:12150:2: ( rule__NavigatingCommaArgCS__SymbolCIAssignment_2_0_0 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getNavigatingCommaArgCSAccess().getLessThanSignHyphenMinusKeyword_2_0_0()); 
+               before(grammarAccess.getNavigatingCommaArgCSAccess().getSymbolCIAssignment_2_0_0()); 
             }
-            match(input,81,FOLLOW_2); if (state.failed) return ;
+            // InternalUSE.g:12151:2: ( rule__NavigatingCommaArgCS__SymbolCIAssignment_2_0_0 )
+            // InternalUSE.g:12151:3: rule__NavigatingCommaArgCS__SymbolCIAssignment_2_0_0
+            {
+            pushFollow(FOLLOW_2);
+            rule__NavigatingCommaArgCS__SymbolCIAssignment_2_0_0();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getNavigatingCommaArgCSAccess().getLessThanSignHyphenMinusKeyword_2_0_0()); 
+               after(grammarAccess.getNavigatingCommaArgCSAccess().getSymbolCIAssignment_2_0_0()); 
             }
 
             }
@@ -41262,24 +41292,34 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__NavigatingCommaArgCS__Group_2_0_2__0__Impl"
-    // InternalUSE.g:12225:1: rule__NavigatingCommaArgCS__Group_2_0_2__0__Impl : ( '=' ) ;
+    // InternalUSE.g:12225:1: rule__NavigatingCommaArgCS__Group_2_0_2__0__Impl : ( ( rule__NavigatingCommaArgCS__SymbolIEAssignment_2_0_2_0 ) ) ;
     public final void rule__NavigatingCommaArgCS__Group_2_0_2__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalUSE.g:12229:1: ( ( '=' ) )
-            // InternalUSE.g:12230:1: ( '=' )
+            // InternalUSE.g:12229:1: ( ( ( rule__NavigatingCommaArgCS__SymbolIEAssignment_2_0_2_0 ) ) )
+            // InternalUSE.g:12230:1: ( ( rule__NavigatingCommaArgCS__SymbolIEAssignment_2_0_2_0 ) )
             {
-            // InternalUSE.g:12230:1: ( '=' )
-            // InternalUSE.g:12231:2: '='
+            // InternalUSE.g:12230:1: ( ( rule__NavigatingCommaArgCS__SymbolIEAssignment_2_0_2_0 ) )
+            // InternalUSE.g:12231:2: ( rule__NavigatingCommaArgCS__SymbolIEAssignment_2_0_2_0 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getNavigatingCommaArgCSAccess().getEqualsSignKeyword_2_0_2_0()); 
+               before(grammarAccess.getNavigatingCommaArgCSAccess().getSymbolIEAssignment_2_0_2_0()); 
             }
-            match(input,35,FOLLOW_2); if (state.failed) return ;
+            // InternalUSE.g:12232:2: ( rule__NavigatingCommaArgCS__SymbolIEAssignment_2_0_2_0 )
+            // InternalUSE.g:12232:3: rule__NavigatingCommaArgCS__SymbolIEAssignment_2_0_2_0
+            {
+            pushFollow(FOLLOW_2);
+            rule__NavigatingCommaArgCS__SymbolIEAssignment_2_0_2_0();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getNavigatingCommaArgCSAccess().getEqualsSignKeyword_2_0_2_0()); 
+               after(grammarAccess.getNavigatingCommaArgCSAccess().getSymbolIEAssignment_2_0_2_0()); 
             }
 
             }
@@ -41425,24 +41465,34 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__NavigatingCommaArgCS__Group_2_1__0__Impl"
-    // InternalUSE.g:12279:1: rule__NavigatingCommaArgCS__Group_2_1__0__Impl : ( ':' ) ;
+    // InternalUSE.g:12279:1: rule__NavigatingCommaArgCS__Group_2_1__0__Impl : ( ( rule__NavigatingCommaArgCS__SymbolTAssignment_2_1_0 ) ) ;
     public final void rule__NavigatingCommaArgCS__Group_2_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalUSE.g:12283:1: ( ( ':' ) )
-            // InternalUSE.g:12284:1: ( ':' )
+            // InternalUSE.g:12283:1: ( ( ( rule__NavigatingCommaArgCS__SymbolTAssignment_2_1_0 ) ) )
+            // InternalUSE.g:12284:1: ( ( rule__NavigatingCommaArgCS__SymbolTAssignment_2_1_0 ) )
             {
-            // InternalUSE.g:12284:1: ( ':' )
-            // InternalUSE.g:12285:2: ':'
+            // InternalUSE.g:12284:1: ( ( rule__NavigatingCommaArgCS__SymbolTAssignment_2_1_0 ) )
+            // InternalUSE.g:12285:2: ( rule__NavigatingCommaArgCS__SymbolTAssignment_2_1_0 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getNavigatingCommaArgCSAccess().getColonKeyword_2_1_0()); 
+               before(grammarAccess.getNavigatingCommaArgCSAccess().getSymbolTAssignment_2_1_0()); 
             }
-            match(input,70,FOLLOW_2); if (state.failed) return ;
+            // InternalUSE.g:12286:2: ( rule__NavigatingCommaArgCS__SymbolTAssignment_2_1_0 )
+            // InternalUSE.g:12286:3: rule__NavigatingCommaArgCS__SymbolTAssignment_2_1_0
+            {
+            pushFollow(FOLLOW_2);
+            rule__NavigatingCommaArgCS__SymbolTAssignment_2_1_0();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getNavigatingCommaArgCSAccess().getColonKeyword_2_1_0()); 
+               after(grammarAccess.getNavigatingCommaArgCSAccess().getSymbolTAssignment_2_1_0()); 
             }
 
             }
@@ -41612,7 +41662,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             int alt127=2;
             int LA127_0 = input.LA(1);
 
-            if ( (LA127_0==81) ) {
+            if ( (LA127_0==82) ) {
                 alt127=1;
             }
             switch (alt127) {
@@ -41788,24 +41838,34 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__NavigatingCommaArgCS__Group_2_1_2__0__Impl"
-    // InternalUSE.g:12387:1: rule__NavigatingCommaArgCS__Group_2_1_2__0__Impl : ( '<-' ) ;
+    // InternalUSE.g:12387:1: rule__NavigatingCommaArgCS__Group_2_1_2__0__Impl : ( ( rule__NavigatingCommaArgCS__SymbolCIAssignment_2_1_2_0 ) ) ;
     public final void rule__NavigatingCommaArgCS__Group_2_1_2__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalUSE.g:12391:1: ( ( '<-' ) )
-            // InternalUSE.g:12392:1: ( '<-' )
+            // InternalUSE.g:12391:1: ( ( ( rule__NavigatingCommaArgCS__SymbolCIAssignment_2_1_2_0 ) ) )
+            // InternalUSE.g:12392:1: ( ( rule__NavigatingCommaArgCS__SymbolCIAssignment_2_1_2_0 ) )
             {
-            // InternalUSE.g:12392:1: ( '<-' )
-            // InternalUSE.g:12393:2: '<-'
+            // InternalUSE.g:12392:1: ( ( rule__NavigatingCommaArgCS__SymbolCIAssignment_2_1_2_0 ) )
+            // InternalUSE.g:12393:2: ( rule__NavigatingCommaArgCS__SymbolCIAssignment_2_1_2_0 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getNavigatingCommaArgCSAccess().getLessThanSignHyphenMinusKeyword_2_1_2_0()); 
+               before(grammarAccess.getNavigatingCommaArgCSAccess().getSymbolCIAssignment_2_1_2_0()); 
             }
-            match(input,81,FOLLOW_2); if (state.failed) return ;
+            // InternalUSE.g:12394:2: ( rule__NavigatingCommaArgCS__SymbolCIAssignment_2_1_2_0 )
+            // InternalUSE.g:12394:3: rule__NavigatingCommaArgCS__SymbolCIAssignment_2_1_2_0
+            {
+            pushFollow(FOLLOW_2);
+            rule__NavigatingCommaArgCS__SymbolCIAssignment_2_1_2_0();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getNavigatingCommaArgCSAccess().getLessThanSignHyphenMinusKeyword_2_1_2_0()); 
+               after(grammarAccess.getNavigatingCommaArgCSAccess().getSymbolCIAssignment_2_1_2_0()); 
             }
 
             }
@@ -41951,24 +42011,34 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__NavigatingCommaArgCS__Group_2_1_3__0__Impl"
-    // InternalUSE.g:12441:1: rule__NavigatingCommaArgCS__Group_2_1_3__0__Impl : ( '=' ) ;
+    // InternalUSE.g:12441:1: rule__NavigatingCommaArgCS__Group_2_1_3__0__Impl : ( ( rule__NavigatingCommaArgCS__SymbolIEAssignment_2_1_3_0 ) ) ;
     public final void rule__NavigatingCommaArgCS__Group_2_1_3__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalUSE.g:12445:1: ( ( '=' ) )
-            // InternalUSE.g:12446:1: ( '=' )
+            // InternalUSE.g:12445:1: ( ( ( rule__NavigatingCommaArgCS__SymbolIEAssignment_2_1_3_0 ) ) )
+            // InternalUSE.g:12446:1: ( ( rule__NavigatingCommaArgCS__SymbolIEAssignment_2_1_3_0 ) )
             {
-            // InternalUSE.g:12446:1: ( '=' )
-            // InternalUSE.g:12447:2: '='
+            // InternalUSE.g:12446:1: ( ( rule__NavigatingCommaArgCS__SymbolIEAssignment_2_1_3_0 ) )
+            // InternalUSE.g:12447:2: ( rule__NavigatingCommaArgCS__SymbolIEAssignment_2_1_3_0 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getNavigatingCommaArgCSAccess().getEqualsSignKeyword_2_1_3_0()); 
+               before(grammarAccess.getNavigatingCommaArgCSAccess().getSymbolIEAssignment_2_1_3_0()); 
             }
-            match(input,35,FOLLOW_2); if (state.failed) return ;
+            // InternalUSE.g:12448:2: ( rule__NavigatingCommaArgCS__SymbolIEAssignment_2_1_3_0 )
+            // InternalUSE.g:12448:3: rule__NavigatingCommaArgCS__SymbolIEAssignment_2_1_3_0
+            {
+            pushFollow(FOLLOW_2);
+            rule__NavigatingCommaArgCS__SymbolIEAssignment_2_1_3_0();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getNavigatingCommaArgCSAccess().getEqualsSignKeyword_2_1_3_0()); 
+               after(grammarAccess.getNavigatingCommaArgCSAccess().getSymbolIEAssignment_2_1_3_0()); 
             }
 
             }
@@ -42133,7 +42203,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             int alt129=2;
             int LA129_0 = input.LA(1);
 
-            if ( (LA129_0==70) ) {
+            if ( (LA129_0==71) ) {
                 alt129=1;
             }
             switch (alt129) {
@@ -42233,7 +42303,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             int alt130=2;
             int LA130_0 = input.LA(1);
 
-            if ( (LA130_0==81) ) {
+            if ( (LA130_0==82) ) {
                 alt130=1;
             }
             switch (alt130) {
@@ -42314,24 +42384,34 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__NavigatingCommaArgCS__Group_2_2__2__Impl"
-    // InternalUSE.g:12549:1: rule__NavigatingCommaArgCS__Group_2_2__2__Impl : ( 'in' ) ;
+    // InternalUSE.g:12549:1: rule__NavigatingCommaArgCS__Group_2_2__2__Impl : ( ( rule__NavigatingCommaArgCS__SymbolIEAssignment_2_2_2 ) ) ;
     public final void rule__NavigatingCommaArgCS__Group_2_2__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalUSE.g:12553:1: ( ( 'in' ) )
-            // InternalUSE.g:12554:1: ( 'in' )
+            // InternalUSE.g:12553:1: ( ( ( rule__NavigatingCommaArgCS__SymbolIEAssignment_2_2_2 ) ) )
+            // InternalUSE.g:12554:1: ( ( rule__NavigatingCommaArgCS__SymbolIEAssignment_2_2_2 ) )
             {
-            // InternalUSE.g:12554:1: ( 'in' )
-            // InternalUSE.g:12555:2: 'in'
+            // InternalUSE.g:12554:1: ( ( rule__NavigatingCommaArgCS__SymbolIEAssignment_2_2_2 ) )
+            // InternalUSE.g:12555:2: ( rule__NavigatingCommaArgCS__SymbolIEAssignment_2_2_2 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getNavigatingCommaArgCSAccess().getInKeyword_2_2_2()); 
+               before(grammarAccess.getNavigatingCommaArgCSAccess().getSymbolIEAssignment_2_2_2()); 
             }
-            match(input,92,FOLLOW_2); if (state.failed) return ;
+            // InternalUSE.g:12556:2: ( rule__NavigatingCommaArgCS__SymbolIEAssignment_2_2_2 )
+            // InternalUSE.g:12556:3: rule__NavigatingCommaArgCS__SymbolIEAssignment_2_2_2
+            {
+            pushFollow(FOLLOW_2);
+            rule__NavigatingCommaArgCS__SymbolIEAssignment_2_2_2();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getNavigatingCommaArgCSAccess().getInKeyword_2_2_2()); 
+               after(grammarAccess.getNavigatingCommaArgCSAccess().getSymbolIEAssignment_2_2_2()); 
             }
 
             }
@@ -42477,24 +42557,34 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__NavigatingCommaArgCS__Group_2_2_0__0__Impl"
-    // InternalUSE.g:12603:1: rule__NavigatingCommaArgCS__Group_2_2_0__0__Impl : ( ':' ) ;
+    // InternalUSE.g:12603:1: rule__NavigatingCommaArgCS__Group_2_2_0__0__Impl : ( ( rule__NavigatingCommaArgCS__SymbolTAssignment_2_2_0_0 ) ) ;
     public final void rule__NavigatingCommaArgCS__Group_2_2_0__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalUSE.g:12607:1: ( ( ':' ) )
-            // InternalUSE.g:12608:1: ( ':' )
+            // InternalUSE.g:12607:1: ( ( ( rule__NavigatingCommaArgCS__SymbolTAssignment_2_2_0_0 ) ) )
+            // InternalUSE.g:12608:1: ( ( rule__NavigatingCommaArgCS__SymbolTAssignment_2_2_0_0 ) )
             {
-            // InternalUSE.g:12608:1: ( ':' )
-            // InternalUSE.g:12609:2: ':'
+            // InternalUSE.g:12608:1: ( ( rule__NavigatingCommaArgCS__SymbolTAssignment_2_2_0_0 ) )
+            // InternalUSE.g:12609:2: ( rule__NavigatingCommaArgCS__SymbolTAssignment_2_2_0_0 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getNavigatingCommaArgCSAccess().getColonKeyword_2_2_0_0()); 
+               before(grammarAccess.getNavigatingCommaArgCSAccess().getSymbolTAssignment_2_2_0_0()); 
             }
-            match(input,70,FOLLOW_2); if (state.failed) return ;
+            // InternalUSE.g:12610:2: ( rule__NavigatingCommaArgCS__SymbolTAssignment_2_2_0_0 )
+            // InternalUSE.g:12610:3: rule__NavigatingCommaArgCS__SymbolTAssignment_2_2_0_0
+            {
+            pushFollow(FOLLOW_2);
+            rule__NavigatingCommaArgCS__SymbolTAssignment_2_2_0_0();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getNavigatingCommaArgCSAccess().getColonKeyword_2_2_0_0()); 
+               after(grammarAccess.getNavigatingCommaArgCSAccess().getSymbolTAssignment_2_2_0_0()); 
             }
 
             }
@@ -42640,24 +42730,34 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__NavigatingCommaArgCS__Group_2_2_1__0__Impl"
-    // InternalUSE.g:12657:1: rule__NavigatingCommaArgCS__Group_2_2_1__0__Impl : ( '<-' ) ;
+    // InternalUSE.g:12657:1: rule__NavigatingCommaArgCS__Group_2_2_1__0__Impl : ( ( rule__NavigatingCommaArgCS__SymbolCIAssignment_2_2_1_0 ) ) ;
     public final void rule__NavigatingCommaArgCS__Group_2_2_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalUSE.g:12661:1: ( ( '<-' ) )
-            // InternalUSE.g:12662:1: ( '<-' )
+            // InternalUSE.g:12661:1: ( ( ( rule__NavigatingCommaArgCS__SymbolCIAssignment_2_2_1_0 ) ) )
+            // InternalUSE.g:12662:1: ( ( rule__NavigatingCommaArgCS__SymbolCIAssignment_2_2_1_0 ) )
             {
-            // InternalUSE.g:12662:1: ( '<-' )
-            // InternalUSE.g:12663:2: '<-'
+            // InternalUSE.g:12662:1: ( ( rule__NavigatingCommaArgCS__SymbolCIAssignment_2_2_1_0 ) )
+            // InternalUSE.g:12663:2: ( rule__NavigatingCommaArgCS__SymbolCIAssignment_2_2_1_0 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getNavigatingCommaArgCSAccess().getLessThanSignHyphenMinusKeyword_2_2_1_0()); 
+               before(grammarAccess.getNavigatingCommaArgCSAccess().getSymbolCIAssignment_2_2_1_0()); 
             }
-            match(input,81,FOLLOW_2); if (state.failed) return ;
+            // InternalUSE.g:12664:2: ( rule__NavigatingCommaArgCS__SymbolCIAssignment_2_2_1_0 )
+            // InternalUSE.g:12664:3: rule__NavigatingCommaArgCS__SymbolCIAssignment_2_2_1_0
+            {
+            pushFollow(FOLLOW_2);
+            rule__NavigatingCommaArgCS__SymbolCIAssignment_2_2_1_0();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getNavigatingCommaArgCSAccess().getLessThanSignHyphenMinusKeyword_2_2_1_0()); 
+               after(grammarAccess.getNavigatingCommaArgCSAccess().getSymbolCIAssignment_2_2_1_0()); 
             }
 
             }
@@ -42995,7 +43095,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             int alt131=2;
             int LA131_0 = input.LA(1);
 
-            if ( (LA131_0==70) ) {
+            if ( (LA131_0==71) ) {
                 alt131=1;
             }
             switch (alt131) {
@@ -43076,24 +43176,34 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__NavigatingSemiArgCS__Group_2__0__Impl"
-    // InternalUSE.g:12792:1: rule__NavigatingSemiArgCS__Group_2__0__Impl : ( ':' ) ;
+    // InternalUSE.g:12792:1: rule__NavigatingSemiArgCS__Group_2__0__Impl : ( ( rule__NavigatingSemiArgCS__SymbolTAssignment_2_0 ) ) ;
     public final void rule__NavigatingSemiArgCS__Group_2__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalUSE.g:12796:1: ( ( ':' ) )
-            // InternalUSE.g:12797:1: ( ':' )
+            // InternalUSE.g:12796:1: ( ( ( rule__NavigatingSemiArgCS__SymbolTAssignment_2_0 ) ) )
+            // InternalUSE.g:12797:1: ( ( rule__NavigatingSemiArgCS__SymbolTAssignment_2_0 ) )
             {
-            // InternalUSE.g:12797:1: ( ':' )
-            // InternalUSE.g:12798:2: ':'
+            // InternalUSE.g:12797:1: ( ( rule__NavigatingSemiArgCS__SymbolTAssignment_2_0 ) )
+            // InternalUSE.g:12798:2: ( rule__NavigatingSemiArgCS__SymbolTAssignment_2_0 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getNavigatingSemiArgCSAccess().getColonKeyword_2_0()); 
+               before(grammarAccess.getNavigatingSemiArgCSAccess().getSymbolTAssignment_2_0()); 
             }
-            match(input,70,FOLLOW_2); if (state.failed) return ;
+            // InternalUSE.g:12799:2: ( rule__NavigatingSemiArgCS__SymbolTAssignment_2_0 )
+            // InternalUSE.g:12799:3: rule__NavigatingSemiArgCS__SymbolTAssignment_2_0
+            {
+            pushFollow(FOLLOW_2);
+            rule__NavigatingSemiArgCS__SymbolTAssignment_2_0();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getNavigatingSemiArgCSAccess().getColonKeyword_2_0()); 
+               after(grammarAccess.getNavigatingSemiArgCSAccess().getSymbolTAssignment_2_0()); 
             }
 
             }
@@ -43339,24 +43449,34 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__NavigatingSemiArgCS__Group_2_2__0__Impl"
-    // InternalUSE.g:12873:1: rule__NavigatingSemiArgCS__Group_2_2__0__Impl : ( '=' ) ;
+    // InternalUSE.g:12873:1: rule__NavigatingSemiArgCS__Group_2_2__0__Impl : ( ( rule__NavigatingSemiArgCS__SymbolIEAssignment_2_2_0 ) ) ;
     public final void rule__NavigatingSemiArgCS__Group_2_2__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalUSE.g:12877:1: ( ( '=' ) )
-            // InternalUSE.g:12878:1: ( '=' )
+            // InternalUSE.g:12877:1: ( ( ( rule__NavigatingSemiArgCS__SymbolIEAssignment_2_2_0 ) ) )
+            // InternalUSE.g:12878:1: ( ( rule__NavigatingSemiArgCS__SymbolIEAssignment_2_2_0 ) )
             {
-            // InternalUSE.g:12878:1: ( '=' )
-            // InternalUSE.g:12879:2: '='
+            // InternalUSE.g:12878:1: ( ( rule__NavigatingSemiArgCS__SymbolIEAssignment_2_2_0 ) )
+            // InternalUSE.g:12879:2: ( rule__NavigatingSemiArgCS__SymbolIEAssignment_2_2_0 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getNavigatingSemiArgCSAccess().getEqualsSignKeyword_2_2_0()); 
+               before(grammarAccess.getNavigatingSemiArgCSAccess().getSymbolIEAssignment_2_2_0()); 
             }
-            match(input,35,FOLLOW_2); if (state.failed) return ;
+            // InternalUSE.g:12880:2: ( rule__NavigatingSemiArgCS__SymbolIEAssignment_2_2_0 )
+            // InternalUSE.g:12880:3: rule__NavigatingSemiArgCS__SymbolIEAssignment_2_2_0
+            {
+            pushFollow(FOLLOW_2);
+            rule__NavigatingSemiArgCS__SymbolIEAssignment_2_2_0();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getNavigatingSemiArgCSAccess().getEqualsSignKeyword_2_2_0()); 
+               after(grammarAccess.getNavigatingSemiArgCSAccess().getSymbolIEAssignment_2_2_0()); 
             }
 
             }
@@ -43605,7 +43725,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             int alt133=2;
             int LA133_0 = input.LA(1);
 
-            if ( (LA133_0==70||LA133_0==81||LA133_0==92) ) {
+            if ( (LA133_0==71||LA133_0==82||LA133_0==93) ) {
                 alt133=1;
             }
             switch (alt133) {
@@ -43686,24 +43806,34 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__NavigatingArgCS__Group_0_1_0__0__Impl"
-    // InternalUSE.g:12981:1: rule__NavigatingArgCS__Group_0_1_0__0__Impl : ( '<-' ) ;
+    // InternalUSE.g:12981:1: rule__NavigatingArgCS__Group_0_1_0__0__Impl : ( ( rule__NavigatingArgCS__SymbolCIAssignment_0_1_0_0 ) ) ;
     public final void rule__NavigatingArgCS__Group_0_1_0__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalUSE.g:12985:1: ( ( '<-' ) )
-            // InternalUSE.g:12986:1: ( '<-' )
+            // InternalUSE.g:12985:1: ( ( ( rule__NavigatingArgCS__SymbolCIAssignment_0_1_0_0 ) ) )
+            // InternalUSE.g:12986:1: ( ( rule__NavigatingArgCS__SymbolCIAssignment_0_1_0_0 ) )
             {
-            // InternalUSE.g:12986:1: ( '<-' )
-            // InternalUSE.g:12987:2: '<-'
+            // InternalUSE.g:12986:1: ( ( rule__NavigatingArgCS__SymbolCIAssignment_0_1_0_0 ) )
+            // InternalUSE.g:12987:2: ( rule__NavigatingArgCS__SymbolCIAssignment_0_1_0_0 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getNavigatingArgCSAccess().getLessThanSignHyphenMinusKeyword_0_1_0_0()); 
+               before(grammarAccess.getNavigatingArgCSAccess().getSymbolCIAssignment_0_1_0_0()); 
             }
-            match(input,81,FOLLOW_2); if (state.failed) return ;
+            // InternalUSE.g:12988:2: ( rule__NavigatingArgCS__SymbolCIAssignment_0_1_0_0 )
+            // InternalUSE.g:12988:3: rule__NavigatingArgCS__SymbolCIAssignment_0_1_0_0
+            {
+            pushFollow(FOLLOW_2);
+            rule__NavigatingArgCS__SymbolCIAssignment_0_1_0_0();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getNavigatingArgCSAccess().getLessThanSignHyphenMinusKeyword_0_1_0_0()); 
+               after(grammarAccess.getNavigatingArgCSAccess().getSymbolCIAssignment_0_1_0_0()); 
             }
 
             }
@@ -43949,24 +44079,34 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__NavigatingArgCS__Group_0_1_0_2__0__Impl"
-    // InternalUSE.g:13062:1: rule__NavigatingArgCS__Group_0_1_0_2__0__Impl : ( '=' ) ;
+    // InternalUSE.g:13062:1: rule__NavigatingArgCS__Group_0_1_0_2__0__Impl : ( ( rule__NavigatingArgCS__SymbolIEAssignment_0_1_0_2_0 ) ) ;
     public final void rule__NavigatingArgCS__Group_0_1_0_2__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalUSE.g:13066:1: ( ( '=' ) )
-            // InternalUSE.g:13067:1: ( '=' )
+            // InternalUSE.g:13066:1: ( ( ( rule__NavigatingArgCS__SymbolIEAssignment_0_1_0_2_0 ) ) )
+            // InternalUSE.g:13067:1: ( ( rule__NavigatingArgCS__SymbolIEAssignment_0_1_0_2_0 ) )
             {
-            // InternalUSE.g:13067:1: ( '=' )
-            // InternalUSE.g:13068:2: '='
+            // InternalUSE.g:13067:1: ( ( rule__NavigatingArgCS__SymbolIEAssignment_0_1_0_2_0 ) )
+            // InternalUSE.g:13068:2: ( rule__NavigatingArgCS__SymbolIEAssignment_0_1_0_2_0 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getNavigatingArgCSAccess().getEqualsSignKeyword_0_1_0_2_0()); 
+               before(grammarAccess.getNavigatingArgCSAccess().getSymbolIEAssignment_0_1_0_2_0()); 
             }
-            match(input,35,FOLLOW_2); if (state.failed) return ;
+            // InternalUSE.g:13069:2: ( rule__NavigatingArgCS__SymbolIEAssignment_0_1_0_2_0 )
+            // InternalUSE.g:13069:3: rule__NavigatingArgCS__SymbolIEAssignment_0_1_0_2_0
+            {
+            pushFollow(FOLLOW_2);
+            rule__NavigatingArgCS__SymbolIEAssignment_0_1_0_2_0();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getNavigatingArgCSAccess().getEqualsSignKeyword_0_1_0_2_0()); 
+               after(grammarAccess.getNavigatingArgCSAccess().getSymbolIEAssignment_0_1_0_2_0()); 
             }
 
             }
@@ -44112,24 +44252,34 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__NavigatingArgCS__Group_0_1_1__0__Impl"
-    // InternalUSE.g:13116:1: rule__NavigatingArgCS__Group_0_1_1__0__Impl : ( ':' ) ;
+    // InternalUSE.g:13116:1: rule__NavigatingArgCS__Group_0_1_1__0__Impl : ( ( rule__NavigatingArgCS__SymbolTAssignment_0_1_1_0 ) ) ;
     public final void rule__NavigatingArgCS__Group_0_1_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalUSE.g:13120:1: ( ( ':' ) )
-            // InternalUSE.g:13121:1: ( ':' )
+            // InternalUSE.g:13120:1: ( ( ( rule__NavigatingArgCS__SymbolTAssignment_0_1_1_0 ) ) )
+            // InternalUSE.g:13121:1: ( ( rule__NavigatingArgCS__SymbolTAssignment_0_1_1_0 ) )
             {
-            // InternalUSE.g:13121:1: ( ':' )
-            // InternalUSE.g:13122:2: ':'
+            // InternalUSE.g:13121:1: ( ( rule__NavigatingArgCS__SymbolTAssignment_0_1_1_0 ) )
+            // InternalUSE.g:13122:2: ( rule__NavigatingArgCS__SymbolTAssignment_0_1_1_0 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getNavigatingArgCSAccess().getColonKeyword_0_1_1_0()); 
+               before(grammarAccess.getNavigatingArgCSAccess().getSymbolTAssignment_0_1_1_0()); 
             }
-            match(input,70,FOLLOW_2); if (state.failed) return ;
+            // InternalUSE.g:13123:2: ( rule__NavigatingArgCS__SymbolTAssignment_0_1_1_0 )
+            // InternalUSE.g:13123:3: rule__NavigatingArgCS__SymbolTAssignment_0_1_1_0
+            {
+            pushFollow(FOLLOW_2);
+            rule__NavigatingArgCS__SymbolTAssignment_0_1_1_0();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getNavigatingArgCSAccess().getColonKeyword_0_1_1_0()); 
+               after(grammarAccess.getNavigatingArgCSAccess().getSymbolTAssignment_0_1_1_0()); 
             }
 
             }
@@ -44299,7 +44449,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             int alt135=2;
             int LA135_0 = input.LA(1);
 
-            if ( (LA135_0==81) ) {
+            if ( (LA135_0==82) ) {
                 alt135=1;
             }
             switch (alt135) {
@@ -44475,24 +44625,34 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__NavigatingArgCS__Group_0_1_1_2__0__Impl"
-    // InternalUSE.g:13224:1: rule__NavigatingArgCS__Group_0_1_1_2__0__Impl : ( '<-' ) ;
+    // InternalUSE.g:13224:1: rule__NavigatingArgCS__Group_0_1_1_2__0__Impl : ( ( rule__NavigatingArgCS__SymbolCIAssignment_0_1_1_2_0 ) ) ;
     public final void rule__NavigatingArgCS__Group_0_1_1_2__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalUSE.g:13228:1: ( ( '<-' ) )
-            // InternalUSE.g:13229:1: ( '<-' )
+            // InternalUSE.g:13228:1: ( ( ( rule__NavigatingArgCS__SymbolCIAssignment_0_1_1_2_0 ) ) )
+            // InternalUSE.g:13229:1: ( ( rule__NavigatingArgCS__SymbolCIAssignment_0_1_1_2_0 ) )
             {
-            // InternalUSE.g:13229:1: ( '<-' )
-            // InternalUSE.g:13230:2: '<-'
+            // InternalUSE.g:13229:1: ( ( rule__NavigatingArgCS__SymbolCIAssignment_0_1_1_2_0 ) )
+            // InternalUSE.g:13230:2: ( rule__NavigatingArgCS__SymbolCIAssignment_0_1_1_2_0 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getNavigatingArgCSAccess().getLessThanSignHyphenMinusKeyword_0_1_1_2_0()); 
+               before(grammarAccess.getNavigatingArgCSAccess().getSymbolCIAssignment_0_1_1_2_0()); 
             }
-            match(input,81,FOLLOW_2); if (state.failed) return ;
+            // InternalUSE.g:13231:2: ( rule__NavigatingArgCS__SymbolCIAssignment_0_1_1_2_0 )
+            // InternalUSE.g:13231:3: rule__NavigatingArgCS__SymbolCIAssignment_0_1_1_2_0
+            {
+            pushFollow(FOLLOW_2);
+            rule__NavigatingArgCS__SymbolCIAssignment_0_1_1_2_0();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getNavigatingArgCSAccess().getLessThanSignHyphenMinusKeyword_0_1_1_2_0()); 
+               after(grammarAccess.getNavigatingArgCSAccess().getSymbolCIAssignment_0_1_1_2_0()); 
             }
 
             }
@@ -44638,24 +44798,34 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__NavigatingArgCS__Group_0_1_1_3__0__Impl"
-    // InternalUSE.g:13278:1: rule__NavigatingArgCS__Group_0_1_1_3__0__Impl : ( '=' ) ;
+    // InternalUSE.g:13278:1: rule__NavigatingArgCS__Group_0_1_1_3__0__Impl : ( ( rule__NavigatingArgCS__SymbolIEAssignment_0_1_1_3_0 ) ) ;
     public final void rule__NavigatingArgCS__Group_0_1_1_3__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalUSE.g:13282:1: ( ( '=' ) )
-            // InternalUSE.g:13283:1: ( '=' )
+            // InternalUSE.g:13282:1: ( ( ( rule__NavigatingArgCS__SymbolIEAssignment_0_1_1_3_0 ) ) )
+            // InternalUSE.g:13283:1: ( ( rule__NavigatingArgCS__SymbolIEAssignment_0_1_1_3_0 ) )
             {
-            // InternalUSE.g:13283:1: ( '=' )
-            // InternalUSE.g:13284:2: '='
+            // InternalUSE.g:13283:1: ( ( rule__NavigatingArgCS__SymbolIEAssignment_0_1_1_3_0 ) )
+            // InternalUSE.g:13284:2: ( rule__NavigatingArgCS__SymbolIEAssignment_0_1_1_3_0 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getNavigatingArgCSAccess().getEqualsSignKeyword_0_1_1_3_0()); 
+               before(grammarAccess.getNavigatingArgCSAccess().getSymbolIEAssignment_0_1_1_3_0()); 
             }
-            match(input,35,FOLLOW_2); if (state.failed) return ;
+            // InternalUSE.g:13285:2: ( rule__NavigatingArgCS__SymbolIEAssignment_0_1_1_3_0 )
+            // InternalUSE.g:13285:3: rule__NavigatingArgCS__SymbolIEAssignment_0_1_1_3_0
+            {
+            pushFollow(FOLLOW_2);
+            rule__NavigatingArgCS__SymbolIEAssignment_0_1_1_3_0();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getNavigatingArgCSAccess().getEqualsSignKeyword_0_1_1_3_0()); 
+               after(grammarAccess.getNavigatingArgCSAccess().getSymbolIEAssignment_0_1_1_3_0()); 
             }
 
             }
@@ -44820,7 +44990,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             int alt137=2;
             int LA137_0 = input.LA(1);
 
-            if ( (LA137_0==70) ) {
+            if ( (LA137_0==71) ) {
                 alt137=1;
             }
             switch (alt137) {
@@ -44920,7 +45090,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             int alt138=2;
             int LA138_0 = input.LA(1);
 
-            if ( (LA138_0==81) ) {
+            if ( (LA138_0==82) ) {
                 alt138=1;
             }
             switch (alt138) {
@@ -45001,24 +45171,34 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__NavigatingArgCS__Group_0_1_2__2__Impl"
-    // InternalUSE.g:13386:1: rule__NavigatingArgCS__Group_0_1_2__2__Impl : ( 'in' ) ;
+    // InternalUSE.g:13386:1: rule__NavigatingArgCS__Group_0_1_2__2__Impl : ( ( rule__NavigatingArgCS__SymbolIEAssignment_0_1_2_2 ) ) ;
     public final void rule__NavigatingArgCS__Group_0_1_2__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalUSE.g:13390:1: ( ( 'in' ) )
-            // InternalUSE.g:13391:1: ( 'in' )
+            // InternalUSE.g:13390:1: ( ( ( rule__NavigatingArgCS__SymbolIEAssignment_0_1_2_2 ) ) )
+            // InternalUSE.g:13391:1: ( ( rule__NavigatingArgCS__SymbolIEAssignment_0_1_2_2 ) )
             {
-            // InternalUSE.g:13391:1: ( 'in' )
-            // InternalUSE.g:13392:2: 'in'
+            // InternalUSE.g:13391:1: ( ( rule__NavigatingArgCS__SymbolIEAssignment_0_1_2_2 ) )
+            // InternalUSE.g:13392:2: ( rule__NavigatingArgCS__SymbolIEAssignment_0_1_2_2 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getNavigatingArgCSAccess().getInKeyword_0_1_2_2()); 
+               before(grammarAccess.getNavigatingArgCSAccess().getSymbolIEAssignment_0_1_2_2()); 
             }
-            match(input,92,FOLLOW_2); if (state.failed) return ;
+            // InternalUSE.g:13393:2: ( rule__NavigatingArgCS__SymbolIEAssignment_0_1_2_2 )
+            // InternalUSE.g:13393:3: rule__NavigatingArgCS__SymbolIEAssignment_0_1_2_2
+            {
+            pushFollow(FOLLOW_2);
+            rule__NavigatingArgCS__SymbolIEAssignment_0_1_2_2();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getNavigatingArgCSAccess().getInKeyword_0_1_2_2()); 
+               after(grammarAccess.getNavigatingArgCSAccess().getSymbolIEAssignment_0_1_2_2()); 
             }
 
             }
@@ -45164,24 +45344,34 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__NavigatingArgCS__Group_0_1_2_0__0__Impl"
-    // InternalUSE.g:13440:1: rule__NavigatingArgCS__Group_0_1_2_0__0__Impl : ( ':' ) ;
+    // InternalUSE.g:13440:1: rule__NavigatingArgCS__Group_0_1_2_0__0__Impl : ( ( rule__NavigatingArgCS__SymbolTAssignment_0_1_2_0_0 ) ) ;
     public final void rule__NavigatingArgCS__Group_0_1_2_0__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalUSE.g:13444:1: ( ( ':' ) )
-            // InternalUSE.g:13445:1: ( ':' )
+            // InternalUSE.g:13444:1: ( ( ( rule__NavigatingArgCS__SymbolTAssignment_0_1_2_0_0 ) ) )
+            // InternalUSE.g:13445:1: ( ( rule__NavigatingArgCS__SymbolTAssignment_0_1_2_0_0 ) )
             {
-            // InternalUSE.g:13445:1: ( ':' )
-            // InternalUSE.g:13446:2: ':'
+            // InternalUSE.g:13445:1: ( ( rule__NavigatingArgCS__SymbolTAssignment_0_1_2_0_0 ) )
+            // InternalUSE.g:13446:2: ( rule__NavigatingArgCS__SymbolTAssignment_0_1_2_0_0 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getNavigatingArgCSAccess().getColonKeyword_0_1_2_0_0()); 
+               before(grammarAccess.getNavigatingArgCSAccess().getSymbolTAssignment_0_1_2_0_0()); 
             }
-            match(input,70,FOLLOW_2); if (state.failed) return ;
+            // InternalUSE.g:13447:2: ( rule__NavigatingArgCS__SymbolTAssignment_0_1_2_0_0 )
+            // InternalUSE.g:13447:3: rule__NavigatingArgCS__SymbolTAssignment_0_1_2_0_0
+            {
+            pushFollow(FOLLOW_2);
+            rule__NavigatingArgCS__SymbolTAssignment_0_1_2_0_0();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getNavigatingArgCSAccess().getColonKeyword_0_1_2_0_0()); 
+               after(grammarAccess.getNavigatingArgCSAccess().getSymbolTAssignment_0_1_2_0_0()); 
             }
 
             }
@@ -45327,24 +45517,34 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__NavigatingArgCS__Group_0_1_2_1__0__Impl"
-    // InternalUSE.g:13494:1: rule__NavigatingArgCS__Group_0_1_2_1__0__Impl : ( '<-' ) ;
+    // InternalUSE.g:13494:1: rule__NavigatingArgCS__Group_0_1_2_1__0__Impl : ( ( rule__NavigatingArgCS__SymbolCIAssignment_0_1_2_1_0 ) ) ;
     public final void rule__NavigatingArgCS__Group_0_1_2_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalUSE.g:13498:1: ( ( '<-' ) )
-            // InternalUSE.g:13499:1: ( '<-' )
+            // InternalUSE.g:13498:1: ( ( ( rule__NavigatingArgCS__SymbolCIAssignment_0_1_2_1_0 ) ) )
+            // InternalUSE.g:13499:1: ( ( rule__NavigatingArgCS__SymbolCIAssignment_0_1_2_1_0 ) )
             {
-            // InternalUSE.g:13499:1: ( '<-' )
-            // InternalUSE.g:13500:2: '<-'
+            // InternalUSE.g:13499:1: ( ( rule__NavigatingArgCS__SymbolCIAssignment_0_1_2_1_0 ) )
+            // InternalUSE.g:13500:2: ( rule__NavigatingArgCS__SymbolCIAssignment_0_1_2_1_0 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getNavigatingArgCSAccess().getLessThanSignHyphenMinusKeyword_0_1_2_1_0()); 
+               before(grammarAccess.getNavigatingArgCSAccess().getSymbolCIAssignment_0_1_2_1_0()); 
             }
-            match(input,81,FOLLOW_2); if (state.failed) return ;
+            // InternalUSE.g:13501:2: ( rule__NavigatingArgCS__SymbolCIAssignment_0_1_2_1_0 )
+            // InternalUSE.g:13501:3: rule__NavigatingArgCS__SymbolCIAssignment_0_1_2_1_0
+            {
+            pushFollow(FOLLOW_2);
+            rule__NavigatingArgCS__SymbolCIAssignment_0_1_2_1_0();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getNavigatingArgCSAccess().getLessThanSignHyphenMinusKeyword_0_1_2_1_0()); 
+               after(grammarAccess.getNavigatingArgCSAccess().getSymbolCIAssignment_0_1_2_1_0()); 
             }
 
             }
@@ -45490,24 +45690,34 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__NavigatingArgCS__Group_1__0__Impl"
-    // InternalUSE.g:13548:1: rule__NavigatingArgCS__Group_1__0__Impl : ( ':' ) ;
+    // InternalUSE.g:13548:1: rule__NavigatingArgCS__Group_1__0__Impl : ( ( rule__NavigatingArgCS__SymbolTAssignment_1_0 ) ) ;
     public final void rule__NavigatingArgCS__Group_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalUSE.g:13552:1: ( ( ':' ) )
-            // InternalUSE.g:13553:1: ( ':' )
+            // InternalUSE.g:13552:1: ( ( ( rule__NavigatingArgCS__SymbolTAssignment_1_0 ) ) )
+            // InternalUSE.g:13553:1: ( ( rule__NavigatingArgCS__SymbolTAssignment_1_0 ) )
             {
-            // InternalUSE.g:13553:1: ( ':' )
-            // InternalUSE.g:13554:2: ':'
+            // InternalUSE.g:13553:1: ( ( rule__NavigatingArgCS__SymbolTAssignment_1_0 ) )
+            // InternalUSE.g:13554:2: ( rule__NavigatingArgCS__SymbolTAssignment_1_0 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getNavigatingArgCSAccess().getColonKeyword_1_0()); 
+               before(grammarAccess.getNavigatingArgCSAccess().getSymbolTAssignment_1_0()); 
             }
-            match(input,70,FOLLOW_2); if (state.failed) return ;
+            // InternalUSE.g:13555:2: ( rule__NavigatingArgCS__SymbolTAssignment_1_0 )
+            // InternalUSE.g:13555:3: rule__NavigatingArgCS__SymbolTAssignment_1_0
+            {
+            pushFollow(FOLLOW_2);
+            rule__NavigatingArgCS__SymbolTAssignment_1_0();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getNavigatingArgCSAccess().getColonKeyword_1_0()); 
+               after(grammarAccess.getNavigatingArgCSAccess().getSymbolTAssignment_1_0()); 
             }
 
             }
@@ -45756,7 +45966,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             int alt139=2;
             int LA139_0 = input.LA(1);
 
-            if ( (LA139_0==70) ) {
+            if ( (LA139_0==71) ) {
                 alt139=1;
             }
             switch (alt139) {
@@ -45852,7 +46062,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getCoIteratorVariableCSAccess().getColonKeyword_1_0()); 
             }
-            match(input,70,FOLLOW_2); if (state.failed) return ;
+            match(input,71,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getCoIteratorVariableCSAccess().getColonKeyword_1_0()); 
             }
@@ -46643,7 +46853,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getClassAccess().getAbstractAbstractKeyword_0_0()); 
             }
-            match(input,93,FOLLOW_2); if (state.failed) return ;
+            match(input,94,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getClassAccess().getAbstractAbstractKeyword_0_0()); 
             }
@@ -47246,7 +47456,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getAssociationEndAccess().getOrderedOrderedKeyword_5_0()); 
             }
-            match(input,94,FOLLOW_2); if (state.failed) return ;
+            match(input,95,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getAssociationEndAccess().getOrderedOrderedKeyword_5_0()); 
             }
@@ -47299,7 +47509,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getAssociationClassAccess().getAbstractAbstractKeyword_0_0()); 
             }
-            match(input,93,FOLLOW_2); if (state.failed) return ;
+            match(input,94,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getAssociationClassAccess().getAbstractAbstractKeyword_0_0()); 
             }
@@ -49136,7 +49346,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getMapTypeCSAccess().getNameMapKeyword_0_0()); 
             }
-            match(input,95,FOLLOW_2); if (state.failed) return ;
+            match(input,96,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getMapTypeCSAccess().getNameMapKeyword_0_0()); 
             }
@@ -49279,7 +49489,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getTupleTypeCSAccess().getNameTupleKeyword_0_0()); 
             }
-            match(input,82,FOLLOW_2); if (state.failed) return ;
+            match(input,83,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getTupleTypeCSAccess().getNameTupleKeyword_0_0()); 
             }
@@ -50388,37 +50598,35 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__MultiplicityBoundsCS__UpperBoundAssignment_1_1"
 
 
-    // $ANTLR start "rule__MultiplicityCS__IsNullFreeAssignment_2_1"
-    // InternalUSE.g:15193:1: rule__MultiplicityCS__IsNullFreeAssignment_2_1 : ( ( '|1' ) ) ;
-    public final void rule__MultiplicityCS__IsNullFreeAssignment_2_1() throws RecognitionException {
+    // $ANTLR start "rule__MultiplicityCS__SymbolAssignment_2"
+    // InternalUSE.g:15193:1: rule__MultiplicityCS__SymbolAssignment_2 : ( ( rule__MultiplicityCS__SymbolAlternatives_2_0 ) ) ;
+    public final void rule__MultiplicityCS__SymbolAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalUSE.g:15197:1: ( ( ( '|1' ) ) )
-            // InternalUSE.g:15198:2: ( ( '|1' ) )
+            // InternalUSE.g:15197:1: ( ( ( rule__MultiplicityCS__SymbolAlternatives_2_0 ) ) )
+            // InternalUSE.g:15198:2: ( ( rule__MultiplicityCS__SymbolAlternatives_2_0 ) )
             {
-            // InternalUSE.g:15198:2: ( ( '|1' ) )
-            // InternalUSE.g:15199:3: ( '|1' )
-            {
-            if ( state.backtracking==0 ) {
-               before(grammarAccess.getMultiplicityCSAccess().getIsNullFree1Keyword_2_1_0()); 
-            }
-            // InternalUSE.g:15200:3: ( '|1' )
-            // InternalUSE.g:15201:4: '|1'
+            // InternalUSE.g:15198:2: ( ( rule__MultiplicityCS__SymbolAlternatives_2_0 ) )
+            // InternalUSE.g:15199:3: ( rule__MultiplicityCS__SymbolAlternatives_2_0 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getMultiplicityCSAccess().getIsNullFree1Keyword_2_1_0()); 
+               before(grammarAccess.getMultiplicityCSAccess().getSymbolAlternatives_2_0()); 
             }
-            match(input,96,FOLLOW_2); if (state.failed) return ;
-            if ( state.backtracking==0 ) {
-               after(grammarAccess.getMultiplicityCSAccess().getIsNullFree1Keyword_2_1_0()); 
-            }
+            // InternalUSE.g:15200:3: ( rule__MultiplicityCS__SymbolAlternatives_2_0 )
+            // InternalUSE.g:15200:4: rule__MultiplicityCS__SymbolAlternatives_2_0
+            {
+            pushFollow(FOLLOW_2);
+            rule__MultiplicityCS__SymbolAlternatives_2_0();
+
+            state._fsp--;
+            if (state.failed) return ;
 
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getMultiplicityCSAccess().getIsNullFree1Keyword_2_1_0()); 
+               after(grammarAccess.getMultiplicityCSAccess().getSymbolAlternatives_2_0()); 
             }
 
             }
@@ -50438,27 +50646,27 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__MultiplicityCS__IsNullFreeAssignment_2_1"
+    // $ANTLR end "rule__MultiplicityCS__SymbolAssignment_2"
 
 
     // $ANTLR start "rule__MultiplicityStringCS__StringBoundsAssignment"
-    // InternalUSE.g:15212:1: rule__MultiplicityStringCS__StringBoundsAssignment : ( ( rule__MultiplicityStringCS__StringBoundsAlternatives_0 ) ) ;
+    // InternalUSE.g:15208:1: rule__MultiplicityStringCS__StringBoundsAssignment : ( ( rule__MultiplicityStringCS__StringBoundsAlternatives_0 ) ) ;
     public final void rule__MultiplicityStringCS__StringBoundsAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalUSE.g:15216:1: ( ( ( rule__MultiplicityStringCS__StringBoundsAlternatives_0 ) ) )
-            // InternalUSE.g:15217:2: ( ( rule__MultiplicityStringCS__StringBoundsAlternatives_0 ) )
+            // InternalUSE.g:15212:1: ( ( ( rule__MultiplicityStringCS__StringBoundsAlternatives_0 ) ) )
+            // InternalUSE.g:15213:2: ( ( rule__MultiplicityStringCS__StringBoundsAlternatives_0 ) )
             {
-            // InternalUSE.g:15217:2: ( ( rule__MultiplicityStringCS__StringBoundsAlternatives_0 ) )
-            // InternalUSE.g:15218:3: ( rule__MultiplicityStringCS__StringBoundsAlternatives_0 )
+            // InternalUSE.g:15213:2: ( ( rule__MultiplicityStringCS__StringBoundsAlternatives_0 ) )
+            // InternalUSE.g:15214:3: ( rule__MultiplicityStringCS__StringBoundsAlternatives_0 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getMultiplicityStringCSAccess().getStringBoundsAlternatives_0()); 
             }
-            // InternalUSE.g:15219:3: ( rule__MultiplicityStringCS__StringBoundsAlternatives_0 )
-            // InternalUSE.g:15219:4: rule__MultiplicityStringCS__StringBoundsAlternatives_0
+            // InternalUSE.g:15215:3: ( rule__MultiplicityStringCS__StringBoundsAlternatives_0 )
+            // InternalUSE.g:15215:4: rule__MultiplicityStringCS__StringBoundsAlternatives_0
             {
             pushFollow(FOLLOW_2);
             rule__MultiplicityStringCS__StringBoundsAlternatives_0();
@@ -50493,17 +50701,17 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PathNameCS__OwnedPathElementsAssignment_0"
-    // InternalUSE.g:15227:1: rule__PathNameCS__OwnedPathElementsAssignment_0 : ( RULE_ID ) ;
+    // InternalUSE.g:15223:1: rule__PathNameCS__OwnedPathElementsAssignment_0 : ( RULE_ID ) ;
     public final void rule__PathNameCS__OwnedPathElementsAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalUSE.g:15231:1: ( ( RULE_ID ) )
-            // InternalUSE.g:15232:2: ( RULE_ID )
+            // InternalUSE.g:15227:1: ( ( RULE_ID ) )
+            // InternalUSE.g:15228:2: ( RULE_ID )
             {
-            // InternalUSE.g:15232:2: ( RULE_ID )
-            // InternalUSE.g:15233:3: RULE_ID
+            // InternalUSE.g:15228:2: ( RULE_ID )
+            // InternalUSE.g:15229:3: RULE_ID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getPathNameCSAccess().getOwnedPathElementsIDTerminalRuleCall_0_0()); 
@@ -50534,17 +50742,17 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PathNameCS__OwnedPathElementsAssignment_1_1"
-    // InternalUSE.g:15242:1: rule__PathNameCS__OwnedPathElementsAssignment_1_1 : ( RULE_ID ) ;
+    // InternalUSE.g:15238:1: rule__PathNameCS__OwnedPathElementsAssignment_1_1 : ( RULE_ID ) ;
     public final void rule__PathNameCS__OwnedPathElementsAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalUSE.g:15246:1: ( ( RULE_ID ) )
-            // InternalUSE.g:15247:2: ( RULE_ID )
+            // InternalUSE.g:15242:1: ( ( RULE_ID ) )
+            // InternalUSE.g:15243:2: ( RULE_ID )
             {
-            // InternalUSE.g:15247:2: ( RULE_ID )
-            // InternalUSE.g:15248:3: RULE_ID
+            // InternalUSE.g:15243:2: ( RULE_ID )
+            // InternalUSE.g:15244:3: RULE_ID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getPathNameCSAccess().getOwnedPathElementsIDTerminalRuleCall_1_1_0()); 
@@ -50575,17 +50783,17 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ExpCS__OperatorAssignment_0_1_1"
-    // InternalUSE.g:15257:1: rule__ExpCS__OperatorAssignment_0_1_1 : ( ruleBinaryOperatorName ) ;
+    // InternalUSE.g:15253:1: rule__ExpCS__OperatorAssignment_0_1_1 : ( ruleBinaryOperatorName ) ;
     public final void rule__ExpCS__OperatorAssignment_0_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalUSE.g:15261:1: ( ( ruleBinaryOperatorName ) )
-            // InternalUSE.g:15262:2: ( ruleBinaryOperatorName )
+            // InternalUSE.g:15257:1: ( ( ruleBinaryOperatorName ) )
+            // InternalUSE.g:15258:2: ( ruleBinaryOperatorName )
             {
-            // InternalUSE.g:15262:2: ( ruleBinaryOperatorName )
-            // InternalUSE.g:15263:3: ruleBinaryOperatorName
+            // InternalUSE.g:15258:2: ( ruleBinaryOperatorName )
+            // InternalUSE.g:15259:3: ruleBinaryOperatorName
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getExpCSAccess().getOperatorBinaryOperatorNameParserRuleCall_0_1_1_0()); 
@@ -50620,17 +50828,17 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ExpCS__OwnedRightAssignment_0_1_2"
-    // InternalUSE.g:15272:1: rule__ExpCS__OwnedRightAssignment_0_1_2 : ( ruleExpCS ) ;
+    // InternalUSE.g:15268:1: rule__ExpCS__OwnedRightAssignment_0_1_2 : ( ruleExpCS ) ;
     public final void rule__ExpCS__OwnedRightAssignment_0_1_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalUSE.g:15276:1: ( ( ruleExpCS ) )
-            // InternalUSE.g:15277:2: ( ruleExpCS )
+            // InternalUSE.g:15272:1: ( ( ruleExpCS ) )
+            // InternalUSE.g:15273:2: ( ruleExpCS )
             {
-            // InternalUSE.g:15277:2: ( ruleExpCS )
-            // InternalUSE.g:15278:3: ruleExpCS
+            // InternalUSE.g:15273:2: ( ruleExpCS )
+            // InternalUSE.g:15274:3: ruleExpCS
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getExpCSAccess().getOwnedRightExpCSParserRuleCall_0_1_2_0()); 
@@ -50665,17 +50873,17 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PrefixedLetExpCS__NameAssignment_0_1"
-    // InternalUSE.g:15287:1: rule__PrefixedLetExpCS__NameAssignment_0_1 : ( ruleUnaryOperatorName ) ;
+    // InternalUSE.g:15283:1: rule__PrefixedLetExpCS__NameAssignment_0_1 : ( ruleUnaryOperatorName ) ;
     public final void rule__PrefixedLetExpCS__NameAssignment_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalUSE.g:15291:1: ( ( ruleUnaryOperatorName ) )
-            // InternalUSE.g:15292:2: ( ruleUnaryOperatorName )
+            // InternalUSE.g:15287:1: ( ( ruleUnaryOperatorName ) )
+            // InternalUSE.g:15288:2: ( ruleUnaryOperatorName )
             {
-            // InternalUSE.g:15292:2: ( ruleUnaryOperatorName )
-            // InternalUSE.g:15293:3: ruleUnaryOperatorName
+            // InternalUSE.g:15288:2: ( ruleUnaryOperatorName )
+            // InternalUSE.g:15289:3: ruleUnaryOperatorName
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getPrefixedLetExpCSAccess().getNameUnaryOperatorNameParserRuleCall_0_1_0()); 
@@ -50710,17 +50918,17 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PrefixedLetExpCS__OwnedRightAssignment_0_2"
-    // InternalUSE.g:15302:1: rule__PrefixedLetExpCS__OwnedRightAssignment_0_2 : ( rulePrefixedLetExpCS ) ;
+    // InternalUSE.g:15298:1: rule__PrefixedLetExpCS__OwnedRightAssignment_0_2 : ( rulePrefixedLetExpCS ) ;
     public final void rule__PrefixedLetExpCS__OwnedRightAssignment_0_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalUSE.g:15306:1: ( ( rulePrefixedLetExpCS ) )
-            // InternalUSE.g:15307:2: ( rulePrefixedLetExpCS )
+            // InternalUSE.g:15302:1: ( ( rulePrefixedLetExpCS ) )
+            // InternalUSE.g:15303:2: ( rulePrefixedLetExpCS )
             {
-            // InternalUSE.g:15307:2: ( rulePrefixedLetExpCS )
-            // InternalUSE.g:15308:3: rulePrefixedLetExpCS
+            // InternalUSE.g:15303:2: ( rulePrefixedLetExpCS )
+            // InternalUSE.g:15304:3: rulePrefixedLetExpCS
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getPrefixedLetExpCSAccess().getOwnedRightPrefixedLetExpCSParserRuleCall_0_2_0()); 
@@ -50755,17 +50963,17 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PrefixedPrimaryExpCS__NameAssignment_0_1"
-    // InternalUSE.g:15317:1: rule__PrefixedPrimaryExpCS__NameAssignment_0_1 : ( ruleUnaryOperatorName ) ;
+    // InternalUSE.g:15313:1: rule__PrefixedPrimaryExpCS__NameAssignment_0_1 : ( ruleUnaryOperatorName ) ;
     public final void rule__PrefixedPrimaryExpCS__NameAssignment_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalUSE.g:15321:1: ( ( ruleUnaryOperatorName ) )
-            // InternalUSE.g:15322:2: ( ruleUnaryOperatorName )
+            // InternalUSE.g:15317:1: ( ( ruleUnaryOperatorName ) )
+            // InternalUSE.g:15318:2: ( ruleUnaryOperatorName )
             {
-            // InternalUSE.g:15322:2: ( ruleUnaryOperatorName )
-            // InternalUSE.g:15323:3: ruleUnaryOperatorName
+            // InternalUSE.g:15318:2: ( ruleUnaryOperatorName )
+            // InternalUSE.g:15319:3: ruleUnaryOperatorName
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getPrefixedPrimaryExpCSAccess().getNameUnaryOperatorNameParserRuleCall_0_1_0()); 
@@ -50800,17 +51008,17 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PrefixedPrimaryExpCS__OwnedRightAssignment_0_2"
-    // InternalUSE.g:15332:1: rule__PrefixedPrimaryExpCS__OwnedRightAssignment_0_2 : ( rulePrefixedPrimaryExpCS ) ;
+    // InternalUSE.g:15328:1: rule__PrefixedPrimaryExpCS__OwnedRightAssignment_0_2 : ( rulePrefixedPrimaryExpCS ) ;
     public final void rule__PrefixedPrimaryExpCS__OwnedRightAssignment_0_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalUSE.g:15336:1: ( ( rulePrefixedPrimaryExpCS ) )
-            // InternalUSE.g:15337:2: ( rulePrefixedPrimaryExpCS )
+            // InternalUSE.g:15332:1: ( ( rulePrefixedPrimaryExpCS ) )
+            // InternalUSE.g:15333:2: ( rulePrefixedPrimaryExpCS )
             {
-            // InternalUSE.g:15337:2: ( rulePrefixedPrimaryExpCS )
-            // InternalUSE.g:15338:3: rulePrefixedPrimaryExpCS
+            // InternalUSE.g:15333:2: ( rulePrefixedPrimaryExpCS )
+            // InternalUSE.g:15334:3: rulePrefixedPrimaryExpCS
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getPrefixedPrimaryExpCSAccess().getOwnedRightPrefixedPrimaryExpCSParserRuleCall_0_2_0()); 
@@ -50845,17 +51053,17 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__NameExpCS__OwnedPathNameAssignment_0"
-    // InternalUSE.g:15347:1: rule__NameExpCS__OwnedPathNameAssignment_0 : ( rulePathNameCS ) ;
+    // InternalUSE.g:15343:1: rule__NameExpCS__OwnedPathNameAssignment_0 : ( rulePathNameCS ) ;
     public final void rule__NameExpCS__OwnedPathNameAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalUSE.g:15351:1: ( ( rulePathNameCS ) )
-            // InternalUSE.g:15352:2: ( rulePathNameCS )
+            // InternalUSE.g:15347:1: ( ( rulePathNameCS ) )
+            // InternalUSE.g:15348:2: ( rulePathNameCS )
             {
-            // InternalUSE.g:15352:2: ( rulePathNameCS )
-            // InternalUSE.g:15353:3: rulePathNameCS
+            // InternalUSE.g:15348:2: ( rulePathNameCS )
+            // InternalUSE.g:15349:3: rulePathNameCS
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getNameExpCSAccess().getOwnedPathNamePathNameCSParserRuleCall_0_0()); 
@@ -50890,17 +51098,17 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__NameExpCS__OwnedSquareBracketedClausesAssignment_1"
-    // InternalUSE.g:15362:1: rule__NameExpCS__OwnedSquareBracketedClausesAssignment_1 : ( ruleSquareBracketedClauseCS ) ;
+    // InternalUSE.g:15358:1: rule__NameExpCS__OwnedSquareBracketedClausesAssignment_1 : ( ruleSquareBracketedClauseCS ) ;
     public final void rule__NameExpCS__OwnedSquareBracketedClausesAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalUSE.g:15366:1: ( ( ruleSquareBracketedClauseCS ) )
-            // InternalUSE.g:15367:2: ( ruleSquareBracketedClauseCS )
+            // InternalUSE.g:15362:1: ( ( ruleSquareBracketedClauseCS ) )
+            // InternalUSE.g:15363:2: ( ruleSquareBracketedClauseCS )
             {
-            // InternalUSE.g:15367:2: ( ruleSquareBracketedClauseCS )
-            // InternalUSE.g:15368:3: ruleSquareBracketedClauseCS
+            // InternalUSE.g:15363:2: ( ruleSquareBracketedClauseCS )
+            // InternalUSE.g:15364:3: ruleSquareBracketedClauseCS
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getNameExpCSAccess().getOwnedSquareBracketedClausesSquareBracketedClauseCSParserRuleCall_1_0()); 
@@ -50935,17 +51143,17 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__NameExpCS__OwnedRoundBracketedClauseAssignment_2"
-    // InternalUSE.g:15377:1: rule__NameExpCS__OwnedRoundBracketedClauseAssignment_2 : ( ruleRoundBracketedClauseCS ) ;
+    // InternalUSE.g:15373:1: rule__NameExpCS__OwnedRoundBracketedClauseAssignment_2 : ( ruleRoundBracketedClauseCS ) ;
     public final void rule__NameExpCS__OwnedRoundBracketedClauseAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalUSE.g:15381:1: ( ( ruleRoundBracketedClauseCS ) )
-            // InternalUSE.g:15382:2: ( ruleRoundBracketedClauseCS )
+            // InternalUSE.g:15377:1: ( ( ruleRoundBracketedClauseCS ) )
+            // InternalUSE.g:15378:2: ( ruleRoundBracketedClauseCS )
             {
-            // InternalUSE.g:15382:2: ( ruleRoundBracketedClauseCS )
-            // InternalUSE.g:15383:3: ruleRoundBracketedClauseCS
+            // InternalUSE.g:15378:2: ( ruleRoundBracketedClauseCS )
+            // InternalUSE.g:15379:3: ruleRoundBracketedClauseCS
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getNameExpCSAccess().getOwnedRoundBracketedClauseRoundBracketedClauseCSParserRuleCall_2_0()); 
@@ -50980,17 +51188,17 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__NameExpCS__OwnedCurlyBracketedClauseAssignment_3"
-    // InternalUSE.g:15392:1: rule__NameExpCS__OwnedCurlyBracketedClauseAssignment_3 : ( ruleCurlyBracketedClauseCS ) ;
+    // InternalUSE.g:15388:1: rule__NameExpCS__OwnedCurlyBracketedClauseAssignment_3 : ( ruleCurlyBracketedClauseCS ) ;
     public final void rule__NameExpCS__OwnedCurlyBracketedClauseAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalUSE.g:15396:1: ( ( ruleCurlyBracketedClauseCS ) )
-            // InternalUSE.g:15397:2: ( ruleCurlyBracketedClauseCS )
+            // InternalUSE.g:15392:1: ( ( ruleCurlyBracketedClauseCS ) )
+            // InternalUSE.g:15393:2: ( ruleCurlyBracketedClauseCS )
             {
-            // InternalUSE.g:15397:2: ( ruleCurlyBracketedClauseCS )
-            // InternalUSE.g:15398:3: ruleCurlyBracketedClauseCS
+            // InternalUSE.g:15393:2: ( ruleCurlyBracketedClauseCS )
+            // InternalUSE.g:15394:3: ruleCurlyBracketedClauseCS
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getNameExpCSAccess().getOwnedCurlyBracketedClauseCurlyBracketedClauseCSParserRuleCall_3_0()); 
@@ -51025,23 +51233,23 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__NameExpCS__IsPreAssignment_4_0"
-    // InternalUSE.g:15407:1: rule__NameExpCS__IsPreAssignment_4_0 : ( ( '@' ) ) ;
+    // InternalUSE.g:15403:1: rule__NameExpCS__IsPreAssignment_4_0 : ( ( '@' ) ) ;
     public final void rule__NameExpCS__IsPreAssignment_4_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalUSE.g:15411:1: ( ( ( '@' ) ) )
-            // InternalUSE.g:15412:2: ( ( '@' ) )
+            // InternalUSE.g:15407:1: ( ( ( '@' ) ) )
+            // InternalUSE.g:15408:2: ( ( '@' ) )
             {
-            // InternalUSE.g:15412:2: ( ( '@' ) )
-            // InternalUSE.g:15413:3: ( '@' )
+            // InternalUSE.g:15408:2: ( ( '@' ) )
+            // InternalUSE.g:15409:3: ( '@' )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getNameExpCSAccess().getIsPreCommercialAtKeyword_4_0_0()); 
             }
-            // InternalUSE.g:15414:3: ( '@' )
-            // InternalUSE.g:15415:4: '@'
+            // InternalUSE.g:15410:3: ( '@' )
+            // InternalUSE.g:15411:4: '@'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getNameExpCSAccess().getIsPreCommercialAtKeyword_4_0_0()); 
@@ -51077,18 +51285,71 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__NameExpCS__IsPreAssignment_4_0"
 
 
+    // $ANTLR start "rule__NameExpCS__PreAssignment_4_1"
+    // InternalUSE.g:15422:1: rule__NameExpCS__PreAssignment_4_1 : ( ( 'pre' ) ) ;
+    public final void rule__NameExpCS__PreAssignment_4_1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalUSE.g:15426:1: ( ( ( 'pre' ) ) )
+            // InternalUSE.g:15427:2: ( ( 'pre' ) )
+            {
+            // InternalUSE.g:15427:2: ( ( 'pre' ) )
+            // InternalUSE.g:15428:3: ( 'pre' )
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getNameExpCSAccess().getPrePreKeyword_4_1_0()); 
+            }
+            // InternalUSE.g:15429:3: ( 'pre' )
+            // InternalUSE.g:15430:4: 'pre'
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getNameExpCSAccess().getPrePreKeyword_4_1_0()); 
+            }
+            match(input,78,FOLLOW_2); if (state.failed) return ;
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getNameExpCSAccess().getPrePreKeyword_4_1_0()); 
+            }
+
+            }
+
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getNameExpCSAccess().getPrePreKeyword_4_1_0()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__NameExpCS__PreAssignment_4_1"
+
+
     // $ANTLR start "rule__SquareBracketedClauseCS__OwnedTermsAssignment_1"
-    // InternalUSE.g:15426:1: rule__SquareBracketedClauseCS__OwnedTermsAssignment_1 : ( ruleExpCS ) ;
+    // InternalUSE.g:15441:1: rule__SquareBracketedClauseCS__OwnedTermsAssignment_1 : ( ruleExpCS ) ;
     public final void rule__SquareBracketedClauseCS__OwnedTermsAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalUSE.g:15430:1: ( ( ruleExpCS ) )
-            // InternalUSE.g:15431:2: ( ruleExpCS )
+            // InternalUSE.g:15445:1: ( ( ruleExpCS ) )
+            // InternalUSE.g:15446:2: ( ruleExpCS )
             {
-            // InternalUSE.g:15431:2: ( ruleExpCS )
-            // InternalUSE.g:15432:3: ruleExpCS
+            // InternalUSE.g:15446:2: ( ruleExpCS )
+            // InternalUSE.g:15447:3: ruleExpCS
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSquareBracketedClauseCSAccess().getOwnedTermsExpCSParserRuleCall_1_0()); 
@@ -51123,17 +51384,17 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SquareBracketedClauseCS__OwnedTermsAssignment_2_1"
-    // InternalUSE.g:15441:1: rule__SquareBracketedClauseCS__OwnedTermsAssignment_2_1 : ( ruleExpCS ) ;
+    // InternalUSE.g:15456:1: rule__SquareBracketedClauseCS__OwnedTermsAssignment_2_1 : ( ruleExpCS ) ;
     public final void rule__SquareBracketedClauseCS__OwnedTermsAssignment_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalUSE.g:15445:1: ( ( ruleExpCS ) )
-            // InternalUSE.g:15446:2: ( ruleExpCS )
+            // InternalUSE.g:15460:1: ( ( ruleExpCS ) )
+            // InternalUSE.g:15461:2: ( ruleExpCS )
             {
-            // InternalUSE.g:15446:2: ( ruleExpCS )
-            // InternalUSE.g:15447:3: ruleExpCS
+            // InternalUSE.g:15461:2: ( ruleExpCS )
+            // InternalUSE.g:15462:3: ruleExpCS
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSquareBracketedClauseCSAccess().getOwnedTermsExpCSParserRuleCall_2_1_0()); 
@@ -51168,17 +51429,17 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__CollectionLiteralExpCS__OwnedTypeAssignment_0"
-    // InternalUSE.g:15456:1: rule__CollectionLiteralExpCS__OwnedTypeAssignment_0 : ( ruleCollectionTypeCS ) ;
+    // InternalUSE.g:15471:1: rule__CollectionLiteralExpCS__OwnedTypeAssignment_0 : ( ruleCollectionTypeCS ) ;
     public final void rule__CollectionLiteralExpCS__OwnedTypeAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalUSE.g:15460:1: ( ( ruleCollectionTypeCS ) )
-            // InternalUSE.g:15461:2: ( ruleCollectionTypeCS )
+            // InternalUSE.g:15475:1: ( ( ruleCollectionTypeCS ) )
+            // InternalUSE.g:15476:2: ( ruleCollectionTypeCS )
             {
-            // InternalUSE.g:15461:2: ( ruleCollectionTypeCS )
-            // InternalUSE.g:15462:3: ruleCollectionTypeCS
+            // InternalUSE.g:15476:2: ( ruleCollectionTypeCS )
+            // InternalUSE.g:15477:3: ruleCollectionTypeCS
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getCollectionLiteralExpCSAccess().getOwnedTypeCollectionTypeCSParserRuleCall_0_0()); 
@@ -51213,17 +51474,17 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__CollectionLiteralExpCS__OwnedPartsAssignment_2_0"
-    // InternalUSE.g:15471:1: rule__CollectionLiteralExpCS__OwnedPartsAssignment_2_0 : ( ruleCollectionLiteralPartCS ) ;
+    // InternalUSE.g:15486:1: rule__CollectionLiteralExpCS__OwnedPartsAssignment_2_0 : ( ruleCollectionLiteralPartCS ) ;
     public final void rule__CollectionLiteralExpCS__OwnedPartsAssignment_2_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalUSE.g:15475:1: ( ( ruleCollectionLiteralPartCS ) )
-            // InternalUSE.g:15476:2: ( ruleCollectionLiteralPartCS )
+            // InternalUSE.g:15490:1: ( ( ruleCollectionLiteralPartCS ) )
+            // InternalUSE.g:15491:2: ( ruleCollectionLiteralPartCS )
             {
-            // InternalUSE.g:15476:2: ( ruleCollectionLiteralPartCS )
-            // InternalUSE.g:15477:3: ruleCollectionLiteralPartCS
+            // InternalUSE.g:15491:2: ( ruleCollectionLiteralPartCS )
+            // InternalUSE.g:15492:3: ruleCollectionLiteralPartCS
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getCollectionLiteralExpCSAccess().getOwnedPartsCollectionLiteralPartCSParserRuleCall_2_0_0()); 
@@ -51258,17 +51519,17 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__CollectionLiteralExpCS__OwnedPartsAssignment_2_1_1"
-    // InternalUSE.g:15486:1: rule__CollectionLiteralExpCS__OwnedPartsAssignment_2_1_1 : ( ruleCollectionLiteralPartCS ) ;
+    // InternalUSE.g:15501:1: rule__CollectionLiteralExpCS__OwnedPartsAssignment_2_1_1 : ( ruleCollectionLiteralPartCS ) ;
     public final void rule__CollectionLiteralExpCS__OwnedPartsAssignment_2_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalUSE.g:15490:1: ( ( ruleCollectionLiteralPartCS ) )
-            // InternalUSE.g:15491:2: ( ruleCollectionLiteralPartCS )
+            // InternalUSE.g:15505:1: ( ( ruleCollectionLiteralPartCS ) )
+            // InternalUSE.g:15506:2: ( ruleCollectionLiteralPartCS )
             {
-            // InternalUSE.g:15491:2: ( ruleCollectionLiteralPartCS )
-            // InternalUSE.g:15492:3: ruleCollectionLiteralPartCS
+            // InternalUSE.g:15506:2: ( ruleCollectionLiteralPartCS )
+            // InternalUSE.g:15507:3: ruleCollectionLiteralPartCS
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getCollectionLiteralExpCSAccess().getOwnedPartsCollectionLiteralPartCSParserRuleCall_2_1_1_0()); 
@@ -51303,17 +51564,17 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__CollectionLiteralPartCS__OwnedExpressionAssignment_0_0"
-    // InternalUSE.g:15501:1: rule__CollectionLiteralPartCS__OwnedExpressionAssignment_0_0 : ( ruleExpCS ) ;
+    // InternalUSE.g:15516:1: rule__CollectionLiteralPartCS__OwnedExpressionAssignment_0_0 : ( ruleExpCS ) ;
     public final void rule__CollectionLiteralPartCS__OwnedExpressionAssignment_0_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalUSE.g:15505:1: ( ( ruleExpCS ) )
-            // InternalUSE.g:15506:2: ( ruleExpCS )
+            // InternalUSE.g:15520:1: ( ( ruleExpCS ) )
+            // InternalUSE.g:15521:2: ( ruleExpCS )
             {
-            // InternalUSE.g:15506:2: ( ruleExpCS )
-            // InternalUSE.g:15507:3: ruleExpCS
+            // InternalUSE.g:15521:2: ( ruleExpCS )
+            // InternalUSE.g:15522:3: ruleExpCS
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getCollectionLiteralPartCSAccess().getOwnedExpressionExpCSParserRuleCall_0_0_0()); 
@@ -51348,17 +51609,17 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__CollectionLiteralPartCS__OwnedLastExpressionAssignment_0_1_1"
-    // InternalUSE.g:15516:1: rule__CollectionLiteralPartCS__OwnedLastExpressionAssignment_0_1_1 : ( ruleExpCS ) ;
+    // InternalUSE.g:15531:1: rule__CollectionLiteralPartCS__OwnedLastExpressionAssignment_0_1_1 : ( ruleExpCS ) ;
     public final void rule__CollectionLiteralPartCS__OwnedLastExpressionAssignment_0_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalUSE.g:15520:1: ( ( ruleExpCS ) )
-            // InternalUSE.g:15521:2: ( ruleExpCS )
+            // InternalUSE.g:15535:1: ( ( ruleExpCS ) )
+            // InternalUSE.g:15536:2: ( ruleExpCS )
             {
-            // InternalUSE.g:15521:2: ( ruleExpCS )
-            // InternalUSE.g:15522:3: ruleExpCS
+            // InternalUSE.g:15536:2: ( ruleExpCS )
+            // InternalUSE.g:15537:3: ruleExpCS
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getCollectionLiteralPartCSAccess().getOwnedLastExpressionExpCSParserRuleCall_0_1_1_0()); 
@@ -51393,17 +51654,17 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__CollectionLiteralPartCS__OwnedExpressionAssignment_1"
-    // InternalUSE.g:15531:1: rule__CollectionLiteralPartCS__OwnedExpressionAssignment_1 : ( rulePatternExpCS ) ;
+    // InternalUSE.g:15546:1: rule__CollectionLiteralPartCS__OwnedExpressionAssignment_1 : ( rulePatternExpCS ) ;
     public final void rule__CollectionLiteralPartCS__OwnedExpressionAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalUSE.g:15535:1: ( ( rulePatternExpCS ) )
-            // InternalUSE.g:15536:2: ( rulePatternExpCS )
+            // InternalUSE.g:15550:1: ( ( rulePatternExpCS ) )
+            // InternalUSE.g:15551:2: ( rulePatternExpCS )
             {
-            // InternalUSE.g:15536:2: ( rulePatternExpCS )
-            // InternalUSE.g:15537:3: rulePatternExpCS
+            // InternalUSE.g:15551:2: ( rulePatternExpCS )
+            // InternalUSE.g:15552:3: rulePatternExpCS
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getCollectionLiteralPartCSAccess().getOwnedExpressionPatternExpCSParserRuleCall_1_0()); 
@@ -51438,17 +51699,17 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__LambdaLiteralExpCS__OwnedExpressionCSAssignment_2"
-    // InternalUSE.g:15546:1: rule__LambdaLiteralExpCS__OwnedExpressionCSAssignment_2 : ( ruleExpCS ) ;
+    // InternalUSE.g:15561:1: rule__LambdaLiteralExpCS__OwnedExpressionCSAssignment_2 : ( ruleExpCS ) ;
     public final void rule__LambdaLiteralExpCS__OwnedExpressionCSAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalUSE.g:15550:1: ( ( ruleExpCS ) )
-            // InternalUSE.g:15551:2: ( ruleExpCS )
+            // InternalUSE.g:15565:1: ( ( ruleExpCS ) )
+            // InternalUSE.g:15566:2: ( ruleExpCS )
             {
-            // InternalUSE.g:15551:2: ( ruleExpCS )
-            // InternalUSE.g:15552:3: ruleExpCS
+            // InternalUSE.g:15566:2: ( ruleExpCS )
+            // InternalUSE.g:15567:3: ruleExpCS
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getLambdaLiteralExpCSAccess().getOwnedExpressionCSExpCSParserRuleCall_2_0()); 
@@ -51483,17 +51744,17 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MapLiteralExpCS__OwnedTypeAssignment_0"
-    // InternalUSE.g:15561:1: rule__MapLiteralExpCS__OwnedTypeAssignment_0 : ( ruleMapTypeCS ) ;
+    // InternalUSE.g:15576:1: rule__MapLiteralExpCS__OwnedTypeAssignment_0 : ( ruleMapTypeCS ) ;
     public final void rule__MapLiteralExpCS__OwnedTypeAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalUSE.g:15565:1: ( ( ruleMapTypeCS ) )
-            // InternalUSE.g:15566:2: ( ruleMapTypeCS )
+            // InternalUSE.g:15580:1: ( ( ruleMapTypeCS ) )
+            // InternalUSE.g:15581:2: ( ruleMapTypeCS )
             {
-            // InternalUSE.g:15566:2: ( ruleMapTypeCS )
-            // InternalUSE.g:15567:3: ruleMapTypeCS
+            // InternalUSE.g:15581:2: ( ruleMapTypeCS )
+            // InternalUSE.g:15582:3: ruleMapTypeCS
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getMapLiteralExpCSAccess().getOwnedTypeMapTypeCSParserRuleCall_0_0()); 
@@ -51528,17 +51789,17 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MapLiteralExpCS__OwnedPartsAssignment_2_0"
-    // InternalUSE.g:15576:1: rule__MapLiteralExpCS__OwnedPartsAssignment_2_0 : ( ruleMapLiteralPartCS ) ;
+    // InternalUSE.g:15591:1: rule__MapLiteralExpCS__OwnedPartsAssignment_2_0 : ( ruleMapLiteralPartCS ) ;
     public final void rule__MapLiteralExpCS__OwnedPartsAssignment_2_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalUSE.g:15580:1: ( ( ruleMapLiteralPartCS ) )
-            // InternalUSE.g:15581:2: ( ruleMapLiteralPartCS )
+            // InternalUSE.g:15595:1: ( ( ruleMapLiteralPartCS ) )
+            // InternalUSE.g:15596:2: ( ruleMapLiteralPartCS )
             {
-            // InternalUSE.g:15581:2: ( ruleMapLiteralPartCS )
-            // InternalUSE.g:15582:3: ruleMapLiteralPartCS
+            // InternalUSE.g:15596:2: ( ruleMapLiteralPartCS )
+            // InternalUSE.g:15597:3: ruleMapLiteralPartCS
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getMapLiteralExpCSAccess().getOwnedPartsMapLiteralPartCSParserRuleCall_2_0_0()); 
@@ -51573,17 +51834,17 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MapLiteralExpCS__OwnedPartsAssignment_2_1_1"
-    // InternalUSE.g:15591:1: rule__MapLiteralExpCS__OwnedPartsAssignment_2_1_1 : ( ruleMapLiteralPartCS ) ;
+    // InternalUSE.g:15606:1: rule__MapLiteralExpCS__OwnedPartsAssignment_2_1_1 : ( ruleMapLiteralPartCS ) ;
     public final void rule__MapLiteralExpCS__OwnedPartsAssignment_2_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalUSE.g:15595:1: ( ( ruleMapLiteralPartCS ) )
-            // InternalUSE.g:15596:2: ( ruleMapLiteralPartCS )
+            // InternalUSE.g:15610:1: ( ( ruleMapLiteralPartCS ) )
+            // InternalUSE.g:15611:2: ( ruleMapLiteralPartCS )
             {
-            // InternalUSE.g:15596:2: ( ruleMapLiteralPartCS )
-            // InternalUSE.g:15597:3: ruleMapLiteralPartCS
+            // InternalUSE.g:15611:2: ( ruleMapLiteralPartCS )
+            // InternalUSE.g:15612:3: ruleMapLiteralPartCS
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getMapLiteralExpCSAccess().getOwnedPartsMapLiteralPartCSParserRuleCall_2_1_1_0()); 
@@ -51618,17 +51879,17 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MapLiteralPartCS__OwnedKeyAssignment_0"
-    // InternalUSE.g:15606:1: rule__MapLiteralPartCS__OwnedKeyAssignment_0 : ( ruleExpCS ) ;
+    // InternalUSE.g:15621:1: rule__MapLiteralPartCS__OwnedKeyAssignment_0 : ( ruleExpCS ) ;
     public final void rule__MapLiteralPartCS__OwnedKeyAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalUSE.g:15610:1: ( ( ruleExpCS ) )
-            // InternalUSE.g:15611:2: ( ruleExpCS )
+            // InternalUSE.g:15625:1: ( ( ruleExpCS ) )
+            // InternalUSE.g:15626:2: ( ruleExpCS )
             {
-            // InternalUSE.g:15611:2: ( ruleExpCS )
-            // InternalUSE.g:15612:3: ruleExpCS
+            // InternalUSE.g:15626:2: ( ruleExpCS )
+            // InternalUSE.g:15627:3: ruleExpCS
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getMapLiteralPartCSAccess().getOwnedKeyExpCSParserRuleCall_0_0()); 
@@ -51663,17 +51924,17 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MapLiteralPartCS__OwnedValueAssignment_2"
-    // InternalUSE.g:15621:1: rule__MapLiteralPartCS__OwnedValueAssignment_2 : ( ruleExpCS ) ;
+    // InternalUSE.g:15636:1: rule__MapLiteralPartCS__OwnedValueAssignment_2 : ( ruleExpCS ) ;
     public final void rule__MapLiteralPartCS__OwnedValueAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalUSE.g:15625:1: ( ( ruleExpCS ) )
-            // InternalUSE.g:15626:2: ( ruleExpCS )
+            // InternalUSE.g:15640:1: ( ( ruleExpCS ) )
+            // InternalUSE.g:15641:2: ( ruleExpCS )
             {
-            // InternalUSE.g:15626:2: ( ruleExpCS )
-            // InternalUSE.g:15627:3: ruleExpCS
+            // InternalUSE.g:15641:2: ( ruleExpCS )
+            // InternalUSE.g:15642:3: ruleExpCS
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getMapLiteralPartCSAccess().getOwnedValueExpCSParserRuleCall_2_0()); 
@@ -51708,17 +51969,17 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__TupleLiteralExpCS__OwnedPartsAssignment_2"
-    // InternalUSE.g:15636:1: rule__TupleLiteralExpCS__OwnedPartsAssignment_2 : ( ruleTupleLiteralPartCS ) ;
+    // InternalUSE.g:15651:1: rule__TupleLiteralExpCS__OwnedPartsAssignment_2 : ( ruleTupleLiteralPartCS ) ;
     public final void rule__TupleLiteralExpCS__OwnedPartsAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalUSE.g:15640:1: ( ( ruleTupleLiteralPartCS ) )
-            // InternalUSE.g:15641:2: ( ruleTupleLiteralPartCS )
+            // InternalUSE.g:15655:1: ( ( ruleTupleLiteralPartCS ) )
+            // InternalUSE.g:15656:2: ( ruleTupleLiteralPartCS )
             {
-            // InternalUSE.g:15641:2: ( ruleTupleLiteralPartCS )
-            // InternalUSE.g:15642:3: ruleTupleLiteralPartCS
+            // InternalUSE.g:15656:2: ( ruleTupleLiteralPartCS )
+            // InternalUSE.g:15657:3: ruleTupleLiteralPartCS
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getTupleLiteralExpCSAccess().getOwnedPartsTupleLiteralPartCSParserRuleCall_2_0()); 
@@ -51753,17 +52014,17 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__TupleLiteralExpCS__OwnedPartsAssignment_3_1"
-    // InternalUSE.g:15651:1: rule__TupleLiteralExpCS__OwnedPartsAssignment_3_1 : ( ruleTupleLiteralPartCS ) ;
+    // InternalUSE.g:15666:1: rule__TupleLiteralExpCS__OwnedPartsAssignment_3_1 : ( ruleTupleLiteralPartCS ) ;
     public final void rule__TupleLiteralExpCS__OwnedPartsAssignment_3_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalUSE.g:15655:1: ( ( ruleTupleLiteralPartCS ) )
-            // InternalUSE.g:15656:2: ( ruleTupleLiteralPartCS )
+            // InternalUSE.g:15670:1: ( ( ruleTupleLiteralPartCS ) )
+            // InternalUSE.g:15671:2: ( ruleTupleLiteralPartCS )
             {
-            // InternalUSE.g:15656:2: ( ruleTupleLiteralPartCS )
-            // InternalUSE.g:15657:3: ruleTupleLiteralPartCS
+            // InternalUSE.g:15671:2: ( ruleTupleLiteralPartCS )
+            // InternalUSE.g:15672:3: ruleTupleLiteralPartCS
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getTupleLiteralExpCSAccess().getOwnedPartsTupleLiteralPartCSParserRuleCall_3_1_0()); 
@@ -51798,17 +52059,17 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__TupleLiteralPartCS__NameAssignment_0"
-    // InternalUSE.g:15666:1: rule__TupleLiteralPartCS__NameAssignment_0 : ( ruleUnrestrictedName ) ;
+    // InternalUSE.g:15681:1: rule__TupleLiteralPartCS__NameAssignment_0 : ( ruleUnrestrictedName ) ;
     public final void rule__TupleLiteralPartCS__NameAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalUSE.g:15670:1: ( ( ruleUnrestrictedName ) )
-            // InternalUSE.g:15671:2: ( ruleUnrestrictedName )
+            // InternalUSE.g:15685:1: ( ( ruleUnrestrictedName ) )
+            // InternalUSE.g:15686:2: ( ruleUnrestrictedName )
             {
-            // InternalUSE.g:15671:2: ( ruleUnrestrictedName )
-            // InternalUSE.g:15672:3: ruleUnrestrictedName
+            // InternalUSE.g:15686:2: ( ruleUnrestrictedName )
+            // InternalUSE.g:15687:3: ruleUnrestrictedName
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getTupleLiteralPartCSAccess().getNameUnrestrictedNameParserRuleCall_0_0()); 
@@ -51843,17 +52104,17 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__TupleLiteralPartCS__OwnedTypeAssignment_1_1"
-    // InternalUSE.g:15681:1: rule__TupleLiteralPartCS__OwnedTypeAssignment_1_1 : ( ruleTypeExpCS ) ;
+    // InternalUSE.g:15696:1: rule__TupleLiteralPartCS__OwnedTypeAssignment_1_1 : ( ruleTypeExpCS ) ;
     public final void rule__TupleLiteralPartCS__OwnedTypeAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalUSE.g:15685:1: ( ( ruleTypeExpCS ) )
-            // InternalUSE.g:15686:2: ( ruleTypeExpCS )
+            // InternalUSE.g:15700:1: ( ( ruleTypeExpCS ) )
+            // InternalUSE.g:15701:2: ( ruleTypeExpCS )
             {
-            // InternalUSE.g:15686:2: ( ruleTypeExpCS )
-            // InternalUSE.g:15687:3: ruleTypeExpCS
+            // InternalUSE.g:15701:2: ( ruleTypeExpCS )
+            // InternalUSE.g:15702:3: ruleTypeExpCS
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getTupleLiteralPartCSAccess().getOwnedTypeTypeExpCSParserRuleCall_1_1_0()); 
@@ -51888,17 +52149,17 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__TupleLiteralPartCS__OwnedInitExpressionAssignment_3"
-    // InternalUSE.g:15696:1: rule__TupleLiteralPartCS__OwnedInitExpressionAssignment_3 : ( ruleExpCS ) ;
+    // InternalUSE.g:15711:1: rule__TupleLiteralPartCS__OwnedInitExpressionAssignment_3 : ( ruleExpCS ) ;
     public final void rule__TupleLiteralPartCS__OwnedInitExpressionAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalUSE.g:15700:1: ( ( ruleExpCS ) )
-            // InternalUSE.g:15701:2: ( ruleExpCS )
+            // InternalUSE.g:15715:1: ( ( ruleExpCS ) )
+            // InternalUSE.g:15716:2: ( ruleExpCS )
             {
-            // InternalUSE.g:15701:2: ( ruleExpCS )
-            // InternalUSE.g:15702:3: ruleExpCS
+            // InternalUSE.g:15716:2: ( ruleExpCS )
+            // InternalUSE.g:15717:3: ruleExpCS
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getTupleLiteralPartCSAccess().getOwnedInitExpressionExpCSParserRuleCall_3_0()); 
@@ -51933,17 +52194,17 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__NumberLiteralExpCS__ValueAssignment"
-    // InternalUSE.g:15711:1: rule__NumberLiteralExpCS__ValueAssignment : ( ruleIntToString ) ;
+    // InternalUSE.g:15726:1: rule__NumberLiteralExpCS__ValueAssignment : ( ruleIntToString ) ;
     public final void rule__NumberLiteralExpCS__ValueAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalUSE.g:15715:1: ( ( ruleIntToString ) )
-            // InternalUSE.g:15716:2: ( ruleIntToString )
+            // InternalUSE.g:15730:1: ( ( ruleIntToString ) )
+            // InternalUSE.g:15731:2: ( ruleIntToString )
             {
-            // InternalUSE.g:15716:2: ( ruleIntToString )
-            // InternalUSE.g:15717:3: ruleIntToString
+            // InternalUSE.g:15731:2: ( ruleIntToString )
+            // InternalUSE.g:15732:3: ruleIntToString
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getNumberLiteralExpCSAccess().getValueIntToStringParserRuleCall_0()); 
@@ -51978,23 +52239,23 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BooleanLiteralExpCS__SymbolAssignment_0"
-    // InternalUSE.g:15726:1: rule__BooleanLiteralExpCS__SymbolAssignment_0 : ( ( 'true' ) ) ;
+    // InternalUSE.g:15741:1: rule__BooleanLiteralExpCS__SymbolAssignment_0 : ( ( 'true' ) ) ;
     public final void rule__BooleanLiteralExpCS__SymbolAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalUSE.g:15730:1: ( ( ( 'true' ) ) )
-            // InternalUSE.g:15731:2: ( ( 'true' ) )
+            // InternalUSE.g:15745:1: ( ( ( 'true' ) ) )
+            // InternalUSE.g:15746:2: ( ( 'true' ) )
             {
-            // InternalUSE.g:15731:2: ( ( 'true' ) )
-            // InternalUSE.g:15732:3: ( 'true' )
+            // InternalUSE.g:15746:2: ( ( 'true' ) )
+            // InternalUSE.g:15747:3: ( 'true' )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getBooleanLiteralExpCSAccess().getSymbolTrueKeyword_0_0()); 
             }
-            // InternalUSE.g:15733:3: ( 'true' )
-            // InternalUSE.g:15734:4: 'true'
+            // InternalUSE.g:15748:3: ( 'true' )
+            // InternalUSE.g:15749:4: 'true'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getBooleanLiteralExpCSAccess().getSymbolTrueKeyword_0_0()); 
@@ -52031,23 +52292,23 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BooleanLiteralExpCS__SymbolAssignment_1"
-    // InternalUSE.g:15745:1: rule__BooleanLiteralExpCS__SymbolAssignment_1 : ( ( 'false' ) ) ;
+    // InternalUSE.g:15760:1: rule__BooleanLiteralExpCS__SymbolAssignment_1 : ( ( 'false' ) ) ;
     public final void rule__BooleanLiteralExpCS__SymbolAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalUSE.g:15749:1: ( ( ( 'false' ) ) )
-            // InternalUSE.g:15750:2: ( ( 'false' ) )
+            // InternalUSE.g:15764:1: ( ( ( 'false' ) ) )
+            // InternalUSE.g:15765:2: ( ( 'false' ) )
             {
-            // InternalUSE.g:15750:2: ( ( 'false' ) )
-            // InternalUSE.g:15751:3: ( 'false' )
+            // InternalUSE.g:15765:2: ( ( 'false' ) )
+            // InternalUSE.g:15766:3: ( 'false' )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getBooleanLiteralExpCSAccess().getSymbolFalseKeyword_1_0()); 
             }
-            // InternalUSE.g:15752:3: ( 'false' )
-            // InternalUSE.g:15753:4: 'false'
+            // InternalUSE.g:15767:3: ( 'false' )
+            // InternalUSE.g:15768:4: 'false'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getBooleanLiteralExpCSAccess().getSymbolFalseKeyword_1_0()); 
@@ -52084,17 +52345,17 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__NestedExpCS__OwnedExpressionAssignment_1"
-    // InternalUSE.g:15764:1: rule__NestedExpCS__OwnedExpressionAssignment_1 : ( ruleExpCS ) ;
+    // InternalUSE.g:15779:1: rule__NestedExpCS__OwnedExpressionAssignment_1 : ( ruleExpCS ) ;
     public final void rule__NestedExpCS__OwnedExpressionAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalUSE.g:15768:1: ( ( ruleExpCS ) )
-            // InternalUSE.g:15769:2: ( ruleExpCS )
+            // InternalUSE.g:15783:1: ( ( ruleExpCS ) )
+            // InternalUSE.g:15784:2: ( ruleExpCS )
             {
-            // InternalUSE.g:15769:2: ( ruleExpCS )
-            // InternalUSE.g:15770:3: ruleExpCS
+            // InternalUSE.g:15784:2: ( ruleExpCS )
+            // InternalUSE.g:15785:3: ruleExpCS
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getNestedExpCSAccess().getOwnedExpressionExpCSParserRuleCall_1_0()); 
@@ -52129,23 +52390,23 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IfExpCS__OwnedConditionAssignment_1"
-    // InternalUSE.g:15779:1: rule__IfExpCS__OwnedConditionAssignment_1 : ( ( rule__IfExpCS__OwnedConditionAlternatives_1_0 ) ) ;
+    // InternalUSE.g:15794:1: rule__IfExpCS__OwnedConditionAssignment_1 : ( ( rule__IfExpCS__OwnedConditionAlternatives_1_0 ) ) ;
     public final void rule__IfExpCS__OwnedConditionAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalUSE.g:15783:1: ( ( ( rule__IfExpCS__OwnedConditionAlternatives_1_0 ) ) )
-            // InternalUSE.g:15784:2: ( ( rule__IfExpCS__OwnedConditionAlternatives_1_0 ) )
+            // InternalUSE.g:15798:1: ( ( ( rule__IfExpCS__OwnedConditionAlternatives_1_0 ) ) )
+            // InternalUSE.g:15799:2: ( ( rule__IfExpCS__OwnedConditionAlternatives_1_0 ) )
             {
-            // InternalUSE.g:15784:2: ( ( rule__IfExpCS__OwnedConditionAlternatives_1_0 ) )
-            // InternalUSE.g:15785:3: ( rule__IfExpCS__OwnedConditionAlternatives_1_0 )
+            // InternalUSE.g:15799:2: ( ( rule__IfExpCS__OwnedConditionAlternatives_1_0 ) )
+            // InternalUSE.g:15800:3: ( rule__IfExpCS__OwnedConditionAlternatives_1_0 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getIfExpCSAccess().getOwnedConditionAlternatives_1_0()); 
             }
-            // InternalUSE.g:15786:3: ( rule__IfExpCS__OwnedConditionAlternatives_1_0 )
-            // InternalUSE.g:15786:4: rule__IfExpCS__OwnedConditionAlternatives_1_0
+            // InternalUSE.g:15801:3: ( rule__IfExpCS__OwnedConditionAlternatives_1_0 )
+            // InternalUSE.g:15801:4: rule__IfExpCS__OwnedConditionAlternatives_1_0
             {
             pushFollow(FOLLOW_2);
             rule__IfExpCS__OwnedConditionAlternatives_1_0();
@@ -52180,17 +52441,17 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IfExpCS__OwnedThenExpressionAssignment_3"
-    // InternalUSE.g:15794:1: rule__IfExpCS__OwnedThenExpressionAssignment_3 : ( ruleExpCS ) ;
+    // InternalUSE.g:15809:1: rule__IfExpCS__OwnedThenExpressionAssignment_3 : ( ruleExpCS ) ;
     public final void rule__IfExpCS__OwnedThenExpressionAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalUSE.g:15798:1: ( ( ruleExpCS ) )
-            // InternalUSE.g:15799:2: ( ruleExpCS )
+            // InternalUSE.g:15813:1: ( ( ruleExpCS ) )
+            // InternalUSE.g:15814:2: ( ruleExpCS )
             {
-            // InternalUSE.g:15799:2: ( ruleExpCS )
-            // InternalUSE.g:15800:3: ruleExpCS
+            // InternalUSE.g:15814:2: ( ruleExpCS )
+            // InternalUSE.g:15815:3: ruleExpCS
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getIfExpCSAccess().getOwnedThenExpressionExpCSParserRuleCall_3_0()); 
@@ -52225,17 +52486,17 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IfExpCS__OwnedIfThenExpressionsAssignment_4"
-    // InternalUSE.g:15809:1: rule__IfExpCS__OwnedIfThenExpressionsAssignment_4 : ( ruleElseIfThenExpCS ) ;
+    // InternalUSE.g:15824:1: rule__IfExpCS__OwnedIfThenExpressionsAssignment_4 : ( ruleElseIfThenExpCS ) ;
     public final void rule__IfExpCS__OwnedIfThenExpressionsAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalUSE.g:15813:1: ( ( ruleElseIfThenExpCS ) )
-            // InternalUSE.g:15814:2: ( ruleElseIfThenExpCS )
+            // InternalUSE.g:15828:1: ( ( ruleElseIfThenExpCS ) )
+            // InternalUSE.g:15829:2: ( ruleElseIfThenExpCS )
             {
-            // InternalUSE.g:15814:2: ( ruleElseIfThenExpCS )
-            // InternalUSE.g:15815:3: ruleElseIfThenExpCS
+            // InternalUSE.g:15829:2: ( ruleElseIfThenExpCS )
+            // InternalUSE.g:15830:3: ruleElseIfThenExpCS
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getIfExpCSAccess().getOwnedIfThenExpressionsElseIfThenExpCSParserRuleCall_4_0()); 
@@ -52270,17 +52531,17 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__IfExpCS__OwnedElseExpressionAssignment_6"
-    // InternalUSE.g:15824:1: rule__IfExpCS__OwnedElseExpressionAssignment_6 : ( ruleExpCS ) ;
+    // InternalUSE.g:15839:1: rule__IfExpCS__OwnedElseExpressionAssignment_6 : ( ruleExpCS ) ;
     public final void rule__IfExpCS__OwnedElseExpressionAssignment_6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalUSE.g:15828:1: ( ( ruleExpCS ) )
-            // InternalUSE.g:15829:2: ( ruleExpCS )
+            // InternalUSE.g:15843:1: ( ( ruleExpCS ) )
+            // InternalUSE.g:15844:2: ( ruleExpCS )
             {
-            // InternalUSE.g:15829:2: ( ruleExpCS )
-            // InternalUSE.g:15830:3: ruleExpCS
+            // InternalUSE.g:15844:2: ( ruleExpCS )
+            // InternalUSE.g:15845:3: ruleExpCS
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getIfExpCSAccess().getOwnedElseExpressionExpCSParserRuleCall_6_0()); 
@@ -52315,17 +52576,17 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ElseIfThenExpCS__OwnedConditionAssignment_1"
-    // InternalUSE.g:15839:1: rule__ElseIfThenExpCS__OwnedConditionAssignment_1 : ( ruleExpCS ) ;
+    // InternalUSE.g:15854:1: rule__ElseIfThenExpCS__OwnedConditionAssignment_1 : ( ruleExpCS ) ;
     public final void rule__ElseIfThenExpCS__OwnedConditionAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalUSE.g:15843:1: ( ( ruleExpCS ) )
-            // InternalUSE.g:15844:2: ( ruleExpCS )
+            // InternalUSE.g:15858:1: ( ( ruleExpCS ) )
+            // InternalUSE.g:15859:2: ( ruleExpCS )
             {
-            // InternalUSE.g:15844:2: ( ruleExpCS )
-            // InternalUSE.g:15845:3: ruleExpCS
+            // InternalUSE.g:15859:2: ( ruleExpCS )
+            // InternalUSE.g:15860:3: ruleExpCS
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getElseIfThenExpCSAccess().getOwnedConditionExpCSParserRuleCall_1_0()); 
@@ -52360,17 +52621,17 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ElseIfThenExpCS__OwnedThenExpressionAssignment_3"
-    // InternalUSE.g:15854:1: rule__ElseIfThenExpCS__OwnedThenExpressionAssignment_3 : ( ruleExpCS ) ;
+    // InternalUSE.g:15869:1: rule__ElseIfThenExpCS__OwnedThenExpressionAssignment_3 : ( ruleExpCS ) ;
     public final void rule__ElseIfThenExpCS__OwnedThenExpressionAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalUSE.g:15858:1: ( ( ruleExpCS ) )
-            // InternalUSE.g:15859:2: ( ruleExpCS )
+            // InternalUSE.g:15873:1: ( ( ruleExpCS ) )
+            // InternalUSE.g:15874:2: ( ruleExpCS )
             {
-            // InternalUSE.g:15859:2: ( ruleExpCS )
-            // InternalUSE.g:15860:3: ruleExpCS
+            // InternalUSE.g:15874:2: ( ruleExpCS )
+            // InternalUSE.g:15875:3: ruleExpCS
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getElseIfThenExpCSAccess().getOwnedThenExpressionExpCSParserRuleCall_3_0()); 
@@ -52405,17 +52666,17 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__LetExpCS__OwnedVariablesAssignment_1"
-    // InternalUSE.g:15869:1: rule__LetExpCS__OwnedVariablesAssignment_1 : ( ruleLetVariableCS ) ;
+    // InternalUSE.g:15884:1: rule__LetExpCS__OwnedVariablesAssignment_1 : ( ruleLetVariableCS ) ;
     public final void rule__LetExpCS__OwnedVariablesAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalUSE.g:15873:1: ( ( ruleLetVariableCS ) )
-            // InternalUSE.g:15874:2: ( ruleLetVariableCS )
+            // InternalUSE.g:15888:1: ( ( ruleLetVariableCS ) )
+            // InternalUSE.g:15889:2: ( ruleLetVariableCS )
             {
-            // InternalUSE.g:15874:2: ( ruleLetVariableCS )
-            // InternalUSE.g:15875:3: ruleLetVariableCS
+            // InternalUSE.g:15889:2: ( ruleLetVariableCS )
+            // InternalUSE.g:15890:3: ruleLetVariableCS
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getLetExpCSAccess().getOwnedVariablesLetVariableCSParserRuleCall_1_0()); 
@@ -52450,17 +52711,17 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__LetExpCS__OwnedVariablesAssignment_2_1"
-    // InternalUSE.g:15884:1: rule__LetExpCS__OwnedVariablesAssignment_2_1 : ( ruleLetVariableCS ) ;
+    // InternalUSE.g:15899:1: rule__LetExpCS__OwnedVariablesAssignment_2_1 : ( ruleLetVariableCS ) ;
     public final void rule__LetExpCS__OwnedVariablesAssignment_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalUSE.g:15888:1: ( ( ruleLetVariableCS ) )
-            // InternalUSE.g:15889:2: ( ruleLetVariableCS )
+            // InternalUSE.g:15903:1: ( ( ruleLetVariableCS ) )
+            // InternalUSE.g:15904:2: ( ruleLetVariableCS )
             {
-            // InternalUSE.g:15889:2: ( ruleLetVariableCS )
-            // InternalUSE.g:15890:3: ruleLetVariableCS
+            // InternalUSE.g:15904:2: ( ruleLetVariableCS )
+            // InternalUSE.g:15905:3: ruleLetVariableCS
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getLetExpCSAccess().getOwnedVariablesLetVariableCSParserRuleCall_2_1_0()); 
@@ -52495,17 +52756,17 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__LetExpCS__OwnedInExpressionAssignment_4"
-    // InternalUSE.g:15899:1: rule__LetExpCS__OwnedInExpressionAssignment_4 : ( ruleExpCS ) ;
+    // InternalUSE.g:15914:1: rule__LetExpCS__OwnedInExpressionAssignment_4 : ( ruleExpCS ) ;
     public final void rule__LetExpCS__OwnedInExpressionAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalUSE.g:15903:1: ( ( ruleExpCS ) )
-            // InternalUSE.g:15904:2: ( ruleExpCS )
+            // InternalUSE.g:15918:1: ( ( ruleExpCS ) )
+            // InternalUSE.g:15919:2: ( ruleExpCS )
             {
-            // InternalUSE.g:15904:2: ( ruleExpCS )
-            // InternalUSE.g:15905:3: ruleExpCS
+            // InternalUSE.g:15919:2: ( ruleExpCS )
+            // InternalUSE.g:15920:3: ruleExpCS
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getLetExpCSAccess().getOwnedInExpressionExpCSParserRuleCall_4_0()); 
@@ -52540,17 +52801,17 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__LetVariableCS__NameAssignment_0"
-    // InternalUSE.g:15914:1: rule__LetVariableCS__NameAssignment_0 : ( ruleUnrestrictedName ) ;
+    // InternalUSE.g:15929:1: rule__LetVariableCS__NameAssignment_0 : ( ruleUnrestrictedName ) ;
     public final void rule__LetVariableCS__NameAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalUSE.g:15918:1: ( ( ruleUnrestrictedName ) )
-            // InternalUSE.g:15919:2: ( ruleUnrestrictedName )
+            // InternalUSE.g:15933:1: ( ( ruleUnrestrictedName ) )
+            // InternalUSE.g:15934:2: ( ruleUnrestrictedName )
             {
-            // InternalUSE.g:15919:2: ( ruleUnrestrictedName )
-            // InternalUSE.g:15920:3: ruleUnrestrictedName
+            // InternalUSE.g:15934:2: ( ruleUnrestrictedName )
+            // InternalUSE.g:15935:3: ruleUnrestrictedName
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getLetVariableCSAccess().getNameUnrestrictedNameParserRuleCall_0_0()); 
@@ -52585,17 +52846,17 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__LetVariableCS__OwnedRoundBracketedClauseAssignment_1"
-    // InternalUSE.g:15929:1: rule__LetVariableCS__OwnedRoundBracketedClauseAssignment_1 : ( ruleRoundBracketedClauseCS ) ;
+    // InternalUSE.g:15944:1: rule__LetVariableCS__OwnedRoundBracketedClauseAssignment_1 : ( ruleRoundBracketedClauseCS ) ;
     public final void rule__LetVariableCS__OwnedRoundBracketedClauseAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalUSE.g:15933:1: ( ( ruleRoundBracketedClauseCS ) )
-            // InternalUSE.g:15934:2: ( ruleRoundBracketedClauseCS )
+            // InternalUSE.g:15948:1: ( ( ruleRoundBracketedClauseCS ) )
+            // InternalUSE.g:15949:2: ( ruleRoundBracketedClauseCS )
             {
-            // InternalUSE.g:15934:2: ( ruleRoundBracketedClauseCS )
-            // InternalUSE.g:15935:3: ruleRoundBracketedClauseCS
+            // InternalUSE.g:15949:2: ( ruleRoundBracketedClauseCS )
+            // InternalUSE.g:15950:3: ruleRoundBracketedClauseCS
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getLetVariableCSAccess().getOwnedRoundBracketedClauseRoundBracketedClauseCSParserRuleCall_1_0()); 
@@ -52630,17 +52891,17 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__LetVariableCS__OwnedTypeAssignment_2_1"
-    // InternalUSE.g:15944:1: rule__LetVariableCS__OwnedTypeAssignment_2_1 : ( ruleTypeExpCS ) ;
+    // InternalUSE.g:15959:1: rule__LetVariableCS__OwnedTypeAssignment_2_1 : ( ruleTypeExpCS ) ;
     public final void rule__LetVariableCS__OwnedTypeAssignment_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalUSE.g:15948:1: ( ( ruleTypeExpCS ) )
-            // InternalUSE.g:15949:2: ( ruleTypeExpCS )
+            // InternalUSE.g:15963:1: ( ( ruleTypeExpCS ) )
+            // InternalUSE.g:15964:2: ( ruleTypeExpCS )
             {
-            // InternalUSE.g:15949:2: ( ruleTypeExpCS )
-            // InternalUSE.g:15950:3: ruleTypeExpCS
+            // InternalUSE.g:15964:2: ( ruleTypeExpCS )
+            // InternalUSE.g:15965:3: ruleTypeExpCS
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getLetVariableCSAccess().getOwnedTypeTypeExpCSParserRuleCall_2_1_0()); 
@@ -52675,17 +52936,17 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__LetVariableCS__OwnedInitExpressionAssignment_4"
-    // InternalUSE.g:15959:1: rule__LetVariableCS__OwnedInitExpressionAssignment_4 : ( ruleExpCS ) ;
+    // InternalUSE.g:15974:1: rule__LetVariableCS__OwnedInitExpressionAssignment_4 : ( ruleExpCS ) ;
     public final void rule__LetVariableCS__OwnedInitExpressionAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalUSE.g:15963:1: ( ( ruleExpCS ) )
-            // InternalUSE.g:15964:2: ( ruleExpCS )
+            // InternalUSE.g:15978:1: ( ( ruleExpCS ) )
+            // InternalUSE.g:15979:2: ( ruleExpCS )
             {
-            // InternalUSE.g:15964:2: ( ruleExpCS )
-            // InternalUSE.g:15965:3: ruleExpCS
+            // InternalUSE.g:15979:2: ( ruleExpCS )
+            // InternalUSE.g:15980:3: ruleExpCS
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getLetVariableCSAccess().getOwnedInitExpressionExpCSParserRuleCall_4_0()); 
@@ -52720,17 +52981,17 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__RoundBracketedClauseCS__OwnedArgumentsAssignment_2_0"
-    // InternalUSE.g:15974:1: rule__RoundBracketedClauseCS__OwnedArgumentsAssignment_2_0 : ( ruleNavigatingArgCS ) ;
+    // InternalUSE.g:15989:1: rule__RoundBracketedClauseCS__OwnedArgumentsAssignment_2_0 : ( ruleNavigatingArgCS ) ;
     public final void rule__RoundBracketedClauseCS__OwnedArgumentsAssignment_2_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalUSE.g:15978:1: ( ( ruleNavigatingArgCS ) )
-            // InternalUSE.g:15979:2: ( ruleNavigatingArgCS )
+            // InternalUSE.g:15993:1: ( ( ruleNavigatingArgCS ) )
+            // InternalUSE.g:15994:2: ( ruleNavigatingArgCS )
             {
-            // InternalUSE.g:15979:2: ( ruleNavigatingArgCS )
-            // InternalUSE.g:15980:3: ruleNavigatingArgCS
+            // InternalUSE.g:15994:2: ( ruleNavigatingArgCS )
+            // InternalUSE.g:15995:3: ruleNavigatingArgCS
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getRoundBracketedClauseCSAccess().getOwnedArgumentsNavigatingArgCSParserRuleCall_2_0_0()); 
@@ -52765,23 +53026,23 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__RoundBracketedClauseCS__OwnedArgumentsAssignment_2_1"
-    // InternalUSE.g:15989:1: rule__RoundBracketedClauseCS__OwnedArgumentsAssignment_2_1 : ( ( rule__RoundBracketedClauseCS__OwnedArgumentsAlternatives_2_1_0 ) ) ;
+    // InternalUSE.g:16004:1: rule__RoundBracketedClauseCS__OwnedArgumentsAssignment_2_1 : ( ( rule__RoundBracketedClauseCS__OwnedArgumentsAlternatives_2_1_0 ) ) ;
     public final void rule__RoundBracketedClauseCS__OwnedArgumentsAssignment_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalUSE.g:15993:1: ( ( ( rule__RoundBracketedClauseCS__OwnedArgumentsAlternatives_2_1_0 ) ) )
-            // InternalUSE.g:15994:2: ( ( rule__RoundBracketedClauseCS__OwnedArgumentsAlternatives_2_1_0 ) )
+            // InternalUSE.g:16008:1: ( ( ( rule__RoundBracketedClauseCS__OwnedArgumentsAlternatives_2_1_0 ) ) )
+            // InternalUSE.g:16009:2: ( ( rule__RoundBracketedClauseCS__OwnedArgumentsAlternatives_2_1_0 ) )
             {
-            // InternalUSE.g:15994:2: ( ( rule__RoundBracketedClauseCS__OwnedArgumentsAlternatives_2_1_0 ) )
-            // InternalUSE.g:15995:3: ( rule__RoundBracketedClauseCS__OwnedArgumentsAlternatives_2_1_0 )
+            // InternalUSE.g:16009:2: ( ( rule__RoundBracketedClauseCS__OwnedArgumentsAlternatives_2_1_0 ) )
+            // InternalUSE.g:16010:3: ( rule__RoundBracketedClauseCS__OwnedArgumentsAlternatives_2_1_0 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getRoundBracketedClauseCSAccess().getOwnedArgumentsAlternatives_2_1_0()); 
             }
-            // InternalUSE.g:15996:3: ( rule__RoundBracketedClauseCS__OwnedArgumentsAlternatives_2_1_0 )
-            // InternalUSE.g:15996:4: rule__RoundBracketedClauseCS__OwnedArgumentsAlternatives_2_1_0
+            // InternalUSE.g:16011:3: ( rule__RoundBracketedClauseCS__OwnedArgumentsAlternatives_2_1_0 )
+            // InternalUSE.g:16011:4: rule__RoundBracketedClauseCS__OwnedArgumentsAlternatives_2_1_0
             {
             pushFollow(FOLLOW_2);
             rule__RoundBracketedClauseCS__OwnedArgumentsAlternatives_2_1_0();
@@ -52816,23 +53077,23 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__NavigatingBarArgCS__PrefixAssignment_0"
-    // InternalUSE.g:16004:1: rule__NavigatingBarArgCS__PrefixAssignment_0 : ( ( '|' ) ) ;
+    // InternalUSE.g:16019:1: rule__NavigatingBarArgCS__PrefixAssignment_0 : ( ( '|' ) ) ;
     public final void rule__NavigatingBarArgCS__PrefixAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalUSE.g:16008:1: ( ( ( '|' ) ) )
-            // InternalUSE.g:16009:2: ( ( '|' ) )
+            // InternalUSE.g:16023:1: ( ( ( '|' ) ) )
+            // InternalUSE.g:16024:2: ( ( '|' ) )
             {
-            // InternalUSE.g:16009:2: ( ( '|' ) )
-            // InternalUSE.g:16010:3: ( '|' )
+            // InternalUSE.g:16024:2: ( ( '|' ) )
+            // InternalUSE.g:16025:3: ( '|' )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getNavigatingBarArgCSAccess().getPrefixVerticalLineKeyword_0_0()); 
             }
-            // InternalUSE.g:16011:3: ( '|' )
-            // InternalUSE.g:16012:4: '|'
+            // InternalUSE.g:16026:3: ( '|' )
+            // InternalUSE.g:16027:4: '|'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getNavigatingBarArgCSAccess().getPrefixVerticalLineKeyword_0_0()); 
@@ -52869,17 +53130,17 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__NavigatingBarArgCS__OwnedNameExpressionAssignment_1"
-    // InternalUSE.g:16023:1: rule__NavigatingBarArgCS__OwnedNameExpressionAssignment_1 : ( ruleNavigatingArgExpCS ) ;
+    // InternalUSE.g:16038:1: rule__NavigatingBarArgCS__OwnedNameExpressionAssignment_1 : ( ruleNavigatingArgExpCS ) ;
     public final void rule__NavigatingBarArgCS__OwnedNameExpressionAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalUSE.g:16027:1: ( ( ruleNavigatingArgExpCS ) )
-            // InternalUSE.g:16028:2: ( ruleNavigatingArgExpCS )
+            // InternalUSE.g:16042:1: ( ( ruleNavigatingArgExpCS ) )
+            // InternalUSE.g:16043:2: ( ruleNavigatingArgExpCS )
             {
-            // InternalUSE.g:16028:2: ( ruleNavigatingArgExpCS )
-            // InternalUSE.g:16029:3: ruleNavigatingArgExpCS
+            // InternalUSE.g:16043:2: ( ruleNavigatingArgExpCS )
+            // InternalUSE.g:16044:3: ruleNavigatingArgExpCS
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getNavigatingBarArgCSAccess().getOwnedNameExpressionNavigatingArgExpCSParserRuleCall_1_0()); 
@@ -52913,18 +53174,71 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__NavigatingBarArgCS__OwnedNameExpressionAssignment_1"
 
 
+    // $ANTLR start "rule__NavigatingBarArgCS__SymbolTAssignment_2_0"
+    // InternalUSE.g:16053:1: rule__NavigatingBarArgCS__SymbolTAssignment_2_0 : ( ( ':' ) ) ;
+    public final void rule__NavigatingBarArgCS__SymbolTAssignment_2_0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalUSE.g:16057:1: ( ( ( ':' ) ) )
+            // InternalUSE.g:16058:2: ( ( ':' ) )
+            {
+            // InternalUSE.g:16058:2: ( ( ':' ) )
+            // InternalUSE.g:16059:3: ( ':' )
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getNavigatingBarArgCSAccess().getSymbolTColonKeyword_2_0_0()); 
+            }
+            // InternalUSE.g:16060:3: ( ':' )
+            // InternalUSE.g:16061:4: ':'
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getNavigatingBarArgCSAccess().getSymbolTColonKeyword_2_0_0()); 
+            }
+            match(input,71,FOLLOW_2); if (state.failed) return ;
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getNavigatingBarArgCSAccess().getSymbolTColonKeyword_2_0_0()); 
+            }
+
+            }
+
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getNavigatingBarArgCSAccess().getSymbolTColonKeyword_2_0_0()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__NavigatingBarArgCS__SymbolTAssignment_2_0"
+
+
     // $ANTLR start "rule__NavigatingBarArgCS__OwnedTypeAssignment_2_1"
-    // InternalUSE.g:16038:1: rule__NavigatingBarArgCS__OwnedTypeAssignment_2_1 : ( ruleTypeExpCS ) ;
+    // InternalUSE.g:16072:1: rule__NavigatingBarArgCS__OwnedTypeAssignment_2_1 : ( ruleTypeExpCS ) ;
     public final void rule__NavigatingBarArgCS__OwnedTypeAssignment_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalUSE.g:16042:1: ( ( ruleTypeExpCS ) )
-            // InternalUSE.g:16043:2: ( ruleTypeExpCS )
+            // InternalUSE.g:16076:1: ( ( ruleTypeExpCS ) )
+            // InternalUSE.g:16077:2: ( ruleTypeExpCS )
             {
-            // InternalUSE.g:16043:2: ( ruleTypeExpCS )
-            // InternalUSE.g:16044:3: ruleTypeExpCS
+            // InternalUSE.g:16077:2: ( ruleTypeExpCS )
+            // InternalUSE.g:16078:3: ruleTypeExpCS
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getNavigatingBarArgCSAccess().getOwnedTypeTypeExpCSParserRuleCall_2_1_0()); 
@@ -52958,18 +53272,71 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__NavigatingBarArgCS__OwnedTypeAssignment_2_1"
 
 
+    // $ANTLR start "rule__NavigatingBarArgCS__SymbolIEAssignment_2_2_0"
+    // InternalUSE.g:16087:1: rule__NavigatingBarArgCS__SymbolIEAssignment_2_2_0 : ( ( '=' ) ) ;
+    public final void rule__NavigatingBarArgCS__SymbolIEAssignment_2_2_0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalUSE.g:16091:1: ( ( ( '=' ) ) )
+            // InternalUSE.g:16092:2: ( ( '=' ) )
+            {
+            // InternalUSE.g:16092:2: ( ( '=' ) )
+            // InternalUSE.g:16093:3: ( '=' )
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getNavigatingBarArgCSAccess().getSymbolIEEqualsSignKeyword_2_2_0_0()); 
+            }
+            // InternalUSE.g:16094:3: ( '=' )
+            // InternalUSE.g:16095:4: '='
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getNavigatingBarArgCSAccess().getSymbolIEEqualsSignKeyword_2_2_0_0()); 
+            }
+            match(input,35,FOLLOW_2); if (state.failed) return ;
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getNavigatingBarArgCSAccess().getSymbolIEEqualsSignKeyword_2_2_0_0()); 
+            }
+
+            }
+
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getNavigatingBarArgCSAccess().getSymbolIEEqualsSignKeyword_2_2_0_0()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__NavigatingBarArgCS__SymbolIEAssignment_2_2_0"
+
+
     // $ANTLR start "rule__NavigatingBarArgCS__OwnedInitExpressionAssignment_2_2_1"
-    // InternalUSE.g:16053:1: rule__NavigatingBarArgCS__OwnedInitExpressionAssignment_2_2_1 : ( ruleExpCS ) ;
+    // InternalUSE.g:16106:1: rule__NavigatingBarArgCS__OwnedInitExpressionAssignment_2_2_1 : ( ruleExpCS ) ;
     public final void rule__NavigatingBarArgCS__OwnedInitExpressionAssignment_2_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalUSE.g:16057:1: ( ( ruleExpCS ) )
-            // InternalUSE.g:16058:2: ( ruleExpCS )
+            // InternalUSE.g:16110:1: ( ( ruleExpCS ) )
+            // InternalUSE.g:16111:2: ( ruleExpCS )
             {
-            // InternalUSE.g:16058:2: ( ruleExpCS )
-            // InternalUSE.g:16059:3: ruleExpCS
+            // InternalUSE.g:16111:2: ( ruleExpCS )
+            // InternalUSE.g:16112:3: ruleExpCS
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getNavigatingBarArgCSAccess().getOwnedInitExpressionExpCSParserRuleCall_2_2_1_0()); 
@@ -53004,28 +53371,28 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__NavigatingCommaArgCS__PrefixAssignment_0"
-    // InternalUSE.g:16068:1: rule__NavigatingCommaArgCS__PrefixAssignment_0 : ( ( ',' ) ) ;
+    // InternalUSE.g:16121:1: rule__NavigatingCommaArgCS__PrefixAssignment_0 : ( ( ',' ) ) ;
     public final void rule__NavigatingCommaArgCS__PrefixAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalUSE.g:16072:1: ( ( ( ',' ) ) )
-            // InternalUSE.g:16073:2: ( ( ',' ) )
+            // InternalUSE.g:16125:1: ( ( ( ',' ) ) )
+            // InternalUSE.g:16126:2: ( ( ',' ) )
             {
-            // InternalUSE.g:16073:2: ( ( ',' ) )
-            // InternalUSE.g:16074:3: ( ',' )
-            {
-            if ( state.backtracking==0 ) {
-               before(grammarAccess.getNavigatingCommaArgCSAccess().getPrefixCommaKeyword_0_0()); 
-            }
-            // InternalUSE.g:16075:3: ( ',' )
-            // InternalUSE.g:16076:4: ','
+            // InternalUSE.g:16126:2: ( ( ',' ) )
+            // InternalUSE.g:16127:3: ( ',' )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getNavigatingCommaArgCSAccess().getPrefixCommaKeyword_0_0()); 
             }
-            match(input,56,FOLLOW_2); if (state.failed) return ;
+            // InternalUSE.g:16128:3: ( ',' )
+            // InternalUSE.g:16129:4: ','
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getNavigatingCommaArgCSAccess().getPrefixCommaKeyword_0_0()); 
+            }
+            match(input,57,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getNavigatingCommaArgCSAccess().getPrefixCommaKeyword_0_0()); 
             }
@@ -53057,17 +53424,17 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__NavigatingCommaArgCS__OwnedNameExpressionAssignment_1"
-    // InternalUSE.g:16087:1: rule__NavigatingCommaArgCS__OwnedNameExpressionAssignment_1 : ( ruleNavigatingArgExpCS ) ;
+    // InternalUSE.g:16140:1: rule__NavigatingCommaArgCS__OwnedNameExpressionAssignment_1 : ( ruleNavigatingArgExpCS ) ;
     public final void rule__NavigatingCommaArgCS__OwnedNameExpressionAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalUSE.g:16091:1: ( ( ruleNavigatingArgExpCS ) )
-            // InternalUSE.g:16092:2: ( ruleNavigatingArgExpCS )
+            // InternalUSE.g:16144:1: ( ( ruleNavigatingArgExpCS ) )
+            // InternalUSE.g:16145:2: ( ruleNavigatingArgExpCS )
             {
-            // InternalUSE.g:16092:2: ( ruleNavigatingArgExpCS )
-            // InternalUSE.g:16093:3: ruleNavigatingArgExpCS
+            // InternalUSE.g:16145:2: ( ruleNavigatingArgExpCS )
+            // InternalUSE.g:16146:3: ruleNavigatingArgExpCS
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getNavigatingCommaArgCSAccess().getOwnedNameExpressionNavigatingArgExpCSParserRuleCall_1_0()); 
@@ -53101,18 +53468,71 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__NavigatingCommaArgCS__OwnedNameExpressionAssignment_1"
 
 
+    // $ANTLR start "rule__NavigatingCommaArgCS__SymbolCIAssignment_2_0_0"
+    // InternalUSE.g:16155:1: rule__NavigatingCommaArgCS__SymbolCIAssignment_2_0_0 : ( ( '<-' ) ) ;
+    public final void rule__NavigatingCommaArgCS__SymbolCIAssignment_2_0_0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalUSE.g:16159:1: ( ( ( '<-' ) ) )
+            // InternalUSE.g:16160:2: ( ( '<-' ) )
+            {
+            // InternalUSE.g:16160:2: ( ( '<-' ) )
+            // InternalUSE.g:16161:3: ( '<-' )
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getNavigatingCommaArgCSAccess().getSymbolCILessThanSignHyphenMinusKeyword_2_0_0_0()); 
+            }
+            // InternalUSE.g:16162:3: ( '<-' )
+            // InternalUSE.g:16163:4: '<-'
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getNavigatingCommaArgCSAccess().getSymbolCILessThanSignHyphenMinusKeyword_2_0_0_0()); 
+            }
+            match(input,82,FOLLOW_2); if (state.failed) return ;
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getNavigatingCommaArgCSAccess().getSymbolCILessThanSignHyphenMinusKeyword_2_0_0_0()); 
+            }
+
+            }
+
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getNavigatingCommaArgCSAccess().getSymbolCILessThanSignHyphenMinusKeyword_2_0_0_0()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__NavigatingCommaArgCS__SymbolCIAssignment_2_0_0"
+
+
     // $ANTLR start "rule__NavigatingCommaArgCS__OwnedCoIteratorAssignment_2_0_1"
-    // InternalUSE.g:16102:1: rule__NavigatingCommaArgCS__OwnedCoIteratorAssignment_2_0_1 : ( ruleCoIteratorVariableCS ) ;
+    // InternalUSE.g:16174:1: rule__NavigatingCommaArgCS__OwnedCoIteratorAssignment_2_0_1 : ( ruleCoIteratorVariableCS ) ;
     public final void rule__NavigatingCommaArgCS__OwnedCoIteratorAssignment_2_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalUSE.g:16106:1: ( ( ruleCoIteratorVariableCS ) )
-            // InternalUSE.g:16107:2: ( ruleCoIteratorVariableCS )
+            // InternalUSE.g:16178:1: ( ( ruleCoIteratorVariableCS ) )
+            // InternalUSE.g:16179:2: ( ruleCoIteratorVariableCS )
             {
-            // InternalUSE.g:16107:2: ( ruleCoIteratorVariableCS )
-            // InternalUSE.g:16108:3: ruleCoIteratorVariableCS
+            // InternalUSE.g:16179:2: ( ruleCoIteratorVariableCS )
+            // InternalUSE.g:16180:3: ruleCoIteratorVariableCS
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getNavigatingCommaArgCSAccess().getOwnedCoIteratorCoIteratorVariableCSParserRuleCall_2_0_1_0()); 
@@ -53146,18 +53566,71 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__NavigatingCommaArgCS__OwnedCoIteratorAssignment_2_0_1"
 
 
+    // $ANTLR start "rule__NavigatingCommaArgCS__SymbolIEAssignment_2_0_2_0"
+    // InternalUSE.g:16189:1: rule__NavigatingCommaArgCS__SymbolIEAssignment_2_0_2_0 : ( ( '=' ) ) ;
+    public final void rule__NavigatingCommaArgCS__SymbolIEAssignment_2_0_2_0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalUSE.g:16193:1: ( ( ( '=' ) ) )
+            // InternalUSE.g:16194:2: ( ( '=' ) )
+            {
+            // InternalUSE.g:16194:2: ( ( '=' ) )
+            // InternalUSE.g:16195:3: ( '=' )
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getNavigatingCommaArgCSAccess().getSymbolIEEqualsSignKeyword_2_0_2_0_0()); 
+            }
+            // InternalUSE.g:16196:3: ( '=' )
+            // InternalUSE.g:16197:4: '='
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getNavigatingCommaArgCSAccess().getSymbolIEEqualsSignKeyword_2_0_2_0_0()); 
+            }
+            match(input,35,FOLLOW_2); if (state.failed) return ;
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getNavigatingCommaArgCSAccess().getSymbolIEEqualsSignKeyword_2_0_2_0_0()); 
+            }
+
+            }
+
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getNavigatingCommaArgCSAccess().getSymbolIEEqualsSignKeyword_2_0_2_0_0()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__NavigatingCommaArgCS__SymbolIEAssignment_2_0_2_0"
+
+
     // $ANTLR start "rule__NavigatingCommaArgCS__OwnedInitExpressionAssignment_2_0_2_1"
-    // InternalUSE.g:16117:1: rule__NavigatingCommaArgCS__OwnedInitExpressionAssignment_2_0_2_1 : ( ruleExpCS ) ;
+    // InternalUSE.g:16208:1: rule__NavigatingCommaArgCS__OwnedInitExpressionAssignment_2_0_2_1 : ( ruleExpCS ) ;
     public final void rule__NavigatingCommaArgCS__OwnedInitExpressionAssignment_2_0_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalUSE.g:16121:1: ( ( ruleExpCS ) )
-            // InternalUSE.g:16122:2: ( ruleExpCS )
+            // InternalUSE.g:16212:1: ( ( ruleExpCS ) )
+            // InternalUSE.g:16213:2: ( ruleExpCS )
             {
-            // InternalUSE.g:16122:2: ( ruleExpCS )
-            // InternalUSE.g:16123:3: ruleExpCS
+            // InternalUSE.g:16213:2: ( ruleExpCS )
+            // InternalUSE.g:16214:3: ruleExpCS
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getNavigatingCommaArgCSAccess().getOwnedInitExpressionExpCSParserRuleCall_2_0_2_1_0()); 
@@ -53191,18 +53664,71 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__NavigatingCommaArgCS__OwnedInitExpressionAssignment_2_0_2_1"
 
 
+    // $ANTLR start "rule__NavigatingCommaArgCS__SymbolTAssignment_2_1_0"
+    // InternalUSE.g:16223:1: rule__NavigatingCommaArgCS__SymbolTAssignment_2_1_0 : ( ( ':' ) ) ;
+    public final void rule__NavigatingCommaArgCS__SymbolTAssignment_2_1_0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalUSE.g:16227:1: ( ( ( ':' ) ) )
+            // InternalUSE.g:16228:2: ( ( ':' ) )
+            {
+            // InternalUSE.g:16228:2: ( ( ':' ) )
+            // InternalUSE.g:16229:3: ( ':' )
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getNavigatingCommaArgCSAccess().getSymbolTColonKeyword_2_1_0_0()); 
+            }
+            // InternalUSE.g:16230:3: ( ':' )
+            // InternalUSE.g:16231:4: ':'
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getNavigatingCommaArgCSAccess().getSymbolTColonKeyword_2_1_0_0()); 
+            }
+            match(input,71,FOLLOW_2); if (state.failed) return ;
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getNavigatingCommaArgCSAccess().getSymbolTColonKeyword_2_1_0_0()); 
+            }
+
+            }
+
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getNavigatingCommaArgCSAccess().getSymbolTColonKeyword_2_1_0_0()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__NavigatingCommaArgCS__SymbolTAssignment_2_1_0"
+
+
     // $ANTLR start "rule__NavigatingCommaArgCS__OwnedTypeAssignment_2_1_1"
-    // InternalUSE.g:16132:1: rule__NavigatingCommaArgCS__OwnedTypeAssignment_2_1_1 : ( ruleTypeExpCS ) ;
+    // InternalUSE.g:16242:1: rule__NavigatingCommaArgCS__OwnedTypeAssignment_2_1_1 : ( ruleTypeExpCS ) ;
     public final void rule__NavigatingCommaArgCS__OwnedTypeAssignment_2_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalUSE.g:16136:1: ( ( ruleTypeExpCS ) )
-            // InternalUSE.g:16137:2: ( ruleTypeExpCS )
+            // InternalUSE.g:16246:1: ( ( ruleTypeExpCS ) )
+            // InternalUSE.g:16247:2: ( ruleTypeExpCS )
             {
-            // InternalUSE.g:16137:2: ( ruleTypeExpCS )
-            // InternalUSE.g:16138:3: ruleTypeExpCS
+            // InternalUSE.g:16247:2: ( ruleTypeExpCS )
+            // InternalUSE.g:16248:3: ruleTypeExpCS
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getNavigatingCommaArgCSAccess().getOwnedTypeTypeExpCSParserRuleCall_2_1_1_0()); 
@@ -53236,18 +53762,71 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__NavigatingCommaArgCS__OwnedTypeAssignment_2_1_1"
 
 
+    // $ANTLR start "rule__NavigatingCommaArgCS__SymbolCIAssignment_2_1_2_0"
+    // InternalUSE.g:16257:1: rule__NavigatingCommaArgCS__SymbolCIAssignment_2_1_2_0 : ( ( '<-' ) ) ;
+    public final void rule__NavigatingCommaArgCS__SymbolCIAssignment_2_1_2_0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalUSE.g:16261:1: ( ( ( '<-' ) ) )
+            // InternalUSE.g:16262:2: ( ( '<-' ) )
+            {
+            // InternalUSE.g:16262:2: ( ( '<-' ) )
+            // InternalUSE.g:16263:3: ( '<-' )
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getNavigatingCommaArgCSAccess().getSymbolCILessThanSignHyphenMinusKeyword_2_1_2_0_0()); 
+            }
+            // InternalUSE.g:16264:3: ( '<-' )
+            // InternalUSE.g:16265:4: '<-'
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getNavigatingCommaArgCSAccess().getSymbolCILessThanSignHyphenMinusKeyword_2_1_2_0_0()); 
+            }
+            match(input,82,FOLLOW_2); if (state.failed) return ;
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getNavigatingCommaArgCSAccess().getSymbolCILessThanSignHyphenMinusKeyword_2_1_2_0_0()); 
+            }
+
+            }
+
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getNavigatingCommaArgCSAccess().getSymbolCILessThanSignHyphenMinusKeyword_2_1_2_0_0()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__NavigatingCommaArgCS__SymbolCIAssignment_2_1_2_0"
+
+
     // $ANTLR start "rule__NavigatingCommaArgCS__OwnedCoIteratorAssignment_2_1_2_1"
-    // InternalUSE.g:16147:1: rule__NavigatingCommaArgCS__OwnedCoIteratorAssignment_2_1_2_1 : ( ruleCoIteratorVariableCS ) ;
+    // InternalUSE.g:16276:1: rule__NavigatingCommaArgCS__OwnedCoIteratorAssignment_2_1_2_1 : ( ruleCoIteratorVariableCS ) ;
     public final void rule__NavigatingCommaArgCS__OwnedCoIteratorAssignment_2_1_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalUSE.g:16151:1: ( ( ruleCoIteratorVariableCS ) )
-            // InternalUSE.g:16152:2: ( ruleCoIteratorVariableCS )
+            // InternalUSE.g:16280:1: ( ( ruleCoIteratorVariableCS ) )
+            // InternalUSE.g:16281:2: ( ruleCoIteratorVariableCS )
             {
-            // InternalUSE.g:16152:2: ( ruleCoIteratorVariableCS )
-            // InternalUSE.g:16153:3: ruleCoIteratorVariableCS
+            // InternalUSE.g:16281:2: ( ruleCoIteratorVariableCS )
+            // InternalUSE.g:16282:3: ruleCoIteratorVariableCS
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getNavigatingCommaArgCSAccess().getOwnedCoIteratorCoIteratorVariableCSParserRuleCall_2_1_2_1_0()); 
@@ -53281,18 +53860,71 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__NavigatingCommaArgCS__OwnedCoIteratorAssignment_2_1_2_1"
 
 
+    // $ANTLR start "rule__NavigatingCommaArgCS__SymbolIEAssignment_2_1_3_0"
+    // InternalUSE.g:16291:1: rule__NavigatingCommaArgCS__SymbolIEAssignment_2_1_3_0 : ( ( '=' ) ) ;
+    public final void rule__NavigatingCommaArgCS__SymbolIEAssignment_2_1_3_0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalUSE.g:16295:1: ( ( ( '=' ) ) )
+            // InternalUSE.g:16296:2: ( ( '=' ) )
+            {
+            // InternalUSE.g:16296:2: ( ( '=' ) )
+            // InternalUSE.g:16297:3: ( '=' )
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getNavigatingCommaArgCSAccess().getSymbolIEEqualsSignKeyword_2_1_3_0_0()); 
+            }
+            // InternalUSE.g:16298:3: ( '=' )
+            // InternalUSE.g:16299:4: '='
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getNavigatingCommaArgCSAccess().getSymbolIEEqualsSignKeyword_2_1_3_0_0()); 
+            }
+            match(input,35,FOLLOW_2); if (state.failed) return ;
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getNavigatingCommaArgCSAccess().getSymbolIEEqualsSignKeyword_2_1_3_0_0()); 
+            }
+
+            }
+
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getNavigatingCommaArgCSAccess().getSymbolIEEqualsSignKeyword_2_1_3_0_0()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__NavigatingCommaArgCS__SymbolIEAssignment_2_1_3_0"
+
+
     // $ANTLR start "rule__NavigatingCommaArgCS__OwnedInitExpressionAssignment_2_1_3_1"
-    // InternalUSE.g:16162:1: rule__NavigatingCommaArgCS__OwnedInitExpressionAssignment_2_1_3_1 : ( ruleExpCS ) ;
+    // InternalUSE.g:16310:1: rule__NavigatingCommaArgCS__OwnedInitExpressionAssignment_2_1_3_1 : ( ruleExpCS ) ;
     public final void rule__NavigatingCommaArgCS__OwnedInitExpressionAssignment_2_1_3_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalUSE.g:16166:1: ( ( ruleExpCS ) )
-            // InternalUSE.g:16167:2: ( ruleExpCS )
+            // InternalUSE.g:16314:1: ( ( ruleExpCS ) )
+            // InternalUSE.g:16315:2: ( ruleExpCS )
             {
-            // InternalUSE.g:16167:2: ( ruleExpCS )
-            // InternalUSE.g:16168:3: ruleExpCS
+            // InternalUSE.g:16315:2: ( ruleExpCS )
+            // InternalUSE.g:16316:3: ruleExpCS
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getNavigatingCommaArgCSAccess().getOwnedInitExpressionExpCSParserRuleCall_2_1_3_1_0()); 
@@ -53326,18 +53958,71 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__NavigatingCommaArgCS__OwnedInitExpressionAssignment_2_1_3_1"
 
 
+    // $ANTLR start "rule__NavigatingCommaArgCS__SymbolTAssignment_2_2_0_0"
+    // InternalUSE.g:16325:1: rule__NavigatingCommaArgCS__SymbolTAssignment_2_2_0_0 : ( ( ':' ) ) ;
+    public final void rule__NavigatingCommaArgCS__SymbolTAssignment_2_2_0_0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalUSE.g:16329:1: ( ( ( ':' ) ) )
+            // InternalUSE.g:16330:2: ( ( ':' ) )
+            {
+            // InternalUSE.g:16330:2: ( ( ':' ) )
+            // InternalUSE.g:16331:3: ( ':' )
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getNavigatingCommaArgCSAccess().getSymbolTColonKeyword_2_2_0_0_0()); 
+            }
+            // InternalUSE.g:16332:3: ( ':' )
+            // InternalUSE.g:16333:4: ':'
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getNavigatingCommaArgCSAccess().getSymbolTColonKeyword_2_2_0_0_0()); 
+            }
+            match(input,71,FOLLOW_2); if (state.failed) return ;
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getNavigatingCommaArgCSAccess().getSymbolTColonKeyword_2_2_0_0_0()); 
+            }
+
+            }
+
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getNavigatingCommaArgCSAccess().getSymbolTColonKeyword_2_2_0_0_0()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__NavigatingCommaArgCS__SymbolTAssignment_2_2_0_0"
+
+
     // $ANTLR start "rule__NavigatingCommaArgCS__OwnedTypeAssignment_2_2_0_1"
-    // InternalUSE.g:16177:1: rule__NavigatingCommaArgCS__OwnedTypeAssignment_2_2_0_1 : ( ruleTypeExpCS ) ;
+    // InternalUSE.g:16344:1: rule__NavigatingCommaArgCS__OwnedTypeAssignment_2_2_0_1 : ( ruleTypeExpCS ) ;
     public final void rule__NavigatingCommaArgCS__OwnedTypeAssignment_2_2_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalUSE.g:16181:1: ( ( ruleTypeExpCS ) )
-            // InternalUSE.g:16182:2: ( ruleTypeExpCS )
+            // InternalUSE.g:16348:1: ( ( ruleTypeExpCS ) )
+            // InternalUSE.g:16349:2: ( ruleTypeExpCS )
             {
-            // InternalUSE.g:16182:2: ( ruleTypeExpCS )
-            // InternalUSE.g:16183:3: ruleTypeExpCS
+            // InternalUSE.g:16349:2: ( ruleTypeExpCS )
+            // InternalUSE.g:16350:3: ruleTypeExpCS
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getNavigatingCommaArgCSAccess().getOwnedTypeTypeExpCSParserRuleCall_2_2_0_1_0()); 
@@ -53371,18 +54056,71 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__NavigatingCommaArgCS__OwnedTypeAssignment_2_2_0_1"
 
 
+    // $ANTLR start "rule__NavigatingCommaArgCS__SymbolCIAssignment_2_2_1_0"
+    // InternalUSE.g:16359:1: rule__NavigatingCommaArgCS__SymbolCIAssignment_2_2_1_0 : ( ( '<-' ) ) ;
+    public final void rule__NavigatingCommaArgCS__SymbolCIAssignment_2_2_1_0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalUSE.g:16363:1: ( ( ( '<-' ) ) )
+            // InternalUSE.g:16364:2: ( ( '<-' ) )
+            {
+            // InternalUSE.g:16364:2: ( ( '<-' ) )
+            // InternalUSE.g:16365:3: ( '<-' )
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getNavigatingCommaArgCSAccess().getSymbolCILessThanSignHyphenMinusKeyword_2_2_1_0_0()); 
+            }
+            // InternalUSE.g:16366:3: ( '<-' )
+            // InternalUSE.g:16367:4: '<-'
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getNavigatingCommaArgCSAccess().getSymbolCILessThanSignHyphenMinusKeyword_2_2_1_0_0()); 
+            }
+            match(input,82,FOLLOW_2); if (state.failed) return ;
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getNavigatingCommaArgCSAccess().getSymbolCILessThanSignHyphenMinusKeyword_2_2_1_0_0()); 
+            }
+
+            }
+
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getNavigatingCommaArgCSAccess().getSymbolCILessThanSignHyphenMinusKeyword_2_2_1_0_0()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__NavigatingCommaArgCS__SymbolCIAssignment_2_2_1_0"
+
+
     // $ANTLR start "rule__NavigatingCommaArgCS__OwnedCoIteratorAssignment_2_2_1_1"
-    // InternalUSE.g:16192:1: rule__NavigatingCommaArgCS__OwnedCoIteratorAssignment_2_2_1_1 : ( ruleCoIteratorVariableCS ) ;
+    // InternalUSE.g:16378:1: rule__NavigatingCommaArgCS__OwnedCoIteratorAssignment_2_2_1_1 : ( ruleCoIteratorVariableCS ) ;
     public final void rule__NavigatingCommaArgCS__OwnedCoIteratorAssignment_2_2_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalUSE.g:16196:1: ( ( ruleCoIteratorVariableCS ) )
-            // InternalUSE.g:16197:2: ( ruleCoIteratorVariableCS )
+            // InternalUSE.g:16382:1: ( ( ruleCoIteratorVariableCS ) )
+            // InternalUSE.g:16383:2: ( ruleCoIteratorVariableCS )
             {
-            // InternalUSE.g:16197:2: ( ruleCoIteratorVariableCS )
-            // InternalUSE.g:16198:3: ruleCoIteratorVariableCS
+            // InternalUSE.g:16383:2: ( ruleCoIteratorVariableCS )
+            // InternalUSE.g:16384:3: ruleCoIteratorVariableCS
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getNavigatingCommaArgCSAccess().getOwnedCoIteratorCoIteratorVariableCSParserRuleCall_2_2_1_1_0()); 
@@ -53416,18 +54154,71 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__NavigatingCommaArgCS__OwnedCoIteratorAssignment_2_2_1_1"
 
 
+    // $ANTLR start "rule__NavigatingCommaArgCS__SymbolIEAssignment_2_2_2"
+    // InternalUSE.g:16393:1: rule__NavigatingCommaArgCS__SymbolIEAssignment_2_2_2 : ( ( 'in' ) ) ;
+    public final void rule__NavigatingCommaArgCS__SymbolIEAssignment_2_2_2() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalUSE.g:16397:1: ( ( ( 'in' ) ) )
+            // InternalUSE.g:16398:2: ( ( 'in' ) )
+            {
+            // InternalUSE.g:16398:2: ( ( 'in' ) )
+            // InternalUSE.g:16399:3: ( 'in' )
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getNavigatingCommaArgCSAccess().getSymbolIEInKeyword_2_2_2_0()); 
+            }
+            // InternalUSE.g:16400:3: ( 'in' )
+            // InternalUSE.g:16401:4: 'in'
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getNavigatingCommaArgCSAccess().getSymbolIEInKeyword_2_2_2_0()); 
+            }
+            match(input,93,FOLLOW_2); if (state.failed) return ;
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getNavigatingCommaArgCSAccess().getSymbolIEInKeyword_2_2_2_0()); 
+            }
+
+            }
+
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getNavigatingCommaArgCSAccess().getSymbolIEInKeyword_2_2_2_0()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__NavigatingCommaArgCS__SymbolIEAssignment_2_2_2"
+
+
     // $ANTLR start "rule__NavigatingCommaArgCS__OwnedInitExpressionAssignment_2_2_3"
-    // InternalUSE.g:16207:1: rule__NavigatingCommaArgCS__OwnedInitExpressionAssignment_2_2_3 : ( ruleExpCS ) ;
+    // InternalUSE.g:16412:1: rule__NavigatingCommaArgCS__OwnedInitExpressionAssignment_2_2_3 : ( ruleExpCS ) ;
     public final void rule__NavigatingCommaArgCS__OwnedInitExpressionAssignment_2_2_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalUSE.g:16211:1: ( ( ruleExpCS ) )
-            // InternalUSE.g:16212:2: ( ruleExpCS )
+            // InternalUSE.g:16416:1: ( ( ruleExpCS ) )
+            // InternalUSE.g:16417:2: ( ruleExpCS )
             {
-            // InternalUSE.g:16212:2: ( ruleExpCS )
-            // InternalUSE.g:16213:3: ruleExpCS
+            // InternalUSE.g:16417:2: ( ruleExpCS )
+            // InternalUSE.g:16418:3: ruleExpCS
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getNavigatingCommaArgCSAccess().getOwnedInitExpressionExpCSParserRuleCall_2_2_3_0()); 
@@ -53462,23 +54253,23 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__NavigatingSemiArgCS__PrefixAssignment_0"
-    // InternalUSE.g:16222:1: rule__NavigatingSemiArgCS__PrefixAssignment_0 : ( ( ';' ) ) ;
+    // InternalUSE.g:16427:1: rule__NavigatingSemiArgCS__PrefixAssignment_0 : ( ( ';' ) ) ;
     public final void rule__NavigatingSemiArgCS__PrefixAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalUSE.g:16226:1: ( ( ( ';' ) ) )
-            // InternalUSE.g:16227:2: ( ( ';' ) )
+            // InternalUSE.g:16431:1: ( ( ( ';' ) ) )
+            // InternalUSE.g:16432:2: ( ( ';' ) )
             {
-            // InternalUSE.g:16227:2: ( ( ';' ) )
-            // InternalUSE.g:16228:3: ( ';' )
+            // InternalUSE.g:16432:2: ( ( ';' ) )
+            // InternalUSE.g:16433:3: ( ';' )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getNavigatingSemiArgCSAccess().getPrefixSemicolonKeyword_0_0()); 
             }
-            // InternalUSE.g:16229:3: ( ';' )
-            // InternalUSE.g:16230:4: ';'
+            // InternalUSE.g:16434:3: ( ';' )
+            // InternalUSE.g:16435:4: ';'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getNavigatingSemiArgCSAccess().getPrefixSemicolonKeyword_0_0()); 
@@ -53515,17 +54306,17 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__NavigatingSemiArgCS__OwnedNameExpressionAssignment_1"
-    // InternalUSE.g:16241:1: rule__NavigatingSemiArgCS__OwnedNameExpressionAssignment_1 : ( ruleNavigatingArgExpCS ) ;
+    // InternalUSE.g:16446:1: rule__NavigatingSemiArgCS__OwnedNameExpressionAssignment_1 : ( ruleNavigatingArgExpCS ) ;
     public final void rule__NavigatingSemiArgCS__OwnedNameExpressionAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalUSE.g:16245:1: ( ( ruleNavigatingArgExpCS ) )
-            // InternalUSE.g:16246:2: ( ruleNavigatingArgExpCS )
+            // InternalUSE.g:16450:1: ( ( ruleNavigatingArgExpCS ) )
+            // InternalUSE.g:16451:2: ( ruleNavigatingArgExpCS )
             {
-            // InternalUSE.g:16246:2: ( ruleNavigatingArgExpCS )
-            // InternalUSE.g:16247:3: ruleNavigatingArgExpCS
+            // InternalUSE.g:16451:2: ( ruleNavigatingArgExpCS )
+            // InternalUSE.g:16452:3: ruleNavigatingArgExpCS
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getNavigatingSemiArgCSAccess().getOwnedNameExpressionNavigatingArgExpCSParserRuleCall_1_0()); 
@@ -53559,18 +54350,71 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__NavigatingSemiArgCS__OwnedNameExpressionAssignment_1"
 
 
+    // $ANTLR start "rule__NavigatingSemiArgCS__SymbolTAssignment_2_0"
+    // InternalUSE.g:16461:1: rule__NavigatingSemiArgCS__SymbolTAssignment_2_0 : ( ( ':' ) ) ;
+    public final void rule__NavigatingSemiArgCS__SymbolTAssignment_2_0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalUSE.g:16465:1: ( ( ( ':' ) ) )
+            // InternalUSE.g:16466:2: ( ( ':' ) )
+            {
+            // InternalUSE.g:16466:2: ( ( ':' ) )
+            // InternalUSE.g:16467:3: ( ':' )
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getNavigatingSemiArgCSAccess().getSymbolTColonKeyword_2_0_0()); 
+            }
+            // InternalUSE.g:16468:3: ( ':' )
+            // InternalUSE.g:16469:4: ':'
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getNavigatingSemiArgCSAccess().getSymbolTColonKeyword_2_0_0()); 
+            }
+            match(input,71,FOLLOW_2); if (state.failed) return ;
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getNavigatingSemiArgCSAccess().getSymbolTColonKeyword_2_0_0()); 
+            }
+
+            }
+
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getNavigatingSemiArgCSAccess().getSymbolTColonKeyword_2_0_0()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__NavigatingSemiArgCS__SymbolTAssignment_2_0"
+
+
     // $ANTLR start "rule__NavigatingSemiArgCS__OwnedTypeAssignment_2_1"
-    // InternalUSE.g:16256:1: rule__NavigatingSemiArgCS__OwnedTypeAssignment_2_1 : ( ruleTypeExpCS ) ;
+    // InternalUSE.g:16480:1: rule__NavigatingSemiArgCS__OwnedTypeAssignment_2_1 : ( ruleTypeExpCS ) ;
     public final void rule__NavigatingSemiArgCS__OwnedTypeAssignment_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalUSE.g:16260:1: ( ( ruleTypeExpCS ) )
-            // InternalUSE.g:16261:2: ( ruleTypeExpCS )
+            // InternalUSE.g:16484:1: ( ( ruleTypeExpCS ) )
+            // InternalUSE.g:16485:2: ( ruleTypeExpCS )
             {
-            // InternalUSE.g:16261:2: ( ruleTypeExpCS )
-            // InternalUSE.g:16262:3: ruleTypeExpCS
+            // InternalUSE.g:16485:2: ( ruleTypeExpCS )
+            // InternalUSE.g:16486:3: ruleTypeExpCS
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getNavigatingSemiArgCSAccess().getOwnedTypeTypeExpCSParserRuleCall_2_1_0()); 
@@ -53604,18 +54448,71 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__NavigatingSemiArgCS__OwnedTypeAssignment_2_1"
 
 
+    // $ANTLR start "rule__NavigatingSemiArgCS__SymbolIEAssignment_2_2_0"
+    // InternalUSE.g:16495:1: rule__NavigatingSemiArgCS__SymbolIEAssignment_2_2_0 : ( ( '=' ) ) ;
+    public final void rule__NavigatingSemiArgCS__SymbolIEAssignment_2_2_0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalUSE.g:16499:1: ( ( ( '=' ) ) )
+            // InternalUSE.g:16500:2: ( ( '=' ) )
+            {
+            // InternalUSE.g:16500:2: ( ( '=' ) )
+            // InternalUSE.g:16501:3: ( '=' )
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getNavigatingSemiArgCSAccess().getSymbolIEEqualsSignKeyword_2_2_0_0()); 
+            }
+            // InternalUSE.g:16502:3: ( '=' )
+            // InternalUSE.g:16503:4: '='
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getNavigatingSemiArgCSAccess().getSymbolIEEqualsSignKeyword_2_2_0_0()); 
+            }
+            match(input,35,FOLLOW_2); if (state.failed) return ;
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getNavigatingSemiArgCSAccess().getSymbolIEEqualsSignKeyword_2_2_0_0()); 
+            }
+
+            }
+
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getNavigatingSemiArgCSAccess().getSymbolIEEqualsSignKeyword_2_2_0_0()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__NavigatingSemiArgCS__SymbolIEAssignment_2_2_0"
+
+
     // $ANTLR start "rule__NavigatingSemiArgCS__OwnedInitExpressionAssignment_2_2_1"
-    // InternalUSE.g:16271:1: rule__NavigatingSemiArgCS__OwnedInitExpressionAssignment_2_2_1 : ( ruleExpCS ) ;
+    // InternalUSE.g:16514:1: rule__NavigatingSemiArgCS__OwnedInitExpressionAssignment_2_2_1 : ( ruleExpCS ) ;
     public final void rule__NavigatingSemiArgCS__OwnedInitExpressionAssignment_2_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalUSE.g:16275:1: ( ( ruleExpCS ) )
-            // InternalUSE.g:16276:2: ( ruleExpCS )
+            // InternalUSE.g:16518:1: ( ( ruleExpCS ) )
+            // InternalUSE.g:16519:2: ( ruleExpCS )
             {
-            // InternalUSE.g:16276:2: ( ruleExpCS )
-            // InternalUSE.g:16277:3: ruleExpCS
+            // InternalUSE.g:16519:2: ( ruleExpCS )
+            // InternalUSE.g:16520:3: ruleExpCS
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getNavigatingSemiArgCSAccess().getOwnedInitExpressionExpCSParserRuleCall_2_2_1_0()); 
@@ -53650,17 +54547,17 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__NavigatingArgCS__OwnedNameExpressionAssignment_0_0"
-    // InternalUSE.g:16286:1: rule__NavigatingArgCS__OwnedNameExpressionAssignment_0_0 : ( ruleNavigatingArgExpCS ) ;
+    // InternalUSE.g:16529:1: rule__NavigatingArgCS__OwnedNameExpressionAssignment_0_0 : ( ruleNavigatingArgExpCS ) ;
     public final void rule__NavigatingArgCS__OwnedNameExpressionAssignment_0_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalUSE.g:16290:1: ( ( ruleNavigatingArgExpCS ) )
-            // InternalUSE.g:16291:2: ( ruleNavigatingArgExpCS )
+            // InternalUSE.g:16533:1: ( ( ruleNavigatingArgExpCS ) )
+            // InternalUSE.g:16534:2: ( ruleNavigatingArgExpCS )
             {
-            // InternalUSE.g:16291:2: ( ruleNavigatingArgExpCS )
-            // InternalUSE.g:16292:3: ruleNavigatingArgExpCS
+            // InternalUSE.g:16534:2: ( ruleNavigatingArgExpCS )
+            // InternalUSE.g:16535:3: ruleNavigatingArgExpCS
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getNavigatingArgCSAccess().getOwnedNameExpressionNavigatingArgExpCSParserRuleCall_0_0_0()); 
@@ -53694,18 +54591,71 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__NavigatingArgCS__OwnedNameExpressionAssignment_0_0"
 
 
+    // $ANTLR start "rule__NavigatingArgCS__SymbolCIAssignment_0_1_0_0"
+    // InternalUSE.g:16544:1: rule__NavigatingArgCS__SymbolCIAssignment_0_1_0_0 : ( ( '<-' ) ) ;
+    public final void rule__NavigatingArgCS__SymbolCIAssignment_0_1_0_0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalUSE.g:16548:1: ( ( ( '<-' ) ) )
+            // InternalUSE.g:16549:2: ( ( '<-' ) )
+            {
+            // InternalUSE.g:16549:2: ( ( '<-' ) )
+            // InternalUSE.g:16550:3: ( '<-' )
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getNavigatingArgCSAccess().getSymbolCILessThanSignHyphenMinusKeyword_0_1_0_0_0()); 
+            }
+            // InternalUSE.g:16551:3: ( '<-' )
+            // InternalUSE.g:16552:4: '<-'
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getNavigatingArgCSAccess().getSymbolCILessThanSignHyphenMinusKeyword_0_1_0_0_0()); 
+            }
+            match(input,82,FOLLOW_2); if (state.failed) return ;
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getNavigatingArgCSAccess().getSymbolCILessThanSignHyphenMinusKeyword_0_1_0_0_0()); 
+            }
+
+            }
+
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getNavigatingArgCSAccess().getSymbolCILessThanSignHyphenMinusKeyword_0_1_0_0_0()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__NavigatingArgCS__SymbolCIAssignment_0_1_0_0"
+
+
     // $ANTLR start "rule__NavigatingArgCS__OwnedCoIteratorAssignment_0_1_0_1"
-    // InternalUSE.g:16301:1: rule__NavigatingArgCS__OwnedCoIteratorAssignment_0_1_0_1 : ( ruleCoIteratorVariableCS ) ;
+    // InternalUSE.g:16563:1: rule__NavigatingArgCS__OwnedCoIteratorAssignment_0_1_0_1 : ( ruleCoIteratorVariableCS ) ;
     public final void rule__NavigatingArgCS__OwnedCoIteratorAssignment_0_1_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalUSE.g:16305:1: ( ( ruleCoIteratorVariableCS ) )
-            // InternalUSE.g:16306:2: ( ruleCoIteratorVariableCS )
+            // InternalUSE.g:16567:1: ( ( ruleCoIteratorVariableCS ) )
+            // InternalUSE.g:16568:2: ( ruleCoIteratorVariableCS )
             {
-            // InternalUSE.g:16306:2: ( ruleCoIteratorVariableCS )
-            // InternalUSE.g:16307:3: ruleCoIteratorVariableCS
+            // InternalUSE.g:16568:2: ( ruleCoIteratorVariableCS )
+            // InternalUSE.g:16569:3: ruleCoIteratorVariableCS
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getNavigatingArgCSAccess().getOwnedCoIteratorCoIteratorVariableCSParserRuleCall_0_1_0_1_0()); 
@@ -53739,18 +54689,71 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__NavigatingArgCS__OwnedCoIteratorAssignment_0_1_0_1"
 
 
+    // $ANTLR start "rule__NavigatingArgCS__SymbolIEAssignment_0_1_0_2_0"
+    // InternalUSE.g:16578:1: rule__NavigatingArgCS__SymbolIEAssignment_0_1_0_2_0 : ( ( '=' ) ) ;
+    public final void rule__NavigatingArgCS__SymbolIEAssignment_0_1_0_2_0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalUSE.g:16582:1: ( ( ( '=' ) ) )
+            // InternalUSE.g:16583:2: ( ( '=' ) )
+            {
+            // InternalUSE.g:16583:2: ( ( '=' ) )
+            // InternalUSE.g:16584:3: ( '=' )
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getNavigatingArgCSAccess().getSymbolIEEqualsSignKeyword_0_1_0_2_0_0()); 
+            }
+            // InternalUSE.g:16585:3: ( '=' )
+            // InternalUSE.g:16586:4: '='
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getNavigatingArgCSAccess().getSymbolIEEqualsSignKeyword_0_1_0_2_0_0()); 
+            }
+            match(input,35,FOLLOW_2); if (state.failed) return ;
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getNavigatingArgCSAccess().getSymbolIEEqualsSignKeyword_0_1_0_2_0_0()); 
+            }
+
+            }
+
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getNavigatingArgCSAccess().getSymbolIEEqualsSignKeyword_0_1_0_2_0_0()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__NavigatingArgCS__SymbolIEAssignment_0_1_0_2_0"
+
+
     // $ANTLR start "rule__NavigatingArgCS__OwnedInitExpressionAssignment_0_1_0_2_1"
-    // InternalUSE.g:16316:1: rule__NavigatingArgCS__OwnedInitExpressionAssignment_0_1_0_2_1 : ( ruleExpCS ) ;
+    // InternalUSE.g:16597:1: rule__NavigatingArgCS__OwnedInitExpressionAssignment_0_1_0_2_1 : ( ruleExpCS ) ;
     public final void rule__NavigatingArgCS__OwnedInitExpressionAssignment_0_1_0_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalUSE.g:16320:1: ( ( ruleExpCS ) )
-            // InternalUSE.g:16321:2: ( ruleExpCS )
+            // InternalUSE.g:16601:1: ( ( ruleExpCS ) )
+            // InternalUSE.g:16602:2: ( ruleExpCS )
             {
-            // InternalUSE.g:16321:2: ( ruleExpCS )
-            // InternalUSE.g:16322:3: ruleExpCS
+            // InternalUSE.g:16602:2: ( ruleExpCS )
+            // InternalUSE.g:16603:3: ruleExpCS
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getNavigatingArgCSAccess().getOwnedInitExpressionExpCSParserRuleCall_0_1_0_2_1_0()); 
@@ -53784,18 +54787,71 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__NavigatingArgCS__OwnedInitExpressionAssignment_0_1_0_2_1"
 
 
+    // $ANTLR start "rule__NavigatingArgCS__SymbolTAssignment_0_1_1_0"
+    // InternalUSE.g:16612:1: rule__NavigatingArgCS__SymbolTAssignment_0_1_1_0 : ( ( ':' ) ) ;
+    public final void rule__NavigatingArgCS__SymbolTAssignment_0_1_1_0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalUSE.g:16616:1: ( ( ( ':' ) ) )
+            // InternalUSE.g:16617:2: ( ( ':' ) )
+            {
+            // InternalUSE.g:16617:2: ( ( ':' ) )
+            // InternalUSE.g:16618:3: ( ':' )
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getNavigatingArgCSAccess().getSymbolTColonKeyword_0_1_1_0_0()); 
+            }
+            // InternalUSE.g:16619:3: ( ':' )
+            // InternalUSE.g:16620:4: ':'
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getNavigatingArgCSAccess().getSymbolTColonKeyword_0_1_1_0_0()); 
+            }
+            match(input,71,FOLLOW_2); if (state.failed) return ;
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getNavigatingArgCSAccess().getSymbolTColonKeyword_0_1_1_0_0()); 
+            }
+
+            }
+
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getNavigatingArgCSAccess().getSymbolTColonKeyword_0_1_1_0_0()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__NavigatingArgCS__SymbolTAssignment_0_1_1_0"
+
+
     // $ANTLR start "rule__NavigatingArgCS__OwnedTypeAssignment_0_1_1_1"
-    // InternalUSE.g:16331:1: rule__NavigatingArgCS__OwnedTypeAssignment_0_1_1_1 : ( ruleTypeExpCS ) ;
+    // InternalUSE.g:16631:1: rule__NavigatingArgCS__OwnedTypeAssignment_0_1_1_1 : ( ruleTypeExpCS ) ;
     public final void rule__NavigatingArgCS__OwnedTypeAssignment_0_1_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalUSE.g:16335:1: ( ( ruleTypeExpCS ) )
-            // InternalUSE.g:16336:2: ( ruleTypeExpCS )
+            // InternalUSE.g:16635:1: ( ( ruleTypeExpCS ) )
+            // InternalUSE.g:16636:2: ( ruleTypeExpCS )
             {
-            // InternalUSE.g:16336:2: ( ruleTypeExpCS )
-            // InternalUSE.g:16337:3: ruleTypeExpCS
+            // InternalUSE.g:16636:2: ( ruleTypeExpCS )
+            // InternalUSE.g:16637:3: ruleTypeExpCS
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getNavigatingArgCSAccess().getOwnedTypeTypeExpCSParserRuleCall_0_1_1_1_0()); 
@@ -53829,18 +54885,71 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__NavigatingArgCS__OwnedTypeAssignment_0_1_1_1"
 
 
+    // $ANTLR start "rule__NavigatingArgCS__SymbolCIAssignment_0_1_1_2_0"
+    // InternalUSE.g:16646:1: rule__NavigatingArgCS__SymbolCIAssignment_0_1_1_2_0 : ( ( '<-' ) ) ;
+    public final void rule__NavigatingArgCS__SymbolCIAssignment_0_1_1_2_0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalUSE.g:16650:1: ( ( ( '<-' ) ) )
+            // InternalUSE.g:16651:2: ( ( '<-' ) )
+            {
+            // InternalUSE.g:16651:2: ( ( '<-' ) )
+            // InternalUSE.g:16652:3: ( '<-' )
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getNavigatingArgCSAccess().getSymbolCILessThanSignHyphenMinusKeyword_0_1_1_2_0_0()); 
+            }
+            // InternalUSE.g:16653:3: ( '<-' )
+            // InternalUSE.g:16654:4: '<-'
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getNavigatingArgCSAccess().getSymbolCILessThanSignHyphenMinusKeyword_0_1_1_2_0_0()); 
+            }
+            match(input,82,FOLLOW_2); if (state.failed) return ;
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getNavigatingArgCSAccess().getSymbolCILessThanSignHyphenMinusKeyword_0_1_1_2_0_0()); 
+            }
+
+            }
+
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getNavigatingArgCSAccess().getSymbolCILessThanSignHyphenMinusKeyword_0_1_1_2_0_0()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__NavigatingArgCS__SymbolCIAssignment_0_1_1_2_0"
+
+
     // $ANTLR start "rule__NavigatingArgCS__OwnedCoIteratorAssignment_0_1_1_2_1"
-    // InternalUSE.g:16346:1: rule__NavigatingArgCS__OwnedCoIteratorAssignment_0_1_1_2_1 : ( ruleCoIteratorVariableCS ) ;
+    // InternalUSE.g:16665:1: rule__NavigatingArgCS__OwnedCoIteratorAssignment_0_1_1_2_1 : ( ruleCoIteratorVariableCS ) ;
     public final void rule__NavigatingArgCS__OwnedCoIteratorAssignment_0_1_1_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalUSE.g:16350:1: ( ( ruleCoIteratorVariableCS ) )
-            // InternalUSE.g:16351:2: ( ruleCoIteratorVariableCS )
+            // InternalUSE.g:16669:1: ( ( ruleCoIteratorVariableCS ) )
+            // InternalUSE.g:16670:2: ( ruleCoIteratorVariableCS )
             {
-            // InternalUSE.g:16351:2: ( ruleCoIteratorVariableCS )
-            // InternalUSE.g:16352:3: ruleCoIteratorVariableCS
+            // InternalUSE.g:16670:2: ( ruleCoIteratorVariableCS )
+            // InternalUSE.g:16671:3: ruleCoIteratorVariableCS
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getNavigatingArgCSAccess().getOwnedCoIteratorCoIteratorVariableCSParserRuleCall_0_1_1_2_1_0()); 
@@ -53874,18 +54983,71 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__NavigatingArgCS__OwnedCoIteratorAssignment_0_1_1_2_1"
 
 
+    // $ANTLR start "rule__NavigatingArgCS__SymbolIEAssignment_0_1_1_3_0"
+    // InternalUSE.g:16680:1: rule__NavigatingArgCS__SymbolIEAssignment_0_1_1_3_0 : ( ( '=' ) ) ;
+    public final void rule__NavigatingArgCS__SymbolIEAssignment_0_1_1_3_0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalUSE.g:16684:1: ( ( ( '=' ) ) )
+            // InternalUSE.g:16685:2: ( ( '=' ) )
+            {
+            // InternalUSE.g:16685:2: ( ( '=' ) )
+            // InternalUSE.g:16686:3: ( '=' )
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getNavigatingArgCSAccess().getSymbolIEEqualsSignKeyword_0_1_1_3_0_0()); 
+            }
+            // InternalUSE.g:16687:3: ( '=' )
+            // InternalUSE.g:16688:4: '='
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getNavigatingArgCSAccess().getSymbolIEEqualsSignKeyword_0_1_1_3_0_0()); 
+            }
+            match(input,35,FOLLOW_2); if (state.failed) return ;
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getNavigatingArgCSAccess().getSymbolIEEqualsSignKeyword_0_1_1_3_0_0()); 
+            }
+
+            }
+
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getNavigatingArgCSAccess().getSymbolIEEqualsSignKeyword_0_1_1_3_0_0()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__NavigatingArgCS__SymbolIEAssignment_0_1_1_3_0"
+
+
     // $ANTLR start "rule__NavigatingArgCS__OwnedInitExpressionAssignment_0_1_1_3_1"
-    // InternalUSE.g:16361:1: rule__NavigatingArgCS__OwnedInitExpressionAssignment_0_1_1_3_1 : ( ruleExpCS ) ;
+    // InternalUSE.g:16699:1: rule__NavigatingArgCS__OwnedInitExpressionAssignment_0_1_1_3_1 : ( ruleExpCS ) ;
     public final void rule__NavigatingArgCS__OwnedInitExpressionAssignment_0_1_1_3_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalUSE.g:16365:1: ( ( ruleExpCS ) )
-            // InternalUSE.g:16366:2: ( ruleExpCS )
+            // InternalUSE.g:16703:1: ( ( ruleExpCS ) )
+            // InternalUSE.g:16704:2: ( ruleExpCS )
             {
-            // InternalUSE.g:16366:2: ( ruleExpCS )
-            // InternalUSE.g:16367:3: ruleExpCS
+            // InternalUSE.g:16704:2: ( ruleExpCS )
+            // InternalUSE.g:16705:3: ruleExpCS
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getNavigatingArgCSAccess().getOwnedInitExpressionExpCSParserRuleCall_0_1_1_3_1_0()); 
@@ -53919,18 +55081,71 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__NavigatingArgCS__OwnedInitExpressionAssignment_0_1_1_3_1"
 
 
+    // $ANTLR start "rule__NavigatingArgCS__SymbolTAssignment_0_1_2_0_0"
+    // InternalUSE.g:16714:1: rule__NavigatingArgCS__SymbolTAssignment_0_1_2_0_0 : ( ( ':' ) ) ;
+    public final void rule__NavigatingArgCS__SymbolTAssignment_0_1_2_0_0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalUSE.g:16718:1: ( ( ( ':' ) ) )
+            // InternalUSE.g:16719:2: ( ( ':' ) )
+            {
+            // InternalUSE.g:16719:2: ( ( ':' ) )
+            // InternalUSE.g:16720:3: ( ':' )
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getNavigatingArgCSAccess().getSymbolTColonKeyword_0_1_2_0_0_0()); 
+            }
+            // InternalUSE.g:16721:3: ( ':' )
+            // InternalUSE.g:16722:4: ':'
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getNavigatingArgCSAccess().getSymbolTColonKeyword_0_1_2_0_0_0()); 
+            }
+            match(input,71,FOLLOW_2); if (state.failed) return ;
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getNavigatingArgCSAccess().getSymbolTColonKeyword_0_1_2_0_0_0()); 
+            }
+
+            }
+
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getNavigatingArgCSAccess().getSymbolTColonKeyword_0_1_2_0_0_0()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__NavigatingArgCS__SymbolTAssignment_0_1_2_0_0"
+
+
     // $ANTLR start "rule__NavigatingArgCS__OwnedTypeAssignment_0_1_2_0_1"
-    // InternalUSE.g:16376:1: rule__NavigatingArgCS__OwnedTypeAssignment_0_1_2_0_1 : ( ruleTypeExpCS ) ;
+    // InternalUSE.g:16733:1: rule__NavigatingArgCS__OwnedTypeAssignment_0_1_2_0_1 : ( ruleTypeExpCS ) ;
     public final void rule__NavigatingArgCS__OwnedTypeAssignment_0_1_2_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalUSE.g:16380:1: ( ( ruleTypeExpCS ) )
-            // InternalUSE.g:16381:2: ( ruleTypeExpCS )
+            // InternalUSE.g:16737:1: ( ( ruleTypeExpCS ) )
+            // InternalUSE.g:16738:2: ( ruleTypeExpCS )
             {
-            // InternalUSE.g:16381:2: ( ruleTypeExpCS )
-            // InternalUSE.g:16382:3: ruleTypeExpCS
+            // InternalUSE.g:16738:2: ( ruleTypeExpCS )
+            // InternalUSE.g:16739:3: ruleTypeExpCS
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getNavigatingArgCSAccess().getOwnedTypeTypeExpCSParserRuleCall_0_1_2_0_1_0()); 
@@ -53964,18 +55179,71 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__NavigatingArgCS__OwnedTypeAssignment_0_1_2_0_1"
 
 
+    // $ANTLR start "rule__NavigatingArgCS__SymbolCIAssignment_0_1_2_1_0"
+    // InternalUSE.g:16748:1: rule__NavigatingArgCS__SymbolCIAssignment_0_1_2_1_0 : ( ( '<-' ) ) ;
+    public final void rule__NavigatingArgCS__SymbolCIAssignment_0_1_2_1_0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalUSE.g:16752:1: ( ( ( '<-' ) ) )
+            // InternalUSE.g:16753:2: ( ( '<-' ) )
+            {
+            // InternalUSE.g:16753:2: ( ( '<-' ) )
+            // InternalUSE.g:16754:3: ( '<-' )
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getNavigatingArgCSAccess().getSymbolCILessThanSignHyphenMinusKeyword_0_1_2_1_0_0()); 
+            }
+            // InternalUSE.g:16755:3: ( '<-' )
+            // InternalUSE.g:16756:4: '<-'
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getNavigatingArgCSAccess().getSymbolCILessThanSignHyphenMinusKeyword_0_1_2_1_0_0()); 
+            }
+            match(input,82,FOLLOW_2); if (state.failed) return ;
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getNavigatingArgCSAccess().getSymbolCILessThanSignHyphenMinusKeyword_0_1_2_1_0_0()); 
+            }
+
+            }
+
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getNavigatingArgCSAccess().getSymbolCILessThanSignHyphenMinusKeyword_0_1_2_1_0_0()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__NavigatingArgCS__SymbolCIAssignment_0_1_2_1_0"
+
+
     // $ANTLR start "rule__NavigatingArgCS__OwnedCoIteratorAssignment_0_1_2_1_1"
-    // InternalUSE.g:16391:1: rule__NavigatingArgCS__OwnedCoIteratorAssignment_0_1_2_1_1 : ( ruleCoIteratorVariableCS ) ;
+    // InternalUSE.g:16767:1: rule__NavigatingArgCS__OwnedCoIteratorAssignment_0_1_2_1_1 : ( ruleCoIteratorVariableCS ) ;
     public final void rule__NavigatingArgCS__OwnedCoIteratorAssignment_0_1_2_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalUSE.g:16395:1: ( ( ruleCoIteratorVariableCS ) )
-            // InternalUSE.g:16396:2: ( ruleCoIteratorVariableCS )
+            // InternalUSE.g:16771:1: ( ( ruleCoIteratorVariableCS ) )
+            // InternalUSE.g:16772:2: ( ruleCoIteratorVariableCS )
             {
-            // InternalUSE.g:16396:2: ( ruleCoIteratorVariableCS )
-            // InternalUSE.g:16397:3: ruleCoIteratorVariableCS
+            // InternalUSE.g:16772:2: ( ruleCoIteratorVariableCS )
+            // InternalUSE.g:16773:3: ruleCoIteratorVariableCS
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getNavigatingArgCSAccess().getOwnedCoIteratorCoIteratorVariableCSParserRuleCall_0_1_2_1_1_0()); 
@@ -54009,18 +55277,71 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__NavigatingArgCS__OwnedCoIteratorAssignment_0_1_2_1_1"
 
 
+    // $ANTLR start "rule__NavigatingArgCS__SymbolIEAssignment_0_1_2_2"
+    // InternalUSE.g:16782:1: rule__NavigatingArgCS__SymbolIEAssignment_0_1_2_2 : ( ( 'in' ) ) ;
+    public final void rule__NavigatingArgCS__SymbolIEAssignment_0_1_2_2() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalUSE.g:16786:1: ( ( ( 'in' ) ) )
+            // InternalUSE.g:16787:2: ( ( 'in' ) )
+            {
+            // InternalUSE.g:16787:2: ( ( 'in' ) )
+            // InternalUSE.g:16788:3: ( 'in' )
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getNavigatingArgCSAccess().getSymbolIEInKeyword_0_1_2_2_0()); 
+            }
+            // InternalUSE.g:16789:3: ( 'in' )
+            // InternalUSE.g:16790:4: 'in'
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getNavigatingArgCSAccess().getSymbolIEInKeyword_0_1_2_2_0()); 
+            }
+            match(input,93,FOLLOW_2); if (state.failed) return ;
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getNavigatingArgCSAccess().getSymbolIEInKeyword_0_1_2_2_0()); 
+            }
+
+            }
+
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getNavigatingArgCSAccess().getSymbolIEInKeyword_0_1_2_2_0()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__NavigatingArgCS__SymbolIEAssignment_0_1_2_2"
+
+
     // $ANTLR start "rule__NavigatingArgCS__OwnedInitExpressionAssignment_0_1_2_3"
-    // InternalUSE.g:16406:1: rule__NavigatingArgCS__OwnedInitExpressionAssignment_0_1_2_3 : ( ruleExpCS ) ;
+    // InternalUSE.g:16801:1: rule__NavigatingArgCS__OwnedInitExpressionAssignment_0_1_2_3 : ( ruleExpCS ) ;
     public final void rule__NavigatingArgCS__OwnedInitExpressionAssignment_0_1_2_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalUSE.g:16410:1: ( ( ruleExpCS ) )
-            // InternalUSE.g:16411:2: ( ruleExpCS )
+            // InternalUSE.g:16805:1: ( ( ruleExpCS ) )
+            // InternalUSE.g:16806:2: ( ruleExpCS )
             {
-            // InternalUSE.g:16411:2: ( ruleExpCS )
-            // InternalUSE.g:16412:3: ruleExpCS
+            // InternalUSE.g:16806:2: ( ruleExpCS )
+            // InternalUSE.g:16807:3: ruleExpCS
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getNavigatingArgCSAccess().getOwnedInitExpressionExpCSParserRuleCall_0_1_2_3_0()); 
@@ -54054,18 +55375,71 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__NavigatingArgCS__OwnedInitExpressionAssignment_0_1_2_3"
 
 
+    // $ANTLR start "rule__NavigatingArgCS__SymbolTAssignment_1_0"
+    // InternalUSE.g:16816:1: rule__NavigatingArgCS__SymbolTAssignment_1_0 : ( ( ':' ) ) ;
+    public final void rule__NavigatingArgCS__SymbolTAssignment_1_0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalUSE.g:16820:1: ( ( ( ':' ) ) )
+            // InternalUSE.g:16821:2: ( ( ':' ) )
+            {
+            // InternalUSE.g:16821:2: ( ( ':' ) )
+            // InternalUSE.g:16822:3: ( ':' )
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getNavigatingArgCSAccess().getSymbolTColonKeyword_1_0_0()); 
+            }
+            // InternalUSE.g:16823:3: ( ':' )
+            // InternalUSE.g:16824:4: ':'
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getNavigatingArgCSAccess().getSymbolTColonKeyword_1_0_0()); 
+            }
+            match(input,71,FOLLOW_2); if (state.failed) return ;
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getNavigatingArgCSAccess().getSymbolTColonKeyword_1_0_0()); 
+            }
+
+            }
+
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getNavigatingArgCSAccess().getSymbolTColonKeyword_1_0_0()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__NavigatingArgCS__SymbolTAssignment_1_0"
+
+
     // $ANTLR start "rule__NavigatingArgCS__OwnedTypeAssignment_1_1"
-    // InternalUSE.g:16421:1: rule__NavigatingArgCS__OwnedTypeAssignment_1_1 : ( ruleTypeExpCS ) ;
+    // InternalUSE.g:16835:1: rule__NavigatingArgCS__OwnedTypeAssignment_1_1 : ( ruleTypeExpCS ) ;
     public final void rule__NavigatingArgCS__OwnedTypeAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalUSE.g:16425:1: ( ( ruleTypeExpCS ) )
-            // InternalUSE.g:16426:2: ( ruleTypeExpCS )
+            // InternalUSE.g:16839:1: ( ( ruleTypeExpCS ) )
+            // InternalUSE.g:16840:2: ( ruleTypeExpCS )
             {
-            // InternalUSE.g:16426:2: ( ruleTypeExpCS )
-            // InternalUSE.g:16427:3: ruleTypeExpCS
+            // InternalUSE.g:16840:2: ( ruleTypeExpCS )
+            // InternalUSE.g:16841:3: ruleTypeExpCS
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getNavigatingArgCSAccess().getOwnedTypeTypeExpCSParserRuleCall_1_1_0()); 
@@ -54100,17 +55474,17 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__CoIteratorVariableCS__NameAssignment_0"
-    // InternalUSE.g:16436:1: rule__CoIteratorVariableCS__NameAssignment_0 : ( ruleUnrestrictedName ) ;
+    // InternalUSE.g:16850:1: rule__CoIteratorVariableCS__NameAssignment_0 : ( ruleUnrestrictedName ) ;
     public final void rule__CoIteratorVariableCS__NameAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalUSE.g:16440:1: ( ( ruleUnrestrictedName ) )
-            // InternalUSE.g:16441:2: ( ruleUnrestrictedName )
+            // InternalUSE.g:16854:1: ( ( ruleUnrestrictedName ) )
+            // InternalUSE.g:16855:2: ( ruleUnrestrictedName )
             {
-            // InternalUSE.g:16441:2: ( ruleUnrestrictedName )
-            // InternalUSE.g:16442:3: ruleUnrestrictedName
+            // InternalUSE.g:16855:2: ( ruleUnrestrictedName )
+            // InternalUSE.g:16856:3: ruleUnrestrictedName
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getCoIteratorVariableCSAccess().getNameUnrestrictedNameParserRuleCall_0_0()); 
@@ -54145,17 +55519,17 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__CoIteratorVariableCS__OwnedTypeAssignment_1_1"
-    // InternalUSE.g:16451:1: rule__CoIteratorVariableCS__OwnedTypeAssignment_1_1 : ( ruleTypeExpCS ) ;
+    // InternalUSE.g:16865:1: rule__CoIteratorVariableCS__OwnedTypeAssignment_1_1 : ( ruleTypeExpCS ) ;
     public final void rule__CoIteratorVariableCS__OwnedTypeAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalUSE.g:16455:1: ( ( ruleTypeExpCS ) )
-            // InternalUSE.g:16456:2: ( ruleTypeExpCS )
+            // InternalUSE.g:16869:1: ( ( ruleTypeExpCS ) )
+            // InternalUSE.g:16870:2: ( ruleTypeExpCS )
             {
-            // InternalUSE.g:16456:2: ( ruleTypeExpCS )
-            // InternalUSE.g:16457:3: ruleTypeExpCS
+            // InternalUSE.g:16870:2: ( ruleTypeExpCS )
+            // InternalUSE.g:16871:3: ruleTypeExpCS
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getCoIteratorVariableCSAccess().getOwnedTypeTypeExpCSParserRuleCall_1_1_0()); 
@@ -54607,17 +55981,17 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
     protected DFA30 dfa30 = new DFA30(this);
     protected DFA33 dfa33 = new DFA33(this);
     static final String dfa_1s = "\50\uffff";
-    static final String dfa_2s = "\4\uffff\1\7\17\uffff\5\7\16\uffff\1\7";
-    static final String dfa_3s = "\1\6\1\71\1\6\1\106\3\6\2\uffff\3\71\5\6\3\71\24\6";
-    static final String dfa_4s = "\1\6\1\71\1\72\1\106\1\116\2\22\2\uffff\3\71\5\72\3\71\5\116\16\72\1\116";
-    static final String dfa_5s = "\7\uffff\1\1\1\2\37\uffff";
+    static final String dfa_2s = "\4\uffff\1\10\17\uffff\5\10\16\uffff\1\10";
+    static final String dfa_3s = "\1\6\1\72\1\6\1\107\3\6\2\uffff\3\72\5\6\3\72\24\6";
+    static final String dfa_4s = "\1\6\1\72\1\73\1\107\1\117\2\22\2\uffff\3\72\5\73\3\72\5\117\16\73\1\117";
+    static final String dfa_5s = "\7\uffff\1\2\1\1\37\uffff";
     static final String dfa_6s = "\50\uffff}>";
     static final String[] dfa_7s = {
             "\1\1",
             "\1\2",
-            "\1\3\63\uffff\1\4",
+            "\1\3\64\uffff\1\4",
             "\1\5",
-            "\1\7\34\uffff\1\10\33\uffff\1\7\6\uffff\1\6\1\uffff\2\7\3\uffff\2\7",
+            "\1\10\34\uffff\1\7\34\uffff\1\10\6\uffff\1\6\1\uffff\2\10\3\uffff\2\10",
             "\1\20\5\uffff\1\14\1\15\1\16\1\17\1\11\1\12\1\13",
             "\1\30\5\uffff\1\24\1\25\1\26\1\27\1\21\1\22\1\23",
             "",
@@ -54625,34 +55999,34 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
             "\1\31",
             "\1\31",
             "\1\31",
-            "\1\3\61\uffff\1\32\1\uffff\1\4",
-            "\1\3\61\uffff\1\32\1\uffff\1\4",
-            "\1\3\61\uffff\1\32\1\uffff\1\4",
-            "\1\3\61\uffff\1\32\1\uffff\1\4",
-            "\1\3\61\uffff\1\32\1\uffff\1\4",
+            "\1\3\62\uffff\1\32\1\uffff\1\4",
+            "\1\3\62\uffff\1\32\1\uffff\1\4",
+            "\1\3\62\uffff\1\32\1\uffff\1\4",
+            "\1\3\62\uffff\1\32\1\uffff\1\4",
+            "\1\3\62\uffff\1\32\1\uffff\1\4",
             "\1\33",
             "\1\33",
             "\1\33",
-            "\1\7\34\uffff\1\10\33\uffff\1\7\10\uffff\2\7\3\uffff\2\7",
-            "\1\7\34\uffff\1\10\33\uffff\1\7\10\uffff\2\7\3\uffff\2\7",
-            "\1\7\34\uffff\1\10\33\uffff\1\7\10\uffff\2\7\3\uffff\2\7",
-            "\1\7\34\uffff\1\10\33\uffff\1\7\10\uffff\2\7\3\uffff\2\7",
-            "\1\7\34\uffff\1\10\33\uffff\1\7\10\uffff\2\7\3\uffff\2\7",
-            "\1\40\5\uffff\1\34\1\35\1\36\1\37\52\uffff\1\41",
-            "\1\3\63\uffff\1\4",
-            "\1\46\5\uffff\1\42\1\43\1\44\1\45\52\uffff\1\47",
-            "\1\40\5\uffff\1\34\1\35\1\36\1\37\52\uffff\1\41",
-            "\1\40\5\uffff\1\34\1\35\1\36\1\37\52\uffff\1\41",
-            "\1\40\5\uffff\1\34\1\35\1\36\1\37\52\uffff\1\41",
-            "\1\40\5\uffff\1\34\1\35\1\36\1\37\52\uffff\1\41",
-            "\1\40\5\uffff\1\34\1\35\1\36\1\37\52\uffff\1\41",
-            "\1\3\61\uffff\1\32\1\uffff\1\4",
-            "\1\46\5\uffff\1\42\1\43\1\44\1\45\52\uffff\1\47",
-            "\1\46\5\uffff\1\42\1\43\1\44\1\45\52\uffff\1\47",
-            "\1\46\5\uffff\1\42\1\43\1\44\1\45\52\uffff\1\47",
-            "\1\46\5\uffff\1\42\1\43\1\44\1\45\52\uffff\1\47",
-            "\1\46\5\uffff\1\42\1\43\1\44\1\45\52\uffff\1\47",
-            "\1\7\34\uffff\1\10\33\uffff\1\7\10\uffff\2\7\3\uffff\2\7"
+            "\1\10\34\uffff\1\7\34\uffff\1\10\10\uffff\2\10\3\uffff\2\10",
+            "\1\10\34\uffff\1\7\34\uffff\1\10\10\uffff\2\10\3\uffff\2\10",
+            "\1\10\34\uffff\1\7\34\uffff\1\10\10\uffff\2\10\3\uffff\2\10",
+            "\1\10\34\uffff\1\7\34\uffff\1\10\10\uffff\2\10\3\uffff\2\10",
+            "\1\10\34\uffff\1\7\34\uffff\1\10\10\uffff\2\10\3\uffff\2\10",
+            "\1\40\5\uffff\1\34\1\35\1\36\1\37\53\uffff\1\41",
+            "\1\3\64\uffff\1\4",
+            "\1\46\5\uffff\1\42\1\43\1\44\1\45\53\uffff\1\47",
+            "\1\40\5\uffff\1\34\1\35\1\36\1\37\53\uffff\1\41",
+            "\1\40\5\uffff\1\34\1\35\1\36\1\37\53\uffff\1\41",
+            "\1\40\5\uffff\1\34\1\35\1\36\1\37\53\uffff\1\41",
+            "\1\40\5\uffff\1\34\1\35\1\36\1\37\53\uffff\1\41",
+            "\1\40\5\uffff\1\34\1\35\1\36\1\37\53\uffff\1\41",
+            "\1\3\62\uffff\1\32\1\uffff\1\4",
+            "\1\46\5\uffff\1\42\1\43\1\44\1\45\53\uffff\1\47",
+            "\1\46\5\uffff\1\42\1\43\1\44\1\45\53\uffff\1\47",
+            "\1\46\5\uffff\1\42\1\43\1\44\1\45\53\uffff\1\47",
+            "\1\46\5\uffff\1\42\1\43\1\44\1\45\53\uffff\1\47",
+            "\1\46\5\uffff\1\42\1\43\1\44\1\45\53\uffff\1\47",
+            "\1\10\34\uffff\1\7\34\uffff\1\10\10\uffff\2\10\3\uffff\2\10"
     };
 
     static final short[] dfa_1 = DFA.unpackEncodedString(dfa_1s);
@@ -54682,11 +56056,11 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
     }
     static final String dfa_8s = "\22\uffff";
     static final String dfa_9s = "\1\6\11\uffff\5\0\3\uffff";
-    static final String dfa_10s = "\1\137\11\uffff\5\0\3\uffff";
+    static final String dfa_10s = "\1\140\11\uffff\5\0\3\uffff";
     static final String dfa_11s = "\1\uffff\1\1\1\2\16\uffff\1\3";
     static final String dfa_12s = "\12\uffff\1\0\1\1\1\2\1\3\1\4\3\uffff}>";
     static final String[] dfa_13s = {
-            "\1\1\5\uffff\4\2\1\12\1\13\1\14\3\uffff\4\2\1\15\1\16\66\uffff\1\2\14\uffff\1\2",
+            "\1\1\5\uffff\4\2\1\12\1\13\1\14\3\uffff\4\2\1\15\1\16\67\uffff\1\2\14\uffff\1\2",
             "",
             "",
             "",
@@ -54822,7 +56196,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
     static final String dfa_17s = "\4\uffff\1\1\32\uffff\1\2";
     static final String dfa_18s = "\1\uffff\1\0\1\1\1\2\34\uffff}>";
     static final String[] dfa_19s = {
-            "\3\4\4\uffff\10\4\3\uffff\6\4\2\uffff\1\1\23\uffff\1\2\1\3\5\uffff\1\4\26\uffff\1\4\1\uffff\5\4\4\uffff\1\37\3\uffff\1\4\2\uffff\2\4",
+            "\3\4\4\uffff\10\4\3\uffff\6\4\2\uffff\1\1\23\uffff\1\2\1\3\6\uffff\1\4\26\uffff\1\4\1\uffff\5\4\4\uffff\1\37\3\uffff\1\4\1\uffff\2\4",
             "\1\uffff",
             "\1\uffff",
             "\1\uffff",
@@ -54942,7 +56316,7 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
     static final String dfa_23s = "\1\uffff\1\1\1\2\1\3\1\4\15\uffff\1\10\1\11\7\uffff\1\12\1\5\1\6\1\7";
     static final String dfa_24s = "\13\uffff\1\0\1\1\1\2\1\3\1\4\1\5\1\6\15\uffff}>";
     static final String[] dfa_25s = {
-            "\2\4\1\33\4\uffff\1\4\4\23\1\15\1\16\1\17\3\uffff\4\23\1\20\1\21\35\uffff\1\1\26\uffff\1\22\1\uffff\1\13\2\4\1\3\1\2\10\uffff\1\14\2\uffff\2\4",
+            "\2\4\1\33\4\uffff\1\4\4\23\1\15\1\16\1\17\3\uffff\4\23\1\20\1\21\36\uffff\1\1\26\uffff\1\22\1\uffff\1\13\2\4\1\3\1\2\10\uffff\1\14\1\uffff\2\4",
             "",
             "",
             "",
@@ -55121,82 +56495,82 @@ public class InternalUSEParser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_2 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000000000000022L});
     public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000000000040L});
-    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x4800000000380000L,0x0000000020000210L});
-    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0800000000000002L});
-    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x4000000000380002L,0x0000000020000010L});
-    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0180000000000000L});
-    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0100000000000002L});
+    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x9000000000380000L,0x0000000040000420L});
+    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x1000000000000002L});
+    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x8000000000380002L,0x0000000040000020L});
+    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0300000000000000L});
+    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0200000000000002L});
     public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000000000810L});
-    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0080000000000000L});
-    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0200000000000000L});
-    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x040000000000F040L});
+    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0100000000000000L});
+    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0400000000000000L});
+    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x080000000000F040L});
     public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x000000000000F042L});
-    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x1000000000000040L});
-    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x2000000000000000L});
+    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x2000000000000040L});
+    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x4000000000000000L});
     public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000000000000042L});
-    public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0100000000000000L});
-    public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x4000000000000000L,0x0000000020000000L});
-    public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x8000000100000000L,0x00000000000002A0L});
-    public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000001L});
-    public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x8000000000000000L});
-    public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000002L});
-    public static final BitSet FOLLOW_24 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000004L});
-    public static final BitSet FOLLOW_25 = new BitSet(new long[]{0x0000000000000000L,0x0000000040000008L});
-    public static final BitSet FOLLOW_26 = new BitSet(new long[]{0x4000000000380000L,0x0000000020000010L});
-    public static final BitSet FOLLOW_27 = new BitSet(new long[]{0x0000000100000000L,0x0000000000000001L});
-    public static final BitSet FOLLOW_28 = new BitSet(new long[]{0x8000000000000000L,0x00000000000002A0L});
-    public static final BitSet FOLLOW_29 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000040L});
+    public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0200000000000000L});
+    public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x8000000000000000L,0x0000000040000000L});
+    public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x0000000100000000L,0x0000000000000541L});
+    public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000002L});
+    public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000001L});
+    public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000004L});
+    public static final BitSet FOLLOW_24 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000008L});
+    public static final BitSet FOLLOW_25 = new BitSet(new long[]{0x0000000000000000L,0x0000000080000010L});
+    public static final BitSet FOLLOW_26 = new BitSet(new long[]{0x8000000000380000L,0x0000000040000020L});
+    public static final BitSet FOLLOW_27 = new BitSet(new long[]{0x0000000100000000L,0x0000000000000002L});
+    public static final BitSet FOLLOW_28 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000541L});
+    public static final BitSet FOLLOW_29 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000080L});
     public static final BitSet FOLLOW_30 = new BitSet(new long[]{0x000000000007F040L});
     public static final BitSet FOLLOW_31 = new BitSet(new long[]{0x0000000800000000L});
-    public static final BitSet FOLLOW_32 = new BitSet(new long[]{0x020C00004FC7F870L,0x0000000C887D0000L});
-    public static final BitSet FOLLOW_33 = new BitSet(new long[]{0x0000000000000000L,0x0000000000006000L});
-    public static final BitSet FOLLOW_34 = new BitSet(new long[]{0x0000000000000002L,0x0000000000006000L});
-    public static final BitSet FOLLOW_35 = new BitSet(new long[]{0x0000000000000000L,0x0000000000006100L});
-    public static final BitSet FOLLOW_36 = new BitSet(new long[]{0x8000000000000020L});
-    public static final BitSet FOLLOW_37 = new BitSet(new long[]{0x0400000000000040L});
-    public static final BitSet FOLLOW_38 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000800L});
-    public static final BitSet FOLLOW_39 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000800L});
-    public static final BitSet FOLLOW_40 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000400L});
-    public static final BitSet FOLLOW_41 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000400L});
-    public static final BitSet FOLLOW_42 = new BitSet(new long[]{0x0000000000000040L,0x0000000000000040L});
-    public static final BitSet FOLLOW_43 = new BitSet(new long[]{0x0000000000000000L,0x0000000000001000L});
-    public static final BitSet FOLLOW_44 = new BitSet(new long[]{0x020C00004FC7F870L,0x0000000C807D0000L});
-    public static final BitSet FOLLOW_45 = new BitSet(new long[]{0x0400000000000000L,0x0000000000000002L});
-    public static final BitSet FOLLOW_46 = new BitSet(new long[]{0x0400000000000000L});
-    public static final BitSet FOLLOW_47 = new BitSet(new long[]{0x1000000000000000L});
-    public static final BitSet FOLLOW_48 = new BitSet(new long[]{0x2000000000000040L,0x0000000000000040L});
-    public static final BitSet FOLLOW_49 = new BitSet(new long[]{0x0100000000000000L,0x0000000000008000L});
-    public static final BitSet FOLLOW_50 = new BitSet(new long[]{0x2000000000000060L});
+    public static final BitSet FOLLOW_32 = new BitSet(new long[]{0x040C00004FC7F870L,0x0000000D10FA0000L});
+    public static final BitSet FOLLOW_33 = new BitSet(new long[]{0x0000000000000000L,0x000000000000C000L});
+    public static final BitSet FOLLOW_34 = new BitSet(new long[]{0x0000000000000002L,0x000000000000C000L});
+    public static final BitSet FOLLOW_35 = new BitSet(new long[]{0x0000000000000000L,0x000000000000C200L});
+    public static final BitSet FOLLOW_36 = new BitSet(new long[]{0x0000000000000020L,0x0000000000000001L});
+    public static final BitSet FOLLOW_37 = new BitSet(new long[]{0x0800000000000040L});
+    public static final BitSet FOLLOW_38 = new BitSet(new long[]{0x0000000000000000L,0x0000000000001000L});
+    public static final BitSet FOLLOW_39 = new BitSet(new long[]{0x0000000000000002L,0x0000000000001000L});
+    public static final BitSet FOLLOW_40 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000800L});
+    public static final BitSet FOLLOW_41 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000800L});
+    public static final BitSet FOLLOW_42 = new BitSet(new long[]{0x0000000000000040L,0x0000000000000080L});
+    public static final BitSet FOLLOW_43 = new BitSet(new long[]{0x0000000000000000L,0x0000000000002000L});
+    public static final BitSet FOLLOW_44 = new BitSet(new long[]{0x040C00004FC7F870L,0x0000000D00FA0000L});
+    public static final BitSet FOLLOW_45 = new BitSet(new long[]{0x0800000000000000L,0x0000000000000004L});
+    public static final BitSet FOLLOW_46 = new BitSet(new long[]{0x0800000000000000L});
+    public static final BitSet FOLLOW_47 = new BitSet(new long[]{0x2000000000000000L});
+    public static final BitSet FOLLOW_48 = new BitSet(new long[]{0x4000000000000040L,0x0000000000000080L});
+    public static final BitSet FOLLOW_49 = new BitSet(new long[]{0x0200000000000000L,0x0000000000010000L});
+    public static final BitSet FOLLOW_50 = new BitSet(new long[]{0x4000000000000060L});
     public static final BitSet FOLLOW_51 = new BitSet(new long[]{0x0000000000000060L});
-    public static final BitSet FOLLOW_52 = new BitSet(new long[]{0x020C00004FC7F870L,0x0000000C887D0040L});
-    public static final BitSet FOLLOW_53 = new BitSet(new long[]{0x0020000020000810L});
-    public static final BitSet FOLLOW_54 = new BitSet(new long[]{0x0010000000000000L,0x0000000100000004L});
-    public static final BitSet FOLLOW_55 = new BitSet(new long[]{0x0000000000000002L,0x0000000000001000L});
+    public static final BitSet FOLLOW_52 = new BitSet(new long[]{0x040C00004FC7F870L,0x0000000D10FA0080L});
+    public static final BitSet FOLLOW_53 = new BitSet(new long[]{0x0040000020000810L});
+    public static final BitSet FOLLOW_54 = new BitSet(new long[]{0x0030000000000000L,0x0000000000000008L});
+    public static final BitSet FOLLOW_55 = new BitSet(new long[]{0x0000000000000002L,0x0000000000002000L});
     public static final BitSet FOLLOW_56 = new BitSet(new long[]{0x0003FFFFF0000800L});
     public static final BitSet FOLLOW_57 = new BitSet(new long[]{0x000C000040000000L});
-    public static final BitSet FOLLOW_58 = new BitSet(new long[]{0x1200000000000000L,0x0000000200000002L});
-    public static final BitSet FOLLOW_59 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000002L});
-    public static final BitSet FOLLOW_60 = new BitSet(new long[]{0x0000000000000000L,0x0000000000002000L});
-    public static final BitSet FOLLOW_61 = new BitSet(new long[]{0x0100000000000000L,0x0000000000000004L});
-    public static final BitSet FOLLOW_62 = new BitSet(new long[]{0x220C00004FC7F870L,0x0000000C887D0040L});
-    public static final BitSet FOLLOW_63 = new BitSet(new long[]{0x220C00004FC7F870L,0x0000000C887D0000L});
-    public static final BitSet FOLLOW_64 = new BitSet(new long[]{0x0000000000000000L,0x0000000000020000L});
-    public static final BitSet FOLLOW_65 = new BitSet(new long[]{0x2100000000000000L});
-    public static final BitSet FOLLOW_66 = new BitSet(new long[]{0x0000000800000000L,0x0000000000000040L});
+    public static final BitSet FOLLOW_58 = new BitSet(new long[]{0x2400000000000000L,0x0000000200000004L});
+    public static final BitSet FOLLOW_59 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000004L});
+    public static final BitSet FOLLOW_60 = new BitSet(new long[]{0x0000000000000000L,0x0000000000004000L});
+    public static final BitSet FOLLOW_61 = new BitSet(new long[]{0x0200000000000000L,0x0000000000000008L});
+    public static final BitSet FOLLOW_62 = new BitSet(new long[]{0x440C00004FC7F870L,0x0000000D10FA0080L});
+    public static final BitSet FOLLOW_63 = new BitSet(new long[]{0x440C00004FC7F870L,0x0000000D10FA0000L});
+    public static final BitSet FOLLOW_64 = new BitSet(new long[]{0x0000000000000000L,0x0000000000040000L});
+    public static final BitSet FOLLOW_65 = new BitSet(new long[]{0x4200000000000000L});
+    public static final BitSet FOLLOW_66 = new BitSet(new long[]{0x0000000800000000L,0x0000000000000080L});
     public static final BitSet FOLLOW_67 = new BitSet(new long[]{0x0000000000000800L});
-    public static final BitSet FOLLOW_68 = new BitSet(new long[]{0x0000000000000000L,0x0000000000080000L});
-    public static final BitSet FOLLOW_69 = new BitSet(new long[]{0x0000000000000830L,0x0000000C00180000L});
-    public static final BitSet FOLLOW_70 = new BitSet(new long[]{0x0000000000000000L,0x0000000000200000L});
-    public static final BitSet FOLLOW_71 = new BitSet(new long[]{0x0000000000000000L,0x0000000000800000L});
-    public static final BitSet FOLLOW_72 = new BitSet(new long[]{0x0000000000000000L,0x0000000005000000L});
-    public static final BitSet FOLLOW_73 = new BitSet(new long[]{0x0000000000000002L,0x0000000004000000L});
-    public static final BitSet FOLLOW_74 = new BitSet(new long[]{0x0000000000000000L,0x0000000002000000L});
-    public static final BitSet FOLLOW_75 = new BitSet(new long[]{0x0100000000000000L,0x0000000010000000L});
-    public static final BitSet FOLLOW_76 = new BitSet(new long[]{0x0200000800000000L,0x0000000000000040L});
-    public static final BitSet FOLLOW_77 = new BitSet(new long[]{0x060C00004FC7F870L,0x0000000C887D0040L});
-    public static final BitSet FOLLOW_78 = new BitSet(new long[]{0x0100000000000000L,0x0000003000000000L});
-    public static final BitSet FOLLOW_79 = new BitSet(new long[]{0x0100000000000002L,0x0000003000000000L});
-    public static final BitSet FOLLOW_80 = new BitSet(new long[]{0x0000000000000000L,0x0000000010020040L});
-    public static final BitSet FOLLOW_81 = new BitSet(new long[]{0x0000000800000000L,0x0000000000020000L});
+    public static final BitSet FOLLOW_68 = new BitSet(new long[]{0x0000000000000000L,0x0000000000100000L});
+    public static final BitSet FOLLOW_69 = new BitSet(new long[]{0x0000000000000830L,0x0000000C00300000L});
+    public static final BitSet FOLLOW_70 = new BitSet(new long[]{0x0000000000000000L,0x0000000000400000L});
+    public static final BitSet FOLLOW_71 = new BitSet(new long[]{0x0000000000000000L,0x0000000001000000L});
+    public static final BitSet FOLLOW_72 = new BitSet(new long[]{0x0000000000000000L,0x000000000A000000L});
+    public static final BitSet FOLLOW_73 = new BitSet(new long[]{0x0000000000000002L,0x0000000008000000L});
+    public static final BitSet FOLLOW_74 = new BitSet(new long[]{0x0000000000000000L,0x0000000004000000L});
+    public static final BitSet FOLLOW_75 = new BitSet(new long[]{0x0200000000000000L,0x0000000020000000L});
+    public static final BitSet FOLLOW_76 = new BitSet(new long[]{0x0400000800000000L,0x0000000000000080L});
+    public static final BitSet FOLLOW_77 = new BitSet(new long[]{0x0C0C00004FC7F870L,0x0000000D10FA0080L});
+    public static final BitSet FOLLOW_78 = new BitSet(new long[]{0x0200000000000000L,0x0000003000000000L});
+    public static final BitSet FOLLOW_79 = new BitSet(new long[]{0x0200000000000002L,0x0000003000000000L});
+    public static final BitSet FOLLOW_80 = new BitSet(new long[]{0x0000000000000000L,0x0000000020040080L});
+    public static final BitSet FOLLOW_81 = new BitSet(new long[]{0x0000000800000000L,0x0000000000040000L});
 
 }

@@ -2320,19 +2320,22 @@ public class USEGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
 		private final RuleCall cMultiplicityBoundsCSParserRuleCall_1_0 = (RuleCall)cAlternatives_1.eContents().get(0);
 		private final RuleCall cMultiplicityStringCSParserRuleCall_1_1 = (RuleCall)cAlternatives_1.eContents().get(1);
-		private final Alternatives cAlternatives_2 = (Alternatives)cGroup.eContents().get(2);
-		private final Keyword cVerticalLineQuestionMarkKeyword_2_0 = (Keyword)cAlternatives_2.eContents().get(0);
-		private final Assignment cIsNullFreeAssignment_2_1 = (Assignment)cAlternatives_2.eContents().get(1);
-		private final Keyword cIsNullFree1Keyword_2_1_0 = (Keyword)cIsNullFreeAssignment_2_1.eContents().get(0);
+		private final Assignment cSymbolAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final Alternatives cSymbolAlternatives_2_0 = (Alternatives)cSymbolAssignment_2.eContents().get(0);
+		private final Keyword cSymbolVerticalLineQuestionMarkKeyword_2_0_0 = (Keyword)cSymbolAlternatives_2_0.eContents().get(0);
+		private final Keyword cSymbol1Keyword_2_0_1 = (Keyword)cSymbolAlternatives_2_0.eContents().get(1);
 		private final Keyword cRightSquareBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
 		//MultiplicityCS returns MultiplicityCS:
-		//    '[' (MultiplicityBoundsCS | MultiplicityStringCS) ('|?' | isNullFree?='|1')? ']';
+		//    //'[' (MultiplicityBoundsCS | MultiplicityStringCS) ('|?' | isNullFree?='|1')? ']';
+		//    '[' (MultiplicityBoundsCS | MultiplicityStringCS) symbol=('|?' | '|1')? ']';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'[' (MultiplicityBoundsCS | MultiplicityStringCS) ('|?' | isNullFree?='|1')? ']'
+		////'[' (MultiplicityBoundsCS | MultiplicityStringCS) ('|?' | isNullFree?='|1')? ']';
+		//'[' (MultiplicityBoundsCS | MultiplicityStringCS) symbol=('|?' | '|1')? ']'
 		public Group getGroup() { return cGroup; }
 		
+		////'[' (MultiplicityBoundsCS | MultiplicityStringCS) ('|?' | isNullFree?='|1')? ']';
 		//'['
 		public Keyword getLeftSquareBracketKeyword_0() { return cLeftSquareBracketKeyword_0; }
 		
@@ -2345,17 +2348,17 @@ public class USEGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//MultiplicityStringCS
 		public RuleCall getMultiplicityStringCSParserRuleCall_1_1() { return cMultiplicityStringCSParserRuleCall_1_1; }
 		
-		//('|?' | isNullFree?='|1')?
-		public Alternatives getAlternatives_2() { return cAlternatives_2; }
+		//symbol=('|?' | '|1')?
+		public Assignment getSymbolAssignment_2() { return cSymbolAssignment_2; }
+		
+		//('|?' | '|1')
+		public Alternatives getSymbolAlternatives_2_0() { return cSymbolAlternatives_2_0; }
 		
 		//'|?'
-		public Keyword getVerticalLineQuestionMarkKeyword_2_0() { return cVerticalLineQuestionMarkKeyword_2_0; }
-		
-		//isNullFree?='|1'
-		public Assignment getIsNullFreeAssignment_2_1() { return cIsNullFreeAssignment_2_1; }
+		public Keyword getSymbolVerticalLineQuestionMarkKeyword_2_0_0() { return cSymbolVerticalLineQuestionMarkKeyword_2_0_0; }
 		
 		//'|1'
-		public Keyword getIsNullFree1Keyword_2_1_0() { return cIsNullFree1Keyword_2_1_0; }
+		public Keyword getSymbol1Keyword_2_0_1() { return cSymbol1Keyword_2_0_1; }
 		
 		//']'
 		public Keyword getRightSquareBracketKeyword_3() { return cRightSquareBracketKeyword_3; }
@@ -2735,15 +2738,16 @@ public class USEGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
 		private final Assignment cIsPreAssignment_4_0 = (Assignment)cGroup_4.eContents().get(0);
 		private final Keyword cIsPreCommercialAtKeyword_4_0_0 = (Keyword)cIsPreAssignment_4_0.eContents().get(0);
-		private final Keyword cPreKeyword_4_1 = (Keyword)cGroup_4.eContents().get(1);
+		private final Assignment cPreAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final Keyword cPrePreKeyword_4_1_0 = (Keyword)cPreAssignment_4_1.eContents().get(0);
 		
 		//NameExpCS returns NameExpCS:
 		//    ownedPathName=PathNameCS ownedSquareBracketedClauses+=SquareBracketedClauseCS*
-		//    ownedRoundBracketedClause=RoundBracketedClauseCS? ownedCurlyBracketedClause=CurlyBracketedClauseCS? (isPre?='@' 'pre')?;
+		//    ownedRoundBracketedClause=RoundBracketedClauseCS? ownedCurlyBracketedClause=CurlyBracketedClauseCS? (isPre?='@' pre?='pre')?;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//ownedPathName=PathNameCS ownedSquareBracketedClauses+=SquareBracketedClauseCS*
-		//ownedRoundBracketedClause=RoundBracketedClauseCS? ownedCurlyBracketedClause=CurlyBracketedClauseCS? (isPre?='@' 'pre')?
+		//ownedRoundBracketedClause=RoundBracketedClauseCS? ownedCurlyBracketedClause=CurlyBracketedClauseCS? (isPre?='@' pre?='pre')?
 		public Group getGroup() { return cGroup; }
 		
 		//ownedPathName=PathNameCS
@@ -2770,7 +2774,7 @@ public class USEGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//CurlyBracketedClauseCS
 		public RuleCall getOwnedCurlyBracketedClauseCurlyBracketedClauseCSParserRuleCall_3_0() { return cOwnedCurlyBracketedClauseCurlyBracketedClauseCSParserRuleCall_3_0; }
 		
-		//(isPre?='@' 'pre')?
+		//(isPre?='@' pre?='pre')?
 		public Group getGroup_4() { return cGroup_4; }
 		
 		//isPre?='@'
@@ -2779,8 +2783,11 @@ public class USEGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//'@'
 		public Keyword getIsPreCommercialAtKeyword_4_0_0() { return cIsPreCommercialAtKeyword_4_0_0; }
 		
+		//pre?='pre'
+		public Assignment getPreAssignment_4_1() { return cPreAssignment_4_1; }
+		
 		//'pre'
-		public Keyword getPreKeyword_4_1() { return cPreKeyword_4_1; }
+		public Keyword getPrePreKeyword_4_1_0() { return cPrePreKeyword_4_1_0; }
 	}
 	public class SquareBracketedClauseCSElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "modelConverter.use_language.USE.SquareBracketedClauseCS");
@@ -3585,20 +3592,22 @@ public class USEGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final Assignment cOwnedNameExpressionAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cOwnedNameExpressionNavigatingArgExpCSParserRuleCall_1_0 = (RuleCall)cOwnedNameExpressionAssignment_1.eContents().get(0);
 		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
-		private final Keyword cColonKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final Assignment cSymbolTAssignment_2_0 = (Assignment)cGroup_2.eContents().get(0);
+		private final Keyword cSymbolTColonKeyword_2_0_0 = (Keyword)cSymbolTAssignment_2_0.eContents().get(0);
 		private final Assignment cOwnedTypeAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
 		private final RuleCall cOwnedTypeTypeExpCSParserRuleCall_2_1_0 = (RuleCall)cOwnedTypeAssignment_2_1.eContents().get(0);
 		private final Group cGroup_2_2 = (Group)cGroup_2.eContents().get(2);
-		private final Keyword cEqualsSignKeyword_2_2_0 = (Keyword)cGroup_2_2.eContents().get(0);
+		private final Assignment cSymbolIEAssignment_2_2_0 = (Assignment)cGroup_2_2.eContents().get(0);
+		private final Keyword cSymbolIEEqualsSignKeyword_2_2_0_0 = (Keyword)cSymbolIEAssignment_2_2_0.eContents().get(0);
 		private final Assignment cOwnedInitExpressionAssignment_2_2_1 = (Assignment)cGroup_2_2.eContents().get(1);
 		private final RuleCall cOwnedInitExpressionExpCSParserRuleCall_2_2_1_0 = (RuleCall)cOwnedInitExpressionAssignment_2_2_1.eContents().get(0);
 		
 		///* A navigating bar argument is a generalized rule for a bar-prefixed argument in a round bracket clause. This is typically the body of an iteration. */
 		//NavigatingBarArgCS returns NavigatingArgCS:
-		//    prefix='|' ownedNameExpression=NavigatingArgExpCS (':' ownedType=TypeExpCS ('=' ownedInitExpression=ExpCS)?)?;
+		//    prefix='|' ownedNameExpression=NavigatingArgExpCS (symbolT=':' ownedType=TypeExpCS (symbolIE='=' ownedInitExpression=ExpCS)?)?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//prefix='|' ownedNameExpression=NavigatingArgExpCS (':' ownedType=TypeExpCS ('=' ownedInitExpression=ExpCS)?)?
+		//prefix='|' ownedNameExpression=NavigatingArgExpCS (symbolT=':' ownedType=TypeExpCS (symbolIE='=' ownedInitExpression=ExpCS)?)?
 		public Group getGroup() { return cGroup; }
 		
 		//prefix='|'
@@ -3613,11 +3622,14 @@ public class USEGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//NavigatingArgExpCS
 		public RuleCall getOwnedNameExpressionNavigatingArgExpCSParserRuleCall_1_0() { return cOwnedNameExpressionNavigatingArgExpCSParserRuleCall_1_0; }
 		
-		//(':' ownedType=TypeExpCS ('=' ownedInitExpression=ExpCS)?)?
+		//(symbolT=':' ownedType=TypeExpCS (symbolIE='=' ownedInitExpression=ExpCS)?)?
 		public Group getGroup_2() { return cGroup_2; }
 		
+		//symbolT=':'
+		public Assignment getSymbolTAssignment_2_0() { return cSymbolTAssignment_2_0; }
+		
 		//':'
-		public Keyword getColonKeyword_2_0() { return cColonKeyword_2_0; }
+		public Keyword getSymbolTColonKeyword_2_0_0() { return cSymbolTColonKeyword_2_0_0; }
 		
 		//ownedType=TypeExpCS
 		public Assignment getOwnedTypeAssignment_2_1() { return cOwnedTypeAssignment_2_1; }
@@ -3625,11 +3637,14 @@ public class USEGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//TypeExpCS
 		public RuleCall getOwnedTypeTypeExpCSParserRuleCall_2_1_0() { return cOwnedTypeTypeExpCSParserRuleCall_2_1_0; }
 		
-		//('=' ownedInitExpression=ExpCS)?
+		//(symbolIE='=' ownedInitExpression=ExpCS)?
 		public Group getGroup_2_2() { return cGroup_2_2; }
 		
+		//symbolIE='='
+		public Assignment getSymbolIEAssignment_2_2_0() { return cSymbolIEAssignment_2_2_0; }
+		
 		//'='
-		public Keyword getEqualsSignKeyword_2_2_0() { return cEqualsSignKeyword_2_2_0; }
+		public Keyword getSymbolIEEqualsSignKeyword_2_2_0_0() { return cSymbolIEEqualsSignKeyword_2_2_0_0; }
 		
 		//ownedInitExpression=ExpCS
 		public Assignment getOwnedInitExpressionAssignment_2_2_1() { return cOwnedInitExpressionAssignment_2_2_1; }
@@ -3646,35 +3661,43 @@ public class USEGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final RuleCall cOwnedNameExpressionNavigatingArgExpCSParserRuleCall_1_0 = (RuleCall)cOwnedNameExpressionAssignment_1.eContents().get(0);
 		private final Alternatives cAlternatives_2 = (Alternatives)cGroup.eContents().get(2);
 		private final Group cGroup_2_0 = (Group)cAlternatives_2.eContents().get(0);
-		private final Keyword cLessThanSignHyphenMinusKeyword_2_0_0 = (Keyword)cGroup_2_0.eContents().get(0);
+		private final Assignment cSymbolCIAssignment_2_0_0 = (Assignment)cGroup_2_0.eContents().get(0);
+		private final Keyword cSymbolCILessThanSignHyphenMinusKeyword_2_0_0_0 = (Keyword)cSymbolCIAssignment_2_0_0.eContents().get(0);
 		private final Assignment cOwnedCoIteratorAssignment_2_0_1 = (Assignment)cGroup_2_0.eContents().get(1);
 		private final RuleCall cOwnedCoIteratorCoIteratorVariableCSParserRuleCall_2_0_1_0 = (RuleCall)cOwnedCoIteratorAssignment_2_0_1.eContents().get(0);
 		private final Group cGroup_2_0_2 = (Group)cGroup_2_0.eContents().get(2);
-		private final Keyword cEqualsSignKeyword_2_0_2_0 = (Keyword)cGroup_2_0_2.eContents().get(0);
+		private final Assignment cSymbolIEAssignment_2_0_2_0 = (Assignment)cGroup_2_0_2.eContents().get(0);
+		private final Keyword cSymbolIEEqualsSignKeyword_2_0_2_0_0 = (Keyword)cSymbolIEAssignment_2_0_2_0.eContents().get(0);
 		private final Assignment cOwnedInitExpressionAssignment_2_0_2_1 = (Assignment)cGroup_2_0_2.eContents().get(1);
 		private final RuleCall cOwnedInitExpressionExpCSParserRuleCall_2_0_2_1_0 = (RuleCall)cOwnedInitExpressionAssignment_2_0_2_1.eContents().get(0);
 		private final Group cGroup_2_1 = (Group)cAlternatives_2.eContents().get(1);
-		private final Keyword cColonKeyword_2_1_0 = (Keyword)cGroup_2_1.eContents().get(0);
+		private final Assignment cSymbolTAssignment_2_1_0 = (Assignment)cGroup_2_1.eContents().get(0);
+		private final Keyword cSymbolTColonKeyword_2_1_0_0 = (Keyword)cSymbolTAssignment_2_1_0.eContents().get(0);
 		private final Assignment cOwnedTypeAssignment_2_1_1 = (Assignment)cGroup_2_1.eContents().get(1);
 		private final RuleCall cOwnedTypeTypeExpCSParserRuleCall_2_1_1_0 = (RuleCall)cOwnedTypeAssignment_2_1_1.eContents().get(0);
 		private final Group cGroup_2_1_2 = (Group)cGroup_2_1.eContents().get(2);
-		private final Keyword cLessThanSignHyphenMinusKeyword_2_1_2_0 = (Keyword)cGroup_2_1_2.eContents().get(0);
+		private final Assignment cSymbolCIAssignment_2_1_2_0 = (Assignment)cGroup_2_1_2.eContents().get(0);
+		private final Keyword cSymbolCILessThanSignHyphenMinusKeyword_2_1_2_0_0 = (Keyword)cSymbolCIAssignment_2_1_2_0.eContents().get(0);
 		private final Assignment cOwnedCoIteratorAssignment_2_1_2_1 = (Assignment)cGroup_2_1_2.eContents().get(1);
 		private final RuleCall cOwnedCoIteratorCoIteratorVariableCSParserRuleCall_2_1_2_1_0 = (RuleCall)cOwnedCoIteratorAssignment_2_1_2_1.eContents().get(0);
 		private final Group cGroup_2_1_3 = (Group)cGroup_2_1.eContents().get(3);
-		private final Keyword cEqualsSignKeyword_2_1_3_0 = (Keyword)cGroup_2_1_3.eContents().get(0);
+		private final Assignment cSymbolIEAssignment_2_1_3_0 = (Assignment)cGroup_2_1_3.eContents().get(0);
+		private final Keyword cSymbolIEEqualsSignKeyword_2_1_3_0_0 = (Keyword)cSymbolIEAssignment_2_1_3_0.eContents().get(0);
 		private final Assignment cOwnedInitExpressionAssignment_2_1_3_1 = (Assignment)cGroup_2_1_3.eContents().get(1);
 		private final RuleCall cOwnedInitExpressionExpCSParserRuleCall_2_1_3_1_0 = (RuleCall)cOwnedInitExpressionAssignment_2_1_3_1.eContents().get(0);
 		private final Group cGroup_2_2 = (Group)cAlternatives_2.eContents().get(2);
 		private final Group cGroup_2_2_0 = (Group)cGroup_2_2.eContents().get(0);
-		private final Keyword cColonKeyword_2_2_0_0 = (Keyword)cGroup_2_2_0.eContents().get(0);
+		private final Assignment cSymbolTAssignment_2_2_0_0 = (Assignment)cGroup_2_2_0.eContents().get(0);
+		private final Keyword cSymbolTColonKeyword_2_2_0_0_0 = (Keyword)cSymbolTAssignment_2_2_0_0.eContents().get(0);
 		private final Assignment cOwnedTypeAssignment_2_2_0_1 = (Assignment)cGroup_2_2_0.eContents().get(1);
 		private final RuleCall cOwnedTypeTypeExpCSParserRuleCall_2_2_0_1_0 = (RuleCall)cOwnedTypeAssignment_2_2_0_1.eContents().get(0);
 		private final Group cGroup_2_2_1 = (Group)cGroup_2_2.eContents().get(1);
-		private final Keyword cLessThanSignHyphenMinusKeyword_2_2_1_0 = (Keyword)cGroup_2_2_1.eContents().get(0);
+		private final Assignment cSymbolCIAssignment_2_2_1_0 = (Assignment)cGroup_2_2_1.eContents().get(0);
+		private final Keyword cSymbolCILessThanSignHyphenMinusKeyword_2_2_1_0_0 = (Keyword)cSymbolCIAssignment_2_2_1_0.eContents().get(0);
 		private final Assignment cOwnedCoIteratorAssignment_2_2_1_1 = (Assignment)cGroup_2_2_1.eContents().get(1);
 		private final RuleCall cOwnedCoIteratorCoIteratorVariableCSParserRuleCall_2_2_1_1_0 = (RuleCall)cOwnedCoIteratorAssignment_2_2_1_1.eContents().get(0);
-		private final Keyword cInKeyword_2_2_2 = (Keyword)cGroup_2_2.eContents().get(2);
+		private final Assignment cSymbolIEAssignment_2_2_2 = (Assignment)cGroup_2_2.eContents().get(2);
+		private final Keyword cSymbolIEInKeyword_2_2_2_0 = (Keyword)cSymbolIEAssignment_2_2_2.eContents().get(0);
 		private final Assignment cOwnedInitExpressionAssignment_2_2_3 = (Assignment)cGroup_2_2.eContents().get(3);
 		private final RuleCall cOwnedInitExpressionExpCSParserRuleCall_2_2_3_0 = (RuleCall)cOwnedInitExpressionAssignment_2_2_3.eContents().get(0);
 		
@@ -3682,15 +3705,15 @@ public class USEGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		///* A navigating comma argument is a generalized rule for non-first argument in a round bracket clause. These are typically non-first operation
 		// * parameters or a second iterator. */
 		//NavigatingCommaArgCS returns NavigatingArgCS:
-		//    prefix=',' ownedNameExpression=NavigatingArgExpCS (('<-' ownedCoIterator=CoIteratorVariableCS ('=' ownedInitExpression=ExpCS)?)
-		//                                                      |(':' ownedType=TypeExpCS ('<-' ownedCoIterator=CoIteratorVariableCS)? ('=' ownedInitExpression=ExpCS)?)
-		//                                                      | ((':' ownedType=TypeExpCS)? ('<-' ownedCoIterator=CoIteratorVariableCS)? 'in' ownedInitExpression=ExpCS)
+		//    prefix=',' ownedNameExpression=NavigatingArgExpCS ((symbolCI='<-' ownedCoIterator=CoIteratorVariableCS (symbolIE='=' ownedInitExpression=ExpCS)?)
+		//                                                      |(symbolT=':' ownedType=TypeExpCS (symbolCI='<-' ownedCoIterator=CoIteratorVariableCS)? (symbolIE='=' ownedInitExpression=ExpCS)?)
+		//                                                      | ((symbolT=':' ownedType=TypeExpCS)? (symbolCI='<-' ownedCoIterator=CoIteratorVariableCS)? symbolIE='in' ownedInitExpression=ExpCS)
 		//                                                      )?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//prefix=',' ownedNameExpression=NavigatingArgExpCS (('<-' ownedCoIterator=CoIteratorVariableCS ('=' ownedInitExpression=ExpCS)?)
-		//                                                  |(':' ownedType=TypeExpCS ('<-' ownedCoIterator=CoIteratorVariableCS)? ('=' ownedInitExpression=ExpCS)?)
-		//                                                  | ((':' ownedType=TypeExpCS)? ('<-' ownedCoIterator=CoIteratorVariableCS)? 'in' ownedInitExpression=ExpCS)
+		//prefix=',' ownedNameExpression=NavigatingArgExpCS ((symbolCI='<-' ownedCoIterator=CoIteratorVariableCS (symbolIE='=' ownedInitExpression=ExpCS)?)
+		//                                                  |(symbolT=':' ownedType=TypeExpCS (symbolCI='<-' ownedCoIterator=CoIteratorVariableCS)? (symbolIE='=' ownedInitExpression=ExpCS)?)
+		//                                                  | ((symbolT=':' ownedType=TypeExpCS)? (symbolCI='<-' ownedCoIterator=CoIteratorVariableCS)? symbolIE='in' ownedInitExpression=ExpCS)
 		//                                                  )?
 		public Group getGroup() { return cGroup; }
 		
@@ -3706,17 +3729,20 @@ public class USEGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//NavigatingArgExpCS
 		public RuleCall getOwnedNameExpressionNavigatingArgExpCSParserRuleCall_1_0() { return cOwnedNameExpressionNavigatingArgExpCSParserRuleCall_1_0; }
 		
-		//(('<-' ownedCoIterator=CoIteratorVariableCS ('=' ownedInitExpression=ExpCS)?)
-		//                                                     |(':' ownedType=TypeExpCS ('<-' ownedCoIterator=CoIteratorVariableCS)? ('=' ownedInitExpression=ExpCS)?)
-		//                                                     | ((':' ownedType=TypeExpCS)? ('<-' ownedCoIterator=CoIteratorVariableCS)? 'in' ownedInitExpression=ExpCS)
+		//((symbolCI='<-' ownedCoIterator=CoIteratorVariableCS (symbolIE='=' ownedInitExpression=ExpCS)?)
+		//                                                     |(symbolT=':' ownedType=TypeExpCS (symbolCI='<-' ownedCoIterator=CoIteratorVariableCS)? (symbolIE='=' ownedInitExpression=ExpCS)?)
+		//                                                     | ((symbolT=':' ownedType=TypeExpCS)? (symbolCI='<-' ownedCoIterator=CoIteratorVariableCS)? symbolIE='in' ownedInitExpression=ExpCS)
 		//                                                     )?
 		public Alternatives getAlternatives_2() { return cAlternatives_2; }
 		
-		//('<-' ownedCoIterator=CoIteratorVariableCS ('=' ownedInitExpression=ExpCS)?)
+		//(symbolCI='<-' ownedCoIterator=CoIteratorVariableCS (symbolIE='=' ownedInitExpression=ExpCS)?)
 		public Group getGroup_2_0() { return cGroup_2_0; }
 		
+		//symbolCI='<-'
+		public Assignment getSymbolCIAssignment_2_0_0() { return cSymbolCIAssignment_2_0_0; }
+		
 		//'<-'
-		public Keyword getLessThanSignHyphenMinusKeyword_2_0_0() { return cLessThanSignHyphenMinusKeyword_2_0_0; }
+		public Keyword getSymbolCILessThanSignHyphenMinusKeyword_2_0_0_0() { return cSymbolCILessThanSignHyphenMinusKeyword_2_0_0_0; }
 		
 		//ownedCoIterator=CoIteratorVariableCS
 		public Assignment getOwnedCoIteratorAssignment_2_0_1() { return cOwnedCoIteratorAssignment_2_0_1; }
@@ -3724,11 +3750,14 @@ public class USEGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//CoIteratorVariableCS
 		public RuleCall getOwnedCoIteratorCoIteratorVariableCSParserRuleCall_2_0_1_0() { return cOwnedCoIteratorCoIteratorVariableCSParserRuleCall_2_0_1_0; }
 		
-		//('=' ownedInitExpression=ExpCS)?
+		//(symbolIE='=' ownedInitExpression=ExpCS)?
 		public Group getGroup_2_0_2() { return cGroup_2_0_2; }
 		
+		//symbolIE='='
+		public Assignment getSymbolIEAssignment_2_0_2_0() { return cSymbolIEAssignment_2_0_2_0; }
+		
 		//'='
-		public Keyword getEqualsSignKeyword_2_0_2_0() { return cEqualsSignKeyword_2_0_2_0; }
+		public Keyword getSymbolIEEqualsSignKeyword_2_0_2_0_0() { return cSymbolIEEqualsSignKeyword_2_0_2_0_0; }
 		
 		//ownedInitExpression=ExpCS
 		public Assignment getOwnedInitExpressionAssignment_2_0_2_1() { return cOwnedInitExpressionAssignment_2_0_2_1; }
@@ -3736,11 +3765,14 @@ public class USEGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//ExpCS
 		public RuleCall getOwnedInitExpressionExpCSParserRuleCall_2_0_2_1_0() { return cOwnedInitExpressionExpCSParserRuleCall_2_0_2_1_0; }
 		
-		//(':' ownedType=TypeExpCS ('<-' ownedCoIterator=CoIteratorVariableCS)? ('=' ownedInitExpression=ExpCS)?)
+		//(symbolT=':' ownedType=TypeExpCS (symbolCI='<-' ownedCoIterator=CoIteratorVariableCS)? (symbolIE='=' ownedInitExpression=ExpCS)?)
 		public Group getGroup_2_1() { return cGroup_2_1; }
 		
+		//symbolT=':'
+		public Assignment getSymbolTAssignment_2_1_0() { return cSymbolTAssignment_2_1_0; }
+		
 		//':'
-		public Keyword getColonKeyword_2_1_0() { return cColonKeyword_2_1_0; }
+		public Keyword getSymbolTColonKeyword_2_1_0_0() { return cSymbolTColonKeyword_2_1_0_0; }
 		
 		//ownedType=TypeExpCS
 		public Assignment getOwnedTypeAssignment_2_1_1() { return cOwnedTypeAssignment_2_1_1; }
@@ -3748,11 +3780,14 @@ public class USEGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//TypeExpCS
 		public RuleCall getOwnedTypeTypeExpCSParserRuleCall_2_1_1_0() { return cOwnedTypeTypeExpCSParserRuleCall_2_1_1_0; }
 		
-		//('<-' ownedCoIterator=CoIteratorVariableCS)?
+		//(symbolCI='<-' ownedCoIterator=CoIteratorVariableCS)?
 		public Group getGroup_2_1_2() { return cGroup_2_1_2; }
 		
+		//symbolCI='<-'
+		public Assignment getSymbolCIAssignment_2_1_2_0() { return cSymbolCIAssignment_2_1_2_0; }
+		
 		//'<-'
-		public Keyword getLessThanSignHyphenMinusKeyword_2_1_2_0() { return cLessThanSignHyphenMinusKeyword_2_1_2_0; }
+		public Keyword getSymbolCILessThanSignHyphenMinusKeyword_2_1_2_0_0() { return cSymbolCILessThanSignHyphenMinusKeyword_2_1_2_0_0; }
 		
 		//ownedCoIterator=CoIteratorVariableCS
 		public Assignment getOwnedCoIteratorAssignment_2_1_2_1() { return cOwnedCoIteratorAssignment_2_1_2_1; }
@@ -3760,11 +3795,14 @@ public class USEGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//CoIteratorVariableCS
 		public RuleCall getOwnedCoIteratorCoIteratorVariableCSParserRuleCall_2_1_2_1_0() { return cOwnedCoIteratorCoIteratorVariableCSParserRuleCall_2_1_2_1_0; }
 		
-		//('=' ownedInitExpression=ExpCS)?
+		//(symbolIE='=' ownedInitExpression=ExpCS)?
 		public Group getGroup_2_1_3() { return cGroup_2_1_3; }
 		
+		//symbolIE='='
+		public Assignment getSymbolIEAssignment_2_1_3_0() { return cSymbolIEAssignment_2_1_3_0; }
+		
 		//'='
-		public Keyword getEqualsSignKeyword_2_1_3_0() { return cEqualsSignKeyword_2_1_3_0; }
+		public Keyword getSymbolIEEqualsSignKeyword_2_1_3_0_0() { return cSymbolIEEqualsSignKeyword_2_1_3_0_0; }
 		
 		//ownedInitExpression=ExpCS
 		public Assignment getOwnedInitExpressionAssignment_2_1_3_1() { return cOwnedInitExpressionAssignment_2_1_3_1; }
@@ -3772,14 +3810,17 @@ public class USEGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//ExpCS
 		public RuleCall getOwnedInitExpressionExpCSParserRuleCall_2_1_3_1_0() { return cOwnedInitExpressionExpCSParserRuleCall_2_1_3_1_0; }
 		
-		//((':' ownedType=TypeExpCS)? ('<-' ownedCoIterator=CoIteratorVariableCS)? 'in' ownedInitExpression=ExpCS)
+		//((symbolT=':' ownedType=TypeExpCS)? (symbolCI='<-' ownedCoIterator=CoIteratorVariableCS)? symbolIE='in' ownedInitExpression=ExpCS)
 		public Group getGroup_2_2() { return cGroup_2_2; }
 		
-		//(':' ownedType=TypeExpCS)?
+		//(symbolT=':' ownedType=TypeExpCS)?
 		public Group getGroup_2_2_0() { return cGroup_2_2_0; }
 		
+		//symbolT=':'
+		public Assignment getSymbolTAssignment_2_2_0_0() { return cSymbolTAssignment_2_2_0_0; }
+		
 		//':'
-		public Keyword getColonKeyword_2_2_0_0() { return cColonKeyword_2_2_0_0; }
+		public Keyword getSymbolTColonKeyword_2_2_0_0_0() { return cSymbolTColonKeyword_2_2_0_0_0; }
 		
 		//ownedType=TypeExpCS
 		public Assignment getOwnedTypeAssignment_2_2_0_1() { return cOwnedTypeAssignment_2_2_0_1; }
@@ -3787,11 +3828,14 @@ public class USEGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//TypeExpCS
 		public RuleCall getOwnedTypeTypeExpCSParserRuleCall_2_2_0_1_0() { return cOwnedTypeTypeExpCSParserRuleCall_2_2_0_1_0; }
 		
-		//('<-' ownedCoIterator=CoIteratorVariableCS)?
+		//(symbolCI='<-' ownedCoIterator=CoIteratorVariableCS)?
 		public Group getGroup_2_2_1() { return cGroup_2_2_1; }
 		
+		//symbolCI='<-'
+		public Assignment getSymbolCIAssignment_2_2_1_0() { return cSymbolCIAssignment_2_2_1_0; }
+		
 		//'<-'
-		public Keyword getLessThanSignHyphenMinusKeyword_2_2_1_0() { return cLessThanSignHyphenMinusKeyword_2_2_1_0; }
+		public Keyword getSymbolCILessThanSignHyphenMinusKeyword_2_2_1_0_0() { return cSymbolCILessThanSignHyphenMinusKeyword_2_2_1_0_0; }
 		
 		//ownedCoIterator=CoIteratorVariableCS
 		public Assignment getOwnedCoIteratorAssignment_2_2_1_1() { return cOwnedCoIteratorAssignment_2_2_1_1; }
@@ -3799,8 +3843,11 @@ public class USEGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//CoIteratorVariableCS
 		public RuleCall getOwnedCoIteratorCoIteratorVariableCSParserRuleCall_2_2_1_1_0() { return cOwnedCoIteratorCoIteratorVariableCSParserRuleCall_2_2_1_1_0; }
 		
+		//symbolIE='in'
+		public Assignment getSymbolIEAssignment_2_2_2() { return cSymbolIEAssignment_2_2_2; }
+		
 		//'in'
-		public Keyword getInKeyword_2_2_2() { return cInKeyword_2_2_2; }
+		public Keyword getSymbolIEInKeyword_2_2_2_0() { return cSymbolIEInKeyword_2_2_2_0; }
 		
 		//ownedInitExpression=ExpCS
 		public Assignment getOwnedInitExpressionAssignment_2_2_3() { return cOwnedInitExpressionAssignment_2_2_3; }
@@ -3816,21 +3863,23 @@ public class USEGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final Assignment cOwnedNameExpressionAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cOwnedNameExpressionNavigatingArgExpCSParserRuleCall_1_0 = (RuleCall)cOwnedNameExpressionAssignment_1.eContents().get(0);
 		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
-		private final Keyword cColonKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final Assignment cSymbolTAssignment_2_0 = (Assignment)cGroup_2.eContents().get(0);
+		private final Keyword cSymbolTColonKeyword_2_0_0 = (Keyword)cSymbolTAssignment_2_0.eContents().get(0);
 		private final Assignment cOwnedTypeAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
 		private final RuleCall cOwnedTypeTypeExpCSParserRuleCall_2_1_0 = (RuleCall)cOwnedTypeAssignment_2_1.eContents().get(0);
 		private final Group cGroup_2_2 = (Group)cGroup_2.eContents().get(2);
-		private final Keyword cEqualsSignKeyword_2_2_0 = (Keyword)cGroup_2_2.eContents().get(0);
+		private final Assignment cSymbolIEAssignment_2_2_0 = (Assignment)cGroup_2_2.eContents().get(0);
+		private final Keyword cSymbolIEEqualsSignKeyword_2_2_0_0 = (Keyword)cSymbolIEAssignment_2_2_0.eContents().get(0);
 		private final Assignment cOwnedInitExpressionAssignment_2_2_1 = (Assignment)cGroup_2_2.eContents().get(1);
 		private final RuleCall cOwnedInitExpressionExpCSParserRuleCall_2_2_1_0 = (RuleCall)cOwnedInitExpressionAssignment_2_2_1.eContents().get(0);
 		
 		//    // Type-less init is an illegal infix expression
 		///* A navigating semi argument is a generalized rule for a semicolon prefixed argument in a round bracket clause. This is typically an iterate accumulator. */
 		//NavigatingSemiArgCS returns NavigatingArgCS:
-		//    prefix=';' ownedNameExpression=NavigatingArgExpCS (':' ownedType=TypeExpCS ('=' ownedInitExpression=ExpCS)?)?;
+		//    prefix=';' ownedNameExpression=NavigatingArgExpCS (symbolT=':' ownedType=TypeExpCS (symbolIE='=' ownedInitExpression=ExpCS)?)?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//prefix=';' ownedNameExpression=NavigatingArgExpCS (':' ownedType=TypeExpCS ('=' ownedInitExpression=ExpCS)?)?
+		//prefix=';' ownedNameExpression=NavigatingArgExpCS (symbolT=':' ownedType=TypeExpCS (symbolIE='=' ownedInitExpression=ExpCS)?)?
 		public Group getGroup() { return cGroup; }
 		
 		//prefix=';'
@@ -3845,11 +3894,14 @@ public class USEGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//NavigatingArgExpCS
 		public RuleCall getOwnedNameExpressionNavigatingArgExpCSParserRuleCall_1_0() { return cOwnedNameExpressionNavigatingArgExpCSParserRuleCall_1_0; }
 		
-		//(':' ownedType=TypeExpCS ('=' ownedInitExpression=ExpCS)?)?
+		//(symbolT=':' ownedType=TypeExpCS (symbolIE='=' ownedInitExpression=ExpCS)?)?
 		public Group getGroup_2() { return cGroup_2; }
 		
+		//symbolT=':'
+		public Assignment getSymbolTAssignment_2_0() { return cSymbolTAssignment_2_0; }
+		
 		//':'
-		public Keyword getColonKeyword_2_0() { return cColonKeyword_2_0; }
+		public Keyword getSymbolTColonKeyword_2_0_0() { return cSymbolTColonKeyword_2_0_0; }
 		
 		//ownedType=TypeExpCS
 		public Assignment getOwnedTypeAssignment_2_1() { return cOwnedTypeAssignment_2_1; }
@@ -3857,11 +3909,14 @@ public class USEGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//TypeExpCS
 		public RuleCall getOwnedTypeTypeExpCSParserRuleCall_2_1_0() { return cOwnedTypeTypeExpCSParserRuleCall_2_1_0; }
 		
-		//('=' ownedInitExpression=ExpCS)?
+		//(symbolIE='=' ownedInitExpression=ExpCS)?
 		public Group getGroup_2_2() { return cGroup_2_2; }
 		
+		//symbolIE='='
+		public Assignment getSymbolIEAssignment_2_2_0() { return cSymbolIEAssignment_2_2_0; }
+		
 		//'='
-		public Keyword getEqualsSignKeyword_2_2_0() { return cEqualsSignKeyword_2_2_0; }
+		public Keyword getSymbolIEEqualsSignKeyword_2_2_0_0() { return cSymbolIEEqualsSignKeyword_2_2_0_0; }
 		
 		//ownedInitExpression=ExpCS
 		public Assignment getOwnedInitExpressionAssignment_2_2_1() { return cOwnedInitExpressionAssignment_2_2_1; }
@@ -3877,39 +3932,48 @@ public class USEGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final RuleCall cOwnedNameExpressionNavigatingArgExpCSParserRuleCall_0_0_0 = (RuleCall)cOwnedNameExpressionAssignment_0_0.eContents().get(0);
 		private final Alternatives cAlternatives_0_1 = (Alternatives)cGroup_0.eContents().get(1);
 		private final Group cGroup_0_1_0 = (Group)cAlternatives_0_1.eContents().get(0);
-		private final Keyword cLessThanSignHyphenMinusKeyword_0_1_0_0 = (Keyword)cGroup_0_1_0.eContents().get(0);
+		private final Assignment cSymbolCIAssignment_0_1_0_0 = (Assignment)cGroup_0_1_0.eContents().get(0);
+		private final Keyword cSymbolCILessThanSignHyphenMinusKeyword_0_1_0_0_0 = (Keyword)cSymbolCIAssignment_0_1_0_0.eContents().get(0);
 		private final Assignment cOwnedCoIteratorAssignment_0_1_0_1 = (Assignment)cGroup_0_1_0.eContents().get(1);
 		private final RuleCall cOwnedCoIteratorCoIteratorVariableCSParserRuleCall_0_1_0_1_0 = (RuleCall)cOwnedCoIteratorAssignment_0_1_0_1.eContents().get(0);
 		private final Group cGroup_0_1_0_2 = (Group)cGroup_0_1_0.eContents().get(2);
-		private final Keyword cEqualsSignKeyword_0_1_0_2_0 = (Keyword)cGroup_0_1_0_2.eContents().get(0);
+		private final Assignment cSymbolIEAssignment_0_1_0_2_0 = (Assignment)cGroup_0_1_0_2.eContents().get(0);
+		private final Keyword cSymbolIEEqualsSignKeyword_0_1_0_2_0_0 = (Keyword)cSymbolIEAssignment_0_1_0_2_0.eContents().get(0);
 		private final Assignment cOwnedInitExpressionAssignment_0_1_0_2_1 = (Assignment)cGroup_0_1_0_2.eContents().get(1);
 		private final RuleCall cOwnedInitExpressionExpCSParserRuleCall_0_1_0_2_1_0 = (RuleCall)cOwnedInitExpressionAssignment_0_1_0_2_1.eContents().get(0);
 		private final Group cGroup_0_1_1 = (Group)cAlternatives_0_1.eContents().get(1);
-		private final Keyword cColonKeyword_0_1_1_0 = (Keyword)cGroup_0_1_1.eContents().get(0);
+		private final Assignment cSymbolTAssignment_0_1_1_0 = (Assignment)cGroup_0_1_1.eContents().get(0);
+		private final Keyword cSymbolTColonKeyword_0_1_1_0_0 = (Keyword)cSymbolTAssignment_0_1_1_0.eContents().get(0);
 		private final Assignment cOwnedTypeAssignment_0_1_1_1 = (Assignment)cGroup_0_1_1.eContents().get(1);
 		private final RuleCall cOwnedTypeTypeExpCSParserRuleCall_0_1_1_1_0 = (RuleCall)cOwnedTypeAssignment_0_1_1_1.eContents().get(0);
 		private final Group cGroup_0_1_1_2 = (Group)cGroup_0_1_1.eContents().get(2);
-		private final Keyword cLessThanSignHyphenMinusKeyword_0_1_1_2_0 = (Keyword)cGroup_0_1_1_2.eContents().get(0);
+		private final Assignment cSymbolCIAssignment_0_1_1_2_0 = (Assignment)cGroup_0_1_1_2.eContents().get(0);
+		private final Keyword cSymbolCILessThanSignHyphenMinusKeyword_0_1_1_2_0_0 = (Keyword)cSymbolCIAssignment_0_1_1_2_0.eContents().get(0);
 		private final Assignment cOwnedCoIteratorAssignment_0_1_1_2_1 = (Assignment)cGroup_0_1_1_2.eContents().get(1);
 		private final RuleCall cOwnedCoIteratorCoIteratorVariableCSParserRuleCall_0_1_1_2_1_0 = (RuleCall)cOwnedCoIteratorAssignment_0_1_1_2_1.eContents().get(0);
 		private final Group cGroup_0_1_1_3 = (Group)cGroup_0_1_1.eContents().get(3);
-		private final Keyword cEqualsSignKeyword_0_1_1_3_0 = (Keyword)cGroup_0_1_1_3.eContents().get(0);
+		private final Assignment cSymbolIEAssignment_0_1_1_3_0 = (Assignment)cGroup_0_1_1_3.eContents().get(0);
+		private final Keyword cSymbolIEEqualsSignKeyword_0_1_1_3_0_0 = (Keyword)cSymbolIEAssignment_0_1_1_3_0.eContents().get(0);
 		private final Assignment cOwnedInitExpressionAssignment_0_1_1_3_1 = (Assignment)cGroup_0_1_1_3.eContents().get(1);
 		private final RuleCall cOwnedInitExpressionExpCSParserRuleCall_0_1_1_3_1_0 = (RuleCall)cOwnedInitExpressionAssignment_0_1_1_3_1.eContents().get(0);
 		private final Group cGroup_0_1_2 = (Group)cAlternatives_0_1.eContents().get(2);
 		private final Group cGroup_0_1_2_0 = (Group)cGroup_0_1_2.eContents().get(0);
-		private final Keyword cColonKeyword_0_1_2_0_0 = (Keyword)cGroup_0_1_2_0.eContents().get(0);
+		private final Assignment cSymbolTAssignment_0_1_2_0_0 = (Assignment)cGroup_0_1_2_0.eContents().get(0);
+		private final Keyword cSymbolTColonKeyword_0_1_2_0_0_0 = (Keyword)cSymbolTAssignment_0_1_2_0_0.eContents().get(0);
 		private final Assignment cOwnedTypeAssignment_0_1_2_0_1 = (Assignment)cGroup_0_1_2_0.eContents().get(1);
 		private final RuleCall cOwnedTypeTypeExpCSParserRuleCall_0_1_2_0_1_0 = (RuleCall)cOwnedTypeAssignment_0_1_2_0_1.eContents().get(0);
 		private final Group cGroup_0_1_2_1 = (Group)cGroup_0_1_2.eContents().get(1);
-		private final Keyword cLessThanSignHyphenMinusKeyword_0_1_2_1_0 = (Keyword)cGroup_0_1_2_1.eContents().get(0);
+		private final Assignment cSymbolCIAssignment_0_1_2_1_0 = (Assignment)cGroup_0_1_2_1.eContents().get(0);
+		private final Keyword cSymbolCILessThanSignHyphenMinusKeyword_0_1_2_1_0_0 = (Keyword)cSymbolCIAssignment_0_1_2_1_0.eContents().get(0);
 		private final Assignment cOwnedCoIteratorAssignment_0_1_2_1_1 = (Assignment)cGroup_0_1_2_1.eContents().get(1);
 		private final RuleCall cOwnedCoIteratorCoIteratorVariableCSParserRuleCall_0_1_2_1_1_0 = (RuleCall)cOwnedCoIteratorAssignment_0_1_2_1_1.eContents().get(0);
-		private final Keyword cInKeyword_0_1_2_2 = (Keyword)cGroup_0_1_2.eContents().get(2);
+		private final Assignment cSymbolIEAssignment_0_1_2_2 = (Assignment)cGroup_0_1_2.eContents().get(2);
+		private final Keyword cSymbolIEInKeyword_0_1_2_2_0 = (Keyword)cSymbolIEAssignment_0_1_2_2.eContents().get(0);
 		private final Assignment cOwnedInitExpressionAssignment_0_1_2_3 = (Assignment)cGroup_0_1_2.eContents().get(3);
 		private final RuleCall cOwnedInitExpressionExpCSParserRuleCall_0_1_2_3_0 = (RuleCall)cOwnedInitExpressionAssignment_0_1_2_3.eContents().get(0);
 		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
-		private final Keyword cColonKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
+		private final Assignment cSymbolTAssignment_1_0 = (Assignment)cGroup_1.eContents().get(0);
+		private final Keyword cSymbolTColonKeyword_1_0_0 = (Keyword)cSymbolTAssignment_1_0.eContents().get(0);
 		private final Assignment cOwnedTypeAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
 		private final RuleCall cOwnedTypeTypeExpCSParserRuleCall_1_1_0 = (RuleCall)cOwnedTypeAssignment_1_1.eContents().get(0);
 		
@@ -3917,25 +3981,25 @@ public class USEGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		///* A navigating argument is a generalized rule for the first argument in a round bracket clause. This is typically the first operation
 		// * parameter or an iterator. */
 		//NavigatingArgCS returns NavigatingArgCS:
-		//    (ownedNameExpression=NavigatingArgExpCS (('<-' ownedCoIterator=CoIteratorVariableCS ('=' ownedInitExpression=ExpCS)?)
-		//                                            |(':' ownedType=TypeExpCS ('<-' ownedCoIterator=CoIteratorVariableCS)? ('=' ownedInitExpression=ExpCS)?)
-		//                                            | ((':' ownedType=TypeExpCS)? ('<-' ownedCoIterator=CoIteratorVariableCS)? 'in' ownedInitExpression=ExpCS)
+		//    (ownedNameExpression=NavigatingArgExpCS ((symbolCI='<-' ownedCoIterator=CoIteratorVariableCS (symbolIE='=' ownedInitExpression=ExpCS)?)
+		//                                            |(symbolT=':' ownedType=TypeExpCS (symbolCI='<-' ownedCoIterator=CoIteratorVariableCS)? (symbolIE='=' ownedInitExpression=ExpCS)?)
+		//                                            | ((symbolT=':' ownedType=TypeExpCS)? (symbolCI='<-' ownedCoIterator=CoIteratorVariableCS)? symbolIE='in' ownedInitExpression=ExpCS)
 		//                                            )?
 		//    )
-		//    | (':' ownedType=TypeExpCS);
+		//    | (symbolT=':' ownedType=TypeExpCS);
 		@Override public ParserRule getRule() { return rule; }
 		
-		//(ownedNameExpression=NavigatingArgExpCS (('<-' ownedCoIterator=CoIteratorVariableCS ('=' ownedInitExpression=ExpCS)?)
-		//                                        |(':' ownedType=TypeExpCS ('<-' ownedCoIterator=CoIteratorVariableCS)? ('=' ownedInitExpression=ExpCS)?)
-		//                                        | ((':' ownedType=TypeExpCS)? ('<-' ownedCoIterator=CoIteratorVariableCS)? 'in' ownedInitExpression=ExpCS)
+		//(ownedNameExpression=NavigatingArgExpCS ((symbolCI='<-' ownedCoIterator=CoIteratorVariableCS (symbolIE='=' ownedInitExpression=ExpCS)?)
+		//                                        |(symbolT=':' ownedType=TypeExpCS (symbolCI='<-' ownedCoIterator=CoIteratorVariableCS)? (symbolIE='=' ownedInitExpression=ExpCS)?)
+		//                                        | ((symbolT=':' ownedType=TypeExpCS)? (symbolCI='<-' ownedCoIterator=CoIteratorVariableCS)? symbolIE='in' ownedInitExpression=ExpCS)
 		//                                        )?
 		//)
-		//| (':' ownedType=TypeExpCS)
+		//| (symbolT=':' ownedType=TypeExpCS)
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//(ownedNameExpression=NavigatingArgExpCS (('<-' ownedCoIterator=CoIteratorVariableCS ('=' ownedInitExpression=ExpCS)?)
-		//                                        |(':' ownedType=TypeExpCS ('<-' ownedCoIterator=CoIteratorVariableCS)? ('=' ownedInitExpression=ExpCS)?)
-		//                                        | ((':' ownedType=TypeExpCS)? ('<-' ownedCoIterator=CoIteratorVariableCS)? 'in' ownedInitExpression=ExpCS)
+		//(ownedNameExpression=NavigatingArgExpCS ((symbolCI='<-' ownedCoIterator=CoIteratorVariableCS (symbolIE='=' ownedInitExpression=ExpCS)?)
+		//                                        |(symbolT=':' ownedType=TypeExpCS (symbolCI='<-' ownedCoIterator=CoIteratorVariableCS)? (symbolIE='=' ownedInitExpression=ExpCS)?)
+		//                                        | ((symbolT=':' ownedType=TypeExpCS)? (symbolCI='<-' ownedCoIterator=CoIteratorVariableCS)? symbolIE='in' ownedInitExpression=ExpCS)
 		//                                        )?
 		//)
 		public Group getGroup_0() { return cGroup_0; }
@@ -3946,17 +4010,20 @@ public class USEGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//NavigatingArgExpCS
 		public RuleCall getOwnedNameExpressionNavigatingArgExpCSParserRuleCall_0_0_0() { return cOwnedNameExpressionNavigatingArgExpCSParserRuleCall_0_0_0; }
 		
-		//(('<-' ownedCoIterator=CoIteratorVariableCS ('=' ownedInitExpression=ExpCS)?)
-		//                                           |(':' ownedType=TypeExpCS ('<-' ownedCoIterator=CoIteratorVariableCS)? ('=' ownedInitExpression=ExpCS)?)
-		//                                           | ((':' ownedType=TypeExpCS)? ('<-' ownedCoIterator=CoIteratorVariableCS)? 'in' ownedInitExpression=ExpCS)
+		//((symbolCI='<-' ownedCoIterator=CoIteratorVariableCS (symbolIE='=' ownedInitExpression=ExpCS)?)
+		//                                           |(symbolT=':' ownedType=TypeExpCS (symbolCI='<-' ownedCoIterator=CoIteratorVariableCS)? (symbolIE='=' ownedInitExpression=ExpCS)?)
+		//                                           | ((symbolT=':' ownedType=TypeExpCS)? (symbolCI='<-' ownedCoIterator=CoIteratorVariableCS)? symbolIE='in' ownedInitExpression=ExpCS)
 		//                                           )?
 		public Alternatives getAlternatives_0_1() { return cAlternatives_0_1; }
 		
-		//('<-' ownedCoIterator=CoIteratorVariableCS ('=' ownedInitExpression=ExpCS)?)
+		//(symbolCI='<-' ownedCoIterator=CoIteratorVariableCS (symbolIE='=' ownedInitExpression=ExpCS)?)
 		public Group getGroup_0_1_0() { return cGroup_0_1_0; }
 		
+		//symbolCI='<-'
+		public Assignment getSymbolCIAssignment_0_1_0_0() { return cSymbolCIAssignment_0_1_0_0; }
+		
 		//'<-'
-		public Keyword getLessThanSignHyphenMinusKeyword_0_1_0_0() { return cLessThanSignHyphenMinusKeyword_0_1_0_0; }
+		public Keyword getSymbolCILessThanSignHyphenMinusKeyword_0_1_0_0_0() { return cSymbolCILessThanSignHyphenMinusKeyword_0_1_0_0_0; }
 		
 		//ownedCoIterator=CoIteratorVariableCS
 		public Assignment getOwnedCoIteratorAssignment_0_1_0_1() { return cOwnedCoIteratorAssignment_0_1_0_1; }
@@ -3964,11 +4031,14 @@ public class USEGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//CoIteratorVariableCS
 		public RuleCall getOwnedCoIteratorCoIteratorVariableCSParserRuleCall_0_1_0_1_0() { return cOwnedCoIteratorCoIteratorVariableCSParserRuleCall_0_1_0_1_0; }
 		
-		//('=' ownedInitExpression=ExpCS)?
+		//(symbolIE='=' ownedInitExpression=ExpCS)?
 		public Group getGroup_0_1_0_2() { return cGroup_0_1_0_2; }
 		
+		//symbolIE='='
+		public Assignment getSymbolIEAssignment_0_1_0_2_0() { return cSymbolIEAssignment_0_1_0_2_0; }
+		
 		//'='
-		public Keyword getEqualsSignKeyword_0_1_0_2_0() { return cEqualsSignKeyword_0_1_0_2_0; }
+		public Keyword getSymbolIEEqualsSignKeyword_0_1_0_2_0_0() { return cSymbolIEEqualsSignKeyword_0_1_0_2_0_0; }
 		
 		//ownedInitExpression=ExpCS
 		public Assignment getOwnedInitExpressionAssignment_0_1_0_2_1() { return cOwnedInitExpressionAssignment_0_1_0_2_1; }
@@ -3976,11 +4046,14 @@ public class USEGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//ExpCS
 		public RuleCall getOwnedInitExpressionExpCSParserRuleCall_0_1_0_2_1_0() { return cOwnedInitExpressionExpCSParserRuleCall_0_1_0_2_1_0; }
 		
-		//(':' ownedType=TypeExpCS ('<-' ownedCoIterator=CoIteratorVariableCS)? ('=' ownedInitExpression=ExpCS)?)
+		//(symbolT=':' ownedType=TypeExpCS (symbolCI='<-' ownedCoIterator=CoIteratorVariableCS)? (symbolIE='=' ownedInitExpression=ExpCS)?)
 		public Group getGroup_0_1_1() { return cGroup_0_1_1; }
 		
+		//symbolT=':'
+		public Assignment getSymbolTAssignment_0_1_1_0() { return cSymbolTAssignment_0_1_1_0; }
+		
 		//':'
-		public Keyword getColonKeyword_0_1_1_0() { return cColonKeyword_0_1_1_0; }
+		public Keyword getSymbolTColonKeyword_0_1_1_0_0() { return cSymbolTColonKeyword_0_1_1_0_0; }
 		
 		//ownedType=TypeExpCS
 		public Assignment getOwnedTypeAssignment_0_1_1_1() { return cOwnedTypeAssignment_0_1_1_1; }
@@ -3988,11 +4061,14 @@ public class USEGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//TypeExpCS
 		public RuleCall getOwnedTypeTypeExpCSParserRuleCall_0_1_1_1_0() { return cOwnedTypeTypeExpCSParserRuleCall_0_1_1_1_0; }
 		
-		//('<-' ownedCoIterator=CoIteratorVariableCS)?
+		//(symbolCI='<-' ownedCoIterator=CoIteratorVariableCS)?
 		public Group getGroup_0_1_1_2() { return cGroup_0_1_1_2; }
 		
+		//symbolCI='<-'
+		public Assignment getSymbolCIAssignment_0_1_1_2_0() { return cSymbolCIAssignment_0_1_1_2_0; }
+		
 		//'<-'
-		public Keyword getLessThanSignHyphenMinusKeyword_0_1_1_2_0() { return cLessThanSignHyphenMinusKeyword_0_1_1_2_0; }
+		public Keyword getSymbolCILessThanSignHyphenMinusKeyword_0_1_1_2_0_0() { return cSymbolCILessThanSignHyphenMinusKeyword_0_1_1_2_0_0; }
 		
 		//ownedCoIterator=CoIteratorVariableCS
 		public Assignment getOwnedCoIteratorAssignment_0_1_1_2_1() { return cOwnedCoIteratorAssignment_0_1_1_2_1; }
@@ -4000,11 +4076,14 @@ public class USEGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//CoIteratorVariableCS
 		public RuleCall getOwnedCoIteratorCoIteratorVariableCSParserRuleCall_0_1_1_2_1_0() { return cOwnedCoIteratorCoIteratorVariableCSParserRuleCall_0_1_1_2_1_0; }
 		
-		//('=' ownedInitExpression=ExpCS)?
+		//(symbolIE='=' ownedInitExpression=ExpCS)?
 		public Group getGroup_0_1_1_3() { return cGroup_0_1_1_3; }
 		
+		//symbolIE='='
+		public Assignment getSymbolIEAssignment_0_1_1_3_0() { return cSymbolIEAssignment_0_1_1_3_0; }
+		
 		//'='
-		public Keyword getEqualsSignKeyword_0_1_1_3_0() { return cEqualsSignKeyword_0_1_1_3_0; }
+		public Keyword getSymbolIEEqualsSignKeyword_0_1_1_3_0_0() { return cSymbolIEEqualsSignKeyword_0_1_1_3_0_0; }
 		
 		//ownedInitExpression=ExpCS
 		public Assignment getOwnedInitExpressionAssignment_0_1_1_3_1() { return cOwnedInitExpressionAssignment_0_1_1_3_1; }
@@ -4012,14 +4091,17 @@ public class USEGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//ExpCS
 		public RuleCall getOwnedInitExpressionExpCSParserRuleCall_0_1_1_3_1_0() { return cOwnedInitExpressionExpCSParserRuleCall_0_1_1_3_1_0; }
 		
-		//((':' ownedType=TypeExpCS)? ('<-' ownedCoIterator=CoIteratorVariableCS)? 'in' ownedInitExpression=ExpCS)
+		//((symbolT=':' ownedType=TypeExpCS)? (symbolCI='<-' ownedCoIterator=CoIteratorVariableCS)? symbolIE='in' ownedInitExpression=ExpCS)
 		public Group getGroup_0_1_2() { return cGroup_0_1_2; }
 		
-		//(':' ownedType=TypeExpCS)?
+		//(symbolT=':' ownedType=TypeExpCS)?
 		public Group getGroup_0_1_2_0() { return cGroup_0_1_2_0; }
 		
+		//symbolT=':'
+		public Assignment getSymbolTAssignment_0_1_2_0_0() { return cSymbolTAssignment_0_1_2_0_0; }
+		
 		//':'
-		public Keyword getColonKeyword_0_1_2_0_0() { return cColonKeyword_0_1_2_0_0; }
+		public Keyword getSymbolTColonKeyword_0_1_2_0_0_0() { return cSymbolTColonKeyword_0_1_2_0_0_0; }
 		
 		//ownedType=TypeExpCS
 		public Assignment getOwnedTypeAssignment_0_1_2_0_1() { return cOwnedTypeAssignment_0_1_2_0_1; }
@@ -4027,11 +4109,14 @@ public class USEGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//TypeExpCS
 		public RuleCall getOwnedTypeTypeExpCSParserRuleCall_0_1_2_0_1_0() { return cOwnedTypeTypeExpCSParserRuleCall_0_1_2_0_1_0; }
 		
-		//('<-' ownedCoIterator=CoIteratorVariableCS)?
+		//(symbolCI='<-' ownedCoIterator=CoIteratorVariableCS)?
 		public Group getGroup_0_1_2_1() { return cGroup_0_1_2_1; }
 		
+		//symbolCI='<-'
+		public Assignment getSymbolCIAssignment_0_1_2_1_0() { return cSymbolCIAssignment_0_1_2_1_0; }
+		
 		//'<-'
-		public Keyword getLessThanSignHyphenMinusKeyword_0_1_2_1_0() { return cLessThanSignHyphenMinusKeyword_0_1_2_1_0; }
+		public Keyword getSymbolCILessThanSignHyphenMinusKeyword_0_1_2_1_0_0() { return cSymbolCILessThanSignHyphenMinusKeyword_0_1_2_1_0_0; }
 		
 		//ownedCoIterator=CoIteratorVariableCS
 		public Assignment getOwnedCoIteratorAssignment_0_1_2_1_1() { return cOwnedCoIteratorAssignment_0_1_2_1_1; }
@@ -4039,8 +4124,11 @@ public class USEGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//CoIteratorVariableCS
 		public RuleCall getOwnedCoIteratorCoIteratorVariableCSParserRuleCall_0_1_2_1_1_0() { return cOwnedCoIteratorCoIteratorVariableCSParserRuleCall_0_1_2_1_1_0; }
 		
+		//symbolIE='in'
+		public Assignment getSymbolIEAssignment_0_1_2_2() { return cSymbolIEAssignment_0_1_2_2; }
+		
 		//'in'
-		public Keyword getInKeyword_0_1_2_2() { return cInKeyword_0_1_2_2; }
+		public Keyword getSymbolIEInKeyword_0_1_2_2_0() { return cSymbolIEInKeyword_0_1_2_2_0; }
 		
 		//ownedInitExpression=ExpCS
 		public Assignment getOwnedInitExpressionAssignment_0_1_2_3() { return cOwnedInitExpressionAssignment_0_1_2_3; }
@@ -4048,11 +4136,14 @@ public class USEGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//ExpCS
 		public RuleCall getOwnedInitExpressionExpCSParserRuleCall_0_1_2_3_0() { return cOwnedInitExpressionExpCSParserRuleCall_0_1_2_3_0; }
 		
-		//(':' ownedType=TypeExpCS)
+		//(symbolT=':' ownedType=TypeExpCS)
 		public Group getGroup_1() { return cGroup_1; }
 		
+		//symbolT=':'
+		public Assignment getSymbolTAssignment_1_0() { return cSymbolTAssignment_1_0; }
+		
 		//':'
-		public Keyword getColonKeyword_1_0() { return cColonKeyword_1_0; }
+		public Keyword getSymbolTColonKeyword_1_0_0() { return cSymbolTColonKeyword_1_0_0; }
 		
 		//ownedType=TypeExpCS
 		public Assignment getOwnedTypeAssignment_1_1() { return cOwnedTypeAssignment_1_1; }
@@ -5052,7 +5143,8 @@ public class USEGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	}
 	
 	//MultiplicityCS returns MultiplicityCS:
-	//    '[' (MultiplicityBoundsCS | MultiplicityStringCS) ('|?' | isNullFree?='|1')? ']';
+	//    //'[' (MultiplicityBoundsCS | MultiplicityStringCS) ('|?' | isNullFree?='|1')? ']';
+	//    '[' (MultiplicityBoundsCS | MultiplicityStringCS) symbol=('|?' | '|1')? ']';
 	public MultiplicityCSElements getMultiplicityCSAccess() {
 		return pMultiplicityCS;
 	}
@@ -5188,7 +5280,7 @@ public class USEGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	
 	//NameExpCS returns NameExpCS:
 	//    ownedPathName=PathNameCS ownedSquareBracketedClauses+=SquareBracketedClauseCS*
-	//    ownedRoundBracketedClause=RoundBracketedClauseCS? ownedCurlyBracketedClause=CurlyBracketedClauseCS? (isPre?='@' 'pre')?;
+	//    ownedRoundBracketedClause=RoundBracketedClauseCS? ownedCurlyBracketedClause=CurlyBracketedClauseCS? (isPre?='@' pre?='pre')?;
 	public NameExpCSElements getNameExpCSAccess() {
 		return pNameExpCS;
 	}
@@ -5417,7 +5509,7 @@ public class USEGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	
 	///* A navigating bar argument is a generalized rule for a bar-prefixed argument in a round bracket clause. This is typically the body of an iteration. */
 	//NavigatingBarArgCS returns NavigatingArgCS:
-	//    prefix='|' ownedNameExpression=NavigatingArgExpCS (':' ownedType=TypeExpCS ('=' ownedInitExpression=ExpCS)?)?;
+	//    prefix='|' ownedNameExpression=NavigatingArgExpCS (symbolT=':' ownedType=TypeExpCS (symbolIE='=' ownedInitExpression=ExpCS)?)?;
 	public NavigatingBarArgCSElements getNavigatingBarArgCSAccess() {
 		return pNavigatingBarArgCS;
 	}
@@ -5430,9 +5522,9 @@ public class USEGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	///* A navigating comma argument is a generalized rule for non-first argument in a round bracket clause. These are typically non-first operation
 	// * parameters or a second iterator. */
 	//NavigatingCommaArgCS returns NavigatingArgCS:
-	//    prefix=',' ownedNameExpression=NavigatingArgExpCS (('<-' ownedCoIterator=CoIteratorVariableCS ('=' ownedInitExpression=ExpCS)?)
-	//                                                      |(':' ownedType=TypeExpCS ('<-' ownedCoIterator=CoIteratorVariableCS)? ('=' ownedInitExpression=ExpCS)?)
-	//                                                      | ((':' ownedType=TypeExpCS)? ('<-' ownedCoIterator=CoIteratorVariableCS)? 'in' ownedInitExpression=ExpCS)
+	//    prefix=',' ownedNameExpression=NavigatingArgExpCS ((symbolCI='<-' ownedCoIterator=CoIteratorVariableCS (symbolIE='=' ownedInitExpression=ExpCS)?)
+	//                                                      |(symbolT=':' ownedType=TypeExpCS (symbolCI='<-' ownedCoIterator=CoIteratorVariableCS)? (symbolIE='=' ownedInitExpression=ExpCS)?)
+	//                                                      | ((symbolT=':' ownedType=TypeExpCS)? (symbolCI='<-' ownedCoIterator=CoIteratorVariableCS)? symbolIE='in' ownedInitExpression=ExpCS)
 	//                                                      )?;
 	public NavigatingCommaArgCSElements getNavigatingCommaArgCSAccess() {
 		return pNavigatingCommaArgCS;
@@ -5445,7 +5537,7 @@ public class USEGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	//    // Type-less init is an illegal infix expression
 	///* A navigating semi argument is a generalized rule for a semicolon prefixed argument in a round bracket clause. This is typically an iterate accumulator. */
 	//NavigatingSemiArgCS returns NavigatingArgCS:
-	//    prefix=';' ownedNameExpression=NavigatingArgExpCS (':' ownedType=TypeExpCS ('=' ownedInitExpression=ExpCS)?)?;
+	//    prefix=';' ownedNameExpression=NavigatingArgExpCS (symbolT=':' ownedType=TypeExpCS (symbolIE='=' ownedInitExpression=ExpCS)?)?;
 	public NavigatingSemiArgCSElements getNavigatingSemiArgCSAccess() {
 		return pNavigatingSemiArgCS;
 	}
@@ -5458,12 +5550,12 @@ public class USEGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	///* A navigating argument is a generalized rule for the first argument in a round bracket clause. This is typically the first operation
 	// * parameter or an iterator. */
 	//NavigatingArgCS returns NavigatingArgCS:
-	//    (ownedNameExpression=NavigatingArgExpCS (('<-' ownedCoIterator=CoIteratorVariableCS ('=' ownedInitExpression=ExpCS)?)
-	//                                            |(':' ownedType=TypeExpCS ('<-' ownedCoIterator=CoIteratorVariableCS)? ('=' ownedInitExpression=ExpCS)?)
-	//                                            | ((':' ownedType=TypeExpCS)? ('<-' ownedCoIterator=CoIteratorVariableCS)? 'in' ownedInitExpression=ExpCS)
+	//    (ownedNameExpression=NavigatingArgExpCS ((symbolCI='<-' ownedCoIterator=CoIteratorVariableCS (symbolIE='=' ownedInitExpression=ExpCS)?)
+	//                                            |(symbolT=':' ownedType=TypeExpCS (symbolCI='<-' ownedCoIterator=CoIteratorVariableCS)? (symbolIE='=' ownedInitExpression=ExpCS)?)
+	//                                            | ((symbolT=':' ownedType=TypeExpCS)? (symbolCI='<-' ownedCoIterator=CoIteratorVariableCS)? symbolIE='in' ownedInitExpression=ExpCS)
 	//                                            )?
 	//    )
-	//    | (':' ownedType=TypeExpCS);
+	//    | (symbolT=':' ownedType=TypeExpCS);
 	public NavigatingArgCSElements getNavigatingArgCSAccess() {
 		return pNavigatingArgCS;
 	}

@@ -35,6 +35,49 @@ import modelConverter.use_language.use.CollectionType
 import modelConverter.use_language.use.ModelUSE
 import modelConverter.use_language.use.ExpCS
 import modelConverter.use_language.use.OperationComplex
+import modelConverter.use_language.use.CollectionLiteralExpCS
+import modelConverter.use_language.use.IfExpCS
+import modelConverter.use_language.use.InfixExpCS
+import modelConverter.use_language.use.LambdaLiteralExpCS
+import modelConverter.use_language.use.LetExpCS
+import modelConverter.use_language.use.MapLiteralExpCS
+import modelConverter.use_language.use.NameExpCS
+import modelConverter.use_language.use.NestedExpCS
+import modelConverter.use_language.use.PrefixExpCS
+import modelConverter.use_language.use.PrimitiveLiteralExpCS
+import modelConverter.use_language.use.SelfExpCS
+import modelConverter.use_language.use.TupleLiteralExpCS
+import modelConverter.use_language.use.TypeLiteralExpCS
+import modelConverter.use_language.use.CollectionTypeCS
+import modelConverter.use_language.use.CollectionLiteralPartCS
+import modelConverter.use_language.use.TypedRefCS
+import modelConverter.use_language.use.MultiplicityCS
+import modelConverter.use_language.use.MultiplicityBoundsCS
+import modelConverter.use_language.use.MultiplicityStringCS
+import modelConverter.use_language.use.CollectionPatternCS
+import modelConverter.use_language.use.MapTypeCS
+import modelConverter.use_language.use.PrimitiveTypeRefCS
+import modelConverter.use_language.use.TupleTypeCS
+import modelConverter.use_language.use.TypeNameExpCS
+import modelConverter.use_language.use.PatternExpCS
+import modelConverter.use_language.use.IfThenExpCS
+import modelConverter.use_language.use.LetVariableCS
+import modelConverter.use_language.use.RoundBracketedClauseCS
+import modelConverter.use_language.use.MapLiteralPartCS
+import modelConverter.use_language.use.PathNameCS
+import modelConverter.use_language.use.SquareBracketedClauseCS
+import modelConverter.use_language.use.CurlyBracketedClauseCS
+import modelConverter.use_language.use.NumberLiteralExpCS
+import modelConverter.use_language.use.StringLiteralExpCS
+import modelConverter.use_language.use.BooleanLiteralExpCS
+import modelConverter.use_language.use.UnlimitedNaturalLiteralExpCS
+import modelConverter.use_language.use.InvalidLiteralExpCS
+import modelConverter.use_language.use.NullLiteralExpCS
+import modelConverter.use_language.use.TupleLiteralPartCS
+import modelConverter.use_language.use.TuplePartCS
+import modelConverter.use_language.use.ShadowPartCS
+import modelConverter.use_language.use.NavigatingArgCS
+import modelConverter.use_language.use.VariableCS
 
 /**
  * Generates code from your model files on save.
@@ -132,8 +175,7 @@ class USEGenerator extends AbstractGenerator {
 
 	private def getTypeMul(String s) '''«IF s.equals("*") »uml:LiteralUnlimitedNatural«ELSE»uml:LiteralInteger«ENDIF»'''
 
-	private def getTypeAssociation(
-		Association ab) '''«IF (ab.getTypeAssociation() == "aggregation")»aggregation="shared"«ELSEIF (ab.getTypeAssociation() == "composition")»aggregation="composite"«ENDIF»'''
+	private def getTypeAssociation(Association ab) '''«IF (ab.getTypeAssociation() == "aggregation")»aggregation="shared"«ELSEIF (ab.getTypeAssociation() == "composition")»aggregation="composite"«ENDIF»'''
 
 	private def compileGeneralization(Generalization e) '''
 		<generalization xmi:id="«System.identityHashCode(e)»" general="«System.identityHashCode(e.getGeneral())»"/>
@@ -196,7 +238,7 @@ class USEGenerator extends AbstractGenerator {
 		<ownedRule xmi:id="«id»" name="«name»" «constrainedElement»>
 			<specification xmi:type="uml:OpaqueExpression" xmi:id="«System.identityHashCode(e).toString + id»" name="«name»">
 			   	<language>OCL2.0</language>
-			   	  	<body>« »</body>
+			   	  	<body>«(e.compileExpCS).toString().replaceAll(System.getProperty("line.separator"), "")»</body>
 			  	</specification>
 		</ownedRule>
 	'''
@@ -208,10 +250,6 @@ class USEGenerator extends AbstractGenerator {
 			   	  	<body>«e.substring(1, e.length-1)»</body>
 			  	</specification>
 		</ownedRule>
-	'''
-	
-	private def compileOCL(ExpCS e) '''
-	
 	'''
 
 	private def compileReturnType(AllTypes e, int idOp) '''
@@ -264,4 +302,170 @@ class USEGenerator extends AbstractGenerator {
 		<packagedElement xmi:type="uml:Association" xmi:id="«System.identityHashCode(e)»" name="«e.getName»" memberEnd="«FOR end : e.getAssociationEnds()»«System.identityHashCode(end)» «ENDFOR»"/>
 	'''
 
+	private def compileExpCS(ExpCS e) '''
+		«IF (e instanceof CollectionLiteralExpCS)»
+			«e.compileCollectionLiteralExpCS»
+		«ELSEIF (e instanceof IfExpCS)»
+			«e.compileIfExpCS»
+		«ELSEIF (e instanceof InfixExpCS)»
+			«e.compileInfixExpCS»
+		«ELSEIF (e instanceof LambdaLiteralExpCS)»
+			«e.compileLambdaLiteralExpCS»
+		«ELSEIF (e instanceof LetExpCS)»
+			«e.compileLetExpCS»
+		«ELSEIF (e instanceof MapLiteralExpCS)»
+			«e.compileMapLiteralExpCS»
+		«ELSEIF (e instanceof NameExpCS)»
+			«e.compileNameExpCS»
+		«ELSEIF (e instanceof NestedExpCS)»
+			«e.compileNestedExpCS»
+		«ELSEIF (e instanceof PrefixExpCS)»
+			«e.compilePrefixExpCS»
+		«ELSEIF (e instanceof PrimitiveLiteralExpCS)»
+			«e.compilePrimitiveLiteralExpCS»
+		«ELSEIF (e instanceof SelfExpCS)»
+			«e.compileSelfExpCS»
+		«ELSEIF (e instanceof TupleLiteralExpCS)»
+			«e.compileTupleLiteralExpCS»
+		«ELSEIF (e instanceof TypeLiteralExpCS)»
+			«e.compileTypeLiteralExpCS»
+		«ENDIF»
+	'''
+
+	private def compileTypedRefCS(TypedRefCS e) ''' 
+		«IF (e instanceof CollectionPatternCS)»
+			«e.compileCollectionPatternCS» «IF e.getOwnedMultiplicity !== null» «e.getOwnedMultiplicity.compileMultiplicityCS»«ENDIF»
+		«ELSEIF (e instanceof CollectionTypeCS)»
+			«e.compileCollectionTypeCS» «IF e.getOwnedMultiplicity !== null» «e.getOwnedMultiplicity.compileMultiplicityCS»«ENDIF»
+		«ELSEIF (e instanceof MapTypeCS)»
+			«e.compileMapTypeCS» «IF e.getOwnedMultiplicity !== null» «e.getOwnedMultiplicity.compileMultiplicityCS»«ENDIF»
+		«ELSEIF (e instanceof PrimitiveTypeRefCS)»
+			«e.compilePrimitiveTypeRefCS» «IF e.getOwnedMultiplicity !== null» «e.getOwnedMultiplicity.compileMultiplicityCS»«ENDIF»
+		«ELSEIF (e instanceof TupleTypeCS)»
+			«e.compileTupleTypeCS» «IF e.getOwnedMultiplicity !== null» «e.getOwnedMultiplicity.compileMultiplicityCS»«ENDIF»
+		«ELSEIF (e instanceof TypeNameExpCS)»
+			«e.compileTypeNameExpCS» «IF e.getOwnedMultiplicity !== null» «e.getOwnedMultiplicity.compileMultiplicityCS»«ENDIF»
+		«ENDIF»
+	'''
+	
+	private def compileMultiplicityCS(MultiplicityCS e) '''
+		«IF (e instanceof MultiplicityBoundsCS)»
+			[«e.getLowerBound»«IF e.getUpperBound !== null»..«e.getUpperBound»«ENDIF»«IF e.symbol !== null » «e.symbol»«ENDIF»]
+		«ELSEIF (e instanceof MultiplicityStringCS)»
+			[«e.getStringBounds»«IF e.symbol !== null» «e.symbol»«ENDIF»]
+		«ENDIF»
+	'''
+
+	private def compileCollectionTypeCS(CollectionTypeCS e) '''«e.getName»«IF e.getOwnedType !== null»(«e.getOwnedType.compileTypedRefCS»«IF e.getOwnedCollectionMultiplicity !== null» «e.getOwnedCollectionMultiplicity.compileMultiplicityCS»«ENDIF»)«ENDIF»'''
+
+	private def compileCollectionLiteralExpCS(CollectionLiteralExpCS e) '''«e.getOwnedType.compileCollectionTypeCS»{«IF e.getOwnedParts.length > 0»«e.getOwnedParts.get(0).compileCollectionLiteralPartCS»«FOR part : e.getOwnedParts.subList(1, e.getOwnedParts.length)», «part.compileCollectionLiteralPartCS»«ENDFOR»«ENDIF»}'''
+	
+	private def compileCollectionLiteralPartCS(CollectionLiteralPartCS e) ''' 
+		«IF (e.getOwnedExpression instanceof ExpCS)»
+			«(e.getOwnedExpression as ExpCS).compileExpCS»«IF e.getOwnedLastExpression !== null»..«e.getOwnedLastExpression.compileExpCS»«ENDIF»
+		«ELSEIF (e.getOwnedExpression instanceof PatternExpCS)»
+			«(e.getOwnedExpression as PatternExpCS).compilePatternExpCS»
+		«ENDIF»
+	'''
+	
+	private def compilePatternExpCS(PatternExpCS e) '''«IF e.getPatternVariableName !== null»«e.getPatternVariableName»«ENDIF» : «e.getOwnedPatternType.compileTypedRefCS»'''
+	
+	private def compileIfExpCS(IfExpCS e) ''' 
+		«IF (e.getOwnedCondition instanceof ExpCS)»
+			if «(e.getOwnedCondition as ExpCS).compileExpCS» then «e.getOwnedThenExpression.compileExpCS» «FOR i : e.getOwnedIfThenExpressions» «i.compileIfThenExpCS»«ENDFOR» else «e.getOwnedElseExpression.compileExpCS» endif
+		«ELSEIF (e.getOwnedCondition instanceof PatternExpCS)»
+			if «(e.getOwnedCondition as PatternExpCS).compilePatternExpCS» then «e.getOwnedThenExpression.compileExpCS» «FOR i : e.getOwnedIfThenExpressions» «i.compileIfThenExpCS»«ENDFOR» else «e.getOwnedElseExpression.compileExpCS» endif
+		«ENDIF»
+	'''
+	
+	private def compileIfThenExpCS(IfThenExpCS e) '''elseif «e.getOwnedCondition.compileExpCS» then «e.getOwnedThenExpression.compileExpCS»'''
+	
+	private def compileInfixExpCS(InfixExpCS e) '''«e.getOwnedLeft.compileExpCS»«IF !e.getOperator.equals(".")» «ENDIF»«e.getOperator»«IF !e.getOperator.equals('.')» «ENDIF»«e.getOwnedRight.compileExpCS»'''
+	
+	private def compileLambdaLiteralExpCS(LambdaLiteralExpCS e) '''Lambda { «e.getOwnedExpressionCS.compileExpCS» }'''
+	
+	private def compileLetExpCS(LetExpCS e) '''let «IF e.getOwnedVariables.length > 0»«e.getOwnedVariables.get(0).compileLetVariableCS»«FOR part : e.getOwnedVariables.subList(1, e.getOwnedVariables.length)», «part.compileLetVariableCS»«ENDFOR»«ENDIF» in «e.getOwnedInExpression.compileExpCS»'''
+	
+	private def compileLetVariableCS(LetVariableCS e) '''«e.getName»«IF e.getOwnedRoundBracketedClause !== null» «e.getOwnedRoundBracketedClause.compileRoundBracketedClauseCS»«ENDIF»«IF e.getOwnedType !== null» : «e.getOwnedType.compileTypedRefCS»«ENDIF» = «e.getOwnedInitExpression.compileExpCS»'''
+	
+	private def compileRoundBracketedClauseCS(RoundBracketedClauseCS e) '''(«IF e.getOwnedArguments.length > 0»«e.getOwnedArguments.get(0).compileNavigatingArgCS»«FOR part : e.getOwnedArguments.subList(1, e.getOwnedArguments.length)»«part.compileNavigatingArgCS»«ENDFOR»«ENDIF»)'''
+	
+	private def compileNavigatingArgCS(NavigatingArgCS e) '''«IF e.getPrefix !== null»«e.getPrefix»«ENDIF»«IF e.getOwnedNameExpression !== null»«e.getOwnedNameExpression.compileExpCS»«ENDIF»«IF e.getOwnedType !== null» «e.getSymbolT» «e.getOwnedType.compileTypedRefCS»«ENDIF»«IF e.getOwnedCoIterator !== null» «e.getSymbolCI» «e.getOwnedCoIterator.compileVariableCS»«ENDIF»«IF e.getOwnedInitExpression !== null» «e.getSymbolIE» «e.getOwnedInitExpression.compileExpCS»«ENDIF»'''
+	
+	private def compileVariableCS(VariableCS e) '''«e.name»«IF e.getOwnedType !== null» «e.getOwnedType.compileTypedRefCS»«ENDIF»'''
+	
+	private def compileSquareBracketedClauseCS(SquareBracketedClauseCS e) '''[«IF e.getOwnedTerms.length > 0»«e.getOwnedTerms.get(0).compileExpCS»«FOR part : e.getOwnedTerms.subList(1, e.getOwnedTerms.length)», «part.compileExpCS»«ENDFOR»«ENDIF»]'''
+	
+	private def compileCurlyBracketedClauseCS(CurlyBracketedClauseCS e) '''{«IF e.getOwnedParts.length > 0»«e.getOwnedParts.get(0).compileShadowPartCS»«FOR part : e.getOwnedParts.subList(1, e.getOwnedParts.length)», «part.compileShadowPartCS»«ENDFOR»«ENDIF»}'''
+	
+	private def compileShadowPartCS(ShadowPartCS e) '''
+		«IF (e.getOwnedInitExpression instanceof ExpCS)»
+			«e.getReferredProperty» = «(e.getOwnedInitExpression as ExpCS).compileExpCS»
+		«ELSEIF (e.getOwnedInitExpression instanceof PatternExpCS)»
+			«e.getReferredProperty» = «(e.getOwnedInitExpression as PatternExpCS).compilePatternExpCS»
+		«ELSEIF (e.getOwnedInitExpression instanceof StringLiteralExpCS)»
+			«(e.getOwnedInitExpression as StringLiteralExpCS).compileStringLiteralExpCS»
+		«ENDIF»
+	'''
+	
+	private def compileMapLiteralExpCS(MapLiteralExpCS e) '''«e.getOwnedType.compileMapTypeCS» { «IF e.getOwnedParts.length > 0»«e.getOwnedParts.get(0).compileMapLiteralPartCS»«FOR part : e.getOwnedParts.subList(1, e.getOwnedParts.length)», «part.compileMapLiteralPartCS»«ENDFOR»«ENDIF» }'''
+	
+	private def compileMapLiteralPartCS(MapLiteralPartCS e) '''«e.getOwnedKey.compileExpCS» <- «e.getOwnedValue.compileExpCS»'''
+	
+	private def compileNameExpCS(NameExpCS e) '''«e.getOwnedPathName.compilePathNameCS»«FOR part : e.getOwnedSquareBracketedClauses»«part.compileSquareBracketedClauseCS»«ENDFOR»«IF e.getOwnedRoundBracketedClause !== null»«e.getOwnedRoundBracketedClause.compileRoundBracketedClauseCS»«ENDIF»«IF e.getOwnedCurlyBracketedClause !== null»«e.getOwnedCurlyBracketedClause.compileCurlyBracketedClauseCS»«ENDIF»«IF e.isIsPre»@«ENDIF»«IF e.isPre()»pre«ENDIF»'''
+	
+	private def compilePathNameCS(PathNameCS e) '''«IF e.getOwnedPathElements.length > 0»«e.getOwnedPathElements.get(0)»«FOR part : e.getOwnedPathElements.subList(1, e.getOwnedPathElements.length)» :: «part»«ENDFOR»«ENDIF»'''
+	
+	private def compileNestedExpCS(NestedExpCS e) '''(«e.getOwnedExpression.compileExpCS»)'''
+	
+	private def compilePrefixExpCS(PrefixExpCS e) '''«e.getName» «e.getOwnedRight.compileExpCS»'''
+	
+	private def compilePrimitiveLiteralExpCS(PrimitiveLiteralExpCS e) ''' 
+		«IF (e instanceof NumberLiteralExpCS)»
+			«e.compileNumberLiteralExpCS»
+		«ELSEIF (e instanceof StringLiteralExpCS)»
+			«e.compileStringLiteralExpCS»
+		«ELSEIF (e instanceof BooleanLiteralExpCS)»
+			«e.compileBooleanLiteralExpCS»
+		«ELSEIF (e instanceof UnlimitedNaturalLiteralExpCS)»
+			«e.compileUnlimitedNaturalLiteralExpCS»
+		«ELSEIF (e instanceof InvalidLiteralExpCS)»
+			«e.compileInvalidLiteralExpCS»
+		«ELSEIF (e instanceof NullLiteralExpCS)»
+			«e.compileNullLiteralExpCS»
+		«ENDIF»
+	'''
+	
+	private def compileNumberLiteralExpCS(NumberLiteralExpCS e) '''«e.getValue»'''
+	
+	private def compileStringLiteralExpCS(StringLiteralExpCS e) '''«FOR part : e.getSegments» «part»«ENDFOR»'''
+	
+	private def compileBooleanLiteralExpCS(BooleanLiteralExpCS e) '''«e.getSymbol»'''
+	
+	private def compileUnlimitedNaturalLiteralExpCS(UnlimitedNaturalLiteralExpCS e) '''*'''
+	
+	private def compileInvalidLiteralExpCS(InvalidLiteralExpCS e) '''invalid'''
+	
+	private def compileNullLiteralExpCS(NullLiteralExpCS e) '''null'''
+	
+	private def compileSelfExpCS(SelfExpCS e) '''self'''
+	
+	private def compileTupleLiteralExpCS(TupleLiteralExpCS e) '''Tuple { «IF e.getOwnedParts.length > 0»«e.getOwnedParts.get(0).compileTupleLiteralPartCS»«FOR part : e.getOwnedParts.subList(1, e.getOwnedParts.length)», «part.compileTupleLiteralPartCS»«ENDFOR»«ENDIF» }'''
+	
+	private def compileTupleLiteralPartCS(TupleLiteralPartCS e) '''«e.getName» «IF e.getOwnedType !== null»: «e.getOwnedType.compileTypedRefCS»«ENDIF»= «e.getOwnedInitExpression.compileExpCS»'''
+	
+	private def compileTypeLiteralExpCS(TypeLiteralExpCS e) '''«e.getOwnedType.compileTypedRefCS»'''
+	
+	private def compileCollectionPatternCS(CollectionPatternCS e) '''«e.getOwnedType.compileCollectionTypeCS» { «IF e.getOwnedParts.length > 0»«e.getOwnedParts.get(0).compilePatternExpCS»«FOR part : e.getOwnedParts.subList(1, e.getOwnedParts.length)», «part.compilePatternExpCS»«ENDFOR» ++ «e.getRestVariableName»«ENDIF»}'''
+	
+	private def compileMapTypeCS(MapTypeCS e) '''«e.getName» «IF e.getOwnedKeyType !== null && e.getOwnedValueType !== null»(«e.getOwnedKeyType.compileTypedRefCS», «e.getOwnedValueType.compileTypedRefCS»)«ENDIF»'''
+	
+	private def compilePrimitiveTypeRefCS(PrimitiveTypeRefCS e) '''«e.getName»'''
+	
+	private def compileTupleTypeCS(TupleTypeCS e) '''«e.getName» «IF e.getOwnedParts.length > 0»(«e.getOwnedParts.get(0).compileTuplePartCS»«FOR part : e.getOwnedParts.subList(1, e.getOwnedParts.length)», «part.compileTuplePartCS»«ENDFOR»)«ENDIF»'''
+	
+	private def compileTuplePartCS(TuplePartCS e) '''«e.getName» : «e.getOwnedType.compileTypedRefCS»'''
+	
+	private def compileTypeNameExpCS(TypeNameExpCS e) '''«e.getOwnedPathName» «IF e.getOwnedCurlyBracketedClause !== null»«e.getOwnedCurlyBracketedClause.compileCurlyBracketedClauseCS» «IF e.getOwnedPatternGuard !== null»{«e.getOwnedPatternGuard.compileExpCS»}«ENDIF»«ENDIF»'''
+	
 }

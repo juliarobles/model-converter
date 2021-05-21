@@ -177,7 +177,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute USE.ecore#//MultiplicityBoundsCS/upperBound"/>
     </genClasses>
     <genClasses ecoreClass="USE.ecore#//MultiplicityCS">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute USE.ecore#//MultiplicityCS/isNullFree"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute USE.ecore#//MultiplicityCS/symbol"/>
     </genClasses>
     <genClasses ecoreClass="USE.ecore#//MultiplicityStringCS">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute USE.ecore#//MultiplicityStringCS/stringBounds"/>
@@ -193,6 +193,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference USE.ecore#//NameExpCS/ownedRoundBracketedClause"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference USE.ecore#//NameExpCS/ownedCurlyBracketedClause"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute USE.ecore#//NameExpCS/isPre"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute USE.ecore#//NameExpCS/pre"/>
     </genClasses>
     <genClasses ecoreClass="USE.ecore#//SquareBracketedClauseCS">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference USE.ecore#//SquareBracketedClauseCS/ownedTerms"/>
@@ -263,8 +264,11 @@
     <genClasses ecoreClass="USE.ecore#//NavigatingArgCS">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute USE.ecore#//NavigatingArgCS/prefix"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference USE.ecore#//NavigatingArgCS/ownedNameExpression"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute USE.ecore#//NavigatingArgCS/symbolT"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference USE.ecore#//NavigatingArgCS/ownedType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute USE.ecore#//NavigatingArgCS/symbolIE"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference USE.ecore#//NavigatingArgCS/ownedInitExpression"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute USE.ecore#//NavigatingArgCS/symbolCI"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference USE.ecore#//NavigatingArgCS/ownedCoIterator"/>
     </genClasses>
     <genClasses ecoreClass="USE.ecore#//VariableCS">

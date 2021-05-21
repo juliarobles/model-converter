@@ -271,7 +271,8 @@ MultiplicityBoundsCS returns MultiplicityBoundsCS:
 	 lowerBound=LOWER ('..' upperBound=UPPER)?;
 
 MultiplicityCS returns MultiplicityCS:
-	'[' (MultiplicityBoundsCS | MultiplicityStringCS) ('|?' | isNullFree?='|1')? ']';
+	//'[' (MultiplicityBoundsCS | MultiplicityStringCS) ('|?' | isNullFree?='|1')? ']';
+	'[' (MultiplicityBoundsCS | MultiplicityStringCS) symbol=('|?' | '|1')? ']';
 
 MultiplicityStringCS returns MultiplicityStringCS:
 	stringBounds=('*'|'+'|'?');
@@ -335,7 +336,7 @@ PrimitiveLiteralExpCS returns PrimitiveLiteralExpCS:
 
 NameExpCS returns NameExpCS:
 	ownedPathName=PathNameCS ownedSquareBracketedClauses+=SquareBracketedClauseCS*
-	ownedRoundBracketedClause=RoundBracketedClauseCS? ownedCurlyBracketedClause=CurlyBracketedClauseCS? (isPre?='@' 'pre')?;
+	ownedRoundBracketedClause=RoundBracketedClauseCS? ownedCurlyBracketedClause=CurlyBracketedClauseCS? (isPre?='@' pre?='pre')?;
 
 SquareBracketedClauseCS:
 	'[' ownedTerms+=ExpCS (',' ownedTerms+=ExpCS)* ']';
@@ -416,30 +417,30 @@ RoundBracketedClauseCS:
 
 /* A navigating bar argument is a generalized rule for a bar-prefixed argument in a round bracket clause. This is typically the body of an iteration. */
 NavigatingBarArgCS returns NavigatingArgCS:
-	prefix='|' ownedNameExpression=NavigatingArgExpCS (':' ownedType=TypeExpCS ('=' ownedInitExpression=ExpCS)?)?;	// Type-less init is an illegal infix expression
+	prefix='|' ownedNameExpression=NavigatingArgExpCS (symbolT=':' ownedType=TypeExpCS (symbolIE='=' ownedInitExpression=ExpCS)?)?;	// Type-less init is an illegal infix expression
 
 /* A navigating comma argument is a generalized rule for non-first argument in a round bracket clause. These are typically non-first operation
  * parameters or a second iterator. */
 NavigatingCommaArgCS returns NavigatingArgCS:
-	prefix=',' ownedNameExpression=NavigatingArgExpCS (('<-' ownedCoIterator=CoIteratorVariableCS ('=' ownedInitExpression=ExpCS)?)
-													  |(':' ownedType=TypeExpCS ('<-' ownedCoIterator=CoIteratorVariableCS)? ('=' ownedInitExpression=ExpCS)?)
-													  | ((':' ownedType=TypeExpCS)? ('<-' ownedCoIterator=CoIteratorVariableCS)? 'in' ownedInitExpression=ExpCS)
+	prefix=',' ownedNameExpression=NavigatingArgExpCS ((symbolCI='<-' ownedCoIterator=CoIteratorVariableCS (symbolIE='=' ownedInitExpression=ExpCS)?)
+													  |(symbolT=':' ownedType=TypeExpCS (symbolCI='<-' ownedCoIterator=CoIteratorVariableCS)? (symbolIE='=' ownedInitExpression=ExpCS)?)
+													  | ((symbolT=':' ownedType=TypeExpCS)? (symbolCI='<-' ownedCoIterator=CoIteratorVariableCS)? symbolIE='in' ownedInitExpression=ExpCS)
 													  )?;	// Type-less init is an illegal infix expression
 
 /* A navigating semi argument is a generalized rule for a semicolon prefixed argument in a round bracket clause. This is typically an iterate accumulator. */
 NavigatingSemiArgCS returns NavigatingArgCS:
-	prefix=';' ownedNameExpression=NavigatingArgExpCS (':' ownedType=TypeExpCS ('=' ownedInitExpression=ExpCS)?)?;	// Type-less init is an illegal infix expression
+	prefix=';' ownedNameExpression=NavigatingArgExpCS (symbolT=':' ownedType=TypeExpCS (symbolIE='=' ownedInitExpression=ExpCS)?)?;	// Type-less init is an illegal infix expression
 
 	
 /* A navigating argument is a generalized rule for the first argument in a round bracket clause. This is typically the first operation
  * parameter or an iterator. */
 NavigatingArgCS returns NavigatingArgCS:
-	(ownedNameExpression=NavigatingArgExpCS (('<-' ownedCoIterator=CoIteratorVariableCS ('=' ownedInitExpression=ExpCS)?)
-											|(':' ownedType=TypeExpCS ('<-' ownedCoIterator=CoIteratorVariableCS)? ('=' ownedInitExpression=ExpCS)?)
-											| ((':' ownedType=TypeExpCS)? ('<-' ownedCoIterator=CoIteratorVariableCS)? 'in' ownedInitExpression=ExpCS)
+	(ownedNameExpression=NavigatingArgExpCS ((symbolCI='<-' ownedCoIterator=CoIteratorVariableCS (symbolIE='=' ownedInitExpression=ExpCS)?)
+											|(symbolT=':' ownedType=TypeExpCS (symbolCI='<-' ownedCoIterator=CoIteratorVariableCS)? (symbolIE='=' ownedInitExpression=ExpCS)?)
+											| ((symbolT=':' ownedType=TypeExpCS)? (symbolCI='<-' ownedCoIterator=CoIteratorVariableCS)? symbolIE='in' ownedInitExpression=ExpCS)
 											)?
 	)
-	| (':' ownedType=TypeExpCS);	// Type-less init is an illegal infix expression
+	| (symbolT=':' ownedType=TypeExpCS);	// Type-less init is an illegal infix expression
 
 NavigatingArgExpCS returns ExpCS: // Intended to be overridden
 	ExpCS

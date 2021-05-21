@@ -1,218 +1,887 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:MagicDrawProfile="http://www.omg.org/spec/UML/20131001/MagicDrawProfile" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http://www.omg.org/spec/UML/20131001/MagicDrawProfile UML_Standard_Profile.MagicDraw_Profile.profile.uml#_nPVN7YtIEeuebcn5BqfCXQ">
-   <uml:Model xmi:id="1850874910" name="universidad">
-	<packagedElement xmi:type="uml:Class" xmi:id="633131207"  name="Universidad">
-	<ownedAttribute xmi:id="443110940" name="titulacion" type="1088239991" association="515520300" >
-	<lowerValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="10882399915155203001" name="" value="*"/>
-	<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="10882399915155203002" name="" value="*"/>
-	</ownedAttribute>
-	<ownedAttribute xmi:id="173060252" name="titulo" type="707635461" association="1139609587" >
-	<lowerValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="70763546111396095871" name="" value="*"/>
-	<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="70763546111396095872" name="" value="*"/>
-	</ownedAttribute>
-	</packagedElement>
-	<packagedElement xmi:type="uml:Class" xmi:id="1088239991"  abstract="true" name="Titulacion">
-	<ownedAttribute xmi:id="637091966" name="universidad" type="633131207" association="515520300" >
-	<lowerValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="6331312075155203001" name="" value="*"/>
-	<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="6331312075155203002" name="" value="*"/>
-	</ownedAttribute>
-	<ownedAttribute xmi:id="1584918772" name="asignatura" type="961859592" association="910123336" aggregation="shared">
-	<lowerValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="9618595929101233361" name="" value="*"/>
-	<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="9618595929101233362" name="" value="*"/>
-	</ownedAttribute>
-	<ownedAttribute xmi:id="1306535359" name="titulo" type="707635461" association="777813771" >
-	<lowerValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="7076354617778137711" name="" value="*"/>
-	<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="7076354617778137712" name="" value="*"/>
-	</ownedAttribute>
-	</packagedElement>
-	<packagedElement xmi:type="uml:Class" xmi:id="1780293706"  name="Grado">
-	<generalization xmi:id="1264941544" general="1088239991"/>
-	</packagedElement>
-	<packagedElement xmi:type="uml:Class" xmi:id="1878992188"  name="Posgrado">
-	<generalization xmi:id="1495161082" general="1088239991"/>
-	</packagedElement>
-	<packagedElement xmi:type="uml:Class" xmi:id="961859592"  name="Asignatura">
-	<ownedAttribute xmi:id="1926027290" name="creditosECTS" >
+   <uml:Model xmi:id="575360353" name="comunidad">
+	<packagedElement xmi:type="uml:Class" xmi:id="852190062"  name="Community">
+	<ownedRule xmi:id="1560670039" name="edadesMinimasDefinidas" constrainedElement="852190062">
+		<specification xmi:type="uml:OpaqueExpression" xmi:id="6028586801560670039" name="edadesMinimasDefinidas">
+		   	<language>OCL2.0</language>
+		   	  	<body>not (self.minAgeAdult.oclIsUndefined or self.minAgeOld.oclIsUndefined or self.minAgeYoung.oclIsUndefined)</body>
+		  	</specification>
+	</ownedRule>
+	<ownedAttribute xmi:id="1780293706" name="minAgeYoung" >
 	<type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
 	</ownedAttribute>
-	<ownedAttribute xmi:id="455668354" name="titulacion" type="1088239991" association="910123336" >
-	<lowerValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="10882399919101233361" name="" value="*"/>
-	<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="10882399919101233362" name="" value="*"/>
-	</ownedAttribute>
-	<ownedAttribute xmi:id="373437697" name="imparticion" type="2080643905" association="1163088324" >
-	<lowerValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="208064390511630883241" name="" value="*"/>
-	<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="208064390511630883242" name="" value="*"/>
-	</ownedAttribute>
-	</packagedElement>
-	<packagedElement xmi:type="uml:Class" xmi:id="1228798862"  name="Curso">
-	<ownedRule xmi:id="1187972599" name="noUndefined" constrainedElement="1228798862">
-		<specification xmi:type="uml:OpaqueExpression" xmi:id="20941158651187972599" name="noUndefined">
-		   	<language>OCL2.0</language>
-		   	  	<body></body>
-		  	</specification>
-	</ownedRule>
-	<ownedAttribute xmi:id="164714495" name="anioInicio" >
+	<ownedAttribute xmi:id="1878992188" name="minAgeAdult" >
 	<type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
 	</ownedAttribute>
-	<ownedAttribute xmi:id="748006558" name="imparticion" type="2080643905" association="2048102341" >
-	<lowerValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="208064390520481023411" name="" value="*"/>
-	<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="208064390520481023412" name="" value="*"/>
+	<ownedAttribute xmi:id="961859592" name="minAgeOld" >
+	<type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
 	</ownedAttribute>
-	<ownedAttribute xmi:id="1545327692" name="titulo" type="707635461" association="1572442646" >
-	<lowerValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="70763546115724426461" name="" value="*"/>
-	<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="70763546115724426462" name="" value="*"/>
+	<ownedAttribute xmi:id="2144334265" name="person" type="458817438" association="223975178" aggregation="composite">
+	<lowerValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="4588174382239751781" name="" value="*"/>
+	<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="4588174382239751782" name="" value="*"/>
 	</ownedAttribute>
-	</packagedElement>
-	<packagedElement xmi:type="uml:Class" xmi:id="2080643905"  name="Imparticion">
-	<ownedAttribute xmi:id="1209451152" name="asignatura" type="961859592" association="1163088324" >
-	<lowerValue xmi:type="uml:LiteralInteger" xmi:id="96185959211630883241" name="" value="1"/>
-	<upperValue xmi:type="uml:LiteralInteger" xmi:id="96185959211630883242" name="" value="1"/>
+	<ownedAttribute xmi:id="1726715997" name="clock" type="502891368" association="1991094835" aggregation="shared">
+	<lowerValue xmi:type="uml:LiteralInteger" xmi:id="50289136819910948351" name="" value="1"/>
+	<upperValue xmi:type="uml:LiteralInteger" xmi:id="50289136819910948352" name="" value="1"/>
 	</ownedAttribute>
-	<ownedAttribute xmi:id="813131188" name="curso" type="1228798862" association="2048102341" >
-	<lowerValue xmi:type="uml:LiteralInteger" xmi:id="122879886220481023411" name="" value="1"/>
-	<upperValue xmi:type="uml:LiteralInteger" xmi:id="122879886220481023412" name="" value="1"/>
-	</ownedAttribute>
-	<ownedAttribute xmi:id="2109027570" name="profesor" type="546796969" association="1168079523" >
-	<lowerValue xmi:type="uml:LiteralInteger" xmi:id="54679696911680795231" name="" value="1"/>
-	<upperValue xmi:type="uml:LiteralInteger" xmi:id="54679696911680795232" name="" value="1"/>
-	</ownedAttribute>
-	<ownedAttribute xmi:id="1997344422" name="alumno" type="1076966140" association="1624211687" >
-	<lowerValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="107696614016242116871" name="" value="*"/>
-	<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="107696614016242116872" name="" value="*"/>
-	</ownedAttribute>
-	</packagedElement>
-	<packagedElement xmi:type="uml:Class" xmi:id="1076966140"  name="Alumno">
-	<ownedRule xmi:id="983767354" name="todosTitulosGradosCorrectos" constrainedElement="1076966140">
-		<specification xmi:type="uml:OpaqueExpression" xmi:id="1504083002983767354" name="todosTitulosGradosCorrectos">
-		   	<language>OCL2.0</language>
-		   	  	<body></body>
-		  	</specification>
-	</ownedRule>
-	<ownedRule xmi:id="502891368" name="todosTitulosPosGradosCorrectos" constrainedElement="1076966140">
-		<specification xmi:type="uml:OpaqueExpression" xmi:id="577734751502891368" name="todosTitulosPosGradosCorrectos">
-		   	<language>OCL2.0</language>
-		   	  	<body></body>
-		  	</specification>
-	</ownedRule>
-	<ownedRule xmi:id="695248316" name="tituloGradoParaPosgrado" constrainedElement="1076966140">
-		<specification xmi:type="uml:OpaqueExpression" xmi:id="1928312257695248316" name="tituloGradoParaPosgrado">
-		   	<language>OCL2.0</language>
-		   	  	<body></body>
-		  	</specification>
-	</ownedRule>
-	<ownedRule xmi:id="405252209" name="noMatriculaEnAsigAprobada" constrainedElement="1076966140">
-		<specification xmi:type="uml:OpaqueExpression" xmi:id="1917442783405252209" name="noMatriculaEnAsigAprobada">
-		   	<language>OCL2.0</language>
-		   	  	<body></body>
-		  	</specification>
-	</ownedRule>
-	<ownedRule xmi:id="1369468094" name="noTitulosDuplicados" constrainedElement="1076966140">
-		<specification xmi:type="uml:OpaqueExpression" xmi:id="12356355861369468094" name="noTitulosDuplicados">
-		   	<language>OCL2.0</language>
-		   	  	<body></body>
-		  	</specification>
-	</ownedRule>
-	<ownedAttribute xmi:id="15094126" name="titulo" type="707635461" association="2125470482" >
-	<lowerValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="70763546121254704821" name="" value="*"/>
-	<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="70763546121254704822" name="" value="*"/>
-	</ownedAttribute>
-	<ownedAttribute xmi:id="1410367298" name="imparticion" type="2080643905" association="1624211687" >
-	<lowerValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="208064390516242116871" name="" value="*"/>
-	<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="208064390516242116872" name="" value="*"/>
-	</ownedAttribute>
-	<ownedOperation xmi:id="796553753" name="aprobada" bodyCondition="796553753827035437" postcondition="" precondition="" isQuery="true">
-		<ownedRule xmi:id="796553753827035437" name="" >
-			<specification xmi:type="uml:OpaqueExpression" xmi:id="827035437796553753827035437" name="">
+	<ownedOperation xmi:id="1837601499" name="setMinAge" bodyCondition="18376014991439693138" postcondition="" precondition="" >
+		<ownedRule xmi:id="18376014991439693138" name="" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="143969313818376014991439693138" name="">
 			   	<language>OCL2.0</language>
-			   	  	<body></body>
+			   	  	<body>self.minAgeYoung := minY;
+			   	  			self.minAgeAdult := minA;
+			   	  			self.minAgeOld := minO;</body>
 			  	</specification>
 		</ownedRule>
-		<ownedParameter xmi:id="677217562796553753" name=""  direction="return">
+		<ownedParameter xmi:id="1562764987" name="minY" >
+		<type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+		</ownedParameter>
+		<ownedParameter xmi:id="789982400" name="minA" >
+		<type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+		</ownedParameter>
+		<ownedParameter xmi:id="481553464" name="minO" >
+		<type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+		</ownedParameter>
+	</ownedOperation>	
+	<ownedOperation xmi:id="749443480" name="die" bodyCondition="7494434801711641083" postcondition="115945887 1200048933 " precondition="2019157894 858423246 " >
+		<ownedRule xmi:id="7494434801711641083" name="" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="17116410837494434801711641083" name="">
+			   	<language>OCL2.0</language>
+			   	  	<body>p.deathYear := self.clock.NOW;
+			   	  			p.beingDead();
+			   	  			for pe in p.wantToDie do
+			   	  				delete(pe, p) from Euthanasia;
+			   	  			end;
+			   	  			for pe in p.killer do
+			   	  				delete(p, pe) from Euthanasia;
+			   	  			end;
+			   	  			for pe in p.asked do
+			   	  				delete(p, pe) from ConsentMarriage;
+			   	  			end;
+			   	  			for pe in p.ask do
+			   	  				delete(pe, p) from ConsentMarriage;
+			   	  			end;
+			   	  			if(p.askDivorce -> notEmpty) then
+			   	  				delete(p.activePartner, p) from ConsentDivorce;
+			   	  			end;
+			   	  			if(p.askedDivorce -> notEmpty) then
+			   	  				delete(p, p.activePartner) from ConsentDivorce;
+			   	  			end;
+			   	  			if(p.isMarried()) then
+			   	  				p.activePartner.informDeadPartner();
+			   	  			end;</body>
+			  	</specification>
+		</ownedRule>
+		<ownedRule xmi:id="2019157894" name="esDeMiComunidad" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="8270354372019157894" name="esDeMiComunidad">
+			   	<language>OCL2.0</language>
+			   	  	<body>self.person -> includes(p)</body>
+			  	</specification>
+		</ownedRule>
+		<ownedRule xmi:id="858423246" name="noEstaMuerto" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="88301993858423246" name="noEstaMuerto">
+			   	<language>OCL2.0</language>
+			   	  	<body>not p.isDead</body>
+			  	</specification>
+		</ownedRule>
+		<ownedRule xmi:id="115945887" name="estaMuerto" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="2079961240115945887" name="estaMuerto">
+			   	<language>OCL2.0</language>
+			   	  	<body>p.isDead</body>
+			  	</specification>
+		</ownedRule>
+		<ownedRule xmi:id="1200048933" name="relacionesEliminadas" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="7397375021200048933" name="relacionesEliminadas">
+			   	<language>OCL2.0</language>
+			   	  	<body>p.wantToDie -> isEmpty and p.killer -> isEmpty and p.asked -> isEmpty and p.ask -> isEmpty and p.askedDivorce -> isEmpty and p.askDivorce -> isEmpty</body>
+			  	</specification>
+		</ownedRule>
+		<ownedParameter xmi:id="975001918" name="p" type="458817438">
+		</ownedParameter>
+	</ownedOperation>	
+	<ownedOperation xmi:id="1967617997" name="createMarriage" bodyCondition="19676179971247127272" postcondition="1209451152 562561015 2113243119 " precondition="2129844134 424732838 1416665097 " >
+		<ownedRule xmi:id="19676179971247127272" name="" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="124712727219676179971247127272" name="">
+			   	<language>OCL2.0</language>
+			   	  	<body>declare m : Marriage;
+			   	  			m := new Marriage;
+			   	  			insert(p1, m) into Couple; --wife
+			   	  			insert(p2, m) into Couple2; --husband
+			   	  			m.startYear := self.clock.NOW;
+			   	  			p1.activePartner := p2;
+			   	  			p2.activePartner := p1;
+			   	  			p1.getMarry(p2);
+			   	  			p2.getMarry(p1);
+			   	  			delete (p1, p2) from ConsentMarriage;
+			   	  			delete (p2, p1) from ConsentMarriage;</body>
+			  	</specification>
+		</ownedRule>
+		<ownedRule xmi:id="2129844134" name="ningunoCasado" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="12786168462129844134" name="ningunoCasado">
+			   	<language>OCL2.0</language>
+			   	  	<body>not (p1.isMarried() or p2.isMarried())</body>
+			  	</specification>
+		</ownedRule>
+		<ownedRule xmi:id="424732838" name="ningunoMuertoniNinio" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="315461968424732838" name="ningunoMuertoniNinio">
+			   	<language>OCL2.0</language>
+			   	  	<body>not (p1.isDead or p2.isDead) and not (p1.oclInState(child) or p2.oclInState(child))</body>
+			  	</specification>
+		</ownedRule>
+		<ownedRule xmi:id="1416665097" name="tieneQueHaberConsentimiento" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="6199297781416665097" name="tieneQueHaberConsentimiento">
+			   	<language>OCL2.0</language>
+			   	  	<body>p1.asked -> includes(p2) and p2.asked -> includes(p1)</body>
+			  	</specification>
+		</ownedRule>
+		<ownedRule xmi:id="1209451152" name="eliminadaPedida" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="3734376971209451152" name="eliminadaPedida">
+			   	<language>OCL2.0</language>
+			   	  	<body>p1.asked -> excludes(p2) and p2.asked -> excludes(p1)</body>
+			  	</specification>
+		</ownedRule>
+		<ownedRule xmi:id="562561015" name="ambosCasados" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="567656864562561015" name="ambosCasados">
+			   	<language>OCL2.0</language>
+			   	  	<body>p1.isMarried() and p2.isMarried()</body>
+			  	</specification>
+		</ownedRule>
+		<ownedRule xmi:id="2113243119" name="casadosEntreSi" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="6599370292113243119" name="casadosEntreSi">
+			   	<language>OCL2.0</language>
+			   	  	<body>p1.activePartner = p2 and p2.activePartner = p1</body>
+			  	</specification>
+		</ownedRule>
+		<ownedParameter xmi:id="1288135425" name="p1" type="458817438">
+		</ownedParameter>
+		<ownedParameter xmi:id="2111882926" name="p2" type="458817438">
+		</ownedParameter>
+	</ownedOperation>	
+	<ownedOperation xmi:id="1642973315" name="createDivorce" bodyCondition="1642973315147089688" postcondition="280531669 " precondition="1840670774 32393008 1443900956 " >
+		<ownedRule xmi:id="1642973315147089688" name="" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="1470896881642973315147089688" name="">
+			   	<language>OCL2.0</language>
+			   	  	<body>declare m : Marriage;
+			   	  			m := p1.wife -> union(p1.husband) -> any(m | m.endYear.oclIsUndefined);
+			   	  			m.endYear := self.clock.NOW;
+			   	  			p1.activePartner := null;
+			   	  			p2.activePartner := null;
+			   	  			p1.getDivorce(p2, m);
+			   	  			p2.getDivorce(p1, m);
+			   	  			delete (p1, p2) from ConsentDivorce;
+			   	  			delete (p2, p1) from ConsentDivorce;</body>
+			  	</specification>
+		</ownedRule>
+		<ownedRule xmi:id="1840670774" name="ambosCasados" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="7698776911840670774" name="ambosCasados">
+			   	<language>OCL2.0</language>
+			   	  	<body>p1.isMarried() and p2.isMarried()</body>
+			  	</specification>
+		</ownedRule>
+		<ownedRule xmi:id="32393008" name="casadosEntreSi" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="134237493932393008" name="casadosEntreSi">
+			   	<language>OCL2.0</language>
+			   	  	<body>p1.activePartner = p2 and p2.activePartner = p1</body>
+			  	</specification>
+		</ownedRule>
+		<ownedRule xmi:id="1443900956" name="tieneQueHaberConsentimiento" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="20326475831443900956" name="tieneQueHaberConsentimiento">
+			   	<language>OCL2.0</language>
+			   	  	<body>p1.askedDivorce -> includes(p2) and p2.askedDivorce -> includes(p1)</body>
+			  	</specification>
+		</ownedRule>
+		<ownedRule xmi:id="280531669" name="ningunoCasado" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="893835279280531669" name="ningunoCasado">
+			   	<language>OCL2.0</language>
+			   	  	<body>not (p1.isMarried() or p2.isMarried())</body>
+			  	</specification>
+		</ownedRule>
+		<ownedParameter xmi:id="1764291958" name="p1" type="458817438">
+		</ownedParameter>
+		<ownedParameter xmi:id="164439551" name="p2" type="458817438">
+		</ownedParameter>
+	</ownedOperation>	
+	<ownedOperation xmi:id="936219350" name="born" bodyCondition="936219350577442875" postcondition="" precondition="" >
+		<ownedRule xmi:id="936219350577442875" name="" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="577442875936219350577442875" name="">
+			   	<language>OCL2.0</language>
+			   	  	<body>declare n : Person;
+			   	  			n := new Person(nombre);
+			   	  			insert(self, n) into Belong;
+			   	  			n.birthYear := self.clock.NOW;
+			   	  			n.age := 0;</body>
+			  	</specification>
+		</ownedRule>
+		<ownedParameter xmi:id="720770771" name="nombre" >
+		<type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+		</ownedParameter>
+	</ownedOperation>	
+	<ownedOperation xmi:id="1658020779" name="insertPerson" bodyCondition="16580207791747702724" postcondition="" precondition="2114629072 " >
+		<ownedRule xmi:id="16580207791747702724" name="" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="174770272416580207791747702724" name="">
+			   	<language>OCL2.0</language>
+			   	  	<body>declare n : Person;
+			   	  			n := new Person(nombre);
+			   	  			insert(self, n) into Belong;
+			   	  			n.birthYear := birthYear;
+			   	  			n.age := self.clock.NOW - n.birthYear;
+			   	  			n.ajustarFase();</body>
+			  	</specification>
+		</ownedRule>
+		<ownedRule xmi:id="2114629072" name="anioMenorIgualClock" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="6697253362114629072" name="anioMenorIgualClock">
+			   	<language>OCL2.0</language>
+			   	  	<body>birthYear <= self.clock.NOW</body>
+			  	</specification>
+		</ownedRule>
+		<ownedParameter xmi:id="1593368350" name="nombre" >
+		<type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+		</ownedParameter>
+		<ownedParameter xmi:id="1494277749" name="birthYear" >
+		<type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+		</ownedParameter>
+	</ownedOperation>	
+	</packagedElement>
+	<packagedElement xmi:type="uml:Class" xmi:id="502891368"  name="Clock">
+	<ownedRule xmi:id="183304529" name="soloExisteUnClock" constrainedElement="502891368">
+		<specification xmi:type="uml:OpaqueExpression" xmi:id="521331027183304529" name="soloExisteUnClock">
+		   	<language>OCL2.0</language>
+		   	  	<body>Clock.allInstances -> size() <= 1</body>
+		  	</specification>
+	</ownedRule>
+	<ownedRule xmi:id="244297136" name="tiempoNoUndefined" constrainedElement="502891368">
+		<specification xmi:type="uml:OpaqueExpression" xmi:id="1399225534244297136" name="tiempoNoUndefined">
+		   	<language>OCL2.0</language>
+		   	  	<body>not self.NOW.oclIsUndefined</body>
+		  	</specification>
+	</ownedRule>
+	<ownedAttribute xmi:id="752011518" name="NOW" >
+	<type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+	</ownedAttribute>
+	<ownedAttribute xmi:id="910504711" name="community" type="852190062" association="1991094835" >
+	<lowerValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="85219006219910948351" name="" value="*"/>
+	<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="85219006219910948352" name="" value="*"/>
+	</ownedAttribute>
+	<ownedOperation xmi:id="1746578747" name="tick" bodyCondition="1746578747254692047" postcondition="" precondition="" >
+		<ownedRule xmi:id="1746578747254692047" name="" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="2546920471746578747254692047" name="">
+			   	<language>OCL2.0</language>
+			   	  	<body>		self.NOW := self.NOW + te;
+			   	  			for p in self.community.person do
+			   	  				p.esMiCumple(te);
+			   	  			end
+			   	  	</body>
+			  	</specification>
+		</ownedRule>
+		<ownedParameter xmi:id="1589466857" name="te" >
+		<type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+		</ownedParameter>
+	</ownedOperation>	
+	</packagedElement>
+	<packagedElement xmi:type="uml:Class" xmi:id="458817438"  name="Person">
+	<ownedRule xmi:id="948424584" name="noFallecerAntesDeNacer" constrainedElement="458817438">
+		<specification xmi:type="uml:OpaqueExpression" xmi:id="2027701910948424584" name="noFallecerAntesDeNacer">
+		   	<language>OCL2.0</language>
+		   	  	<body>self.birthYear <= self.deathYear or self.deathYear.oclIsUndefined</body>
+		  	</specification>
+	</ownedRule>
+	<ownedRule xmi:id="1466413743" name="noNacerEnFuturo" constrainedElement="458817438">
+		<specification xmi:type="uml:OpaqueExpression" xmi:id="20301217191466413743" name="noNacerEnFuturo">
+		   	<language>OCL2.0</language>
+		   	  	<body>self.birthYear <= self.community.clock.NOW</body>
+		  	</specification>
+	</ownedRule>
+	<ownedRule xmi:id="1613514326" name="noMorirEnFuturo" constrainedElement="458817438">
+		<specification xmi:type="uml:OpaqueExpression" xmi:id="18844228651613514326" name="noMorirEnFuturo">
+		   	<language>OCL2.0</language>
+		   	  	<body>self.deathYear <= self.community.clock.NOW or self.deathYear.oclIsUndefined</body>
+		  	</specification>
+	</ownedRule>
+	<ownedRule xmi:id="817490653" name="birthYearAndAgeUndefined" constrainedElement="458817438">
+		<specification xmi:type="uml:OpaqueExpression" xmi:id="1093441885817490653" name="birthYearAndAgeUndefined">
+		   	<language>OCL2.0</language>
+		   	  	<body>not self.birthYear.oclIsUndefined and not self.age.oclIsUndefined</body>
+		  	</specification>
+	</ownedRule>
+	<ownedRule xmi:id="1080167822" name="noDivorcioDeAlguienNoParejaActual" constrainedElement="458817438">
+		<specification xmi:type="uml:OpaqueExpression" xmi:id="12363035871080167822" name="noDivorcioDeAlguienNoParejaActual">
+		   	<language>OCL2.0</language>
+		   	  	<body>(self.askedDivorce -> isEmpty() or self.askedDivorce = self.activePartner) and (self.askDivorce -> isEmpty() or self.askDivorce = self.activePartner)</body>
+		  	</specification>
+	</ownedRule>
+	<ownedRule xmi:id="144467413" name="muertosNoCasados" constrainedElement="458817438">
+		<specification xmi:type="uml:OpaqueExpression" xmi:id="941403433144467413" name="muertosNoCasados">
+		   	<language>OCL2.0</language>
+		   	  	<body>self.isDead implies not self.isMarried()</body>
+		  	</specification>
+	</ownedRule>
+	<ownedRule xmi:id="1601756706" name="noMonogamia" constrainedElement="458817438">
+		<specification xmi:type="uml:OpaqueExpression" xmi:id="13005767341601756706" name="noMonogamia">
+		   	<language>OCL2.0</language>
+		   	  	<body>self.wife -> select(m|m.endYear.oclIsUndefined) -> union(self.husband -> select(m|m.endYear.oclIsUndefined)) -> size() <= 1</body>
+		  	</specification>
+	</ownedRule>
+	<ownedRule xmi:id="1147394515" name="noMatrimoniosSolapados" constrainedElement="458817438">
+		<specification xmi:type="uml:OpaqueExpression" xmi:id="14023337531147394515" name="noMatrimoniosSolapados">
+		   	<language>OCL2.0</language>
+		   	  	<body>self.wife -> union(self.husband) -> forAll(m1,m2|m1 <> m2 implies m1.startYear >= m2.endYear or m2.startYear >= m1.endYear)</body>
+		  	</specification>
+	</ownedRule>
+	<ownedRule xmi:id="46627301" name="noPermitirEutanasiaAElMismo" constrainedElement="458817438">
+		<specification xmi:type="uml:OpaqueExpression" xmi:id="136759437746627301" name="noPermitirEutanasiaAElMismo">
+		   	<language>OCL2.0</language>
+		   	  	<body>self.killer -> excludes(self)</body>
+		  	</specification>
+	</ownedRule>
+	<ownedRule xmi:id="463215441" name="noPedidaMatrimonioSiCasado" constrainedElement="458817438">
+		<specification xmi:type="uml:OpaqueExpression" xmi:id="385784873463215441" name="noPedidaMatrimonioSiCasado">
+		   	<language>OCL2.0</language>
+		   	  	<body>self.isMarried() = true implies self.ask -> isEmpty and self.asked -> isEmpty</body>
+		  	</specification>
+	</ownedRule>
+	<ownedAttribute xmi:id="1982958205" name="birthYear" >
+	<type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+	</ownedAttribute>
+	<ownedAttribute xmi:id="1482166692" name="deathYear" >
+	<type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+	</ownedAttribute>
+	<ownedAttribute xmi:id="1280128554" name="age" >
+	<type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+	</ownedAttribute>
+	<ownedAttribute xmi:id="762509150" name="isDead" >
+	<type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+	</ownedAttribute>
+	<ownedAttribute xmi:id="380616082" name="activePartner" type="458817438">
+	</ownedAttribute>
+	<ownedAttribute xmi:id="1404669942" name="community" type="852190062" association="223975178" >
+	<lowerValue xmi:type="uml:LiteralInteger" xmi:id="8521900622239751781" name="" value="1"/>
+	<upperValue xmi:type="uml:LiteralInteger" xmi:id="8521900622239751782" name="" value="1"/>
+	</ownedAttribute>
+	<ownedAttribute xmi:id="1602785474" name="husband" type="959834536" association="1968196847" >
+	<lowerValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="95983453619681968471" name="" value="*"/>
+	<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="95983453619681968472" name="" value="*"/>
+	</ownedAttribute>
+	<ownedAttribute xmi:id="1046056441" name="wife" type="959834536" association="2141066548" >
+	<lowerValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="95983453621410665481" name="" value="*"/>
+	<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="95983453621410665482" name="" value="*"/>
+	</ownedAttribute>
+	<ownedOperation xmi:id="1215029765" name="isMarried" bodyCondition="12150297651554086576" postcondition="" precondition="" isQuery="true">
+		<ownedRule xmi:id="12150297651554086576" name="" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="155408657612150297651554086576" name="">
+			   	<language>OCL2.0</language>
+			   	  	<body>self.wife -> union(self.husband) -> exists(m|m.endYear.oclIsUndefined)</body>
+			  	</specification>
+		</ownedRule>
+		<ownedParameter xmi:id="12633912541215029765" name=""  direction="return">
 		<type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
 		</ownedParameter>
-		<ownedParameter xmi:id="1250582716" name="a" type="961859592">
+	</ownedOperation>	
+	<ownedOperation xmi:id="792488644" name="marriages" bodyCondition="7924886441094272405" postcondition="" precondition="" isQuery="true">
+		<ownedRule xmi:id="7924886441094272405" name="" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="10942724057924886441094272405" name="">
+			   	<language>OCL2.0</language>
+			   	  	<body>if self.wife -> union(self.husband) -> notEmpty then self.wife -> union(self.husband) -> size  else 0 endif</body>
+			  	</specification>
+		</ownedRule>
+		<ownedParameter xmi:id="220165304792488644" name=""  direction="return">
+		<type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+		</ownedParameter>
+	</ownedOperation>	
+	<ownedOperation xmi:id="616443292" name="beingDead"  postcondition="" precondition="626393072 2081964843 " >
+		<ownedRule xmi:id="626393072" name="estarMuerto" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="302987494626393072" name="estarMuerto">
+			   	<language>OCL2.0</language>
+			   	  	<body>self.isDead</body>
+			  	</specification>
+		</ownedRule>
+		<ownedRule xmi:id="2081964843" name="noEstaEstadoMuerto" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="18938997962081964843" name="noEstaEstadoMuerto">
+			   	<language>OCL2.0</language>
+			   	  	<body>not self.oclInState(dead)</body>
+			  	</specification>
+		</ownedRule>
+	</ownedOperation>	
+	<ownedOperation xmi:id="238874235" name="murder" bodyCondition="238874235604602011" postcondition="619985571 " precondition="1526305386 818093527 47918293 1917442783 " >
+		<ownedRule xmi:id="238874235604602011" name="" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="604602011238874235604602011" name="">
+			   	<language>OCL2.0</language>
+			   	  	<body>p.community.die(p);</body>
+			  	</specification>
+		</ownedRule>
+		<ownedRule xmi:id="1526305386" name="noEutanasia" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="10272001526305386" name="noEutanasia">
+			   	<language>OCL2.0</language>
+			   	  	<body>p.killer -> excludes(self)</body>
+			  	</specification>
+		</ownedRule>
+		<ownedRule xmi:id="818093527" name="noSuicidio" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="1500379239818093527" name="noSuicidio">
+			   	<language>OCL2.0</language>
+			   	  	<body>p <> self</body>
+			  	</specification>
+		</ownedRule>
+		<ownedRule xmi:id="47918293" name="muertoNoPuedeMatar" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="10210341047918293" name="muertoNoPuedeMatar">
+			   	<language>OCL2.0</language>
+			   	  	<body>not self.isDead</body>
+			  	</specification>
+		</ownedRule>
+		<ownedRule xmi:id="1917442783" name="estaViva" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="17136056021917442783" name="estaViva">
+			   	<language>OCL2.0</language>
+			   	  	<body>not p.isDead</body>
+			  	</specification>
+		</ownedRule>
+		<ownedRule xmi:id="619985571" name="estaMuerta" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="504478805619985571" name="estaMuerta">
+			   	<language>OCL2.0</language>
+			   	  	<body>p.isDead</body>
+			  	</specification>
+		</ownedRule>
+		<ownedParameter xmi:id="1082865087" name="p" type="458817438">
+		</ownedParameter>
+	</ownedOperation>	
+	<ownedOperation xmi:id="984412970" name="informDeadPartner" bodyCondition="9844129701589214445" postcondition="1028472807 834824701 " precondition="1541942595 1076855029 " >
+		<ownedRule xmi:id="9844129701589214445" name="" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="15892144459844129701589214445" name="">
+			   	<language>OCL2.0</language>
+			   	  	<body>declare m : Marriage;
+			   	  				m := self.wife -> union(self.husband) -> any(m | m.endYear.oclIsUndefined);
+			   	  				m.endYear := self.community.clock.NOW;
+			   	  				self.activePartner := null;</body>
+			  	</specification>
+		</ownedRule>
+		<ownedRule xmi:id="1541942595" name="parejaHaMuerto" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="8785986791541942595" name="parejaHaMuerto">
+			   	<language>OCL2.0</language>
+			   	  	<body>self.activePartner.isDead</body>
+			  	</specification>
+		</ownedRule>
+		<ownedRule xmi:id="1076855029" name="yoNoMuerto" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="3228307471076855029" name="yoNoMuerto">
+			   	<language>OCL2.0</language>
+			   	  	<body>not self.isDead</body>
+			  	</specification>
+		</ownedRule>
+		<ownedRule xmi:id="1028472807" name="yaNoCasado" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="13657902821028472807" name="yaNoCasado">
+			   	<language>OCL2.0</language>
+			   	  	<body>not self.isMarried()</body>
+			  	</specification>
+		</ownedRule>
+		<ownedRule xmi:id="834824701" name="sinParejaActiva" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="1198817209834824701" name="sinParejaActiva">
+			   	<language>OCL2.0</language>
+			   	  	<body>self.activePartner.oclIsUndefined</body>
+			  	</specification>
+		</ownedRule>
+	</ownedOperation>	
+	<ownedOperation xmi:id="205615258" name="permitEuthanasia" bodyCondition="2056152581757032717" postcondition="1103132232 " precondition="443502884 854989361 " >
+		<ownedRule xmi:id="2056152581757032717" name="" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="17570327172056152581757032717" name="">
+			   	<language>OCL2.0</language>
+			   	  	<body>insert(self, p) into Euthanasia</body>
+			  	</specification>
+		</ownedRule>
+		<ownedRule xmi:id="443502884" name="noSoyYo" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="247644034443502884" name="noSoyYo">
+			   	<language>OCL2.0</language>
+			   	  	<body>p <> self</body>
+			  	</specification>
+		</ownedRule>
+		<ownedRule xmi:id="854989361" name="estamosVivos" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="1720865719854989361" name="estamosVivos">
+			   	<language>OCL2.0</language>
+			   	  	<body>not (p.isDead or self.isDead)</body>
+			  	</specification>
+		</ownedRule>
+		<ownedRule xmi:id="1103132232" name="insertadoCorrectamente" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="20152614781103132232" name="insertadoCorrectamente">
+			   	<language>OCL2.0</language>
+			   	  	<body>self.killer -> includes(p) and p.wantToDie -> includes(self)</body>
+			  	</specification>
+		</ownedRule>
+		<ownedParameter xmi:id="1391119179" name="p" type="458817438">
+		</ownedParameter>
+	</ownedOperation>	
+	<ownedOperation xmi:id="1481751887" name="denyEuthanasia" bodyCondition="1481751887356476647" postcondition="201804812 " precondition="981487964 " >
+		<ownedRule xmi:id="1481751887356476647" name="" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="3564766471481751887356476647" name="">
+			   	<language>OCL2.0</language>
+			   	  	<body>delete(self, p) from Euthanasia</body>
+			  	</specification>
+		</ownedRule>
+		<ownedRule xmi:id="981487964" name="leHabiaDadoPermiso" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="478182173981487964" name="leHabiaDadoPermiso">
+			   	<language>OCL2.0</language>
+			   	  	<body>self.killer -> includes(p)</body>
+			  	</specification>
+		</ownedRule>
+		<ownedRule xmi:id="201804812" name="yaNoTienePermiso" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="1498016680201804812" name="yaNoTienePermiso">
+			   	<language>OCL2.0</language>
+			   	  	<body>self.killer -> excludes(p)</body>
+			  	</specification>
+		</ownedRule>
+		<ownedParameter xmi:id="1017792343" name="p" type="458817438">
+		</ownedParameter>
+	</ownedOperation>	
+	<ownedOperation xmi:id="683718244" name="esMiCumple" bodyCondition="6837182442058174333" postcondition="1372137902 1622135821 " precondition="1760401098 " >
+		<ownedRule xmi:id="6837182442058174333" name="" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="20581743336837182442058174333" name="">
+			   	<language>OCL2.0</language>
+			   	  	<body>			if(not self.isDead) then
+			   	  				  self.age := self.age + te
+			   	  				end
+			   	  	</body>
+			  	</specification>
+		</ownedRule>
+		<ownedRule xmi:id="1760401098" name="positivo" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="8415379361760401098" name="positivo">
+			   	<language>OCL2.0</language>
+			   	  	<body>te > 0</body>
+			  	</specification>
+		</ownedRule>
+		<ownedRule xmi:id="1372137902" name="sumado" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="7016817931372137902" name="sumado">
+			   	<language>OCL2.0</language>
+			   	  	<body>not self.isDead implies self.age = self.age@pre + te</body>
+			  	</specification>
+		</ownedRule>
+		<ownedRule xmi:id="1622135821" name="edadEstaBien" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="10590806301622135821" name="edadEstaBien">
+			   	<language>OCL2.0</language>
+			   	  	<body>if (self.isDead) then self.age = self.deathYear - self.birthYear  else self.age = self.community.clock.NOW - self.birthYear endif</body>
+			  	</specification>
+		</ownedRule>
+		<ownedParameter xmi:id="1857910993" name="te" >
+		<type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+		</ownedParameter>
+	</ownedOperation>	
+	<ownedOperation xmi:id="1356236848" name="ajustarFase"  postcondition="" precondition="61304908 " >
+		<ownedRule xmi:id="61304908" name="soloCuandoSaleChildYNoLoEs" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="163760161261304908" name="soloCuandoSaleChildYNoLoEs">
+			   	<language>OCL2.0</language>
+			   	  	<body>self.oclInState(child)</body>
+			  	</specification>
+		</ownedRule>
+	</ownedOperation>	
+	<ownedOperation xmi:id="1855734078" name="askMarriage" bodyCondition="18557340781868987089" postcondition="1182758821 " precondition="869290854 1895054149 653345773 331748029 " >
+		<ownedRule xmi:id="18557340781868987089" name="" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="186898708918557340781868987089" name="">
+			   	<language>OCL2.0</language>
+			   	  	<body>insert(self, p) into ConsentMarriage</body>
+			  	</specification>
+		</ownedRule>
+		<ownedRule xmi:id="869290854" name="noSoyYo" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="1989332276869290854" name="noSoyYo">
+			   	<language>OCL2.0</language>
+			   	  	<body>p <> self</body>
+			  	</specification>
+		</ownedRule>
+		<ownedRule xmi:id="1895054149" name="noEstoyCasado" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="2797815791895054149" name="noEstoyCasado">
+			   	<language>OCL2.0</language>
+			   	  	<body>not self.isMarried()</body>
+			  	</specification>
+		</ownedRule>
+		<ownedRule xmi:id="653345773" name="noEstaCasado" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="1266093632653345773" name="noEstaCasado">
+			   	<language>OCL2.0</language>
+			   	  	<body>not p.isMarried()</body>
+			  	</specification>
+		</ownedRule>
+		<ownedRule xmi:id="331748029" name="ningunoMuertoniNinio" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="1802736936331748029" name="ningunoMuertoniNinio">
+			   	<language>OCL2.0</language>
+			   	  	<body>not (p.isDead or self.isDead) and not (self.oclInState(child) or p.oclInState(child))</body>
+			  	</specification>
+		</ownedRule>
+		<ownedRule xmi:id="1182758821" name="pedidoCorrectamente" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="11080669521182758821" name="pedidoCorrectamente">
+			   	<language>OCL2.0</language>
+			   	  	<body>self.asked -> includes(p)</body>
+			  	</specification>
+		</ownedRule>
+		<ownedParameter xmi:id="977650730" name="p" type="458817438">
+		</ownedParameter>
+	</ownedOperation>	
+	<ownedOperation xmi:id="140428850" name="refuseMarriage" bodyCondition="1404288501449987177" postcondition="1511180072 " precondition="238431319 " >
+		<ownedRule xmi:id="1404288501449987177" name="" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="14499871771404288501449987177" name="">
+			   	<language>OCL2.0</language>
+			   	  	<body>delete (p, self) from ConsentMarriage</body>
+			  	</specification>
+		</ownedRule>
+		<ownedRule xmi:id="238431319" name="tieneQueHaberPedido" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="2042917213238431319" name="tieneQueHaberPedido">
+			   	<language>OCL2.0</language>
+			   	  	<body>self.ask -> includes(p)</body>
+			  	</specification>
+		</ownedRule>
+		<ownedRule xmi:id="1511180072" name="rechazado" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="18515225561511180072" name="rechazado">
+			   	<language>OCL2.0</language>
+			   	  	<body>self.ask -> excludes(p)</body>
+			  	</specification>
+		</ownedRule>
+		<ownedParameter xmi:id="1608103523" name="p" type="458817438">
+		</ownedParameter>
+	</ownedOperation>	
+	<ownedOperation xmi:id="29774113" name="acceptMarriage" bodyCondition="29774113948650013" postcondition="451959555 544628437 " precondition="1791267914 523051393 1393198164 " >
+		<ownedRule xmi:id="29774113948650013" name="" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="94865001329774113948650013" name="">
+			   	<language>OCL2.0</language>
+			   	  	<body>			if self.asked -> excludes(p) then
+			   	  					insert(self, p) into ConsentMarriage;
+			   	  					self.community.createMarriage(self, p)
+			   	  				else
+			   	  					self.community.createMarriage(self, p)
+			   	  				end
+			   	  	</body>
+			  	</specification>
+		</ownedRule>
+		<ownedRule xmi:id="1791267914" name="tieneQueHaberPedido" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="9728438201791267914" name="tieneQueHaberPedido">
+			   	<language>OCL2.0</language>
+			   	  	<body>self.ask -> includes(p)</body>
+			  	</specification>
+		</ownedRule>
+		<ownedRule xmi:id="523051393" name="noEstoyCasado" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="2128961136523051393" name="noEstoyCasado">
+			   	<language>OCL2.0</language>
+			   	  	<body>not self.isMarried()</body>
+			  	</specification>
+		</ownedRule>
+		<ownedRule xmi:id="1393198164" name="ningunoMuerto" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="13771606021393198164" name="ningunoMuerto">
+			   	<language>OCL2.0</language>
+			   	  	<body>not (p.isDead or self.isDead)</body>
+			  	</specification>
+		</ownedRule>
+		<ownedRule xmi:id="451959555" name="eliminadaPedida" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="28145535451959555" name="eliminadaPedida">
+			   	<language>OCL2.0</language>
+			   	  	<body>self.asked -> excludes(p) and p.asked -> excludes(self)</body>
+			  	</specification>
+		</ownedRule>
+		<ownedRule xmi:id="544628437" name="matrimonioCreado" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="681158875544628437" name="matrimonioCreado">
+			   	<language>OCL2.0</language>
+			   	  	<body>self.activePartner = p and p.activePartner = self</body>
+			  	</specification>
+		</ownedRule>
+		<ownedParameter xmi:id="609389093" name="p" type="458817438">
+		</ownedParameter>
+	</ownedOperation>	
+	<ownedOperation xmi:id="1538511917" name="getMarry"  postcondition="" precondition="699871906 348148678 1604616170 1914615775 " >
+		<ownedRule xmi:id="699871906" name="ningunoMuerto" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="1365711624699871906" name="ningunoMuerto">
+			   	<language>OCL2.0</language>
+			   	  	<body>not (p.isDead or self.isDead)</body>
+			  	</specification>
+		</ownedRule>
+		<ownedRule xmi:id="348148678" name="tieneQueHaberConsentimiento" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="814111376348148678" name="tieneQueHaberConsentimiento">
+			   	<language>OCL2.0</language>
+			   	  	<body>self.asked -> includes(p) and p.asked -> includes(self)</body>
+			  	</specification>
+		</ownedRule>
+		<ownedRule xmi:id="1604616170" name="matrimonioCreado" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="15311752831604616170" name="matrimonioCreado">
+			   	<language>OCL2.0</language>
+			   	  	<body>self.activePartner = p and p.activePartner = self</body>
+			  	</specification>
+		</ownedRule>
+		<ownedRule xmi:id="1914615775" name="estanCasados" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="15657133911914615775" name="estanCasados">
+			   	<language>OCL2.0</language>
+			   	  	<body>self.isMarried() and p.isMarried()</body>
+			  	</specification>
+		</ownedRule>
+		<ownedParameter xmi:id="187120217" name="p" type="458817438">
+		</ownedParameter>
+	</ownedOperation>	
+	<ownedOperation xmi:id="1800605369" name="askDivorce" bodyCondition="1800605369734971558" postcondition="600199331 " precondition="401891515 " >
+		<ownedRule xmi:id="1800605369734971558" name="" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="7349715581800605369734971558" name="">
+			   	<language>OCL2.0</language>
+			   	  	<body>insert(self, self.activePartner) into ConsentDivorce</body>
+			  	</specification>
+		</ownedRule>
+		<ownedRule xmi:id="401891515" name="estoyCasado" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="2099932844401891515" name="estoyCasado">
+			   	<language>OCL2.0</language>
+			   	  	<body>self.isMarried()</body>
+			  	</specification>
+		</ownedRule>
+		<ownedRule xmi:id="600199331" name="pedidoCorrectamente" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="143295000600199331" name="pedidoCorrectamente">
+			   	<language>OCL2.0</language>
+			   	  	<body>self.askedDivorce -> includes(self.activePartner)</body>
+			  	</specification>
+		</ownedRule>
+	</ownedOperation>	
+	<ownedOperation xmi:id="1612853208" name="refuseDivorce" bodyCondition="16128532082007138812" postcondition="918899286 " precondition="1896558831 1685134322 " >
+		<ownedRule xmi:id="16128532082007138812" name="" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="200713881216128532082007138812" name="">
+			   	<language>OCL2.0</language>
+			   	  	<body>delete(self.activePartner, self) from ConsentDivorce</body>
+			  	</specification>
+		</ownedRule>
+		<ownedRule xmi:id="1896558831" name="estoyCasado" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="6829810331896558831" name="estoyCasado">
+			   	<language>OCL2.0</language>
+			   	  	<body>self.isMarried()</body>
+			  	</specification>
+		</ownedRule>
+		<ownedRule xmi:id="1685134322" name="tieneQueHaberPedido" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="10086082551685134322" name="tieneQueHaberPedido">
+			   	<language>OCL2.0</language>
+			   	  	<body>self.askDivorce -> includes(self.activePartner)</body>
+			  	</specification>
+		</ownedRule>
+		<ownedRule xmi:id="918899286" name="rechazado" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="2074492901918899286" name="rechazado">
+			   	<language>OCL2.0</language>
+			   	  	<body>self.askDivorce -> excludes(self.activePartner)</body>
+			  	</specification>
+		</ownedRule>
+	</ownedOperation>	
+	<ownedOperation xmi:id="404586280" name="acceptDivorce" bodyCondition="4045862801225970981" postcondition="298724898 1617937669 " precondition="215632153 1438000681 1614079837 " >
+		<ownedRule xmi:id="4045862801225970981" name="" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="12259709814045862801225970981" name="">
+			   	<language>OCL2.0</language>
+			   	  	<body>			if self.askedDivorce -> excludes(self.activePartner) then
+			   	  					insert(self, self.activePartner) into ConsentDivorce;
+			   	  					self.community.createDivorce(self, self.activePartner);
+			   	  				else 
+			   	  					self.community.createDivorce(self, self.activePartner);
+			   	  				end
+			   	  	</body>
+			  	</specification>
+		</ownedRule>
+		<ownedRule xmi:id="215632153" name="tieneQueHaberPedido" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="790229674215632153" name="tieneQueHaberPedido">
+			   	<language>OCL2.0</language>
+			   	  	<body>self.askDivorce -> includes(self.activePartner)</body>
+			  	</specification>
+		</ownedRule>
+		<ownedRule xmi:id="1438000681" name="sonMatrimonio" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="989748931438000681" name="sonMatrimonio">
+			   	<language>OCL2.0</language>
+			   	  	<body>self.activePartner.activePartner = self</body>
+			  	</specification>
+		</ownedRule>
+		<ownedRule xmi:id="1614079837" name="estanCasados" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="10609284751614079837" name="estanCasados">
+			   	<language>OCL2.0</language>
+			   	  	<body>self.isMarried() and self.activePartner.isMarried()</body>
+			  	</specification>
+		</ownedRule>
+		<ownedRule xmi:id="298724898" name="eliminadaPedida" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="332244937298724898" name="eliminadaPedida">
+			   	<language>OCL2.0</language>
+			   	  	<body>self.askedDivorce -> excludes(self.activePartner@pre) and self.activePartner@pre.askedDivorce -> excludes(self)</body>
+			  	</specification>
+		</ownedRule>
+		<ownedRule xmi:id="1617937669" name="divorciadosCorrectamente" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="472680071617937669" name="divorciadosCorrectamente">
+			   	<language>OCL2.0</language>
+			   	  	<body>self.activePartner.oclIsUndefined and self.activePartner@pre.activePartner.oclIsUndefined</body>
+			  	</specification>
+		</ownedRule>
+	</ownedOperation>	
+	<ownedOperation xmi:id="1096682443" name="getDivorce"  postcondition="" precondition="374646930 554634433 269458366 1125098735 1264701638 619241052 " >
+		<ownedRule xmi:id="374646930" name="matrimonioFinalizado" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="828610686374646930" name="matrimonioFinalizado">
+			   	<language>OCL2.0</language>
+			   	  	<body>not m.endYear.oclIsUndefined</body>
+			  	</specification>
+		</ownedRule>
+		<ownedRule xmi:id="554634433" name="estabanCasados" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="1872088401554634433" name="estabanCasados">
+			   	<language>OCL2.0</language>
+			   	  	<body>(m.wife = self and m.husband = p) or (m.wife = p and m.husband = self)</body>
+			  	</specification>
+		</ownedRule>
+		<ownedRule xmi:id="269458366" name="ningunoMuerto" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="1731967318269458366" name="ningunoMuerto">
+			   	<language>OCL2.0</language>
+			   	  	<body>not (p.isDead or self.isDead)</body>
+			  	</specification>
+		</ownedRule>
+		<ownedRule xmi:id="1125098735" name="tieneQueHaberConsentimiento" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="5850745101125098735" name="tieneQueHaberConsentimiento">
+			   	<language>OCL2.0</language>
+			   	  	<body>self.askedDivorce -> includes(p) and p.askedDivorce -> includes(self)</body>
+			  	</specification>
+		</ownedRule>
+		<ownedRule xmi:id="1264701638" name="divorciadosCorrectamente" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="17097003941264701638" name="divorciadosCorrectamente">
+			   	<language>OCL2.0</language>
+			   	  	<body>self.activePartner.oclIsUndefined and p.activePartner.oclIsUndefined</body>
+			  	</specification>
+		</ownedRule>
+		<ownedRule xmi:id="619241052" name="noEstanCasados" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="285754614619241052" name="noEstanCasados">
+			   	<language>OCL2.0</language>
+			   	  	<body>not (self.isMarried() and p.isMarried())</body>
+			  	</specification>
+		</ownedRule>
+		<ownedParameter xmi:id="741390111" name="p" type="458817438">
+		</ownedParameter>
+		<ownedParameter xmi:id="200744172" name="m" type="959834536">
 		</ownedParameter>
 	</ownedOperation>	
 	</packagedElement>
-	<packagedElement xmi:type="uml:Class" xmi:id="546796969"  name="Profesor">
-	<ownedRule xmi:id="669053685" name="noMatriculaEnSuAsignatura" constrainedElement="546796969">
-		<specification xmi:type="uml:OpaqueExpression" xmi:id="1840670774669053685" name="noMatriculaEnSuAsignatura">
+	<packagedElement xmi:type="uml:Class" xmi:id="959834536"  name="Marriage">
+	<ownedRule xmi:id="178393154" name="matrimonioNoAcabarAntesEmpezar" constrainedElement="959834536">
+		<specification xmi:type="uml:OpaqueExpression" xmi:id="1290698656178393154" name="matrimonioNoAcabarAntesEmpezar">
 		   	<language>OCL2.0</language>
-		   	  	<body></body>
+		   	  	<body>self.startYear <= self.endYear or self.endYear.oclIsUndefined</body>
 		  	</specification>
 	</ownedRule>
-	<generalization xmi:id="261845810" general="1076966140"/>
-	<ownedAttribute xmi:id="2052489518" name="imparteProfesor" type="2080643905" association="1168079523" >
-	<lowerValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="208064390511680795231" name="" value="*"/>
-	<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="208064390511680795232" name="" value="*"/>
+	<ownedRule xmi:id="1164699452" name="noMatrimoniosFuturos" constrainedElement="959834536">
+		<specification xmi:type="uml:OpaqueExpression" xmi:id="15379123961164699452" name="noMatrimoniosFuturos">
+		   	<language>OCL2.0</language>
+		   	  	<body>self.startYear <= self.wife.community.clock.NOW</body>
+		  	</specification>
+	</ownedRule>
+	<ownedRule xmi:id="2006835220" name="noCasadaConsigoMisma" constrainedElement="959834536">
+		<specification xmi:type="uml:OpaqueExpression" xmi:id="358646962006835220" name="noCasadaConsigoMisma">
+		   	<language>OCL2.0</language>
+		   	  	<body>self.wife <> self.husband</body>
+		  	</specification>
+	</ownedRule>
+	<ownedRule xmi:id="1052127672" name="noNiniosCasados" constrainedElement="959834536">
+		<specification xmi:type="uml:OpaqueExpression" xmi:id="18118804471052127672" name="noNiniosCasados">
+		   	<language>OCL2.0</language>
+		   	  	<body>self.wife.age >= self.wife.community.minAgeYoung and self.husband.age >= self.husband.community.minAgeYoung</body>
+		  	</specification>
+	</ownedRule>
+	<ownedAttribute xmi:id="1160546880" name="startYear" >
+	<type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
 	</ownedAttribute>
-	<ownedOperation xmi:id="1877986974" name="evaluar" bodyCondition="18779869741599556802" postcondition="1193841543 " precondition="701487403 2075372030 1004430079 " >
-		<ownedRule xmi:id="18779869741599556802" name="" >
-			<specification xmi:type="uml:OpaqueExpression" xmi:id="159955680218779869741599556802" name="">
-			   	<language>OCL2.0</language>
-			   	  	<body>(a.matricula -> any(m | m.alumno = a and m.imparticion = i)).calificacion := calificacion;</body>
-			  	</specification>
-		</ownedRule>
-		<ownedRule xmi:id="701487403" name="esSuAlumno" >
-			<specification xmi:type="uml:OpaqueExpression" xmi:id="2039984535701487403" name="esSuAlumno">
-			   	<language>OCL2.0</language>
-			   	  	<body></body>
-			  	</specification>
-		</ownedRule>
-		<ownedRule xmi:id="2075372030" name="esSuImparticion" >
-			<specification xmi:type="uml:OpaqueExpression" xmi:id="21391680002075372030" name="esSuImparticion">
-			   	<language>OCL2.0</language>
-			   	  	<body></body>
-			  	</specification>
-		</ownedRule>
-		<ownedRule xmi:id="1004430079" name="existeMatricula" >
-			<specification xmi:type="uml:OpaqueExpression" xmi:id="7325976341004430079" name="existeMatricula">
-			   	<language>OCL2.0</language>
-			   	  	<body></body>
-			  	</specification>
-		</ownedRule>
-		<ownedRule xmi:id="1193841543" name="notaPuesta" >
-			<specification xmi:type="uml:OpaqueExpression" xmi:id="2900965781193841543" name="notaPuesta">
-			   	<language>OCL2.0</language>
-			   	  	<body></body>
-			  	</specification>
-		</ownedRule>
-		<ownedParameter xmi:id="422522663" name="a" type="1076966140">
-		</ownedParameter>
-		<ownedParameter xmi:id="1800500978" name="i" type="2080643905">
-		</ownedParameter>
-		<ownedParameter xmi:id="247515192" name="calificacion" >
-		<type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
-		</ownedParameter>
-	</ownedOperation>	
-	</packagedElement>
-	<packagedElement xmi:type="uml:Class" xmi:id="707635461"  name="Titulo">
-	<ownedAttribute xmi:id="1641672672" name="alumno" type="1076966140" association="2125470482" >
-	<lowerValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="107696614021254704821" name="" value="*"/>
-	<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="107696614021254704822" name="" value="*"/>
+	<ownedAttribute xmi:id="1191874608" name="endYear" >
+	<type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
 	</ownedAttribute>
-	<ownedAttribute xmi:id="1720797452" name="universidad" type="633131207" association="1139609587" >
-	<lowerValue xmi:type="uml:LiteralInteger" xmi:id="63313120711396095871" name="" value="1"/>
-	<upperValue xmi:type="uml:LiteralInteger" xmi:id="63313120711396095872" name="" value="1"/>
+	<ownedAttribute xmi:id="1444494461" name="wife" type="458817438" association="1968196847" >
+	<lowerValue xmi:type="uml:LiteralInteger" xmi:id="45881743819681968471" name="" value="1"/>
+	<upperValue xmi:type="uml:LiteralInteger" xmi:id="45881743819681968472" name="" value="1"/>
 	</ownedAttribute>
-	<ownedAttribute xmi:id="519019247" name="titulacion" type="1088239991" association="777813771" >
-	<lowerValue xmi:type="uml:LiteralInteger" xmi:id="10882399917778137711" name="" value="1"/>
-	<upperValue xmi:type="uml:LiteralInteger" xmi:id="10882399917778137712" name="" value="1"/>
-	</ownedAttribute>
-	<ownedAttribute xmi:id="416049054" name="curso" type="1228798862" association="1572442646" >
-	<lowerValue xmi:type="uml:LiteralInteger" xmi:id="122879886215724426461" name="" value="1"/>
-	<upperValue xmi:type="uml:LiteralInteger" xmi:id="122879886215724426462" name="" value="1"/>
+	<ownedAttribute xmi:id="136312946" name="husband" type="458817438" association="2141066548" >
+	<lowerValue xmi:type="uml:LiteralInteger" xmi:id="45881743821410665481" name="" value="1"/>
+	<upperValue xmi:type="uml:LiteralInteger" xmi:id="45881743821410665482" name="" value="1"/>
 	</ownedAttribute>
 	</packagedElement>
-	<packagedElement xmi:type="uml:AssociationClass" xmi:id="1624211687" name="Matricula" memberEnd="1997344422 1410367298 "/>
-	<packagedElement xmi:type="uml:Association" xmi:id="515520300" name="Oferta" memberEnd="637091966 443110940 "/>
-	<packagedElement xmi:type="uml:Association" xmi:id="910123336" name="Combinacion" memberEnd="455668354 1584918772 "/>
-	<packagedElement xmi:type="uml:Association" xmi:id="1163088324" name="Contenido" memberEnd="1209451152 373437697 "/>
-	<packagedElement xmi:type="uml:Association" xmi:id="2048102341" name="Realizacion" memberEnd="813131188 748006558 "/>
-	<packagedElement xmi:type="uml:Association" xmi:id="1168079523" name="Ensenanza" memberEnd="2109027570 2052489518 "/>
-	<packagedElement xmi:type="uml:Association" xmi:id="2125470482" name="Obtencion" memberEnd="1641672672 15094126 "/>
-	<packagedElement xmi:type="uml:Association" xmi:id="1139609587" name="Composicion" memberEnd="173060252 1720797452 "/>
-	<packagedElement xmi:type="uml:Association" xmi:id="777813771" name="Composicion2" memberEnd="1306535359 519019247 "/>
-	<packagedElement xmi:type="uml:Association" xmi:id="1572442646" name="Composicion3" memberEnd="1545327692 416049054 "/>
+	<packagedElement xmi:type="uml:Association" xmi:id="223975178" name="Belong" memberEnd="1404669942 2144334265 "/>
+	<packagedElement xmi:type="uml:Association" xmi:id="1991094835" name="Time" memberEnd="910504711 1726715997 "/>
+	<packagedElement xmi:type="uml:Association" xmi:id="1968196847" name="Couple" memberEnd="1444494461 1602785474 "/>
+	<packagedElement xmi:type="uml:Association" xmi:id="2141066548" name="Couple2" memberEnd="136312946 1046056441 "/>
+	<packagedElement xmi:type="uml:Association" xmi:id="161113555" name="ConsentMarriage" memberEnd="1120670624 1746117425 "/>
+	<packagedElement xmi:type="uml:Association" xmi:id="967531000" name="ConsentDivorce" memberEnd="286658790 701724503 "/>
+	<packagedElement xmi:type="uml:Association" xmi:id="634156144" name="Euthanasia" memberEnd="2041996211 1562950869 "/>
 	</uml:Model>
 </xmi:XMI>

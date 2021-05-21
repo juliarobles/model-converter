@@ -982,7 +982,7 @@ public class USESemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     MultiplicityCS returns MultiplicityBoundsCS
 	 *
 	 * Constraint:
-	 *     (lowerBound=LOWER upperBound=UPPER? isNullFree?='|1'?)
+	 *     (lowerBound=LOWER upperBound=UPPER? (symbol='|?' | symbol='|1')?)
 	 */
 	protected void sequence_MultiplicityBoundsCS_MultiplicityCS(ISerializationContext context, MultiplicityBoundsCS semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -994,7 +994,7 @@ public class USESemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     MultiplicityCS returns MultiplicityStringCS
 	 *
 	 * Constraint:
-	 *     ((stringBounds='*' | stringBounds='+' | stringBounds='?') isNullFree?='|1'?)
+	 *     ((stringBounds='*' | stringBounds='+' | stringBounds='?') (symbol='|?' | symbol='|1')?)
 	 */
 	protected void sequence_MultiplicityCS_MultiplicityStringCS(ISerializationContext context, MultiplicityStringCS semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1044,7 +1044,7 @@ public class USESemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *         ownedSquareBracketedClauses+=SquareBracketedClauseCS* 
 	 *         ownedRoundBracketedClause=RoundBracketedClauseCS? 
 	 *         ownedCurlyBracketedClause=CurlyBracketedClauseCS? 
-	 *         isPre?='@'?
+	 *         (isPre?='@' pre?='pre')?
 	 *     )
 	 */
 	protected void sequence_NameExpCS(ISerializationContext context, NameExpCS semanticObject) {
@@ -1061,12 +1061,12 @@ public class USESemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *         (
 	 *             ownedNameExpression=NavigatingArgExpCS 
 	 *             (
-	 *                 (ownedCoIterator=CoIteratorVariableCS ownedInitExpression=ExpCS?) | 
-	 *                 (ownedType=TypeExpCS ownedCoIterator=CoIteratorVariableCS? ownedInitExpression=ExpCS?) | 
-	 *                 (ownedType=TypeExpCS? ownedCoIterator=CoIteratorVariableCS? ownedInitExpression=ExpCS)
+	 *                 (symbolCI='<-' ownedCoIterator=CoIteratorVariableCS (symbolIE='=' ownedInitExpression=ExpCS)?) | 
+	 *                 (symbolT=':' ownedType=TypeExpCS (symbolCI='<-' ownedCoIterator=CoIteratorVariableCS)? (symbolIE='=' ownedInitExpression=ExpCS)?) | 
+	 *                 ((symbolT=':' ownedType=TypeExpCS)? (symbolCI='<-' ownedCoIterator=CoIteratorVariableCS)? symbolIE='in' ownedInitExpression=ExpCS)
 	 *             )?
 	 *         ) | 
-	 *         ownedType=TypeExpCS
+	 *         (symbolT=':' ownedType=TypeExpCS)
 	 *     )
 	 */
 	protected void sequence_NavigatingArgCS(ISerializationContext context, NavigatingArgCS semanticObject) {
@@ -1079,7 +1079,7 @@ public class USESemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     NavigatingBarArgCS returns NavigatingArgCS
 	 *
 	 * Constraint:
-	 *     (prefix='|' ownedNameExpression=NavigatingArgExpCS (ownedType=TypeExpCS ownedInitExpression=ExpCS?)?)
+	 *     (prefix='|' ownedNameExpression=NavigatingArgExpCS (symbolT=':' ownedType=TypeExpCS (symbolIE='=' ownedInitExpression=ExpCS)?)?)
 	 */
 	protected void sequence_NavigatingBarArgCS(ISerializationContext context, NavigatingArgCS semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1095,9 +1095,9 @@ public class USESemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *         prefix=',' 
 	 *         ownedNameExpression=NavigatingArgExpCS 
 	 *         (
-	 *             (ownedCoIterator=CoIteratorVariableCS ownedInitExpression=ExpCS?) | 
-	 *             (ownedType=TypeExpCS ownedCoIterator=CoIteratorVariableCS? ownedInitExpression=ExpCS?) | 
-	 *             (ownedType=TypeExpCS? ownedCoIterator=CoIteratorVariableCS? ownedInitExpression=ExpCS)
+	 *             (symbolCI='<-' ownedCoIterator=CoIteratorVariableCS (symbolIE='=' ownedInitExpression=ExpCS)?) | 
+	 *             (symbolT=':' ownedType=TypeExpCS (symbolCI='<-' ownedCoIterator=CoIteratorVariableCS)? (symbolIE='=' ownedInitExpression=ExpCS)?) | 
+	 *             ((symbolT=':' ownedType=TypeExpCS)? (symbolCI='<-' ownedCoIterator=CoIteratorVariableCS)? symbolIE='in' ownedInitExpression=ExpCS)
 	 *         )?
 	 *     )
 	 */
@@ -1111,7 +1111,7 @@ public class USESemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     NavigatingSemiArgCS returns NavigatingArgCS
 	 *
 	 * Constraint:
-	 *     (prefix=';' ownedNameExpression=NavigatingArgExpCS (ownedType=TypeExpCS ownedInitExpression=ExpCS?)?)
+	 *     (prefix=';' ownedNameExpression=NavigatingArgExpCS (symbolT=':' ownedType=TypeExpCS (symbolIE='=' ownedInitExpression=ExpCS)?)?)
 	 */
 	protected void sequence_NavigatingSemiArgCS(ISerializationContext context, NavigatingArgCS semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

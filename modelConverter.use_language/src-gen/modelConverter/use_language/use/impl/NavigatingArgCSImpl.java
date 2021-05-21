@@ -28,8 +28,11 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <ul>
  *   <li>{@link modelConverter.use_language.use.impl.NavigatingArgCSImpl#getPrefix <em>Prefix</em>}</li>
  *   <li>{@link modelConverter.use_language.use.impl.NavigatingArgCSImpl#getOwnedNameExpression <em>Owned Name Expression</em>}</li>
+ *   <li>{@link modelConverter.use_language.use.impl.NavigatingArgCSImpl#getSymbolT <em>Symbol T</em>}</li>
  *   <li>{@link modelConverter.use_language.use.impl.NavigatingArgCSImpl#getOwnedType <em>Owned Type</em>}</li>
+ *   <li>{@link modelConverter.use_language.use.impl.NavigatingArgCSImpl#getSymbolIE <em>Symbol IE</em>}</li>
  *   <li>{@link modelConverter.use_language.use.impl.NavigatingArgCSImpl#getOwnedInitExpression <em>Owned Init Expression</em>}</li>
+ *   <li>{@link modelConverter.use_language.use.impl.NavigatingArgCSImpl#getSymbolCI <em>Symbol CI</em>}</li>
  *   <li>{@link modelConverter.use_language.use.impl.NavigatingArgCSImpl#getOwnedCoIterator <em>Owned Co Iterator</em>}</li>
  * </ul>
  *
@@ -68,6 +71,26 @@ public class NavigatingArgCSImpl extends MinimalEObjectImpl.Container implements
   protected ExpCS ownedNameExpression;
 
   /**
+   * The default value of the '{@link #getSymbolT() <em>Symbol T</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getSymbolT()
+   * @generated
+   * @ordered
+   */
+  protected static final String SYMBOL_T_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getSymbolT() <em>Symbol T</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getSymbolT()
+   * @generated
+   * @ordered
+   */
+  protected String symbolT = SYMBOL_T_EDEFAULT;
+
+  /**
    * The cached value of the '{@link #getOwnedType() <em>Owned Type</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -78,6 +101,26 @@ public class NavigatingArgCSImpl extends MinimalEObjectImpl.Container implements
   protected TypedRefCS ownedType;
 
   /**
+   * The default value of the '{@link #getSymbolIE() <em>Symbol IE</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getSymbolIE()
+   * @generated
+   * @ordered
+   */
+  protected static final String SYMBOL_IE_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getSymbolIE() <em>Symbol IE</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getSymbolIE()
+   * @generated
+   * @ordered
+   */
+  protected String symbolIE = SYMBOL_IE_EDEFAULT;
+
+  /**
    * The cached value of the '{@link #getOwnedInitExpression() <em>Owned Init Expression</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -86,6 +129,26 @@ public class NavigatingArgCSImpl extends MinimalEObjectImpl.Container implements
    * @ordered
    */
   protected ExpCS ownedInitExpression;
+
+  /**
+   * The default value of the '{@link #getSymbolCI() <em>Symbol CI</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getSymbolCI()
+   * @generated
+   * @ordered
+   */
+  protected static final String SYMBOL_CI_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getSymbolCI() <em>Symbol CI</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getSymbolCI()
+   * @generated
+   * @ordered
+   */
+  protected String symbolCI = SYMBOL_CI_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getOwnedCoIterator() <em>Owned Co Iterator</em>}' containment reference.
@@ -199,6 +262,31 @@ public class NavigatingArgCSImpl extends MinimalEObjectImpl.Container implements
    * @generated
    */
   @Override
+  public String getSymbolT()
+  {
+    return symbolT;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setSymbolT(String newSymbolT)
+  {
+    String oldSymbolT = symbolT;
+    symbolT = newSymbolT;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, UsePackage.NAVIGATING_ARG_CS__SYMBOL_T, oldSymbolT, symbolT));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public TypedRefCS getOwnedType()
   {
     return ownedType;
@@ -249,6 +337,31 @@ public class NavigatingArgCSImpl extends MinimalEObjectImpl.Container implements
    * @generated
    */
   @Override
+  public String getSymbolIE()
+  {
+    return symbolIE;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setSymbolIE(String newSymbolIE)
+  {
+    String oldSymbolIE = symbolIE;
+    symbolIE = newSymbolIE;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, UsePackage.NAVIGATING_ARG_CS__SYMBOL_IE, oldSymbolIE, symbolIE));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public ExpCS getOwnedInitExpression()
   {
     return ownedInitExpression;
@@ -291,6 +404,31 @@ public class NavigatingArgCSImpl extends MinimalEObjectImpl.Container implements
     }
     else if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, UsePackage.NAVIGATING_ARG_CS__OWNED_INIT_EXPRESSION, newOwnedInitExpression, newOwnedInitExpression));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String getSymbolCI()
+  {
+    return symbolCI;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setSymbolCI(String newSymbolCI)
+  {
+    String oldSymbolCI = symbolCI;
+    symbolCI = newSymbolCI;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, UsePackage.NAVIGATING_ARG_CS__SYMBOL_CI, oldSymbolCI, symbolCI));
   }
 
   /**
@@ -379,10 +517,16 @@ public class NavigatingArgCSImpl extends MinimalEObjectImpl.Container implements
         return getPrefix();
       case UsePackage.NAVIGATING_ARG_CS__OWNED_NAME_EXPRESSION:
         return getOwnedNameExpression();
+      case UsePackage.NAVIGATING_ARG_CS__SYMBOL_T:
+        return getSymbolT();
       case UsePackage.NAVIGATING_ARG_CS__OWNED_TYPE:
         return getOwnedType();
+      case UsePackage.NAVIGATING_ARG_CS__SYMBOL_IE:
+        return getSymbolIE();
       case UsePackage.NAVIGATING_ARG_CS__OWNED_INIT_EXPRESSION:
         return getOwnedInitExpression();
+      case UsePackage.NAVIGATING_ARG_CS__SYMBOL_CI:
+        return getSymbolCI();
       case UsePackage.NAVIGATING_ARG_CS__OWNED_CO_ITERATOR:
         return getOwnedCoIterator();
     }
@@ -405,11 +549,20 @@ public class NavigatingArgCSImpl extends MinimalEObjectImpl.Container implements
       case UsePackage.NAVIGATING_ARG_CS__OWNED_NAME_EXPRESSION:
         setOwnedNameExpression((ExpCS)newValue);
         return;
+      case UsePackage.NAVIGATING_ARG_CS__SYMBOL_T:
+        setSymbolT((String)newValue);
+        return;
       case UsePackage.NAVIGATING_ARG_CS__OWNED_TYPE:
         setOwnedType((TypedRefCS)newValue);
         return;
+      case UsePackage.NAVIGATING_ARG_CS__SYMBOL_IE:
+        setSymbolIE((String)newValue);
+        return;
       case UsePackage.NAVIGATING_ARG_CS__OWNED_INIT_EXPRESSION:
         setOwnedInitExpression((ExpCS)newValue);
+        return;
+      case UsePackage.NAVIGATING_ARG_CS__SYMBOL_CI:
+        setSymbolCI((String)newValue);
         return;
       case UsePackage.NAVIGATING_ARG_CS__OWNED_CO_ITERATOR:
         setOwnedCoIterator((VariableCS)newValue);
@@ -434,11 +587,20 @@ public class NavigatingArgCSImpl extends MinimalEObjectImpl.Container implements
       case UsePackage.NAVIGATING_ARG_CS__OWNED_NAME_EXPRESSION:
         setOwnedNameExpression((ExpCS)null);
         return;
+      case UsePackage.NAVIGATING_ARG_CS__SYMBOL_T:
+        setSymbolT(SYMBOL_T_EDEFAULT);
+        return;
       case UsePackage.NAVIGATING_ARG_CS__OWNED_TYPE:
         setOwnedType((TypedRefCS)null);
         return;
+      case UsePackage.NAVIGATING_ARG_CS__SYMBOL_IE:
+        setSymbolIE(SYMBOL_IE_EDEFAULT);
+        return;
       case UsePackage.NAVIGATING_ARG_CS__OWNED_INIT_EXPRESSION:
         setOwnedInitExpression((ExpCS)null);
+        return;
+      case UsePackage.NAVIGATING_ARG_CS__SYMBOL_CI:
+        setSymbolCI(SYMBOL_CI_EDEFAULT);
         return;
       case UsePackage.NAVIGATING_ARG_CS__OWNED_CO_ITERATOR:
         setOwnedCoIterator((VariableCS)null);
@@ -461,10 +623,16 @@ public class NavigatingArgCSImpl extends MinimalEObjectImpl.Container implements
         return PREFIX_EDEFAULT == null ? prefix != null : !PREFIX_EDEFAULT.equals(prefix);
       case UsePackage.NAVIGATING_ARG_CS__OWNED_NAME_EXPRESSION:
         return ownedNameExpression != null;
+      case UsePackage.NAVIGATING_ARG_CS__SYMBOL_T:
+        return SYMBOL_T_EDEFAULT == null ? symbolT != null : !SYMBOL_T_EDEFAULT.equals(symbolT);
       case UsePackage.NAVIGATING_ARG_CS__OWNED_TYPE:
         return ownedType != null;
+      case UsePackage.NAVIGATING_ARG_CS__SYMBOL_IE:
+        return SYMBOL_IE_EDEFAULT == null ? symbolIE != null : !SYMBOL_IE_EDEFAULT.equals(symbolIE);
       case UsePackage.NAVIGATING_ARG_CS__OWNED_INIT_EXPRESSION:
         return ownedInitExpression != null;
+      case UsePackage.NAVIGATING_ARG_CS__SYMBOL_CI:
+        return SYMBOL_CI_EDEFAULT == null ? symbolCI != null : !SYMBOL_CI_EDEFAULT.equals(symbolCI);
       case UsePackage.NAVIGATING_ARG_CS__OWNED_CO_ITERATOR:
         return ownedCoIterator != null;
     }
@@ -484,6 +652,12 @@ public class NavigatingArgCSImpl extends MinimalEObjectImpl.Container implements
     StringBuilder result = new StringBuilder(super.toString());
     result.append(" (prefix: ");
     result.append(prefix);
+    result.append(", symbolT: ");
+    result.append(symbolT);
+    result.append(", symbolIE: ");
+    result.append(symbolIE);
+    result.append(", symbolCI: ");
+    result.append(symbolCI);
     result.append(')');
     return result.toString();
   }

@@ -19,6 +19,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link modelConverter.use_language.use.NameExpCS#getOwnedRoundBracketedClause <em>Owned Round Bracketed Clause</em>}</li>
  *   <li>{@link modelConverter.use_language.use.NameExpCS#getOwnedCurlyBracketedClause <em>Owned Curly Bracketed Clause</em>}</li>
  *   <li>{@link modelConverter.use_language.use.NameExpCS#isIsPre <em>Is Pre</em>}</li>
+ *   <li>{@link modelConverter.use_language.use.NameExpCS#isPre <em>Pre</em>}</li>
  * </ul>
  *
  * @see modelConverter.use_language.use.UsePackage#getNameExpCS()
@@ -126,5 +127,27 @@ public interface NameExpCS extends ExpCS
    * @generated
    */
   void setIsPre(boolean value);
+
+  /**
+   * Returns the value of the '<em><b>Pre</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Pre</em>' attribute.
+   * @see #setPre(boolean)
+   * @see modelConverter.use_language.use.UsePackage#getNameExpCS_Pre()
+   * @model
+   * @generated
+   */
+  boolean isPre();
+
+  /**
+   * Sets the value of the '{@link modelConverter.use_language.use.NameExpCS#isPre <em>Pre</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Pre</em>' attribute.
+   * @see #isPre()
+   * @generated
+   */
+  void setPre(boolean value);
 
 } // NameExpCS

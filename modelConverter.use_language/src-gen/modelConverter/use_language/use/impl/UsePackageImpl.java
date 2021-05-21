@@ -2126,7 +2126,7 @@ public class UsePackageImpl extends EPackageImpl implements UsePackage
    * @generated
    */
   @Override
-  public EAttribute getMultiplicityCS_IsNullFree()
+  public EAttribute getMultiplicityCS_Symbol()
   {
     return (EAttribute)multiplicityCSEClass.getEStructuralFeatures().get(0);
   }
@@ -2261,6 +2261,17 @@ public class UsePackageImpl extends EPackageImpl implements UsePackage
   public EAttribute getNameExpCS_IsPre()
   {
     return (EAttribute)nameExpCSEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getNameExpCS_Pre()
+  {
+    return (EAttribute)nameExpCSEClass.getEStructuralFeatures().get(5);
   }
 
   /**
@@ -2852,9 +2863,9 @@ public class UsePackageImpl extends EPackageImpl implements UsePackage
    * @generated
    */
   @Override
-  public EReference getNavigatingArgCS_OwnedType()
+  public EAttribute getNavigatingArgCS_SymbolT()
   {
-    return (EReference)navigatingArgCSEClass.getEStructuralFeatures().get(2);
+    return (EAttribute)navigatingArgCSEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -2863,7 +2874,7 @@ public class UsePackageImpl extends EPackageImpl implements UsePackage
    * @generated
    */
   @Override
-  public EReference getNavigatingArgCS_OwnedInitExpression()
+  public EReference getNavigatingArgCS_OwnedType()
   {
     return (EReference)navigatingArgCSEClass.getEStructuralFeatures().get(3);
   }
@@ -2874,9 +2885,42 @@ public class UsePackageImpl extends EPackageImpl implements UsePackage
    * @generated
    */
   @Override
+  public EAttribute getNavigatingArgCS_SymbolIE()
+  {
+    return (EAttribute)navigatingArgCSEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getNavigatingArgCS_OwnedInitExpression()
+  {
+    return (EReference)navigatingArgCSEClass.getEStructuralFeatures().get(5);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getNavigatingArgCS_SymbolCI()
+  {
+    return (EAttribute)navigatingArgCSEClass.getEStructuralFeatures().get(6);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EReference getNavigatingArgCS_OwnedCoIterator()
   {
-    return (EReference)navigatingArgCSEClass.getEStructuralFeatures().get(4);
+    return (EReference)navigatingArgCSEClass.getEStructuralFeatures().get(7);
   }
 
   /**
@@ -3196,7 +3240,7 @@ public class UsePackageImpl extends EPackageImpl implements UsePackage
     createEAttribute(multiplicityBoundsCSEClass, MULTIPLICITY_BOUNDS_CS__UPPER_BOUND);
 
     multiplicityCSEClass = createEClass(MULTIPLICITY_CS);
-    createEAttribute(multiplicityCSEClass, MULTIPLICITY_CS__IS_NULL_FREE);
+    createEAttribute(multiplicityCSEClass, MULTIPLICITY_CS__SYMBOL);
 
     multiplicityStringCSEClass = createEClass(MULTIPLICITY_STRING_CS);
     createEAttribute(multiplicityStringCSEClass, MULTIPLICITY_STRING_CS__STRING_BOUNDS);
@@ -3214,6 +3258,7 @@ public class UsePackageImpl extends EPackageImpl implements UsePackage
     createEReference(nameExpCSEClass, NAME_EXP_CS__OWNED_ROUND_BRACKETED_CLAUSE);
     createEReference(nameExpCSEClass, NAME_EXP_CS__OWNED_CURLY_BRACKETED_CLAUSE);
     createEAttribute(nameExpCSEClass, NAME_EXP_CS__IS_PRE);
+    createEAttribute(nameExpCSEClass, NAME_EXP_CS__PRE);
 
     squareBracketedClauseCSEClass = createEClass(SQUARE_BRACKETED_CLAUSE_CS);
     createEReference(squareBracketedClauseCSEClass, SQUARE_BRACKETED_CLAUSE_CS__OWNED_TERMS);
@@ -3288,8 +3333,11 @@ public class UsePackageImpl extends EPackageImpl implements UsePackage
     navigatingArgCSEClass = createEClass(NAVIGATING_ARG_CS);
     createEAttribute(navigatingArgCSEClass, NAVIGATING_ARG_CS__PREFIX);
     createEReference(navigatingArgCSEClass, NAVIGATING_ARG_CS__OWNED_NAME_EXPRESSION);
+    createEAttribute(navigatingArgCSEClass, NAVIGATING_ARG_CS__SYMBOL_T);
     createEReference(navigatingArgCSEClass, NAVIGATING_ARG_CS__OWNED_TYPE);
+    createEAttribute(navigatingArgCSEClass, NAVIGATING_ARG_CS__SYMBOL_IE);
     createEReference(navigatingArgCSEClass, NAVIGATING_ARG_CS__OWNED_INIT_EXPRESSION);
+    createEAttribute(navigatingArgCSEClass, NAVIGATING_ARG_CS__SYMBOL_CI);
     createEReference(navigatingArgCSEClass, NAVIGATING_ARG_CS__OWNED_CO_ITERATOR);
 
     variableCSEClass = createEClass(VARIABLE_CS);
@@ -3555,7 +3603,7 @@ public class UsePackageImpl extends EPackageImpl implements UsePackage
     initEAttribute(getMultiplicityBoundsCS_UpperBound(), ecorePackage.getEString(), "upperBound", null, 0, 1, MultiplicityBoundsCS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(multiplicityCSEClass, MultiplicityCS.class, "MultiplicityCS", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getMultiplicityCS_IsNullFree(), ecorePackage.getEBoolean(), "isNullFree", null, 0, 1, MultiplicityCS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getMultiplicityCS_Symbol(), ecorePackage.getEString(), "symbol", null, 0, 1, MultiplicityCS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(multiplicityStringCSEClass, MultiplicityStringCS.class, "MultiplicityStringCS", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getMultiplicityStringCS_StringBounds(), ecorePackage.getEString(), "stringBounds", null, 0, 1, MultiplicityStringCS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3573,6 +3621,7 @@ public class UsePackageImpl extends EPackageImpl implements UsePackage
     initEReference(getNameExpCS_OwnedRoundBracketedClause(), this.getRoundBracketedClauseCS(), null, "ownedRoundBracketedClause", null, 0, 1, NameExpCS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getNameExpCS_OwnedCurlyBracketedClause(), this.getCurlyBracketedClauseCS(), null, "ownedCurlyBracketedClause", null, 0, 1, NameExpCS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getNameExpCS_IsPre(), ecorePackage.getEBoolean(), "isPre", null, 0, 1, NameExpCS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getNameExpCS_Pre(), ecorePackage.getEBoolean(), "pre", null, 0, 1, NameExpCS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(squareBracketedClauseCSEClass, SquareBracketedClauseCS.class, "SquareBracketedClauseCS", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getSquareBracketedClauseCS_OwnedTerms(), this.getExpCS(), null, "ownedTerms", null, 0, -1, SquareBracketedClauseCS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3647,8 +3696,11 @@ public class UsePackageImpl extends EPackageImpl implements UsePackage
     initEClass(navigatingArgCSEClass, NavigatingArgCS.class, "NavigatingArgCS", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getNavigatingArgCS_Prefix(), ecorePackage.getEString(), "prefix", null, 0, 1, NavigatingArgCS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getNavigatingArgCS_OwnedNameExpression(), this.getExpCS(), null, "ownedNameExpression", null, 0, 1, NavigatingArgCS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getNavigatingArgCS_SymbolT(), ecorePackage.getEString(), "symbolT", null, 0, 1, NavigatingArgCS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getNavigatingArgCS_OwnedType(), this.getTypedRefCS(), null, "ownedType", null, 0, 1, NavigatingArgCS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getNavigatingArgCS_SymbolIE(), ecorePackage.getEString(), "symbolIE", null, 0, 1, NavigatingArgCS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getNavigatingArgCS_OwnedInitExpression(), this.getExpCS(), null, "ownedInitExpression", null, 0, 1, NavigatingArgCS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getNavigatingArgCS_SymbolCI(), ecorePackage.getEString(), "symbolCI", null, 0, 1, NavigatingArgCS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getNavigatingArgCS_OwnedCoIterator(), this.getVariableCS(), null, "ownedCoIterator", null, 0, 1, NavigatingArgCS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(variableCSEClass, VariableCS.class, "VariableCS", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

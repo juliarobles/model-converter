@@ -473,6 +473,13 @@ public class USEGenerator extends AbstractGenerator {
         _builder.append(_name);
         _builder.append("\" ");
         {
+          ExpCS _deriveOCL = attribute.getDeriveOCL();
+          boolean _tripleNotEquals = (_deriveOCL != null);
+          if (_tripleNotEquals) {
+            _builder.append("isDerived=\"true\" ");
+          }
+        }
+        {
           if ((((attribute.getType() != null) && (attribute.getType() instanceof SimpleTypes)) && (((SimpleTypes) attribute.getType()).getReferended() != null))) {
             _builder.append("type=\"");
             AllTypes _type = attribute.getType();
@@ -532,6 +539,35 @@ public class USEGenerator extends AbstractGenerator {
                 _builder.append("\" name=\"\" visibility=\"public\" value=\"*\"/>\t");
                 _builder.newLineIfNotEmpty();
               }
+            }
+          }
+        }
+        {
+          ExpCS _deriveOCL_1 = attribute.getDeriveOCL();
+          boolean _tripleNotEquals_1 = (_deriveOCL_1 != null);
+          if (_tripleNotEquals_1) {
+            _builder.append("<defaultValue xmi:type=\"uml:LiteralString\" xmi:id=\"");
+            int _identityHashCode_7 = System.identityHashCode(attribute);
+            String _plus_4 = (Integer.valueOf(_identityHashCode_7) + "_03");
+            _builder.append(_plus_4);
+            _builder.append("\" name=\"\" visibility=\"public\" value=\"");
+            CharSequence _compileExpCSToShow = this.compileExpCSToShow(attribute.getDeriveOCL());
+            _builder.append(_compileExpCSToShow);
+            _builder.append("\"/>");
+            _builder.newLineIfNotEmpty();
+          } else {
+            String _initOCL = attribute.getInitOCL();
+            boolean _tripleNotEquals_2 = (_initOCL != null);
+            if (_tripleNotEquals_2) {
+              _builder.append("<defaultValue xmi:type=\"uml:LiteralString\" xmi:id=\"");
+              int _identityHashCode_8 = System.identityHashCode(attribute);
+              String _plus_5 = (Integer.valueOf(_identityHashCode_8) + "_03");
+              _builder.append(_plus_5);
+              _builder.append("\" name=\"\" visibility=\"public\" value=\"");
+              String _initOCL_1 = attribute.getInitOCL();
+              _builder.append(_initOCL_1);
+              _builder.append("\"/>");
+              _builder.newLineIfNotEmpty();
             }
           }
         }
@@ -732,8 +768,8 @@ public class USEGenerator extends AbstractGenerator {
     _builder.newLine();
     _builder.append("\t   \t  \t");
     _builder.append("<body>");
-    String _replaceAll = this.compileExpCS(e).toString().replaceAll(System.getProperty("line.separator"), "");
-    _builder.append(_replaceAll, "\t   \t  \t");
+    CharSequence _compileExpCSToShow = this.compileExpCSToShow(e);
+    _builder.append(_compileExpCSToShow, "\t   \t  \t");
     _builder.append("</body>");
     _builder.newLineIfNotEmpty();
     _builder.append("\t  \t");
@@ -741,6 +777,13 @@ public class USEGenerator extends AbstractGenerator {
     _builder.newLine();
     _builder.append("</ownedRule>");
     _builder.newLine();
+    return _builder;
+  }
+  
+  private CharSequence compileExpCSToShow(final ExpCS e) {
+    StringConcatenation _builder = new StringConcatenation();
+    String _replaceAll = this.compileExpCS(e).toString().replaceAll(System.getProperty("line.separator"), "");
+    _builder.append(_replaceAll);
     return _builder;
   }
   

@@ -5,9 +5,9 @@ end
 
 class B < A
 	attributes
-		atributoTexto : String
+		atributoTexto : String init: hola
 		unnamed1 : C
-		unnamed2 : String
+		unnamed2 : String derive: not self.deathYear.oclIsUndefined()
 	operations
 		unnamed1()
 		unnamed2(unnamed1 : Boolean, unnamed2 : C) : B

@@ -88,7 +88,7 @@ AttributesBase:
 		(attributes+=Attribute)*;
 
 Attribute:
-	name=ID ':' type=AllTypes;
+	name=ID ':' type=AllTypes ('init' ':' initOCL=(ID|IntToString))? ('derive' ':' deriveOCL=ExpCS)?;
 
 
 //------------OPERACIONES--------------

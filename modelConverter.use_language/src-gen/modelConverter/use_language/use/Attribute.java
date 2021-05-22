@@ -16,6 +16,8 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link modelConverter.use_language.use.Attribute#getName <em>Name</em>}</li>
  *   <li>{@link modelConverter.use_language.use.Attribute#getType <em>Type</em>}</li>
+ *   <li>{@link modelConverter.use_language.use.Attribute#getInitOCL <em>Init OCL</em>}</li>
+ *   <li>{@link modelConverter.use_language.use.Attribute#getDeriveOCL <em>Derive OCL</em>}</li>
  * </ul>
  *
  * @see modelConverter.use_language.use.UsePackage#getAttribute()
@@ -67,5 +69,49 @@ public interface Attribute extends EObject
    * @generated
    */
   void setType(AllTypes value);
+
+  /**
+   * Returns the value of the '<em><b>Init OCL</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Init OCL</em>' attribute.
+   * @see #setInitOCL(String)
+   * @see modelConverter.use_language.use.UsePackage#getAttribute_InitOCL()
+   * @model
+   * @generated
+   */
+  String getInitOCL();
+
+  /**
+   * Sets the value of the '{@link modelConverter.use_language.use.Attribute#getInitOCL <em>Init OCL</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Init OCL</em>' attribute.
+   * @see #getInitOCL()
+   * @generated
+   */
+  void setInitOCL(String value);
+
+  /**
+   * Returns the value of the '<em><b>Derive OCL</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Derive OCL</em>' containment reference.
+   * @see #setDeriveOCL(ExpCS)
+   * @see modelConverter.use_language.use.UsePackage#getAttribute_DeriveOCL()
+   * @model containment="true"
+   * @generated
+   */
+  ExpCS getDeriveOCL();
+
+  /**
+   * Sets the value of the '{@link modelConverter.use_language.use.Attribute#getDeriveOCL <em>Derive OCL</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Derive OCL</em>' containment reference.
+   * @see #getDeriveOCL()
+   * @generated
+   */
+  void setDeriveOCL(ExpCS value);
 
 } // Attribute

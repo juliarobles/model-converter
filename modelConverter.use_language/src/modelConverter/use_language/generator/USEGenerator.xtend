@@ -189,7 +189,7 @@ class USEGenerator extends AbstractGenerator {
 
 	private def compileAttributesBase(AttributesBase e) '''
 		«FOR attribute : e.getAttributes()»
-			<ownedAttribute xmi:id="«System.identityHashCode(attribute)»" name="«attribute.getName»" «IF attribute.getType() !== null && attribute.getType() instanceof SimpleTypes && (attribute.getType() as SimpleTypes).getReferended() !== null»type="«System.identityHashCode((attribute.getType() as SimpleTypes).getReferended())»"«ELSEIF attribute.getType() !== null && attribute.getType() instanceof CollectionType && (attribute.getType() as CollectionType).getType !== null && (attribute.getType() as CollectionType).getType.length > 0 && ((attribute.getType() as CollectionType).getType.get(0)) instanceof SimpleTypes && ((attribute.getType() as CollectionType).getType.get(0) as SimpleTypes).getReferended !== null»type="«System.identityHashCode(((attribute.getType() as CollectionType).getType.get(0) as SimpleTypes).getReferended)»"«ENDIF»>
+			<ownedAttribute xmi:id="«System.identityHashCode(attribute)»" name="«attribute.getName»" «IF attribute.getDeriveOCL !== null»isDerived="true" «ENDIF»«IF attribute.getType() !== null && attribute.getType() instanceof SimpleTypes && (attribute.getType() as SimpleTypes).getReferended() !== null»type="«System.identityHashCode((attribute.getType() as SimpleTypes).getReferended())»"«ELSEIF attribute.getType() !== null && attribute.getType() instanceof CollectionType && (attribute.getType() as CollectionType).getType !== null && (attribute.getType() as CollectionType).getType.length > 0 && ((attribute.getType() as CollectionType).getType.get(0)) instanceof SimpleTypes && ((attribute.getType() as CollectionType).getType.get(0) as SimpleTypes).getReferended !== null»type="«System.identityHashCode(((attribute.getType() as CollectionType).getType.get(0) as SimpleTypes).getReferended)»"«ENDIF»>
 			«IF attribute.getType() !== null && attribute.getType() instanceof SimpleTypes && (attribute.getType() as SimpleTypes).getDefaultType !== null»
 				«(attribute.getType() as SimpleTypes).getDefaultType.compileDefaultType»
 			«ELSEIF attribute.getType() !== null && attribute.getType() instanceof CollectionType && (attribute.getType() as CollectionType).getType !== null && (attribute.getType() as CollectionType).getType.length > 0 && ((attribute.getType() as CollectionType).getType.get(0)) instanceof SimpleTypes && ((attribute.getType() as CollectionType).getType.get(0) as SimpleTypes).getDefaultType !== null»
@@ -199,6 +199,11 @@ class USEGenerator extends AbstractGenerator {
 			«ELSEIF attribute.getType() !== null && attribute.getType() instanceof CollectionType && (attribute.getType() as CollectionType).getType !== null && (attribute.getType() as CollectionType).getType.length > 0 && ((attribute.getType() as CollectionType).getType.get(0)) instanceof SimpleTypes && ((attribute.getType() as CollectionType).getType.get(0) as SimpleTypes).getReferended !== null»
 				<lowerValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="«System.identityHashCode(attribute) + "_01"»" name="" visibility="public"/>
 				<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="«System.identityHashCode(attribute) + "_02"»" name="" visibility="public" value="*"/>	
+			«ENDIF»
+			«IF attribute.getDeriveOCL !== null»
+				<defaultValue xmi:type="uml:LiteralString" xmi:id="«System.identityHashCode(attribute) + "_03"»" name="" visibility="public" value="«attribute.getDeriveOCL.compileExpCSToShow»"/>
+			«ELSEIF attribute.getInitOCL !== null»
+				<defaultValue xmi:type="uml:LiteralString" xmi:id="«System.identityHashCode(attribute) + "_03"»" name="" visibility="public" value="«attribute.getInitOCL»"/>
 			«ENDIF»
 			</ownedAttribute>
 		«ENDFOR»
@@ -238,10 +243,12 @@ class USEGenerator extends AbstractGenerator {
 		<ownedRule xmi:id="«id»" name="«name»" «constrainedElement»>
 			<specification xmi:type="uml:OpaqueExpression" xmi:id="«System.identityHashCode(e).toString + id»" name="«name»">
 			   	<language>OCL2.0</language>
-			   	  	<body>«(e.compileExpCS).toString().replaceAll(System.getProperty("line.separator"), "")»</body>
+			   	  	<body>«e.compileExpCSToShow»</body>
 			  	</specification>
 		</ownedRule>
 	'''
+	
+	private def compileExpCSToShow(ExpCS e)'''«(e.compileExpCS).toString().replaceAll(System.getProperty("line.separator"), "")»'''
 	
 	private def compileOwnedRuleString(String e, String id, String name, String constrainedElement) '''
 		<ownedRule xmi:id="«id»" name="«name»" «constrainedElement»>

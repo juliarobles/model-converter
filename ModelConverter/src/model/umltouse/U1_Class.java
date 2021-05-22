@@ -1,5 +1,6 @@
 package model.umltouse;
 
+import java.beans.PropertyChangeEvent;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -71,7 +72,11 @@ public class U1_Class {
 			namesUsedParticular = new ArrayList<>();
 			
 			for(Property property : attributes) {
-				sBuilder.append("\t\t" + U9_Auxiliary.checkUnnamed(property.getName(), namesUsedParticular, countUnnamed) + U9_Auxiliary.typeToStringOptional(property.getType()) + "\n");
+				String defaultValue = "";
+				if(property.getDefault() != null && !property.getDefault().isBlank()) {
+					defaultValue = (property.isDerived()) ? (" derive: " + property.getDefault()) : (" init: " + property.getDefault());
+				}
+				sBuilder.append("\t\t" + U9_Auxiliary.checkUnnamed(property.getName(), namesUsedParticular, countUnnamed) + U9_Auxiliary.typeToStringOptional(property.getType()) + defaultValue + "\n");
 			}
 		}
 				

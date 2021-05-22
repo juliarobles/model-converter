@@ -1422,6 +1422,81 @@ ruleAttribute returns [EObject current=null]
 				}
 			)
 		)
+		(
+			otherlv_3='init'
+			{
+				newLeafNode(otherlv_3, grammarAccess.getAttributeAccess().getInitKeyword_3_0());
+			}
+			otherlv_4=':'
+			{
+				newLeafNode(otherlv_4, grammarAccess.getAttributeAccess().getColonKeyword_3_1());
+			}
+			(
+				(
+					(
+						lv_initOCL_5_1=RULE_ID
+						{
+							newLeafNode(lv_initOCL_5_1, grammarAccess.getAttributeAccess().getInitOCLIDTerminalRuleCall_3_2_0_0());
+						}
+						{
+							if ($current==null) {
+								$current = createModelElement(grammarAccess.getAttributeRule());
+							}
+							setWithLastConsumed(
+								$current,
+								"initOCL",
+								lv_initOCL_5_1,
+								"org.eclipse.xtext.common.Terminals.ID");
+						}
+						    |
+						{
+							newCompositeNode(grammarAccess.getAttributeAccess().getInitOCLIntToStringParserRuleCall_3_2_0_1());
+						}
+						lv_initOCL_5_2=ruleIntToString
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getAttributeRule());
+							}
+							set(
+								$current,
+								"initOCL",
+								lv_initOCL_5_2,
+								"modelConverter.use_language.USE.IntToString");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+			)
+		)?
+		(
+			otherlv_6='derive'
+			{
+				newLeafNode(otherlv_6, grammarAccess.getAttributeAccess().getDeriveKeyword_4_0());
+			}
+			otherlv_7=':'
+			{
+				newLeafNode(otherlv_7, grammarAccess.getAttributeAccess().getColonKeyword_4_1());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getAttributeAccess().getDeriveOCLExpCSParserRuleCall_4_2_0());
+					}
+					lv_deriveOCL_8_0=ruleExpCS
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getAttributeRule());
+						}
+						set(
+							$current,
+							"deriveOCL",
+							lv_deriveOCL_8_0,
+							"modelConverter.use_language.USE.ExpCS");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)?
 	)
 ;
 

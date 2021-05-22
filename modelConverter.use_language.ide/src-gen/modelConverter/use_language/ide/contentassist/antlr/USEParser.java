@@ -43,6 +43,7 @@ public class USEParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getAllClassAndEnumAccess().getAlternatives(), "rule__AllClassAndEnum__Alternatives");
 			builder.put(grammarAccess.getSimpleTypesAccess().getAlternatives(), "rule__SimpleTypes__Alternatives");
 			builder.put(grammarAccess.getAssociationAccess().getTypeAssociationAlternatives_0_0(), "rule__Association__TypeAssociationAlternatives_0_0");
+			builder.put(grammarAccess.getAttributeAccess().getInitOCLAlternatives_3_2_0(), "rule__Attribute__InitOCLAlternatives_3_2_0");
 			builder.put(grammarAccess.getOperationTypeAccess().getAlternatives(), "rule__OperationType__Alternatives");
 			builder.put(grammarAccess.getContextsTypeAccess().getAlternatives(), "rule__ContextsType__Alternatives");
 			builder.put(grammarAccess.getConditionTypeAccess().getAlternatives(), "rule__ConditionType__Alternatives");
@@ -91,6 +92,8 @@ public class USEParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getAssociationClassAccess().getGroup_3(), "rule__AssociationClass__Group_3__0");
 			builder.put(grammarAccess.getAttributesBaseAccess().getGroup(), "rule__AttributesBase__Group__0");
 			builder.put(grammarAccess.getAttributeAccess().getGroup(), "rule__Attribute__Group__0");
+			builder.put(grammarAccess.getAttributeAccess().getGroup_3(), "rule__Attribute__Group_3__0");
+			builder.put(grammarAccess.getAttributeAccess().getGroup_4(), "rule__Attribute__Group_4__0");
 			builder.put(grammarAccess.getOperationsBaseAccess().getGroup(), "rule__OperationsBase__Group__0");
 			builder.put(grammarAccess.getOperationQueryAccess().getGroup(), "rule__OperationQuery__Group__0");
 			builder.put(grammarAccess.getOperationComplexAccess().getGroup(), "rule__OperationComplex__Group__0");
@@ -235,6 +238,8 @@ public class USEParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getAttributesBaseAccess().getAttributesAssignment_1(), "rule__AttributesBase__AttributesAssignment_1");
 			builder.put(grammarAccess.getAttributeAccess().getNameAssignment_0(), "rule__Attribute__NameAssignment_0");
 			builder.put(grammarAccess.getAttributeAccess().getTypeAssignment_2(), "rule__Attribute__TypeAssignment_2");
+			builder.put(grammarAccess.getAttributeAccess().getInitOCLAssignment_3_2(), "rule__Attribute__InitOCLAssignment_3_2");
+			builder.put(grammarAccess.getAttributeAccess().getDeriveOCLAssignment_4_2(), "rule__Attribute__DeriveOCLAssignment_4_2");
 			builder.put(grammarAccess.getOperationsBaseAccess().getOperationsAssignment_1(), "rule__OperationsBase__OperationsAssignment_1");
 			builder.put(grammarAccess.getOperationQueryAccess().getOperationDeclarationAssignment_0(), "rule__OperationQuery__OperationDeclarationAssignment_0");
 			builder.put(grammarAccess.getOperationQueryAccess().getOperationbodyAssignment_2(), "rule__OperationQuery__OperationbodyAssignment_2");

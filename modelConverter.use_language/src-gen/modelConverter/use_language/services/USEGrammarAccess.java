@@ -798,12 +798,24 @@ public class USEGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final Keyword cColonKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cTypeAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cTypeAllTypesParserRuleCall_2_0 = (RuleCall)cTypeAssignment_2.eContents().get(0);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Keyword cInitKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Keyword cColonKeyword_3_1 = (Keyword)cGroup_3.eContents().get(1);
+		private final Assignment cInitOCLAssignment_3_2 = (Assignment)cGroup_3.eContents().get(2);
+		private final Alternatives cInitOCLAlternatives_3_2_0 = (Alternatives)cInitOCLAssignment_3_2.eContents().get(0);
+		private final RuleCall cInitOCLIDTerminalRuleCall_3_2_0_0 = (RuleCall)cInitOCLAlternatives_3_2_0.eContents().get(0);
+		private final RuleCall cInitOCLIntToStringParserRuleCall_3_2_0_1 = (RuleCall)cInitOCLAlternatives_3_2_0.eContents().get(1);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final Keyword cDeriveKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Keyword cColonKeyword_4_1 = (Keyword)cGroup_4.eContents().get(1);
+		private final Assignment cDeriveOCLAssignment_4_2 = (Assignment)cGroup_4.eContents().get(2);
+		private final RuleCall cDeriveOCLExpCSParserRuleCall_4_2_0 = (RuleCall)cDeriveOCLAssignment_4_2.eContents().get(0);
 		
 		//Attribute:
-		//    name=ID ':' type=AllTypes;
+		//    name=ID ':' type=AllTypes ('init' ':' initOCL=(ID|IntToString))? ('derive' ':' deriveOCL=ExpCS)?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//name=ID ':' type=AllTypes
+		//name=ID ':' type=AllTypes ('init' ':' initOCL=(ID|IntToString))? ('derive' ':' deriveOCL=ExpCS)?
 		public Group getGroup() { return cGroup; }
 		
 		//name=ID
@@ -820,6 +832,42 @@ public class USEGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		
 		//AllTypes
 		public RuleCall getTypeAllTypesParserRuleCall_2_0() { return cTypeAllTypesParserRuleCall_2_0; }
+		
+		//('init' ':' initOCL=(ID|IntToString))?
+		public Group getGroup_3() { return cGroup_3; }
+		
+		//'init'
+		public Keyword getInitKeyword_3_0() { return cInitKeyword_3_0; }
+		
+		//':'
+		public Keyword getColonKeyword_3_1() { return cColonKeyword_3_1; }
+		
+		//initOCL=(ID|IntToString)
+		public Assignment getInitOCLAssignment_3_2() { return cInitOCLAssignment_3_2; }
+		
+		//(ID|IntToString)
+		public Alternatives getInitOCLAlternatives_3_2_0() { return cInitOCLAlternatives_3_2_0; }
+		
+		//ID
+		public RuleCall getInitOCLIDTerminalRuleCall_3_2_0_0() { return cInitOCLIDTerminalRuleCall_3_2_0_0; }
+		
+		//IntToString
+		public RuleCall getInitOCLIntToStringParserRuleCall_3_2_0_1() { return cInitOCLIntToStringParserRuleCall_3_2_0_1; }
+		
+		//('derive' ':' deriveOCL=ExpCS)?
+		public Group getGroup_4() { return cGroup_4; }
+		
+		//'derive'
+		public Keyword getDeriveKeyword_4_0() { return cDeriveKeyword_4_0; }
+		
+		//':'
+		public Keyword getColonKeyword_4_1() { return cColonKeyword_4_1; }
+		
+		//deriveOCL=ExpCS
+		public Assignment getDeriveOCLAssignment_4_2() { return cDeriveOCLAssignment_4_2; }
+		
+		//ExpCS
+		public RuleCall getDeriveOCLExpCSParserRuleCall_4_2_0() { return cDeriveOCLExpCSParserRuleCall_4_2_0; }
 	}
 	public class OperationsBaseElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "modelConverter.use_language.USE.OperationsBase");
@@ -4653,7 +4701,7 @@ public class USEGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	}
 	
 	//Attribute:
-	//    name=ID ':' type=AllTypes;
+	//    name=ID ':' type=AllTypes ('init' ':' initOCL=(ID|IntToString))? ('derive' ':' deriveOCL=ExpCS)?;
 	public AttributeElements getAttributeAccess() {
 		return pAttribute;
 	}

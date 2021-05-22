@@ -686,13 +686,31 @@ public interface UsePackage extends EPackage
   int ATTRIBUTE__TYPE = 1;
 
   /**
+   * The feature id for the '<em><b>Init OCL</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ATTRIBUTE__INIT_OCL = 2;
+
+  /**
+   * The feature id for the '<em><b>Derive OCL</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ATTRIBUTE__DERIVE_OCL = 3;
+
+  /**
    * The number of structural features of the '<em>Attribute</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ATTRIBUTE_FEATURE_COUNT = 2;
+  int ATTRIBUTE_FEATURE_COUNT = 4;
 
   /**
    * The meta object id for the '{@link modelConverter.use_language.use.impl.OperationsBaseImpl <em>Operations Base</em>}' class.
@@ -3459,6 +3477,28 @@ public interface UsePackage extends EPackage
   EReference getAttribute_Type();
 
   /**
+   * Returns the meta object for the attribute '{@link modelConverter.use_language.use.Attribute#getInitOCL <em>Init OCL</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Init OCL</em>'.
+   * @see modelConverter.use_language.use.Attribute#getInitOCL()
+   * @see #getAttribute()
+   * @generated
+   */
+  EAttribute getAttribute_InitOCL();
+
+  /**
+   * Returns the meta object for the containment reference '{@link modelConverter.use_language.use.Attribute#getDeriveOCL <em>Derive OCL</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Derive OCL</em>'.
+   * @see modelConverter.use_language.use.Attribute#getDeriveOCL()
+   * @see #getAttribute()
+   * @generated
+   */
+  EReference getAttribute_DeriveOCL();
+
+  /**
    * Returns the meta object for class '{@link modelConverter.use_language.use.OperationsBase <em>Operations Base</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -5645,6 +5685,22 @@ public interface UsePackage extends EPackage
      * @generated
      */
     EReference ATTRIBUTE__TYPE = eINSTANCE.getAttribute_Type();
+
+    /**
+     * The meta object literal for the '<em><b>Init OCL</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ATTRIBUTE__INIT_OCL = eINSTANCE.getAttribute_InitOCL();
+
+    /**
+     * The meta object literal for the '<em><b>Derive OCL</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ATTRIBUTE__DERIVE_OCL = eINSTANCE.getAttribute_DeriveOCL();
 
     /**
      * The meta object literal for the '{@link modelConverter.use_language.use.impl.OperationsBaseImpl <em>Operations Base</em>}' class.

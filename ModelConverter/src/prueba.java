@@ -22,8 +22,10 @@ public class prueba {
 				try {
 					if(lectura.endsWith(".use")) {
 						Generators.fromUSEtoUML(lectura);
+						System.out.println("Listo");
 					} else if (lectura.endsWith(".uml")) {
 						Generators.fromUMLtoUSE(lectura, destino);
+						System.out.println("Listo");
 					} else {
 						System.err.println("Porfavor, introduzca un archivo .use o .uml");
 					}

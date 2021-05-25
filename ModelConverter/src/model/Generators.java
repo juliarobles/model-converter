@@ -4,14 +4,31 @@ import java.io.IOException;
 
 public class Generators {
 	
-	public static void fromUSEtoUML(String input) {
-		model.usetouml.General.generateUML(input);
-        System.out.println("Listo");
+	public static String chooseGeneratorBySourceFile(String source, String destiny) {
+		try {
+			if(source.endsWith(".use")) {
+				return fromUSEtoUML(source);
+			} else if (source.endsWith(".uml")) {
+				return fromUMLtoUSE(source, destiny);
+			} else {
+				return "Porfavor, introduzca un archivo .use o .uml";
+			}
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			return "No se ha podido leer el archivo. Porfavor, introduzca un archivo .use o .uml válido.";
+		} catch (Exception e) {
+			return "Error: " + e.getMessage();
+		}
+	}
+	
+	public static String fromUSEtoUML(String source) {
+		model.usetouml.General.generateUML(source);
+		return "El modelo USE " + source + " se ha convertido correctamente a UML.";
 	}
 
-	public static void fromUMLtoUSE(String source, String destination) throws IOException {
+	public static String fromUMLtoUSE(String source, String destination) throws IOException {
 		model.umltouse.General.generateUSE(source, destination);
-		System.out.println("Listo");
+		return "El modelo UML " + source + " se ha convertido correctamente a USE.";
 	}
 	
 }

@@ -4,7 +4,7 @@
 	<extension point="org.eclipse.emf.ecore.generated_package">
 		<package
 			uri = "http://www.USE.lenguage_use_xtext"
-			class = "modelConverter.use_language.uml.UmlPackage"
+			class = "modelConverter.use_language.use.UsePackage"
 			genModel = "model/generated/USE.genmodel" />
 	</extension>
 </plugin>

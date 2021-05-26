@@ -1,5 +1,6 @@
 package model.umltouse;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -44,7 +45,8 @@ public class General {
 		U3_Association.getAll(sBuilder, warnings);
 		U5_Constraint.printAllConstraints(sBuilder, allconstraints);
 		
-		Auxiliary.stringToFile(destination, sBuilder.toString());
+		System.out.println(destination + File.separator + "modelConverter_" + nameModel + ".use");
+		Auxiliary.stringToFileNew(destination, "modelConverter_" + nameModel, ".use", sBuilder.toString());
 		
 		return warnings.toString();
 	}
@@ -95,7 +97,7 @@ public class General {
 		uriMap.put(URI.createURI(UMLResource.PROFILES_PATHMAP), uri.appendSegment("profiles").appendSegment(""));
 		//uriMap.put(URI.createURI(UMLResource.STANDARD_PROFILE_URI), uri.appendSegment("standard").appendSegment(""));
 		
-		Resource res = set.getResource(URI.createURI(path), true);
+		Resource res = set.getResource(URI.createFileURI(path), true);
 		return res;
 	}
 }

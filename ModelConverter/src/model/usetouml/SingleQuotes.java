@@ -16,7 +16,7 @@ public class SingleQuotes {
 	
 	private SingleQuotes() {}
 	
-	static void modifyFileBeforeGeneratingOnlyBeginEnd(String source) {
+	static File modifyFileBeforeGeneratingOnlyBeginEnd(String source) {
 		StringBuilder sBuilder = new StringBuilder();
 		Boolean fin;
 		String auxLine;
@@ -64,10 +64,11 @@ public class SingleQuotes {
             }
             sBuilder.append(line + "\n");
             input.close();
-            Auxiliary.stringToFile("auxiliary.use", sBuilder.toString());
+            return Auxiliary.stringToTempFile("auxModelConverter", ".use", sBuilder.toString());
             
 		} catch (Exception ex) {
             ex.printStackTrace();
+            return null;
         }
 	}
 	
@@ -112,7 +113,7 @@ public class SingleQuotes {
                 }
             }
             input.close();
-            Auxiliary.stringToFile("auxiliary.use", sBuilder.toString());
+            Auxiliary.stringToFileExist("auxiliary.use", sBuilder.toString());
         } catch (Exception ex) {
             ex.printStackTrace();
         }

@@ -1,5 +1,6 @@
 package model.usetouml;
 
+import java.io.File;
 import java.util.List;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -20,11 +21,11 @@ public class General {
 	
 	private General() {}
 	
-	public static void generateUML(String source) {
-		SingleQuotes.modifyFileBeforeGeneratingOnlyBeginEnd(source);
+	public static void generateUML(String source, String destiny) {
+		File tempFile = SingleQuotes.modifyFileBeforeGeneratingOnlyBeginEnd(source);
 		Injector injector = new USEStandaloneSetup().createInjectorAndDoEMFRegistration();
         ResourceSet rs = injector.getInstance(ResourceSet.class);
-        Resource r = rs.getResource(URI.createFileURI("auxiliary.use"), true);
+        Resource r = rs.getResource(URI.createFileURI(tempFile.getAbsolutePath()), true);
 
         IResourceValidator validator = injector.getInstance(IResourceValidator.class);
         List<Issue> issues = validator.validate(r, CheckMode.ALL, CancelIndicator.NullImpl);
@@ -34,11 +35,14 @@ public class General {
 
         GeneratorDelegate generator = injector.getInstance(GeneratorDelegate.class);
         JavaIoFileSystemAccess fsa = injector.getInstance(JavaIoFileSystemAccess.class);
-        fsa.setOutputPath("src-gen-code/");
+        System.out.println(destiny);
+        fsa.setOutputPath(destiny);
         GeneratorContext context = new GeneratorContext();
         context.setCancelIndicator(CancelIndicator.NullImpl);
 
         generator.generate(r, fsa, context);
+        
+        tempFile.deleteOnExit();
 	}
 	
 }

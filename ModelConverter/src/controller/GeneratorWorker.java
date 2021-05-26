@@ -38,7 +38,6 @@ public class GeneratorWorker extends SwingWorker<Void, Void>{
 	protected void done() {
 		progressBar.setIndeterminate(false);
 		progressBar.setString("");
-		System.out.println("hola" + res);
 		tArea.setText(res);
 	}
 

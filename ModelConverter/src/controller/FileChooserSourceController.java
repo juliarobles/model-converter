@@ -3,8 +3,6 @@ package controller;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
 
 import javax.swing.JFileChooser;
 import javax.swing.JTextField;
@@ -30,7 +28,7 @@ public class FileChooserSourceController implements MouseListener{
 		
 		if(seleccion==JFileChooser.APPROVE_OPTION){
 		    File fichero=fc.getSelectedFile();
-		    textField.setText(fichero.getAbsolutePath());
+		    textField.setText(fichero.getPath());
 		}
 	}
 

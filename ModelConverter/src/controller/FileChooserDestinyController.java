@@ -24,7 +24,7 @@ public class FileChooserDestinyController implements MouseListener{
 		
 		if(seleccion==JFileChooser.APPROVE_OPTION){
 		    File fichero=fc.getSelectedFile();
-		    textField.setText(fichero.getAbsolutePath());
+		    textField.setText(fichero.getPath());
 		}
 	}
 

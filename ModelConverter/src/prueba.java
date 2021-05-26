@@ -1,13 +1,13 @@
-import java.io.IOException;
+/*import java.io.IOException;
 import java.util.Scanner;
 
 import org.eclipse.emf.common.util.WrappedException;
 
-import model.Generators;
+import model.Generators;*/
 
 public class prueba {
 
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
 		
 		Scanner sc = new Scanner(System.in);
 		String lectura;
@@ -21,7 +21,7 @@ public class prueba {
 			if(lectura != null && !lectura.equalsIgnoreCase("FIN")) {
 				try {
 					if(lectura.endsWith(".use")) {
-						Generators.fromUSEtoUML(lectura);
+						Generators.fromUSEtoUML(lectura, destino);
 						System.out.println("Listo");
 					} else if (lectura.endsWith(".uml")) {
 						Generators.fromUMLtoUSE(lectura, destino);
@@ -46,6 +46,6 @@ public class prueba {
 		
 		//FromUSEtoUML.exportUML("prueba.use");
 		System.out.println("Listo");
-	}
+	}*/
 
 }

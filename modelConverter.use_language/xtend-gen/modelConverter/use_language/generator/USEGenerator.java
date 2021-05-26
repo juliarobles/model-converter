@@ -103,7 +103,10 @@ public class USEGenerator extends AbstractGenerator {
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
     Iterable<ModelUSE> _filter = Iterables.<ModelUSE>filter(IteratorExtensions.<EObject>toIterable(resource.getAllContents()), ModelUSE.class);
     for (final ModelUSE e : _filter) {
-      fsa.generateFile("prueba.uml", this.compileModel(e));
+      String _name = e.getName();
+      String _plus = ("modelConverter_" + _name);
+      String _plus_1 = (_plus + ".uml");
+      fsa.generateFile(_plus_1, this.compileModel(e));
     }
   }
   

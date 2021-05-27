@@ -158,18 +158,16 @@ class USEGenerator extends AbstractGenerator {
 
 	private def compileAssociationEnd(Class e, Iterable<AssociationEnd> list, int id, String aggregation) '''
 		«FOR end : list»
-			«IF end.getType() != e »
-				<ownedAttribute xmi:id="«System.identityHashCode(end)»" name="«end.getRole»" type="«System.identityHashCode(end.getType)»" association="«id»" «IF end == list.get(Iterables.size(list)-1)»«aggregation»«ENDIF»>
-				«IF end.getMul !== null && end.getMul.getMinValue !== null && end.getMul.getMinValue.length > 0»
-					<lowerValue xmi:type="«end.getMul.getMinValue.get(0).getTypeMul»" xmi:id="«System.identityHashCode(end.getType).toString() + id + "1"»" name="" value="«end.getMul.getMinValue.get(0)»"/>
-					«IF end.getMul.getMaxValue !== null && end.getMul.getMaxValue.length > 0»
-						<upperValue xmi:type="«end.getMul.getMaxValue.get(0).getTypeMul»" xmi:id="«System.identityHashCode(end.getType).toString() + id + "2"»" name="" value="«end.getMul.getMaxValue.get(0)»"/>
-					«ELSE»
-						<upperValue xmi:type="«end.getMul.getMinValue.get(0).getTypeMul»" xmi:id="«System.identityHashCode(end.getType).toString() + id + "2"»" name="" value="«end.getMul.getMinValue.get(0)»"/>
-					«ENDIF»
+			<ownedAttribute xmi:id="«System.identityHashCode(end)»" name="«end.getRole»" type="«System.identityHashCode(end.getType)»" association="«id»" «IF end == list.get(Iterables.size(list)-1)»«aggregation»«ENDIF»>
+			«IF end.getMul !== null && end.getMul.getMinValue !== null && end.getMul.getMinValue.length > 0»
+				<lowerValue xmi:type="«end.getMul.getMinValue.get(0).getTypeMul»" xmi:id="«System.identityHashCode(end.getType).toString() + id + "1"»" name="" value="«end.getMul.getMinValue.get(0)»"/>
+				«IF end.getMul.getMaxValue !== null && end.getMul.getMaxValue.length > 0»
+					<upperValue xmi:type="«end.getMul.getMaxValue.get(0).getTypeMul»" xmi:id="«System.identityHashCode(end.getType).toString() + id + "2"»" name="" value="«end.getMul.getMaxValue.get(0)»"/>
+				«ELSE»
+					<upperValue xmi:type="«end.getMul.getMinValue.get(0).getTypeMul»" xmi:id="«System.identityHashCode(end.getType).toString() + id + "2"»" name="" value="«end.getMul.getMinValue.get(0)»"/>
 				«ENDIF»
-				</ownedAttribute>
 			«ENDIF»
+				</ownedAttribute>
 		«ENDFOR»
 	'''
 
@@ -189,7 +187,7 @@ class USEGenerator extends AbstractGenerator {
 
 	private def compileAttributesBase(AttributesBase e) '''
 		«FOR attribute : e.getAttributes()»
-			<ownedAttribute xmi:id="«System.identityHashCode(attribute)»" name="«attribute.getName»" «IF attribute.getDeriveOCL !== null»isDerived="true" «ENDIF»«IF attribute.getType() !== null && attribute.getType() instanceof SimpleTypes && (attribute.getType() as SimpleTypes).getReferended() !== null»type="«System.identityHashCode((attribute.getType() as SimpleTypes).getReferended())»"«ELSEIF attribute.getType() !== null && attribute.getType() instanceof CollectionType && (attribute.getType() as CollectionType).getType !== null && (attribute.getType() as CollectionType).getType.length > 0 && ((attribute.getType() as CollectionType).getType.get(0)) instanceof SimpleTypes && ((attribute.getType() as CollectionType).getType.get(0) as SimpleTypes).getReferended !== null»type="«System.identityHashCode(((attribute.getType() as CollectionType).getType.get(0) as SimpleTypes).getReferended)»"«ENDIF»>
+			<ownedAttribute xmi:id="«System.identityHashCode(attribute)»" name="«attribute.getName»" «IF attribute.getDeriveOCL !== null»isDerived="true" «ENDIF»«IF attribute.getType() !== null && attribute.getType() instanceof SimpleTypes && (attribute.getType() as SimpleTypes).getReferended() !== null»type="«System.identityHashCode((attribute.getType() as SimpleTypes).getReferended())»"«ELSEIF attribute.getType() !== null && attribute.getType() instanceof CollectionType && (attribute.getType() as CollectionType).getType !== null && (attribute.getType() as CollectionType).getType.length > 0 && ((attribute.getType() as CollectionType).getType.get(0)) instanceof SimpleTypes && ((attribute.getType() as CollectionType).getType.get(0) as SimpleTypes).getReferended !== null»type="«System.identityHashCode(((attribute.getType() as CollectionType).getType.get(0) as SimpleTypes).getReferended)»"«ENDIF»«IF attribute.getType() !== null && attribute.getType() instanceof CollectionType»«(attribute.getType() as CollectionType).getCollection.compileCollection»«ENDIF»>
 			«IF attribute.getType() !== null && attribute.getType() instanceof SimpleTypes && (attribute.getType() as SimpleTypes).getDefaultType !== null»
 				«(attribute.getType() as SimpleTypes).getDefaultType.compileDefaultType»
 			«ELSEIF attribute.getType() !== null && attribute.getType() instanceof CollectionType && (attribute.getType() as CollectionType).getType !== null && (attribute.getType() as CollectionType).getType.length > 0 && ((attribute.getType() as CollectionType).getType.get(0)) instanceof SimpleTypes && ((attribute.getType() as CollectionType).getType.get(0) as SimpleTypes).getDefaultType !== null»
@@ -203,11 +201,13 @@ class USEGenerator extends AbstractGenerator {
 			«IF attribute.getDeriveOCL !== null»
 				<defaultValue xmi:type="uml:LiteralString" xmi:id="«System.identityHashCode(attribute) + "_03"»" name="" visibility="public" value="«attribute.getDeriveOCL.compileExpCSToShow»"/>
 			«ELSEIF attribute.getInitOCL !== null»
-				<defaultValue xmi:type="uml:LiteralString" xmi:id="«System.identityHashCode(attribute) + "_03"»" name="" visibility="public" value="«attribute.getInitOCL»"/>
+				<defaultValue xmi:type="uml:LiteralString" xmi:id="«System.identityHashCode(attribute) + "_03"»" name="" visibility="public" value="«attribute.getInitOCL.compileExpCSToShow»"/>
 			«ENDIF»
 			</ownedAttribute>
 		«ENDFOR»
 	'''
+
+	private def compileCollection(String collection) '''«IF collection.equalsIgnoreCase("Sequence")» isOrdered="true" isUnique="false"«ELSEIF collection.equalsIgnoreCase("Bag")» isUnique="false"«ENDIF»'''
 
 	private def compileOperationsBase(OperationsBase e, Iterable<OperationContext> conditions) '''
 		«FOR op : e.getOperations()»
@@ -248,7 +248,7 @@ class USEGenerator extends AbstractGenerator {
 		</ownedRule>
 	'''
 	
-	private def compileExpCSToShow(ExpCS e)'''«(e.compileExpCS).toString().replaceAll(System.getProperty("line.separator"), "")»'''
+	private def compileExpCSToShow(ExpCS e)'''«(e.compileExpCS).toString().replaceAll(System.getProperty("line.separator"), "").replaceAll("<", "&lt;").replaceAll(">", "&gt;")»'''
 	
 	private def compileOwnedRuleString(String e, String id, String name, String constrainedElement) '''
 		<ownedRule xmi:id="«id»" name="«name»" «constrainedElement»>
@@ -260,7 +260,7 @@ class USEGenerator extends AbstractGenerator {
 	'''
 
 	private def compileReturnType(AllTypes e, int idOp) '''
-		<ownedParameter xmi:id="«System.identityHashCode(e).toString + idOp»" name="" «IF e !== null && e instanceof SimpleTypes && (e as SimpleTypes).getReferended() !== null»type="«System.identityHashCode((e as SimpleTypes).getReferended())»"«ELSEIF e !== null && e instanceof CollectionType && (e as CollectionType).getType !== null && (e as CollectionType).getType.length > 0 && ((e as CollectionType).getType.get(0)) instanceof SimpleTypes && ((e as CollectionType).getType.get(0) as SimpleTypes).getReferended !== null»type="«((e as CollectionType).getType.get(0) as SimpleTypes).getReferended»"«ENDIF» direction="return">
+		<ownedParameter xmi:id="«System.identityHashCode(e).toString + idOp»" name="" «IF e !== null && e instanceof SimpleTypes && (e as SimpleTypes).getReferended() !== null»type="«System.identityHashCode((e as SimpleTypes).getReferended())»"«ELSEIF e !== null && e instanceof CollectionType && (e as CollectionType).getType !== null && (e as CollectionType).getType.length > 0 && ((e as CollectionType).getType.get(0)) instanceof SimpleTypes && ((e as CollectionType).getType.get(0) as SimpleTypes).getReferended !== null»type="«System.identityHashCode(((e as CollectionType).getType.get(0) as SimpleTypes).getReferended())»"«ENDIF» direction="return">
 		«IF e !== null && e instanceof SimpleTypes && (e as SimpleTypes).getDefaultType !== null»
 			«(e as SimpleTypes).getDefaultType.compileDefaultType»
 		«ELSEIF e !== null && e instanceof CollectionType && (e as CollectionType).getType !== null && (e as CollectionType).getType.length > 0 && ((e as CollectionType).getType.get(0)) instanceof SimpleTypes && ((e as CollectionType).getType.get(0) as SimpleTypes).getDefaultType !== null»
@@ -473,6 +473,6 @@ class USEGenerator extends AbstractGenerator {
 	
 	private def compileTuplePartCS(TuplePartCS e) '''«e.getName» : «e.getOwnedType.compileTypedRefCS»'''
 	
-	private def compileTypeNameExpCS(TypeNameExpCS e) '''«e.getOwnedPathName» «IF e.getOwnedCurlyBracketedClause !== null»«e.getOwnedCurlyBracketedClause.compileCurlyBracketedClauseCS» «IF e.getOwnedPatternGuard !== null»{«e.getOwnedPatternGuard.compileExpCS»}«ENDIF»«ENDIF»'''
+	private def compileTypeNameExpCS(TypeNameExpCS e) '''«e.getOwnedPathName.compilePathNameCS» «IF e.getOwnedCurlyBracketedClause !== null»«e.getOwnedCurlyBracketedClause.compileCurlyBracketedClauseCS» «IF e.getOwnedPatternGuard !== null»{«e.getOwnedPatternGuard.compileExpCS»}«ENDIF»«ENDIF»'''
 	
 }

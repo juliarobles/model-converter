@@ -66,24 +66,14 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
   protected AllTypes type;
 
   /**
-   * The default value of the '{@link #getInitOCL() <em>Init OCL</em>}' attribute.
+   * The cached value of the '{@link #getInitOCL() <em>Init OCL</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getInitOCL()
    * @generated
    * @ordered
    */
-  protected static final String INIT_OCL_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getInitOCL() <em>Init OCL</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getInitOCL()
-   * @generated
-   * @ordered
-   */
-  protected String initOCL = INIT_OCL_EDEFAULT;
+  protected ExpCS initOCL;
 
   /**
    * The cached value of the '{@link #getDeriveOCL() <em>Derive OCL</em>}' containment reference.
@@ -197,7 +187,7 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
    * @generated
    */
   @Override
-  public String getInitOCL()
+  public ExpCS getInitOCL()
   {
     return initOCL;
   }
@@ -207,13 +197,38 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public void setInitOCL(String newInitOCL)
+  public NotificationChain basicSetInitOCL(ExpCS newInitOCL, NotificationChain msgs)
   {
-    String oldInitOCL = initOCL;
+    ExpCS oldInitOCL = initOCL;
     initOCL = newInitOCL;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, UsePackage.ATTRIBUTE__INIT_OCL, oldInitOCL, initOCL));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, UsePackage.ATTRIBUTE__INIT_OCL, oldInitOCL, newInitOCL);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setInitOCL(ExpCS newInitOCL)
+  {
+    if (newInitOCL != initOCL)
+    {
+      NotificationChain msgs = null;
+      if (initOCL != null)
+        msgs = ((InternalEObject)initOCL).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UsePackage.ATTRIBUTE__INIT_OCL, null, msgs);
+      if (newInitOCL != null)
+        msgs = ((InternalEObject)newInitOCL).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UsePackage.ATTRIBUTE__INIT_OCL, null, msgs);
+      msgs = basicSetInitOCL(newInitOCL, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, UsePackage.ATTRIBUTE__INIT_OCL, newInitOCL, newInitOCL));
   }
 
   /**
@@ -278,6 +293,8 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
     {
       case UsePackage.ATTRIBUTE__TYPE:
         return basicSetType(null, msgs);
+      case UsePackage.ATTRIBUTE__INIT_OCL:
+        return basicSetInitOCL(null, msgs);
       case UsePackage.ATTRIBUTE__DERIVE_OCL:
         return basicSetDeriveOCL(null, msgs);
     }
@@ -323,7 +340,7 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
         setType((AllTypes)newValue);
         return;
       case UsePackage.ATTRIBUTE__INIT_OCL:
-        setInitOCL((String)newValue);
+        setInitOCL((ExpCS)newValue);
         return;
       case UsePackage.ATTRIBUTE__DERIVE_OCL:
         setDeriveOCL((ExpCS)newValue);
@@ -349,7 +366,7 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
         setType((AllTypes)null);
         return;
       case UsePackage.ATTRIBUTE__INIT_OCL:
-        setInitOCL(INIT_OCL_EDEFAULT);
+        setInitOCL((ExpCS)null);
         return;
       case UsePackage.ATTRIBUTE__DERIVE_OCL:
         setDeriveOCL((ExpCS)null);
@@ -373,7 +390,7 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
       case UsePackage.ATTRIBUTE__TYPE:
         return type != null;
       case UsePackage.ATTRIBUTE__INIT_OCL:
-        return INIT_OCL_EDEFAULT == null ? initOCL != null : !INIT_OCL_EDEFAULT.equals(initOCL);
+        return initOCL != null;
       case UsePackage.ATTRIBUTE__DERIVE_OCL:
         return deriveOCL != null;
     }
@@ -393,8 +410,6 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
     StringBuilder result = new StringBuilder(super.toString());
     result.append(" (name: ");
     result.append(name);
-    result.append(", initOCL: ");
-    result.append(initOCL);
     result.append(')');
     return result.toString();
   }

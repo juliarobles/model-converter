@@ -68,7 +68,7 @@
     <genClasses ecoreClass="USE.ecore#//Attribute">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute USE.ecore#//Attribute/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference USE.ecore#//Attribute/type"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute USE.ecore#//Attribute/initOCL"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference USE.ecore#//Attribute/initOCL"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference USE.ecore#//Attribute/deriveOCL"/>
     </genClasses>
     <genClasses ecoreClass="USE.ecore#//OperationsBase">

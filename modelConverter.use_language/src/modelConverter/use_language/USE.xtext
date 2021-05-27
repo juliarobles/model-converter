@@ -88,7 +88,7 @@ AttributesBase:
 		(attributes+=Attribute)*;
 
 Attribute:
-	name=ID ':' type=AllTypes ('init' ':' initOCL=(ID|IntToString))? ('derive' ':' deriveOCL=ExpCS)?;
+	name=ID ':' type=AllTypes ('init' ':' initOCL=ExpCS)? ('derive' ':' deriveOCL=ExpCS)?;
 
 
 //------------OPERACIONES--------------
@@ -100,7 +100,7 @@ OperationType:
 	OperationComplex | OperationQuery;
 
 OperationQuery:
-	operationDeclaration=OperationDeclaration '=' operationbody=ExpCS (conditions+=ConditionType)*;
+	operationDeclaration=OperationDeclaration '=' operationbody=ExpCS (';')? (conditions+=ConditionType)*;
 
 OperationComplex:
 	operationDeclaration=OperationDeclaration ('begin' (operationbody=BeginEnd)? 'end')? (conditions+=ConditionType)*;

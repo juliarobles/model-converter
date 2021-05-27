@@ -323,85 +323,80 @@ public class USEGenerator extends AbstractGenerator {
     StringConcatenation _builder = new StringConcatenation();
     {
       for(final AssociationEnd end : list) {
+        _builder.append("<ownedAttribute xmi:id=\"");
+        int _identityHashCode = System.identityHashCode(end);
+        _builder.append(_identityHashCode);
+        _builder.append("\" name=\"");
+        String _role = end.getRole();
+        _builder.append(_role);
+        _builder.append("\" type=\"");
+        int _identityHashCode_1 = System.identityHashCode(end.getType());
+        _builder.append(_identityHashCode_1);
+        _builder.append("\" association=\"");
+        _builder.append(id);
+        _builder.append("\" ");
         {
-          AllClass _type = end.getType();
-          boolean _notEquals = (!Objects.equal(_type, e));
-          if (_notEquals) {
-            _builder.append("<ownedAttribute xmi:id=\"");
-            int _identityHashCode = System.identityHashCode(end);
-            _builder.append(_identityHashCode);
-            _builder.append("\" name=\"");
-            String _role = end.getRole();
-            _builder.append(_role);
-            _builder.append("\" type=\"");
-            int _identityHashCode_1 = System.identityHashCode(end.getType());
-            _builder.append(_identityHashCode_1);
-            _builder.append("\" association=\"");
-            _builder.append(id);
-            _builder.append("\" ");
-            {
-              int _size = Iterables.size(list);
-              int _minus = (_size - 1);
-              Object _get = ((Object[])Conversions.unwrapArray(list, Object.class))[_minus];
-              boolean _equals = Objects.equal(end, _get);
-              if (_equals) {
-                _builder.append(aggregation);
-              }
-            }
-            _builder.append(">");
-            _builder.newLineIfNotEmpty();
-            {
-              if ((((end.getMul() != null) && (end.getMul().getMinValue() != null)) && (((Object[])Conversions.unwrapArray(end.getMul().getMinValue(), Object.class)).length > 0))) {
-                _builder.append("<lowerValue xmi:type=\"");
-                CharSequence _typeMul = this.getTypeMul(end.getMul().getMinValue().get(0));
-                _builder.append(_typeMul);
-                _builder.append("\" xmi:id=\"");
-                String _string = Integer.valueOf(System.identityHashCode(end.getType())).toString();
-                String _plus = (_string + Integer.valueOf(id));
-                String _plus_1 = (_plus + "1");
-                _builder.append(_plus_1);
-                _builder.append("\" name=\"\" value=\"");
-                String _get_1 = end.getMul().getMinValue().get(0);
-                _builder.append(_get_1);
-                _builder.append("\"/>");
-                _builder.newLineIfNotEmpty();
-                {
-                  if (((end.getMul().getMaxValue() != null) && (((Object[])Conversions.unwrapArray(end.getMul().getMaxValue(), Object.class)).length > 0))) {
-                    _builder.append("<upperValue xmi:type=\"");
-                    CharSequence _typeMul_1 = this.getTypeMul(end.getMul().getMaxValue().get(0));
-                    _builder.append(_typeMul_1);
-                    _builder.append("\" xmi:id=\"");
-                    String _string_1 = Integer.valueOf(System.identityHashCode(end.getType())).toString();
-                    String _plus_2 = (_string_1 + Integer.valueOf(id));
-                    String _plus_3 = (_plus_2 + "2");
-                    _builder.append(_plus_3);
-                    _builder.append("\" name=\"\" value=\"");
-                    String _get_2 = end.getMul().getMaxValue().get(0);
-                    _builder.append(_get_2);
-                    _builder.append("\"/>");
-                    _builder.newLineIfNotEmpty();
-                  } else {
-                    _builder.append("<upperValue xmi:type=\"");
-                    CharSequence _typeMul_2 = this.getTypeMul(end.getMul().getMinValue().get(0));
-                    _builder.append(_typeMul_2);
-                    _builder.append("\" xmi:id=\"");
-                    String _string_2 = Integer.valueOf(System.identityHashCode(end.getType())).toString();
-                    String _plus_4 = (_string_2 + Integer.valueOf(id));
-                    String _plus_5 = (_plus_4 + "2");
-                    _builder.append(_plus_5);
-                    _builder.append("\" name=\"\" value=\"");
-                    String _get_3 = end.getMul().getMinValue().get(0);
-                    _builder.append(_get_3);
-                    _builder.append("\"/>");
-                    _builder.newLineIfNotEmpty();
-                  }
-                }
-              }
-            }
-            _builder.append("</ownedAttribute>");
-            _builder.newLine();
+          int _size = Iterables.size(list);
+          int _minus = (_size - 1);
+          Object _get = ((Object[])Conversions.unwrapArray(list, Object.class))[_minus];
+          boolean _equals = Objects.equal(end, _get);
+          if (_equals) {
+            _builder.append(aggregation);
           }
         }
+        _builder.append(">");
+        _builder.newLineIfNotEmpty();
+        {
+          if ((((end.getMul() != null) && (end.getMul().getMinValue() != null)) && (((Object[])Conversions.unwrapArray(end.getMul().getMinValue(), Object.class)).length > 0))) {
+            _builder.append("<lowerValue xmi:type=\"");
+            CharSequence _typeMul = this.getTypeMul(end.getMul().getMinValue().get(0));
+            _builder.append(_typeMul);
+            _builder.append("\" xmi:id=\"");
+            String _string = Integer.valueOf(System.identityHashCode(end.getType())).toString();
+            String _plus = (_string + Integer.valueOf(id));
+            String _plus_1 = (_plus + "1");
+            _builder.append(_plus_1);
+            _builder.append("\" name=\"\" value=\"");
+            String _get_1 = end.getMul().getMinValue().get(0);
+            _builder.append(_get_1);
+            _builder.append("\"/>");
+            _builder.newLineIfNotEmpty();
+            {
+              if (((end.getMul().getMaxValue() != null) && (((Object[])Conversions.unwrapArray(end.getMul().getMaxValue(), Object.class)).length > 0))) {
+                _builder.append("<upperValue xmi:type=\"");
+                CharSequence _typeMul_1 = this.getTypeMul(end.getMul().getMaxValue().get(0));
+                _builder.append(_typeMul_1);
+                _builder.append("\" xmi:id=\"");
+                String _string_1 = Integer.valueOf(System.identityHashCode(end.getType())).toString();
+                String _plus_2 = (_string_1 + Integer.valueOf(id));
+                String _plus_3 = (_plus_2 + "2");
+                _builder.append(_plus_3);
+                _builder.append("\" name=\"\" value=\"");
+                String _get_2 = end.getMul().getMaxValue().get(0);
+                _builder.append(_get_2);
+                _builder.append("\"/>");
+                _builder.newLineIfNotEmpty();
+              } else {
+                _builder.append("<upperValue xmi:type=\"");
+                CharSequence _typeMul_2 = this.getTypeMul(end.getMul().getMinValue().get(0));
+                _builder.append(_typeMul_2);
+                _builder.append("\" xmi:id=\"");
+                String _string_2 = Integer.valueOf(System.identityHashCode(end.getType())).toString();
+                String _plus_4 = (_string_2 + Integer.valueOf(id));
+                String _plus_5 = (_plus_4 + "2");
+                _builder.append(_plus_5);
+                _builder.append("\" name=\"\" value=\"");
+                String _get_3 = end.getMul().getMinValue().get(0);
+                _builder.append(_get_3);
+                _builder.append("\"/>");
+                _builder.newLineIfNotEmpty();
+              }
+            }
+          }
+        }
+        _builder.append("\t");
+        _builder.append("</ownedAttribute>");
+        _builder.newLine();
       }
     }
     return _builder;
@@ -500,18 +495,25 @@ public class USEGenerator extends AbstractGenerator {
             }
           }
         }
+        {
+          if (((attribute.getType() != null) && (attribute.getType() instanceof CollectionType))) {
+            AllTypes _type_2 = attribute.getType();
+            CharSequence _compileCollection = this.compileCollection(((CollectionType) _type_2).getCollection());
+            _builder.append(_compileCollection);
+          }
+        }
         _builder.append(">");
         _builder.newLineIfNotEmpty();
         {
           if ((((attribute.getType() != null) && (attribute.getType() instanceof SimpleTypes)) && (((SimpleTypes) attribute.getType()).getDefaultType() != null))) {
-            AllTypes _type_2 = attribute.getType();
-            CharSequence _compileDefaultType = this.compileDefaultType(((SimpleTypes) _type_2).getDefaultType());
+            AllTypes _type_3 = attribute.getType();
+            CharSequence _compileDefaultType = this.compileDefaultType(((SimpleTypes) _type_3).getDefaultType());
             _builder.append(_compileDefaultType);
             _builder.newLineIfNotEmpty();
           } else {
             if (((((((attribute.getType() != null) && (attribute.getType() instanceof CollectionType)) && (((CollectionType) attribute.getType()).getType() != null)) && (((Object[])Conversions.unwrapArray(((CollectionType) attribute.getType()).getType(), Object.class)).length > 0)) && (((CollectionType) attribute.getType()).getType().get(0) instanceof SimpleTypes)) && (((SimpleTypes) ((CollectionType) attribute.getType()).getType().get(0)).getDefaultType() != null))) {
-              AllTypes _type_3 = attribute.getType();
-              SimpleTypes _get_1 = ((CollectionType) _type_3).getType().get(0);
+              AllTypes _type_4 = attribute.getType();
+              SimpleTypes _get_1 = ((CollectionType) _type_4).getType().get(0);
               CharSequence _compileDefaultType_1 = this.compileDefaultType(((SimpleTypes) _get_1).getDefaultType());
               _builder.append(_compileDefaultType_1);
               _builder.newLineIfNotEmpty();
@@ -559,7 +561,7 @@ public class USEGenerator extends AbstractGenerator {
             _builder.append("\"/>");
             _builder.newLineIfNotEmpty();
           } else {
-            String _initOCL = attribute.getInitOCL();
+            ExpCS _initOCL = attribute.getInitOCL();
             boolean _tripleNotEquals_2 = (_initOCL != null);
             if (_tripleNotEquals_2) {
               _builder.append("<defaultValue xmi:type=\"uml:LiteralString\" xmi:id=\"");
@@ -567,8 +569,8 @@ public class USEGenerator extends AbstractGenerator {
               String _plus_5 = (Integer.valueOf(_identityHashCode_8) + "_03");
               _builder.append(_plus_5);
               _builder.append("\" name=\"\" visibility=\"public\" value=\"");
-              String _initOCL_1 = attribute.getInitOCL();
-              _builder.append(_initOCL_1);
+              CharSequence _compileExpCSToShow_1 = this.compileExpCSToShow(attribute.getInitOCL());
+              _builder.append(_compileExpCSToShow_1);
               _builder.append("\"/>");
               _builder.newLineIfNotEmpty();
             }
@@ -576,6 +578,22 @@ public class USEGenerator extends AbstractGenerator {
         }
         _builder.append("</ownedAttribute>");
         _builder.newLine();
+      }
+    }
+    return _builder;
+  }
+  
+  private CharSequence compileCollection(final String collection) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      boolean _equalsIgnoreCase = collection.equalsIgnoreCase("Sequence");
+      if (_equalsIgnoreCase) {
+        _builder.append(" isOrdered=\"true\" isUnique=\"false\"");
+      } else {
+        boolean _equalsIgnoreCase_1 = collection.equalsIgnoreCase("Bag");
+        if (_equalsIgnoreCase_1) {
+          _builder.append(" isUnique=\"false\"");
+        }
       }
     }
     return _builder;
@@ -785,7 +803,7 @@ public class USEGenerator extends AbstractGenerator {
   
   private CharSequence compileExpCSToShow(final ExpCS e) {
     StringConcatenation _builder = new StringConcatenation();
-    String _replaceAll = this.compileExpCS(e).toString().replaceAll(System.getProperty("line.separator"), "");
+    String _replaceAll = this.compileExpCS(e).toString().replaceAll(System.getProperty("line.separator"), "").replaceAll("<", "&lt;").replaceAll(">", "&gt;");
     _builder.append(_replaceAll);
     return _builder;
   }
@@ -845,8 +863,8 @@ public class USEGenerator extends AbstractGenerator {
         if (((((((e != null) && (e instanceof CollectionType)) && (((CollectionType) e).getType() != null)) && (((Object[])Conversions.unwrapArray(((CollectionType) e).getType(), Object.class)).length > 0)) && (((CollectionType) e).getType().get(0) instanceof SimpleTypes)) && (((SimpleTypes) ((CollectionType) e).getType().get(0)).getReferended() != null))) {
           _builder.append("type=\"");
           SimpleTypes _get = ((CollectionType) e).getType().get(0);
-          AllClassAndEnum _referended = ((SimpleTypes) _get).getReferended();
-          _builder.append(_referended);
+          int _identityHashCode_1 = System.identityHashCode(((SimpleTypes) _get).getReferended());
+          _builder.append(_identityHashCode_1);
           _builder.append("\"");
         }
       }
@@ -2069,8 +2087,8 @@ public class USEGenerator extends AbstractGenerator {
   
   private CharSequence compileTypeNameExpCS(final TypeNameExpCS e) {
     StringConcatenation _builder = new StringConcatenation();
-    PathNameCS _ownedPathName = e.getOwnedPathName();
-    _builder.append(_ownedPathName);
+    CharSequence _compilePathNameCS = this.compilePathNameCS(e.getOwnedPathName());
+    _builder.append(_compilePathNameCS);
     _builder.append(" ");
     {
       CurlyBracketedClauseCS _ownedCurlyBracketedClause = e.getOwnedCurlyBracketedClause();

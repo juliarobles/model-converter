@@ -456,7 +456,7 @@ public class USESemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Attribute returns Attribute
 	 *
 	 * Constraint:
-	 *     (name=ID type=AllTypes (initOCL=ID | initOCL=IntToString)? deriveOCL=ExpCS?)
+	 *     (name=ID type=AllTypes initOCL=ExpCS? deriveOCL=ExpCS?)
 	 */
 	protected void sequence_Attribute(ISerializationContext context, Attribute semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

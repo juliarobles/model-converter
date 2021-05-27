@@ -11,6 +11,8 @@ public class U9_Auxiliary {
 	
 	private U9_Auxiliary() {}
 	
+	public enum CollectionName {Bag, Sequence, Set};
+	
 	static boolean isNavigable(Association association) {
 		boolean res = true;
 		List<Property> memberEnds = association.getMemberEnds();
@@ -80,8 +82,26 @@ public class U9_Auxiliary {
 		return (typeIsNull(type)) ? "String" : checkAvailableType(type);
 	}
 	
-	static String typeToStringOptional(Type type) {
-		return (typeIsNull(type)) ? "" : " : " + checkAvailableType(type);
+	static String typeToStringOptional(Type type, CollectionName collection) {
+		String collectionName = "";
+		String collectionEnd = ")";
+		if(collection != null) {
+			switch(collection) {
+			case Sequence:
+				collectionName = "Sequence(";
+				break;
+			case Set:
+				collectionName = "Set(";
+				break;
+			case Bag:
+				collectionName = "Bag(";
+				break;
+			}
+		} else {
+			collectionEnd = "";
+		}
+		
+		return (typeIsNull(type)) ? "" : " : " + collectionName + checkAvailableType(type) + collectionEnd;
 	}
 	
 	static boolean typeIsNull(Type type) {

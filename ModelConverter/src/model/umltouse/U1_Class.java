@@ -73,10 +73,23 @@ public class U1_Class {
 			
 			for(Property property : attributes) {
 				String defaultValue = "";
+				U9_Auxiliary.CollectionName collection = null;
 				if(property.getDefault() != null && !property.getDefault().isBlank()) {
 					defaultValue = (property.isDerived()) ? (" derive: " + property.getDefault()) : (" init: " + property.getDefault());
 				}
-				sBuilder.append("\t\t" + U9_Auxiliary.checkUnnamed(property.getName(), namesUsedParticular, countUnnamed) + U9_Auxiliary.typeToStringOptional(property.getType()) + defaultValue + "\n");
+				if(property.getUpperValue() != null && !property.getUpperValue().stringValue().equals("1")) {
+					if(property.isOrdered()) {
+						collection = U9_Auxiliary.CollectionName.Sequence;
+						//collection = "Sequence(";
+					} else if (property.isUnique()) {
+						collection = U9_Auxiliary.CollectionName.Set;
+						//collection = "Set(";
+					} else {
+						collection = U9_Auxiliary.CollectionName.Bag;
+						//collection = "Bag(";
+					}
+				}
+				sBuilder.append("\t\t" + U9_Auxiliary.checkUnnamed(property.getName(), namesUsedParticular, countUnnamed) + U9_Auxiliary.typeToStringOptional(property.getType(), collection) + defaultValue + "\n");
 			}
 		}
 				

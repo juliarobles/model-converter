@@ -686,7 +686,7 @@ public interface UsePackage extends EPackage
   int ATTRIBUTE__TYPE = 1;
 
   /**
-   * The feature id for the '<em><b>Init OCL</b></em>' attribute.
+   * The feature id for the '<em><b>Init OCL</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -3477,15 +3477,15 @@ public interface UsePackage extends EPackage
   EReference getAttribute_Type();
 
   /**
-   * Returns the meta object for the attribute '{@link modelConverter.use_language.use.Attribute#getInitOCL <em>Init OCL</em>}'.
+   * Returns the meta object for the containment reference '{@link modelConverter.use_language.use.Attribute#getInitOCL <em>Init OCL</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Init OCL</em>'.
+   * @return the meta object for the containment reference '<em>Init OCL</em>'.
    * @see modelConverter.use_language.use.Attribute#getInitOCL()
    * @see #getAttribute()
    * @generated
    */
-  EAttribute getAttribute_InitOCL();
+  EReference getAttribute_InitOCL();
 
   /**
    * Returns the meta object for the containment reference '{@link modelConverter.use_language.use.Attribute#getDeriveOCL <em>Derive OCL</em>}'.
@@ -5687,12 +5687,12 @@ public interface UsePackage extends EPackage
     EReference ATTRIBUTE__TYPE = eINSTANCE.getAttribute_Type();
 
     /**
-     * The meta object literal for the '<em><b>Init OCL</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Init OCL</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute ATTRIBUTE__INIT_OCL = eINSTANCE.getAttribute_InitOCL();
+    EReference ATTRIBUTE__INIT_OCL = eINSTANCE.getAttribute_InitOCL();
 
     /**
      * The meta object literal for the '<em><b>Derive OCL</b></em>' containment reference feature.

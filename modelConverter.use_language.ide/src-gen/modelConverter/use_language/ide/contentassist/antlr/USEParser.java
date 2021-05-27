@@ -43,7 +43,6 @@ public class USEParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getAllClassAndEnumAccess().getAlternatives(), "rule__AllClassAndEnum__Alternatives");
 			builder.put(grammarAccess.getSimpleTypesAccess().getAlternatives(), "rule__SimpleTypes__Alternatives");
 			builder.put(grammarAccess.getAssociationAccess().getTypeAssociationAlternatives_0_0(), "rule__Association__TypeAssociationAlternatives_0_0");
-			builder.put(grammarAccess.getAttributeAccess().getInitOCLAlternatives_3_2_0(), "rule__Attribute__InitOCLAlternatives_3_2_0");
 			builder.put(grammarAccess.getOperationTypeAccess().getAlternatives(), "rule__OperationType__Alternatives");
 			builder.put(grammarAccess.getContextsTypeAccess().getAlternatives(), "rule__ContextsType__Alternatives");
 			builder.put(grammarAccess.getConditionTypeAccess().getAlternatives(), "rule__ConditionType__Alternatives");
@@ -243,7 +242,7 @@ public class USEParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getOperationsBaseAccess().getOperationsAssignment_1(), "rule__OperationsBase__OperationsAssignment_1");
 			builder.put(grammarAccess.getOperationQueryAccess().getOperationDeclarationAssignment_0(), "rule__OperationQuery__OperationDeclarationAssignment_0");
 			builder.put(grammarAccess.getOperationQueryAccess().getOperationbodyAssignment_2(), "rule__OperationQuery__OperationbodyAssignment_2");
-			builder.put(grammarAccess.getOperationQueryAccess().getConditionsAssignment_3(), "rule__OperationQuery__ConditionsAssignment_3");
+			builder.put(grammarAccess.getOperationQueryAccess().getConditionsAssignment_4(), "rule__OperationQuery__ConditionsAssignment_4");
 			builder.put(grammarAccess.getOperationComplexAccess().getOperationDeclarationAssignment_0(), "rule__OperationComplex__OperationDeclarationAssignment_0");
 			builder.put(grammarAccess.getOperationComplexAccess().getOperationbodyAssignment_1_1(), "rule__OperationComplex__OperationbodyAssignment_1_1");
 			builder.put(grammarAccess.getOperationComplexAccess().getConditionsAssignment_2(), "rule__OperationComplex__ConditionsAssignment_2");

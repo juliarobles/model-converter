@@ -35,7 +35,6 @@ public class General {
 
         GeneratorDelegate generator = injector.getInstance(GeneratorDelegate.class);
         JavaIoFileSystemAccess fsa = injector.getInstance(JavaIoFileSystemAccess.class);
-        System.out.println(destiny);
         fsa.setOutputPath(destiny);
         GeneratorContext context = new GeneratorContext();
         context.setCancelIndicator(CancelIndicator.NullImpl);

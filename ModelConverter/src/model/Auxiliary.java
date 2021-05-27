@@ -34,7 +34,6 @@ public class Auxiliary {
 		try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
 		    writer.write(text);
 		}
-		System.out.println("Ready");
 	}
 	
 }

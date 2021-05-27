@@ -32,7 +32,7 @@ public class U4_Operation {
 			}
 		}
 		
-		sBuilder.append(")" + U9_Auxiliary.typeToStringOptional(operation.getType()));
+		sBuilder.append(")" + U9_Auxiliary.typeToStringOptional(operation.getType(), null));
 		if (bodycondition != null && bodycondition.getSpecification() != null) {
 			value = bodycondition.getSpecification().stringValue();
 		}

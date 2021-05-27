@@ -1433,38 +1433,21 @@ ruleAttribute returns [EObject current=null]
 			}
 			(
 				(
-					(
-						lv_initOCL_5_1=RULE_ID
-						{
-							newLeafNode(lv_initOCL_5_1, grammarAccess.getAttributeAccess().getInitOCLIDTerminalRuleCall_3_2_0_0());
+					{
+						newCompositeNode(grammarAccess.getAttributeAccess().getInitOCLExpCSParserRuleCall_3_2_0());
+					}
+					lv_initOCL_5_0=ruleExpCS
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getAttributeRule());
 						}
-						{
-							if ($current==null) {
-								$current = createModelElement(grammarAccess.getAttributeRule());
-							}
-							setWithLastConsumed(
-								$current,
-								"initOCL",
-								lv_initOCL_5_1,
-								"org.eclipse.xtext.common.Terminals.ID");
-						}
-						    |
-						{
-							newCompositeNode(grammarAccess.getAttributeAccess().getInitOCLIntToStringParserRuleCall_3_2_0_1());
-						}
-						lv_initOCL_5_2=ruleIntToString
-						{
-							if ($current==null) {
-								$current = createModelElementForParent(grammarAccess.getAttributeRule());
-							}
-							set(
-								$current,
-								"initOCL",
-								lv_initOCL_5_2,
-								"modelConverter.use_language.USE.IntToString");
-							afterParserOrEnumRuleCall();
-						}
-					)
+						set(
+							$current,
+							"initOCL",
+							lv_initOCL_5_0,
+							"modelConverter.use_language.USE.ExpCS");
+						afterParserOrEnumRuleCall();
+					}
 				)
 			)
 		)?
@@ -1643,11 +1626,17 @@ ruleOperationQuery returns [EObject current=null]
 			)
 		)
 		(
+			otherlv_3=';'
+			{
+				newLeafNode(otherlv_3, grammarAccess.getOperationQueryAccess().getSemicolonKeyword_3());
+			}
+		)?
+		(
 			(
 				{
-					newCompositeNode(grammarAccess.getOperationQueryAccess().getConditionsConditionTypeParserRuleCall_3_0());
+					newCompositeNode(grammarAccess.getOperationQueryAccess().getConditionsConditionTypeParserRuleCall_4_0());
 				}
-				lv_conditions_3_0=ruleConditionType
+				lv_conditions_4_0=ruleConditionType
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getOperationQueryRule());
@@ -1655,7 +1644,7 @@ ruleOperationQuery returns [EObject current=null]
 					add(
 						$current,
 						"conditions",
-						lv_conditions_3_0,
+						lv_conditions_4_0,
 						"modelConverter.use_language.USE.ConditionType");
 					afterParserOrEnumRuleCall();
 				}

@@ -802,9 +802,7 @@ public class USEGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final Keyword cInitKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
 		private final Keyword cColonKeyword_3_1 = (Keyword)cGroup_3.eContents().get(1);
 		private final Assignment cInitOCLAssignment_3_2 = (Assignment)cGroup_3.eContents().get(2);
-		private final Alternatives cInitOCLAlternatives_3_2_0 = (Alternatives)cInitOCLAssignment_3_2.eContents().get(0);
-		private final RuleCall cInitOCLIDTerminalRuleCall_3_2_0_0 = (RuleCall)cInitOCLAlternatives_3_2_0.eContents().get(0);
-		private final RuleCall cInitOCLIntToStringParserRuleCall_3_2_0_1 = (RuleCall)cInitOCLAlternatives_3_2_0.eContents().get(1);
+		private final RuleCall cInitOCLExpCSParserRuleCall_3_2_0 = (RuleCall)cInitOCLAssignment_3_2.eContents().get(0);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
 		private final Keyword cDeriveKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
 		private final Keyword cColonKeyword_4_1 = (Keyword)cGroup_4.eContents().get(1);
@@ -812,10 +810,10 @@ public class USEGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final RuleCall cDeriveOCLExpCSParserRuleCall_4_2_0 = (RuleCall)cDeriveOCLAssignment_4_2.eContents().get(0);
 		
 		//Attribute:
-		//    name=ID ':' type=AllTypes ('init' ':' initOCL=(ID|IntToString))? ('derive' ':' deriveOCL=ExpCS)?;
+		//    name=ID ':' type=AllTypes ('init' ':' initOCL=ExpCS)? ('derive' ':' deriveOCL=ExpCS)?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//name=ID ':' type=AllTypes ('init' ':' initOCL=(ID|IntToString))? ('derive' ':' deriveOCL=ExpCS)?
+		//name=ID ':' type=AllTypes ('init' ':' initOCL=ExpCS)? ('derive' ':' deriveOCL=ExpCS)?
 		public Group getGroup() { return cGroup; }
 		
 		//name=ID
@@ -833,7 +831,7 @@ public class USEGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//AllTypes
 		public RuleCall getTypeAllTypesParserRuleCall_2_0() { return cTypeAllTypesParserRuleCall_2_0; }
 		
-		//('init' ':' initOCL=(ID|IntToString))?
+		//('init' ':' initOCL=ExpCS)?
 		public Group getGroup_3() { return cGroup_3; }
 		
 		//'init'
@@ -842,17 +840,11 @@ public class USEGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//':'
 		public Keyword getColonKeyword_3_1() { return cColonKeyword_3_1; }
 		
-		//initOCL=(ID|IntToString)
+		//initOCL=ExpCS
 		public Assignment getInitOCLAssignment_3_2() { return cInitOCLAssignment_3_2; }
 		
-		//(ID|IntToString)
-		public Alternatives getInitOCLAlternatives_3_2_0() { return cInitOCLAlternatives_3_2_0; }
-		
-		//ID
-		public RuleCall getInitOCLIDTerminalRuleCall_3_2_0_0() { return cInitOCLIDTerminalRuleCall_3_2_0_0; }
-		
-		//IntToString
-		public RuleCall getInitOCLIntToStringParserRuleCall_3_2_0_1() { return cInitOCLIntToStringParserRuleCall_3_2_0_1; }
+		//ExpCS
+		public RuleCall getInitOCLExpCSParserRuleCall_3_2_0() { return cInitOCLExpCSParserRuleCall_3_2_0; }
 		
 		//('derive' ':' deriveOCL=ExpCS)?
 		public Group getGroup_4() { return cGroup_4; }
@@ -922,14 +914,15 @@ public class USEGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final Keyword cEqualsSignKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cOperationbodyAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cOperationbodyExpCSParserRuleCall_2_0 = (RuleCall)cOperationbodyAssignment_2.eContents().get(0);
-		private final Assignment cConditionsAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cConditionsConditionTypeParserRuleCall_3_0 = (RuleCall)cConditionsAssignment_3.eContents().get(0);
+		private final Keyword cSemicolonKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cConditionsAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cConditionsConditionTypeParserRuleCall_4_0 = (RuleCall)cConditionsAssignment_4.eContents().get(0);
 		
 		//OperationQuery:
-		//    operationDeclaration=OperationDeclaration '=' operationbody=ExpCS (conditions+=ConditionType)*;
+		//    operationDeclaration=OperationDeclaration '=' operationbody=ExpCS (';')? (conditions+=ConditionType)*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//operationDeclaration=OperationDeclaration '=' operationbody=ExpCS (conditions+=ConditionType)*
+		//operationDeclaration=OperationDeclaration '=' operationbody=ExpCS (';')? (conditions+=ConditionType)*
 		public Group getGroup() { return cGroup; }
 		
 		//operationDeclaration=OperationDeclaration
@@ -947,11 +940,14 @@ public class USEGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//ExpCS
 		public RuleCall getOperationbodyExpCSParserRuleCall_2_0() { return cOperationbodyExpCSParserRuleCall_2_0; }
 		
+		//(';')?
+		public Keyword getSemicolonKeyword_3() { return cSemicolonKeyword_3; }
+		
 		//(conditions+=ConditionType)*
-		public Assignment getConditionsAssignment_3() { return cConditionsAssignment_3; }
+		public Assignment getConditionsAssignment_4() { return cConditionsAssignment_4; }
 		
 		//ConditionType
-		public RuleCall getConditionsConditionTypeParserRuleCall_3_0() { return cConditionsConditionTypeParserRuleCall_3_0; }
+		public RuleCall getConditionsConditionTypeParserRuleCall_4_0() { return cConditionsConditionTypeParserRuleCall_4_0; }
 	}
 	public class OperationComplexElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "modelConverter.use_language.USE.OperationComplex");
@@ -4701,7 +4697,7 @@ public class USEGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	}
 	
 	//Attribute:
-	//    name=ID ':' type=AllTypes ('init' ':' initOCL=(ID|IntToString))? ('derive' ':' deriveOCL=ExpCS)?;
+	//    name=ID ':' type=AllTypes ('init' ':' initOCL=ExpCS)? ('derive' ':' deriveOCL=ExpCS)?;
 	public AttributeElements getAttributeAccess() {
 		return pAttribute;
 	}
@@ -4733,7 +4729,7 @@ public class USEGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	}
 	
 	//OperationQuery:
-	//    operationDeclaration=OperationDeclaration '=' operationbody=ExpCS (conditions+=ConditionType)*;
+	//    operationDeclaration=OperationDeclaration '=' operationbody=ExpCS (';')? (conditions+=ConditionType)*;
 	public OperationQueryElements getOperationQueryAccess() {
 		return pOperationQuery;
 	}

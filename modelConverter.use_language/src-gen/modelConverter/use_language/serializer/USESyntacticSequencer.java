@@ -23,6 +23,7 @@ public class USESyntacticSequencer extends AbstractSyntacticSequencer {
 	protected USEGrammarAccess grammarAccess;
 	protected AbstractElementAlias match_Generalization_CommaKeyword_1_q;
 	protected AbstractElementAlias match_OperationComplex___BeginKeyword_1_0_EndKeyword_1_2__q;
+	protected AbstractElementAlias match_OperationQuery_SemicolonKeyword_3_q;
 	protected AbstractElementAlias match_Parameter_CommaKeyword_3_q;
 	protected AbstractElementAlias match_TupleTypeCS___LeftParenthesisKeyword_1_0_RightParenthesisKeyword_1_2__q;
 	
@@ -31,6 +32,7 @@ public class USESyntacticSequencer extends AbstractSyntacticSequencer {
 		grammarAccess = (USEGrammarAccess) access;
 		match_Generalization_CommaKeyword_1_q = new TokenAlias(false, true, grammarAccess.getGeneralizationAccess().getCommaKeyword_1());
 		match_OperationComplex___BeginKeyword_1_0_EndKeyword_1_2__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getOperationComplexAccess().getBeginKeyword_1_0()), new TokenAlias(false, false, grammarAccess.getOperationComplexAccess().getEndKeyword_1_2()));
+		match_OperationQuery_SemicolonKeyword_3_q = new TokenAlias(false, true, grammarAccess.getOperationQueryAccess().getSemicolonKeyword_3());
 		match_Parameter_CommaKeyword_3_q = new TokenAlias(false, true, grammarAccess.getParameterAccess().getCommaKeyword_3());
 		match_TupleTypeCS___LeftParenthesisKeyword_1_0_RightParenthesisKeyword_1_2__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getTupleTypeCSAccess().getLeftParenthesisKeyword_1_0()), new TokenAlias(false, false, grammarAccess.getTupleTypeCSAccess().getRightParenthesisKeyword_1_2()));
 	}
@@ -51,6 +53,8 @@ public class USESyntacticSequencer extends AbstractSyntacticSequencer {
 				emit_Generalization_CommaKeyword_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_OperationComplex___BeginKeyword_1_0_EndKeyword_1_2__q.equals(syntax))
 				emit_OperationComplex___BeginKeyword_1_0_EndKeyword_1_2__q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_OperationQuery_SemicolonKeyword_3_q.equals(syntax))
+				emit_OperationQuery_SemicolonKeyword_3_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_Parameter_CommaKeyword_3_q.equals(syntax))
 				emit_Parameter_CommaKeyword_3_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_TupleTypeCS___LeftParenthesisKeyword_1_0_RightParenthesisKeyword_1_2__q.equals(syntax))
@@ -79,6 +83,18 @@ public class USESyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     operationDeclaration=OperationDeclaration (ambiguity) conditions+=ConditionType
 	 */
 	protected void emit_OperationComplex___BeginKeyword_1_0_EndKeyword_1_2__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     ';'?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     operationbody=ExpCS (ambiguity) (rule end)
+	 *     operationbody=ExpCS (ambiguity) conditions+=ConditionType
+	 */
+	protected void emit_OperationQuery_SemicolonKeyword_3_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

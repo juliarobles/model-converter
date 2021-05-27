@@ -83,7 +83,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//AllTypes"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="initOCL" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="initOCL" eType="#//ExpCS"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="deriveOCL" eType="#//ExpCS"
         containment="true"/>
   </eClassifiers>

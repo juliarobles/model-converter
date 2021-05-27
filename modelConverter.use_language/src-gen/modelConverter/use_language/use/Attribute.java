@@ -71,26 +71,26 @@ public interface Attribute extends EObject
   void setType(AllTypes value);
 
   /**
-   * Returns the value of the '<em><b>Init OCL</b></em>' attribute.
+   * Returns the value of the '<em><b>Init OCL</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Init OCL</em>' attribute.
-   * @see #setInitOCL(String)
+   * @return the value of the '<em>Init OCL</em>' containment reference.
+   * @see #setInitOCL(ExpCS)
    * @see modelConverter.use_language.use.UsePackage#getAttribute_InitOCL()
-   * @model
+   * @model containment="true"
    * @generated
    */
-  String getInitOCL();
+  ExpCS getInitOCL();
 
   /**
-   * Sets the value of the '{@link modelConverter.use_language.use.Attribute#getInitOCL <em>Init OCL</em>}' attribute.
+   * Sets the value of the '{@link modelConverter.use_language.use.Attribute#getInitOCL <em>Init OCL</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Init OCL</em>' attribute.
+   * @param value the new value of the '<em>Init OCL</em>' containment reference.
    * @see #getInitOCL()
    * @generated
    */
-  void setInitOCL(String value);
+  void setInitOCL(ExpCS value);
 
   /**
    * Returns the value of the '<em><b>Derive OCL</b></em>' containment reference.

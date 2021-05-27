@@ -80,13 +80,10 @@ public class U1_Class {
 				if(property.getUpperValue() != null && !property.getUpperValue().stringValue().equals("1")) {
 					if(property.isOrdered()) {
 						collection = U9_Auxiliary.CollectionName.Sequence;
-						//collection = "Sequence(";
 					} else if (property.isUnique()) {
 						collection = U9_Auxiliary.CollectionName.Set;
-						//collection = "Set(";
 					} else {
 						collection = U9_Auxiliary.CollectionName.Bag;
-						//collection = "Bag(";
 					}
 				}
 				sBuilder.append("\t\t" + U9_Auxiliary.checkUnnamed(property.getName(), namesUsedParticular, countUnnamed) + U9_Auxiliary.typeToStringOptional(property.getType(), collection) + defaultValue + "\n");

@@ -78,25 +78,36 @@ public class U9_Auxiliary {
 		return "[" + ((lower.equals(upper) || (lower.equals("0") && upper.equals("*"))) ? upper : lower + ".." + upper) + "]";
 	}
 	
-	static String typeToStringNecessary(Type type) {
-		return (typeIsNull(type)) ? "String" : checkAvailableType(type);
+	private static String collectionToString(CollectionName collection) {
+		switch(collection) {
+			case Sequence:
+				return "Sequence(";
+			case Set:
+				return "Set(";
+			case Bag:
+				return "Bag(";
+			default:
+				return "";
+		}
+	}
+	
+	static String typeToStringNecessary(Type type, CollectionName collection) {
+		String collectionName = "";
+		String collectionEnd = ")";
+		if(collection != null) {
+			collectionName = collectionToString(collection);
+		} else {
+			collectionEnd = "";
+		}
+		
+		return collectionName + ((typeIsNull(type)) ? "String" : checkAvailableType(type)) + collectionEnd;
 	}
 	
 	static String typeToStringOptional(Type type, CollectionName collection) {
 		String collectionName = "";
 		String collectionEnd = ")";
 		if(collection != null) {
-			switch(collection) {
-			case Sequence:
-				collectionName = "Sequence(";
-				break;
-			case Set:
-				collectionName = "Set(";
-				break;
-			case Bag:
-				collectionName = "Bag(";
-				break;
-			}
+			collectionName = collectionToString(collection);
 		} else {
 			collectionEnd = "";
 		}

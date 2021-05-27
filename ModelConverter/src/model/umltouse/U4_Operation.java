@@ -17,6 +17,8 @@ public class U4_Operation {
 		Constraint bodycondition = operation.getBodyCondition();
 		StringBuilder sBuilder = new StringBuilder("");
 		List<String> namesUsedParameter = new ArrayList<>();
+		U9_Auxiliary.CollectionName collection = null;
+		Parameter returnParam = null;
 		
 		sBuilder.append(U9_Auxiliary.checkUnnamed(operation.getName(), namesUsedParticular, countUnnamed) + "(");
 		//sBuilder.append("\tMultiplicidad: " + multToString(operation.getLower(), operation.getUpper()) + "\n");
@@ -29,10 +31,22 @@ public class U4_Operation {
 					primero = false;
 				}
 				sBuilder.append(analyzeParameter(parameter, namesUsedParameter, countUnnamedParameter));
+			} else {
+				returnParam = parameter;
 			}
 		}
 		
-		sBuilder.append(")" + U9_Auxiliary.typeToStringOptional(operation.getType(), null));
+		if(returnParam.getUpperValue() != null && !returnParam.getUpperValue().stringValue().equals("1")) {
+			if(returnParam.isOrdered()) {
+				collection = U9_Auxiliary.CollectionName.Sequence;
+			} else if (returnParam.isUnique()) {
+				collection = U9_Auxiliary.CollectionName.Set;
+			} else {
+				collection = U9_Auxiliary.CollectionName.Bag;
+			}
+		}
+		
+		sBuilder.append(")" + U9_Auxiliary.typeToStringOptional(operation.getType(), collection));
 		if (bodycondition != null && bodycondition.getSpecification() != null) {
 			value = bodycondition.getSpecification().stringValue();
 		}
@@ -59,7 +73,17 @@ public class U4_Operation {
 	}
 	
 	private static String analyzeParameter(Parameter parameter, List<String> namesUsed, int countUnnamed) {
-		return U9_Auxiliary.checkUnnamed(parameter.getName(), namesUsed, countUnnamed) + " : " + U9_Auxiliary.typeToStringNecessary(parameter.getType());
+		U9_Auxiliary.CollectionName collection = null;
+		if(parameter.getUpperValue() != null && !parameter.getUpperValue().stringValue().equals("1")) {
+			if(parameter.isOrdered()) {
+				collection = U9_Auxiliary.CollectionName.Sequence;
+			} else if (parameter.isUnique()) {
+				collection = U9_Auxiliary.CollectionName.Set;
+			} else {
+				collection = U9_Auxiliary.CollectionName.Bag;
+			}
+		}
+		return U9_Auxiliary.checkUnnamed(parameter.getName(), namesUsed, countUnnamed) + " : " + U9_Auxiliary.typeToStringNecessary(parameter.getType(), collection);
 	}
 	
 }

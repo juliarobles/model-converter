@@ -113,7 +113,7 @@ class USEGenerator extends AbstractGenerator {
 	private def compileEnum(Enum e) '''
 		«        »<packagedElement xmi:type="uml:Enumeration" xmi:id="«System.identityHashCode(e)»" name="«e.getName»">
 		«FOR enumElement : e.getElements()»
-		«               »<ownedLiteral xmi:id="«System.identityHashCode(e)»" name="«enumElement»"/>
+		«               »<ownedLiteral xmi:id="«System.identityHashCode(e)»" name="«enumElement.replaceAll(",", "")»"/>
 		«ENDFOR»
 		«        »</packagedElement>
 	'''
@@ -145,10 +145,18 @@ class USEGenerator extends AbstractGenerator {
 			«e.getAttributes.compileAttributesBase»
 		«ENDIF»
 		«FOR association : associations.filter(Association).filter(a | a.getAssociationEnds().map[type].contains(e))»
-			«compileAssociationEnd(e, association.getAssociationEnds(), System.identityHashCode(association), getTypeAssociation(association).toString())»
+			«IF association.getAssociationEnds().map[type].toSet.length == association.getAssociationEnds().length»
+				«compileAssociationEnd(e, association.getAssociationEnds(), System.identityHashCode(association), getTypeAssociation(association).toString(), false)»
+			«ELSE»
+				«compileAssociationEnd(e, association.getAssociationEnds(), System.identityHashCode(association), getTypeAssociation(association).toString(), true)»
+			«ENDIF»
 		«ENDFOR»
 		«FOR association : associations.filter(AssociationClass).filter(a | a.getAssociationEnds().map[type].contains(e))»
-			«compileAssociationEnd(e, association.getAssociationEnds(), System.identityHashCode(association), "")»
+			«IF association.getAssociationEnds().map[type].toSet.length == association.getAssociationEnds().length»
+				«compileAssociationEnd(e, association.getAssociationEnds(), System.identityHashCode(association), "", false)»
+			«ELSE»
+				«compileAssociationEnd(e, association.getAssociationEnds(), System.identityHashCode(association), "", true)»
+			«ENDIF»
 		«ENDFOR»
 		«IF e.getOperations !== null »
 			«e.getOperations.compileOperationsBase(constraints.filter(OperationContext))»
@@ -156,8 +164,9 @@ class USEGenerator extends AbstractGenerator {
 		</packagedElement>
 	'''
 
-	private def compileAssociationEnd(Class e, Iterable<AssociationEnd> list, int id, String aggregation) '''
+	private def compileAssociationEnd(Class e, Iterable<AssociationEnd> list, int id, String aggregation, Boolean reflexive) '''
 		«FOR end : list»
+			«IF reflexive || end.getType() != e »
 			<ownedAttribute xmi:id="«System.identityHashCode(end)»" name="«end.getRole»" type="«System.identityHashCode(end.getType)»" association="«id»" «IF end == list.get(Iterables.size(list)-1)»«aggregation»«ENDIF»>
 			«IF end.getMul !== null && end.getMul.getMinValue !== null && end.getMul.getMinValue.length > 0»
 				<lowerValue xmi:type="«end.getMul.getMinValue.get(0).getTypeMul»" xmi:id="«System.identityHashCode(end.getType).toString() + id + "1"»" name="" value="«end.getMul.getMinValue.get(0)»"/>
@@ -168,6 +177,7 @@ class USEGenerator extends AbstractGenerator {
 				«ENDIF»
 			«ENDIF»
 				</ownedAttribute>
+			«ENDIF»
 		«ENDFOR»
 	'''
 

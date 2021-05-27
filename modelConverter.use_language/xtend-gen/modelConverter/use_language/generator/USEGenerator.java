@@ -181,7 +181,8 @@ public class USEGenerator extends AbstractGenerator {
         int _identityHashCode_1 = System.identityHashCode(e);
         _builder.append(_identityHashCode_1);
         _builder.append("\" name=\"");
-        _builder.append(enumElement);
+        String _replaceAll = enumElement.replaceAll(",", "");
+        _builder.append(_replaceAll);
         _builder.append("\"/>");
         _builder.newLineIfNotEmpty();
       }
@@ -286,23 +287,51 @@ public class USEGenerator extends AbstractGenerator {
       };
       Iterable<Association> _filter_1 = IterableExtensions.<Association>filter(Iterables.<Association>filter(associations, Association.class), _function);
       for(final Association association : _filter_1) {
-        CharSequence _compileAssociationEnd = this.compileAssociationEnd(e, association.getAssociationEnds(), System.identityHashCode(association), this.getTypeAssociation(association).toString());
-        _builder.append(_compileAssociationEnd);
-        _builder.newLineIfNotEmpty();
+        {
+          final Function1<AssociationEnd, AllClass> _function_1 = (AssociationEnd it) -> {
+            return it.getType();
+          };
+          int _length = ((Object[])Conversions.unwrapArray(IterableExtensions.<AllClass>toSet(ListExtensions.<AssociationEnd, AllClass>map(association.getAssociationEnds(), _function_1)), Object.class)).length;
+          int _length_1 = ((Object[])Conversions.unwrapArray(association.getAssociationEnds(), Object.class)).length;
+          boolean _equals = (_length == _length_1);
+          if (_equals) {
+            CharSequence _compileAssociationEnd = this.compileAssociationEnd(e, association.getAssociationEnds(), System.identityHashCode(association), this.getTypeAssociation(association).toString(), Boolean.valueOf(false));
+            _builder.append(_compileAssociationEnd);
+            _builder.newLineIfNotEmpty();
+          } else {
+            CharSequence _compileAssociationEnd_1 = this.compileAssociationEnd(e, association.getAssociationEnds(), System.identityHashCode(association), this.getTypeAssociation(association).toString(), Boolean.valueOf(true));
+            _builder.append(_compileAssociationEnd_1);
+            _builder.newLineIfNotEmpty();
+          }
+        }
       }
     }
     {
-      final Function1<AssociationClass, Boolean> _function_1 = (AssociationClass a) -> {
-        final Function1<AssociationEnd, AllClass> _function_2 = (AssociationEnd it) -> {
+      final Function1<AssociationClass, Boolean> _function_2 = (AssociationClass a) -> {
+        final Function1<AssociationEnd, AllClass> _function_3 = (AssociationEnd it) -> {
           return it.getType();
         };
-        return Boolean.valueOf(ListExtensions.<AssociationEnd, AllClass>map(a.getAssociationEnds(), _function_2).contains(e));
+        return Boolean.valueOf(ListExtensions.<AssociationEnd, AllClass>map(a.getAssociationEnds(), _function_3).contains(e));
       };
-      Iterable<AssociationClass> _filter_2 = IterableExtensions.<AssociationClass>filter(Iterables.<AssociationClass>filter(associations, AssociationClass.class), _function_1);
+      Iterable<AssociationClass> _filter_2 = IterableExtensions.<AssociationClass>filter(Iterables.<AssociationClass>filter(associations, AssociationClass.class), _function_2);
       for(final AssociationClass association_1 : _filter_2) {
-        CharSequence _compileAssociationEnd_1 = this.compileAssociationEnd(e, association_1.getAssociationEnds(), System.identityHashCode(association_1), "");
-        _builder.append(_compileAssociationEnd_1);
-        _builder.newLineIfNotEmpty();
+        {
+          final Function1<AssociationEnd, AllClass> _function_3 = (AssociationEnd it) -> {
+            return it.getType();
+          };
+          int _length_2 = ((Object[])Conversions.unwrapArray(IterableExtensions.<AllClass>toSet(ListExtensions.<AssociationEnd, AllClass>map(association_1.getAssociationEnds(), _function_3)), Object.class)).length;
+          int _length_3 = ((Object[])Conversions.unwrapArray(association_1.getAssociationEnds(), Object.class)).length;
+          boolean _equals_1 = (_length_2 == _length_3);
+          if (_equals_1) {
+            CharSequence _compileAssociationEnd_2 = this.compileAssociationEnd(e, association_1.getAssociationEnds(), System.identityHashCode(association_1), "", Boolean.valueOf(false));
+            _builder.append(_compileAssociationEnd_2);
+            _builder.newLineIfNotEmpty();
+          } else {
+            CharSequence _compileAssociationEnd_3 = this.compileAssociationEnd(e, association_1.getAssociationEnds(), System.identityHashCode(association_1), "", Boolean.valueOf(true));
+            _builder.append(_compileAssociationEnd_3);
+            _builder.newLineIfNotEmpty();
+          }
+        }
       }
     }
     {
@@ -319,84 +348,88 @@ public class USEGenerator extends AbstractGenerator {
     return _builder;
   }
   
-  private CharSequence compileAssociationEnd(final modelConverter.use_language.use.Class e, final Iterable<AssociationEnd> list, final int id, final String aggregation) {
+  private CharSequence compileAssociationEnd(final modelConverter.use_language.use.Class e, final Iterable<AssociationEnd> list, final int id, final String aggregation, final Boolean reflexive) {
     StringConcatenation _builder = new StringConcatenation();
     {
       for(final AssociationEnd end : list) {
-        _builder.append("<ownedAttribute xmi:id=\"");
-        int _identityHashCode = System.identityHashCode(end);
-        _builder.append(_identityHashCode);
-        _builder.append("\" name=\"");
-        String _role = end.getRole();
-        _builder.append(_role);
-        _builder.append("\" type=\"");
-        int _identityHashCode_1 = System.identityHashCode(end.getType());
-        _builder.append(_identityHashCode_1);
-        _builder.append("\" association=\"");
-        _builder.append(id);
-        _builder.append("\" ");
         {
-          int _size = Iterables.size(list);
-          int _minus = (_size - 1);
-          Object _get = ((Object[])Conversions.unwrapArray(list, Object.class))[_minus];
-          boolean _equals = Objects.equal(end, _get);
-          if (_equals) {
-            _builder.append(aggregation);
-          }
-        }
-        _builder.append(">");
-        _builder.newLineIfNotEmpty();
-        {
-          if ((((end.getMul() != null) && (end.getMul().getMinValue() != null)) && (((Object[])Conversions.unwrapArray(end.getMul().getMinValue(), Object.class)).length > 0))) {
-            _builder.append("<lowerValue xmi:type=\"");
-            CharSequence _typeMul = this.getTypeMul(end.getMul().getMinValue().get(0));
-            _builder.append(_typeMul);
-            _builder.append("\" xmi:id=\"");
-            String _string = Integer.valueOf(System.identityHashCode(end.getType())).toString();
-            String _plus = (_string + Integer.valueOf(id));
-            String _plus_1 = (_plus + "1");
-            _builder.append(_plus_1);
-            _builder.append("\" name=\"\" value=\"");
-            String _get_1 = end.getMul().getMinValue().get(0);
-            _builder.append(_get_1);
-            _builder.append("\"/>");
-            _builder.newLineIfNotEmpty();
+          if (((reflexive).booleanValue() || (!Objects.equal(end.getType(), e)))) {
+            _builder.append("<ownedAttribute xmi:id=\"");
+            int _identityHashCode = System.identityHashCode(end);
+            _builder.append(_identityHashCode);
+            _builder.append("\" name=\"");
+            String _role = end.getRole();
+            _builder.append(_role);
+            _builder.append("\" type=\"");
+            int _identityHashCode_1 = System.identityHashCode(end.getType());
+            _builder.append(_identityHashCode_1);
+            _builder.append("\" association=\"");
+            _builder.append(id);
+            _builder.append("\" ");
             {
-              if (((end.getMul().getMaxValue() != null) && (((Object[])Conversions.unwrapArray(end.getMul().getMaxValue(), Object.class)).length > 0))) {
-                _builder.append("<upperValue xmi:type=\"");
-                CharSequence _typeMul_1 = this.getTypeMul(end.getMul().getMaxValue().get(0));
-                _builder.append(_typeMul_1);
-                _builder.append("\" xmi:id=\"");
-                String _string_1 = Integer.valueOf(System.identityHashCode(end.getType())).toString();
-                String _plus_2 = (_string_1 + Integer.valueOf(id));
-                String _plus_3 = (_plus_2 + "2");
-                _builder.append(_plus_3);
-                _builder.append("\" name=\"\" value=\"");
-                String _get_2 = end.getMul().getMaxValue().get(0);
-                _builder.append(_get_2);
-                _builder.append("\"/>");
-                _builder.newLineIfNotEmpty();
-              } else {
-                _builder.append("<upperValue xmi:type=\"");
-                CharSequence _typeMul_2 = this.getTypeMul(end.getMul().getMinValue().get(0));
-                _builder.append(_typeMul_2);
-                _builder.append("\" xmi:id=\"");
-                String _string_2 = Integer.valueOf(System.identityHashCode(end.getType())).toString();
-                String _plus_4 = (_string_2 + Integer.valueOf(id));
-                String _plus_5 = (_plus_4 + "2");
-                _builder.append(_plus_5);
-                _builder.append("\" name=\"\" value=\"");
-                String _get_3 = end.getMul().getMinValue().get(0);
-                _builder.append(_get_3);
-                _builder.append("\"/>");
-                _builder.newLineIfNotEmpty();
+              int _size = Iterables.size(list);
+              int _minus = (_size - 1);
+              Object _get = ((Object[])Conversions.unwrapArray(list, Object.class))[_minus];
+              boolean _equals = Objects.equal(end, _get);
+              if (_equals) {
+                _builder.append(aggregation);
               }
             }
+            _builder.append(">");
+            _builder.newLineIfNotEmpty();
+            {
+              if ((((end.getMul() != null) && (end.getMul().getMinValue() != null)) && (((Object[])Conversions.unwrapArray(end.getMul().getMinValue(), Object.class)).length > 0))) {
+                _builder.append("<lowerValue xmi:type=\"");
+                CharSequence _typeMul = this.getTypeMul(end.getMul().getMinValue().get(0));
+                _builder.append(_typeMul);
+                _builder.append("\" xmi:id=\"");
+                String _string = Integer.valueOf(System.identityHashCode(end.getType())).toString();
+                String _plus = (_string + Integer.valueOf(id));
+                String _plus_1 = (_plus + "1");
+                _builder.append(_plus_1);
+                _builder.append("\" name=\"\" value=\"");
+                String _get_1 = end.getMul().getMinValue().get(0);
+                _builder.append(_get_1);
+                _builder.append("\"/>");
+                _builder.newLineIfNotEmpty();
+                {
+                  if (((end.getMul().getMaxValue() != null) && (((Object[])Conversions.unwrapArray(end.getMul().getMaxValue(), Object.class)).length > 0))) {
+                    _builder.append("<upperValue xmi:type=\"");
+                    CharSequence _typeMul_1 = this.getTypeMul(end.getMul().getMaxValue().get(0));
+                    _builder.append(_typeMul_1);
+                    _builder.append("\" xmi:id=\"");
+                    String _string_1 = Integer.valueOf(System.identityHashCode(end.getType())).toString();
+                    String _plus_2 = (_string_1 + Integer.valueOf(id));
+                    String _plus_3 = (_plus_2 + "2");
+                    _builder.append(_plus_3);
+                    _builder.append("\" name=\"\" value=\"");
+                    String _get_2 = end.getMul().getMaxValue().get(0);
+                    _builder.append(_get_2);
+                    _builder.append("\"/>");
+                    _builder.newLineIfNotEmpty();
+                  } else {
+                    _builder.append("<upperValue xmi:type=\"");
+                    CharSequence _typeMul_2 = this.getTypeMul(end.getMul().getMinValue().get(0));
+                    _builder.append(_typeMul_2);
+                    _builder.append("\" xmi:id=\"");
+                    String _string_2 = Integer.valueOf(System.identityHashCode(end.getType())).toString();
+                    String _plus_4 = (_string_2 + Integer.valueOf(id));
+                    String _plus_5 = (_plus_4 + "2");
+                    _builder.append(_plus_5);
+                    _builder.append("\" name=\"\" value=\"");
+                    String _get_3 = end.getMul().getMinValue().get(0);
+                    _builder.append(_get_3);
+                    _builder.append("\"/>");
+                    _builder.newLineIfNotEmpty();
+                  }
+                }
+              }
+            }
+            _builder.append("\t");
+            _builder.append("</ownedAttribute>");
+            _builder.newLine();
           }
         }
-        _builder.append("\t");
-        _builder.append("</ownedAttribute>");
-        _builder.newLine();
       }
     }
     return _builder;

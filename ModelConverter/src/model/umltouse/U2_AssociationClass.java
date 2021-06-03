@@ -7,7 +7,7 @@ import org.eclipse.uml2.uml.UMLPackage;
 
 public class U2_AssociationClass {
 
-	static void getAll(StringBuilder sBuilder, StringBuilder warnings, int countUnnamed) {
+	static void getAll(StringBuilder sBuilder, StringBuilder warnings, U9_CountUnnamed countUnnamed) {
 		for (PackageableElement pe : General.packet.getPackagedElements()) {
 			//https://stackoverflow.com/questions/61668719/read-sequence-diagram-from-xmi-using-emf
 			if(pe.eClass() == UMLPackage.Literals.ASSOCIATION_CLASS) {
@@ -16,7 +16,7 @@ public class U2_AssociationClass {
 		}
 	}
 	
-	private static void analyzeAssociationClass(AssociationClass associationClass, StringBuilder sBuilder, int countUnnamed) {
+	private static void analyzeAssociationClass(AssociationClass associationClass, StringBuilder sBuilder, U9_CountUnnamed countUnnamed) {
 		String lowerValue, upperValue;
 		sBuilder.append(U1_Class.classStatement(associationClass, "associationclass", countUnnamed) + " between\n");
 		for(Property property : associationClass.getMemberEnds()) {

@@ -34,7 +34,7 @@ public class General {
 		
 		StringBuilder sBuilder = new StringBuilder();
 		StringBuilder warnings = new StringBuilder();
-		int countUnnamed = 0;
+		U9_CountUnnamed countUnnamed = new U9_CountUnnamed();
 		
 		nameModel = packet.getModel().getName();
 		sBuilder.append("model " + nameModel + "\n\n");

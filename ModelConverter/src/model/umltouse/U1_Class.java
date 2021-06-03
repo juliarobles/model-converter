@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.uml2.uml.Class;
 import org.eclipse.uml2.uml.Constraint;
@@ -12,13 +13,14 @@ import org.eclipse.uml2.uml.Generalization;
 import org.eclipse.uml2.uml.Operation;
 import org.eclipse.uml2.uml.PackageableElement;
 import org.eclipse.uml2.uml.Property;
+import org.eclipse.uml2.uml.StateMachine;
 import org.eclipse.uml2.uml.UMLPackage;
 
 public class U1_Class {
 	
 	private U1_Class() {}
 	
-	static void getAll(StringBuilder sBuilder, StringBuilder warnings, int countUnnamed) {
+	static void getAll(StringBuilder sBuilder, StringBuilder warnings, U9_CountUnnamed countUnnamed) {
 		for (PackageableElement pe : General.packet.getPackagedElements()) {
 			//https://stackoverflow.com/questions/61668719/read-sequence-diagram-from-xmi-using-emf
 			if(pe.eClass() == UMLPackage.Literals.CLASS) {
@@ -27,11 +29,11 @@ public class U1_Class {
 		}
 	}
 	
-	private static void analyzeClass(Class classToAnalyze, StringBuilder sBuilder, int countUnnamed) {
+	private static void analyzeClass(Class classToAnalyze, StringBuilder sBuilder, U9_CountUnnamed countUnnamed) {
 		sBuilder.append(classStatement(classToAnalyze, "class", countUnnamed) + "\n" + classContents(classToAnalyze));
 	}
 	
-	static String classStatement(Class classToAnalyze, String classType, int countUnnamed) {
+	static String classStatement(Class classToAnalyze, String classType, U9_CountUnnamed countUnnamed) {
 		EList<Generalization> generalizations = classToAnalyze.getGeneralizations();
 		boolean primero = true;
 		StringBuilder sBuilder = new StringBuilder("");
@@ -62,13 +64,14 @@ public class U1_Class {
 		List<String> namesUsedParticular;
 		EList<Operation> operations = classToAnalyze.getOperations();
 		EList<Constraint> constraints = classToAnalyze.getOwnedRules();
+		List<StateMachine> stateMachines = classToAnalyze.getOwnedBehaviors().stream().filter(sc -> sc instanceof StateMachine).map(sc -> (StateMachine) sc).collect(Collectors.toList());
 		StringBuilder sBuilder = new StringBuilder("");
 		List<Property> attributes = classToAnalyze.getAttributes().stream().filter(p -> p.getAssociation() == null || !U9_Auxiliary.isNavigable(p.getAssociation())).collect(Collectors.toList());
 		
 		//ATRIBUTOS
 		if(attributes.size() > 0) {
 			sBuilder.append("\tattributes\n");
-			int countUnnamed = 0;
+			U9_CountUnnamed countUnnamed = new U9_CountUnnamed();
 			namesUsedParticular = new ArrayList<>();
 			
 			for(Property property : attributes) {
@@ -93,7 +96,7 @@ public class U1_Class {
 		//OPERACIONES
 		if(operations.size() > 0) {
 			sBuilder.append("\toperations\n");
-			int countUnnamed = 0;
+			U9_CountUnnamed countUnnamed = new U9_CountUnnamed();
 			namesUsedParticular = new ArrayList<>();
 			
 			for(Operation operation : operations) {
@@ -103,6 +106,18 @@ public class U1_Class {
 		
 		//CONSTRAINTS
 		if(constraints.size() > 0) U5_Constraint.addConstraintsToMap(classToAnalyze, constraints);
+		
+		
+		//MAQUINAS DE ESTADOS
+		if(stateMachines.size() > 0) {
+			sBuilder.append("\tstatemachines\n");
+			U9_CountUnnamed countUnnamed = new U9_CountUnnamed();
+			namesUsedParticular = new ArrayList<>();
+			
+			for(StateMachine stateMachine : stateMachines) {
+				sBuilder.append(U6_StateMachine.analyzeStateMachine(stateMachine, namesUsedParticular, countUnnamed) + "\n");
+			}
+		}
 		
 		sBuilder.append("end\n\n");
 		

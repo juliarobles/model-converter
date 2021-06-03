@@ -9,19 +9,17 @@ import org.eclipse.uml2.uml.UMLPackage;
 
 public class U0_Enumeration {
 	
-	private static int countUnnamed;
-	
 	static void getAll(StringBuilder sBuilder, StringBuilder warnings) {
-		countUnnamed = 0;
+		U9_CountUnnamed countUnnamed = new U9_CountUnnamed();
 		for (PackageableElement pe : General.packet.getPackagedElements()) {
 			//https://stackoverflow.com/questions/61668719/read-sequence-diagram-from-xmi-using-emf
 			if(pe.eClass() == UMLPackage.Literals.ENUMERATION) {
-				analyzeEnumeration((Enumeration) pe, sBuilder);
+				analyzeEnumeration((Enumeration) pe, sBuilder,countUnnamed);
 			}
 		}
 	}
 	
-	private static void analyzeEnumeration(Enumeration enumeration, StringBuilder sBuilder) {
+	private static void analyzeEnumeration(Enumeration enumeration, StringBuilder sBuilder, U9_CountUnnamed countUnnamed) {
 		List<EnumerationLiteral> literals = enumeration.getOwnedLiterals();
 		boolean primero = true;
 		

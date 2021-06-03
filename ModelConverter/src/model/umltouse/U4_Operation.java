@@ -10,9 +10,9 @@ import org.eclipse.uml2.uml.ParameterDirectionKind;
 
 public class U4_Operation {
 	
-	static String analyzeOperation(Operation operation, List<String> namesUsedParticular, int countUnnamed) {
+	static String analyzeOperation(Operation operation, List<String> namesUsedParticular, U9_CountUnnamed countUnnamed) {
 		boolean primero = true;
-		int countUnnamedParameter = 0;
+		U9_CountUnnamed countUnnamedParameter = new U9_CountUnnamed();
 		String value = null;
 		Constraint bodycondition = operation.getBodyCondition();
 		StringBuilder sBuilder = new StringBuilder("");
@@ -20,7 +20,8 @@ public class U4_Operation {
 		U9_Auxiliary.CollectionName collection = null;
 		Parameter returnParam = null;
 		
-		sBuilder.append(U9_Auxiliary.checkUnnamed(operation.getName(), namesUsedParticular, countUnnamed) + "(");
+		operation.setName(U9_Auxiliary.checkUnnamed(operation.getName(), namesUsedParticular, countUnnamed));
+		sBuilder.append(operation.getName() + "(");
 		//sBuilder.append("\tMultiplicidad: " + multToString(operation.getLower(), operation.getUpper()) + "\n");
 		
 		for(Parameter parameter : operation.getOwnedParameters()) {
@@ -36,7 +37,7 @@ public class U4_Operation {
 			}
 		}
 		
-		if(returnParam.getUpperValue() != null && !returnParam.getUpperValue().stringValue().equals("1")) {
+		if(returnParam != null && returnParam.getUpperValue() != null && !returnParam.getUpperValue().stringValue().equals("1")) {
 			if(returnParam.isOrdered()) {
 				collection = U9_Auxiliary.CollectionName.Sequence;
 			} else if (returnParam.isUnique()) {
@@ -54,9 +55,11 @@ public class U4_Operation {
 		if(operation.isQuery() && value != null) {
 			sBuilder.append(" = " + value);
 		} else {
+			sBuilder.append("\n\t\t\tbegin\n");
 			if(value != null) {
-				sBuilder.append("\n\t\t\tbegin\n\t\t\t\t" + value + "\n\t\t\tend\n");
-			}
+				sBuilder.append("\t\t\t\t" + value + "\n");
+			} 
+			sBuilder.append("\t\t\tend\n");
 			for(Constraint constraint : operation.getPreconditions()) {
 				sBuilder.append("\t\t\t" + analyzeOperationCondition(constraint, "pre"));
 			}
@@ -69,10 +72,10 @@ public class U4_Operation {
 	}
 	
 	private static String analyzeOperationCondition(Constraint constraint, String conditionType) {
-		return conditionType + " " + constraint.getName() + ":" + constraint.getSpecification().stringValue() + "\n";
+		return conditionType + " " + constraint.getName() + ": " + constraint.getSpecification().stringValue() + "\n";
 	}
 	
-	private static String analyzeParameter(Parameter parameter, List<String> namesUsed, int countUnnamed) {
+	private static String analyzeParameter(Parameter parameter, List<String> namesUsed, U9_CountUnnamed countUnnamed) {
 		U9_Auxiliary.CollectionName collection = null;
 		if(parameter.getUpperValue() != null && !parameter.getUpperValue().stringValue().equals("1")) {
 			if(parameter.isOrdered()) {

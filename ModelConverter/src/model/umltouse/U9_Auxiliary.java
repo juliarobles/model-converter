@@ -65,10 +65,10 @@ public class U9_Auxiliary {
 		return search;
 	}
 	
-	static String checkUnnamed(String name, List<String> namesUsed, int countUnnamed) {
+	static String checkUnnamed(String name, List<String> namesUsed, U9_CountUnnamed countUnnamed) {
 		if(name == null || name.isBlank()) {
-			countUnnamed++;
-			return "unnamed" + countUnnamed;
+			countUnnamed.countUnnamedAddOne();
+			return "unnamed" + countUnnamed.getCountUnnamed();
 		} else {
 			return searchInList(name, namesUsed);
 		}

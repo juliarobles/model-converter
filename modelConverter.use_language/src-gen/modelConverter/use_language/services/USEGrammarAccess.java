@@ -453,7 +453,9 @@ public class USEGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final RuleCall cOperationsOperationsBaseParserRuleCall_5_0 = (RuleCall)cOperationsAssignment_5.eContents().get(0);
 		private final Assignment cConstraintsAssignment_6 = (Assignment)cGroup.eContents().get(6);
 		private final RuleCall cConstraintsConstraintsBaseParserRuleCall_6_0 = (RuleCall)cConstraintsAssignment_6.eContents().get(0);
-		private final Keyword cEndKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		private final Assignment cStatemachinesAssignment_7 = (Assignment)cGroup.eContents().get(7);
+		private final RuleCall cStatemachinesStateMachinesBaseParserRuleCall_7_0 = (RuleCall)cStatemachinesAssignment_7.eContents().get(0);
+		private final Keyword cEndKeyword_8 = (Keyword)cGroup.eContents().get(8);
 		
 		////---------------CLASE-----------------
 		//Class:
@@ -461,6 +463,7 @@ public class USEGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//        attributes=(AttributesBase)?
 		//        operations=(OperationsBase)?
 		//        constraints=(ConstraintsBase)?
+		//        statemachines=(StateMachinesBase)?
 		//    'end';
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -468,6 +471,7 @@ public class USEGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//    attributes=(AttributesBase)?
 		//    operations=(OperationsBase)?
 		//    constraints=(ConstraintsBase)?
+		//    statemachines=(StateMachinesBase)?
 		//'end'
 		public Group getGroup() { return cGroup; }
 		
@@ -516,8 +520,14 @@ public class USEGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//(ConstraintsBase)
 		public RuleCall getConstraintsConstraintsBaseParserRuleCall_6_0() { return cConstraintsConstraintsBaseParserRuleCall_6_0; }
 		
+		//statemachines=(StateMachinesBase)?
+		public Assignment getStatemachinesAssignment_7() { return cStatemachinesAssignment_7; }
+		
+		//(StateMachinesBase)
+		public RuleCall getStatemachinesStateMachinesBaseParserRuleCall_7_0() { return cStatemachinesStateMachinesBaseParserRuleCall_7_0; }
+		
 		//'end'
-		public Keyword getEndKeyword_7() { return cEndKeyword_7; }
+		public Keyword getEndKeyword_8() { return cEndKeyword_8; }
 	}
 	public class GeneralizationElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "modelConverter.use_language.USE.Generalization");
@@ -688,7 +698,9 @@ public class USEGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final RuleCall cOperationsOperationsBaseParserRuleCall_7_0 = (RuleCall)cOperationsAssignment_7.eContents().get(0);
 		private final Assignment cConstraintsAssignment_8 = (Assignment)cGroup.eContents().get(8);
 		private final RuleCall cConstraintsConstraintsBaseParserRuleCall_8_0 = (RuleCall)cConstraintsAssignment_8.eContents().get(0);
-		private final Keyword cEndKeyword_9 = (Keyword)cGroup.eContents().get(9);
+		private final Assignment cStatemachinesAssignment_9 = (Assignment)cGroup.eContents().get(9);
+		private final RuleCall cStatemachinesStateMachinesBaseParserRuleCall_9_0 = (RuleCall)cStatemachinesAssignment_9.eContents().get(0);
+		private final Keyword cEndKeyword_10 = (Keyword)cGroup.eContents().get(10);
 		
 		//AssociationClass:
 		//    (abstract?='abstract')? 'associationclass' name=ID ('<' (generalization+=Generalization)+)?
@@ -696,6 +708,7 @@ public class USEGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//        attributes=(AttributesBase)?
 		//        operations=(OperationsBase)?
 		//        constraints=(ConstraintsBase)?
+		//        statemachines=(StateMachinesBase)?
 		//    'end';
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -704,6 +717,7 @@ public class USEGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//    attributes=(AttributesBase)?
 		//    operations=(OperationsBase)?
 		//    constraints=(ConstraintsBase)?
+		//    statemachines=(StateMachinesBase)?
 		//'end'
 		public Group getGroup() { return cGroup; }
 		
@@ -761,8 +775,14 @@ public class USEGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		//(ConstraintsBase)
 		public RuleCall getConstraintsConstraintsBaseParserRuleCall_8_0() { return cConstraintsConstraintsBaseParserRuleCall_8_0; }
 		
+		//statemachines=(StateMachinesBase)?
+		public Assignment getStatemachinesAssignment_9() { return cStatemachinesAssignment_9; }
+		
+		//(StateMachinesBase)
+		public RuleCall getStatemachinesStateMachinesBaseParserRuleCall_9_0() { return cStatemachinesStateMachinesBaseParserRuleCall_9_0; }
+		
 		//'end'
-		public Keyword getEndKeyword_9() { return cEndKeyword_9; }
+		public Keyword getEndKeyword_10() { return cEndKeyword_10; }
 	}
 	public class AttributesBaseElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "modelConverter.use_language.USE.AttributesBase");
@@ -1081,6 +1101,280 @@ public class USEGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		
 		//(',')?
 		public Keyword getCommaKeyword_3() { return cCommaKeyword_3; }
+	}
+	public class StateMachinesBaseElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "modelConverter.use_language.USE.StateMachinesBase");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cStatemachinesKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cStatemachinesAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cStatemachinesStateMachineParserRuleCall_1_0 = (RuleCall)cStatemachinesAssignment_1.eContents().get(0);
+		
+		////------------STATEMACHINES------------
+		//StateMachinesBase:
+		//    'statemachines'
+		//        (statemachines+=StateMachine)*;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'statemachines'
+		//    (statemachines+=StateMachine)*
+		public Group getGroup() { return cGroup; }
+		
+		//'statemachines'
+		public Keyword getStatemachinesKeyword_0() { return cStatemachinesKeyword_0; }
+		
+		//(statemachines+=StateMachine)*
+		public Assignment getStatemachinesAssignment_1() { return cStatemachinesAssignment_1; }
+		
+		//StateMachine
+		public RuleCall getStatemachinesStateMachineParserRuleCall_1_0() { return cStatemachinesStateMachineParserRuleCall_1_0; }
+	}
+	public class StateMachineElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "modelConverter.use_language.USE.StateMachine");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cPsmKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Keyword cStatesKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cStatesAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cStatesStateParserRuleCall_3_0 = (RuleCall)cStatesAssignment_3.eContents().get(0);
+		private final Keyword cTransitionsKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Assignment cTransitionsAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cTransitionsTransitionParserRuleCall_5_0 = (RuleCall)cTransitionsAssignment_5.eContents().get(0);
+		private final Keyword cEndKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		
+		//StateMachine:
+		//    'psm' name=ID
+		//    'states'
+		//        (states+=State)+
+		//    'transitions'
+		//        (transitions+=Transition)*
+		//    'end';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'psm' name=ID
+		//'states'
+		//    (states+=State)+
+		//'transitions'
+		//    (transitions+=Transition)*
+		//'end'
+		public Group getGroup() { return cGroup; }
+		
+		//'psm'
+		public Keyword getPsmKeyword_0() { return cPsmKeyword_0; }
+		
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+		
+		//'states'
+		public Keyword getStatesKeyword_2() { return cStatesKeyword_2; }
+		
+		//(states+=State)+
+		public Assignment getStatesAssignment_3() { return cStatesAssignment_3; }
+		
+		//State
+		public RuleCall getStatesStateParserRuleCall_3_0() { return cStatesStateParserRuleCall_3_0; }
+		
+		//'transitions'
+		public Keyword getTransitionsKeyword_4() { return cTransitionsKeyword_4; }
+		
+		//(transitions+=Transition)*
+		public Assignment getTransitionsAssignment_5() { return cTransitionsAssignment_5; }
+		
+		//Transition
+		public RuleCall getTransitionsTransitionParserRuleCall_5_0() { return cTransitionsTransitionParserRuleCall_5_0; }
+		
+		//'end'
+		public Keyword getEndKeyword_6() { return cEndKeyword_6; }
+	}
+	public class StateElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "modelConverter.use_language.USE.State");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cNameIDTerminalRuleCall_0_0 = (RuleCall)cNameAssignment_0.eContents().get(0);
+		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
+		private final Group cGroup_1_0 = (Group)cAlternatives_1.eContents().get(0);
+		private final Keyword cColonKeyword_1_0_0 = (Keyword)cGroup_1_0.eContents().get(0);
+		private final Assignment cIsInitialAssignment_1_0_1 = (Assignment)cGroup_1_0.eContents().get(1);
+		private final Keyword cIsInitialInitialKeyword_1_0_1_0 = (Keyword)cIsInitialAssignment_1_0_1.eContents().get(0);
+		private final Group cGroup_1_1 = (Group)cAlternatives_1.eContents().get(1);
+		private final Keyword cColonKeyword_1_1_0 = (Keyword)cGroup_1_1.eContents().get(0);
+		private final Assignment cIsFinalAssignment_1_1_1 = (Assignment)cGroup_1_1.eContents().get(1);
+		private final Keyword cIsFinalFinalKeyword_1_1_1_0 = (Keyword)cIsFinalAssignment_1_1_1.eContents().get(0);
+		private final Group cGroup_1_2 = (Group)cAlternatives_1.eContents().get(2);
+		private final Keyword cLeftSquareBracketKeyword_1_2_0 = (Keyword)cGroup_1_2.eContents().get(0);
+		private final Assignment cInvariantAssignment_1_2_1 = (Assignment)cGroup_1_2.eContents().get(1);
+		private final RuleCall cInvariantExpCSParserRuleCall_1_2_1_0 = (RuleCall)cInvariantAssignment_1_2_1.eContents().get(0);
+		private final Keyword cRightSquareBracketKeyword_1_2_2 = (Keyword)cGroup_1_2.eContents().get(2);
+		
+		//State:
+		//    name=ID ((':' isInitial?='initial') | (':' isFinal?='final') | ('[' invariant=ExpCS ']'))?;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//name=ID ((':' isInitial?='initial') | (':' isFinal?='final') | ('[' invariant=ExpCS ']'))?
+		public Group getGroup() { return cGroup; }
+		
+		//name=ID
+		public Assignment getNameAssignment_0() { return cNameAssignment_0; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_0_0() { return cNameIDTerminalRuleCall_0_0; }
+		
+		//((':' isInitial?='initial') | (':' isFinal?='final') | ('[' invariant=ExpCS ']'))?
+		public Alternatives getAlternatives_1() { return cAlternatives_1; }
+		
+		//(':' isInitial?='initial')
+		public Group getGroup_1_0() { return cGroup_1_0; }
+		
+		//':'
+		public Keyword getColonKeyword_1_0_0() { return cColonKeyword_1_0_0; }
+		
+		//isInitial?='initial'
+		public Assignment getIsInitialAssignment_1_0_1() { return cIsInitialAssignment_1_0_1; }
+		
+		//'initial'
+		public Keyword getIsInitialInitialKeyword_1_0_1_0() { return cIsInitialInitialKeyword_1_0_1_0; }
+		
+		//(':' isFinal?='final')
+		public Group getGroup_1_1() { return cGroup_1_1; }
+		
+		//':'
+		public Keyword getColonKeyword_1_1_0() { return cColonKeyword_1_1_0; }
+		
+		//isFinal?='final'
+		public Assignment getIsFinalAssignment_1_1_1() { return cIsFinalAssignment_1_1_1; }
+		
+		//'final'
+		public Keyword getIsFinalFinalKeyword_1_1_1_0() { return cIsFinalFinalKeyword_1_1_1_0; }
+		
+		//('[' invariant=ExpCS ']')
+		public Group getGroup_1_2() { return cGroup_1_2; }
+		
+		//'['
+		public Keyword getLeftSquareBracketKeyword_1_2_0() { return cLeftSquareBracketKeyword_1_2_0; }
+		
+		//invariant=ExpCS
+		public Assignment getInvariantAssignment_1_2_1() { return cInvariantAssignment_1_2_1; }
+		
+		//ExpCS
+		public RuleCall getInvariantExpCSParserRuleCall_1_2_1_0() { return cInvariantExpCSParserRuleCall_1_2_1_0; }
+		
+		//']'
+		public Keyword getRightSquareBracketKeyword_1_2_2() { return cRightSquareBracketKeyword_1_2_2; }
+	}
+	public class TransitionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "modelConverter.use_language.USE.Transition");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cSourceAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final CrossReference cSourceStateCrossReference_0_0 = (CrossReference)cSourceAssignment_0.eContents().get(0);
+		private final RuleCall cSourceStateIDTerminalRuleCall_0_0_1 = (RuleCall)cSourceStateCrossReference_0_0.eContents().get(1);
+		private final Keyword cHyphenMinusGreaterThanSignKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cTargetAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final CrossReference cTargetStateCrossReference_2_0 = (CrossReference)cTargetAssignment_2.eContents().get(0);
+		private final RuleCall cTargetStateIDTerminalRuleCall_2_0_1 = (RuleCall)cTargetStateCrossReference_2_0.eContents().get(1);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Keyword cLeftCurlyBracketKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Group cGroup_3_1 = (Group)cGroup_3.eContents().get(1);
+		private final Keyword cLeftSquareBracketKeyword_3_1_0 = (Keyword)cGroup_3_1.eContents().get(0);
+		private final Assignment cPreconditionAssignment_3_1_1 = (Assignment)cGroup_3_1.eContents().get(1);
+		private final RuleCall cPreconditionExpCSParserRuleCall_3_1_1_0 = (RuleCall)cPreconditionAssignment_3_1_1.eContents().get(0);
+		private final Keyword cRightSquareBracketKeyword_3_1_2 = (Keyword)cGroup_3_1.eContents().get(2);
+		private final Assignment cOperationAssignment_3_2 = (Assignment)cGroup_3.eContents().get(2);
+		private final CrossReference cOperationOperationDeclarationCrossReference_3_2_0 = (CrossReference)cOperationAssignment_3_2.eContents().get(0);
+		private final RuleCall cOperationOperationDeclarationIDTerminalRuleCall_3_2_0_1 = (RuleCall)cOperationOperationDeclarationCrossReference_3_2_0.eContents().get(1);
+		private final Keyword cLeftParenthesisKeyword_3_3 = (Keyword)cGroup_3.eContents().get(3);
+		private final Keyword cRightParenthesisKeyword_3_4 = (Keyword)cGroup_3.eContents().get(4);
+		private final Group cGroup_3_5 = (Group)cGroup_3.eContents().get(5);
+		private final Keyword cLeftSquareBracketKeyword_3_5_0 = (Keyword)cGroup_3_5.eContents().get(0);
+		private final Assignment cPostconditionAssignment_3_5_1 = (Assignment)cGroup_3_5.eContents().get(1);
+		private final RuleCall cPostconditionExpCSParserRuleCall_3_5_1_0 = (RuleCall)cPostconditionAssignment_3_5_1.eContents().get(0);
+		private final Keyword cRightSquareBracketKeyword_3_5_2 = (Keyword)cGroup_3_5.eContents().get(2);
+		private final Keyword cRightCurlyBracketKeyword_3_6 = (Keyword)cGroup_3.eContents().get(6);
+		
+		//Transition:
+		//    source=[State] '->' target=[State]  ('{' ('[' precondition=ExpCS ']')? operation=[OperationDeclaration] '(' ')' ('[' postcondition=ExpCS ']')? '}')?
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//source=[State] '->' target=[State]  ('{' ('[' precondition=ExpCS ']')? operation=[OperationDeclaration] '(' ')' ('[' postcondition=ExpCS ']')? '}')?
+		public Group getGroup() { return cGroup; }
+		
+		//source=[State]
+		public Assignment getSourceAssignment_0() { return cSourceAssignment_0; }
+		
+		//[State]
+		public CrossReference getSourceStateCrossReference_0_0() { return cSourceStateCrossReference_0_0; }
+		
+		//ID
+		public RuleCall getSourceStateIDTerminalRuleCall_0_0_1() { return cSourceStateIDTerminalRuleCall_0_0_1; }
+		
+		//'->'
+		public Keyword getHyphenMinusGreaterThanSignKeyword_1() { return cHyphenMinusGreaterThanSignKeyword_1; }
+		
+		//target=[State]
+		public Assignment getTargetAssignment_2() { return cTargetAssignment_2; }
+		
+		//[State]
+		public CrossReference getTargetStateCrossReference_2_0() { return cTargetStateCrossReference_2_0; }
+		
+		//ID
+		public RuleCall getTargetStateIDTerminalRuleCall_2_0_1() { return cTargetStateIDTerminalRuleCall_2_0_1; }
+		
+		//('{' ('[' precondition=ExpCS ']')? operation=[OperationDeclaration] '(' ')' ('[' postcondition=ExpCS ']')? '}')?
+		public Group getGroup_3() { return cGroup_3; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_3_0() { return cLeftCurlyBracketKeyword_3_0; }
+		
+		//('[' precondition=ExpCS ']')?
+		public Group getGroup_3_1() { return cGroup_3_1; }
+		
+		//'['
+		public Keyword getLeftSquareBracketKeyword_3_1_0() { return cLeftSquareBracketKeyword_3_1_0; }
+		
+		//precondition=ExpCS
+		public Assignment getPreconditionAssignment_3_1_1() { return cPreconditionAssignment_3_1_1; }
+		
+		//ExpCS
+		public RuleCall getPreconditionExpCSParserRuleCall_3_1_1_0() { return cPreconditionExpCSParserRuleCall_3_1_1_0; }
+		
+		//']'
+		public Keyword getRightSquareBracketKeyword_3_1_2() { return cRightSquareBracketKeyword_3_1_2; }
+		
+		//operation=[OperationDeclaration]
+		public Assignment getOperationAssignment_3_2() { return cOperationAssignment_3_2; }
+		
+		//[OperationDeclaration]
+		public CrossReference getOperationOperationDeclarationCrossReference_3_2_0() { return cOperationOperationDeclarationCrossReference_3_2_0; }
+		
+		//ID
+		public RuleCall getOperationOperationDeclarationIDTerminalRuleCall_3_2_0_1() { return cOperationOperationDeclarationIDTerminalRuleCall_3_2_0_1; }
+		
+		//'('
+		public Keyword getLeftParenthesisKeyword_3_3() { return cLeftParenthesisKeyword_3_3; }
+		
+		//')'
+		public Keyword getRightParenthesisKeyword_3_4() { return cRightParenthesisKeyword_3_4; }
+		
+		//('[' postcondition=ExpCS ']')?
+		public Group getGroup_3_5() { return cGroup_3_5; }
+		
+		//'['
+		public Keyword getLeftSquareBracketKeyword_3_5_0() { return cLeftSquareBracketKeyword_3_5_0; }
+		
+		//postcondition=ExpCS
+		public Assignment getPostconditionAssignment_3_5_1() { return cPostconditionAssignment_3_5_1; }
+		
+		//ExpCS
+		public RuleCall getPostconditionExpCSParserRuleCall_3_5_1_0() { return cPostconditionExpCSParserRuleCall_3_5_1_0; }
+		
+		//']'
+		public Keyword getRightSquareBracketKeyword_3_5_2() { return cRightSquareBracketKeyword_3_5_2; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_3_6() { return cRightCurlyBracketKeyword_3_6; }
 	}
 	public class ConstraintsBaseElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "modelConverter.use_language.USE.ConstraintsBase");
@@ -4273,6 +4567,10 @@ public class USEGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	private final OperationComplexElements pOperationComplex;
 	private final OperationDeclarationElements pOperationDeclaration;
 	private final ParameterElements pParameter;
+	private final StateMachinesBaseElements pStateMachinesBase;
+	private final StateMachineElements pStateMachine;
+	private final StateElements pState;
+	private final TransitionElements pTransition;
 	private final ConstraintsBaseElements pConstraintsBase;
 	private final ConstrainsGeneralElements pConstrainsGeneral;
 	private final ContextsTypeElements pContextsType;
@@ -4384,6 +4682,10 @@ public class USEGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		this.pOperationComplex = new OperationComplexElements();
 		this.pOperationDeclaration = new OperationDeclarationElements();
 		this.pParameter = new ParameterElements();
+		this.pStateMachinesBase = new StateMachinesBaseElements();
+		this.pStateMachine = new StateMachineElements();
+		this.pState = new StateElements();
+		this.pTransition = new TransitionElements();
 		this.pConstraintsBase = new ConstraintsBaseElements();
 		this.pConstrainsGeneral = new ConstrainsGeneralElements();
 		this.pContextsType = new ContextsTypeElements();
@@ -4628,6 +4930,7 @@ public class USEGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	//        attributes=(AttributesBase)?
 	//        operations=(OperationsBase)?
 	//        constraints=(ConstraintsBase)?
+	//        statemachines=(StateMachinesBase)?
 	//    'end';
 	public ClassElements getClassAccess() {
 		return pClass;
@@ -4675,6 +4978,7 @@ public class USEGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	//        attributes=(AttributesBase)?
 	//        operations=(OperationsBase)?
 	//        constraints=(ConstraintsBase)?
+	//        statemachines=(StateMachinesBase)?
 	//    'end';
 	public AssociationClassElements getAssociationClassAccess() {
 		return pAssociationClass;
@@ -4766,6 +5070,54 @@ public class USEGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	
 	public ParserRule getParameterRule() {
 		return getParameterAccess().getRule();
+	}
+	
+	////------------STATEMACHINES------------
+	//StateMachinesBase:
+	//    'statemachines'
+	//        (statemachines+=StateMachine)*;
+	public StateMachinesBaseElements getStateMachinesBaseAccess() {
+		return pStateMachinesBase;
+	}
+	
+	public ParserRule getStateMachinesBaseRule() {
+		return getStateMachinesBaseAccess().getRule();
+	}
+	
+	//StateMachine:
+	//    'psm' name=ID
+	//    'states'
+	//        (states+=State)+
+	//    'transitions'
+	//        (transitions+=Transition)*
+	//    'end';
+	public StateMachineElements getStateMachineAccess() {
+		return pStateMachine;
+	}
+	
+	public ParserRule getStateMachineRule() {
+		return getStateMachineAccess().getRule();
+	}
+	
+	//State:
+	//    name=ID ((':' isInitial?='initial') | (':' isFinal?='final') | ('[' invariant=ExpCS ']'))?;
+	public StateElements getStateAccess() {
+		return pState;
+	}
+	
+	public ParserRule getStateRule() {
+		return getStateAccess().getRule();
+	}
+	
+	//Transition:
+	//    source=[State] '->' target=[State]  ('{' ('[' precondition=ExpCS ']')? operation=[OperationDeclaration] '(' ')' ('[' postcondition=ExpCS ']')? '}')?
+	//;
+	public TransitionElements getTransitionAccess() {
+		return pTransition;
+	}
+	
+	public ParserRule getTransitionRule() {
+		return getTransitionAccess().getRule();
 	}
 	
 	////------------CONSTRAINTS---------------

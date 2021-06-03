@@ -20,6 +20,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link modelConverter.use_language.use.AssociationClass#getAttributes <em>Attributes</em>}</li>
  *   <li>{@link modelConverter.use_language.use.AssociationClass#getOperations <em>Operations</em>}</li>
  *   <li>{@link modelConverter.use_language.use.AssociationClass#getConstraints <em>Constraints</em>}</li>
+ *   <li>{@link modelConverter.use_language.use.AssociationClass#getStatemachines <em>Statemachines</em>}</li>
  * </ul>
  *
  * @see modelConverter.use_language.use.UsePackage#getAssociationClass()
@@ -139,5 +140,27 @@ public interface AssociationClass extends Type, AllClass
    * @generated
    */
   void setConstraints(ConstraintsBase value);
+
+  /**
+   * Returns the value of the '<em><b>Statemachines</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Statemachines</em>' containment reference.
+   * @see #setStatemachines(StateMachinesBase)
+   * @see modelConverter.use_language.use.UsePackage#getAssociationClass_Statemachines()
+   * @model containment="true"
+   * @generated
+   */
+  StateMachinesBase getStatemachines();
+
+  /**
+   * Sets the value of the '{@link modelConverter.use_language.use.AssociationClass#getStatemachines <em>Statemachines</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Statemachines</em>' containment reference.
+   * @see #getStatemachines()
+   * @generated
+   */
+  void setStatemachines(StateMachinesBase value);
 
 } // AssociationClass

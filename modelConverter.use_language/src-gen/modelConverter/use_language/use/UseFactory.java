@@ -222,6 +222,42 @@ public interface UseFactory extends EFactory
   Parameter createParameter();
 
   /**
+   * Returns a new object of class '<em>State Machines Base</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>State Machines Base</em>'.
+   * @generated
+   */
+  StateMachinesBase createStateMachinesBase();
+
+  /**
+   * Returns a new object of class '<em>State Machine</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>State Machine</em>'.
+   * @generated
+   */
+  StateMachine createStateMachine();
+
+  /**
+   * Returns a new object of class '<em>State</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>State</em>'.
+   * @generated
+   */
+  State createState();
+
+  /**
+   * Returns a new object of class '<em>Transition</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Transition</em>'.
+   * @generated
+   */
+  Transition createTransition();
+
+  /**
    * Returns a new object of class '<em>Constraints Base</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

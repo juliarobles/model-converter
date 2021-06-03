@@ -66,7 +66,11 @@ import modelConverter.use_language.use.SelfExpCS;
 import modelConverter.use_language.use.ShadowPartCS;
 import modelConverter.use_language.use.SimpleTypes;
 import modelConverter.use_language.use.SquareBracketedClauseCS;
+import modelConverter.use_language.use.State;
+import modelConverter.use_language.use.StateMachine;
+import modelConverter.use_language.use.StateMachinesBase;
 import modelConverter.use_language.use.StringLiteralExpCS;
+import modelConverter.use_language.use.Transition;
 import modelConverter.use_language.use.TupleLiteralExpCS;
 import modelConverter.use_language.use.TupleLiteralPartCS;
 import modelConverter.use_language.use.TuplePartCS;
@@ -311,6 +315,34 @@ public class UseSwitch<T> extends Switch<T>
       {
         Parameter parameter = (Parameter)theEObject;
         T result = caseParameter(parameter);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case UsePackage.STATE_MACHINES_BASE:
+      {
+        StateMachinesBase stateMachinesBase = (StateMachinesBase)theEObject;
+        T result = caseStateMachinesBase(stateMachinesBase);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case UsePackage.STATE_MACHINE:
+      {
+        StateMachine stateMachine = (StateMachine)theEObject;
+        T result = caseStateMachine(stateMachine);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case UsePackage.STATE:
+      {
+        State state = (State)theEObject;
+        T result = caseState(state);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case UsePackage.TRANSITION:
+      {
+        Transition transition = (Transition)theEObject;
+        T result = caseTransition(transition);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -1081,6 +1113,70 @@ public class UseSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseParameter(Parameter object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>State Machines Base</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>State Machines Base</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseStateMachinesBase(StateMachinesBase object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>State Machine</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>State Machine</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseStateMachine(StateMachine object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>State</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>State</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseState(State object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Transition</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Transition</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseTransition(Transition object)
   {
     return null;
   }

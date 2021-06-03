@@ -66,7 +66,11 @@ import modelConverter.use_language.use.SelfExpCS;
 import modelConverter.use_language.use.ShadowPartCS;
 import modelConverter.use_language.use.SimpleTypes;
 import modelConverter.use_language.use.SquareBracketedClauseCS;
+import modelConverter.use_language.use.State;
+import modelConverter.use_language.use.StateMachine;
+import modelConverter.use_language.use.StateMachinesBase;
 import modelConverter.use_language.use.StringLiteralExpCS;
+import modelConverter.use_language.use.Transition;
 import modelConverter.use_language.use.TupleLiteralExpCS;
 import modelConverter.use_language.use.TupleLiteralPartCS;
 import modelConverter.use_language.use.TuplePartCS;
@@ -162,6 +166,10 @@ public class UseFactoryImpl extends EFactoryImpl implements UseFactory
       case UsePackage.OPERATION_COMPLEX: return createOperationComplex();
       case UsePackage.OPERATION_DECLARATION: return createOperationDeclaration();
       case UsePackage.PARAMETER: return createParameter();
+      case UsePackage.STATE_MACHINES_BASE: return createStateMachinesBase();
+      case UsePackage.STATE_MACHINE: return createStateMachine();
+      case UsePackage.STATE: return createState();
+      case UsePackage.TRANSITION: return createTransition();
       case UsePackage.CONSTRAINTS_BASE: return createConstraintsBase();
       case UsePackage.CONSTRAINS_GENERAL: return createConstrainsGeneral();
       case UsePackage.CONTEXTS_TYPE: return createContextsType();
@@ -483,6 +491,54 @@ public class UseFactoryImpl extends EFactoryImpl implements UseFactory
   {
     ParameterImpl parameter = new ParameterImpl();
     return parameter;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public StateMachinesBase createStateMachinesBase()
+  {
+    StateMachinesBaseImpl stateMachinesBase = new StateMachinesBaseImpl();
+    return stateMachinesBase;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public StateMachine createStateMachine()
+  {
+    StateMachineImpl stateMachine = new StateMachineImpl();
+    return stateMachine;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public State createState()
+  {
+    StateImpl state = new StateImpl();
+    return state;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Transition createTransition()
+  {
+    TransitionImpl transition = new TransitionImpl();
+    return transition;
   }
 
   /**

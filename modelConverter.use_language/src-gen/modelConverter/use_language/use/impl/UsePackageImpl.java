@@ -66,7 +66,11 @@ import modelConverter.use_language.use.SelfExpCS;
 import modelConverter.use_language.use.ShadowPartCS;
 import modelConverter.use_language.use.SimpleTypes;
 import modelConverter.use_language.use.SquareBracketedClauseCS;
+import modelConverter.use_language.use.State;
+import modelConverter.use_language.use.StateMachine;
+import modelConverter.use_language.use.StateMachinesBase;
 import modelConverter.use_language.use.StringLiteralExpCS;
+import modelConverter.use_language.use.Transition;
 import modelConverter.use_language.use.TupleLiteralExpCS;
 import modelConverter.use_language.use.TupleLiteralPartCS;
 import modelConverter.use_language.use.TuplePartCS;
@@ -248,6 +252,34 @@ public class UsePackageImpl extends EPackageImpl implements UsePackage
    * @generated
    */
   private EClass parameterEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass stateMachinesBaseEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass stateMachineEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass stateEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass transitionEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -1004,6 +1036,17 @@ public class UsePackageImpl extends EPackageImpl implements UsePackage
    * @generated
    */
   @Override
+  public EReference getClass_Statemachines()
+  {
+    return (EReference)classEClass.getEStructuralFeatures().get(5);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getGeneralization()
   {
     return generalizationEClass;
@@ -1183,6 +1226,17 @@ public class UsePackageImpl extends EPackageImpl implements UsePackage
   public EReference getAssociationClass_Constraints()
   {
     return (EReference)associationClassEClass.getEStructuralFeatures().get(5);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getAssociationClass_Statemachines()
+  {
+    return (EReference)associationClassEClass.getEStructuralFeatures().get(6);
   }
 
   /**
@@ -1436,6 +1490,193 @@ public class UsePackageImpl extends EPackageImpl implements UsePackage
   public EReference getParameter_Type()
   {
     return (EReference)parameterEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getStateMachinesBase()
+  {
+    return stateMachinesBaseEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getStateMachinesBase_Statemachines()
+  {
+    return (EReference)stateMachinesBaseEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getStateMachine()
+  {
+    return stateMachineEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getStateMachine_Name()
+  {
+    return (EAttribute)stateMachineEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getStateMachine_States()
+  {
+    return (EReference)stateMachineEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getStateMachine_Transitions()
+  {
+    return (EReference)stateMachineEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getState()
+  {
+    return stateEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getState_Name()
+  {
+    return (EAttribute)stateEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getState_IsInitial()
+  {
+    return (EAttribute)stateEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getState_IsFinal()
+  {
+    return (EAttribute)stateEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getState_Invariant()
+  {
+    return (EReference)stateEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getTransition()
+  {
+    return transitionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getTransition_Source()
+  {
+    return (EReference)transitionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getTransition_Target()
+  {
+    return (EReference)transitionEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getTransition_Precondition()
+  {
+    return (EReference)transitionEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getTransition_Operation()
+  {
+    return (EReference)transitionEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getTransition_Postcondition()
+  {
+    return (EReference)transitionEClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -3123,6 +3364,7 @@ public class UsePackageImpl extends EPackageImpl implements UsePackage
     createEReference(classEClass, CLASS__ATTRIBUTES);
     createEReference(classEClass, CLASS__OPERATIONS);
     createEReference(classEClass, CLASS__CONSTRAINTS);
+    createEReference(classEClass, CLASS__STATEMACHINES);
 
     generalizationEClass = createEClass(GENERALIZATION);
     createEReference(generalizationEClass, GENERALIZATION__GENERAL);
@@ -3144,6 +3386,7 @@ public class UsePackageImpl extends EPackageImpl implements UsePackage
     createEReference(associationClassEClass, ASSOCIATION_CLASS__ATTRIBUTES);
     createEReference(associationClassEClass, ASSOCIATION_CLASS__OPERATIONS);
     createEReference(associationClassEClass, ASSOCIATION_CLASS__CONSTRAINTS);
+    createEReference(associationClassEClass, ASSOCIATION_CLASS__STATEMACHINES);
 
     attributesBaseEClass = createEClass(ATTRIBUTES_BASE);
     createEReference(attributesBaseEClass, ATTRIBUTES_BASE__ATTRIBUTES);
@@ -3175,6 +3418,27 @@ public class UsePackageImpl extends EPackageImpl implements UsePackage
     parameterEClass = createEClass(PARAMETER);
     createEAttribute(parameterEClass, PARAMETER__NAME);
     createEReference(parameterEClass, PARAMETER__TYPE);
+
+    stateMachinesBaseEClass = createEClass(STATE_MACHINES_BASE);
+    createEReference(stateMachinesBaseEClass, STATE_MACHINES_BASE__STATEMACHINES);
+
+    stateMachineEClass = createEClass(STATE_MACHINE);
+    createEAttribute(stateMachineEClass, STATE_MACHINE__NAME);
+    createEReference(stateMachineEClass, STATE_MACHINE__STATES);
+    createEReference(stateMachineEClass, STATE_MACHINE__TRANSITIONS);
+
+    stateEClass = createEClass(STATE);
+    createEAttribute(stateEClass, STATE__NAME);
+    createEAttribute(stateEClass, STATE__IS_INITIAL);
+    createEAttribute(stateEClass, STATE__IS_FINAL);
+    createEReference(stateEClass, STATE__INVARIANT);
+
+    transitionEClass = createEClass(TRANSITION);
+    createEReference(transitionEClass, TRANSITION__SOURCE);
+    createEReference(transitionEClass, TRANSITION__TARGET);
+    createEReference(transitionEClass, TRANSITION__PRECONDITION);
+    createEReference(transitionEClass, TRANSITION__OPERATION);
+    createEReference(transitionEClass, TRANSITION__POSTCONDITION);
 
     constraintsBaseEClass = createEClass(CONSTRAINTS_BASE);
     createEReference(constraintsBaseEClass, CONSTRAINTS_BASE__INVARIANTS);
@@ -3488,6 +3752,7 @@ public class UsePackageImpl extends EPackageImpl implements UsePackage
     initEReference(getClass_Attributes(), this.getAttributesBase(), null, "attributes", null, 0, 1, modelConverter.use_language.use.Class.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getClass_Operations(), this.getOperationsBase(), null, "operations", null, 0, 1, modelConverter.use_language.use.Class.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getClass_Constraints(), this.getConstraintsBase(), null, "constraints", null, 0, 1, modelConverter.use_language.use.Class.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getClass_Statemachines(), this.getStateMachinesBase(), null, "statemachines", null, 0, 1, modelConverter.use_language.use.Class.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(generalizationEClass, Generalization.class, "Generalization", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getGeneralization_General(), this.getAllClass(), null, "general", null, 0, 1, Generalization.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3509,6 +3774,7 @@ public class UsePackageImpl extends EPackageImpl implements UsePackage
     initEReference(getAssociationClass_Attributes(), this.getAttributesBase(), null, "attributes", null, 0, 1, AssociationClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getAssociationClass_Operations(), this.getOperationsBase(), null, "operations", null, 0, 1, AssociationClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getAssociationClass_Constraints(), this.getConstraintsBase(), null, "constraints", null, 0, 1, AssociationClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getAssociationClass_Statemachines(), this.getStateMachinesBase(), null, "statemachines", null, 0, 1, AssociationClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(attributesBaseEClass, AttributesBase.class, "AttributesBase", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getAttributesBase_Attributes(), this.getAttribute(), null, "attributes", null, 0, -1, AttributesBase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3540,6 +3806,27 @@ public class UsePackageImpl extends EPackageImpl implements UsePackage
     initEClass(parameterEClass, Parameter.class, "Parameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getParameter_Name(), ecorePackage.getEString(), "name", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getParameter_Type(), this.getAllTypes(), null, "type", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(stateMachinesBaseEClass, StateMachinesBase.class, "StateMachinesBase", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getStateMachinesBase_Statemachines(), this.getStateMachine(), null, "statemachines", null, 0, -1, StateMachinesBase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(stateMachineEClass, StateMachine.class, "StateMachine", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getStateMachine_Name(), ecorePackage.getEString(), "name", null, 0, 1, StateMachine.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getStateMachine_States(), this.getState(), null, "states", null, 0, -1, StateMachine.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getStateMachine_Transitions(), this.getTransition(), null, "transitions", null, 0, -1, StateMachine.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(stateEClass, State.class, "State", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getState_Name(), ecorePackage.getEString(), "name", null, 0, 1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getState_IsInitial(), ecorePackage.getEBoolean(), "isInitial", null, 0, 1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getState_IsFinal(), ecorePackage.getEBoolean(), "isFinal", null, 0, 1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getState_Invariant(), this.getExpCS(), null, "invariant", null, 0, 1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(transitionEClass, Transition.class, "Transition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getTransition_Source(), this.getState(), null, "source", null, 0, 1, Transition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getTransition_Target(), this.getState(), null, "target", null, 0, 1, Transition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getTransition_Precondition(), this.getExpCS(), null, "precondition", null, 0, 1, Transition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getTransition_Operation(), this.getOperationDeclaration(), null, "operation", null, 0, 1, Transition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getTransition_Postcondition(), this.getExpCS(), null, "postcondition", null, 0, 1, Transition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(constraintsBaseEClass, ConstraintsBase.class, "ConstraintsBase", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getConstraintsBase_Invariants(), this.getInvariantDefinition(), null, "invariants", null, 0, -1, ConstraintsBase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -57,7 +57,8 @@ Class:
 	(abstract?='abstract')? 'class' name=ID ('<' (generalization+=Generalization)+)? 
 		attributes=(AttributesBase)? 
 		operations=(OperationsBase)?
-		constraints=(ConstraintsBase)? 
+		constraints=(ConstraintsBase)?
+		statemachines=(StateMachinesBase)? 
 	'end';
 
 Generalization:
@@ -78,7 +79,8 @@ AssociationClass:
 		'between' (associationEnds+=AssociationEnd)+ 
 		attributes=(AttributesBase)? 
 		operations=(OperationsBase)? 
-		constraints=(ConstraintsBase)? 
+		constraints=(ConstraintsBase)?
+		statemachines=(StateMachinesBase)? 
 	'end';
 
 
@@ -111,6 +113,26 @@ OperationDeclaration:
 Parameter:
 	name=ID ':' type=AllTypes (',')?;
 	
+
+//------------STATEMACHINES------------
+StateMachinesBase:
+	'statemachines'
+		(statemachines+=StateMachine)*;	
+
+StateMachine:
+	'psm' name=ID
+	'states'
+		(states+=State)+	
+	'transitions'
+		(transitions+=Transition)*
+	'end';
+
+State:
+	name=ID ((':' isInitial?='initial') | (':' isFinal?='final') | ('[' invariant=ExpCS ']'))?;
+	
+Transition:
+	source=[State] '->' target=[State]  ('{' ('[' precondition=ExpCS ']')? operation=[OperationDeclaration] '(' ')' ('[' postcondition=ExpCS ']')? '}')?
+;
 	
 //------------CONSTRAINTS---------------
 ConstraintsBase:

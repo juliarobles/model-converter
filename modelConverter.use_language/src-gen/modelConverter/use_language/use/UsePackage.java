@@ -410,13 +410,22 @@ public interface UsePackage extends EPackage
   int CLASS__CONSTRAINTS = TYPE_FEATURE_COUNT + 4;
 
   /**
+   * The feature id for the '<em><b>Statemachines</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CLASS__STATEMACHINES = TYPE_FEATURE_COUNT + 5;
+
+  /**
    * The number of structural features of the '<em>Class</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CLASS_FEATURE_COUNT = TYPE_FEATURE_COUNT + 5;
+  int CLASS_FEATURE_COUNT = TYPE_FEATURE_COUNT + 6;
 
   /**
    * The meta object id for the '{@link modelConverter.use_language.use.impl.GeneralizationImpl <em>Generalization</em>}' class.
@@ -621,13 +630,22 @@ public interface UsePackage extends EPackage
   int ASSOCIATION_CLASS__CONSTRAINTS = TYPE_FEATURE_COUNT + 5;
 
   /**
+   * The feature id for the '<em><b>Statemachines</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ASSOCIATION_CLASS__STATEMACHINES = TYPE_FEATURE_COUNT + 6;
+
+  /**
    * The number of structural features of the '<em>Association Class</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ASSOCIATION_CLASS_FEATURE_COUNT = TYPE_FEATURE_COUNT + 6;
+  int ASSOCIATION_CLASS_FEATURE_COUNT = TYPE_FEATURE_COUNT + 7;
 
   /**
    * The meta object id for the '{@link modelConverter.use_language.use.impl.AttributesBaseImpl <em>Attributes Base</em>}' class.
@@ -953,6 +971,199 @@ public interface UsePackage extends EPackage
   int PARAMETER_FEATURE_COUNT = 2;
 
   /**
+   * The meta object id for the '{@link modelConverter.use_language.use.impl.StateMachinesBaseImpl <em>State Machines Base</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see modelConverter.use_language.use.impl.StateMachinesBaseImpl
+   * @see modelConverter.use_language.use.impl.UsePackageImpl#getStateMachinesBase()
+   * @generated
+   */
+  int STATE_MACHINES_BASE = 22;
+
+  /**
+   * The feature id for the '<em><b>Statemachines</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STATE_MACHINES_BASE__STATEMACHINES = 0;
+
+  /**
+   * The number of structural features of the '<em>State Machines Base</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STATE_MACHINES_BASE_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link modelConverter.use_language.use.impl.StateMachineImpl <em>State Machine</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see modelConverter.use_language.use.impl.StateMachineImpl
+   * @see modelConverter.use_language.use.impl.UsePackageImpl#getStateMachine()
+   * @generated
+   */
+  int STATE_MACHINE = 23;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STATE_MACHINE__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>States</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STATE_MACHINE__STATES = 1;
+
+  /**
+   * The feature id for the '<em><b>Transitions</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STATE_MACHINE__TRANSITIONS = 2;
+
+  /**
+   * The number of structural features of the '<em>State Machine</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STATE_MACHINE_FEATURE_COUNT = 3;
+
+  /**
+   * The meta object id for the '{@link modelConverter.use_language.use.impl.StateImpl <em>State</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see modelConverter.use_language.use.impl.StateImpl
+   * @see modelConverter.use_language.use.impl.UsePackageImpl#getState()
+   * @generated
+   */
+  int STATE = 24;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STATE__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Is Initial</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STATE__IS_INITIAL = 1;
+
+  /**
+   * The feature id for the '<em><b>Is Final</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STATE__IS_FINAL = 2;
+
+  /**
+   * The feature id for the '<em><b>Invariant</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STATE__INVARIANT = 3;
+
+  /**
+   * The number of structural features of the '<em>State</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STATE_FEATURE_COUNT = 4;
+
+  /**
+   * The meta object id for the '{@link modelConverter.use_language.use.impl.TransitionImpl <em>Transition</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see modelConverter.use_language.use.impl.TransitionImpl
+   * @see modelConverter.use_language.use.impl.UsePackageImpl#getTransition()
+   * @generated
+   */
+  int TRANSITION = 25;
+
+  /**
+   * The feature id for the '<em><b>Source</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TRANSITION__SOURCE = 0;
+
+  /**
+   * The feature id for the '<em><b>Target</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TRANSITION__TARGET = 1;
+
+  /**
+   * The feature id for the '<em><b>Precondition</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TRANSITION__PRECONDITION = 2;
+
+  /**
+   * The feature id for the '<em><b>Operation</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TRANSITION__OPERATION = 3;
+
+  /**
+   * The feature id for the '<em><b>Postcondition</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TRANSITION__POSTCONDITION = 4;
+
+  /**
+   * The number of structural features of the '<em>Transition</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TRANSITION_FEATURE_COUNT = 5;
+
+  /**
    * The meta object id for the '{@link modelConverter.use_language.use.impl.ConstraintsBaseImpl <em>Constraints Base</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -960,7 +1171,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getConstraintsBase()
    * @generated
    */
-  int CONSTRAINTS_BASE = 22;
+  int CONSTRAINTS_BASE = 26;
 
   /**
    * The feature id for the '<em><b>Invariants</b></em>' containment reference list.
@@ -988,7 +1199,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getConstrainsGeneral()
    * @generated
    */
-  int CONSTRAINS_GENERAL = 23;
+  int CONSTRAINS_GENERAL = 27;
 
   /**
    * The feature id for the '<em><b>Contexts</b></em>' containment reference list.
@@ -1016,7 +1227,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getContextsType()
    * @generated
    */
-  int CONTEXTS_TYPE = 24;
+  int CONTEXTS_TYPE = 28;
 
   /**
    * The feature id for the '<em><b>Classname</b></em>' reference.
@@ -1044,7 +1255,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getInvariantContext()
    * @generated
    */
-  int INVARIANT_CONTEXT = 25;
+  int INVARIANT_CONTEXT = 29;
 
   /**
    * The feature id for the '<em><b>Classname</b></em>' reference.
@@ -1090,7 +1301,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getInvariantDefinition()
    * @generated
    */
-  int INVARIANT_DEFINITION = 26;
+  int INVARIANT_DEFINITION = 30;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1127,7 +1338,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getOperationContext()
    * @generated
    */
-  int OPERATION_CONTEXT = 27;
+  int OPERATION_CONTEXT = 31;
 
   /**
    * The feature id for the '<em><b>Classname</b></em>' reference.
@@ -1164,7 +1375,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getOperationConstraints()
    * @generated
    */
-  int OPERATION_CONSTRAINTS = 28;
+  int OPERATION_CONSTRAINTS = 32;
 
   /**
    * The feature id for the '<em><b>Operation Declaration</b></em>' containment reference.
@@ -1201,7 +1412,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getConditionType()
    * @generated
    */
-  int CONDITION_TYPE = 29;
+  int CONDITION_TYPE = 33;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1238,7 +1449,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getPrecondition()
    * @generated
    */
-  int PRECONDITION = 30;
+  int PRECONDITION = 34;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1275,7 +1486,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getPostcondition()
    * @generated
    */
-  int POSTCONDITION = 31;
+  int POSTCONDITION = 35;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1312,7 +1523,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getTypedRefCS()
    * @generated
    */
-  int TYPED_REF_CS = 39;
+  int TYPED_REF_CS = 43;
 
   /**
    * The feature id for the '<em><b>Owned Multiplicity</b></em>' containment reference.
@@ -1340,7 +1551,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getPrimitiveTypeRefCS()
    * @generated
    */
-  int PRIMITIVE_TYPE_REF_CS = 32;
+  int PRIMITIVE_TYPE_REF_CS = 36;
 
   /**
    * The feature id for the '<em><b>Owned Multiplicity</b></em>' containment reference.
@@ -1377,7 +1588,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getCollectionTypeCS()
    * @generated
    */
-  int COLLECTION_TYPE_CS = 33;
+  int COLLECTION_TYPE_CS = 37;
 
   /**
    * The feature id for the '<em><b>Owned Multiplicity</b></em>' containment reference.
@@ -1432,7 +1643,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getMapTypeCS()
    * @generated
    */
-  int MAP_TYPE_CS = 34;
+  int MAP_TYPE_CS = 38;
 
   /**
    * The feature id for the '<em><b>Owned Multiplicity</b></em>' containment reference.
@@ -1487,7 +1698,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getTupleTypeCS()
    * @generated
    */
-  int TUPLE_TYPE_CS = 35;
+  int TUPLE_TYPE_CS = 39;
 
   /**
    * The feature id for the '<em><b>Owned Multiplicity</b></em>' containment reference.
@@ -1533,7 +1744,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getTuplePartCS()
    * @generated
    */
-  int TUPLE_PART_CS = 36;
+  int TUPLE_PART_CS = 40;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1570,7 +1781,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getCollectionPatternCS()
    * @generated
    */
-  int COLLECTION_PATTERN_CS = 37;
+  int COLLECTION_PATTERN_CS = 41;
 
   /**
    * The feature id for the '<em><b>Owned Multiplicity</b></em>' containment reference.
@@ -1625,7 +1836,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getPatternExpCS()
    * @generated
    */
-  int PATTERN_EXP_CS = 38;
+  int PATTERN_EXP_CS = 42;
 
   /**
    * The feature id for the '<em><b>Pattern Variable Name</b></em>' attribute.
@@ -1662,7 +1873,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getExpCS()
    * @generated
    */
-  int EXP_CS = 49;
+  int EXP_CS = 53;
 
   /**
    * The number of structural features of the '<em>Exp CS</em>' class.
@@ -1681,7 +1892,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getTypeLiteralExpCS()
    * @generated
    */
-  int TYPE_LITERAL_EXP_CS = 40;
+  int TYPE_LITERAL_EXP_CS = 44;
 
   /**
    * The feature id for the '<em><b>Owned Type</b></em>' containment reference.
@@ -1709,7 +1920,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getTypeNameExpCS()
    * @generated
    */
-  int TYPE_NAME_EXP_CS = 41;
+  int TYPE_NAME_EXP_CS = 45;
 
   /**
    * The feature id for the '<em><b>Owned Multiplicity</b></em>' containment reference.
@@ -1764,7 +1975,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getCurlyBracketedClauseCS()
    * @generated
    */
-  int CURLY_BRACKETED_CLAUSE_CS = 42;
+  int CURLY_BRACKETED_CLAUSE_CS = 46;
 
   /**
    * The feature id for the '<em><b>Owned Parts</b></em>' containment reference list.
@@ -1792,7 +2003,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getShadowPartCS()
    * @generated
    */
-  int SHADOW_PART_CS = 43;
+  int SHADOW_PART_CS = 47;
 
   /**
    * The feature id for the '<em><b>Referred Property</b></em>' attribute.
@@ -1829,7 +2040,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getPrimitiveLiteralExpCS()
    * @generated
    */
-  int PRIMITIVE_LITERAL_EXP_CS = 50;
+  int PRIMITIVE_LITERAL_EXP_CS = 54;
 
   /**
    * The number of structural features of the '<em>Primitive Literal Exp CS</em>' class.
@@ -1848,7 +2059,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getStringLiteralExpCS()
    * @generated
    */
-  int STRING_LITERAL_EXP_CS = 44;
+  int STRING_LITERAL_EXP_CS = 48;
 
   /**
    * The feature id for the '<em><b>Segments</b></em>' attribute list.
@@ -1876,7 +2087,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getMultiplicityCS()
    * @generated
    */
-  int MULTIPLICITY_CS = 46;
+  int MULTIPLICITY_CS = 50;
 
   /**
    * The feature id for the '<em><b>Symbol</b></em>' attribute.
@@ -1904,7 +2115,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getMultiplicityBoundsCS()
    * @generated
    */
-  int MULTIPLICITY_BOUNDS_CS = 45;
+  int MULTIPLICITY_BOUNDS_CS = 49;
 
   /**
    * The feature id for the '<em><b>Symbol</b></em>' attribute.
@@ -1950,7 +2161,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getMultiplicityStringCS()
    * @generated
    */
-  int MULTIPLICITY_STRING_CS = 47;
+  int MULTIPLICITY_STRING_CS = 51;
 
   /**
    * The feature id for the '<em><b>Symbol</b></em>' attribute.
@@ -1987,7 +2198,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getPathNameCS()
    * @generated
    */
-  int PATH_NAME_CS = 48;
+  int PATH_NAME_CS = 52;
 
   /**
    * The feature id for the '<em><b>Owned Path Elements</b></em>' attribute list.
@@ -2015,7 +2226,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getNameExpCS()
    * @generated
    */
-  int NAME_EXP_CS = 51;
+  int NAME_EXP_CS = 55;
 
   /**
    * The feature id for the '<em><b>Owned Path Name</b></em>' containment reference.
@@ -2088,7 +2299,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getSquareBracketedClauseCS()
    * @generated
    */
-  int SQUARE_BRACKETED_CLAUSE_CS = 52;
+  int SQUARE_BRACKETED_CLAUSE_CS = 56;
 
   /**
    * The feature id for the '<em><b>Owned Terms</b></em>' containment reference list.
@@ -2116,7 +2327,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getCollectionLiteralExpCS()
    * @generated
    */
-  int COLLECTION_LITERAL_EXP_CS = 53;
+  int COLLECTION_LITERAL_EXP_CS = 57;
 
   /**
    * The feature id for the '<em><b>Owned Type</b></em>' containment reference.
@@ -2153,7 +2364,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getCollectionLiteralPartCS()
    * @generated
    */
-  int COLLECTION_LITERAL_PART_CS = 54;
+  int COLLECTION_LITERAL_PART_CS = 58;
 
   /**
    * The feature id for the '<em><b>Owned Expression</b></em>' containment reference.
@@ -2190,7 +2401,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getLambdaLiteralExpCS()
    * @generated
    */
-  int LAMBDA_LITERAL_EXP_CS = 55;
+  int LAMBDA_LITERAL_EXP_CS = 59;
 
   /**
    * The feature id for the '<em><b>Owned Expression CS</b></em>' containment reference.
@@ -2218,7 +2429,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getMapLiteralExpCS()
    * @generated
    */
-  int MAP_LITERAL_EXP_CS = 56;
+  int MAP_LITERAL_EXP_CS = 60;
 
   /**
    * The feature id for the '<em><b>Owned Type</b></em>' containment reference.
@@ -2255,7 +2466,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getMapLiteralPartCS()
    * @generated
    */
-  int MAP_LITERAL_PART_CS = 57;
+  int MAP_LITERAL_PART_CS = 61;
 
   /**
    * The feature id for the '<em><b>Owned Key</b></em>' containment reference.
@@ -2292,7 +2503,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getTupleLiteralExpCS()
    * @generated
    */
-  int TUPLE_LITERAL_EXP_CS = 58;
+  int TUPLE_LITERAL_EXP_CS = 62;
 
   /**
    * The feature id for the '<em><b>Owned Parts</b></em>' containment reference list.
@@ -2320,7 +2531,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getTupleLiteralPartCS()
    * @generated
    */
-  int TUPLE_LITERAL_PART_CS = 59;
+  int TUPLE_LITERAL_PART_CS = 63;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2366,7 +2577,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getNumberLiteralExpCS()
    * @generated
    */
-  int NUMBER_LITERAL_EXP_CS = 60;
+  int NUMBER_LITERAL_EXP_CS = 64;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -2394,7 +2605,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getBooleanLiteralExpCS()
    * @generated
    */
-  int BOOLEAN_LITERAL_EXP_CS = 61;
+  int BOOLEAN_LITERAL_EXP_CS = 65;
 
   /**
    * The feature id for the '<em><b>Symbol</b></em>' attribute.
@@ -2422,7 +2633,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getUnlimitedNaturalLiteralExpCS()
    * @generated
    */
-  int UNLIMITED_NATURAL_LITERAL_EXP_CS = 62;
+  int UNLIMITED_NATURAL_LITERAL_EXP_CS = 66;
 
   /**
    * The number of structural features of the '<em>Unlimited Natural Literal Exp CS</em>' class.
@@ -2441,7 +2652,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getInvalidLiteralExpCS()
    * @generated
    */
-  int INVALID_LITERAL_EXP_CS = 63;
+  int INVALID_LITERAL_EXP_CS = 67;
 
   /**
    * The number of structural features of the '<em>Invalid Literal Exp CS</em>' class.
@@ -2460,7 +2671,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getNullLiteralExpCS()
    * @generated
    */
-  int NULL_LITERAL_EXP_CS = 64;
+  int NULL_LITERAL_EXP_CS = 68;
 
   /**
    * The number of structural features of the '<em>Null Literal Exp CS</em>' class.
@@ -2479,7 +2690,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getNestedExpCS()
    * @generated
    */
-  int NESTED_EXP_CS = 65;
+  int NESTED_EXP_CS = 69;
 
   /**
    * The feature id for the '<em><b>Owned Expression</b></em>' containment reference.
@@ -2507,7 +2718,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getSelfExpCS()
    * @generated
    */
-  int SELF_EXP_CS = 66;
+  int SELF_EXP_CS = 70;
 
   /**
    * The number of structural features of the '<em>Self Exp CS</em>' class.
@@ -2526,7 +2737,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getIfExpCS()
    * @generated
    */
-  int IF_EXP_CS = 67;
+  int IF_EXP_CS = 71;
 
   /**
    * The feature id for the '<em><b>Owned Condition</b></em>' containment reference.
@@ -2581,7 +2792,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getIfThenExpCS()
    * @generated
    */
-  int IF_THEN_EXP_CS = 68;
+  int IF_THEN_EXP_CS = 72;
 
   /**
    * The feature id for the '<em><b>Owned Condition</b></em>' containment reference.
@@ -2618,7 +2829,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getLetExpCS()
    * @generated
    */
-  int LET_EXP_CS = 69;
+  int LET_EXP_CS = 73;
 
   /**
    * The feature id for the '<em><b>Owned Variables</b></em>' containment reference list.
@@ -2655,7 +2866,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getLetVariableCS()
    * @generated
    */
-  int LET_VARIABLE_CS = 70;
+  int LET_VARIABLE_CS = 74;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2710,7 +2921,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getRoundBracketedClauseCS()
    * @generated
    */
-  int ROUND_BRACKETED_CLAUSE_CS = 71;
+  int ROUND_BRACKETED_CLAUSE_CS = 75;
 
   /**
    * The feature id for the '<em><b>Owned Arguments</b></em>' containment reference list.
@@ -2738,7 +2949,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getNavigatingArgCS()
    * @generated
    */
-  int NAVIGATING_ARG_CS = 72;
+  int NAVIGATING_ARG_CS = 76;
 
   /**
    * The feature id for the '<em><b>Prefix</b></em>' attribute.
@@ -2829,7 +3040,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getVariableCS()
    * @generated
    */
-  int VARIABLE_CS = 73;
+  int VARIABLE_CS = 77;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2866,7 +3077,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getInfixExpCS()
    * @generated
    */
-  int INFIX_EXP_CS = 74;
+  int INFIX_EXP_CS = 78;
 
   /**
    * The feature id for the '<em><b>Owned Left</b></em>' containment reference.
@@ -2912,7 +3123,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getPrefixExpCS()
    * @generated
    */
-  int PREFIX_EXP_CS = 75;
+  int PREFIX_EXP_CS = 79;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3241,6 +3452,17 @@ public interface UsePackage extends EPackage
   EReference getClass_Constraints();
 
   /**
+   * Returns the meta object for the containment reference '{@link modelConverter.use_language.use.Class#getStatemachines <em>Statemachines</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Statemachines</em>'.
+   * @see modelConverter.use_language.use.Class#getStatemachines()
+   * @see #getClass_()
+   * @generated
+   */
+  EReference getClass_Statemachines();
+
+  /**
    * Returns the meta object for class '{@link modelConverter.use_language.use.Generalization <em>Generalization</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3422,6 +3644,17 @@ public interface UsePackage extends EPackage
    * @generated
    */
   EReference getAssociationClass_Constraints();
+
+  /**
+   * Returns the meta object for the containment reference '{@link modelConverter.use_language.use.AssociationClass#getStatemachines <em>Statemachines</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Statemachines</em>'.
+   * @see modelConverter.use_language.use.AssociationClass#getStatemachines()
+   * @see #getAssociationClass()
+   * @generated
+   */
+  EReference getAssociationClass_Statemachines();
 
   /**
    * Returns the meta object for class '{@link modelConverter.use_language.use.AttributesBase <em>Attributes Base</em>}'.
@@ -3667,6 +3900,189 @@ public interface UsePackage extends EPackage
    * @generated
    */
   EReference getParameter_Type();
+
+  /**
+   * Returns the meta object for class '{@link modelConverter.use_language.use.StateMachinesBase <em>State Machines Base</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>State Machines Base</em>'.
+   * @see modelConverter.use_language.use.StateMachinesBase
+   * @generated
+   */
+  EClass getStateMachinesBase();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link modelConverter.use_language.use.StateMachinesBase#getStatemachines <em>Statemachines</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Statemachines</em>'.
+   * @see modelConverter.use_language.use.StateMachinesBase#getStatemachines()
+   * @see #getStateMachinesBase()
+   * @generated
+   */
+  EReference getStateMachinesBase_Statemachines();
+
+  /**
+   * Returns the meta object for class '{@link modelConverter.use_language.use.StateMachine <em>State Machine</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>State Machine</em>'.
+   * @see modelConverter.use_language.use.StateMachine
+   * @generated
+   */
+  EClass getStateMachine();
+
+  /**
+   * Returns the meta object for the attribute '{@link modelConverter.use_language.use.StateMachine#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see modelConverter.use_language.use.StateMachine#getName()
+   * @see #getStateMachine()
+   * @generated
+   */
+  EAttribute getStateMachine_Name();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link modelConverter.use_language.use.StateMachine#getStates <em>States</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>States</em>'.
+   * @see modelConverter.use_language.use.StateMachine#getStates()
+   * @see #getStateMachine()
+   * @generated
+   */
+  EReference getStateMachine_States();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link modelConverter.use_language.use.StateMachine#getTransitions <em>Transitions</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Transitions</em>'.
+   * @see modelConverter.use_language.use.StateMachine#getTransitions()
+   * @see #getStateMachine()
+   * @generated
+   */
+  EReference getStateMachine_Transitions();
+
+  /**
+   * Returns the meta object for class '{@link modelConverter.use_language.use.State <em>State</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>State</em>'.
+   * @see modelConverter.use_language.use.State
+   * @generated
+   */
+  EClass getState();
+
+  /**
+   * Returns the meta object for the attribute '{@link modelConverter.use_language.use.State#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see modelConverter.use_language.use.State#getName()
+   * @see #getState()
+   * @generated
+   */
+  EAttribute getState_Name();
+
+  /**
+   * Returns the meta object for the attribute '{@link modelConverter.use_language.use.State#isIsInitial <em>Is Initial</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Is Initial</em>'.
+   * @see modelConverter.use_language.use.State#isIsInitial()
+   * @see #getState()
+   * @generated
+   */
+  EAttribute getState_IsInitial();
+
+  /**
+   * Returns the meta object for the attribute '{@link modelConverter.use_language.use.State#isIsFinal <em>Is Final</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Is Final</em>'.
+   * @see modelConverter.use_language.use.State#isIsFinal()
+   * @see #getState()
+   * @generated
+   */
+  EAttribute getState_IsFinal();
+
+  /**
+   * Returns the meta object for the containment reference '{@link modelConverter.use_language.use.State#getInvariant <em>Invariant</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Invariant</em>'.
+   * @see modelConverter.use_language.use.State#getInvariant()
+   * @see #getState()
+   * @generated
+   */
+  EReference getState_Invariant();
+
+  /**
+   * Returns the meta object for class '{@link modelConverter.use_language.use.Transition <em>Transition</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Transition</em>'.
+   * @see modelConverter.use_language.use.Transition
+   * @generated
+   */
+  EClass getTransition();
+
+  /**
+   * Returns the meta object for the reference '{@link modelConverter.use_language.use.Transition#getSource <em>Source</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Source</em>'.
+   * @see modelConverter.use_language.use.Transition#getSource()
+   * @see #getTransition()
+   * @generated
+   */
+  EReference getTransition_Source();
+
+  /**
+   * Returns the meta object for the reference '{@link modelConverter.use_language.use.Transition#getTarget <em>Target</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Target</em>'.
+   * @see modelConverter.use_language.use.Transition#getTarget()
+   * @see #getTransition()
+   * @generated
+   */
+  EReference getTransition_Target();
+
+  /**
+   * Returns the meta object for the containment reference '{@link modelConverter.use_language.use.Transition#getPrecondition <em>Precondition</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Precondition</em>'.
+   * @see modelConverter.use_language.use.Transition#getPrecondition()
+   * @see #getTransition()
+   * @generated
+   */
+  EReference getTransition_Precondition();
+
+  /**
+   * Returns the meta object for the reference '{@link modelConverter.use_language.use.Transition#getOperation <em>Operation</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Operation</em>'.
+   * @see modelConverter.use_language.use.Transition#getOperation()
+   * @see #getTransition()
+   * @generated
+   */
+  EReference getTransition_Operation();
+
+  /**
+   * Returns the meta object for the containment reference '{@link modelConverter.use_language.use.Transition#getPostcondition <em>Postcondition</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Postcondition</em>'.
+   * @see modelConverter.use_language.use.Transition#getPostcondition()
+   * @see #getTransition()
+   * @generated
+   */
+  EReference getTransition_Postcondition();
 
   /**
    * Returns the meta object for class '{@link modelConverter.use_language.use.ConstraintsBase <em>Constraints Base</em>}'.
@@ -5499,6 +5915,14 @@ public interface UsePackage extends EPackage
     EReference CLASS__CONSTRAINTS = eINSTANCE.getClass_Constraints();
 
     /**
+     * The meta object literal for the '<em><b>Statemachines</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CLASS__STATEMACHINES = eINSTANCE.getClass_Statemachines();
+
+    /**
      * The meta object literal for the '{@link modelConverter.use_language.use.impl.GeneralizationImpl <em>Generalization</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -5641,6 +6065,14 @@ public interface UsePackage extends EPackage
      * @generated
      */
     EReference ASSOCIATION_CLASS__CONSTRAINTS = eINSTANCE.getAssociationClass_Constraints();
+
+    /**
+     * The meta object literal for the '<em><b>Statemachines</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ASSOCIATION_CLASS__STATEMACHINES = eINSTANCE.getAssociationClass_Statemachines();
 
     /**
      * The meta object literal for the '{@link modelConverter.use_language.use.impl.AttributesBaseImpl <em>Attributes Base</em>}' class.
@@ -5841,6 +6273,150 @@ public interface UsePackage extends EPackage
      * @generated
      */
     EReference PARAMETER__TYPE = eINSTANCE.getParameter_Type();
+
+    /**
+     * The meta object literal for the '{@link modelConverter.use_language.use.impl.StateMachinesBaseImpl <em>State Machines Base</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see modelConverter.use_language.use.impl.StateMachinesBaseImpl
+     * @see modelConverter.use_language.use.impl.UsePackageImpl#getStateMachinesBase()
+     * @generated
+     */
+    EClass STATE_MACHINES_BASE = eINSTANCE.getStateMachinesBase();
+
+    /**
+     * The meta object literal for the '<em><b>Statemachines</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference STATE_MACHINES_BASE__STATEMACHINES = eINSTANCE.getStateMachinesBase_Statemachines();
+
+    /**
+     * The meta object literal for the '{@link modelConverter.use_language.use.impl.StateMachineImpl <em>State Machine</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see modelConverter.use_language.use.impl.StateMachineImpl
+     * @see modelConverter.use_language.use.impl.UsePackageImpl#getStateMachine()
+     * @generated
+     */
+    EClass STATE_MACHINE = eINSTANCE.getStateMachine();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute STATE_MACHINE__NAME = eINSTANCE.getStateMachine_Name();
+
+    /**
+     * The meta object literal for the '<em><b>States</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference STATE_MACHINE__STATES = eINSTANCE.getStateMachine_States();
+
+    /**
+     * The meta object literal for the '<em><b>Transitions</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference STATE_MACHINE__TRANSITIONS = eINSTANCE.getStateMachine_Transitions();
+
+    /**
+     * The meta object literal for the '{@link modelConverter.use_language.use.impl.StateImpl <em>State</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see modelConverter.use_language.use.impl.StateImpl
+     * @see modelConverter.use_language.use.impl.UsePackageImpl#getState()
+     * @generated
+     */
+    EClass STATE = eINSTANCE.getState();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute STATE__NAME = eINSTANCE.getState_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Is Initial</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute STATE__IS_INITIAL = eINSTANCE.getState_IsInitial();
+
+    /**
+     * The meta object literal for the '<em><b>Is Final</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute STATE__IS_FINAL = eINSTANCE.getState_IsFinal();
+
+    /**
+     * The meta object literal for the '<em><b>Invariant</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference STATE__INVARIANT = eINSTANCE.getState_Invariant();
+
+    /**
+     * The meta object literal for the '{@link modelConverter.use_language.use.impl.TransitionImpl <em>Transition</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see modelConverter.use_language.use.impl.TransitionImpl
+     * @see modelConverter.use_language.use.impl.UsePackageImpl#getTransition()
+     * @generated
+     */
+    EClass TRANSITION = eINSTANCE.getTransition();
+
+    /**
+     * The meta object literal for the '<em><b>Source</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TRANSITION__SOURCE = eINSTANCE.getTransition_Source();
+
+    /**
+     * The meta object literal for the '<em><b>Target</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TRANSITION__TARGET = eINSTANCE.getTransition_Target();
+
+    /**
+     * The meta object literal for the '<em><b>Precondition</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TRANSITION__PRECONDITION = eINSTANCE.getTransition_Precondition();
+
+    /**
+     * The meta object literal for the '<em><b>Operation</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TRANSITION__OPERATION = eINSTANCE.getTransition_Operation();
+
+    /**
+     * The meta object literal for the '<em><b>Postcondition</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TRANSITION__POSTCONDITION = eINSTANCE.getTransition_Postcondition();
 
     /**
      * The meta object literal for the '{@link modelConverter.use_language.use.impl.ConstraintsBaseImpl <em>Constraints Base</em>}' class.

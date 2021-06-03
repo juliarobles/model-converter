@@ -66,6 +66,8 @@ import modelConverter.use_language.use.SelfExpCS;
 import modelConverter.use_language.use.ShadowPartCS;
 import modelConverter.use_language.use.SimpleTypes;
 import modelConverter.use_language.use.SquareBracketedClauseCS;
+import modelConverter.use_language.use.StateMachine;
+import modelConverter.use_language.use.StateMachinesBase;
 import modelConverter.use_language.use.StringLiteralExpCS;
 import modelConverter.use_language.use.TupleLiteralExpCS;
 import modelConverter.use_language.use.TupleLiteralPartCS;
@@ -342,8 +344,28 @@ public class USEGenerator extends AbstractGenerator {
         _builder.newLineIfNotEmpty();
       }
     }
+    {
+      StateMachinesBase _statemachines = e.getStatemachines();
+      boolean _tripleNotEquals_3 = (_statemachines != null);
+      if (_tripleNotEquals_3) {
+        CharSequence _compileStateMachinesBase = this.compileStateMachinesBase(e.getStatemachines());
+        _builder.append(_compileStateMachinesBase);
+        _builder.newLineIfNotEmpty();
+      }
+    }
     _builder.append("</packagedElement>");
     _builder.newLine();
+    return _builder;
+  }
+  
+  private CharSequence compileStateMachinesBase(final StateMachinesBase e) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      EList<StateMachine> _statemachines = e.getStatemachines();
+      for(final StateMachine statemachine : _statemachines) {
+        _builder.newLine();
+      }
+    }
     return _builder;
   }
   

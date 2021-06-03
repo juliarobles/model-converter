@@ -9,6 +9,7 @@ import modelConverter.use_language.use.AttributesBase;
 import modelConverter.use_language.use.ConstraintsBase;
 import modelConverter.use_language.use.Generalization;
 import modelConverter.use_language.use.OperationsBase;
+import modelConverter.use_language.use.StateMachinesBase;
 import modelConverter.use_language.use.UsePackage;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -37,6 +38,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link modelConverter.use_language.use.impl.ClassImpl#getAttributes <em>Attributes</em>}</li>
  *   <li>{@link modelConverter.use_language.use.impl.ClassImpl#getOperations <em>Operations</em>}</li>
  *   <li>{@link modelConverter.use_language.use.impl.ClassImpl#getConstraints <em>Constraints</em>}</li>
+ *   <li>{@link modelConverter.use_language.use.impl.ClassImpl#getStatemachines <em>Statemachines</em>}</li>
  * </ul>
  *
  * @generated
@@ -102,6 +104,16 @@ public class ClassImpl extends TypeImpl implements modelConverter.use_language.u
    * @ordered
    */
   protected ConstraintsBase constraints;
+
+  /**
+   * The cached value of the '{@link #getStatemachines() <em>Statemachines</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getStatemachines()
+   * @generated
+   * @ordered
+   */
+  protected StateMachinesBase statemachines;
 
   /**
    * <!-- begin-user-doc -->
@@ -320,6 +332,56 @@ public class ClassImpl extends TypeImpl implements modelConverter.use_language.u
    * @generated
    */
   @Override
+  public StateMachinesBase getStatemachines()
+  {
+    return statemachines;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetStatemachines(StateMachinesBase newStatemachines, NotificationChain msgs)
+  {
+    StateMachinesBase oldStatemachines = statemachines;
+    statemachines = newStatemachines;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, UsePackage.CLASS__STATEMACHINES, oldStatemachines, newStatemachines);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setStatemachines(StateMachinesBase newStatemachines)
+  {
+    if (newStatemachines != statemachines)
+    {
+      NotificationChain msgs = null;
+      if (statemachines != null)
+        msgs = ((InternalEObject)statemachines).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UsePackage.CLASS__STATEMACHINES, null, msgs);
+      if (newStatemachines != null)
+        msgs = ((InternalEObject)newStatemachines).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UsePackage.CLASS__STATEMACHINES, null, msgs);
+      msgs = basicSetStatemachines(newStatemachines, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, UsePackage.CLASS__STATEMACHINES, newStatemachines, newStatemachines));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
     switch (featureID)
@@ -332,6 +394,8 @@ public class ClassImpl extends TypeImpl implements modelConverter.use_language.u
         return basicSetOperations(null, msgs);
       case UsePackage.CLASS__CONSTRAINTS:
         return basicSetConstraints(null, msgs);
+      case UsePackage.CLASS__STATEMACHINES:
+        return basicSetStatemachines(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -356,6 +420,8 @@ public class ClassImpl extends TypeImpl implements modelConverter.use_language.u
         return getOperations();
       case UsePackage.CLASS__CONSTRAINTS:
         return getConstraints();
+      case UsePackage.CLASS__STATEMACHINES:
+        return getStatemachines();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -387,6 +453,9 @@ public class ClassImpl extends TypeImpl implements modelConverter.use_language.u
       case UsePackage.CLASS__CONSTRAINTS:
         setConstraints((ConstraintsBase)newValue);
         return;
+      case UsePackage.CLASS__STATEMACHINES:
+        setStatemachines((StateMachinesBase)newValue);
+        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -416,6 +485,9 @@ public class ClassImpl extends TypeImpl implements modelConverter.use_language.u
       case UsePackage.CLASS__CONSTRAINTS:
         setConstraints((ConstraintsBase)null);
         return;
+      case UsePackage.CLASS__STATEMACHINES:
+        setStatemachines((StateMachinesBase)null);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -440,6 +512,8 @@ public class ClassImpl extends TypeImpl implements modelConverter.use_language.u
         return operations != null;
       case UsePackage.CLASS__CONSTRAINTS:
         return constraints != null;
+      case UsePackage.CLASS__STATEMACHINES:
+        return statemachines != null;
     }
     return super.eIsSet(featureID);
   }

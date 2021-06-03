@@ -66,7 +66,11 @@ import modelConverter.use_language.use.SelfExpCS;
 import modelConverter.use_language.use.ShadowPartCS;
 import modelConverter.use_language.use.SimpleTypes;
 import modelConverter.use_language.use.SquareBracketedClauseCS;
+import modelConverter.use_language.use.State;
+import modelConverter.use_language.use.StateMachine;
+import modelConverter.use_language.use.StateMachinesBase;
 import modelConverter.use_language.use.StringLiteralExpCS;
+import modelConverter.use_language.use.Transition;
 import modelConverter.use_language.use.TupleLiteralExpCS;
 import modelConverter.use_language.use.TupleLiteralPartCS;
 import modelConverter.use_language.use.TuplePartCS;
@@ -258,6 +262,26 @@ public class UseAdapterFactory extends AdapterFactoryImpl
       public Adapter caseParameter(Parameter object)
       {
         return createParameterAdapter();
+      }
+      @Override
+      public Adapter caseStateMachinesBase(StateMachinesBase object)
+      {
+        return createStateMachinesBaseAdapter();
+      }
+      @Override
+      public Adapter caseStateMachine(StateMachine object)
+      {
+        return createStateMachineAdapter();
+      }
+      @Override
+      public Adapter caseState(State object)
+      {
+        return createStateAdapter();
+      }
+      @Override
+      public Adapter caseTransition(Transition object)
+      {
+        return createTransitionAdapter();
       }
       @Override
       public Adapter caseConstraintsBase(ConstraintsBase object)
@@ -877,6 +901,66 @@ public class UseAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createParameterAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link modelConverter.use_language.use.StateMachinesBase <em>State Machines Base</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see modelConverter.use_language.use.StateMachinesBase
+   * @generated
+   */
+  public Adapter createStateMachinesBaseAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link modelConverter.use_language.use.StateMachine <em>State Machine</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see modelConverter.use_language.use.StateMachine
+   * @generated
+   */
+  public Adapter createStateMachineAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link modelConverter.use_language.use.State <em>State</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see modelConverter.use_language.use.State
+   * @generated
+   */
+  public Adapter createStateAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link modelConverter.use_language.use.Transition <em>Transition</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see modelConverter.use_language.use.Transition
+   * @generated
+   */
+  public Adapter createTransitionAdapter()
   {
     return null;
   }

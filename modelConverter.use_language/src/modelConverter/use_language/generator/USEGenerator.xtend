@@ -78,6 +78,7 @@ import modelConverter.use_language.use.TuplePartCS
 import modelConverter.use_language.use.ShadowPartCS
 import modelConverter.use_language.use.NavigatingArgCS
 import modelConverter.use_language.use.VariableCS
+import modelConverter.use_language.use.StateMachinesBase
 
 /**
  * Generates code from your model files on save.
@@ -161,7 +162,16 @@ class USEGenerator extends AbstractGenerator {
 		«IF e.getOperations !== null »
 			«e.getOperations.compileOperationsBase(constraints.filter(OperationContext))»
 		«ENDIF»
+		«IF e.getStatemachines !== null »
+			«e.getStatemachines.compileStateMachinesBase»
+		«ENDIF»
 		</packagedElement>
+	'''
+
+	private def compileStateMachinesBase(StateMachinesBase e) '''
+		«FOR statemachine : e.getStatemachines()»
+		
+		«ENDFOR»
 	'''
 
 	private def compileAssociationEnd(Class e, Iterable<AssociationEnd> list, int id, String aggregation, Boolean reflexive) '''

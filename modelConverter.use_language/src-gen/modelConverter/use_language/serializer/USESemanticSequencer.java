@@ -59,7 +59,11 @@ import modelConverter.use_language.use.SelfExpCS;
 import modelConverter.use_language.use.ShadowPartCS;
 import modelConverter.use_language.use.SimpleTypes;
 import modelConverter.use_language.use.SquareBracketedClauseCS;
+import modelConverter.use_language.use.State;
+import modelConverter.use_language.use.StateMachine;
+import modelConverter.use_language.use.StateMachinesBase;
 import modelConverter.use_language.use.StringLiteralExpCS;
+import modelConverter.use_language.use.Transition;
 import modelConverter.use_language.use.TupleLiteralExpCS;
 import modelConverter.use_language.use.TupleLiteralPartCS;
 import modelConverter.use_language.use.TuplePartCS;
@@ -350,8 +354,20 @@ public class USESemanticSequencer extends AbstractDelegatingSemanticSequencer {
 			case UsePackage.SQUARE_BRACKETED_CLAUSE_CS:
 				sequence_SquareBracketedClauseCS(context, (SquareBracketedClauseCS) semanticObject); 
 				return; 
+			case UsePackage.STATE:
+				sequence_State(context, (State) semanticObject); 
+				return; 
+			case UsePackage.STATE_MACHINE:
+				sequence_StateMachine(context, (StateMachine) semanticObject); 
+				return; 
+			case UsePackage.STATE_MACHINES_BASE:
+				sequence_StateMachinesBase(context, (StateMachinesBase) semanticObject); 
+				return; 
 			case UsePackage.STRING_LITERAL_EXP_CS:
 				sequence_StringLiteralExpCS(context, (StringLiteralExpCS) semanticObject); 
+				return; 
+			case UsePackage.TRANSITION:
+				sequence_Transition(context, (Transition) semanticObject); 
 				return; 
 			case UsePackage.TUPLE_LITERAL_EXP_CS:
 				sequence_TupleLiteralExpCS(context, (TupleLiteralExpCS) semanticObject); 
@@ -418,7 +434,8 @@ public class USESemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *         associationEnds+=AssociationEnd+ 
 	 *         attributes=AttributesBase? 
 	 *         operations=OperationsBase? 
-	 *         constraints=ConstraintsBase?
+	 *         constraints=ConstraintsBase? 
+	 *         statemachines=StateMachinesBase?
 	 *     )
 	 */
 	protected void sequence_AssociationClass(ISerializationContext context, AssociationClass semanticObject) {
@@ -507,7 +524,8 @@ public class USESemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *         generalization+=Generalization* 
 	 *         attributes=AttributesBase? 
 	 *         operations=OperationsBase? 
-	 *         constraints=ConstraintsBase?
+	 *         constraints=ConstraintsBase? 
+	 *         statemachines=StateMachinesBase?
 	 *     )
 	 */
 	protected void sequence_Class(ISerializationContext context, modelConverter.use_language.use.Class semanticObject) {
@@ -1500,6 +1518,42 @@ public class USESemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
+	 *     StateMachine returns StateMachine
+	 *
+	 * Constraint:
+	 *     (name=ID states+=State+ transitions+=Transition*)
+	 */
+	protected void sequence_StateMachine(ISerializationContext context, StateMachine semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     StateMachinesBase returns StateMachinesBase
+	 *
+	 * Constraint:
+	 *     statemachines+=StateMachine+
+	 */
+	protected void sequence_StateMachinesBase(ISerializationContext context, StateMachinesBase semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     State returns State
+	 *
+	 * Constraint:
+	 *     (name=ID (isInitial?='initial' | isFinal?='final' | invariant=ExpCS)?)
+	 */
+	protected void sequence_State(ISerializationContext context, State semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     StringLiteralExpCS returns StringLiteralExpCS
 	 *     ExpCS returns StringLiteralExpCS
 	 *     ExpCS.InfixExpCS_0_1_0 returns StringLiteralExpCS
@@ -1512,6 +1566,18 @@ public class USESemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     segments+=StringLiteral+
 	 */
 	protected void sequence_StringLiteralExpCS(ISerializationContext context, StringLiteralExpCS semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Transition returns Transition
+	 *
+	 * Constraint:
+	 *     (source=[State|ID] target=[State|ID] (precondition=ExpCS? operation=[OperationDeclaration|ID] postcondition=ExpCS?)?)
+	 */
+	protected void sequence_Transition(ISerializationContext context, Transition semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

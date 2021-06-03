@@ -40,6 +40,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference USE.ecore#//Class/attributes"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference USE.ecore#//Class/operations"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference USE.ecore#//Class/constraints"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference USE.ecore#//Class/statemachines"/>
     </genClasses>
     <genClasses ecoreClass="USE.ecore#//Generalization">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference USE.ecore#//Generalization/general"/>
@@ -61,6 +62,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference USE.ecore#//AssociationClass/attributes"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference USE.ecore#//AssociationClass/operations"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference USE.ecore#//AssociationClass/constraints"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference USE.ecore#//AssociationClass/statemachines"/>
     </genClasses>
     <genClasses ecoreClass="USE.ecore#//AttributesBase">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference USE.ecore#//AttributesBase/attributes"/>
@@ -92,6 +94,27 @@
     <genClasses ecoreClass="USE.ecore#//Parameter">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute USE.ecore#//Parameter/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference USE.ecore#//Parameter/type"/>
+    </genClasses>
+    <genClasses ecoreClass="USE.ecore#//StateMachinesBase">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference USE.ecore#//StateMachinesBase/statemachines"/>
+    </genClasses>
+    <genClasses ecoreClass="USE.ecore#//StateMachine">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute USE.ecore#//StateMachine/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference USE.ecore#//StateMachine/states"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference USE.ecore#//StateMachine/transitions"/>
+    </genClasses>
+    <genClasses ecoreClass="USE.ecore#//State">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute USE.ecore#//State/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute USE.ecore#//State/isInitial"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute USE.ecore#//State/isFinal"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference USE.ecore#//State/invariant"/>
+    </genClasses>
+    <genClasses ecoreClass="USE.ecore#//Transition">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference USE.ecore#//Transition/source"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference USE.ecore#//Transition/target"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference USE.ecore#//Transition/precondition"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference USE.ecore#//Transition/operation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference USE.ecore#//Transition/postcondition"/>
     </genClasses>
     <genClasses ecoreClass="USE.ecore#//ConstraintsBase">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference USE.ecore#//ConstraintsBase/invariants"/>

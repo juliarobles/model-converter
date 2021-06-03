@@ -11,6 +11,7 @@ import modelConverter.use_language.use.AttributesBase;
 import modelConverter.use_language.use.ConstraintsBase;
 import modelConverter.use_language.use.Generalization;
 import modelConverter.use_language.use.OperationsBase;
+import modelConverter.use_language.use.StateMachinesBase;
 import modelConverter.use_language.use.UsePackage;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -40,6 +41,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link modelConverter.use_language.use.impl.AssociationClassImpl#getAttributes <em>Attributes</em>}</li>
  *   <li>{@link modelConverter.use_language.use.impl.AssociationClassImpl#getOperations <em>Operations</em>}</li>
  *   <li>{@link modelConverter.use_language.use.impl.AssociationClassImpl#getConstraints <em>Constraints</em>}</li>
+ *   <li>{@link modelConverter.use_language.use.impl.AssociationClassImpl#getStatemachines <em>Statemachines</em>}</li>
  * </ul>
  *
  * @generated
@@ -115,6 +117,16 @@ public class AssociationClassImpl extends TypeImpl implements AssociationClass
    * @ordered
    */
   protected ConstraintsBase constraints;
+
+  /**
+   * The cached value of the '{@link #getStatemachines() <em>Statemachines</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getStatemachines()
+   * @generated
+   * @ordered
+   */
+  protected StateMachinesBase statemachines;
 
   /**
    * <!-- begin-user-doc -->
@@ -348,6 +360,56 @@ public class AssociationClassImpl extends TypeImpl implements AssociationClass
    * @generated
    */
   @Override
+  public StateMachinesBase getStatemachines()
+  {
+    return statemachines;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetStatemachines(StateMachinesBase newStatemachines, NotificationChain msgs)
+  {
+    StateMachinesBase oldStatemachines = statemachines;
+    statemachines = newStatemachines;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, UsePackage.ASSOCIATION_CLASS__STATEMACHINES, oldStatemachines, newStatemachines);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setStatemachines(StateMachinesBase newStatemachines)
+  {
+    if (newStatemachines != statemachines)
+    {
+      NotificationChain msgs = null;
+      if (statemachines != null)
+        msgs = ((InternalEObject)statemachines).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UsePackage.ASSOCIATION_CLASS__STATEMACHINES, null, msgs);
+      if (newStatemachines != null)
+        msgs = ((InternalEObject)newStatemachines).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UsePackage.ASSOCIATION_CLASS__STATEMACHINES, null, msgs);
+      msgs = basicSetStatemachines(newStatemachines, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, UsePackage.ASSOCIATION_CLASS__STATEMACHINES, newStatemachines, newStatemachines));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
     switch (featureID)
@@ -362,6 +424,8 @@ public class AssociationClassImpl extends TypeImpl implements AssociationClass
         return basicSetOperations(null, msgs);
       case UsePackage.ASSOCIATION_CLASS__CONSTRAINTS:
         return basicSetConstraints(null, msgs);
+      case UsePackage.ASSOCIATION_CLASS__STATEMACHINES:
+        return basicSetStatemachines(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -388,6 +452,8 @@ public class AssociationClassImpl extends TypeImpl implements AssociationClass
         return getOperations();
       case UsePackage.ASSOCIATION_CLASS__CONSTRAINTS:
         return getConstraints();
+      case UsePackage.ASSOCIATION_CLASS__STATEMACHINES:
+        return getStatemachines();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -423,6 +489,9 @@ public class AssociationClassImpl extends TypeImpl implements AssociationClass
       case UsePackage.ASSOCIATION_CLASS__CONSTRAINTS:
         setConstraints((ConstraintsBase)newValue);
         return;
+      case UsePackage.ASSOCIATION_CLASS__STATEMACHINES:
+        setStatemachines((StateMachinesBase)newValue);
+        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -455,6 +524,9 @@ public class AssociationClassImpl extends TypeImpl implements AssociationClass
       case UsePackage.ASSOCIATION_CLASS__CONSTRAINTS:
         setConstraints((ConstraintsBase)null);
         return;
+      case UsePackage.ASSOCIATION_CLASS__STATEMACHINES:
+        setStatemachines((StateMachinesBase)null);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -481,6 +553,8 @@ public class AssociationClassImpl extends TypeImpl implements AssociationClass
         return operations != null;
       case UsePackage.ASSOCIATION_CLASS__CONSTRAINTS:
         return constraints != null;
+      case UsePackage.ASSOCIATION_CLASS__STATEMACHINES:
+        return statemachines != null;
     }
     return super.eIsSet(featureID);
   }

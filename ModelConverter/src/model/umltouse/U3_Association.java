@@ -4,15 +4,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.uml2.uml.Association;
+import org.eclipse.uml2.uml.Package;
 import org.eclipse.uml2.uml.PackageableElement;
 import org.eclipse.uml2.uml.Property;
 import org.eclipse.uml2.uml.UMLPackage;
 
 public class U3_Association {
 	
-	static void getAll(StringBuilder sBuilder, StringBuilder warnings) {
+	static void getAll(Package packet, StringBuilder sBuilder) {
 		U9_CountUnnamed countUnnamed = new U9_CountUnnamed();
-		for (PackageableElement pe : General.packet.getPackagedElements()) {
+		for (PackageableElement pe : packet.getPackagedElements()) {
 			//https://stackoverflow.com/questions/61668719/read-sequence-diagram-from-xmi-using-emf
 			if(pe.eClass() == UMLPackage.Literals.ASSOCIATION) {
 				Association c = (Association) pe;

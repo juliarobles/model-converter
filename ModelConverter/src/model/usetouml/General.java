@@ -30,7 +30,7 @@ public class General {
         IResourceValidator validator = injector.getInstance(IResourceValidator.class);
         List<Issue> issues = validator.validate(r, CheckMode.ALL, CancelIndicator.NullImpl);
         for (Issue i : issues) {
-                System.out.println(i);
+        	System.out.println(i);
         }
 
         GeneratorDelegate generator = injector.getInstance(GeneratorDelegate.class);

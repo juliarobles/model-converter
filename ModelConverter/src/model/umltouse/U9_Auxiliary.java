@@ -61,6 +61,7 @@ public class U9_Auxiliary {
 			search = base + i;
 			i++;
 		} 
+		if(!base.equals(search))System.out.println("WARNING: Element with repeated name found. Fixed by assigning name " + search + ".");
 		list.add(search);
 		return search;
 	}
@@ -68,6 +69,7 @@ public class U9_Auxiliary {
 	static String checkUnnamed(String name, List<String> namesUsed, U9_CountUnnamed countUnnamed) {
 		if(name == null || name.isBlank()) {
 			countUnnamed.countUnnamedAddOne();
+			System.out.println("WARNING: Element with no name found. Fixed by assigning name unnamed" + countUnnamed.getCountUnnamed() + ".");
 			return "unnamed" + countUnnamed.getCountUnnamed();
 		} else {
 			return searchInList(name, namesUsed);

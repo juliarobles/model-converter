@@ -23,6 +23,7 @@ public class U5_Constraint {
 			name = (name != null && !name.isBlank()) ? " " + U9_Auxiliary.searchInList(name, namesUsedParticular) : "";
 			
 			if(value == null || value.isBlank()) {
+				System.out.println("WARNING: Constraint without OCL found. Fixed by assigning OCL by default (true).");
 				value = "true";
 			} 
 		

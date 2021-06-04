@@ -2,36 +2,47 @@ package model;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 public class Generators {
 	
-	public static String chooseGeneratorBySourceFile(String source, String destiny) {
+	public static void chooseGeneratorBySourceFile(String source, String destiny) {
 		try {
-			if(source.endsWith(".use")) {
-				return fromUSEtoUML(source, destiny);
+			if(source == null || source.isBlank() || destiny == null || destiny.isBlank()) {
+				System.err.println("ERROR: Both fields must be completed.\n");
+			} else if (!Files.exists(Paths.get(source))) {
+				System.err.println("ERROR: Invalid source path.\n");
+			} else if (!Files.exists(Paths.get(destiny))) {
+				System.err.println("ERROR: Invalid destination path.\n");
+			} else if(source.endsWith(".use")) {
+				fromUSEtoUML(source, destiny);
 			} else if (source.endsWith(".uml")) {
-				return fromUMLtoUSE(source, destiny);
+				fromUMLtoUSE(source, destiny);
 			} else {
-				return "Porfavor, introduzca un archivo .use o .uml";
+				System.err.println("ERROR: Please enter a valid .use or .uml file.\n");
 			}
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
-			return "No se ha podido leer el archivo. Porfavor, introduzca un archivo .use o .uml válido.";
+			System.err.println("The file could not be read. Please enter a valid .use or .uml file.\n");
 		} catch (Exception e) {
-			return "Error: " + e.getMessage();
+			System.err.println("ERROR: " + e.getMessage() + "\n");
 		}
 	}
 	
-	public static String fromUSEtoUML(String source, String destiny) {
-		model.usetouml.General.generateUML(source, destiny);
+	public static void fromUSEtoUML(String source, String destiny) {
 		File file = new File(source);
-		return "El archivo USE " + file.getName() + " se ha convertido correctamente a UML.";
+		System.out.println("The USE file \"" + file.getName() + "\" will be converted to UML...");
+		model.usetouml.General.generateUML(source, destiny);
+		System.out.println("Proceso finalizado.\n");
+		
 	}
 
-	public static String fromUMLtoUSE(String source, String destination) throws IOException {
-		model.umltouse.General.generateUSE(source, destination);
+	public static void fromUMLtoUSE(String source, String destination) throws IOException {
 		File file = new File(source);
-		return "El archivo UML " + file.getName() + " se ha convertido correctamente a USE.";
+		System.out.println("The UML file \"" + file.getName() + "\" will be converted to USE...");
+		model.umltouse.General.generateUSE(source, destination);
+		System.out.println("Proceso finalizado.\n");
 	}
 	
 }

@@ -11,21 +11,18 @@ public class ConvertController implements MouseListener{
 
 	private JTextField source;
 	private JTextField destiny;
-	private JTextArea tArea;
 	private JProgressBar progressBar;
 	
 	
-	public ConvertController(JTextField source, JTextField destiny, JTextArea tArea, JProgressBar progressBar) {
+	public ConvertController(JTextField source, JTextField destiny, JProgressBar progressBar) {
 		this.source = source;
 		this.destiny = destiny;
-		this.tArea = tArea;
 		this.progressBar = progressBar;
 	}
 	
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		tArea.setText("");
-		GeneratorWorker worker = new GeneratorWorker(source.getText(), destiny.getText(), tArea, progressBar);
+		GeneratorWorker worker = new GeneratorWorker(source.getText(), destiny.getText(), progressBar);
 		worker.execute();
 	}
 

@@ -22,40 +22,36 @@ import model.Auxiliary;
 public class General {
 	
 	static String nameModel = "";
-	static Package packet;
 	static List<String> namesUsedGeneral;
 	static Map<String, List<String>> namesUsedRoles;
 	static Map<String, String> allconstraints;
 	
 	private General () {}
 	
-	public static String generateUSE(String source, String destination) throws IOException {
-		loadAndInitialize(source);
+	public static void generateUSE(String source, String destination) throws IOException {
+		Package packet = loadAndInitialize(source);
 		
 		StringBuilder sBuilder = new StringBuilder();
-		StringBuilder warnings = new StringBuilder();
 		U9_CountUnnamed countUnnamed = new U9_CountUnnamed();
 		
 		nameModel = packet.getModel().getName();
 		sBuilder.append("model " + nameModel + "\n\n");
 		
-		U0_Enumeration.getAll(sBuilder, warnings);
-		U1_Class.getAll(sBuilder, warnings, countUnnamed);
-		U2_AssociationClass.getAll(sBuilder, warnings, countUnnamed);
-		U3_Association.getAll(sBuilder, warnings);
+		U0_Enumeration.getAll(packet, sBuilder);
+		U1_Class.getAll(packet, sBuilder, countUnnamed);
+		U2_AssociationClass.getAll(packet, sBuilder, countUnnamed);
+		U3_Association.getAll(packet, sBuilder);
 		U5_Constraint.printAllConstraints(sBuilder, allconstraints);
 		
-		System.out.println(destination + File.separator + "modelConverter_" + nameModel + ".use");
 		Auxiliary.stringToFileNew(destination, "modelConverter_" + nameModel, ".use", sBuilder.toString());
-		
-		return warnings.toString();
 	}
 
-	private static void loadAndInitialize(String path) throws WrappedException, RuntimeException {
-		packet = (Package) EcoreUtil.getObjectByType(load(path).getContents(), UMLPackage.Literals.PACKAGE);
+	private static Package loadAndInitialize(String path) throws WrappedException, RuntimeException {
+		Package packet = (Package) EcoreUtil.getObjectByType(load(path).getContents(), UMLPackage.Literals.PACKAGE);
 		namesUsedGeneral = new ArrayList<>();
 		namesUsedRoles = new HashMap<>();
 		allconstraints = new HashMap<>();
+		return packet;
 	}
 	
 	private static Resource load(String path) throws WrappedException, RuntimeException {

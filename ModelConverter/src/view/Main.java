@@ -12,6 +12,7 @@ import javax.swing.JPanel;
 import javax.swing.JProgressBar;
 import javax.swing.BoxLayout;
 import java.awt.event.ActionListener;
+import java.io.PrintStream;
 import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
@@ -26,7 +27,8 @@ import javax.swing.JTextArea;
 import controller.ConvertController;
 import controller.FileChooserDestinyController;
 import controller.FileChooserSourceController;
-import utilities.RoundBorder;
+import view.utilities.CustomOutputStream;
+import view.utilities.RoundBorder;
 
 public class Main {
 
@@ -75,7 +77,7 @@ public class Main {
 		flowLayout.setAlignment(FlowLayout.LEFT);
 		frmModelConverter.getContentPane().add(panel_1);
 		
-		JLabel lblNewLabel = new JLabel("Seleccione el archivo a convertir:");
+		JLabel lblNewLabel = new JLabel("Select the file .uml or .use to convert:");
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		panel_1.add(lblNewLabel);
 		
@@ -97,7 +99,7 @@ public class Main {
 		panel.setBackground(Color.WHITE);
 		source.add(panel);
 		
-		JButton btnSource = new JButton("Examinar...");
+		JButton btnSource = new JButton("Open...");
 		btnSource.setForeground(Color.BLACK);
 		btnSource.setAlignmentX(Component.CENTER_ALIGNMENT);
 		btnSource.setBackground(Color.WHITE);
@@ -112,7 +114,7 @@ public class Main {
 		flowLayout_1.setAlignment(FlowLayout.LEFT);
 		frmModelConverter.getContentPane().add(panel_2);
 		
-		JLabel lblNewLabel_1 = new JLabel("Seleccione la ruta de destino:");
+		JLabel lblNewLabel_1 = new JLabel("Select the destination path:");
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		panel_2.add(lblNewLabel_1);
 		
@@ -132,14 +134,14 @@ public class Main {
 		panel_3.setBackground(Color.WHITE);
 		destination.add(panel_3);
 		
-		JButton btnDestiny = new JButton("Examinar...");
+		JButton btnDestiny = new JButton("Open...");
 		btnDestiny.setBackground(Color.WHITE);
 		btnDestiny.setForeground(Color.BLACK);
 		btnDestiny.setAlignmentX(Component.CENTER_ALIGNMENT);
 		btnDestiny.addMouseListener(new FileChooserDestinyController(destinyTextField));
 		destination.add(btnDestiny);
 		
-		JButton btnConvert = new JButton("CONVERTIR");
+		JButton btnConvert = new JButton("CONVERT");
 		btnConvert.setBorder(new RoundBorder(10));
 		btnConvert.setPreferredSize(new Dimension(120, 30));
 		btnConvert.setMinimumSize(new Dimension(40, 30));
@@ -167,6 +169,9 @@ public class Main {
 		frmModelConverter.getContentPane().add(panel_4_1);
 		
 		JTextArea textArea = new JTextArea();
+		PrintStream printStream = new PrintStream(new CustomOutputStream(textArea));
+		System.setOut(printStream);
+		System.setErr(printStream);
 		textArea.setBackground(SystemColor.menu);
 		textArea.setEditable(false);
 		JScrollPane sp = new JScrollPane(textArea);
@@ -187,9 +192,9 @@ public class Main {
 		frmModelConverter.getContentPane().add(progressBar);
 		
 		
-		btnConvert.addMouseListener(new ConvertController(sourceTextField, destinyTextField, textArea, progressBar));
+		btnConvert.addMouseListener(new ConvertController(sourceTextField, destinyTextField, progressBar));
 
-		frmModelConverter.setBounds(100, 100, 385, 482);
+		frmModelConverter.setBounds(100, 100, 460, 482);
 		frmModelConverter.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 	}

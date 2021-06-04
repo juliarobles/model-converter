@@ -109,8 +109,7 @@ public class USEGenerator extends AbstractGenerator {
     for (final ModelUSE e : _filter) {
       String _name = e.getName();
       String _plus = ("modelConverter_" + _name);
-      String _plus_1 = (_plus + ".uml");
-      fsa.generateFile(_plus_1, this.compileModel(e));
+      fsa.generateFile(FileNameCheck.getFileNameAvailable(fsa, _plus, ".uml"), this.compileModel(e));
     }
   }
   

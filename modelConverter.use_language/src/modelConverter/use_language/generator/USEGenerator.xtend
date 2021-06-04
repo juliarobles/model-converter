@@ -92,7 +92,7 @@ class USEGenerator extends AbstractGenerator {
 
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
 		for (e : resource.allContents.toIterable.filter(ModelUSE)) {
-			fsa.generateFile("modelConverter_" + e.getName + ".uml", e.compileModel);
+			fsa.generateFile(FileNameCheck.getFileNameAvailable(fsa,"modelConverter_" + e.getName, ".uml"), e.compileModel);
 		}
 	}
 

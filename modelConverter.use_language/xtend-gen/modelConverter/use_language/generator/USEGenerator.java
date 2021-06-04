@@ -50,6 +50,7 @@ import modelConverter.use_language.use.NumberLiteralExpCS;
 import modelConverter.use_language.use.OperationComplex;
 import modelConverter.use_language.use.OperationConstraints;
 import modelConverter.use_language.use.OperationContext;
+import modelConverter.use_language.use.OperationDeclaration;
 import modelConverter.use_language.use.OperationQuery;
 import modelConverter.use_language.use.OperationType;
 import modelConverter.use_language.use.OperationsBase;
@@ -66,9 +67,11 @@ import modelConverter.use_language.use.SelfExpCS;
 import modelConverter.use_language.use.ShadowPartCS;
 import modelConverter.use_language.use.SimpleTypes;
 import modelConverter.use_language.use.SquareBracketedClauseCS;
+import modelConverter.use_language.use.State;
 import modelConverter.use_language.use.StateMachine;
 import modelConverter.use_language.use.StateMachinesBase;
 import modelConverter.use_language.use.StringLiteralExpCS;
+import modelConverter.use_language.use.Transition;
 import modelConverter.use_language.use.TupleLiteralExpCS;
 import modelConverter.use_language.use.TupleLiteralPartCS;
 import modelConverter.use_language.use.TuplePartCS;
@@ -157,6 +160,13 @@ public class USEGenerator extends AbstractGenerator {
         }
       }
     }
+    _builder.append("\t");
+    final Function1<modelConverter.use_language.use.Class, StateMachinesBase> _function = (modelConverter.use_language.use.Class it) -> {
+      return it.getStatemachines();
+    };
+    CharSequence _compileEventStateMachines = this.compileEventStateMachines(IterableExtensions.<StateMachinesBase>toList(IterableExtensions.<modelConverter.use_language.use.Class, StateMachinesBase>map(Iterables.<modelConverter.use_language.use.Class>filter(e.getPackagedElement(), modelConverter.use_language.use.Class.class), _function)));
+    _builder.append(_compileEventStateMachines, "\t");
+    _builder.newLineIfNotEmpty();
     _builder.append("\t");
     _builder.append("</uml:Model>");
     _builder.newLine();
@@ -363,7 +373,230 @@ public class USEGenerator extends AbstractGenerator {
     {
       EList<StateMachine> _statemachines = e.getStatemachines();
       for(final StateMachine statemachine : _statemachines) {
+        _builder.append("<ownedBehavior xmi:type=\"uml:ProtocolStateMachine\" xmi:id=\"");
+        int _identityHashCode = System.identityHashCode(statemachine);
+        _builder.append(_identityHashCode);
+        _builder.append("\" name=\"");
+        String _name = statemachine.getName();
+        _builder.append(_name);
+        _builder.append("\">");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t");
+        _builder.append("<region xmi:id=\"");
+        int _identityHashCode_1 = System.identityHashCode(statemachine);
+        String _plus = (Integer.valueOf(_identityHashCode_1) + "_01");
+        _builder.append(_plus, "\t");
+        _builder.append("\" name=\"\" visibility=\"public\">");
+        _builder.newLineIfNotEmpty();
+        {
+          EList<Transition> _transitions = statemachine.getTransitions();
+          for(final Transition transition : _transitions) {
+            _builder.append("\t\t");
+            CharSequence _compileTransition = this.compileTransition(transition);
+            _builder.append(_compileTransition, "\t\t");
+            _builder.newLineIfNotEmpty();
+          }
+        }
+        {
+          EList<State> _states = statemachine.getStates();
+          for(final State state : _states) {
+            _builder.append("\t\t");
+            CharSequence _compileState = this.compileState(state);
+            _builder.append(_compileState, "\t\t");
+            _builder.newLineIfNotEmpty();
+          }
+        }
+        _builder.append("\t");
+        _builder.append("</region>");
         _builder.newLine();
+        _builder.append("</ownedBehavior>");
+        _builder.newLine();
+      }
+    }
+    return _builder;
+  }
+  
+  private CharSequence compileState(final State e) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      boolean _isIsInitial = e.isIsInitial();
+      if (_isIsInitial) {
+        _builder.append("<subvertex xmi:type=\"uml:Pseudostate\" xmi:id=\"");
+        int _identityHashCode = System.identityHashCode(e);
+        _builder.append(_identityHashCode);
+        _builder.append("\" name=\"");
+        String _name = e.getName();
+        _builder.append(_name);
+        _builder.append("\"/>");
+        _builder.newLineIfNotEmpty();
+      } else {
+        boolean _isIsFinal = e.isIsFinal();
+        if (_isIsFinal) {
+          _builder.append("<subvertex xmi:type=\"uml:FinalState\" xmi:id=\"");
+          int _identityHashCode_1 = System.identityHashCode(e);
+          _builder.append(_identityHashCode_1);
+          _builder.append("\" name=\"");
+          String _name_1 = e.getName();
+          _builder.append(_name_1);
+          _builder.append("\"/>");
+          _builder.newLineIfNotEmpty();
+        } else {
+          _builder.append("<subvertex xmi:type=\"uml:State\" xmi:id=\"");
+          int _identityHashCode_2 = System.identityHashCode(e);
+          _builder.append(_identityHashCode_2);
+          _builder.append("\" name=\"");
+          String _name_2 = e.getName();
+          _builder.append(_name_2);
+          _builder.append("\" ");
+          {
+            ExpCS _invariant = e.getInvariant();
+            boolean _tripleNotEquals = (_invariant != null);
+            if (_tripleNotEquals) {
+              _builder.append(" stateInvariant=\"");
+              int _identityHashCode_3 = System.identityHashCode(e.getInvariant());
+              _builder.append(_identityHashCode_3);
+              _builder.append("\"");
+            }
+          }
+          _builder.append(">");
+          _builder.newLineIfNotEmpty();
+          {
+            ExpCS _invariant_1 = e.getInvariant();
+            boolean _tripleNotEquals_1 = (_invariant_1 != null);
+            if (_tripleNotEquals_1) {
+              CharSequence _compileOwnedRule = this.compileOwnedRule(e.getInvariant(), Integer.valueOf(System.identityHashCode(e.getInvariant())).toString(), "", "");
+              _builder.append(_compileOwnedRule);
+              _builder.newLineIfNotEmpty();
+            }
+          }
+          _builder.append("</subvertex>");
+          _builder.newLine();
+        }
+      }
+    }
+    return _builder;
+  }
+  
+  private CharSequence compileTransition(final Transition e) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("<transition xmi:type=\"uml:ProtocolTransition\" xmi:id=\"");
+    int _identityHashCode = System.identityHashCode(e);
+    _builder.append(_identityHashCode);
+    _builder.append("\" name=\"\"");
+    {
+      ExpCS _precondition = e.getPrecondition();
+      boolean _tripleNotEquals = (_precondition != null);
+      if (_tripleNotEquals) {
+        _builder.append(" guard=\"");
+        int _identityHashCode_1 = System.identityHashCode(e.getPrecondition());
+        _builder.append(_identityHashCode_1);
+        _builder.append("\"");
+      }
+    }
+    _builder.append(" source=\"");
+    int _identityHashCode_2 = System.identityHashCode(e.getSource());
+    _builder.append(_identityHashCode_2);
+    _builder.append("\" target=\"");
+    int _identityHashCode_3 = System.identityHashCode(e.getTarget());
+    _builder.append(_identityHashCode_3);
+    _builder.append("\"");
+    {
+      ExpCS _postcondition = e.getPostcondition();
+      boolean _tripleNotEquals_1 = (_postcondition != null);
+      if (_tripleNotEquals_1) {
+        _builder.append(" postCondition=\"");
+        int _identityHashCode_4 = System.identityHashCode(e.getPostcondition());
+        _builder.append(_identityHashCode_4);
+        _builder.append("\"");
+      }
+    }
+    {
+      ExpCS _precondition_1 = e.getPrecondition();
+      boolean _tripleNotEquals_2 = (_precondition_1 != null);
+      if (_tripleNotEquals_2) {
+        _builder.append(" preCondition=\"");
+        int _identityHashCode_5 = System.identityHashCode(e.getPrecondition());
+        _builder.append(_identityHashCode_5);
+        _builder.append("\"");
+      }
+    }
+    _builder.append(">");
+    _builder.newLineIfNotEmpty();
+    {
+      ExpCS _precondition_2 = e.getPrecondition();
+      boolean _tripleNotEquals_3 = (_precondition_2 != null);
+      if (_tripleNotEquals_3) {
+        _builder.append("\t");
+        CharSequence _compileOwnedRule = this.compileOwnedRule(e.getPrecondition(), Integer.valueOf(System.identityHashCode(e.getPrecondition())).toString(), "", "");
+        _builder.append(_compileOwnedRule, "\t");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    {
+      ExpCS _postcondition_1 = e.getPostcondition();
+      boolean _tripleNotEquals_4 = (_postcondition_1 != null);
+      if (_tripleNotEquals_4) {
+        _builder.append("\t");
+        CharSequence _compileOwnedRule_1 = this.compileOwnedRule(e.getPostcondition(), Integer.valueOf(System.identityHashCode(e.getPostcondition())).toString(), "", "");
+        _builder.append(_compileOwnedRule_1, "\t");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    {
+      OperationDeclaration _operation = e.getOperation();
+      boolean _tripleNotEquals_5 = (_operation != null);
+      if (_tripleNotEquals_5) {
+        _builder.append("\t");
+        _builder.append("<trigger xmi:id=\"");
+        int _identityHashCode_6 = System.identityHashCode(e);
+        String _plus = (Integer.valueOf(_identityHashCode_6) + "_01");
+        _builder.append(_plus, "\t");
+        _builder.append("\" name=\"\" visibility=\"public\" event=\"");
+        int _identityHashCode_7 = System.identityHashCode(e);
+        String _plus_1 = (Integer.valueOf(_identityHashCode_7) + "_02");
+        _builder.append(_plus_1, "\t");
+        _builder.append("\"/>");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    _builder.append("</transition>");
+    _builder.newLine();
+    return _builder;
+  }
+  
+  private CharSequence compileEventStateMachines(final List<StateMachinesBase> statemachines) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      for(final StateMachinesBase statemachinebase : statemachines) {
+        {
+          if ((statemachinebase != null)) {
+            {
+              EList<StateMachine> _statemachines = statemachinebase.getStatemachines();
+              for(final StateMachine statemachine : _statemachines) {
+                {
+                  EList<Transition> _transitions = statemachine.getTransitions();
+                  for(final Transition transition : _transitions) {
+                    {
+                      OperationDeclaration _operation = transition.getOperation();
+                      boolean _tripleNotEquals = (_operation != null);
+                      if (_tripleNotEquals) {
+                        _builder.append("<packagedElement xmi:type=\"uml:CallEvent\" xmi:id=\"");
+                        int _identityHashCode = System.identityHashCode(transition);
+                        String _plus = (Integer.valueOf(_identityHashCode) + "_02");
+                        _builder.append(_plus);
+                        _builder.append("\" name=\"\" operation=\"");
+                        int _identityHashCode_1 = System.identityHashCode(transition.getOperation());
+                        _builder.append(_identityHashCode_1);
+                        _builder.append("\"/>");
+                        _builder.newLineIfNotEmpty();
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
       }
     }
     return _builder;
@@ -675,7 +908,7 @@ public class USEGenerator extends AbstractGenerator {
   private CharSequence compileOperation(final OperationType op, final Iterable<OperationConstraints> conditions) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("<ownedOperation xmi:id=\"");
-    int _identityHashCode = System.identityHashCode(op);
+    int _identityHashCode = System.identityHashCode(op.getOperationDeclaration());
     _builder.append(_identityHashCode);
     _builder.append("\" name=\"");
     String _name = op.getOperationDeclaration().getName();

@@ -79,6 +79,9 @@ import modelConverter.use_language.use.ShadowPartCS
 import modelConverter.use_language.use.NavigatingArgCS
 import modelConverter.use_language.use.VariableCS
 import modelConverter.use_language.use.StateMachinesBase
+import modelConverter.use_language.use.Transition
+import modelConverter.use_language.use.State
+import java.util.List
 
 /**
  * Generates code from your model files on save.
@@ -107,6 +110,7 @@ class USEGenerator extends AbstractGenerator {
 					«f.compileType(e.getPackagedElement, new BasicEList<ContextsType>())»
 				«ENDIF»
 			«ENDFOR»
+			«e.getPackagedElement.filter(Class).map[getStatemachines].toList.compileEventStateMachines»
 			</uml:Model>
 		</xmi:XMI>
 	'''
@@ -169,8 +173,59 @@ class USEGenerator extends AbstractGenerator {
 	'''
 
 	private def compileStateMachinesBase(StateMachinesBase e) '''
-		«FOR statemachine : e.getStatemachines()»
-		
+		«FOR statemachine : e.getStatemachines»
+			<ownedBehavior xmi:type="uml:ProtocolStateMachine" xmi:id="«System.identityHashCode(statemachine)»" name="«statemachine.getName»">
+				<region xmi:id="«System.identityHashCode(statemachine) + "_01"»" name="" visibility="public">
+					«FOR transition : statemachine.getTransitions»
+						«transition.compileTransition»
+					«ENDFOR»
+					«FOR state : statemachine.getStates»
+						«state.compileState»
+					«ENDFOR»
+				</region>
+			</ownedBehavior>
+		«ENDFOR»
+	'''
+
+	private def compileState(State e)'''
+		«IF e.isInitial»
+			<subvertex xmi:type="uml:Pseudostate" xmi:id="«System.identityHashCode(e)»" name="«e.getName»"/>
+		«ELSEIF e.isFinal»
+			<subvertex xmi:type="uml:FinalState" xmi:id="«System.identityHashCode(e)»" name="«e.getName»"/>
+		«ELSE»
+			<subvertex xmi:type="uml:State" xmi:id="«System.identityHashCode(e)»" name="«e.getName»" «IF e.getInvariant !== null» stateInvariant="«System.identityHashCode(e.getInvariant)»"«ENDIF»>
+			«IF e.getInvariant !== null»
+				«e.getInvariant.compileOwnedRule(System.identityHashCode(e.getInvariant).toString, "", "")»
+			«ENDIF»
+			</subvertex>
+		«ENDIF»
+	'''
+
+	private def compileTransition(Transition e)'''
+		<transition xmi:type="uml:ProtocolTransition" xmi:id="«System.identityHashCode(e)»" name=""«IF e.getPrecondition !== null» guard="«System.identityHashCode(e.getPrecondition)»"«ENDIF» source="«System.identityHashCode(e.getSource)»" target="«System.identityHashCode(e.getTarget)»"«IF e.getPostcondition !== null» postCondition="«System.identityHashCode(e.getPostcondition)»"«ENDIF»«IF e.getPrecondition !== null» preCondition="«System.identityHashCode(e.getPrecondition)»"«ENDIF»>
+			«IF e.getPrecondition !== null»
+				«e.getPrecondition.compileOwnedRule(System.identityHashCode(e.getPrecondition).toString, "", "")»
+			«ENDIF»
+			«IF e.getPostcondition !== null»
+				«e.getPostcondition.compileOwnedRule(System.identityHashCode(e.getPostcondition).toString, "", "")»
+			«ENDIF»
+			«IF e.getOperation !== null»
+				<trigger xmi:id="«System.identityHashCode(e) + "_01"»" name="" visibility="public" event="«System.identityHashCode(e) + "_02"»"/>
+			«ENDIF»
+		</transition>
+	'''
+
+	private def compileEventStateMachines(List<StateMachinesBase> statemachines) '''
+		«FOR statemachinebase : statemachines»
+			«IF statemachinebase !== null»
+				«FOR statemachine : statemachinebase.getStatemachines»
+					«FOR transition : statemachine.getTransitions»
+						«IF transition.getOperation !== null»
+						<packagedElement xmi:type="uml:CallEvent" xmi:id="«System.identityHashCode(transition) + "_02"»" name="" operation="«System.identityHashCode(transition.getOperation)»"/>
+						«ENDIF»
+					«ENDFOR»
+				«ENDFOR»
+			«ENDIF»
 		«ENDFOR»
 	'''
 
@@ -236,7 +291,7 @@ class USEGenerator extends AbstractGenerator {
 	'''
 
 	private def compileOperation(OperationType op, Iterable<OperationConstraints> conditions) '''
-		<ownedOperation xmi:id="«System.identityHashCode(op)»" name="«op.getOperationDeclaration.getName»" «IF (op instanceof OperationQuery && (op as OperationQuery).getOperationbody !== null)»bodyCondition="«System.identityHashCode(op).toString + System.identityHashCode((op as OperationQuery).getOperationbody)»"«ELSEIF (op instanceof OperationComplex && (op as OperationComplex).getOperationbody !== null)»bodyCondition="«System.identityHashCode(op).toString + System.identityHashCode((op as OperationComplex).getOperationbody)»"«ENDIF» postcondition="«FOR post : op.getConditions.filter(Postcondition)»«System.identityHashCode(post)» «ENDFOR»«FOR context : conditions»«FOR post : context.getConditions.filter(Postcondition)»«System.identityHashCode(post)» «ENDFOR»«ENDFOR»" precondition="«FOR pre : op.getConditions.filter(Precondition)»«System.identityHashCode(pre)» «ENDFOR»«FOR context : conditions»«FOR pre : context.getConditions.filter(Precondition)»«System.identityHashCode(pre)» «ENDFOR»«ENDFOR»" «IF (op instanceof OperationQuery)»isQuery="true"«ENDIF»>
+		<ownedOperation xmi:id="«System.identityHashCode(op.getOperationDeclaration)»" name="«op.getOperationDeclaration.getName»" «IF (op instanceof OperationQuery && (op as OperationQuery).getOperationbody !== null)»bodyCondition="«System.identityHashCode(op).toString + System.identityHashCode((op as OperationQuery).getOperationbody)»"«ELSEIF (op instanceof OperationComplex && (op as OperationComplex).getOperationbody !== null)»bodyCondition="«System.identityHashCode(op).toString + System.identityHashCode((op as OperationComplex).getOperationbody)»"«ENDIF» postcondition="«FOR post : op.getConditions.filter(Postcondition)»«System.identityHashCode(post)» «ENDFOR»«FOR context : conditions»«FOR post : context.getConditions.filter(Postcondition)»«System.identityHashCode(post)» «ENDFOR»«ENDFOR»" precondition="«FOR pre : op.getConditions.filter(Precondition)»«System.identityHashCode(pre)» «ENDFOR»«FOR context : conditions»«FOR pre : context.getConditions.filter(Precondition)»«System.identityHashCode(pre)» «ENDFOR»«ENDFOR»" «IF (op instanceof OperationQuery)»isQuery="true"«ENDIF»>
 			«IF (op instanceof OperationQuery && (op as OperationQuery).getOperationbody !== null)»
 				«(op as OperationQuery).getOperationbody.compileOwnedRule(System.identityHashCode(op).toString + System.identityHashCode((op as OperationQuery).getOperationbody), "", "")»
 			«ELSEIF (op instanceof OperationComplex && (op as OperationComplex).getOperationbody !== null)»

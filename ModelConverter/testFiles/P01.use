@@ -1,0 +1,14 @@
+model ModelP01
+
+enum Enumerado {requiredValue}
+
+abstract class A
+constraints
+	inv UnaRestriccion:
+		true
+end
+
+association B between
+	A [1] 
+	A [1] role a1
+end

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:MagicDrawProfile="http://www.omg.org/spec/UML/20131001/MagicDrawProfile" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http://www.omg.org/spec/UML/20131001/MagicDrawProfile UML_Standard_Profile.MagicDraw_Profile.profile.uml#_Z7Ccpb55EeuRy_cVSG2Kzg">
+  <uml:Model xmi:id="eee_1045467100313_135436_1" name="ModelP01" visibility="public" URI="" viewpoint="">
+    <ownedComment xmi:id="_18_1beta_8c90288_1415101994820_370998_4336" annotatedElement="eee_1045467100313_135436_1" body="Author:Usuario.&#xA;Created:27/05/2021 1:15.&#xA;Title:.&#xA;Comment:.&#xA;"/>
+    <packageImport xmi:id="_0primitiveTypesModelP01">
+      <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+    </packageImport>
+    <packageImport xmi:id="_0javaPrimitiveTypesModelP01">
+      <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#_0"/>
+    </packageImport>
+    <packagedElement xmi:type="uml:Enumeration" xmi:id="_19_0_2_b7002e9_1622070961774_409400_4823" name="Enumerado" visibility="public"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_19_0_2_b7002e9_1622070978830_280965_4845" name="A" visibility="public" isAbstract="true">
+      <ownedRule xmi:id="_19_0_2_b7002e9_1622071035724_512784_4870" name="UnaRestriccion" visibility="public" constrainedElement="_19_0_2_b7002e9_1622070978830_280965_4845">
+        <specification xmi:type="uml:OpaqueExpression" xmi:id="_19_0_2_b7002e9_1622071035725_462546_4871" name="" visibility="public">
+          <language>English</language>
+        </specification>
+      </ownedRule>
+      <ownedAttribute xmi:id="_19_0_2_b7002e9_1622071068890_101668_4877" name="" visibility="private" type="_19_0_2_b7002e9_1622070978830_280965_4845" association="_19_0_2_b7002e9_1622071068890_236750_4876"/>
+      <ownedAttribute xmi:id="_19_0_2_b7002e9_1622071068891_472981_4878" name="" visibility="private" type="_19_0_2_b7002e9_1622070978830_280965_4845" association="_19_0_2_b7002e9_1622071068890_236750_4876"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_19_0_2_b7002e9_1622071068890_236750_4876" name="B" visibility="public" memberEnd="_19_0_2_b7002e9_1622071068890_101668_4877 _19_0_2_b7002e9_1622071068891_472981_4878"/>
+    <packagedElement xmi:type="uml:Package" xmi:id="magicdraw_uml_standard_profile_v_0001" name="UML Standard Profile" visibility="public" URI="">
+      <ownedComment xmi:id="_be00301_1078843546940_242228_131" annotatedElement="magicdraw_uml_standard_profile_v_0001" body="UML Standard Profile contains a UML metamodel (metaclasses without properties and associations), Standard UML stereotypes defined in the annex C of UML specification, validation suites for UML model correctness and completeness checking, and stereotypes used by MagicDraw internally."/>
+    </packagedElement>
+    <profileApplication xmi:id="_be00301_1073394351331_445580_2profileApplicationModelP01">
+      <eAnnotations xmi:id="_Z7JK8b55EeuRy_cVSG2Kzg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="UML_Standard_Profile.MagicDraw_Profile.profile.uml#_Z7Ccpb55EeuRy_cVSG2Kzg"/>
+      </eAnnotations>
+      <appliedProfile href="UML_Standard_Profile.MagicDraw_Profile.profile.uml#_be00301_1073394351331_445580_2"/>
+    </profileApplication>
+    <profileApplication xmi:id="_19_0beta_8bb027e_1484121177637_661582_4502profileApplicationModelP01">
+      <eAnnotations xmi:id="_Z7JxQb55EeuRy_cVSG2Kzg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="UML_Standard_Profile.MagicDraw_Profile.Find_By_Text.profile.uml#_Z69kAr55EeuRy_cVSG2Kzg"/>
+      </eAnnotations>
+      <appliedProfile href="UML_Standard_Profile.MagicDraw_Profile.Find_By_Text.profile.uml#_19_0beta_8bb027e_1484121177637_661582_4502"/>
+    </profileApplication>
+    <profileApplication xmi:id="_16_6_8f90291_1254846042821_86742_517profileApplicationModelP01">
+      <eAnnotations xmi:id="_Z7KYUL55EeuRy_cVSG2Kzg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="UML_Standard_Profile.MagicDraw_Profile.Traceability_customization.profile.uml#_Z7BPab55EeuRy_cVSG2Kzg"/>
+      </eAnnotations>
+      <appliedProfile href="UML_Standard_Profile.MagicDraw_Profile.Traceability_customization.profile.uml#_16_6_8f90291_1254846042821_86742_517"/>
+    </profileApplication>
+    <profileApplication xmi:id="_11_5_be00301_1153310565718_226811_161profileApplicationModelP01">
+      <eAnnotations xmi:id="_Z7KYUr55EeuRy_cVSG2Kzg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="UML_Standard_Profile.MagicDraw_Profile.DSL_Customization.profile.uml#_Z69kEr55EeuRy_cVSG2Kzg"/>
+      </eAnnotations>
+      <appliedProfile href="UML_Standard_Profile.MagicDraw_Profile.DSL_Customization.profile.uml#_11_5_be00301_1153310565718_226811_161"/>
+    </profileApplication>
+    <profileApplication xmi:id="_17_0_4beta_8ca0285_1361349406965_180847_3086profileApplicationModelP01">
+      <eAnnotations xmi:id="_Z7KYVL55EeuRy_cVSG2Kzg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="UML_Standard_Profile.Dependency_Matrix_Profile.profile.uml#_Z7IjUr55EeuRy_cVSG2Kzg"/>
+      </eAnnotations>
+      <appliedProfile href="UML_Standard_Profile.Dependency_Matrix_Profile.profile.uml#_17_0_4beta_8ca0285_1361349406965_180847_3086"/>
+    </profileApplication>
+    <profileApplication xmi:id="_11_5_f720368_1159529670215_231387_1profileApplicationModelP01">
+      <eAnnotations xmi:id="_Z7K_YL55EeuRy_cVSG2Kzg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="UML_Standard_Profile.Validation_Profile.profile.uml#_Z7AAxb55EeuRy_cVSG2Kzg"/>
+      </eAnnotations>
+      <appliedProfile href="UML_Standard_Profile.Validation_Profile.profile.uml#_11_5_f720368_1159529670215_231387_1"/>
+    </profileApplication>
+  </uml:Model>
+  <MagicDrawProfile:auxiliaryResource xmi:id="_Z7cFIL55EeuRy_cVSG2Kzg" base_Element="magicdraw_uml_standard_profile_v_0001"/>
+</xmi:XMI>

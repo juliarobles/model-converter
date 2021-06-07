@@ -30,6 +30,7 @@ import org.eclipse.uml2.uml.Vertex;
 import org.eclipse.uml2.uml.resource.UMLResource;
 
 import main.model.umltouse.General;
+import main.model.umltouse.U9_Auxiliary;
 
 import org.eclipse.uml2.uml.Association;
 import org.eclipse.uml2.uml.AssociationClass;
@@ -37,7 +38,7 @@ import org.eclipse.uml2.uml.CallEvent;
 import org.eclipse.uml2.uml.Class;
 import org.eclipse.uml2.uml.Constraint;
 
-public class MDtoTModel {
+public class MC_MDtoTModel {
 	
 	public static TModel getModelFromFileMD(String modelMD) {
 		Package packet = (Package) EcoreUtil.getObjectByType(load(modelMD).getContents(), UMLPackage.Literals.PACKAGE);
@@ -57,7 +58,7 @@ public class MDtoTModel {
 				TClass tClass = new TClass(class1.getName());
 				tClass.setAbstract1(class1.isAbstract());
 				if(pe.eClass() == UMLPackage.Literals.ASSOCIATION_CLASS) {
-					processAssociation((AssociationClass)class1);
+					tClass.setAssociation(processAssociation((AssociationClass)class1));
 				}
 				for(Generalization generalization : class1.getGeneralizations()) {
 					tClass.addInheritance(generalization.getGeneral().getName());
@@ -113,16 +114,34 @@ public class MDtoTModel {
 					}
 				}
 			} else if (pe.eClass() == UMLPackage.Literals.ASSOCIATION) {
-				processAssociation((Association)pe);
+				tModel.addRelation(processAssociation((Association)pe));
 			}
 		}
 		
 		return tModel;
 	}
 	
-	private static void processAssociation(Association class1) {
+	private static TAssociation processAssociation(Association association) {
 		// TODO Auto-generated method stub
-		
+		TAssociation tAssociation = new TAssociation(association.getName());
+		String tipoRelacionFinal = "association", tipoRelacionVariable;
+		for(Property property : association.getMemberEnds()) {
+			TMemberEnd tMemberEnd = new TMemberEnd(property.getType().getName());
+			tipoRelacionVariable = property.getAggregation().getName();
+			tMemberEnd.setLower((property.getLowerValue() == null)? "1" : property.getLowerValue().stringValue());
+			tMemberEnd.setUpper((property.getUpperValue() == null)? "1" : property.getUpperValue().stringValue());
+			if(tipoRelacionFinal.equals("association")) {
+				if(tipoRelacionVariable.equals("composite")) {
+					tipoRelacionFinal = "composition";
+				} else if (tipoRelacionVariable.equals("shared")) {
+					tipoRelacionFinal = "aggregation";
+				}
+			}
+			tMemberEnd.setRole(property.getName());
+			tAssociation.addMemberEnd(tMemberEnd);
+		}
+		tAssociation.setTypeAssociation(tipoRelacionFinal);
+		return tAssociation;
 	}
 
 	private static Resource load(String path) throws WrappedException, RuntimeException {
@@ -141,7 +160,7 @@ public class MDtoTModel {
 		//Extraer la url del UML2 independiente al path de mi pc
 		//https://www.eclipse.org/forums/index.php/t/151576/
 		final String profile = "profiles/UML2.profile.uml";
-		URL url = MDtoTModel.class.getClassLoader().getResource(profile);
+		URL url = MC_MDtoTModel.class.getClassLoader().getResource(profile);
 		
 		if (url == null)
 		{

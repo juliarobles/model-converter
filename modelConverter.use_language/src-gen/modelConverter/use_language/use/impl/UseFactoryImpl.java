@@ -62,7 +62,6 @@ import modelConverter.use_language.use.PrefixExpCS;
 import modelConverter.use_language.use.PrimitiveLiteralExpCS;
 import modelConverter.use_language.use.PrimitiveTypeRefCS;
 import modelConverter.use_language.use.RoundBracketedClauseCS;
-import modelConverter.use_language.use.SelfExpCS;
 import modelConverter.use_language.use.ShadowPartCS;
 import modelConverter.use_language.use.SimpleTypes;
 import modelConverter.use_language.use.SquareBracketedClauseCS;
@@ -214,7 +213,6 @@ public class UseFactoryImpl extends EFactoryImpl implements UseFactory
       case UsePackage.INVALID_LITERAL_EXP_CS: return createInvalidLiteralExpCS();
       case UsePackage.NULL_LITERAL_EXP_CS: return createNullLiteralExpCS();
       case UsePackage.NESTED_EXP_CS: return createNestedExpCS();
-      case UsePackage.SELF_EXP_CS: return createSelfExpCS();
       case UsePackage.IF_EXP_CS: return createIfExpCS();
       case UsePackage.IF_THEN_EXP_CS: return createIfThenExpCS();
       case UsePackage.LET_EXP_CS: return createLetExpCS();
@@ -1067,18 +1065,6 @@ public class UseFactoryImpl extends EFactoryImpl implements UseFactory
   {
     NestedExpCSImpl nestedExpCS = new NestedExpCSImpl();
     return nestedExpCS;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public SelfExpCS createSelfExpCS()
-  {
-    SelfExpCSImpl selfExpCS = new SelfExpCSImpl();
-    return selfExpCS;
   }
 
   /**

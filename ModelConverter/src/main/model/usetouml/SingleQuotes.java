@@ -16,7 +16,7 @@ public class SingleQuotes {
 	
 	private SingleQuotes() {}
 	
-	static File modifyFileBeforeGeneratingOnlyBeginEnd(String source) {
+	public static File modifyFileBeforeGeneratingOnlyBeginEnd(String source) {
 		StringBuilder sBuilder = new StringBuilder();
 		Boolean fin;
 		String auxLine;

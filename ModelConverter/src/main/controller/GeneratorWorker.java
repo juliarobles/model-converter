@@ -27,7 +27,7 @@ public class GeneratorWorker extends SwingWorker<Void, Void>{
 	@Override
 	protected Void doInBackground() throws Exception {
 		progressBar.setIndeterminate(true);
-		progressBar.setString("Convirtiendo...");
+		progressBar.setString("Converting...");
 		Generators.chooseGeneratorBySourceFile(source, destiny);
 		return null;
 	}

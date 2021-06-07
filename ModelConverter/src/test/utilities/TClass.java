@@ -22,6 +22,16 @@ class TClass{
 		inheritances = new ArrayList<>();
 	}
 	
+	public TOperation searchOperationByName(String name) {
+		int i = 0;
+		while(i < this.operations.size()) {
+			if(this.operations.get(i).getName().equals(name)) {
+				return this.operations.get(i);
+			}
+		}
+		return null;
+	}
+	
 	public void setAbstract1(boolean abstract1) {
 		this.abstract1 = abstract1;
 	}
@@ -48,6 +58,10 @@ class TClass{
 	
 	public void addInheritance(String tclass) {
 		inheritances.add(tclass);
+	}
+
+	public String getName() {
+		return name;
 	}
 
 	@Override
@@ -94,9 +108,13 @@ class TClass{
 		} else if (!inheritances.equals(other.inheritances))
 			return false;
 		if (name == null) {
-			if (other.name != null)
+			if (other.name != null && !other.name.contains("unnamed"))
 				return false;
-		} else if (!name.equals(other.name))
+		} else if (!name.equals(other.name)
+					&& !(name.isBlank() && other.name.contains("unnamed"))
+					&& !((other.name == null || other.name.isBlank()) && name.contains("unnamed"))
+					&& !((other.name != null && name.contains(other.name) && name.length() == other.name.length()+1))
+					&& !((other.name != null && other.name.contains(name) && other.name.length() == name.length()+1)))
 			return false;
 		if (operations == null) {
 			if (other.operations != null)

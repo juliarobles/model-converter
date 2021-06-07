@@ -62,7 +62,6 @@ import modelConverter.use_language.use.PrefixExpCS;
 import modelConverter.use_language.use.PrimitiveLiteralExpCS;
 import modelConverter.use_language.use.PrimitiveTypeRefCS;
 import modelConverter.use_language.use.RoundBracketedClauseCS;
-import modelConverter.use_language.use.SelfExpCS;
 import modelConverter.use_language.use.ShadowPartCS;
 import modelConverter.use_language.use.SimpleTypes;
 import modelConverter.use_language.use.SquareBracketedClauseCS;
@@ -683,14 +682,6 @@ public class UseSwitch<T> extends Switch<T>
         NestedExpCS nestedExpCS = (NestedExpCS)theEObject;
         T result = caseNestedExpCS(nestedExpCS);
         if (result == null) result = caseExpCS(nestedExpCS);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case UsePackage.SELF_EXP_CS:
-      {
-        SelfExpCS selfExpCS = (SelfExpCS)theEObject;
-        T result = caseSelfExpCS(selfExpCS);
-        if (result == null) result = caseExpCS(selfExpCS);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -1881,22 +1872,6 @@ public class UseSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseNestedExpCS(NestedExpCS object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Self Exp CS</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Self Exp CS</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseSelfExpCS(SelfExpCS object)
   {
     return null;
   }

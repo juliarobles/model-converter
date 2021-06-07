@@ -63,7 +63,6 @@ import modelConverter.use_language.use.PrefixExpCS;
 import modelConverter.use_language.use.PrimitiveLiteralExpCS;
 import modelConverter.use_language.use.PrimitiveTypeRefCS;
 import modelConverter.use_language.use.RoundBracketedClauseCS;
-import modelConverter.use_language.use.SelfExpCS;
 import modelConverter.use_language.use.ShadowPartCS;
 import modelConverter.use_language.use.SimpleTypes;
 import modelConverter.use_language.use.SquareBracketedClauseCS;
@@ -1425,21 +1424,15 @@ public class USEGenerator extends AbstractGenerator {
                           _builder.append(_compilePrimitiveLiteralExpCS);
                           _builder.newLineIfNotEmpty();
                         } else {
-                          if ((e instanceof SelfExpCS)) {
-                            CharSequence _compileSelfExpCS = this.compileSelfExpCS(((SelfExpCS)e));
-                            _builder.append(_compileSelfExpCS);
+                          if ((e instanceof TupleLiteralExpCS)) {
+                            CharSequence _compileTupleLiteralExpCS = this.compileTupleLiteralExpCS(((TupleLiteralExpCS)e));
+                            _builder.append(_compileTupleLiteralExpCS);
                             _builder.newLineIfNotEmpty();
                           } else {
-                            if ((e instanceof TupleLiteralExpCS)) {
-                              CharSequence _compileTupleLiteralExpCS = this.compileTupleLiteralExpCS(((TupleLiteralExpCS)e));
-                              _builder.append(_compileTupleLiteralExpCS);
+                            if ((e instanceof TypeLiteralExpCS)) {
+                              CharSequence _compileTypeLiteralExpCS = this.compileTypeLiteralExpCS(((TypeLiteralExpCS)e));
+                              _builder.append(_compileTypeLiteralExpCS);
                               _builder.newLineIfNotEmpty();
-                            } else {
-                              if ((e instanceof TypeLiteralExpCS)) {
-                                CharSequence _compileTypeLiteralExpCS = this.compileTypeLiteralExpCS(((TypeLiteralExpCS)e));
-                                _builder.append(_compileTypeLiteralExpCS);
-                                _builder.newLineIfNotEmpty();
-                              }
                             }
                           }
                         }
@@ -2235,12 +2228,6 @@ public class USEGenerator extends AbstractGenerator {
   private CharSequence compileNullLiteralExpCS(final NullLiteralExpCS e) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("null");
-    return _builder;
-  }
-  
-  private CharSequence compileSelfExpCS(final SelfExpCS e) {
-    StringConcatenation _builder = new StringConcatenation();
-    _builder.append("self");
     return _builder;
   }
   

@@ -2711,25 +2711,6 @@ public interface UsePackage extends EPackage
   int NESTED_EXP_CS_FEATURE_COUNT = EXP_CS_FEATURE_COUNT + 1;
 
   /**
-   * The meta object id for the '{@link modelConverter.use_language.use.impl.SelfExpCSImpl <em>Self Exp CS</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see modelConverter.use_language.use.impl.SelfExpCSImpl
-   * @see modelConverter.use_language.use.impl.UsePackageImpl#getSelfExpCS()
-   * @generated
-   */
-  int SELF_EXP_CS = 70;
-
-  /**
-   * The number of structural features of the '<em>Self Exp CS</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SELF_EXP_CS_FEATURE_COUNT = EXP_CS_FEATURE_COUNT + 0;
-
-  /**
    * The meta object id for the '{@link modelConverter.use_language.use.impl.IfExpCSImpl <em>If Exp CS</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2737,7 +2718,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getIfExpCS()
    * @generated
    */
-  int IF_EXP_CS = 71;
+  int IF_EXP_CS = 70;
 
   /**
    * The feature id for the '<em><b>Owned Condition</b></em>' containment reference.
@@ -2792,7 +2773,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getIfThenExpCS()
    * @generated
    */
-  int IF_THEN_EXP_CS = 72;
+  int IF_THEN_EXP_CS = 71;
 
   /**
    * The feature id for the '<em><b>Owned Condition</b></em>' containment reference.
@@ -2829,7 +2810,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getLetExpCS()
    * @generated
    */
-  int LET_EXP_CS = 73;
+  int LET_EXP_CS = 72;
 
   /**
    * The feature id for the '<em><b>Owned Variables</b></em>' containment reference list.
@@ -2866,7 +2847,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getLetVariableCS()
    * @generated
    */
-  int LET_VARIABLE_CS = 74;
+  int LET_VARIABLE_CS = 73;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2921,7 +2902,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getRoundBracketedClauseCS()
    * @generated
    */
-  int ROUND_BRACKETED_CLAUSE_CS = 75;
+  int ROUND_BRACKETED_CLAUSE_CS = 74;
 
   /**
    * The feature id for the '<em><b>Owned Arguments</b></em>' containment reference list.
@@ -2949,7 +2930,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getNavigatingArgCS()
    * @generated
    */
-  int NAVIGATING_ARG_CS = 76;
+  int NAVIGATING_ARG_CS = 75;
 
   /**
    * The feature id for the '<em><b>Prefix</b></em>' attribute.
@@ -3040,7 +3021,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getVariableCS()
    * @generated
    */
-  int VARIABLE_CS = 77;
+  int VARIABLE_CS = 76;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3077,7 +3058,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getInfixExpCS()
    * @generated
    */
-  int INFIX_EXP_CS = 78;
+  int INFIX_EXP_CS = 77;
 
   /**
    * The feature id for the '<em><b>Owned Left</b></em>' containment reference.
@@ -3123,7 +3104,7 @@ public interface UsePackage extends EPackage
    * @see modelConverter.use_language.use.impl.UsePackageImpl#getPrefixExpCS()
    * @generated
    */
-  int PREFIX_EXP_CS = 79;
+  int PREFIX_EXP_CS = 78;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -5238,16 +5219,6 @@ public interface UsePackage extends EPackage
    * @generated
    */
   EReference getNestedExpCS_OwnedExpression();
-
-  /**
-   * Returns the meta object for class '{@link modelConverter.use_language.use.SelfExpCS <em>Self Exp CS</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Self Exp CS</em>'.
-   * @see modelConverter.use_language.use.SelfExpCS
-   * @generated
-   */
-  EClass getSelfExpCS();
 
   /**
    * Returns the meta object for class '{@link modelConverter.use_language.use.IfExpCS <em>If Exp CS</em>}'.
@@ -7377,16 +7348,6 @@ public interface UsePackage extends EPackage
      * @generated
      */
     EReference NESTED_EXP_CS__OWNED_EXPRESSION = eINSTANCE.getNestedExpCS_OwnedExpression();
-
-    /**
-     * The meta object literal for the '{@link modelConverter.use_language.use.impl.SelfExpCSImpl <em>Self Exp CS</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see modelConverter.use_language.use.impl.SelfExpCSImpl
-     * @see modelConverter.use_language.use.impl.UsePackageImpl#getSelfExpCS()
-     * @generated
-     */
-    EClass SELF_EXP_CS = eINSTANCE.getSelfExpCS();
 
     /**
      * The meta object literal for the '{@link modelConverter.use_language.use.impl.IfExpCSImpl <em>If Exp CS</em>}' class.

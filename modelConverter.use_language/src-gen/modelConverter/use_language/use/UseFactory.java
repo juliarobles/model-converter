@@ -654,15 +654,6 @@ public interface UseFactory extends EFactory
   NestedExpCS createNestedExpCS();
 
   /**
-   * Returns a new object of class '<em>Self Exp CS</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Self Exp CS</em>'.
-   * @generated
-   */
-  SelfExpCS createSelfExpCS();
-
-  /**
    * Returns a new object of class '<em>If Exp CS</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

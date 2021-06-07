@@ -262,7 +262,6 @@
     <genClasses ecoreClass="USE.ecore#//NestedExpCS">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference USE.ecore#//NestedExpCS/ownedExpression"/>
     </genClasses>
-    <genClasses ecoreClass="USE.ecore#//SelfExpCS"/>
     <genClasses ecoreClass="USE.ecore#//IfExpCS">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference USE.ecore#//IfExpCS/ownedCondition"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference USE.ecore#//IfExpCS/ownedThenExpression"/>

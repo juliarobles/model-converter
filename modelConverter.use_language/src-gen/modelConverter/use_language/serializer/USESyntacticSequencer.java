@@ -11,6 +11,7 @@ import org.eclipse.xtext.IGrammarAccess;
 import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.nodemodel.INode;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.AbstractElementAlias;
+import org.eclipse.xtext.serializer.analysis.GrammarAlias.AlternativeAlias;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.GroupAlias;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.TokenAlias;
 import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynNavigable;
@@ -21,6 +22,7 @@ import org.eclipse.xtext.serializer.sequencer.AbstractSyntacticSequencer;
 public class USESyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected USEGrammarAccess grammarAccess;
+	protected AbstractElementAlias match_Attribute_DeriveKeyword_4_0_0_or_DerivedKeyword_4_0_1;
 	protected AbstractElementAlias match_Generalization_CommaKeyword_1_q;
 	protected AbstractElementAlias match_OperationComplex___BeginKeyword_1_0_EndKeyword_1_2__q;
 	protected AbstractElementAlias match_OperationQuery_SemicolonKeyword_3_q;
@@ -30,6 +32,7 @@ public class USESyntacticSequencer extends AbstractSyntacticSequencer {
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (USEGrammarAccess) access;
+		match_Attribute_DeriveKeyword_4_0_0_or_DerivedKeyword_4_0_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getAttributeAccess().getDeriveKeyword_4_0_0()), new TokenAlias(false, false, grammarAccess.getAttributeAccess().getDerivedKeyword_4_0_1()));
 		match_Generalization_CommaKeyword_1_q = new TokenAlias(false, true, grammarAccess.getGeneralizationAccess().getCommaKeyword_1());
 		match_OperationComplex___BeginKeyword_1_0_EndKeyword_1_2__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getOperationComplexAccess().getBeginKeyword_1_0()), new TokenAlias(false, false, grammarAccess.getOperationComplexAccess().getEndKeyword_1_2()));
 		match_OperationQuery_SemicolonKeyword_3_q = new TokenAlias(false, true, grammarAccess.getOperationQueryAccess().getSemicolonKeyword_3());
@@ -49,7 +52,9 @@ public class USESyntacticSequencer extends AbstractSyntacticSequencer {
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			if (match_Generalization_CommaKeyword_1_q.equals(syntax))
+			if (match_Attribute_DeriveKeyword_4_0_0_or_DerivedKeyword_4_0_1.equals(syntax))
+				emit_Attribute_DeriveKeyword_4_0_0_or_DerivedKeyword_4_0_1(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Generalization_CommaKeyword_1_q.equals(syntax))
 				emit_Generalization_CommaKeyword_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_OperationComplex___BeginKeyword_1_0_EndKeyword_1_2__q.equals(syntax))
 				emit_OperationComplex___BeginKeyword_1_0_EndKeyword_1_2__q(semanticObject, getLastNavigableState(), syntaxNodes);
@@ -63,6 +68,18 @@ public class USESyntacticSequencer extends AbstractSyntacticSequencer {
 		}
 	}
 
+	/**
+	 * Ambiguous syntax:
+	 *     'derive' | 'derived'
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     initOCL=ExpCS (ambiguity) ':' deriveOCL=ExpCS
+	 *     type=AllTypes (ambiguity) ':' deriveOCL=ExpCS
+	 */
+	protected void emit_Attribute_DeriveKeyword_4_0_0_or_DerivedKeyword_4_0_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
 	/**
 	 * Ambiguous syntax:
 	 *     ','?

@@ -42,9 +42,13 @@ class TStateMachine {
 			return false;
 		TStateMachine other = (TStateMachine) obj;
 		if (name == null) {
-			if (other.name != null)
+			if (other.name != null && !other.name.contains("unnamed"))
 				return false;
-		} else if (!name.equals(other.name))
+		} else if (!name.equals(other.name)
+					&& !(name.isBlank() && other.name.contains("unnamed"))
+					&& !((other.name == null || other.name.isBlank()) && name.contains("unnamed"))
+					&& !((other.name != null && name.contains(other.name) && name.length() == other.name.length()+1))
+					&& !((other.name != null && other.name.contains(name) && other.name.length() == name.length()+1)))
 			return false;
 		if (states == null) {
 			if (other.states != null)

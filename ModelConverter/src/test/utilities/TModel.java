@@ -28,6 +28,16 @@ public class TModel {
 		relations.add(relation);
 	}
 
+	public TClass searchClassByName(String name) {
+		int i = 0;
+		while(i < this.classes.size()) {
+			if(this.classes.get(i).getName().equals(name)) {
+				return this.classes.get(i);
+			}
+		}
+		return null;
+	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;

@@ -29,6 +29,18 @@ class TAttribute {
 		}
 	}
 
+	public TAttribute(String name) {
+		this.name = name;
+	}
+	
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	public void setCollection(String collection) {
+		this.collection = collection;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -48,9 +60,13 @@ class TAttribute {
 			return false;
 		TAttribute other = (TAttribute) obj;
 		if (name == null) {
-			if (other.name != null)
+			if (other.name != null && !other.name.contains("unnamed"))
 				return false;
-		} else if (!name.equals(other.name))
+		} else if (!name.equals(other.name)
+					&& !(name.isBlank() && other.name.contains("unnamed"))
+					&& !((other.name == null || other.name.isBlank()) && name.contains("unnamed"))
+					&& !((other.name != null && name.contains(other.name) && name.length() == other.name.length()+1))
+					&& !((other.name != null && other.name.contains(name) && other.name.length() == name.length()+1)))
 			return false;
 		if (type == null) {
 			if (other.type != null)

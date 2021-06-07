@@ -62,7 +62,6 @@ import modelConverter.use_language.use.PrefixExpCS;
 import modelConverter.use_language.use.PrimitiveLiteralExpCS;
 import modelConverter.use_language.use.PrimitiveTypeRefCS;
 import modelConverter.use_language.use.RoundBracketedClauseCS;
-import modelConverter.use_language.use.SelfExpCS;
 import modelConverter.use_language.use.ShadowPartCS;
 import modelConverter.use_language.use.SimpleTypes;
 import modelConverter.use_language.use.SquareBracketedClauseCS;
@@ -502,11 +501,6 @@ public class UseAdapterFactory extends AdapterFactoryImpl
       public Adapter caseNestedExpCS(NestedExpCS object)
       {
         return createNestedExpCSAdapter();
-      }
-      @Override
-      public Adapter caseSelfExpCS(SelfExpCS object)
-      {
-        return createSelfExpCSAdapter();
       }
       @Override
       public Adapter caseIfExpCS(IfExpCS object)
@@ -1621,21 +1615,6 @@ public class UseAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createNestedExpCSAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link modelConverter.use_language.use.SelfExpCS <em>Self Exp CS</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see modelConverter.use_language.use.SelfExpCS
-   * @generated
-   */
-  public Adapter createSelfExpCSAdapter()
   {
     return null;
   }

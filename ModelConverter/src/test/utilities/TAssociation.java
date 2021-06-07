@@ -1,17 +1,24 @@
 package test.utilities;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class TAssociation {
 	private String name;
 	private List<TMemberEnd> memberEnds;
+	private String typeAssociation;
 	
 	public TAssociation(String name) {
 		this.name = name;
+		this.memberEnds = new ArrayList<>();
 	}
 
 	public void addMemberEnd(TMemberEnd memberEnd) {
 		memberEnds.add(memberEnd);
+	}
+
+	public void setTypeAssociation(String typeAssociation) {
+		this.typeAssociation = typeAssociation;
 	}
 
 	@Override
@@ -20,6 +27,7 @@ public class TAssociation {
 		int result = 1;
 		result = prime * result + ((memberEnds == null) ? 0 : memberEnds.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		result = prime * result + ((typeAssociation == null) ? 0 : typeAssociation.hashCode());
 		return result;
 	}
 
@@ -38,12 +46,19 @@ public class TAssociation {
 		} else if (!memberEnds.equals(other.memberEnds))
 			return false;
 		if (name == null) {
-			if (other.name != null)
+			if (other.name != null && !other.name.contains("unnamed"))
 				return false;
-		} else if (!name.equals(other.name))
+		} else if (!name.equals(other.name)
+					&& !(name.isBlank() && other.name.contains("unnamed"))
+					&& !((other.name == null || other.name.isBlank()) && name.contains("unnamed"))
+					&& !((other.name != null && name.contains(other.name) && name.length() == other.name.length()+1))
+					&& !((other.name != null && other.name.contains(name) && other.name.length() == name.length()+1)))
+			return false;
+		if (typeAssociation == null) {
+			if (other.typeAssociation != null)
+				return false;
+		} else if (!typeAssociation.equals(other.typeAssociation))
 			return false;
 		return true;
 	}
-	
-	
 }

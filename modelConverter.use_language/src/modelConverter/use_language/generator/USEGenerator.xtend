@@ -45,7 +45,6 @@ import modelConverter.use_language.use.NameExpCS
 import modelConverter.use_language.use.NestedExpCS
 import modelConverter.use_language.use.PrefixExpCS
 import modelConverter.use_language.use.PrimitiveLiteralExpCS
-import modelConverter.use_language.use.SelfExpCS
 import modelConverter.use_language.use.TupleLiteralExpCS
 import modelConverter.use_language.use.TypeLiteralExpCS
 import modelConverter.use_language.use.CollectionTypeCS
@@ -405,8 +404,6 @@ class USEGenerator extends AbstractGenerator {
 			«e.compilePrefixExpCS»
 		«ELSEIF (e instanceof PrimitiveLiteralExpCS)»
 			«e.compilePrimitiveLiteralExpCS»
-		«ELSEIF (e instanceof SelfExpCS)»
-			«e.compileSelfExpCS»
 		«ELSEIF (e instanceof TupleLiteralExpCS)»
 			«e.compileTupleLiteralExpCS»
 		«ELSEIF (e instanceof TypeLiteralExpCS)»
@@ -529,8 +526,6 @@ class USEGenerator extends AbstractGenerator {
 	private def compileInvalidLiteralExpCS(InvalidLiteralExpCS e) '''invalid'''
 	
 	private def compileNullLiteralExpCS(NullLiteralExpCS e) '''null'''
-	
-	private def compileSelfExpCS(SelfExpCS e) '''self'''
 	
 	private def compileTupleLiteralExpCS(TupleLiteralExpCS e) '''Tuple { «IF e.getOwnedParts.length > 0»«e.getOwnedParts.get(0).compileTupleLiteralPartCS»«FOR part : e.getOwnedParts.subList(1, e.getOwnedParts.length)», «part.compileTupleLiteralPartCS»«ENDFOR»«ENDIF» }'''
 	

@@ -62,7 +62,6 @@ import modelConverter.use_language.use.PrefixExpCS;
 import modelConverter.use_language.use.PrimitiveLiteralExpCS;
 import modelConverter.use_language.use.PrimitiveTypeRefCS;
 import modelConverter.use_language.use.RoundBracketedClauseCS;
-import modelConverter.use_language.use.SelfExpCS;
 import modelConverter.use_language.use.ShadowPartCS;
 import modelConverter.use_language.use.SimpleTypes;
 import modelConverter.use_language.use.SquareBracketedClauseCS;
@@ -588,13 +587,6 @@ public class UsePackageImpl extends EPackageImpl implements UsePackage
    * @generated
    */
   private EClass nestedExpCSEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass selfExpCSEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -2884,17 +2876,6 @@ public class UsePackageImpl extends EPackageImpl implements UsePackage
    * @generated
    */
   @Override
-  public EClass getSelfExpCS()
-  {
-    return selfExpCSEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public EClass getIfExpCS()
   {
     return ifExpCSEClass;
@@ -3593,8 +3574,6 @@ public class UsePackageImpl extends EPackageImpl implements UsePackage
     nestedExpCSEClass = createEClass(NESTED_EXP_CS);
     createEReference(nestedExpCSEClass, NESTED_EXP_CS__OWNED_EXPRESSION);
 
-    selfExpCSEClass = createEClass(SELF_EXP_CS);
-
     ifExpCSEClass = createEClass(IF_EXP_CS);
     createEReference(ifExpCSEClass, IF_EXP_CS__OWNED_CONDITION);
     createEReference(ifExpCSEClass, IF_EXP_CS__OWNED_THEN_EXPRESSION);
@@ -3708,7 +3687,6 @@ public class UsePackageImpl extends EPackageImpl implements UsePackage
     invalidLiteralExpCSEClass.getESuperTypes().add(this.getPrimitiveLiteralExpCS());
     nullLiteralExpCSEClass.getESuperTypes().add(this.getPrimitiveLiteralExpCS());
     nestedExpCSEClass.getESuperTypes().add(this.getExpCS());
-    selfExpCSEClass.getESuperTypes().add(this.getExpCS());
     ifExpCSEClass.getESuperTypes().add(this.getExpCS());
     letExpCSEClass.getESuperTypes().add(this.getExpCS());
     infixExpCSEClass.getESuperTypes().add(this.getExpCS());
@@ -3980,8 +3958,6 @@ public class UsePackageImpl extends EPackageImpl implements UsePackage
 
     initEClass(nestedExpCSEClass, NestedExpCS.class, "NestedExpCS", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getNestedExpCS_OwnedExpression(), this.getExpCS(), null, "ownedExpression", null, 0, 1, NestedExpCS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(selfExpCSEClass, SelfExpCS.class, "SelfExpCS", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(ifExpCSEClass, IfExpCS.class, "IfExpCS", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getIfExpCS_OwnedCondition(), ecorePackage.getEObject(), null, "ownedCondition", null, 0, 1, IfExpCS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

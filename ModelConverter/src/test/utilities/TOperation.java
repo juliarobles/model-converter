@@ -38,6 +38,10 @@ class TOperation {
 		postconditions.add(postcondition);
 	}
 
+	public String getName() {
+		return name;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -61,14 +65,20 @@ class TOperation {
 			return false;
 		TOperation other = (TOperation) obj;
 		if (bodyCondition == null) {
-			if (other.bodyCondition != null)
+			if (other.bodyCondition != null && !other.bodyCondition.equals("USE"))
 				return false;
-		} else if (!bodyCondition.equals(other.bodyCondition))
+		} else if (!bodyCondition.equals(other.bodyCondition)
+					&& !other.bodyCondition.equals("USE")
+					&& !bodyCondition.equals("USE"))
 			return false;
 		if (name == null) {
-			if (other.name != null)
+			if (other.name != null && !other.name.contains("unnamed"))
 				return false;
-		} else if (!name.equals(other.name))
+		} else if (!name.equals(other.name)
+					&& !(name.isBlank() && other.name.contains("unnamed"))
+					&& !((other.name == null || other.name.isBlank()) && name.contains("unnamed"))
+					&& !((other.name != null && name.contains(other.name) && name.length() == other.name.length()+1))
+					&& !((other.name != null && other.name.contains(name) && other.name.length() == name.length()+1)))
 			return false;
 		if (parameters == null) {
 			if (other.parameters != null)

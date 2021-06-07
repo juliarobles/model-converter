@@ -27,9 +27,20 @@ class TestModelConverter {
 	}
 	
 	@Test
-	void testP01() {
+	void testP01USE() {
 		Generators.chooseGeneratorBySourceFile(source + "/P01.use", destiny);
 		assertTrue(ModelCheck.checkModelsAreEquivalentMDMD(source + "/P01.uml", destiny + "/modelConverter_ModelP01.uml"));
+	}
+	
+	@Test
+	void testP01MDUSE() {
+		assertTrue(ModelCheck.checkModelsAreEquivalentUSEMD(source + "/P01.use", source + "/P01.uml"));
+	}
+	
+	@Test
+	void testP01MD() {
+		Generators.chooseGeneratorBySourceFile(source + "/P01.uml", destiny);
+		assertTrue(ModelCheck.checkModelsAreEquivalentUSEUSE(source + "/P01.use", destiny + "/modelConverter_ModelP01.use"));
 	}
 
 }

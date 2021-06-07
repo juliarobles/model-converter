@@ -43,6 +43,7 @@ public class USEParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getAllClassAndEnumAccess().getAlternatives(), "rule__AllClassAndEnum__Alternatives");
 			builder.put(grammarAccess.getSimpleTypesAccess().getAlternatives(), "rule__SimpleTypes__Alternatives");
 			builder.put(grammarAccess.getAssociationAccess().getTypeAssociationAlternatives_0_0(), "rule__Association__TypeAssociationAlternatives_0_0");
+			builder.put(grammarAccess.getAttributeAccess().getAlternatives_4_0(), "rule__Attribute__Alternatives_4_0");
 			builder.put(grammarAccess.getOperationTypeAccess().getAlternatives(), "rule__OperationType__Alternatives");
 			builder.put(grammarAccess.getStateAccess().getAlternatives_1(), "rule__State__Alternatives_1");
 			builder.put(grammarAccess.getContextsTypeAccess().getAlternatives(), "rule__ContextsType__Alternatives");
@@ -174,7 +175,6 @@ public class USEParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getInvalidLiteralExpCSAccess().getGroup(), "rule__InvalidLiteralExpCS__Group__0");
 			builder.put(grammarAccess.getNullLiteralExpCSAccess().getGroup(), "rule__NullLiteralExpCS__Group__0");
 			builder.put(grammarAccess.getNestedExpCSAccess().getGroup(), "rule__NestedExpCS__Group__0");
-			builder.put(grammarAccess.getSelfExpCSAccess().getGroup(), "rule__SelfExpCS__Group__0");
 			builder.put(grammarAccess.getIfExpCSAccess().getGroup(), "rule__IfExpCS__Group__0");
 			builder.put(grammarAccess.getElseIfThenExpCSAccess().getGroup(), "rule__ElseIfThenExpCS__Group__0");
 			builder.put(grammarAccess.getLetExpCSAccess().getGroup(), "rule__LetExpCS__Group__0");

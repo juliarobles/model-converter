@@ -90,7 +90,7 @@ AttributesBase:
 		(attributes+=Attribute)*;
 
 Attribute:
-	name=ID ':' type=AllTypes ('init' ':' initOCL=ExpCS)? ('derive' ':' deriveOCL=ExpCS)?;
+	name=ID ':' type=AllTypes ('init' ':' initOCL=ExpCS)? (('derive' | 'derived') ':' deriveOCL=ExpCS)?;
 
 
 //------------OPERACIONES--------------
@@ -301,6 +301,7 @@ MultiplicityStringCS returns MultiplicityStringCS:
 
 PathNameCS returns PathNameCS:
 	ownedPathElements+=ID ('::' ownedPathElements+=ID)*;
+
 UPPER:
 	IntToString | '*'
 ;
@@ -339,7 +340,7 @@ PrefixedPrimaryExpCS returns ExpCS:
 PrimaryExpCS returns ExpCS:
 	NestedExpCS
 |	IfExpCS
-| 	SelfExpCS
+//| 	SelfExpCS
 | 	PrimitiveLiteralExpCS
 | 	TupleLiteralExpCS
 | 	MapLiteralExpCS
@@ -406,8 +407,8 @@ NullLiteralExpCS returns NullLiteralExpCS:
 NestedExpCS returns NestedExpCS:
 	'(' ownedExpression=ExpCS ')';
 
-SelfExpCS returns SelfExpCS:
-	{SelfExpCS} 'self';
+//SelfExpCS returns SelfExpCS:
+	//{SelfExpCS} 'self';
 
 IfExpCS returns IfExpCS:
 	'if' ownedCondition=(ExpCS|PatternExpCS)

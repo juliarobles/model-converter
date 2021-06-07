@@ -1490,20 +1490,27 @@ ruleAttribute returns [EObject current=null]
 			)
 		)?
 		(
-			otherlv_6='derive'
+			(
+				otherlv_6='derive'
+				{
+					newLeafNode(otherlv_6, grammarAccess.getAttributeAccess().getDeriveKeyword_4_0_0());
+				}
+				    |
+				otherlv_7='derived'
+				{
+					newLeafNode(otherlv_7, grammarAccess.getAttributeAccess().getDerivedKeyword_4_0_1());
+				}
+			)
+			otherlv_8=':'
 			{
-				newLeafNode(otherlv_6, grammarAccess.getAttributeAccess().getDeriveKeyword_4_0());
-			}
-			otherlv_7=':'
-			{
-				newLeafNode(otherlv_7, grammarAccess.getAttributeAccess().getColonKeyword_4_1());
+				newLeafNode(otherlv_8, grammarAccess.getAttributeAccess().getColonKeyword_4_1());
 			}
 			(
 				(
 					{
 						newCompositeNode(grammarAccess.getAttributeAccess().getDeriveOCLExpCSParserRuleCall_4_2_0());
 					}
-					lv_deriveOCL_8_0=ruleExpCS
+					lv_deriveOCL_9_0=ruleExpCS
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getAttributeRule());
@@ -1511,7 +1518,7 @@ ruleAttribute returns [EObject current=null]
 						set(
 							$current,
 							"deriveOCL",
-							lv_deriveOCL_8_0,
+							lv_deriveOCL_9_0,
 							"modelConverter.use_language.USE.ExpCS");
 						afterParserOrEnumRuleCall();
 					}
@@ -5088,11 +5095,11 @@ rulePrimaryExpCS returns [EObject current=null]
 			/* */
 		}
 		{
-			newCompositeNode(grammarAccess.getPrimaryExpCSAccess().getSelfExpCSParserRuleCall_2());
+			newCompositeNode(grammarAccess.getPrimaryExpCSAccess().getPrimitiveLiteralExpCSParserRuleCall_2());
 		}
-		this_SelfExpCS_2=ruleSelfExpCS
+		this_PrimitiveLiteralExpCS_2=rulePrimitiveLiteralExpCS
 		{
-			$current = $this_SelfExpCS_2.current;
+			$current = $this_PrimitiveLiteralExpCS_2.current;
 			afterParserOrEnumRuleCall();
 		}
 		    |
@@ -5100,11 +5107,11 @@ rulePrimaryExpCS returns [EObject current=null]
 			/* */
 		}
 		{
-			newCompositeNode(grammarAccess.getPrimaryExpCSAccess().getPrimitiveLiteralExpCSParserRuleCall_3());
+			newCompositeNode(grammarAccess.getPrimaryExpCSAccess().getTupleLiteralExpCSParserRuleCall_3());
 		}
-		this_PrimitiveLiteralExpCS_3=rulePrimitiveLiteralExpCS
+		this_TupleLiteralExpCS_3=ruleTupleLiteralExpCS
 		{
-			$current = $this_PrimitiveLiteralExpCS_3.current;
+			$current = $this_TupleLiteralExpCS_3.current;
 			afterParserOrEnumRuleCall();
 		}
 		    |
@@ -5112,11 +5119,11 @@ rulePrimaryExpCS returns [EObject current=null]
 			/* */
 		}
 		{
-			newCompositeNode(grammarAccess.getPrimaryExpCSAccess().getTupleLiteralExpCSParserRuleCall_4());
+			newCompositeNode(grammarAccess.getPrimaryExpCSAccess().getMapLiteralExpCSParserRuleCall_4());
 		}
-		this_TupleLiteralExpCS_4=ruleTupleLiteralExpCS
+		this_MapLiteralExpCS_4=ruleMapLiteralExpCS
 		{
-			$current = $this_TupleLiteralExpCS_4.current;
+			$current = $this_MapLiteralExpCS_4.current;
 			afterParserOrEnumRuleCall();
 		}
 		    |
@@ -5124,11 +5131,11 @@ rulePrimaryExpCS returns [EObject current=null]
 			/* */
 		}
 		{
-			newCompositeNode(grammarAccess.getPrimaryExpCSAccess().getMapLiteralExpCSParserRuleCall_5());
+			newCompositeNode(grammarAccess.getPrimaryExpCSAccess().getCollectionLiteralExpCSParserRuleCall_5());
 		}
-		this_MapLiteralExpCS_5=ruleMapLiteralExpCS
+		this_CollectionLiteralExpCS_5=ruleCollectionLiteralExpCS
 		{
-			$current = $this_MapLiteralExpCS_5.current;
+			$current = $this_CollectionLiteralExpCS_5.current;
 			afterParserOrEnumRuleCall();
 		}
 		    |
@@ -5136,11 +5143,11 @@ rulePrimaryExpCS returns [EObject current=null]
 			/* */
 		}
 		{
-			newCompositeNode(grammarAccess.getPrimaryExpCSAccess().getCollectionLiteralExpCSParserRuleCall_6());
+			newCompositeNode(grammarAccess.getPrimaryExpCSAccess().getLambdaLiteralExpCSParserRuleCall_6());
 		}
-		this_CollectionLiteralExpCS_6=ruleCollectionLiteralExpCS
+		this_LambdaLiteralExpCS_6=ruleLambdaLiteralExpCS
 		{
-			$current = $this_CollectionLiteralExpCS_6.current;
+			$current = $this_LambdaLiteralExpCS_6.current;
 			afterParserOrEnumRuleCall();
 		}
 		    |
@@ -5148,11 +5155,11 @@ rulePrimaryExpCS returns [EObject current=null]
 			/* */
 		}
 		{
-			newCompositeNode(grammarAccess.getPrimaryExpCSAccess().getLambdaLiteralExpCSParserRuleCall_7());
+			newCompositeNode(grammarAccess.getPrimaryExpCSAccess().getTypeLiteralExpCSParserRuleCall_7());
 		}
-		this_LambdaLiteralExpCS_7=ruleLambdaLiteralExpCS
+		this_TypeLiteralExpCS_7=ruleTypeLiteralExpCS
 		{
-			$current = $this_LambdaLiteralExpCS_7.current;
+			$current = $this_TypeLiteralExpCS_7.current;
 			afterParserOrEnumRuleCall();
 		}
 		    |
@@ -5160,23 +5167,11 @@ rulePrimaryExpCS returns [EObject current=null]
 			/* */
 		}
 		{
-			newCompositeNode(grammarAccess.getPrimaryExpCSAccess().getTypeLiteralExpCSParserRuleCall_8());
+			newCompositeNode(grammarAccess.getPrimaryExpCSAccess().getNameExpCSParserRuleCall_8());
 		}
-		this_TypeLiteralExpCS_8=ruleTypeLiteralExpCS
+		this_NameExpCS_8=ruleNameExpCS
 		{
-			$current = $this_TypeLiteralExpCS_8.current;
-			afterParserOrEnumRuleCall();
-		}
-		    |
-		{
-			/* */
-		}
-		{
-			newCompositeNode(grammarAccess.getPrimaryExpCSAccess().getNameExpCSParserRuleCall_9());
-		}
-		this_NameExpCS_9=ruleNameExpCS
-		{
-			$current = $this_NameExpCS_9.current;
+			$current = $this_NameExpCS_8.current;
 			afterParserOrEnumRuleCall();
 		}
 	)
@@ -6234,39 +6229,6 @@ ruleNestedExpCS returns [EObject current=null]
 		otherlv_2=')'
 		{
 			newLeafNode(otherlv_2, grammarAccess.getNestedExpCSAccess().getRightParenthesisKeyword_2());
-		}
-	)
-;
-
-// Entry rule entryRuleSelfExpCS
-entryRuleSelfExpCS returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getSelfExpCSRule()); }
-	iv_ruleSelfExpCS=ruleSelfExpCS
-	{ $current=$iv_ruleSelfExpCS.current; }
-	EOF;
-
-// Rule SelfExpCS
-ruleSelfExpCS returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		(
-			{
-				/* */
-			}
-			{
-				$current = forceCreateModelElement(
-					grammarAccess.getSelfExpCSAccess().getSelfExpCSAction_0(),
-					$current);
-			}
-		)
-		otherlv_1='self'
-		{
-			newLeafNode(otherlv_1, grammarAccess.getSelfExpCSAccess().getSelfKeyword_1());
 		}
 	)
 ;

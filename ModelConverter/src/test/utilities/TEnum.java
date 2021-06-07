@@ -35,11 +35,13 @@ public class TEnum {
 			return false;
 		TEnum other = (TEnum) obj;
 		if (name == null) {
-			if (other.name != null)
+			if (other.name != null && !other.name.contains("unnamed"))
 				return false;
-		} else if (!name.equals(other.name) 
-				&& !(name.isBlank() && other.name.contains("unnamed"))
-				&& !(other.name.isBlank() && name.contains("unnamed")))
+		} else if (!name.equals(other.name)
+					&& !(name.isBlank() && other.name.contains("unnamed"))
+					&& !((other.name == null || other.name.isBlank()) && name.contains("unnamed"))
+					&& !((other.name != null && name.contains(other.name) && name.length() == other.name.length()+1))
+					&& !((other.name != null && other.name.contains(name) && other.name.length() == name.length()+1)))
 			return false;
 		if (values == null) {
 			if (other.values != null)

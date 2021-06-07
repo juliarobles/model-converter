@@ -34,7 +34,7 @@ public class Generators {
 		File file = new File(source);
 		System.out.println("The USE file \"" + file.getName() + "\" will be converted to UML...");
 		main.model.usetouml.General.generateUML(source, destiny);
-		System.out.println("Proceso finalizado.\n");
+		System.out.println("Ended process.\n");
 		
 	}
 
@@ -42,7 +42,7 @@ public class Generators {
 		File file = new File(source);
 		System.out.println("The UML file \"" + file.getName() + "\" will be converted to USE...");
 		main.model.umltouse.General.generateUSE(source, destination);
-		System.out.println("Proceso finalizado.\n");
+		System.out.println("Ended process.\n");
 	}
 	
 }

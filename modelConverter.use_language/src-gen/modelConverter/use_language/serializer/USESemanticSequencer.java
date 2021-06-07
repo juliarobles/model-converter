@@ -55,7 +55,6 @@ import modelConverter.use_language.use.Precondition;
 import modelConverter.use_language.use.PrefixExpCS;
 import modelConverter.use_language.use.PrimitiveTypeRefCS;
 import modelConverter.use_language.use.RoundBracketedClauseCS;
-import modelConverter.use_language.use.SelfExpCS;
 import modelConverter.use_language.use.ShadowPartCS;
 import modelConverter.use_language.use.SimpleTypes;
 import modelConverter.use_language.use.SquareBracketedClauseCS;
@@ -341,9 +340,6 @@ public class USESemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				else break;
 			case UsePackage.ROUND_BRACKETED_CLAUSE_CS:
 				sequence_RoundBracketedClauseCS(context, (RoundBracketedClauseCS) semanticObject); 
-				return; 
-			case UsePackage.SELF_EXP_CS:
-				sequence_SelfExpCS(context, (SelfExpCS) semanticObject); 
 				return; 
 			case UsePackage.SHADOW_PART_CS:
 				sequence_ShadowPartCS(context, (ShadowPartCS) semanticObject); 
@@ -1458,23 +1454,6 @@ public class USESemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     )?
 	 */
 	protected void sequence_RoundBracketedClauseCS(ISerializationContext context, RoundBracketedClauseCS semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     ExpCS returns SelfExpCS
-	 *     ExpCS.InfixExpCS_0_1_0 returns SelfExpCS
-	 *     PrefixedPrimaryExpCS returns SelfExpCS
-	 *     PrimaryExpCS returns SelfExpCS
-	 *     SelfExpCS returns SelfExpCS
-	 *     NavigatingArgExpCS returns SelfExpCS
-	 *
-	 * Constraint:
-	 *     {SelfExpCS}
-	 */
-	protected void sequence_SelfExpCS(ISerializationContext context, SelfExpCS semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

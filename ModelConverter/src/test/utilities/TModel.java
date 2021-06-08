@@ -34,6 +34,7 @@ public class TModel {
 			if(this.classes.get(i).getName().equals(name)) {
 				return this.classes.get(i);
 			}
+			i++;
 		}
 		return null;
 	}

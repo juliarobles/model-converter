@@ -37,9 +37,10 @@ class TConstraint {
 			return false;
 		TConstraint other = (TConstraint) obj;
 		if (name == null) {
-			if (other.name != null && !other.name.contains("unnamed"))
+			if (other.name != null && !other.name.contains("unnamed") && !other.name.isBlank())
 				return false;
 		} else if (!name.equals(other.name)
+					&& !(name.isBlank() && other.name == null)
 					&& !(name.isBlank() && other.name.contains("unnamed"))
 					&& !((other.name == null || other.name.isBlank()) && name.contains("unnamed"))
 					&& !((other.name != null && name.contains(other.name) && name.length() == other.name.length()+1))
@@ -50,7 +51,8 @@ class TConstraint {
 				return false;
 		} else if (!ocl.equals(other.ocl)
 					&& !((other.ocl == null || other.ocl.isBlank()) && ocl.equals("true"))
-					&& !other.ocl.equals("USE") && !ocl.equals("USE"))
+					&& !other.ocl.equals("USE") && !ocl.equals("USE")
+					&& !(other.ocl.strip().replaceAll(" ", "") != null && ocl.equals(other.ocl.strip().replaceAll(" ", ""))))
 			return false;
 		return true;
 	}

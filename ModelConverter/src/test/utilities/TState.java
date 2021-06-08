@@ -39,12 +39,14 @@ public class TState {
 			if (other.invariant != null && !other.invariant.equals("USE"))
 				return false;
 		} else if (!invariant.equals(other.invariant)
-					&& !other.invariant.equals("USE") && !invariant.equals("USE"))
+					&& !other.invariant.equals("USE") && !invariant.equals("USE")
+					&& !(other.invariant != null && invariant.strip().replaceAll(" ", "").equals(other.invariant.strip().replaceAll(" ", ""))))
 			return false;
 		if (name == null) {
-			if (other.name != null && !other.name.contains("unnamed"))
+			if (other.name != null && !other.name.contains("unnamed") && !other.name.isBlank())
 				return false;
 		} else if (!name.equals(other.name)
+					&& !(name.isBlank() && other.name == null)
 					&& !(name.isBlank() && other.name.contains("unnamed"))
 					&& !((other.name == null || other.name.isBlank()) && name.contains("unnamed"))
 					&& !((other.name != null && name.contains(other.name) && name.length() == other.name.length()+1))

@@ -8,7 +8,6 @@ import java.io.PrintStream;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.MethodOrderer.MethodName;
-import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 
@@ -33,8 +32,9 @@ class TestModelConverter {
 	
 	@Test 
 	void test1_CheckModelsAreEquivalent() {
-		//assertTrue(ModelCheck.checkModelsAreEquivalentUSEUML(source + "/P01.use", source + "/P01.uml"));
-		assertTrue(ModelCheck.checkModelsAreEquivalentUSEUML(source + "/P02.use", source + "/P02.uml"));
+		assertTrue(ModelCheck.checkModelsAreEquivalentUSEUML(source + "/P01.use", source + "/P01.uml"));
+		//assertTrue(ModelCheck.checkModelsAreEquivalentUSEUML(source + "/P02.use", source + "/P02.uml"));
+		
 	}
 	
 	@Test
@@ -112,6 +112,7 @@ class TestModelConverter {
 		assertTrue(ModelCheck.checkModelsAreEquivalentUMLUML(source + "/P01.uml", destiny + "/modelConverter_ModelP01(1).uml"));
 	}
 
+	/*
 	@Test
 	void testP02A_USEToUML() {
 		Generators.chooseGeneratorBySourceFile(source + "/P02.use", destiny);
@@ -136,6 +137,6 @@ class TestModelConverter {
 	void testP02B_UMLToUSEToUML() {
 		Generators.chooseGeneratorBySourceFile(destiny + "/modelConverter_ModelP02.use", destiny);
 		assertTrue(ModelCheck.checkModelsAreEquivalentUMLUML(source + "/P02.uml", destiny + "/modelConverter_ModelP02(1).uml"));
-	}
+	}*/
 	
 }

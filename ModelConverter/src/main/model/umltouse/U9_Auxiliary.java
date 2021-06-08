@@ -118,18 +118,20 @@ public class U9_Auxiliary {
 	}
 	
 	static boolean typeIsNull(Type type) {
-		return type == null || (!type.getQualifiedName().startsWith(General.nameModel) && type.getName().contains("void"));
+		return type == null || type.getQualifiedName() == null || (!type.getQualifiedName().startsWith(General.nameModel) && type.getName().contains("void"));
 	}
 	
 	static String checkAvailableType(Type type) {
 		String name = type.getQualifiedName();
-		if(name.startsWith(General.nameModel)) {
+		if(name == null) {
+			return "String";
+		} else if(name.startsWith(General.nameModel)) {
 			return type.getName();
 		} else {
 			name = type.getName().toLowerCase();
 			if(name.contains("bool")) {
 				return "Boolean";
-			} else if (name.contains("int")) {
+			} else if (name.contains("int") || name.contains("long") || name.contains("short")) {
 				return "Integer";
 			} else if (name.contains("double") || name.contains("float") || name.contains("real")) {
 				return "Real";

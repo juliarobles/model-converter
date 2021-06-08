@@ -40,9 +40,12 @@ import org.eclipse.uml2.uml.Constraint;
 
 public class MC_UMLtoTModel {
 	
+	private static String nameModel = "";
+	
 	public static TModel getModelFromFileMD(String modelMD) {
 		Package packet = (Package) EcoreUtil.getObjectByType(load(modelMD).getContents(), UMLPackage.Literals.PACKAGE);
 		TModel tModel = new TModel(packet.getModel().getName());
+		nameModel = packet.getModel().getName();
 		
 		for (PackageableElement pe : packet.getPackagedElements()) {
 			//https://stackoverflow.com/questions/61668719/read-sequence-diagram-from-xmi-using-emf
@@ -197,20 +200,27 @@ public class MC_UMLtoTModel {
 		return res;
 	}	
 	private static String checkAvailableType(String nameModel, Type type) {
-		String name = type.getQualifiedName();
-		if(name.startsWith(nameModel)) {
-			return type.getName();
-		} else {
-			name = type.getName().toLowerCase();
-			if(name.contains("bool")) {
-				return "Boolean";
-			} else if (name.contains("int")) {
-				return "Integer";
-			} else if (name.contains("double") || name.contains("float") || name.contains("real")) {
-				return "Real";
+		if(!typeIsNull(type)) {
+			String name = type.getQualifiedName();
+			if(name.startsWith(nameModel)) {
+				return type.getName();
 			} else {
-				return "String";
+				name = type.getName().toLowerCase();
+				if(name.contains("bool")) {
+					return "Boolean";
+				} else if (name.contains("int") || name.contains("long") || name.contains("short")) {
+					return "Integer";
+				} else if (name.contains("double") || name.contains("float") || name.contains("real")) {
+					return "Real";
+				} else {
+					return "String";
+				}
 			}
 		}
+		return "String";
+	}
+	
+	private static boolean typeIsNull(Type type) {
+		return type == null || (!type.getQualifiedName().startsWith(nameModel) && type.getName().contains("void"));
 	}
 }

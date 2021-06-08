@@ -101,7 +101,7 @@ public class U1_Class {
 						collection = U9_Auxiliary.CollectionName.Bag;
 					}
 				}
-				sBuilder.append("\t\t" + U9_Auxiliary.checkUnnamed(property.getName(), namesUsedParticular, countUnnamed) + U9_Auxiliary.typeToStringOptional(property.getType(), collection) + defaultValue + "\n");
+				sBuilder.append("\t\t" + U9_Auxiliary.checkUnnamed(property.getName(), namesUsedParticular, countUnnamed) + " : " + U9_Auxiliary.typeToStringNecessary(property.getType(), collection) + defaultValue + "\n");
 			}
 		}
 				

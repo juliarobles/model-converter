@@ -78,7 +78,7 @@ public class Main {
 		flowLayout.setAlignment(FlowLayout.LEFT);
 		frmModelConverter.getContentPane().add(panel_1);
 		
-		JLabel lblNewLabel = new JLabel("Select the file .uml or .use to convert:");
+		JLabel lblNewLabel = new JLabel("Select the .uml or .use file to convert:");
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		panel_1.add(lblNewLabel);
 		

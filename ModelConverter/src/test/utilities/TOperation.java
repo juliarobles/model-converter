@@ -72,9 +72,10 @@ class TOperation {
 					&& !bodyCondition.equals("USE"))
 			return false;
 		if (name == null) {
-			if (other.name != null && !other.name.contains("unnamed"))
+			if (other.name != null && !other.name.contains("unnamed") && !other.name.isBlank())
 				return false;
 		} else if (!name.equals(other.name)
+					&& !(name.isBlank() && other.name == null)
 					&& !(name.isBlank() && other.name.contains("unnamed"))
 					&& !((other.name == null || other.name.isBlank()) && name.contains("unnamed"))
 					&& !((other.name != null && name.contains(other.name) && name.length() == other.name.length()+1))
@@ -96,9 +97,10 @@ class TOperation {
 		} else if (!preconditions.equals(other.preconditions))
 			return false;
 		if (return1 == null) {
-			if (other.return1 != null)
+			if (other.return1 != null && !(other.return1.equals(new TAttribute("", "String", null))))
 				return false;
-		} else if (!return1.equals(other.return1))
+		} else if (!return1.equals(other.return1)
+					&& !(other.return1 == null && return1.equals(new TAttribute("", "String", null))))
 			return false;
 		return true;
 	}

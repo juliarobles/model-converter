@@ -64,13 +64,15 @@ public class TTransition {
 			if (other.postCondition != null && !other.postCondition.equals("USE"))
 				return false;
 		} else if (!postCondition.equals(other.postCondition)
-					&& !other.postCondition.equals("USE") && !postCondition.equals("USE"))
+					&& !other.postCondition.equals("USE") && !postCondition.equals("USE")
+					&& !(other.postCondition != null && postCondition.strip().replaceAll(" ", "").equals(other.postCondition.strip().replaceAll(" ", ""))))
 			return false;
 		if (preCondition == null) {
 			if (other.preCondition != null && !other.preCondition.equals("USE"))
 				return false;
 		} else if (!preCondition.equals(other.preCondition)
-					&& !other.preCondition.equals("USE") && !preCondition.equals("USE"))
+					&& !other.preCondition.equals("USE") && !preCondition.equals("USE")
+					&& !(other.preCondition != null && preCondition.strip().replaceAll(" ", "").equals(other.preCondition.strip().replaceAll(" ", ""))))
 			return false;
 		if (source == null) {
 			if (other.source != null)

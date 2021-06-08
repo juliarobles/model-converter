@@ -8,6 +8,11 @@ public class TState {
 		this.name = name;
 	}
 
+	public TState(String name, String invariant) {
+		this.name = name;
+		this.invariant = invariant;
+	}
+	
 	public void setInvariant(String invariant) {
 		this.invariant = invariant;
 	}
@@ -31,9 +36,10 @@ public class TState {
 			return false;
 		TState other = (TState) obj;
 		if (invariant == null) {
-			if (other.invariant != null)
+			if (other.invariant != null && !other.invariant.equals("USE"))
 				return false;
-		} else if (!invariant.equals(other.invariant))
+		} else if (!invariant.equals(other.invariant)
+					&& !other.invariant.equals("USE") && !invariant.equals("USE"))
 			return false;
 		if (name == null) {
 			if (other.name != null && !other.name.contains("unnamed"))

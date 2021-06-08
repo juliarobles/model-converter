@@ -241,10 +241,10 @@ public class USEGenerator extends AbstractGenerator {
     {
       boolean _isAbstract = e.isAbstract();
       if (_isAbstract) {
-        _builder.append(" abstract=\"true\"");
+        _builder.append("isAbstract=\"true\" ");
       }
     }
-    _builder.append(" name=\"");
+    _builder.append("name=\"");
     String _name = e.getName();
     _builder.append(_name);
     _builder.append("\">");

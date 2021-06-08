@@ -9,16 +9,16 @@ import modelConverter.use_language.USEStandaloneSetup;
 
 public class ModelCheck {
 	
-	public static boolean checkModelsAreEquivalentUSEMD(String modelUSE, String modelMD) {
+	public static boolean checkModelsAreEquivalentUSEUML(String modelUSE, String modelUML) {
 		TModel tModelUSE = MC_USEtoTModel.getModelFromFileUSE(modelUSE);
-		TModel tModelMD = MC_MDtoTModel.getModelFromFileMD(modelMD);
-		return tModelMD.equals(tModelUSE);
+		TModel tModelUML = MC_UMLtoTModel.getModelFromFileMD(modelUML);
+		return tModelUML.equals(tModelUSE);
 	}
 
-	public static boolean checkModelsAreEquivalentMDMD(String modelMD1, String modelMD2) {
-		TModel tModelMD1 = MC_MDtoTModel.getModelFromFileMD(modelMD1);
-		TModel tModelMD2 = MC_MDtoTModel.getModelFromFileMD(modelMD2);
-		return tModelMD1.equals(tModelMD2);
+	public static boolean checkModelsAreEquivalentUMLUML(String modelUML1, String modelUML2) {
+		TModel tModelUML1 = MC_UMLtoTModel.getModelFromFileMD(modelUML1);
+		TModel tModelUML2 = MC_UMLtoTModel.getModelFromFileMD(modelUML2);
+		return tModelUML1.equals(tModelUML2);
 	}
 	
 	public static boolean checkModelsAreEquivalentUSEUSE(String modelUSE1, String modelUSE2) {

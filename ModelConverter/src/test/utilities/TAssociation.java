@@ -13,6 +13,12 @@ public class TAssociation {
 		this.memberEnds = new ArrayList<>();
 	}
 
+	public TAssociation(String name, String typeAssociation) {
+		this.name = name;
+		this.memberEnds = new ArrayList<>();
+		this.typeAssociation = typeAssociation;
+	}
+
 	public void addMemberEnd(TMemberEnd memberEnd) {
 		memberEnds.add(memberEnd);
 	}
@@ -59,6 +65,7 @@ public class TAssociation {
 				return false;
 		} else if (!typeAssociation.equals(other.typeAssociation))
 			return false;
+		System.out.println("Equals tassociation " + name + "es true");
 		return true;
 	}
 }

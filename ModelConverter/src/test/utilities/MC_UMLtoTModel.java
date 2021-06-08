@@ -38,7 +38,7 @@ import org.eclipse.uml2.uml.CallEvent;
 import org.eclipse.uml2.uml.Class;
 import org.eclipse.uml2.uml.Constraint;
 
-public class MC_MDtoTModel {
+public class MC_UMLtoTModel {
 	
 	public static TModel getModelFromFileMD(String modelMD) {
 		Package packet = (Package) EcoreUtil.getObjectByType(load(modelMD).getContents(), UMLPackage.Literals.PACKAGE);
@@ -64,8 +64,10 @@ public class MC_MDtoTModel {
 					tClass.addInheritance(generalization.getGeneral().getName());
 				}
 				for(Property property : class1.getAttributes()) {
-					String upperValue = (property != null && property.getUpperValue() != null) ? property.getUpperValue().stringValue() : null;
-					tClass.addAttribute(new TAttribute(property.getName(), checkAvailableType(packet.getModel().getName(), property.getType()), upperValue, property.isUnique(), property.isOrdered()));
+					if(property.getAssociation() == null) {
+						String upperValue = (property != null && property.getUpperValue() != null) ? property.getUpperValue().stringValue() : null;
+						tClass.addAttribute(new TAttribute(property.getName(), checkAvailableType(packet.getModel().getName(), property.getType()), upperValue, property.isUnique(), property.isOrdered()));
+					}
 				}
 				for(Operation operation : class1.getOperations()) {
 					TOperation tOperation = new TOperation(operation.getName());
@@ -90,6 +92,11 @@ public class MC_MDtoTModel {
 					}
 					tClass.addOperation(null);
 				}
+				for(Constraint constraint : class1.getOwnedRules()) {
+					TConstraint tConstraint = new TConstraint(constraint.getName());
+					tConstraint.setOcl((constraint.getSpecification() != null) ? constraint.getSpecification().stringValue() : null);
+					tClass.addConstraint(tConstraint);
+				}
 				for(StateMachine stateMachine : class1.getOwnedBehaviors().stream().filter(sc -> sc instanceof StateMachine).map(sc -> (StateMachine) sc).collect(Collectors.toList())) {
 					TStateMachine tStateMachine = new TStateMachine(stateMachine.getName());
 					for(Region region : stateMachine.getRegions()) {
@@ -110,9 +117,12 @@ public class MC_MDtoTModel {
 							if(transition.getGuard() != null) postConditions.remove(transition.getGuard());
 							if(postConditions.size() > 0 && postConditions.get(0) != null && postConditions.get(0).getSpecification() != null && !postConditions.get(0).getSpecification().stringValue().isBlank()) tTransition.setPostCondition(postConditions.get(0).getSpecification().stringValue());
 							if(transition.getTriggers().size() > 0) tTransition.setOperation(((CallEvent)transition.getTriggers().get(0).getEvent()).getOperation().getName());
+							tStateMachine.addTransition(tTransition);
 						}
 					}
+					tClass.addStateMachine(tStateMachine);
 				}
+				tModel.addClass(tClass);
 			} else if (pe.eClass() == UMLPackage.Literals.ASSOCIATION) {
 				tModel.addRelation(processAssociation((Association)pe));
 			}
@@ -160,7 +170,7 @@ public class MC_MDtoTModel {
 		//Extraer la url del UML2 independiente al path de mi pc
 		//https://www.eclipse.org/forums/index.php/t/151576/
 		final String profile = "profiles/UML2.profile.uml";
-		URL url = MC_MDtoTModel.class.getClassLoader().getResource(profile);
+		URL url = MC_UMLtoTModel.class.getClassLoader().getResource(profile);
 		
 		if (url == null)
 		{

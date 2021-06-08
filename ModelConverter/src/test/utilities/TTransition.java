@@ -12,6 +12,15 @@ public class TTransition {
 		this.target = target;
 		this.source = source;
 	}
+	
+	public TTransition(String target, String source, String preCondition, String postCondition, String operation) {
+		super();
+		this.target = target;
+		this.source = source;
+		this.preCondition = preCondition;
+		this.postCondition = postCondition;
+		this.operation = operation;
+	}
 
 	public void setPreCondition(String preCondition) {
 		this.preCondition = preCondition;
@@ -52,14 +61,16 @@ public class TTransition {
 		} else if (!operation.equals(other.operation))
 			return false;
 		if (postCondition == null) {
-			if (other.postCondition != null)
+			if (other.postCondition != null && !other.postCondition.equals("USE"))
 				return false;
-		} else if (!postCondition.equals(other.postCondition))
+		} else if (!postCondition.equals(other.postCondition)
+					&& !other.postCondition.equals("USE") && !postCondition.equals("USE"))
 			return false;
 		if (preCondition == null) {
-			if (other.preCondition != null)
+			if (other.preCondition != null && !other.preCondition.equals("USE"))
 				return false;
-		} else if (!preCondition.equals(other.preCondition))
+		} else if (!preCondition.equals(other.preCondition)
+					&& !other.preCondition.equals("USE") && !preCondition.equals("USE"))
 			return false;
 		if (source == null) {
 			if (other.source != null)

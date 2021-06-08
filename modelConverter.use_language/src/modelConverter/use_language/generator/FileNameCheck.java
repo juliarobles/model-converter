@@ -23,7 +23,7 @@ public class FileNameCheck {
 					File file = new File(destination, fileName + suffix);
 					
 					while(file.exists()) {
-					    file = new File(destination, fileName + " (" + num + ")" + suffix);
+					    file = new File(destination, fileName + "(" + num + ")" + suffix);
 					    num++;
 					}
 					

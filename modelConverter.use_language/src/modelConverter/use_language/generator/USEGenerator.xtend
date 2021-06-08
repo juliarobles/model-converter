@@ -133,7 +133,7 @@ class USEGenerator extends AbstractGenerator {
 	'''
 
 	private def compileClass(Class e, Iterable<Type> associations, Iterable<ContextsType> constraints) '''
-		<packagedElement xmi:type="uml:Class" xmi:id="«System.identityHashCode(e)»" «IF e.isAbstract» abstract="true"«ENDIF» name="«e.getName()»">
+		<packagedElement xmi:type="uml:Class" xmi:id="«System.identityHashCode(e)»" «IF e.isAbstract»isAbstract="true" «ENDIF»name="«e.getName()»">
 		«IF e.getConstraints !== null»
 			«e.getConstraints.getInvariants().compileConstraintsBase(System.identityHashCode(e))»
 		«ENDIF»

@@ -126,6 +126,7 @@ class TClass{
 				return false;
 		} else if (!stateMachines.equals(other.stateMachines))
 			return false;
+		System.out.println("Equals tclass " + name + "es true");
 		return true;
 	}
 }

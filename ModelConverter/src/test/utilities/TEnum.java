@@ -50,6 +50,7 @@ public class TEnum {
 				&& !(values.isEmpty() && other.values.size() == 1 && other.values.get(0).equals("requiredValue"))
 				&& !(other.values.isEmpty() && values.size() == 1 && values.get(0).equals("requiredValue")))
 			return false;
+		System.out.println("Equals tenum " + name + "es true");
 		return true;
 	}
 	

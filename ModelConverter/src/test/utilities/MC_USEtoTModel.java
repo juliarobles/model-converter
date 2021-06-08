@@ -23,6 +23,9 @@ import modelConverter.use_language.use.Parameter;
 import modelConverter.use_language.use.Postcondition;
 import modelConverter.use_language.use.Precondition;
 import modelConverter.use_language.use.SimpleTypes;
+import modelConverter.use_language.use.State;
+import modelConverter.use_language.use.StateMachine;
+import modelConverter.use_language.use.Transition;
 import modelConverter.use_language.use.Class;
 import modelConverter.use_language.use.CollectionType;
 import modelConverter.use_language.use.ConditionType;
@@ -70,29 +73,14 @@ public class MC_USEtoTModel {
 						for(Generalization gen : class1.getGeneralization()) {
 							tClass.addInheritance(allClassAndEnumToString(gen.getGeneral()));
 						}
-						
-						tClass.addInheritance(modelUSE);
 						if(class1.getAttributes() != null) {
 							for(Attribute attribute : class1.getAttributes().getAttributes()) {
-								TAttribute tAttribute = new TAttribute(attribute.getName());
-								typeToAttribute(tAttribute, attribute.getType());
-								tClass.addAttribute(tAttribute);
+								tClass.addAttribute(getTAttribute(attribute));
 							}
 						}
 						if(class1.getOperations() != null) {
 							for(OperationType operation : class1.getOperations().getOperations()) {
-								TOperation tOperation = new TOperation(operation.getOperationDeclaration().getName());
-								TAttribute returnAttr = new TAttribute("");
-								typeToAttribute(returnAttr, operation.getOperationDeclaration().getReturnType());
-								tOperation.setReturn1(returnAttr);
-								for(Parameter parameter : operation.getOperationDeclaration().getParameters()) {
-									TAttribute tParameter = new TAttribute(parameter.getName());
-									typeToAttribute(tParameter, parameter.getType());
-									tOperation.addParameter(tParameter);
-								}
-								tOperation.setBodyCondition("USE");
-								addConditionsToOperation(operation.getConditions(), tOperation);
-								tClass.addOperation(tOperation);
+								tClass.addOperation(getTOperation(operation));
 							}
 						}
 						if(class1.getConstraints() != null) {
@@ -100,11 +88,54 @@ public class MC_USEtoTModel {
 								tClass.addConstraint(new TConstraint(invariantDefinition.getName(), "USE"));
 							}
 						}
+						if(class1.getStatemachines() != null) {
+							for(StateMachine stateMachine : class1.getStatemachines().getStatemachines()) {
+								tClass.addStateMachine(getTStateMachine(stateMachine));
+							}
+						}
 						tModel.addClass(tClass);
 					} else if (type instanceof Association){
-						
+						Association association = (Association) type;
+						TAssociation tAssociation = new TAssociation(association.getName(), association.getTypeAssociation());
+						for(AssociationEnd associationEnd : association.getAssociationEnds()) {
+							tAssociation.addMemberEnd(getTMemberEnd(associationEnd));
+						}
+						tModel.addRelation(tAssociation);
 					} else if (type instanceof AssociationClass) {
+						AssociationClass class1 = (AssociationClass) type;
+						TClass tClass = new TClass(class1.getName());
+						tClass.setAbstract1(class1.isAbstract());
 						
+						TAssociation tAssociation = new TAssociation(class1.getName(), "association");
+						for(AssociationEnd associationEnd : class1.getAssociationEnds()) {
+							tAssociation.addMemberEnd(getTMemberEnd(associationEnd));
+						}
+						tClass.setAssociation(tAssociation);
+						
+						for(Generalization gen : class1.getGeneralization()) {
+							tClass.addInheritance(allClassAndEnumToString(gen.getGeneral()));
+						}
+						if(class1.getAttributes() != null) {
+							for(Attribute attribute : class1.getAttributes().getAttributes()) {
+								tClass.addAttribute(getTAttribute(attribute));
+							}
+						}
+						if(class1.getOperations() != null) {
+							for(OperationType operation : class1.getOperations().getOperations()) {
+								tClass.addOperation(getTOperation(operation));
+							}
+						}
+						if(class1.getConstraints() != null) {
+							for(InvariantDefinition invariantDefinition : class1.getConstraints().getInvariants()) {
+								tClass.addConstraint(new TConstraint(invariantDefinition.getName(), "USE"));
+							}
+						}
+						if(class1.getStatemachines() != null) {
+							for(StateMachine stateMachine : class1.getStatemachines().getStatemachines()) {
+								tClass.addStateMachine(getTStateMachine(stateMachine));
+							}
+						}
+						tModel.addClass(tClass);
 					}
 				}
 				if(model.getConstraints() != null) {
@@ -128,6 +159,47 @@ public class MC_USEtoTModel {
 		}
 		
 		return tModel;
+	}
+	
+	private static TMemberEnd getTMemberEnd(AssociationEnd associationEnd) {
+		TMemberEnd tMemberEnd = new TMemberEnd(allClassAndEnumToString(associationEnd.getType()));
+		tMemberEnd.setRole(associationEnd.getRole());
+		tMemberEnd.setLower((associationEnd.getMul() != null && associationEnd.getMul().getMinValue() != null && associationEnd.getMul().getMinValue().size() > 0) ? associationEnd.getMul().getMinValue().get(0) : "1");
+		tMemberEnd.setUpper((associationEnd.getMul() != null && associationEnd.getMul().getMaxValue() != null && associationEnd.getMul().getMaxValue().size() > 0) ? associationEnd.getMul().getMaxValue().get(0) : "1");
+		return tMemberEnd;
+	}
+	
+	private static TStateMachine getTStateMachine(StateMachine stateMachine) {
+		// TODO Auto-generated method stub
+		TStateMachine tStateMachine = new TStateMachine(stateMachine.getName());
+		for(State state : stateMachine.getStates()) {
+			tStateMachine.addState(new TState(state.getName(), "USE"));
+		}
+		for(Transition transition : stateMachine.getTransitions()) {
+			tStateMachine.addTransition(new TTransition(transition.getTarget().getName(), transition.getSource().getName(), "USE", "USE", (transition.getOperation() == null) ? null : transition.getOperation().getName()));
+		}
+		return tStateMachine;
+	}
+
+	private static TAttribute getTAttribute(Attribute attribute) {
+		TAttribute tAttribute = new TAttribute(attribute.getName());
+		typeToAttribute(tAttribute, attribute.getType());
+		return tAttribute;
+	}
+	
+	private static TOperation getTOperation(OperationType operation) {
+		TOperation tOperation = new TOperation(operation.getOperationDeclaration().getName());
+		TAttribute returnAttr = new TAttribute("");
+		typeToAttribute(returnAttr, operation.getOperationDeclaration().getReturnType());
+		tOperation.setReturn1(returnAttr);
+		for(Parameter parameter : operation.getOperationDeclaration().getParameters()) {
+			TAttribute tParameter = new TAttribute(parameter.getName());
+			typeToAttribute(tParameter, parameter.getType());
+			tOperation.addParameter(tParameter);
+		}
+		tOperation.setBodyCondition("USE");
+		addConditionsToOperation(operation.getConditions(), tOperation);
+		return tOperation;
 	}
 	
 	private static void addConditionsToOperation(EList<ConditionType> conditions, TOperation tOperation) {

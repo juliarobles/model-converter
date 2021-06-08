@@ -53,10 +53,11 @@ public class TMemberEnd {
 		} else if (!nameClass.equals(other.nameClass))
 			return false;
 		if (role == null) {
-			if (other.role != null && !other.role.contains(nameClass.toLowerCase()))
+			if (other.role != null && !other.role.isBlank() && !other.role.contains(nameClass.toLowerCase()))
 				return false;
 		} else if (!role.equals(other.role)
-					&& !(role.isBlank() && other.role.contains(nameClass.toLowerCase()))
+					&& !(role.isBlank() && other.role == null)
+					&& !(role.isBlank() && other.role != null && other.role.contains(nameClass.toLowerCase()))
 					&& !((other.role == null || other.role.isBlank()) && role.contains(nameClass.toLowerCase())))
 			return false;
 		if (upper == null) {

@@ -1,0 +1,22 @@
+model ModelP02
+
+enum Enumerado {Valor1}
+
+abstract class unnamed1
+end
+
+class unnamed2 < unnamed1
+end
+
+abstract associationclass unnamed3 between
+	unnamed1 [1] role a
+	unnamed2 [1] role b
+attributes
+	unnamed1 : Sequence(unnamed1)
+	unnamed2 : Set(Enumerado)
+	attBag : Bag(unnamed3)
+	unnamed3 : Sequence(String)
+	attSetInteger : Set(Integer)
+	unnamed4 : Bag(Real)
+	attBoolean : Sequence(Boolean)
+end

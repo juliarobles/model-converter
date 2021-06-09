@@ -57,7 +57,11 @@ class TClass{
 	}
 	
 	public void addInheritance(String tclass) {
-		inheritances.add(tclass);
+		if(tclass != null && tclass.startsWith("unnamed") && tclass.length() == ("unnamed").length() + 1) {
+			inheritances.add("");
+		} else {
+			inheritances.add(tclass);
+		}
 	}
 
 	public String getName() {
@@ -87,6 +91,8 @@ class TClass{
 		if (getClass() != obj.getClass())
 			return false;
 		TClass other = (TClass) obj;
+		if(abstract1 != other.abstract1)
+			return false;
 		if (association == null) {
 			if (other.association != null)
 				return false;

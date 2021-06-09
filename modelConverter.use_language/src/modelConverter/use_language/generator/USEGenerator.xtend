@@ -81,6 +81,7 @@ import modelConverter.use_language.use.StateMachinesBase
 import modelConverter.use_language.use.Transition
 import modelConverter.use_language.use.State
 import java.util.List
+import modelConverter.use_language.use.AllClass
 
 /**
  * Generates code from your model files on save.
@@ -115,9 +116,9 @@ class USEGenerator extends AbstractGenerator {
 	'''
 
 	private def compileEnum(Enum e) '''
-		«        »<packagedElement xmi:type="uml:Enumeration" xmi:id="«System.identityHashCode(e)»" name="«e.getName»">
+		«        »<packagedElement xmi:type="uml:Enumeration" xmi:id="«System.identityHashCode(e)»" name="«e.getName»" visibility="public">
 		«FOR enumElement : e.getElements()»
-		«               »<ownedLiteral xmi:id="«System.identityHashCode(e)»" name="«enumElement.replaceAll(",", "")»"/>
+		«               »<ownedLiteral xmi:id="«System.identityHashCode(enumElement)»" name="«enumElement.replaceAll(",", "")»" visibility="public"/>
 		«ENDFOR»
 		«        »</packagedElement>
 	'''
@@ -128,7 +129,7 @@ class USEGenerator extends AbstractGenerator {
 		«ELSEIF (e instanceof Association)»
 			«e.compileAssociation»
 		«ELSEIF (e instanceof AssociationClass)»
-			«e.compileAssociationClass»
+			«e.compileAssociationClass(elementos.filter(a | a instanceof Association || a instanceof AssociationClass), constrains.filter(a | a.getClassname == e))»
 		«ENDIF»
 	'''
 
@@ -228,12 +229,16 @@ class USEGenerator extends AbstractGenerator {
 		«ENDFOR»
 	'''
 
-	private def compileAssociationEnd(Class e, Iterable<AssociationEnd> list, int id, String aggregation, Boolean reflexive) '''
+	private def compileAssociationEnd(AllClass e, Iterable<AssociationEnd> list, int id, String aggregation, Boolean reflexive) '''
 		«FOR end : list»
 			«IF reflexive || end.getType() != e »
 			<ownedAttribute xmi:id="«System.identityHashCode(end)»" name="«end.getRole»" type="«System.identityHashCode(end.getType)»" association="«id»" «IF end == list.get(Iterables.size(list)-1)»«aggregation»«ENDIF»>
 			«IF end.getMul !== null && end.getMul.getMinValue !== null && end.getMul.getMinValue.length > 0»
-				<lowerValue xmi:type="«end.getMul.getMinValue.get(0).getTypeMul»" xmi:id="«System.identityHashCode(end.getType).toString() + id + "1"»" name="" value="«end.getMul.getMinValue.get(0)»"/>
+				«IF !end.getMul.getMinValue.get(0).equals("*")»
+					<lowerValue xmi:type="«end.getMul.getMinValue.get(0).getTypeMul»" xmi:id="«System.identityHashCode(end.getType).toString() + id + "1"»" name="" value="«end.getMul.getMinValue.get(0)»"/>
+				«ELSE»
+					<lowerValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="«System.identityHashCode(end.getType).toString() + id + "2"»" name=""/>
+				«ENDIF»
 				«IF end.getMul.getMaxValue !== null && end.getMul.getMaxValue.length > 0»
 					<upperValue xmi:type="«end.getMul.getMaxValue.get(0).getTypeMul»" xmi:id="«System.identityHashCode(end.getType).toString() + id + "2"»" name="" value="«end.getMul.getMaxValue.get(0)»"/>
 				«ELSE»
@@ -375,8 +380,43 @@ class USEGenerator extends AbstractGenerator {
 		«ENDIF»
 	'''
 
-	private def compileAssociationClass(AssociationClass e) '''
-		<packagedElement xmi:type="uml:AssociationClass" xmi:id="«System.identityHashCode(e)»" name="«e.getName»" memberEnd="«FOR end : e.getAssociationEnds()»«System.identityHashCode(end)» «ENDFOR»"/>
+	private def compileAssociationClass(AssociationClass e, Iterable<Type> associations, Iterable<ContextsType> constraints) '''
+		<packagedElement xmi:type="uml:AssociationClass" xmi:id="«System.identityHashCode(e)»" name="«e.getName»"«IF e.isAbstract» isAbstract="true"«ENDIF» memberEnd="«FOR end : e.getAssociationEnds()»«System.identityHashCode(end)» «ENDFOR»">
+		«IF e.getConstraints !== null»
+			«e.getConstraints.getInvariants().compileConstraintsBase(System.identityHashCode(e))»
+		«ENDIF»
+		«IF constraints !== null»
+			«FOR invContext : constraints.filter(InvariantContext)»
+				«invContext.getInvariants().compileConstraintsBase(System.identityHashCode(e))»
+			«ENDFOR»
+		«ENDIF»
+		«FOR generalization : e.getGeneralization()»
+			«generalization.compileGeneralization»
+		«ENDFOR»
+		«IF e.getAttributes !== null »
+			«e.getAttributes.compileAttributesBase»
+		«ENDIF»
+		«FOR association : associations.filter(Association).filter(a | a.getAssociationEnds().map[type].contains(e))»
+			«IF association.getAssociationEnds().map[type].toSet.length == association.getAssociationEnds().length»
+				«compileAssociationEnd(e, association.getAssociationEnds(), System.identityHashCode(association), getTypeAssociation(association).toString(), false)»
+			«ELSE»
+				«compileAssociationEnd(e, association.getAssociationEnds(), System.identityHashCode(association), getTypeAssociation(association).toString(), true)»
+			«ENDIF»
+		«ENDFOR»
+		«FOR association : associations.filter(AssociationClass).filter(a | a.getAssociationEnds().map[type].contains(e))»
+			«IF association.getAssociationEnds().map[type].toSet.length == association.getAssociationEnds().length»
+				«compileAssociationEnd(e, association.getAssociationEnds(), System.identityHashCode(association), "", false)»
+			«ELSE»
+				«compileAssociationEnd(e, association.getAssociationEnds(), System.identityHashCode(association), "", true)»
+			«ENDIF»
+		«ENDFOR»
+		«IF e.getOperations !== null »
+			«e.getOperations.compileOperationsBase(constraints.filter(OperationContext))»
+		«ENDIF»
+		«IF e.getStatemachines !== null »
+			«e.getStatemachines.compileStateMachinesBase»
+		«ENDIF»
+		</packagedElement>		
 	'''
 
 	private def compileAssociation(Association e) '''

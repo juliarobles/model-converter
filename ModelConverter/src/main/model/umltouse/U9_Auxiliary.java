@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.uml2.uml.Association;
+import org.eclipse.uml2.uml.Class;
+import org.eclipse.uml2.uml.Enumeration;
 import org.eclipse.uml2.uml.Property;
 import org.eclipse.uml2.uml.Type;
 
@@ -118,17 +120,18 @@ public class U9_Auxiliary {
 	}
 	
 	static boolean typeIsNull(Type type) {
-		return type == null || type.getQualifiedName() == null || (!type.getQualifiedName().startsWith(General.nameModel) && type.getName().contains("void"));
+		return type == null || (type.getQualifiedName() != null && !type.getQualifiedName().startsWith(General.nameModel) && type.getName().contains("void")); //|| type.getQualifiedName() == null
 	}
 	
 	static String checkAvailableType(Type type) {
-		String name = type.getQualifiedName();
-		if(name == null) {
-			return "String";
-		} else if(name.startsWith(General.nameModel)) {
+		//String name = type.getQualifiedName();
+		//if(name == null) {
+			//return "String";
+		//} else if(name.startsWith(General.nameModel)) {
+		if(type instanceof Class || type instanceof Enumeration) {
 			return type.getName();
 		} else {
-			name = type.getName().toLowerCase();
+			String name = type.getName().toLowerCase();
 			if(name.contains("bool")) {
 				return "Boolean";
 			} else if (name.contains("int") || name.contains("long") || name.contains("short")) {

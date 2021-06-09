@@ -1,6 +1,7 @@
 package test.utilities;
 
 import java.net.URL;
+import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
@@ -67,7 +68,7 @@ public class MC_UMLtoTModel {
 					tClass.addInheritance(generalization.getGeneral().getName());
 				}
 				for(Property property : class1.getAttributes()) {
-					if(property.getAssociation() == null) {
+					if(property.getAssociation() == null || !isNavigable(property.getAssociation())) {
 						String upperValue = (property != null && property.getUpperValue() != null) ? property.getUpperValue().stringValue() : null;
 						tClass.addAttribute(new TAttribute(property.getName(), checkAvailableType(packet.getModel().getName(), property.getType()), upperValue, property.isUnique(), property.isOrdered()));
 					}
@@ -127,7 +128,9 @@ public class MC_UMLtoTModel {
 				}
 				tModel.addClass(tClass);
 			} else if (pe.eClass() == UMLPackage.Literals.ASSOCIATION) {
-				tModel.addRelation(processAssociation((Association)pe));
+				if(isNavigable((Association)pe)){
+					tModel.addRelation(processAssociation((Association)pe));
+				}
 			}
 		}
 		
@@ -201,11 +204,10 @@ public class MC_UMLtoTModel {
 	}	
 	private static String checkAvailableType(String nameModel, Type type) {
 		if(!typeIsNull(type)) {
-			String name = type.getQualifiedName();
-			if(name.startsWith(nameModel)) {
+			if(type instanceof Class || type instanceof Enumeration) {
 				return type.getName();
 			} else {
-				name = type.getName().toLowerCase();
+				String name = type.getName().toLowerCase();
 				if(name.contains("bool")) {
 					return "Boolean";
 				} else if (name.contains("int") || name.contains("long") || name.contains("short")) {
@@ -221,6 +223,22 @@ public class MC_UMLtoTModel {
 	}
 	
 	private static boolean typeIsNull(Type type) {
-		return type == null || (!type.getQualifiedName().startsWith(nameModel) && type.getName().contains("void"));
+		return type == null || (type.getQualifiedName() != null && !type.getQualifiedName().startsWith(nameModel) && type.getName().contains("void"));
+	}
+	
+	private static boolean isNavigable(Association association) {
+		boolean res = true;
+		List<Property> memberEnds = association.getMemberEnds();
+		int i = 0;
+		
+		while(res && i < memberEnds.size()) {
+			if(!memberEnds.get(i).isNavigable()) {
+				res = false;
+			} else {
+				i++;
+			}
+		}
+		
+		return res;
 	}
 }

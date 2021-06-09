@@ -13,7 +13,7 @@ public class TEnum {
 	}
 	
 	public void addValue(String value) {
-		values.add(value);
+		values.add(value.replaceAll(",", ""));
 	}
 
 	@Override
@@ -45,9 +45,10 @@ public class TEnum {
 					&& !((other.name != null && other.name.contains(name) && other.name.length() == name.length()+1)))
 			return false;
 		if (values == null) {
-			if (other.values != null)
+			if (other.values != null && !(other.values.size() == 1 && other.values.get(0).equals("requiredValue")))
 				return false;
-		} else if (!values.equals(other.values) 
+		} else if (!values.equals(other.values)
+				&& !(other.values == null && values.size() == 1 && values.get(0).equals("requiredValue"))
 				&& !(values.isEmpty() && other.values.size() == 1 && other.values.get(0).equals("requiredValue"))
 				&& !(other.values.isEmpty() && values.size() == 1 && values.get(0).equals("requiredValue")))
 			return false;

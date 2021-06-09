@@ -13,18 +13,19 @@ public class U3_Association {
 	
 	static void getAll(Package packet, StringBuilder sBuilder) {
 		U9_CountUnnamed countUnnamed = new U9_CountUnnamed();
+		List<String> namesUsed = new ArrayList<>();
 		for (PackageableElement pe : packet.getPackagedElements()) {
 			//https://stackoverflow.com/questions/61668719/read-sequence-diagram-from-xmi-using-emf
 			if(pe.eClass() == UMLPackage.Literals.ASSOCIATION) {
 				Association c = (Association) pe;
 				if(U9_Auxiliary.isNavigable(c)) {
-					analyzeAssociation((Association) pe, sBuilder, countUnnamed);
+					analyzeAssociation((Association) pe, sBuilder, countUnnamed, namesUsed);
 				}
 			}
 		}
 	}
 	
-	private static String analyzeAssociation(Association association, StringBuilder sBuilder, U9_CountUnnamed countUnnamed) {
+	private static String analyzeAssociation(Association association, StringBuilder sBuilder, U9_CountUnnamed countUnnamed, List<String> namesUsed) {
 		List<String> memberEnds = new ArrayList<>();
 		String tipoRelacionFinal = "association";
 		String tipoRelacionVariable, lowerValue, upperValue;
@@ -51,7 +52,7 @@ public class U3_Association {
 			//sBuilder.append("\tNavegable: " + booleanToYesOrNo(property.isNavigable()) + "\n");
 		}
 		
-		sBuilder.append(tipoRelacionFinal + " " + U9_Auxiliary.checkUnnamed(association.getName(), General.namesUsedGeneral, countUnnamed) + " between\n");
+		sBuilder.append(tipoRelacionFinal + " " + U9_Auxiliary.checkUnnamed(association.getName(), namesUsed, countUnnamed) + " between\n");
 		for(String s : memberEnds) {
 			sBuilder.append(s);
 		}

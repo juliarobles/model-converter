@@ -34,10 +34,12 @@ public class U5_Constraint {
 	}
 	
 	static void printAllConstraints(StringBuilder sBuilder, Map<String, String> allconstraints) {
-		sBuilder.append("constraints\n");
-		for(String clase : allconstraints.keySet()) {
-			sBuilder.append("context " + clase + "\n");
-			sBuilder.append(allconstraints.get(clase) + "\n");
+		if(allconstraints.size() > 0) {
+			sBuilder.append("constraints\n");
+			for(String clase : allconstraints.keySet()) {
+				sBuilder.append("context " + clase + "\n");
+				sBuilder.append(allconstraints.get(clase) + "\n");
+			}
 		}
 	}
 	

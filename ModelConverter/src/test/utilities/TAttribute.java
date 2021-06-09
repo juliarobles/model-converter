@@ -70,9 +70,14 @@ class TAttribute {
 					&& !((other.name != null && other.name.contains(name) && other.name.length() == name.length()+1)))
 			return false;
 		if (type == null) {
-			if (other.type != null)
+			if (other.type != null && !other.type.contains("unnamed") && !other.type.isBlank())
 				return false;
-		} else if (!type.equals(other.type))
+		} else if (!type.equals(other.type)
+				&& !(type.isBlank() && other.type == null)
+				&& !(type.isBlank() && other.type.contains("unnamed"))
+				&& !((other.type == null || other.type.isBlank()) && type.contains("unnamed"))
+				&& !((other.type != null && type.contains(other.type) && type.length() == other.type.length()+1))
+				&& !((other.type != null && other.type.contains(type) && other.type.length() == type.length()+1)))
 			return false;
 		return true;
 	}

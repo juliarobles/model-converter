@@ -164,8 +164,19 @@ public class MC_USEtoTModel {
 	private static TMemberEnd getTMemberEnd(AssociationEnd associationEnd) {
 		TMemberEnd tMemberEnd = new TMemberEnd(allClassAndEnumToString(associationEnd.getType()));
 		tMemberEnd.setRole(associationEnd.getRole());
-		tMemberEnd.setLower((associationEnd.getMul() != null && associationEnd.getMul().getMinValue() != null && associationEnd.getMul().getMinValue().size() > 0) ? associationEnd.getMul().getMinValue().get(0) : "1");
-		tMemberEnd.setUpper((associationEnd.getMul() != null && associationEnd.getMul().getMaxValue() != null && associationEnd.getMul().getMaxValue().size() > 0) ? associationEnd.getMul().getMaxValue().get(0) : "1");
+		if(associationEnd.getMul() != null && associationEnd.getMul().getMinValue() != null && associationEnd.getMul().getMinValue().size() > 0) {
+			String aux = associationEnd.getMul().getMinValue().get(0);
+			if(aux.equals("*")){
+				tMemberEnd.setLower("0");
+			} else {
+				tMemberEnd.setLower(aux);
+			}
+			if(associationEnd.getMul().getMaxValue() != null && associationEnd.getMul().getMaxValue().size() > 0) {
+				tMemberEnd.setUpper(associationEnd.getMul().getMaxValue().get(0));
+			} else {
+				tMemberEnd.setUpper(aux);
+			}
+		}
 		return tMemberEnd;
 	}
 	

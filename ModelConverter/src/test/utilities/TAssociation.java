@@ -1,6 +1,8 @@
 package test.utilities;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class TAssociation {
@@ -49,8 +51,21 @@ public class TAssociation {
 		if (memberEnds == null) {
 			if (other.memberEnds != null)
 				return false;
-		} else if (!memberEnds.equals(other.memberEnds))
-			return false;
+		} else {
+			Collections.sort(memberEnds, new Comparator<TMemberEnd>() {
+				@Override
+				public int compare(TMemberEnd p1, TMemberEnd p2) {
+					return p1.getNameClass().compareTo(p2.getNameClass());
+				}
+			});
+			Collections.sort(other.memberEnds, new Comparator<TMemberEnd>() {
+				@Override
+				public int compare(TMemberEnd p1, TMemberEnd p2) {
+					return p1.getNameClass().compareTo(p2.getNameClass());
+				}
+			});
+			if (!memberEnds.equals(other.memberEnds)) return false;
+		}
 		if (name == null) {
 			if (other.name != null && !other.name.contains("unnamed") && !other.name.isBlank())
 				return false;

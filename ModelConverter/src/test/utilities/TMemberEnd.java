@@ -21,6 +21,10 @@ public class TMemberEnd {
 	public void setUpper(String upper) {
 		this.upper = upper;
 	}
+	
+	public String getNameClass() {
+		return nameClass;
+	}
 
 	@Override
 	public int hashCode() {
@@ -48,9 +52,14 @@ public class TMemberEnd {
 		} else if (!lower.equals(other.lower))
 			return false;
 		if (nameClass == null) {
-			if (other.nameClass != null)
+			if (other.nameClass != null && !other.nameClass.contains("unnamed") && !other.nameClass.isBlank())
 				return false;
-		} else if (!nameClass.equals(other.nameClass))
+		} else if (!nameClass.equals(other.nameClass)
+				&& !(nameClass.isBlank() && other.nameClass == null)
+				&& !(nameClass.isBlank() && other.nameClass.contains("unnamed"))
+				&& !((other.nameClass == null || other.nameClass.isBlank()) && nameClass.contains("unnamed"))
+				&& !((other.nameClass != null && nameClass.contains(other.nameClass) && nameClass.length() == other.nameClass.length()+1))
+				&& !((other.nameClass != null && other.nameClass.contains(nameClass) && other.nameClass.length() == nameClass.length()+1)))
 			return false;
 		if (role == null) {
 			if (other.role != null && !other.role.isBlank() && !other.role.contains(nameClass.toLowerCase()))
@@ -58,7 +67,9 @@ public class TMemberEnd {
 		} else if (!role.equals(other.role)
 					&& !(role.isBlank() && other.role == null)
 					&& !(role.isBlank() && other.role != null && other.role.contains(nameClass.toLowerCase()))
-					&& !((other.role == null || other.role.isBlank()) && role.contains(nameClass.toLowerCase())))
+					&& !((other.role == null || other.role.isBlank()) && role.contains(nameClass.toLowerCase()))
+					&& !((other.role != null && role.contains(other.role) && role.length() == other.role.length()+1))
+					&& !((other.role != null && other.role.contains(role) && other.role.length() == role.length()+1)))
 			return false;
 		if (upper == null) {
 			if (other.upper != null)

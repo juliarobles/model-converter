@@ -181,18 +181,18 @@ public class USEGenerator extends AbstractGenerator {
     _builder.append("\" name=\"");
     String _name = e.getName();
     _builder.append(_name);
-    _builder.append("\">");
+    _builder.append("\" visibility=\"public\">");
     _builder.newLineIfNotEmpty();
     {
       EList<String> _elements = e.getElements();
       for(final String enumElement : _elements) {
         _builder.append("<ownedLiteral xmi:id=\"");
-        int _identityHashCode_1 = System.identityHashCode(e);
+        int _identityHashCode_1 = System.identityHashCode(enumElement);
         _builder.append(_identityHashCode_1);
         _builder.append("\" name=\"");
         String _replaceAll = enumElement.replaceAll(",", "");
         _builder.append(_replaceAll);
-        _builder.append("\"/>");
+        _builder.append("\" visibility=\"public\"/>");
         _builder.newLineIfNotEmpty();
       }
     }
@@ -222,7 +222,14 @@ public class USEGenerator extends AbstractGenerator {
           _builder.newLineIfNotEmpty();
         } else {
           if ((e instanceof AssociationClass)) {
-            CharSequence _compileAssociationClass = this.compileAssociationClass(((AssociationClass)e));
+            final Function1<Type, Boolean> _function_2 = (Type a) -> {
+              return Boolean.valueOf(((a instanceof Association) || (a instanceof AssociationClass)));
+            };
+            final Function1<ContextsType, Boolean> _function_3 = (ContextsType a) -> {
+              AllClass _classname = a.getClassname();
+              return Boolean.valueOf(Objects.equal(_classname, e));
+            };
+            CharSequence _compileAssociationClass = this.compileAssociationClass(((AssociationClass)e), IterableExtensions.<Type>filter(elementos, _function_2), IterableExtensions.<ContextsType>filter(constrains, _function_3));
             _builder.append(_compileAssociationClass);
             _builder.newLineIfNotEmpty();
           }
@@ -600,7 +607,7 @@ public class USEGenerator extends AbstractGenerator {
     return _builder;
   }
   
-  private CharSequence compileAssociationEnd(final modelConverter.use_language.use.Class e, final Iterable<AssociationEnd> list, final int id, final String aggregation, final Boolean reflexive) {
+  private CharSequence compileAssociationEnd(final AllClass e, final Iterable<AssociationEnd> list, final int id, final String aggregation, final Boolean reflexive) {
     StringConcatenation _builder = new StringConcatenation();
     {
       for(final AssociationEnd end : list) {
@@ -631,29 +638,43 @@ public class USEGenerator extends AbstractGenerator {
             _builder.newLineIfNotEmpty();
             {
               if ((((end.getMul() != null) && (end.getMul().getMinValue() != null)) && (((Object[])Conversions.unwrapArray(end.getMul().getMinValue(), Object.class)).length > 0))) {
-                _builder.append("<lowerValue xmi:type=\"");
-                CharSequence _typeMul = this.getTypeMul(end.getMul().getMinValue().get(0));
-                _builder.append(_typeMul);
-                _builder.append("\" xmi:id=\"");
-                String _string = Integer.valueOf(System.identityHashCode(end.getType())).toString();
-                String _plus = (_string + Integer.valueOf(id));
-                String _plus_1 = (_plus + "1");
-                _builder.append(_plus_1);
-                _builder.append("\" name=\"\" value=\"");
-                String _get_1 = end.getMul().getMinValue().get(0);
-                _builder.append(_get_1);
-                _builder.append("\"/>");
-                _builder.newLineIfNotEmpty();
+                {
+                  boolean _equals_1 = end.getMul().getMinValue().get(0).equals("*");
+                  boolean _not = (!_equals_1);
+                  if (_not) {
+                    _builder.append("<lowerValue xmi:type=\"");
+                    CharSequence _typeMul = this.getTypeMul(end.getMul().getMinValue().get(0));
+                    _builder.append(_typeMul);
+                    _builder.append("\" xmi:id=\"");
+                    String _string = Integer.valueOf(System.identityHashCode(end.getType())).toString();
+                    String _plus = (_string + Integer.valueOf(id));
+                    String _plus_1 = (_plus + "1");
+                    _builder.append(_plus_1);
+                    _builder.append("\" name=\"\" value=\"");
+                    String _get_1 = end.getMul().getMinValue().get(0);
+                    _builder.append(_get_1);
+                    _builder.append("\"/>");
+                    _builder.newLineIfNotEmpty();
+                  } else {
+                    _builder.append("<lowerValue xmi:type=\"uml:LiteralUnlimitedNatural\" xmi:id=\"");
+                    String _string_1 = Integer.valueOf(System.identityHashCode(end.getType())).toString();
+                    String _plus_2 = (_string_1 + Integer.valueOf(id));
+                    String _plus_3 = (_plus_2 + "2");
+                    _builder.append(_plus_3);
+                    _builder.append("\" name=\"\"/>");
+                    _builder.newLineIfNotEmpty();
+                  }
+                }
                 {
                   if (((end.getMul().getMaxValue() != null) && (((Object[])Conversions.unwrapArray(end.getMul().getMaxValue(), Object.class)).length > 0))) {
                     _builder.append("<upperValue xmi:type=\"");
                     CharSequence _typeMul_1 = this.getTypeMul(end.getMul().getMaxValue().get(0));
                     _builder.append(_typeMul_1);
                     _builder.append("\" xmi:id=\"");
-                    String _string_1 = Integer.valueOf(System.identityHashCode(end.getType())).toString();
-                    String _plus_2 = (_string_1 + Integer.valueOf(id));
-                    String _plus_3 = (_plus_2 + "2");
-                    _builder.append(_plus_3);
+                    String _string_2 = Integer.valueOf(System.identityHashCode(end.getType())).toString();
+                    String _plus_4 = (_string_2 + Integer.valueOf(id));
+                    String _plus_5 = (_plus_4 + "2");
+                    _builder.append(_plus_5);
                     _builder.append("\" name=\"\" value=\"");
                     String _get_2 = end.getMul().getMaxValue().get(0);
                     _builder.append(_get_2);
@@ -664,10 +685,10 @@ public class USEGenerator extends AbstractGenerator {
                     CharSequence _typeMul_2 = this.getTypeMul(end.getMul().getMinValue().get(0));
                     _builder.append(_typeMul_2);
                     _builder.append("\" xmi:id=\"");
-                    String _string_2 = Integer.valueOf(System.identityHashCode(end.getType())).toString();
-                    String _plus_4 = (_string_2 + Integer.valueOf(id));
-                    String _plus_5 = (_plus_4 + "2");
-                    _builder.append(_plus_5);
+                    String _string_3 = Integer.valueOf(System.identityHashCode(end.getType())).toString();
+                    String _plus_6 = (_string_3 + Integer.valueOf(id));
+                    String _plus_7 = (_plus_6 + "2");
+                    _builder.append(_plus_7);
                     _builder.append("\" name=\"\" value=\"");
                     String _get_3 = end.getMul().getMinValue().get(0);
                     _builder.append(_get_3);
@@ -1327,7 +1348,7 @@ public class USEGenerator extends AbstractGenerator {
     return _builder;
   }
   
-  private CharSequence compileAssociationClass(final AssociationClass e) {
+  private CharSequence compileAssociationClass(final AssociationClass e, final Iterable<Type> associations, final Iterable<ContextsType> constraints) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("<packagedElement xmi:type=\"uml:AssociationClass\" xmi:id=\"");
     int _identityHashCode = System.identityHashCode(e);
@@ -1335,7 +1356,14 @@ public class USEGenerator extends AbstractGenerator {
     _builder.append("\" name=\"");
     String _name = e.getName();
     _builder.append(_name);
-    _builder.append("\" memberEnd=\"");
+    _builder.append("\"");
+    {
+      boolean _isAbstract = e.isAbstract();
+      if (_isAbstract) {
+        _builder.append(" isAbstract=\"true\"");
+      }
+    }
+    _builder.append(" memberEnd=\"");
     {
       EList<AssociationEnd> _associationEnds = e.getAssociationEnds();
       for(final AssociationEnd end : _associationEnds) {
@@ -1344,8 +1372,122 @@ public class USEGenerator extends AbstractGenerator {
         _builder.append(" ");
       }
     }
-    _builder.append("\"/>");
+    _builder.append("\">");
     _builder.newLineIfNotEmpty();
+    {
+      ConstraintsBase _constraints = e.getConstraints();
+      boolean _tripleNotEquals = (_constraints != null);
+      if (_tripleNotEquals) {
+        CharSequence _compileConstraintsBase = this.compileConstraintsBase(e.getConstraints().getInvariants(), System.identityHashCode(e));
+        _builder.append(_compileConstraintsBase);
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    {
+      if ((constraints != null)) {
+        {
+          Iterable<InvariantContext> _filter = Iterables.<InvariantContext>filter(constraints, InvariantContext.class);
+          for(final InvariantContext invContext : _filter) {
+            CharSequence _compileConstraintsBase_1 = this.compileConstraintsBase(invContext.getInvariants(), System.identityHashCode(e));
+            _builder.append(_compileConstraintsBase_1);
+            _builder.newLineIfNotEmpty();
+          }
+        }
+      }
+    }
+    {
+      EList<Generalization> _generalization = e.getGeneralization();
+      for(final Generalization generalization : _generalization) {
+        CharSequence _compileGeneralization = this.compileGeneralization(generalization);
+        _builder.append(_compileGeneralization);
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    {
+      AttributesBase _attributes = e.getAttributes();
+      boolean _tripleNotEquals_1 = (_attributes != null);
+      if (_tripleNotEquals_1) {
+        CharSequence _compileAttributesBase = this.compileAttributesBase(e.getAttributes());
+        _builder.append(_compileAttributesBase);
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    {
+      final Function1<Association, Boolean> _function = (Association a) -> {
+        final Function1<AssociationEnd, AllClass> _function_1 = (AssociationEnd it) -> {
+          return it.getType();
+        };
+        return Boolean.valueOf(ListExtensions.<AssociationEnd, AllClass>map(a.getAssociationEnds(), _function_1).contains(e));
+      };
+      Iterable<Association> _filter_1 = IterableExtensions.<Association>filter(Iterables.<Association>filter(associations, Association.class), _function);
+      for(final Association association : _filter_1) {
+        {
+          final Function1<AssociationEnd, AllClass> _function_1 = (AssociationEnd it) -> {
+            return it.getType();
+          };
+          int _length = ((Object[])Conversions.unwrapArray(IterableExtensions.<AllClass>toSet(ListExtensions.<AssociationEnd, AllClass>map(association.getAssociationEnds(), _function_1)), Object.class)).length;
+          int _length_1 = ((Object[])Conversions.unwrapArray(association.getAssociationEnds(), Object.class)).length;
+          boolean _equals = (_length == _length_1);
+          if (_equals) {
+            CharSequence _compileAssociationEnd = this.compileAssociationEnd(e, association.getAssociationEnds(), System.identityHashCode(association), this.getTypeAssociation(association).toString(), Boolean.valueOf(false));
+            _builder.append(_compileAssociationEnd);
+            _builder.newLineIfNotEmpty();
+          } else {
+            CharSequence _compileAssociationEnd_1 = this.compileAssociationEnd(e, association.getAssociationEnds(), System.identityHashCode(association), this.getTypeAssociation(association).toString(), Boolean.valueOf(true));
+            _builder.append(_compileAssociationEnd_1);
+            _builder.newLineIfNotEmpty();
+          }
+        }
+      }
+    }
+    {
+      final Function1<AssociationClass, Boolean> _function_2 = (AssociationClass a) -> {
+        final Function1<AssociationEnd, AllClass> _function_3 = (AssociationEnd it) -> {
+          return it.getType();
+        };
+        return Boolean.valueOf(ListExtensions.<AssociationEnd, AllClass>map(a.getAssociationEnds(), _function_3).contains(e));
+      };
+      Iterable<AssociationClass> _filter_2 = IterableExtensions.<AssociationClass>filter(Iterables.<AssociationClass>filter(associations, AssociationClass.class), _function_2);
+      for(final AssociationClass association_1 : _filter_2) {
+        {
+          final Function1<AssociationEnd, AllClass> _function_3 = (AssociationEnd it) -> {
+            return it.getType();
+          };
+          int _length_2 = ((Object[])Conversions.unwrapArray(IterableExtensions.<AllClass>toSet(ListExtensions.<AssociationEnd, AllClass>map(association_1.getAssociationEnds(), _function_3)), Object.class)).length;
+          int _length_3 = ((Object[])Conversions.unwrapArray(association_1.getAssociationEnds(), Object.class)).length;
+          boolean _equals_1 = (_length_2 == _length_3);
+          if (_equals_1) {
+            CharSequence _compileAssociationEnd_2 = this.compileAssociationEnd(e, association_1.getAssociationEnds(), System.identityHashCode(association_1), "", Boolean.valueOf(false));
+            _builder.append(_compileAssociationEnd_2);
+            _builder.newLineIfNotEmpty();
+          } else {
+            CharSequence _compileAssociationEnd_3 = this.compileAssociationEnd(e, association_1.getAssociationEnds(), System.identityHashCode(association_1), "", Boolean.valueOf(true));
+            _builder.append(_compileAssociationEnd_3);
+            _builder.newLineIfNotEmpty();
+          }
+        }
+      }
+    }
+    {
+      OperationsBase _operations = e.getOperations();
+      boolean _tripleNotEquals_2 = (_operations != null);
+      if (_tripleNotEquals_2) {
+        CharSequence _compileOperationsBase = this.compileOperationsBase(e.getOperations(), Iterables.<OperationContext>filter(constraints, OperationContext.class));
+        _builder.append(_compileOperationsBase);
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    {
+      StateMachinesBase _statemachines = e.getStatemachines();
+      boolean _tripleNotEquals_3 = (_statemachines != null);
+      if (_tripleNotEquals_3) {
+        CharSequence _compileStateMachinesBase = this.compileStateMachinesBase(e.getStatemachines());
+        _builder.append(_compileStateMachinesBase);
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    _builder.append("</packagedElement>\t\t");
+    _builder.newLine();
     return _builder;
   }
   

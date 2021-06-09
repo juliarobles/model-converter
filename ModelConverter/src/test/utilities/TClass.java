@@ -28,6 +28,7 @@ class TClass{
 			if(this.operations.get(i).getName().equals(name)) {
 				return this.operations.get(i);
 			}
+			i++;
 		}
 		return null;
 	}

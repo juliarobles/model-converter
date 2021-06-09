@@ -1,6 +1,8 @@
 package test.utilities;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class TModel {
@@ -62,8 +64,22 @@ public class TModel {
 		if (classes == null) {
 			if (other.classes != null)
 				return false;
-		} else if (!classes.equals(other.classes))
-			return false;
+		} else {
+			Collections.sort(classes, new Comparator<TClass>() {
+				@Override
+				public int compare(TClass p1, TClass p2) {
+					return ((p1.getName().isBlank() || p1.getName().contains("unnamed"))) ? -1 : p1.getName().compareTo(p2.getName());
+				}
+			});
+			Collections.sort(other.classes, new Comparator<TClass>() {
+				@Override
+				public int compare(TClass p1, TClass p2) {
+					return ((p1.getName().isBlank() || p1.getName().contains("unnamed"))) ? -1 : p1.getName().compareTo(p2.getName());
+				}
+			});
+			if (!classes.equals(other.classes))
+				return false;
+		}
 		if (enums == null) {
 			if (other.enums != null)
 				return false;

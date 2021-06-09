@@ -1134,7 +1134,7 @@ public class USEGenerator extends AbstractGenerator {
     _builder.append("\">");
     _builder.newLineIfNotEmpty();
     _builder.append("\t   \t");
-    _builder.append("<language>OCL2.0</language>");
+    _builder.append("<language>English</language>");
     _builder.newLine();
     _builder.append("\t   \t  \t");
     _builder.append("<body>");

@@ -32,9 +32,10 @@ class TestModelConverter {
 	
 	@Test 
 	void test1_CheckModelsAreEquivalent() {
-		assertTrue(ModelCheck.checkModelsAreEquivalentUSEUML(source + "/P01.use", source + "/P01.uml"));
-		assertTrue(ModelCheck.checkModelsAreEquivalentUSEUML(source + "/P02.use", source + "/P02.uml"));
-		assertTrue(ModelCheck.checkModelsAreEquivalentUSEUML(source + "/P03.use", source + "/P03.uml"));
+		//assertTrue(ModelCheck.checkModelsAreEquivalentUSEUML(source + "/P01.use", source + "/P01.uml"));
+		//assertTrue(ModelCheck.checkModelsAreEquivalentUSEUML(source + "/P02.use", source + "/P02.uml"));
+		//assertTrue(ModelCheck.checkModelsAreEquivalentUSEUML(source + "/P03.use", source + "/P03.uml"));
+		assertTrue(ModelCheck.checkModelsAreEquivalentUSEUML(source + "/P04.use", source + "/P04.uml"));
 	}
 	
 	@Test

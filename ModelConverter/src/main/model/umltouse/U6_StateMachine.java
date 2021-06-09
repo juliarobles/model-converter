@@ -54,7 +54,7 @@ public class U6_StateMachine {
 				String aux = "\t\t\t" + vertex.getName();
 				
 				State state = (State) vertex;
-				if(state.getStateInvariant() != null && state.getStateInvariant().getSpecification() != null) {
+				if(state.getStateInvariant() != null && state.getStateInvariant().getSpecification() != null && state.getStateInvariant().getSpecification().stringValue() != null) {
 					aux += " [" + state.getStateInvariant().getSpecification().stringValue() + "]";
 				}
 				
@@ -92,11 +92,11 @@ public class U6_StateMachine {
 				
 				if(triggers.size() > 0){
 					aux += "\t {";
-					if(preCondition != null && preCondition.getSpecification() != null) {
+					if(preCondition != null && preCondition.getSpecification() != null && preCondition.getSpecification().stringValue() != null) {
 						aux += " [" + preCondition.getSpecification().stringValue() + "]";
 					}
 					aux += " " + ((CallEvent)triggers.get(0).getEvent()).getOperation().getName() + "()";
-					if(postCondition != null && postCondition.getSpecification() != null) {
+					if(postCondition != null && postCondition.getSpecification() != null && postCondition.getSpecification().stringValue() != null) {
 						aux += " [" + postCondition.getSpecification().stringValue() + "]";
 					}
 					aux += " }";

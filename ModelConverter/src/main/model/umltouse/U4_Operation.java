@@ -47,13 +47,22 @@ public class U4_Operation {
 			}
 		}
 		
-		sBuilder.append(")" + U9_Auxiliary.typeToStringOptional(operation.getType(), collection));
-		if (bodycondition != null && bodycondition.getSpecification() != null && !bodycondition.getSpecification().stringValue().isBlank()) {
+		if(returnParam == null && operation.isQuery()) {
+			sBuilder.append(") : Boolean");
+		} else {
+			sBuilder.append(")" + U9_Auxiliary.typeToStringOptional(operation.getType(), collection));
+		}
+		
+		if (bodycondition != null && bodycondition.getSpecification() != null && bodycondition.getSpecification().stringValue() != null && !bodycondition.getSpecification().stringValue().isBlank()) {
 			value = bodycondition.getSpecification().stringValue();
 		}
 		
-		if(operation.isQuery() && value != null) {
-			sBuilder.append(" = " + value);
+		if(operation.isQuery()) {
+			if(value != null) {
+				sBuilder.append(" = " + value + "\n");
+			} else {
+				sBuilder.append(" = true\n");
+			}
 		} else {
 			sBuilder.append("\n\t\t\tbegin\n");
 			if(value != null) {
@@ -72,7 +81,7 @@ public class U4_Operation {
 	}
 	
 	private static String analyzeOperationCondition(Constraint constraint, String conditionType) {
-		String value = (constraint.getSpecification() != null && !constraint.getSpecification().stringValue().isBlank()) ? constraint.getSpecification().stringValue() : "true";
+		String value = (constraint.getSpecification() != null && constraint.getSpecification().stringValue() != null && !constraint.getSpecification().stringValue().isBlank()) ? constraint.getSpecification().stringValue() : "true";
 		return conditionType + " " + constraint.getName() + ": " + value + "\n";
 	}
 	

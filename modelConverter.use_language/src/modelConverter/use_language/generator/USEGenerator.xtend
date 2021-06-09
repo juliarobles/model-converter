@@ -332,7 +332,7 @@ class USEGenerator extends AbstractGenerator {
 	private def compileOwnedRuleString(String e, String id, String name, String constrainedElement) '''
 		<ownedRule xmi:id="«id»" name="«name»" «constrainedElement»>
 			<specification xmi:type="uml:OpaqueExpression" xmi:id="«System.identityHashCode(e).toString + id»" name="«name»">
-			   	<language>OCL2.0</language>
+			   	<language>English</language>
 			   	  	<body>«e.substring(1, e.length-1)»</body>
 			  	</specification>
 		</ownedRule>

@@ -10,8 +10,8 @@ import modelConverter.use_language.USEStandaloneSetup;
 public class ModelCheck {
 	
 	public static boolean checkModelsAreEquivalentUSEUML(String modelUSE, String modelUML) {
-		TModel tModelUSE = MC_USEtoTModel.getModelFromFileUSE(modelUSE);
 		TModel tModelUML = MC_UMLtoTModel.getModelFromFileMD(modelUML);
+		TModel tModelUSE = MC_USEtoTModel.getModelFromFileUSE(modelUSE);
 		return tModelUML.equals(tModelUSE);
 	}
 

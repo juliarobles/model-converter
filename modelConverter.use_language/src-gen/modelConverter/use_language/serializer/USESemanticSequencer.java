@@ -1554,7 +1554,7 @@ public class USESemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Transition returns Transition
 	 *
 	 * Constraint:
-	 *     (source=[State|ID] target=[State|ID] (precondition=ExpCS? operation=[OperationDeclaration|ID] postcondition=ExpCS?)?)
+	 *     (source=ID target=ID (precondition=ExpCS? operation=[OperationDeclaration|ID] postcondition=ExpCS?)?)
 	 */
 	protected void sequence_Transition(ISerializationContext context, Transition semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

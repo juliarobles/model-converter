@@ -1,77 +1,77 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:MagicDrawProfile="http://www.omg.org/spec/UML/20131001/MagicDrawProfile" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http://www.omg.org/spec/UML/20131001/MagicDrawProfile UML_Standard_Profile.MagicDraw_Profile.profile.uml#_nPVN7YtIEeuebcn5BqfCXQ">
-   <uml:Model xmi:id="603908410" name="ModelP01">
-	<packagedElement xmi:type="uml:Class" xmi:id="1508413459" isAbstract="true" name="A">
-	<ownedRule xmi:id="1197413402" name="" constrainedElement="1508413459">
-		<specification xmi:type="uml:OpaqueExpression" xmi:id="3576582021197413402" name="">
+   <uml:Model xmi:id="887608263" name="ModelP01">
+	<packagedElement xmi:type="uml:Class" xmi:id="656856272" isAbstract="true" name="A">
+	<ownedRule xmi:id="1854249488" name="" constrainedElement="656856272">
+		<specification xmi:type="uml:OpaqueExpression" xmi:id="6474219471854249488" name="">
 		   	<language>OCL2.0</language>
 		   	  	<body>true</body>
 		  	</specification>
 	</ownedRule>
-	<ownedAttribute xmi:id="590457911" name="attString" >
+	<ownedAttribute xmi:id="227164678" name="attString" >
 	<type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
 	</ownedAttribute>
-	<ownedAttribute xmi:id="1987053127" name="attInteger" >
+	<ownedAttribute xmi:id="173148757" name="attInteger" >
 	<type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
-	<defaultValue xmi:type="uml:LiteralString" xmi:id="1987053127_03" name="" visibility="public" value="16"/>
+	<defaultValue xmi:type="uml:LiteralString" xmi:id="173148757_03" name="" visibility="public" value="16"/>
 	</ownedAttribute>
-	<ownedAttribute xmi:id="271483415" name="attReal" >
+	<ownedAttribute xmi:id="458910170" name="attReal" >
 	<type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
-	<defaultValue xmi:type="uml:LiteralString" xmi:id="271483415_03" name="" visibility="public" value="3.5"/>
+	<defaultValue xmi:type="uml:LiteralString" xmi:id="458910170_03" name="" visibility="public" value="3.5"/>
 	</ownedAttribute>
-	<ownedAttribute xmi:id="569290958" name="attBoolean" >
+	<ownedAttribute xmi:id="1462501695" name="attBoolean" >
 	<type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
-	<defaultValue xmi:type="uml:LiteralString" xmi:id="569290958_03" name="" visibility="public" value="self.attInt.oclIsUndefined()"/>
+	<defaultValue xmi:type="uml:LiteralString" xmi:id="1462501695_03" name="" visibility="public" value="self.attInt.oclIsUndefined()"/>
 	</ownedAttribute>
-	<ownedAttribute xmi:id="798646860" name="attInt" >
+	<ownedAttribute xmi:id="617125011" name="attInt" >
 	<type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
 	</ownedAttribute>
-	<ownedAttribute xmi:id="1325392746" name="attboolean" isDerived="true" >
+	<ownedAttribute xmi:id="1214316440" name="attboolean" isDerived="true" >
 	<type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
-	<defaultValue xmi:type="uml:LiteralString" xmi:id="1325392746_03" name="" visibility="public" value="self.attInt.oclIsUndefined()"/>
+	<defaultValue xmi:type="uml:LiteralString" xmi:id="1214316440_03" name="" visibility="public" value="self.attInt.oclIsUndefined()"/>
 	</ownedAttribute>
-	<ownedAttribute xmi:id="711764176" name="attByte" >
+	<ownedAttribute xmi:id="381811842" name="attByte" >
 	<type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
 	</ownedAttribute>
-	<ownedAttribute xmi:id="839883584" name="attChar" >
+	<ownedAttribute xmi:id="92715012" name="attChar" >
 	<type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
 	</ownedAttribute>
-	<ownedAttribute xmi:id="1656303096" name="attDate" >
+	<ownedAttribute xmi:id="635268041" name="attDate" >
 	<type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
 	</ownedAttribute>
-	<ownedAttribute xmi:id="898856063" name="attDouble" >
+	<ownedAttribute xmi:id="484794335" name="attDouble" >
 	<type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
 	</ownedAttribute>
-	<ownedAttribute xmi:id="1428179993" name="attFloat" >
+	<ownedAttribute xmi:id="1165674253" name="attFloat" >
 	<type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
 	</ownedAttribute>
-	<ownedAttribute xmi:id="1954291588" name="attLong" >
+	<ownedAttribute xmi:id="1483430324" name="attLong" >
 	<type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
 	</ownedAttribute>
-	<ownedAttribute xmi:id="773570346" name="attShort" >
+	<ownedAttribute xmi:id="428579363" name="attShort" >
 	<type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
 	</ownedAttribute>
-	<ownedAttribute xmi:id="829539814" name="attStructuredExpression" >
+	<ownedAttribute xmi:id="1484119945" name="attStructuredExpression" >
 	<type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
 	</ownedAttribute>
-	<ownedAttribute xmi:id="1851487302" name="attUnlimitedNatural" >
+	<ownedAttribute xmi:id="1719472894" name="attUnlimitedNatural" >
 	<type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
 	</ownedAttribute>
-	<ownedAttribute xmi:id="786831727" name="attvoid" >
+	<ownedAttribute xmi:id="811382667" name="attvoid" >
 	<type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
 	</ownedAttribute>
-	<ownedAttribute xmi:id="2130697476" name="attEmpty" >
+	<ownedAttribute xmi:id="1110057571" name="attEmpty" >
 	<type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
 	</ownedAttribute>
-	<ownedAttribute xmi:id="804905246" name="" type="1508413459" association="735057686" >
-	<lowerValue xmi:type="uml:LiteralInteger" xmi:id="15084134597350576861" name="" value="1"/>
-	<upperValue xmi:type="uml:LiteralInteger" xmi:id="15084134597350576862" name="" value="1"/>
+	<ownedAttribute xmi:id="1897013268" name="" type="656856272" association="207855967" >
+	<lowerValue xmi:type="uml:LiteralInteger" xmi:id="6568562722078559671" name="" value="1"/>
+	<upperValue xmi:type="uml:LiteralInteger" xmi:id="6568562722078559672" name="" value="1"/>
 		</ownedAttribute>
-	<ownedAttribute xmi:id="109041055" name="a1" type="1508413459" association="735057686" >
-	<lowerValue xmi:type="uml:LiteralInteger" xmi:id="15084134597350576861" name="" value="0"/>
-	<upperValue xmi:type="uml:LiteralInteger" xmi:id="15084134597350576862" name="" value="1"/>
+	<ownedAttribute xmi:id="205907161" name="a1" type="656856272" association="207855967" >
+	<lowerValue xmi:type="uml:LiteralInteger" xmi:id="6568562722078559671" name="" value="0"/>
+	<upperValue xmi:type="uml:LiteralInteger" xmi:id="6568562722078559672" name="" value="1"/>
 		</ownedAttribute>
 	</packagedElement>
-	<packagedElement xmi:type="uml:Association" xmi:id="735057686" name="B" memberEnd="804905246 109041055 "/>
+	<packagedElement xmi:type="uml:Association" xmi:id="207855967" name="B" memberEnd="1897013268 205907161 "/>
 	</uml:Model>
 </xmi:XMI>

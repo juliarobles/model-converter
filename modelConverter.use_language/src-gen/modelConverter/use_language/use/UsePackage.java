@@ -1110,7 +1110,7 @@ public interface UsePackage extends EPackage
   int TRANSITION = 25;
 
   /**
-   * The feature id for the '<em><b>Source</b></em>' reference.
+   * The feature id for the '<em><b>Source</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -1119,7 +1119,7 @@ public interface UsePackage extends EPackage
   int TRANSITION__SOURCE = 0;
 
   /**
-   * The feature id for the '<em><b>Target</b></em>' reference.
+   * The feature id for the '<em><b>Target</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -4011,26 +4011,26 @@ public interface UsePackage extends EPackage
   EClass getTransition();
 
   /**
-   * Returns the meta object for the reference '{@link modelConverter.use_language.use.Transition#getSource <em>Source</em>}'.
+   * Returns the meta object for the attribute '{@link modelConverter.use_language.use.Transition#getSource <em>Source</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Source</em>'.
+   * @return the meta object for the attribute '<em>Source</em>'.
    * @see modelConverter.use_language.use.Transition#getSource()
    * @see #getTransition()
    * @generated
    */
-  EReference getTransition_Source();
+  EAttribute getTransition_Source();
 
   /**
-   * Returns the meta object for the reference '{@link modelConverter.use_language.use.Transition#getTarget <em>Target</em>}'.
+   * Returns the meta object for the attribute '{@link modelConverter.use_language.use.Transition#getTarget <em>Target</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Target</em>'.
+   * @return the meta object for the attribute '<em>Target</em>'.
    * @see modelConverter.use_language.use.Transition#getTarget()
    * @see #getTransition()
    * @generated
    */
-  EReference getTransition_Target();
+  EAttribute getTransition_Target();
 
   /**
    * Returns the meta object for the containment reference '{@link modelConverter.use_language.use.Transition#getPrecondition <em>Precondition</em>}'.
@@ -6350,20 +6350,20 @@ public interface UsePackage extends EPackage
     EClass TRANSITION = eINSTANCE.getTransition();
 
     /**
-     * The meta object literal for the '<em><b>Source</b></em>' reference feature.
+     * The meta object literal for the '<em><b>Source</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference TRANSITION__SOURCE = eINSTANCE.getTransition_Source();
+    EAttribute TRANSITION__SOURCE = eINSTANCE.getTransition_Source();
 
     /**
-     * The meta object literal for the '<em><b>Target</b></em>' reference feature.
+     * The meta object literal for the '<em><b>Target</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference TRANSITION__TARGET = eINSTANCE.getTransition_Target();
+    EAttribute TRANSITION__TARGET = eINSTANCE.getTransition_Target();
 
     /**
      * The meta object literal for the '<em><b>Precondition</b></em>' containment reference feature.

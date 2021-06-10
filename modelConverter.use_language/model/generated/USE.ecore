@@ -140,8 +140,8 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Transition">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="#//State"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="#//State"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="source" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="target" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="precondition" eType="#//ExpCS"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="operation" eType="#//OperationDeclaration"/>

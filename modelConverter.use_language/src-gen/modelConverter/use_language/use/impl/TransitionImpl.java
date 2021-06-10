@@ -5,7 +5,6 @@ package modelConverter.use_language.use.impl;
 
 import modelConverter.use_language.use.ExpCS;
 import modelConverter.use_language.use.OperationDeclaration;
-import modelConverter.use_language.use.State;
 import modelConverter.use_language.use.Transition;
 import modelConverter.use_language.use.UsePackage;
 
@@ -38,24 +37,44 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 public class TransitionImpl extends MinimalEObjectImpl.Container implements Transition
 {
   /**
-   * The cached value of the '{@link #getSource() <em>Source</em>}' reference.
+   * The default value of the '{@link #getSource() <em>Source</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getSource()
    * @generated
    * @ordered
    */
-  protected State source;
+  protected static final String SOURCE_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getTarget() <em>Target</em>}' reference.
+   * The cached value of the '{@link #getSource() <em>Source</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getSource()
+   * @generated
+   * @ordered
+   */
+  protected String source = SOURCE_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getTarget() <em>Target</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getTarget()
    * @generated
    * @ordered
    */
-  protected State target;
+  protected static final String TARGET_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getTarget() <em>Target</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getTarget()
+   * @generated
+   * @ordered
+   */
+  protected String target = TARGET_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getPrecondition() <em>Precondition</em>}' containment reference.
@@ -114,27 +133,7 @@ public class TransitionImpl extends MinimalEObjectImpl.Container implements Tran
    * @generated
    */
   @Override
-  public State getSource()
-  {
-    if (source != null && source.eIsProxy())
-    {
-      InternalEObject oldSource = (InternalEObject)source;
-      source = (State)eResolveProxy(oldSource);
-      if (source != oldSource)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, UsePackage.TRANSITION__SOURCE, oldSource, source));
-      }
-    }
-    return source;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public State basicGetSource()
+  public String getSource()
   {
     return source;
   }
@@ -145,9 +144,9 @@ public class TransitionImpl extends MinimalEObjectImpl.Container implements Tran
    * @generated
    */
   @Override
-  public void setSource(State newSource)
+  public void setSource(String newSource)
   {
-    State oldSource = source;
+    String oldSource = source;
     source = newSource;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, UsePackage.TRANSITION__SOURCE, oldSource, source));
@@ -159,27 +158,7 @@ public class TransitionImpl extends MinimalEObjectImpl.Container implements Tran
    * @generated
    */
   @Override
-  public State getTarget()
-  {
-    if (target != null && target.eIsProxy())
-    {
-      InternalEObject oldTarget = (InternalEObject)target;
-      target = (State)eResolveProxy(oldTarget);
-      if (target != oldTarget)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, UsePackage.TRANSITION__TARGET, oldTarget, target));
-      }
-    }
-    return target;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public State basicGetTarget()
+  public String getTarget()
   {
     return target;
   }
@@ -190,9 +169,9 @@ public class TransitionImpl extends MinimalEObjectImpl.Container implements Tran
    * @generated
    */
   @Override
-  public void setTarget(State newTarget)
+  public void setTarget(String newTarget)
   {
-    State oldTarget = target;
+    String oldTarget = target;
     target = newTarget;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, UsePackage.TRANSITION__TARGET, oldTarget, target));
@@ -372,11 +351,9 @@ public class TransitionImpl extends MinimalEObjectImpl.Container implements Tran
     switch (featureID)
     {
       case UsePackage.TRANSITION__SOURCE:
-        if (resolve) return getSource();
-        return basicGetSource();
+        return getSource();
       case UsePackage.TRANSITION__TARGET:
-        if (resolve) return getTarget();
-        return basicGetTarget();
+        return getTarget();
       case UsePackage.TRANSITION__PRECONDITION:
         return getPrecondition();
       case UsePackage.TRANSITION__OPERATION:
@@ -399,10 +376,10 @@ public class TransitionImpl extends MinimalEObjectImpl.Container implements Tran
     switch (featureID)
     {
       case UsePackage.TRANSITION__SOURCE:
-        setSource((State)newValue);
+        setSource((String)newValue);
         return;
       case UsePackage.TRANSITION__TARGET:
-        setTarget((State)newValue);
+        setTarget((String)newValue);
         return;
       case UsePackage.TRANSITION__PRECONDITION:
         setPrecondition((ExpCS)newValue);
@@ -428,10 +405,10 @@ public class TransitionImpl extends MinimalEObjectImpl.Container implements Tran
     switch (featureID)
     {
       case UsePackage.TRANSITION__SOURCE:
-        setSource((State)null);
+        setSource(SOURCE_EDEFAULT);
         return;
       case UsePackage.TRANSITION__TARGET:
-        setTarget((State)null);
+        setTarget(TARGET_EDEFAULT);
         return;
       case UsePackage.TRANSITION__PRECONDITION:
         setPrecondition((ExpCS)null);
@@ -457,9 +434,9 @@ public class TransitionImpl extends MinimalEObjectImpl.Container implements Tran
     switch (featureID)
     {
       case UsePackage.TRANSITION__SOURCE:
-        return source != null;
+        return SOURCE_EDEFAULT == null ? source != null : !SOURCE_EDEFAULT.equals(source);
       case UsePackage.TRANSITION__TARGET:
-        return target != null;
+        return TARGET_EDEFAULT == null ? target != null : !TARGET_EDEFAULT.equals(target);
       case UsePackage.TRANSITION__PRECONDITION:
         return precondition != null;
       case UsePackage.TRANSITION__OPERATION:
@@ -468,6 +445,25 @@ public class TransitionImpl extends MinimalEObjectImpl.Container implements Tran
         return postcondition != null;
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuilder result = new StringBuilder(super.toString());
+    result.append(" (source: ");
+    result.append(source);
+    result.append(", target: ");
+    result.append(target);
+    result.append(')');
+    return result.toString();
   }
 
 } //TransitionImpl

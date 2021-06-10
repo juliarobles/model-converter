@@ -47,12 +47,14 @@ class TConstraint {
 					&& !((other.name != null && other.name.contains(name) && other.name.length() == name.length()+1)))
 			return false;
 		if (ocl == null) {
-			if (other.ocl != null && !other.ocl.equals("true") && !other.ocl.equals("USE"))
+			if (other.ocl != null && !other.ocl.isBlank() && !other.ocl.equals("true") && !other.ocl.equals("USE"))
 				return false;
 		} else if (!ocl.equals(other.ocl)
 					&& !((other.ocl == null || other.ocl.isBlank()) && ocl.equals("true"))
-					&& !other.ocl.equals("USE") && !ocl.equals("USE")
-					&& !(other.ocl.strip().replaceAll(" ", "") != null && ocl.equals(other.ocl.strip().replaceAll(" ", ""))))
+					&& !(ocl.isBlank() && other.ocl != null && other.ocl.equals("true"))
+					&& !(other.ocl == null && ocl.isBlank())
+					&& !(other.ocl != null && other.ocl.equals("USE")) && !ocl.equals("USE")
+					&& !(other.ocl != null && other.ocl.strip().replaceAll(" ", "") != null && ocl.equals(other.ocl.strip().replaceAll(" ", ""))))
 			return false;
 		return true;
 	}

@@ -1,0 +1,648 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:MagicDrawProfile="http://www.omg.org/spec/UML/20131001/MagicDrawProfile" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http://www.omg.org/spec/UML/20131001/MagicDrawProfile UML_Standard_Profile.MagicDraw_Profile.profile.uml#_nPVN7YtIEeuebcn5BqfCXQ">
+   <uml:Model xmi:id="1750853119" name="ModelP08">
+	<packagedElement xmi:type="uml:Class" xmi:id="960837293" isAbstract="true" name="Nodo">
+	<ownedRule xmi:id="1203668575" name="tiempoPositivo" constrainedElement="960837293">
+		<specification xmi:type="uml:OpaqueExpression" xmi:id="5964911151203668575" name="tiempoPositivo">
+		   	<language>OCL2.0</language>
+		   	  	<body>self.tiempoProcesamiento &gt;= 0</body>
+		  	</specification>
+	</ownedRule>
+	<ownedAttribute xmi:id="1011671641" name="tiempoProcesamiento" >
+	<type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+	<defaultValue xmi:type="uml:LiteralString" xmi:id="1011671641_03" name="" visibility="public" value="0"/>
+	</ownedAttribute>
+	<ownedAttribute xmi:id="1530919178" name="paquetesProcesando" type="552389683" isOrdered="true" isUnique="false">
+	<lowerValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="1530919178_01" name="" visibility="public"/>
+	<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="1530919178_02" name="" visibility="public" value="*"/>	
+	<defaultValue xmi:type="uml:LiteralString" xmi:id="1530919178_03" name="" visibility="public" value="Sequence{}"/>
+	</ownedAttribute>
+	<ownedAttribute xmi:id="1784372527" name="numProc" isDerived="true" >
+	<type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+	<defaultValue xmi:type="uml:LiteralString" xmi:id="1784372527_03" name="" visibility="public" value="paquetesProcesando -&gt; size()"/>
+	</ownedAttribute>
+	<ownedAttribute xmi:id="1400167532" name="emisor" type="960837293" association="1281671450" >
+	<lowerValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="96083729312816714502" name=""/>
+	<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="96083729312816714502" name="" value="*"/>
+		</ownedAttribute>
+	<ownedAttribute xmi:id="1481706704" name="receptor" type="960837293" association="1281671450" >
+	<lowerValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="96083729312816714502" name=""/>
+	<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="96083729312816714502" name="" value="*"/>
+		</ownedAttribute>
+	<ownedOperation xmi:id="1715897700" name="nodos" bodyCondition="2068423996837046824" postcondition="" precondition="" isQuery="true">
+		<ownedRule xmi:id="2068423996837046824" name="" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="8370468242068423996837046824" name="">
+			   	<language>OCL2.0</language>
+			   	  	<body>n.receptor -&gt; closure(n|n.receptor) -&gt; excluding(self)</body>
+			  	</specification>
+		</ownedRule>
+		<ownedParameter xmi:id="9158442482068423996" name="" type="960837293" direction="return">
+		<lowerValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="9158442482068423996_01" name="" visibility="public"/>
+		<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="9158442482068423996_02" name="" visibility="public" value="*"/>
+		</ownedParameter>
+		<ownedParameter xmi:id="149340859" name="n" type="960837293">
+		</ownedParameter>
+	</ownedOperation>	
+	<ownedOperation xmi:id="105501915" name="disponible" bodyCondition="9441922481025903528" postcondition="" precondition="" isQuery="true">
+		<ownedRule xmi:id="9441922481025903528" name="" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="10259035289441922481025903528" name="">
+			   	<language>OCL2.0</language>
+			   	  	<body>if self.oclIsKindOf(Transmisor) then self.oclAsType(Transmisor).oclInState(noColapsado) or self.oclAsType(Transmisor).todosPosibleApoyo() -&gt; exists(a|a.oclInState(noColapsado))  else true endif</body>
+			  	</specification>
+		</ownedRule>
+		<ownedParameter xmi:id="1018656316944192248" name=""  direction="return">
+		<type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+		</ownedParameter>
+	</ownedOperation>	
+	<ownedOperation xmi:id="1661727737" name="enviar" bodyCondition="860152941211595137" postcondition="1148694890 1838858588 " precondition="1780139046 189190035 2083939275 907385877 1149633604 1158626169 " >
+		<ownedRule xmi:id="860152941211595137" name="" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="211595137860152941211595137" name="">
+			   	<language>English</language>
+			   	  	<body>declare t : Nodo;
+			   	  					if (paq.camino -> last()).receptor -> includes(paq.destino) then
+			   	  						t := paq.destino;
+			   	  						paq.camino := paq.camino -> append(t);
+			   	  					else
+			   	  						t := (paq.camino -> last()).receptor -> select(n | paq.camino -> excludes(n) and self.nodos(n) -> includes(paq.destino) and n.disponible()) -> sortedBy(n | n.numProc) -> at(1);
+			   	  						paq.camino := paq.camino -> append(t); --Hacemos append del transmisor t aunque luego mandemos a alguno de apoyo suyo
+			   	  						if (not t.oclIsUndefined) and t.oclAsType(Transmisor).oclInState(colapsado) then
+			   	  							t := t.oclAsType(Transmisor).pasarAUnTransmisorDeApoyo();
+			   	  						end;
+			   	  					end;
+			   	  					
+			   	  					self.paquetesProcesando := self.paquetesProcesando -> excluding(paq);
+			   	  					t.paquetesProcesando := t.paquetesProcesando -> append(paq);
+			   	  					if t.oclIsKindOf(Transmisor) then
+			   	  							t.oclAsType(Transmisor).informarDePosibleSobrecarga();
+			   	  					end;</body>
+			  	</specification>
+		</ownedRule>
+		<ownedRule xmi:id="1780139046" name="ServidoresNoEnvian" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="16371806141780139046" name="ServidoresNoEnvian">
+			   	<language>OCL2.0</language>
+			   	  	<body>not self.oclIsTypeOf(Servidor)</body>
+			  	</specification>
+		</ownedRule>
+		<ownedRule xmi:id="189190035" name="PaqueteNoEntregado" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="326171253189190035" name="PaqueteNoEntregado">
+			   	<language>OCL2.0</language>
+			   	  	<body>paq.siendoProcesado = true</body>
+			  	</specification>
+		</ownedRule>
+		<ownedRule xmi:id="2083939275" name="DestinoDefinido" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="18510287982083939275" name="DestinoDefinido">
+			   	<language>OCL2.0</language>
+			   	  	<body>not paq.destino.oclIsUndefined</body>
+			  	</specification>
+		</ownedRule>
+		<ownedRule xmi:id="907385877" name="EstoyProcesandoEsePaquete" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="997950740907385877" name="EstoyProcesandoEsePaquete">
+			   	<language>OCL2.0</language>
+			   	  	<body>self.paquetesProcesando -&gt; includes(paq)</body>
+			  	</specification>
+		</ownedRule>
+		<ownedRule xmi:id="1149633604" name="HayCaminoADestino" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="13024430171149633604" name="HayCaminoADestino">
+			   	<language>OCL2.0</language>
+			   	  	<body>(paq.camino -&gt; last()).receptor -&gt; closure(n|n.receptor) -&gt; includes(paq.destino)</body>
+			  	</specification>
+		</ownedRule>
+		<ownedRule xmi:id="1158626169" name="AlgunReceptorDisponible" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="1719709311158626169" name="AlgunReceptorDisponible">
+			   	<language>OCL2.0</language>
+			   	  	<body>(paq.camino -&gt; last()).receptor -&gt; exists(r|r.disponible() = true)</body>
+			  	</specification>
+		</ownedRule>
+		<ownedRule xmi:id="1148694890" name="YaNoEstoyProcesandoElPaquete" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="21056040891148694890" name="YaNoEstoyProcesandoElPaquete">
+			   	<language>OCL2.0</language>
+			   	  	<body>self.paquetesProcesando -&gt; excludes(paq)</body>
+			  	</specification>
+		</ownedRule>
+		<ownedRule xmi:id="1838858588" name="TengoUnPaqueteMenos" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="20232150531838858588" name="TengoUnPaqueteMenos">
+			   	<language>OCL2.0</language>
+			   	  	<body>self.numProc = self.numProc@pre - 1</body>
+			  	</specification>
+		</ownedRule>
+		<ownedParameter xmi:id="675784036" name="paq" type="552389683">
+		</ownedParameter>
+	</ownedOperation>	
+	</packagedElement>
+	<packagedElement xmi:type="uml:Class" xmi:id="552389683" name="Paquete">
+	<ownedRule xmi:id="1704475142" name="tiemposPositivos" constrainedElement="552389683">
+		<specification xmi:type="uml:OpaqueExpression" xmi:id="10518105701704475142" name="tiemposPositivos">
+		   	<language>OCL2.0</language>
+		   	  	<body>self.tiempoActual &gt;= 0 and self.tiempoInicial &gt;= 0 and self.tiempoFinal &gt;= 0</body>
+		  	</specification>
+	</ownedRule>
+	<ownedRule xmi:id="1734561873" name="tiemposCoherentes" constrainedElement="552389683">
+		<specification xmi:type="uml:OpaqueExpression" xmi:id="3175342201734561873" name="tiemposCoherentes">
+		   	<language>OCL2.0</language>
+		   	  	<body>self.tiempoActual &gt;= self.tiempoInicial and self.tiempoActual &lt;= self.tiempoFinal</body>
+		  	</specification>
+	</ownedRule>
+	<ownedRule xmi:id="1577716215" name="destinoDefinido" constrainedElement="552389683">
+		<specification xmi:type="uml:OpaqueExpression" xmi:id="1960577021577716215" name="destinoDefinido">
+		   	<language>OCL2.0</language>
+		   	  	<body>not self.destino.oclIsUndefined</body>
+		  	</specification>
+	</ownedRule>
+	<ownedRule xmi:id="190994554" name="caminoNoVacio" constrainedElement="552389683">
+		<specification xmi:type="uml:OpaqueExpression" xmi:id="1664139732190994554" name="caminoNoVacio">
+		   	<language>OCL2.0</language>
+		   	  	<body>self.camino -&gt; notEmpty()</body>
+		  	</specification>
+	</ownedRule>
+	<ownedRule xmi:id="513724959" name="noNodosRepetidosEnCamino" constrainedElement="552389683">
+		<specification xmi:type="uml:OpaqueExpression" xmi:id="1771042759513724959" name="noNodosRepetidosEnCamino">
+		   	<language>OCL2.0</language>
+		   	  	<body>self.camino -&gt; forAll(n1|self.camino -&gt; one(n2|n2 = n1))</body>
+		  	</specification>
+	</ownedRule>
+	<ownedRule xmi:id="590977311" name="paqueteSoloEnUnNodo" constrainedElement="552389683">
+		<specification xmi:type="uml:OpaqueExpression" xmi:id="900760721590977311" name="paqueteSoloEnUnNodo">
+		   	<language>OCL2.0</language>
+		   	  	<body>self.siendoProcesado = true implies Nodo.allInstances -&gt; one(n|n.paquetesProcesando -&gt; includes(self))</body>
+		  	</specification>
+	</ownedRule>
+	<ownedAttribute xmi:id="197802044" name="siendoProcesado" isDerived="true" >
+	<type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+	<defaultValue xmi:type="uml:LiteralString" xmi:id="197802044_03" name="" visibility="public" value="if tiempoFinal.oclIsUndefined() then true  else false endif"/>
+	</ownedAttribute>
+	<ownedAttribute xmi:id="1443475668" name="tiempoActual" >
+	<type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+	</ownedAttribute>
+	<ownedAttribute xmi:id="346119878" name="tiempoInicial" >
+	<type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+	</ownedAttribute>
+	<ownedAttribute xmi:id="907570555" name="tiempoFinal" >
+	<type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+	</ownedAttribute>
+	<ownedAttribute xmi:id="1923440087" name="destino" type="1485015430">
+	</ownedAttribute>
+	<ownedAttribute xmi:id="1689764297" name="camino" type="960837293" isOrdered="true" isUnique="false">
+	<lowerValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="1689764297_01" name="" visibility="public"/>
+	<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="1689764297_02" name="" visibility="public" value="*"/>	
+	</ownedAttribute>
+	</packagedElement>
+	<packagedElement xmi:type="uml:Class" xmi:id="1485015430" name="Servidor">
+	<ownedRule xmi:id="596038851" name="noPuedeEnviarPaquetes" constrainedElement="1485015430">
+		<specification xmi:type="uml:OpaqueExpression" xmi:id="2143982844596038851" name="noPuedeEnviarPaquetes">
+		   	<language>OCL2.0</language>
+		   	  	<body>self.receptor -&gt; isEmpty()</body>
+		  	</specification>
+	</ownedRule>
+	<ownedRule xmi:id="2077049184" name="numPaqRecibidosPositivo" constrainedElement="1485015430">
+		<specification xmi:type="uml:OpaqueExpression" xmi:id="3065172822077049184" name="numPaqRecibidosPositivo">
+		   	<language>OCL2.0</language>
+		   	  	<body>self.numeroPaquetesRecibidos &gt;= 0</body>
+		  	</specification>
+	</ownedRule>
+	<generalization xmi:id="1342198277" general="960837293"/>
+	<ownedAttribute xmi:id="320889132" name="numeroPaquetesRecibidos" >
+	<type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+	<defaultValue xmi:type="uml:LiteralString" xmi:id="320889132_03" name="" visibility="public" value="0"/>
+	</ownedAttribute>
+	<ownedOperation xmi:id="1162071581" name="consumirPaquete" bodyCondition="4637126311333441136" postcondition="1950774436 1488525005 1147494672 1718307810 " precondition="477234635 1831787477 " >
+		<ownedRule xmi:id="4637126311333441136" name="" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="13334411364637126311333441136" name="">
+			   	<language>English</language>
+			   	  	<body>--Saco el paquete que voy a consumir
+			   	  					declare paq : Paquete;
+			   	  					paq := self.paquetesProcesando -> first();
+			   	  					
+			   	  					for paquete in self.paquetesProcesando do
+			   	  						paquete.tiempoActual := paquete.tiempoActual + self.tiempoProcesamiento; 
+			   	  					end;
+			   	  					
+			   	  					self.paquetesProcesando := self.paquetesProcesando -> excluding(paq);
+			   	  					
+			   	  					--Cambio sus atributos
+			   	  					paq.tiempoFinal := paq.tiempoActual;
+			   	  					
+			   	  					--Sumo 1 a mi atributo
+			   	  					self.numeroPaquetesRecibidos := self.numeroPaquetesRecibidos + 1</body>
+			  	</specification>
+		</ownedRule>
+		<ownedRule xmi:id="477234635" name="listaPaquetesNoVacia" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="1093939531477234635" name="listaPaquetesNoVacia">
+			   	<language>OCL2.0</language>
+			   	  	<body>self.paquetesProcesando -&gt; notEmpty()</body>
+			  	</specification>
+		</ownedRule>
+		<ownedRule xmi:id="1831787477" name="soySuDestino" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="5082489751831787477" name="soySuDestino">
+			   	<language>OCL2.0</language>
+			   	  	<body>(self.paquetesProcesando -&gt; first()).destino = self</body>
+			  	</specification>
+		</ownedRule>
+		<ownedRule xmi:id="1950774436" name="unPaqueteRecibidoMas" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="17126184761950774436" name="unPaqueteRecibidoMas">
+			   	<language>OCL2.0</language>
+			   	  	<body>self.numeroPaquetesRecibidos = self.numeroPaquetesRecibidos@pre + 1</body>
+			  	</specification>
+		</ownedRule>
+		<ownedRule xmi:id="1488525005" name="listaPaquetesMenosUno" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="201984641488525005" name="listaPaquetesMenosUno">
+			   	<language>OCL2.0</language>
+			   	  	<body>self.numProc = self.numProc@pre - 1</body>
+			  	</specification>
+		</ownedRule>
+		<ownedRule xmi:id="1147494672" name="primerPaqueteHaCambiado" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="12961681561147494672" name="primerPaqueteHaCambiado">
+			   	<language>OCL2.0</language>
+			   	  	<body>self.paquetesProcesando@pre -&gt; first() &lt;&gt; self.paquetesProcesando -&gt; first()</body>
+			  	</specification>
+		</ownedRule>
+		<ownedRule xmi:id="1718307810" name="paqueteConsumidoCorrectamente" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="4458654171718307810" name="paqueteConsumidoCorrectamente">
+			   	<language>OCL2.0</language>
+			   	  	<body>(self.paquetesProcesando@pre -&gt; first()).siendoProcesado = false</body>
+			  	</specification>
+		</ownedRule>
+	</ownedOperation>	
+	</packagedElement>
+	<packagedElement xmi:type="uml:Class" xmi:id="1792272279" name="Usuario">
+	<ownedRule xmi:id="947627635" name="listaDebeEstarVacia" constrainedElement="1792272279">
+		<specification xmi:type="uml:OpaqueExpression" xmi:id="1122529138947627635" name="listaDebeEstarVacia">
+		   	<language>OCL2.0</language>
+		   	  	<body>self.paquetesProcesando -&gt; isEmpty()</body>
+		  	</specification>
+	</ownedRule>
+	<ownedRule xmi:id="1929122671" name="noPuedeRecibirPaquetes" constrainedElement="1792272279">
+		<specification xmi:type="uml:OpaqueExpression" xmi:id="8908402541929122671" name="noPuedeRecibirPaquetes">
+		   	<language>OCL2.0</language>
+		   	  	<body>self.emisor -&gt; isEmpty()</body>
+		  	</specification>
+	</ownedRule>
+	<ownedRule xmi:id="1220501031" name="numPaqEnviadosPositivo" constrainedElement="1792272279">
+		<specification xmi:type="uml:OpaqueExpression" xmi:id="13549111151220501031" name="numPaqEnviadosPositivo">
+		   	<language>OCL2.0</language>
+		   	  	<body>self.numeroPaquetesEnviados &gt;= 0</body>
+		  	</specification>
+	</ownedRule>
+	<ownedRule xmi:id="857665288" name="tiempoUsuarioPositivo" constrainedElement="1792272279">
+		<specification xmi:type="uml:OpaqueExpression" xmi:id="1021672858857665288" name="tiempoUsuarioPositivo">
+		   	<language>OCL2.0</language>
+		   	  	<body>self.NOW &gt;= 0</body>
+		  	</specification>
+	</ownedRule>
+	<generalization xmi:id="1894390359" general="960837293"/>
+	<ownedAttribute xmi:id="233003537" name="NOW" >
+	<type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+	<defaultValue xmi:type="uml:LiteralString" xmi:id="233003537_03" name="" visibility="public" value="0"/>
+	</ownedAttribute>
+	<ownedAttribute xmi:id="513391555" name="numeroPaquetesEnviados" >
+	<type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+	<defaultValue xmi:type="uml:LiteralString" xmi:id="513391555_03" name="" visibility="public" value="0"/>
+	</ownedAttribute>
+	<ownedOperation xmi:id="1787650569" name="enviarPaquete" bodyCondition="18931716402055810719" postcondition="1333550432 1383015672 1513316170 " precondition="583827903 1876160459 2041353293 481457716 " >
+		<ownedRule xmi:id="18931716402055810719" name="" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="205581071918931716402055810719" name="">
+			   	<language>English</language>
+			   	  	<body>--Creo el paquete e inicializo sus atributos
+			   	  					declare p : Paquete;
+			   	  					p := new Paquete;
+			   	  					p.destino := s;
+			   	  					p.tiempoInicial := self.NOW;
+			   	  					self.NOW := self.NOW + self.tiempoProcesamiento; --Actualizo el reloj del usuario
+			   	  					p.tiempoActual := self.NOW;
+			   	  					p.camino := p.camino -> append(self);
+			   	  					
+			   	  					--Envio el paquete
+			   	  					self.paquetesProcesando := self.paquetesProcesando -> append(p);
+			   	  					self.enviar(p);
+			   	  					self.numeroPaquetesEnviados := self.numeroPaquetesEnviados + 1;</body>
+			  	</specification>
+		</ownedRule>
+		<ownedRule xmi:id="583827903" name="listaPaquetesVacia" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="1524843097583827903" name="listaPaquetesVacia">
+			   	<language>OCL2.0</language>
+			   	  	<body>self.paquetesProcesando -&gt; isEmpty()</body>
+			  	</specification>
+		</ownedRule>
+		<ownedRule xmi:id="1876160459" name="estaConectadoAAlgo" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="5986976071876160459" name="estaConectadoAAlgo">
+			   	<language>OCL2.0</language>
+			   	  	<body>self.receptor -&gt; notEmpty()</body>
+			  	</specification>
+		</ownedRule>
+		<ownedRule xmi:id="2041353293" name="algunReceptorDisponible" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="3076285752041353293" name="algunReceptorDisponible">
+			   	<language>OCL2.0</language>
+			   	  	<body>self.receptor -&gt; exists(r|r.disponible() = true)</body>
+			  	</specification>
+		</ownedRule>
+		<ownedRule xmi:id="481457716" name="llegaADestino" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="1293758684481457716" name="llegaADestino">
+			   	<language>OCL2.0</language>
+			   	  	<body>self.receptor -&gt; closure(n|n.receptor) -&gt; includes(s)</body>
+			  	</specification>
+		</ownedRule>
+		<ownedRule xmi:id="1333550432" name="listaPaquetesSigueVacia" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="9113348711333550432" name="listaPaquetesSigueVacia">
+			   	<language>OCL2.0</language>
+			   	  	<body>self.paquetesProcesando -&gt; isEmpty()</body>
+			  	</specification>
+		</ownedRule>
+		<ownedRule xmi:id="1383015672" name="miRelojHaCambiado" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="9061504251383015672" name="miRelojHaCambiado">
+			   	<language>OCL2.0</language>
+			   	  	<body>self.NOW = self.NOW@pre + self.tiempoProcesamiento</body>
+			  	</specification>
+		</ownedRule>
+		<ownedRule xmi:id="1513316170" name="heEnviadoUnPaqueteMas" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="2932075651513316170" name="heEnviadoUnPaqueteMas">
+			   	<language>OCL2.0</language>
+			   	  	<body>self.numeroPaquetesEnviados = self.numeroPaquetesEnviados@pre + 1</body>
+			  	</specification>
+		</ownedRule>
+		<ownedParameter xmi:id="517442491" name="s" type="1485015430">
+		</ownedParameter>
+	</ownedOperation>	
+	</packagedElement>
+	<packagedElement xmi:type="uml:Class" xmi:id="1093759605" name="Transmisor">
+	<ownedRule xmi:id="1921295995" name="todosLosPaquetesProcesando" constrainedElement="1093759605">
+		<specification xmi:type="uml:OpaqueExpression" xmi:id="5075313781921295995" name="todosLosPaquetesProcesando">
+		   	<language>OCL2.0</language>
+		   	  	<body>self.paquetesProcesando -&gt; forAll(p|p.siendoProcesado = true)</body>
+		  	</specification>
+	</ownedRule>
+	<ownedRule xmi:id="1931213293" name="numPaqProcesadosPositivo" constrainedElement="1093759605">
+		<specification xmi:type="uml:OpaqueExpression" xmi:id="1302897131931213293" name="numPaqProcesadosPositivo">
+		   	<language>OCL2.0</language>
+		   	  	<body>self.numeroPaquetesProcesados &gt;= 0</body>
+		  	</specification>
+	</ownedRule>
+	<ownedRule xmi:id="941382600" name="maxSobrecargaPositivo" constrainedElement="1093759605">
+		<specification xmi:type="uml:OpaqueExpression" xmi:id="1082508397941382600" name="maxSobrecargaPositivo">
+		   	<language>OCL2.0</language>
+		   	  	<body>self.numMaxSobrecarga &gt;= 0</body>
+		  	</specification>
+	</ownedRule>
+	<ownedRule xmi:id="339316887" name="tamanioNoMayorQueMax" constrainedElement="1093759605">
+		<specification xmi:type="uml:OpaqueExpression" xmi:id="81875413339316887" name="tamanioNoMayorQueMax">
+		   	<language>OCL2.0</language>
+		   	  	<body>self.numProc &lt;= self.numMaxSobrecarga</body>
+		  	</specification>
+	</ownedRule>
+	<generalization xmi:id="1478098945" general="960837293"/>
+	<ownedAttribute xmi:id="651882822" name="numeroPaquetesProcesados" >
+	<type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+	<defaultValue xmi:type="uml:LiteralString" xmi:id="651882822_03" name="" visibility="public" value="0"/>
+	</ownedAttribute>
+	<ownedAttribute xmi:id="1141652927" name="numMaxSobrecarga" >
+	<type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+	<defaultValue xmi:type="uml:LiteralString" xmi:id="1141652927_03" name="" visibility="public" value="10"/>
+	</ownedAttribute>
+	<ownedOperation xmi:id="471628726" name="todosPosibleApoyo" bodyCondition="15977397051692954743" postcondition="" precondition="" isQuery="true">
+		<ownedRule xmi:id="15977397051692954743" name="" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="169295474315977397051692954743" name="">
+			   	<language>OCL2.0</language>
+			   	  	<body>Apoyo.allInstances -&gt; select(a|a.apoyo -&gt; includes(self)) -&gt; closure(ap|ap.todosPosibleApoyo())</body>
+			  	</specification>
+		</ownedRule>
+		<ownedParameter xmi:id="4107506201597739705" name="" type="1318857153" direction="return">
+		<lowerValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="4107506201597739705_01" name="" visibility="public"/>
+		<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="4107506201597739705_02" name="" visibility="public" value="*"/>
+		</ownedParameter>
+	</ownedOperation>	
+	<ownedOperation xmi:id="1978869949" name="siendoApoyadoPor" bodyCondition="13845133961285325422" postcondition="" precondition="" isQuery="true">
+		<ownedRule xmi:id="13845133961285325422" name="" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="128532542213845133961285325422" name="">
+			   	<language>OCL2.0</language>
+			   	  	<body>self.todosPosibleApoyo() -&gt; select(a|a.activo = true)</body>
+			  	</specification>
+		</ownedRule>
+		<ownedParameter xmi:id="15732435281384513396" name="" type="1318857153" direction="return">
+		<lowerValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="15732435281384513396_01" name="" visibility="public"/>
+		<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="15732435281384513396_02" name="" visibility="public" value="*"/>
+		</ownedParameter>
+	</ownedOperation>	
+	<ownedOperation xmi:id="1627027186" name="procesarUnPaquete" bodyCondition="13347337511286802400" postcondition="454521193 1084165490 1297963224 1345582082 " precondition="1039357853 926949151 " >
+		<ownedRule xmi:id="13347337511286802400" name="" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="128680240013347337511286802400" name="">
+			   	<language>English</language>
+			   	  	<body>declare paq : Paquete, t : Nodo;
+			   	  					--Sumo a todos el tiempo de procesamiento
+			   	  					for paquete in self.paquetesProcesando do
+			   	  						paquete.tiempoActual := paquete.tiempoActual + self.tiempoProcesamiento; 
+			   	  					end;
+			   	  					
+			   	  					--Saco de la lista el que voy a procesar
+			   	  					paq := self.paquetesProcesando -> first();
+			   	  					self.enviar(paq);
+			   	  					self.numeroPaquetesProcesados := self.numeroPaquetesProcesados + 1;
+			   	  					
+			   	  					--Si alguno de sus paquetes estaban en uno de apoyo, vuelve
+			   	  					paq := siendoApoyadoPor() -> collect(a | a.paquetesProcesando) -> select(p | p.camino -> last() = self) -> asSequence -> first();
+			   	  					if not paq.oclIsUndefined then
+			   	  						declare a : Apoyo;
+			   	  						self.paquetesProcesando := self.paquetesProcesando -> append(paq);
+			   	  						a := siendoApoyadoPor() -> any(a | a.paquetesProcesando -> includes(paq));
+			   	  						a.paquetesProcesando := a.paquetesProcesando -> excluding(paq);
+			   	  						a.informarDePosibleSobrecarga()
+			   	  					end;</body>
+			  	</specification>
+		</ownedRule>
+		<ownedRule xmi:id="1039357853" name="listaNoVacia" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="8537363041039357853" name="listaNoVacia">
+			   	<language>OCL2.0</language>
+			   	  	<body>self.numProc &gt; 0</body>
+			  	</specification>
+		</ownedRule>
+		<ownedRule xmi:id="926949151" name="tamanioNoMayorAMaximoPre" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="2108859402926949151" name="tamanioNoMayorAMaximoPre">
+			   	<language>OCL2.0</language>
+			   	  	<body>self.numProc &lt;= self.numMaxSobrecarga</body>
+			  	</specification>
+		</ownedRule>
+		<ownedRule xmi:id="454521193" name="heProcesadoUnoMas" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="1392529899454521193" name="heProcesadoUnoMas">
+			   	<language>OCL2.0</language>
+			   	  	<body>self.numeroPaquetesProcesados = self.numeroPaquetesProcesados@pre + 1</body>
+			  	</specification>
+		</ownedRule>
+		<ownedRule xmi:id="1084165490" name="tamanioNoMayorAMaximoPost" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="11719554721084165490" name="tamanioNoMayorAMaximoPost">
+			   	<language>OCL2.0</language>
+			   	  	<body>self.numProc &lt;= self.numMaxSobrecarga</body>
+			  	</specification>
+		</ownedRule>
+		<ownedRule xmi:id="1297963224" name="tamanioIgualOUnoMenor" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="14685894021297963224" name="tamanioIgualOUnoMenor">
+			   	<language>OCL2.0</language>
+			   	  	<body>self.numProc = self.numProc@pre or self.numProc = self.numProc@pre - 1</body>
+			  	</specification>
+		</ownedRule>
+		<ownedRule xmi:id="1345582082" name="PrimerPaqueteHaCambiado" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="3462391881345582082" name="PrimerPaqueteHaCambiado">
+			   	<language>OCL2.0</language>
+			   	  	<body>self.paquetesProcesando@pre -&gt; first() &lt;&gt; self.paquetesProcesando -&gt; first()</body>
+			  	</specification>
+		</ownedRule>
+	</ownedOperation>	
+	<ownedOperation xmi:id="1842529191" name="informarDePosibleSobrecarga"  postcondition="" precondition="" >
+	</ownedOperation>	
+	<ownedOperation xmi:id="1246944398" name="pasarAUnTransmisorDeApoyo" bodyCondition="849529173624579920" postcondition="1650906776 " precondition="2098157461 1976880117 " >
+		<ownedRule xmi:id="849529173624579920" name="" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="624579920849529173624579920" name="">
+			   	<language>English</language>
+			   	  	<body>					if siendoApoyadoPor() -> isEmpty or siendoApoyadoPor() -> forAll(a | a.oclInState(colapsado)) then
+			   	  							declare ap : Apoyo;
+			   	  							ap := self.todosPosibleApoyo() -> any(a | a.oclInState(noColapsado));
+			   	  							result := ap;
+			   	  						else
+			   	  							result := siendoApoyadoPor() -> select (a | a.oclInState(noColapsado)) -> sortedBy(a | a.numProc) -> at(1);
+			   	  						end
+			   	  	</body>
+			  	</specification>
+		</ownedRule>
+		<ownedRule xmi:id="2098157461" name="soloSiSobrecarga" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="6549415712098157461" name="soloSiSobrecarga">
+			   	<language>OCL2.0</language>
+			   	  	<body>self.oclInState(colapsado)</body>
+			  	</specification>
+		</ownedRule>
+		<ownedRule xmi:id="1976880117" name="hayAlgunoDisponible" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="8927860001976880117" name="hayAlgunoDisponible">
+			   	<language>OCL2.0</language>
+			   	  	<body>self.todosPosibleApoyo() -&gt; exists(a|a.oclInState(noColapsado))</body>
+			  	</specification>
+		</ownedRule>
+		<ownedRule xmi:id="1650906776" name="apoyoNoPuedeEstarColapsado" >
+			<specification xmi:type="uml:OpaqueExpression" xmi:id="11935744691650906776" name="apoyoNoPuedeEstarColapsado">
+			   	<language>OCL2.0</language>
+			   	  	<body>result.oclInState(noColapsado)</body>
+			  	</specification>
+		</ownedRule>
+		<ownedParameter xmi:id="1497613705849529173" name="" type="1318857153" direction="return">
+		</ownedParameter>
+	</ownedOperation>	
+	<ownedBehavior xmi:type="uml:ProtocolStateMachine" xmi:id="1336417873" name="sobrecarga">
+		<region xmi:id="1336417873_01" name="" visibility="public">
+			<transition xmi:type="uml:ProtocolTransition" xmi:id="1805893423" name="" source="948263853" target="1286063036">
+			</transition>
+			<transition xmi:type="uml:ProtocolTransition" xmi:id="730668245" name="" source="1286063036" target="1286063036" postCondition="1985348625">
+				<ownedRule xmi:id="1985348625" name="" >
+					<specification xmi:type="uml:OpaqueExpression" xmi:id="19853486251985348625" name="">
+					   	<language>OCL2.0</language>
+					   	  	<body>self.numProc &lt; numMaxSobrecarga</body>
+					  	</specification>
+				</ownedRule>
+				<trigger xmi:id="730668245_01" name="" visibility="public" event="730668245_02"/>
+			</transition>
+			<transition xmi:type="uml:ProtocolTransition" xmi:id="2051330384" name="" guard="1575229131" source="1286063036" target="1286063036" postCondition="590477678" preCondition="1575229131">
+				<ownedRule xmi:id="1575229131" name="" >
+					<specification xmi:type="uml:OpaqueExpression" xmi:id="15752291311575229131" name="">
+					   	<language>OCL2.0</language>
+					   	  	<body>self.numProc &lt; self.numMaxSobrecarga</body>
+					  	</specification>
+				</ownedRule>
+				<ownedRule xmi:id="590477678" name="" >
+					<specification xmi:type="uml:OpaqueExpression" xmi:id="590477678590477678" name="">
+					   	<language>OCL2.0</language>
+					   	  	<body>self.numProc &lt; self.numMaxSobrecarga</body>
+					  	</specification>
+				</ownedRule>
+				<trigger xmi:id="2051330384_01" name="" visibility="public" event="2051330384_02"/>
+			</transition>
+			<transition xmi:type="uml:ProtocolTransition" xmi:id="875752280" name="" source="1286063036" target="465004464" postCondition="346497444">
+				<ownedRule xmi:id="346497444" name="" >
+					<specification xmi:type="uml:OpaqueExpression" xmi:id="346497444346497444" name="">
+					   	<language>OCL2.0</language>
+					   	  	<body>self.numProc = numMaxSobrecarga</body>
+					  	</specification>
+				</ownedRule>
+				<trigger xmi:id="875752280_01" name="" visibility="public" event="875752280_02"/>
+			</transition>
+			<transition xmi:type="uml:ProtocolTransition" xmi:id="1970395543" name="" source="465004464" target="465004464" postCondition="1779909939">
+				<ownedRule xmi:id="1779909939" name="" >
+					<specification xmi:type="uml:OpaqueExpression" xmi:id="17799099391779909939" name="">
+					   	<language>OCL2.0</language>
+					   	  	<body>self.numProc = numMaxSobrecarga</body>
+					  	</specification>
+				</ownedRule>
+				<trigger xmi:id="1970395543_01" name="" visibility="public" event="1970395543_02"/>
+			</transition>
+			<transition xmi:type="uml:ProtocolTransition" xmi:id="471109450" name="" source="465004464" target="1286063036" postCondition="1267239358">
+				<ownedRule xmi:id="1267239358" name="" >
+					<specification xmi:type="uml:OpaqueExpression" xmi:id="12672393581267239358" name="">
+					   	<language>OCL2.0</language>
+					   	  	<body>self.numProc &lt; numMaxSobrecarga</body>
+					  	</specification>
+				</ownedRule>
+				<trigger xmi:id="471109450_01" name="" visibility="public" event="471109450_02"/>
+			</transition>
+			<transition xmi:type="uml:ProtocolTransition" xmi:id="600002536" name="" guard="294667834" source="465004464" target="1286063036" postCondition="885243914" preCondition="294667834">
+				<ownedRule xmi:id="294667834" name="" >
+					<specification xmi:type="uml:OpaqueExpression" xmi:id="294667834294667834" name="">
+					   	<language>OCL2.0</language>
+					   	  	<body>self.numProc = self.numMaxSobrecarga</body>
+					  	</specification>
+				</ownedRule>
+				<ownedRule xmi:id="885243914" name="" >
+					<specification xmi:type="uml:OpaqueExpression" xmi:id="885243914885243914" name="">
+					   	<language>OCL2.0</language>
+					   	  	<body>self.numProc &lt; self.numMaxSobrecarga</body>
+					  	</specification>
+				</ownedRule>
+				<trigger xmi:id="600002536_01" name="" visibility="public" event="600002536_02"/>
+			</transition>
+			<transition xmi:type="uml:ProtocolTransition" xmi:id="1030164010" name="" guard="264371278" source="465004464" target="465004464" postCondition="659861507" preCondition="264371278">
+				<ownedRule xmi:id="264371278" name="" >
+					<specification xmi:type="uml:OpaqueExpression" xmi:id="264371278264371278" name="">
+					   	<language>OCL2.0</language>
+					   	  	<body>self.numProc = self.numMaxSobrecarga</body>
+					  	</specification>
+				</ownedRule>
+				<ownedRule xmi:id="659861507" name="" >
+					<specification xmi:type="uml:OpaqueExpression" xmi:id="659861507659861507" name="">
+					   	<language>OCL2.0</language>
+					   	  	<body>self.numProc = self.numMaxSobrecarga</body>
+					  	</specification>
+				</ownedRule>
+				<trigger xmi:id="1030164010_01" name="" visibility="public" event="1030164010_02"/>
+			</transition>
+			<subvertex xmi:type="uml:Pseudostate" xmi:id="948263853" name="s"/>
+			<subvertex xmi:type="uml:State" xmi:id="1286063036" name="noColapsado"  stateInvariant="1722599205">
+			<ownedRule xmi:id="1722599205" name="" >
+				<specification xmi:type="uml:OpaqueExpression" xmi:id="17225992051722599205" name="">
+				   	<language>OCL2.0</language>
+				   	  	<body>self.numProc &lt; numMaxSobrecarga</body>
+				  	</specification>
+			</ownedRule>
+			</subvertex>
+			<subvertex xmi:type="uml:State" xmi:id="465004464" name="colapsado"  stateInvariant="1942184435">
+			<ownedRule xmi:id="1942184435" name="" >
+				<specification xmi:type="uml:OpaqueExpression" xmi:id="19421844351942184435" name="">
+				   	<language>OCL2.0</language>
+				   	  	<body>self.numProc = numMaxSobrecarga</body>
+				  	</specification>
+			</ownedRule>
+			</subvertex>
+		</region>
+	</ownedBehavior>
+	</packagedElement>
+	<packagedElement xmi:type="uml:Class" xmi:id="1318857153" name="Apoyo">
+	<generalization xmi:id="1586648198" general="1093759605"/>
+	<ownedAttribute xmi:id="1536648859" name="activo" isDerived="true" >
+	<type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+	<defaultValue xmi:type="uml:LiteralString" xmi:id="1536648859_03" name="" visibility="public" value="self.numProc &gt; 0"/>
+	</ownedAttribute>
+	<ownedAttribute xmi:id="788071501" name="apoyo" type="1093759605">
+	<lowerValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="788071501_01" name="" visibility="public"/>
+	<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="788071501_02" name="" visibility="public" value="*"/>	
+	</ownedAttribute>
+	</packagedElement>
+	<packagedElement xmi:type="uml:Association" xmi:id="1281671450" name="Vecinos" memberEnd="1400167532 1481706704 "/>
+	<packagedElement xmi:type="uml:CallEvent" xmi:id="730668245_02" name="" operation="1842529191"/>
+	<packagedElement xmi:type="uml:CallEvent" xmi:id="2051330384_02" name="" operation="1627027186"/>
+	<packagedElement xmi:type="uml:CallEvent" xmi:id="875752280_02" name="" operation="1842529191"/>
+	<packagedElement xmi:type="uml:CallEvent" xmi:id="1970395543_02" name="" operation="1842529191"/>
+	<packagedElement xmi:type="uml:CallEvent" xmi:id="471109450_02" name="" operation="1842529191"/>
+	<packagedElement xmi:type="uml:CallEvent" xmi:id="600002536_02" name="" operation="1627027186"/>
+	<packagedElement xmi:type="uml:CallEvent" xmi:id="1030164010_02" name="" operation="1627027186"/>
+	</uml:Model>
+</xmi:XMI>

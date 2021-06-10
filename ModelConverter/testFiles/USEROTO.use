@@ -1,0 +1,31 @@
+model ModelP00
+
+abstract class A
+attributes
+	attString : String
+	attInteger : Integer init: 16
+	attReal : Real init : 3.5
+	attBoolean : Boolean init : self.attInt.oclIsUndefined()
+	attInt : Integer
+	attboolean : Boolean derive : self.attInt.oclIsUndefined()
+	attByte : String
+	attChar : String
+	attDate : Stri
+	attDouble : Real
+	attFloat : Real
+	attLong : Integer
+	attShort : Integer
+	attStructuredExpression : String
+	attUnlimitedNatural : String
+	attvoid : String
+	attEmpty : String
+
+constraints
+	inv :
+		true
+end
+
+association B between
+	A [1] 
+	A [0..1] role a1
+end

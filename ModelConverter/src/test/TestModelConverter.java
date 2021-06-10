@@ -32,10 +32,11 @@ class TestModelConverter {
 	
 	@Test 
 	void test1_CheckModelsAreEquivalent() {
-		//assertTrue(ModelCheck.checkModelsAreEquivalentUSEUML(source + "/P01.use", source + "/P01.uml"));
-		//assertTrue(ModelCheck.checkModelsAreEquivalentUSEUML(source + "/P02.use", source + "/P02.uml"));
-		//assertTrue(ModelCheck.checkModelsAreEquivalentUSEUML(source + "/P03.use", source + "/P03.uml"));
+		assertTrue(ModelCheck.checkModelsAreEquivalentUSEUML(source + "/P01.use", source + "/P01.uml"));
+		assertTrue(ModelCheck.checkModelsAreEquivalentUSEUML(source + "/P02.use", source + "/P02.uml"));
+		assertTrue(ModelCheck.checkModelsAreEquivalentUSEUML(source + "/P03.use", source + "/P03.uml"));
 		assertTrue(ModelCheck.checkModelsAreEquivalentUSEUML(source + "/P04.use", source + "/P04.uml"));
+		assertTrue(ModelCheck.checkModelsAreEquivalentUSEUML(source + "/P05.use", source + "/P05.uml"));
 	}
 	
 	@Test
@@ -85,6 +86,16 @@ class TestModelConverter {
 		assertEquals("ERROR: Please enter a valid .use or .uml file.".strip(), errContent.toString().strip());
 		
 		System.setErr(originalErr);
+	}
+	
+	@Test
+	void test3_GrammarMistakesUSEFile() {
+		Generators.chooseGeneratorBySourceFile(source + "/USEROTO.use", destiny);
+	}
+	
+	@Test
+	void test3_GrammarMistakesUMLFile() {
+		Generators.chooseGeneratorBySourceFile(source + "/UMLROTO.use", destiny);
 	}
 	
 	@Test
@@ -164,5 +175,78 @@ class TestModelConverter {
 	void testP03B_UMLToUSEToUML() {
 		Generators.chooseGeneratorBySourceFile(destiny + "/modelConverter_ModelP03.use", destiny);
 		assertTrue(ModelCheck.checkModelsAreEquivalentUMLUML(source + "/P03.uml", destiny + "/modelConverter_ModelP03(1).uml"));
+	}
+	
+	@Test
+	void testP04A_USEToUML() {
+		Generators.chooseGeneratorBySourceFile(source + "/P04.use", destiny);
+		assertTrue(ModelCheck.checkModelsAreEquivalentUSEUML(source + "/P04.use", destiny + "/modelConverter_ModelP04.uml"));
+		assertTrue(ModelCheck.checkModelsAreEquivalentUMLUML(source + "/P04.uml", destiny + "/modelConverter_ModelP04.uml"));
+	}
+	
+	@Test
+	void testP04A_UMLToUSE() {
+		Generators.chooseGeneratorBySourceFile(source + "/P04.uml", destiny);
+		assertTrue(ModelCheck.checkModelsAreEquivalentUSEUML(destiny + "/modelConverter_ModelP04.use", source + "/P04.uml"));
+		assertTrue(ModelCheck.checkModelsAreEquivalentUSEUSE(source + "/P04.use", destiny + "/modelConverter_ModelP04.use"));
+	}
+	
+	@Test
+	void testP04B_USEToUMLToUSE() {
+		Generators.chooseGeneratorBySourceFile(destiny + "/modelConverter_ModelP04.uml", destiny);
+		assertTrue(ModelCheck.checkModelsAreEquivalentUSEUSE(source + "/P04.use", destiny + "/modelConverter_ModelP04(1).use"));
+	}
+	
+	@Test
+	void testP04B_UMLToUSEToUML() {
+		Generators.chooseGeneratorBySourceFile(destiny + "/modelConverter_ModelP04.use", destiny);
+		assertTrue(ModelCheck.checkModelsAreEquivalentUMLUML(source + "/P04.uml", destiny + "/modelConverter_ModelP04(1).uml"));
+	}
+	
+	@Test
+	void testP05A_USEToUML() {
+		Generators.chooseGeneratorBySourceFile(source + "/P05.use", destiny);
+		assertTrue(ModelCheck.checkModelsAreEquivalentUSEUML(source + "/P05.use", destiny + "/modelConverter_ModelP05.uml"));
+		assertTrue(ModelCheck.checkModelsAreEquivalentUMLUML(source + "/P05.uml", destiny + "/modelConverter_ModelP05.uml"));
+	}
+	
+	@Test
+	void testP05A_UMLToUSE() {
+		Generators.chooseGeneratorBySourceFile(source + "/P05.uml", destiny);
+		assertTrue(ModelCheck.checkModelsAreEquivalentUSEUML(destiny + "/modelConverter_ModelP05.use", source + "/P05.uml"));
+		assertTrue(ModelCheck.checkModelsAreEquivalentUSEUSE(source + "/P05.use", destiny + "/modelConverter_ModelP05.use"));
+	}
+	
+	@Test
+	void testP05B_USEToUMLToUSE() {
+		Generators.chooseGeneratorBySourceFile(destiny + "/modelConverter_ModelP05.uml", destiny);
+		assertTrue(ModelCheck.checkModelsAreEquivalentUSEUSE(source + "/P05.use", destiny + "/modelConverter_ModelP05(1).use"));
+	}
+	
+	@Test
+	void testP05B_UMLToUSEToUML() {
+		Generators.chooseGeneratorBySourceFile(destiny + "/modelConverter_ModelP05.use", destiny);
+		assertTrue(ModelCheck.checkModelsAreEquivalentUMLUML(source + "/P05.uml", destiny + "/modelConverter_ModelP05(1).uml"));
+	}
+	
+	@Test
+	void testP06_USEToUMLToUSE() {
+		Generators.chooseGeneratorBySourceFile(source + "/P06.use", destiny);
+		Generators.chooseGeneratorBySourceFile(destiny + "/modelConverter_ModelP06.uml", destiny);
+		assertTrue(ModelCheck.checkModelsAreEquivalentUSEUSE(source + "/P06.use", destiny + "/modelConverter_ModelP06.use"));
+	}
+	
+	@Test
+	void testP07_USEToUMLToUSE() {
+		Generators.chooseGeneratorBySourceFile(source + "/P07.use", destiny);
+		Generators.chooseGeneratorBySourceFile(destiny + "/modelConverter_ModelP07.uml", destiny);
+		assertTrue(ModelCheck.checkModelsAreEquivalentUSEUSE(source + "/P07.use", destiny + "/modelConverter_ModelP07.use"));
+	}
+	
+	@Test
+	void testP08_USEToUMLToUSE() {
+		Generators.chooseGeneratorBySourceFile(source + "/P08.use", destiny);
+		Generators.chooseGeneratorBySourceFile(destiny + "/modelConverter_ModelP08.uml", destiny);
+		assertTrue(ModelCheck.checkModelsAreEquivalentUSEUSE(source + "/P08.use", destiny + "/modelConverter_ModelP08.use"));
 	}
 }

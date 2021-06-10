@@ -184,10 +184,10 @@ public class MC_USEtoTModel {
 		// TODO Auto-generated method stub
 		TStateMachine tStateMachine = new TStateMachine(stateMachine.getName());
 		for(State state : stateMachine.getStates()) {
-			tStateMachine.addState(new TState(state.getName(), "USE"));
+			tStateMachine.addState(new TState(state.getName(), "USE", state.isIsInitial(), state.isIsFinal()));
 		}
 		for(Transition transition : stateMachine.getTransitions()) {
-			tStateMachine.addTransition(new TTransition(transition.getTarget().getName(), transition.getSource().getName(), "USE", "USE", (transition.getOperation() == null) ? null : transition.getOperation().getName()));
+			tStateMachine.addTransition(new TTransition(transition.getTarget(), transition.getSource(), "USE", "USE", (transition.getOperation() == null) ? null : transition.getOperation().getName()));
 		}
 		return tStateMachine;
 	}
@@ -200,9 +200,11 @@ public class MC_USEtoTModel {
 	
 	private static TOperation getTOperation(OperationType operation) {
 		TOperation tOperation = new TOperation(operation.getOperationDeclaration().getName());
-		TAttribute returnAttr = new TAttribute("");
-		typeToAttribute(returnAttr, operation.getOperationDeclaration().getReturnType());
-		tOperation.setReturn1(returnAttr);
+		if(operation.getOperationDeclaration().getReturnType() != null) {
+			TAttribute returnAttr = new TAttribute("");
+			typeToAttribute(returnAttr, operation.getOperationDeclaration().getReturnType());
+			tOperation.setReturn1(returnAttr);
+		}
 		for(Parameter parameter : operation.getOperationDeclaration().getParameters()) {
 			TAttribute tParameter = new TAttribute(parameter.getName());
 			typeToAttribute(tParameter, parameter.getType());

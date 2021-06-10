@@ -3,18 +3,30 @@ package test.utilities;
 public class TState {
 	private String name;
 	private String invariant;
+	private boolean isInitial;
+	private boolean isFinal;
 	
 	public TState(String name) {
 		this.name = name;
 	}
 
-	public TState(String name, String invariant) {
+	public TState(String name, String invariant, boolean isInitial, boolean isFinal) {
 		this.name = name;
 		this.invariant = invariant;
+		this.isInitial = isInitial;
+		this.isFinal = isFinal;
 	}
 	
 	public void setInvariant(String invariant) {
 		this.invariant = invariant;
+	}
+
+	public void setInitial(boolean isInitial) {
+		this.isInitial = isInitial;
+	}
+
+	public void setFinal(boolean isFinal) {
+		this.isFinal = isFinal;
 	}
 
 	@Override
@@ -35,11 +47,13 @@ public class TState {
 		if (getClass() != obj.getClass())
 			return false;
 		TState other = (TState) obj;
+		if (isFinal != other.isFinal) return false;
+		if (isInitial != other.isInitial) return false;
 		if (invariant == null) {
 			if (other.invariant != null && !other.invariant.equals("USE"))
 				return false;
 		} else if (!invariant.equals(other.invariant)
-					&& !other.invariant.equals("USE") && !invariant.equals("USE")
+					&& !(other.invariant != null && other.invariant.equals("USE")) && !invariant.equals("USE")
 					&& !(other.invariant != null && invariant.strip().replaceAll(" ", "").equals(other.invariant.strip().replaceAll(" ", ""))))
 			return false;
 		if (name == null) {

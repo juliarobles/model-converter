@@ -1,0 +1,265 @@
+model ModelP08
+
+-----------Clases-----------
+
+abstract class Nodo
+	attributes
+		tiempoProcesamiento : Integer init : 0
+		paquetesProcesando : Sequence(Paquete) init : Sequence{}
+		numProc : Integer derive: paquetesProcesando -> size()
+		
+	operations
+		nodos(n : Nodo) : Set(Nodo) = n.receptor -> closure(n | n.receptor) -> excluding(self)
+		disponible() : Boolean = if self.oclIsKindOf(Transmisor) then self.oclAsType(Transmisor).oclInState(noColapsado) or self.oclAsType(Transmisor).todosPosibleApoyo() -> exists(a | a.oclInState(noColapsado)) else true endif
+		enviar(paq : Paquete)
+			begin
+				declare t : Nodo;
+				if (paq.camino -> last()).receptor -> includes(paq.destino) then
+					t := paq.destino;
+					paq.camino := paq.camino -> append(t);
+				else
+					t := (paq.camino -> last()).receptor -> select(n | paq.camino -> excludes(n) and self.nodos(n) -> includes(paq.destino) and n.disponible()) -> sortedBy(n | n.numProc) -> at(1);
+					paq.camino := paq.camino -> append(t); --Hacemos append del transmisor t aunque luego mandemos a alguno de apoyo suyo
+					if (not t.oclIsUndefined) and t.oclAsType(Transmisor).oclInState(colapsado) then
+						t := t.oclAsType(Transmisor).pasarAUnTransmisorDeApoyo();
+					end;
+				end;
+				
+				self.paquetesProcesando := self.paquetesProcesando -> excluding(paq);
+				t.paquetesProcesando := t.paquetesProcesando -> append(paq);
+				if t.oclIsKindOf(Transmisor) then
+						t.oclAsType(Transmisor).informarDePosibleSobrecarga();
+				end;
+			end
+			pre ServidoresNoEnvian: not self.oclIsTypeOf(Servidor)
+			pre PaqueteNoEntregado: paq.siendoProcesado = true
+			pre DestinoDefinido: not paq.destino.oclIsUndefined
+			pre EstoyProcesandoEsePaquete: self.paquetesProcesando -> includes(paq)
+			pre HayCaminoADestino: (paq.camino -> last()).receptor -> closure(n | n.receptor) -> includes(paq.destino)
+			pre AlgunReceptorDisponible: (paq.camino -> last()).receptor -> exists(r | r.disponible() = true)
+			post YaNoEstoyProcesandoElPaquete: self.paquetesProcesando -> excludes(paq)
+			post TengoUnPaqueteMenos: self.numProc = self.numProc@pre - 1
+			
+end
+
+class Paquete
+	attributes
+		siendoProcesado : Boolean derive: if tiempoFinal.oclIsUndefined() then true else false endif
+		tiempoActual : Integer
+		tiempoInicial : Integer
+		tiempoFinal : Integer
+		destino : Servidor
+		camino : Sequence(Nodo)
+end
+
+class Servidor < Nodo --sumideros del grafo
+	attributes
+		numeroPaquetesRecibidos : Integer init : 0
+		
+	operations
+		consumirPaquete()
+			begin
+				--Saco el paquete que voy a consumir
+				declare paq : Paquete;
+				paq := self.paquetesProcesando -> first();
+				
+				for paquete in self.paquetesProcesando do
+					paquete.tiempoActual := paquete.tiempoActual + self.tiempoProcesamiento; 
+				end;
+				
+				self.paquetesProcesando := self.paquetesProcesando -> excluding(paq);
+				
+				--Cambio sus atributos
+				paq.tiempoFinal := paq.tiempoActual;
+				
+				--Sumo 1 a mi atributo
+				self.numeroPaquetesRecibidos := self.numeroPaquetesRecibidos + 1
+				
+			end
+			pre listaPaquetesNoVacia: self.paquetesProcesando -> notEmpty()
+			pre soySuDestino: (self.paquetesProcesando -> first()).destino = self
+			post unPaqueteRecibidoMas: self.numeroPaquetesRecibidos = self.numeroPaquetesRecibidos@pre + 1 
+			post listaPaquetesMenosUno: self.numProc = self.numProc@pre - 1
+			post primerPaqueteHaCambiado: self.paquetesProcesando@pre -> first() <> self.paquetesProcesando -> first()
+			post paqueteConsumidoCorrectamente: (self.paquetesProcesando@pre -> first()).siendoProcesado = false
+end
+
+class Usuario < Nodo --fuentes del grafo
+	attributes
+		NOW : Integer init : 0
+		numeroPaquetesEnviados : Integer init : 0
+		
+	operations
+		enviarPaquete(s : Servidor)
+			begin
+				--Creo el paquete e inicializo sus atributos
+				declare p : Paquete;
+				p := new Paquete;
+				p.destino := s;
+				p.tiempoInicial := self.NOW;
+				self.NOW := self.NOW + self.tiempoProcesamiento; --Actualizo el reloj del usuario
+				p.tiempoActual := self.NOW;
+				p.camino := p.camino -> append(self);
+				
+				--Envio el paquete
+				self.paquetesProcesando := self.paquetesProcesando -> append(p);
+				self.enviar(p);
+				self.numeroPaquetesEnviados := self.numeroPaquetesEnviados + 1;
+			end	
+			pre listaPaquetesVacia: self.paquetesProcesando -> isEmpty()
+			pre estaConectadoAAlgo: self.receptor -> notEmpty()
+			pre algunReceptorDisponible: self.receptor -> exists(r | r.disponible() = true)
+			pre llegaADestino: self.receptor -> closure(n | n.receptor) -> includes(s)
+			post listaPaquetesSigueVacia: self.paquetesProcesando -> isEmpty()
+			post miRelojHaCambiado: self.NOW = self.NOW@pre + self.tiempoProcesamiento
+			post heEnviadoUnPaqueteMas: self.numeroPaquetesEnviados = self.numeroPaquetesEnviados@pre + 1
+end
+
+class Transmisor < Nodo 
+	attributes
+		numeroPaquetesProcesados : Integer init: 0
+		numMaxSobrecarga : Integer init : 10
+
+	operations
+		todosPosibleApoyo() : Set(Apoyo) = Apoyo.allInstances -> select(a | a.apoyo -> includes(self)) -> closure(ap | ap.todosPosibleApoyo())
+		siendoApoyadoPor() : Set(Apoyo) = self.todosPosibleApoyo() -> select(a | a.activo = true)
+		
+		procesarUnPaquete()
+			begin
+				declare paq : Paquete, t : Nodo;
+				--Sumo a todos el tiempo de procesamiento
+				for paquete in self.paquetesProcesando do
+					paquete.tiempoActual := paquete.tiempoActual + self.tiempoProcesamiento; 
+				end;
+				
+				--Saco de la lista el que voy a procesar
+				paq := self.paquetesProcesando -> first();
+				self.enviar(paq);
+				self.numeroPaquetesProcesados := self.numeroPaquetesProcesados + 1;
+				
+				--Si alguno de sus paquetes estaban en uno de apoyo, vuelve
+				paq := siendoApoyadoPor() -> collect(a | a.paquetesProcesando) -> select(p | p.camino -> last() = self) -> asSequence -> first();
+				if not paq.oclIsUndefined then
+					declare a : Apoyo;
+					self.paquetesProcesando := self.paquetesProcesando -> append(paq);
+					a := siendoApoyadoPor() -> any(a | a.paquetesProcesando -> includes(paq));
+					a.paquetesProcesando := a.paquetesProcesando -> excluding(paq);
+					a.informarDePosibleSobrecarga()
+				end;
+			end
+			pre listaNoVacia: self.numProc > 0
+			pre tamanioNoMayorAMaximoPre: self.numProc <= self.numMaxSobrecarga
+			post heProcesadoUnoMas: self.numeroPaquetesProcesados = self.numeroPaquetesProcesados@pre + 1
+			post tamanioNoMayorAMaximoPost: self.numProc <= self.numMaxSobrecarga
+			post tamanioIgualOUnoMenor: self.numProc = self.numProc@pre or self.numProc = self.numProc@pre - 1
+			post PrimerPaqueteHaCambiado: self.paquetesProcesando@pre -> first() <> self.paquetesProcesando -> first() 
+			
+			
+			informarDePosibleSobrecarga()
+				begin
+				end
+		
+			pasarAUnTransmisorDeApoyo() : Apoyo
+				begin
+					if siendoApoyadoPor() -> isEmpty or siendoApoyadoPor() -> forAll(a | a.oclInState(colapsado)) then
+						declare ap : Apoyo;
+						ap := self.todosPosibleApoyo() -> any(a | a.oclInState(noColapsado));
+						result := ap;
+					else
+						result := siendoApoyadoPor() -> select (a | a.oclInState(noColapsado)) -> sortedBy(a | a.numProc) -> at(1);
+					end
+				end
+				pre soloSiSobrecarga: self.oclInState(colapsado)
+				pre hayAlgunoDisponible: self.todosPosibleApoyo() -> exists(a | a.oclInState(noColapsado))
+				post apoyoNoPuedeEstarColapsado: result.oclInState(noColapsado)
+				
+	statemachines
+		psm sobrecarga
+		states
+			s : initial
+			noColapsado [self.numProc < numMaxSobrecarga]
+			colapsado [self.numProc = numMaxSobrecarga]
+		transitions
+			s -> noColapsado
+			noColapsado -> noColapsado { informarDePosibleSobrecarga() [self.numProc < numMaxSobrecarga]}
+			noColapsado -> noColapsado { [self.numProc < self.numMaxSobrecarga] procesarUnPaquete() [self.numProc < self.numMaxSobrecarga]}	
+			noColapsado -> colapsado   { informarDePosibleSobrecarga() [self.numProc = numMaxSobrecarga]}
+			colapsado -> colapsado     { informarDePosibleSobrecarga() [self.numProc = numMaxSobrecarga]}
+			colapsado -> noColapsado   { informarDePosibleSobrecarga() [self.numProc < numMaxSobrecarga]}
+			colapsado -> noColapsado   { [self.numProc = self.numMaxSobrecarga] procesarUnPaquete() [self.numProc < self.numMaxSobrecarga]}	
+			colapsado -> colapsado     { [self.numProc = self.numMaxSobrecarga] procesarUnPaquete() [self.numProc = self.numMaxSobrecarga]}
+		end
+		
+end
+
+class Apoyo < Transmisor
+	attributes
+		activo : Boolean derive: self.numProc > 0
+		apoyo : Set(Transmisor)
+end
+
+----------- Asociaciones -----------
+
+association Vecinos between
+	Nodo [*] role emisor
+	Nodo [*] role receptor
+end
+
+----------- Restricciones -----------
+constraints
+
+context Nodo
+	inv tiempoPositivo:
+		self.tiempoProcesamiento >= 0
+
+context Usuario 
+	inv listaDebeEstarVacia: --La lista de paquetes en cola por ser procesados debe estar vacia para los nodos de usuario
+		self.paquetesProcesando -> isEmpty()
+	
+	inv noPuedeRecibirPaquetes: 
+		self.emisor -> isEmpty()
+		
+	inv numPaqEnviadosPositivo:
+		self.numeroPaquetesEnviados >= 0
+	
+	inv tiempoUsuarioPositivo:
+		self.NOW >= 0
+
+context Transmisor
+	inv todosLosPaquetesProcesando:
+		self.paquetesProcesando -> forAll(p | p.siendoProcesado = true)
+	
+	inv numPaqProcesadosPositivo:
+		self.numeroPaquetesProcesados >= 0
+	
+	inv maxSobrecargaPositivo:
+		self.numMaxSobrecarga >= 0
+		
+	inv tamanioNoMayorQueMax:
+		self.numProc <= self.numMaxSobrecarga
+		
+context Servidor
+	inv noPuedeEnviarPaquetes:
+		self.receptor -> isEmpty()
+	
+	inv numPaqRecibidosPositivo:
+		self.numeroPaquetesRecibidos >= 0
+
+context Paquete 
+	inv tiemposPositivos:
+		self.tiempoActual >= 0 and self.tiempoInicial >= 0 and self.tiempoFinal >= 0
+	
+	inv tiemposCoherentes:
+		self.tiempoActual >= self.tiempoInicial and self.tiempoActual <= self.tiempoFinal
+	
+	inv destinoDefinido:
+		not self.destino.oclIsUndefined 
+	
+	inv caminoNoVacio:
+		self.camino -> notEmpty()
+	
+	inv noNodosRepetidosEnCamino:
+		self.camino -> forAll(n1 | self.camino -> one(n2 | n2 = n1))
+	
+	inv paqueteSoloEnUnNodo:
+		self.siendoProcesado = true implies Nodo.allInstances -> one(n | n.paquetesProcesando -> includes(self))

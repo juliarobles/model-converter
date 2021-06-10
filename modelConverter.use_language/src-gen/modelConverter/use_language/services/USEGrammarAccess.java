@@ -1276,12 +1276,10 @@ public class USEGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "modelConverter.use_language.USE.Transition");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cSourceAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final CrossReference cSourceStateCrossReference_0_0 = (CrossReference)cSourceAssignment_0.eContents().get(0);
-		private final RuleCall cSourceStateIDTerminalRuleCall_0_0_1 = (RuleCall)cSourceStateCrossReference_0_0.eContents().get(1);
+		private final RuleCall cSourceIDTerminalRuleCall_0_0 = (RuleCall)cSourceAssignment_0.eContents().get(0);
 		private final Keyword cHyphenMinusGreaterThanSignKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cTargetAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final CrossReference cTargetStateCrossReference_2_0 = (CrossReference)cTargetAssignment_2.eContents().get(0);
-		private final RuleCall cTargetStateIDTerminalRuleCall_2_0_1 = (RuleCall)cTargetStateCrossReference_2_0.eContents().get(1);
+		private final RuleCall cTargetIDTerminalRuleCall_2_0 = (RuleCall)cTargetAssignment_2.eContents().get(0);
 		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
 		private final Keyword cLeftCurlyBracketKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
 		private final Group cGroup_3_1 = (Group)cGroup_3.eContents().get(1);
@@ -1302,33 +1300,27 @@ public class USEGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		private final Keyword cRightCurlyBracketKeyword_3_6 = (Keyword)cGroup_3.eContents().get(6);
 		
 		//Transition:
-		//    source=[State] '->' target=[State]  ('{' ('[' precondition=ExpCS ']')? operation=[OperationDeclaration] '(' ')' ('[' postcondition=ExpCS ']')? '}')?
+		//    source=ID '->' target=ID   ('{' ('[' precondition=ExpCS ']')? operation=[OperationDeclaration] '(' ')' ('[' postcondition=ExpCS ']')? '}')?
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//source=[State] '->' target=[State]  ('{' ('[' precondition=ExpCS ']')? operation=[OperationDeclaration] '(' ')' ('[' postcondition=ExpCS ']')? '}')?
+		//source=ID '->' target=ID   ('{' ('[' precondition=ExpCS ']')? operation=[OperationDeclaration] '(' ')' ('[' postcondition=ExpCS ']')? '}')?
 		public Group getGroup() { return cGroup; }
 		
-		//source=[State]
+		//source=ID
 		public Assignment getSourceAssignment_0() { return cSourceAssignment_0; }
 		
-		//[State]
-		public CrossReference getSourceStateCrossReference_0_0() { return cSourceStateCrossReference_0_0; }
-		
 		//ID
-		public RuleCall getSourceStateIDTerminalRuleCall_0_0_1() { return cSourceStateIDTerminalRuleCall_0_0_1; }
+		public RuleCall getSourceIDTerminalRuleCall_0_0() { return cSourceIDTerminalRuleCall_0_0; }
 		
 		//'->'
 		public Keyword getHyphenMinusGreaterThanSignKeyword_1() { return cHyphenMinusGreaterThanSignKeyword_1; }
 		
-		//target=[State]
+		//target=ID
 		public Assignment getTargetAssignment_2() { return cTargetAssignment_2; }
 		
-		//[State]
-		public CrossReference getTargetStateCrossReference_2_0() { return cTargetStateCrossReference_2_0; }
-		
 		//ID
-		public RuleCall getTargetStateIDTerminalRuleCall_2_0_1() { return cTargetStateIDTerminalRuleCall_2_0_1; }
+		public RuleCall getTargetIDTerminalRuleCall_2_0() { return cTargetIDTerminalRuleCall_2_0; }
 		
 		//('{' ('[' precondition=ExpCS ']')? operation=[OperationDeclaration] '(' ')' ('[' postcondition=ExpCS ']')? '}')?
 		public Group getGroup_3() { return cGroup_3; }
@@ -5095,7 +5087,7 @@ public class USEGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	}
 	
 	//Transition:
-	//    source=[State] '->' target=[State]  ('{' ('[' precondition=ExpCS ']')? operation=[OperationDeclaration] '(' ')' ('[' postcondition=ExpCS ']')? '}')?
+	//    source=ID '->' target=ID   ('{' ('[' precondition=ExpCS ']')? operation=[OperationDeclaration] '(' ')' ('[' postcondition=ExpCS ']')? '}')?
 	//;
 	public TransitionElements getTransitionAccess() {
 		return pTransition;

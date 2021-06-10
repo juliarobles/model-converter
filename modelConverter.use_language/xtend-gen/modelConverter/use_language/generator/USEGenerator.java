@@ -397,7 +397,7 @@ public class USEGenerator extends AbstractGenerator {
           EList<Transition> _transitions = statemachine.getTransitions();
           for(final Transition transition : _transitions) {
             _builder.append("\t\t");
-            CharSequence _compileTransition = this.compileTransition(transition);
+            CharSequence _compileTransition = this.compileTransition(transition, statemachine);
             _builder.append(_compileTransition, "\t\t");
             _builder.newLineIfNotEmpty();
           }
@@ -482,90 +482,105 @@ public class USEGenerator extends AbstractGenerator {
     return _builder;
   }
   
-  private CharSequence compileTransition(final Transition e) {
+  private State getState(final String id, final StateMachine statemachine) {
+    EList<State> _states = statemachine.getStates();
+    for (final State state : _states) {
+      boolean _equals = state.getName().equals(id);
+      if (_equals) {
+        return state;
+      }
+    }
+    return null;
+  }
+  
+  private CharSequence compileTransition(final Transition e, final StateMachine statemachine) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("<transition xmi:type=\"uml:ProtocolTransition\" xmi:id=\"");
-    int _identityHashCode = System.identityHashCode(e);
-    _builder.append(_identityHashCode);
-    _builder.append("\" name=\"\"");
     {
-      ExpCS _precondition = e.getPrecondition();
-      boolean _tripleNotEquals = (_precondition != null);
-      if (_tripleNotEquals) {
-        _builder.append(" guard=\"");
-        int _identityHashCode_1 = System.identityHashCode(e.getPrecondition());
-        _builder.append(_identityHashCode_1);
+      if (((!Objects.equal(this.getState(e.getTarget(), statemachine), null)) && (!Objects.equal(this.getState(e.getSource(), statemachine), null)))) {
+        _builder.append("<transition xmi:type=\"uml:ProtocolTransition\" xmi:id=\"");
+        int _identityHashCode = System.identityHashCode(e);
+        _builder.append(_identityHashCode);
+        _builder.append("\" name=\"\"");
+        {
+          ExpCS _precondition = e.getPrecondition();
+          boolean _tripleNotEquals = (_precondition != null);
+          if (_tripleNotEquals) {
+            _builder.append(" guard=\"");
+            int _identityHashCode_1 = System.identityHashCode(e.getPrecondition());
+            _builder.append(_identityHashCode_1);
+            _builder.append("\"");
+          }
+        }
+        _builder.append(" source=\"");
+        int _identityHashCode_2 = System.identityHashCode(this.getState(e.getSource(), statemachine));
+        _builder.append(_identityHashCode_2);
+        _builder.append("\" target=\"");
+        int _identityHashCode_3 = System.identityHashCode(this.getState(e.getTarget(), statemachine));
+        _builder.append(_identityHashCode_3);
         _builder.append("\"");
-      }
-    }
-    _builder.append(" source=\"");
-    int _identityHashCode_2 = System.identityHashCode(e.getSource());
-    _builder.append(_identityHashCode_2);
-    _builder.append("\" target=\"");
-    int _identityHashCode_3 = System.identityHashCode(e.getTarget());
-    _builder.append(_identityHashCode_3);
-    _builder.append("\"");
-    {
-      ExpCS _postcondition = e.getPostcondition();
-      boolean _tripleNotEquals_1 = (_postcondition != null);
-      if (_tripleNotEquals_1) {
-        _builder.append(" postCondition=\"");
-        int _identityHashCode_4 = System.identityHashCode(e.getPostcondition());
-        _builder.append(_identityHashCode_4);
-        _builder.append("\"");
-      }
-    }
-    {
-      ExpCS _precondition_1 = e.getPrecondition();
-      boolean _tripleNotEquals_2 = (_precondition_1 != null);
-      if (_tripleNotEquals_2) {
-        _builder.append(" preCondition=\"");
-        int _identityHashCode_5 = System.identityHashCode(e.getPrecondition());
-        _builder.append(_identityHashCode_5);
-        _builder.append("\"");
-      }
-    }
-    _builder.append(">");
-    _builder.newLineIfNotEmpty();
-    {
-      ExpCS _precondition_2 = e.getPrecondition();
-      boolean _tripleNotEquals_3 = (_precondition_2 != null);
-      if (_tripleNotEquals_3) {
-        _builder.append("\t");
-        CharSequence _compileOwnedRule = this.compileOwnedRule(e.getPrecondition(), Integer.valueOf(System.identityHashCode(e.getPrecondition())).toString(), "", "");
-        _builder.append(_compileOwnedRule, "\t");
+        {
+          ExpCS _postcondition = e.getPostcondition();
+          boolean _tripleNotEquals_1 = (_postcondition != null);
+          if (_tripleNotEquals_1) {
+            _builder.append(" postCondition=\"");
+            int _identityHashCode_4 = System.identityHashCode(e.getPostcondition());
+            _builder.append(_identityHashCode_4);
+            _builder.append("\"");
+          }
+        }
+        {
+          ExpCS _precondition_1 = e.getPrecondition();
+          boolean _tripleNotEquals_2 = (_precondition_1 != null);
+          if (_tripleNotEquals_2) {
+            _builder.append(" preCondition=\"");
+            int _identityHashCode_5 = System.identityHashCode(e.getPrecondition());
+            _builder.append(_identityHashCode_5);
+            _builder.append("\"");
+          }
+        }
+        _builder.append(">");
         _builder.newLineIfNotEmpty();
+        {
+          ExpCS _precondition_2 = e.getPrecondition();
+          boolean _tripleNotEquals_3 = (_precondition_2 != null);
+          if (_tripleNotEquals_3) {
+            _builder.append("\t");
+            CharSequence _compileOwnedRule = this.compileOwnedRule(e.getPrecondition(), Integer.valueOf(System.identityHashCode(e.getPrecondition())).toString(), "", "");
+            _builder.append(_compileOwnedRule, "\t");
+            _builder.newLineIfNotEmpty();
+          }
+        }
+        {
+          ExpCS _postcondition_1 = e.getPostcondition();
+          boolean _tripleNotEquals_4 = (_postcondition_1 != null);
+          if (_tripleNotEquals_4) {
+            _builder.append("\t");
+            CharSequence _compileOwnedRule_1 = this.compileOwnedRule(e.getPostcondition(), Integer.valueOf(System.identityHashCode(e.getPostcondition())).toString(), "", "");
+            _builder.append(_compileOwnedRule_1, "\t");
+            _builder.newLineIfNotEmpty();
+          }
+        }
+        {
+          OperationDeclaration _operation = e.getOperation();
+          boolean _tripleNotEquals_5 = (_operation != null);
+          if (_tripleNotEquals_5) {
+            _builder.append("\t");
+            _builder.append("<trigger xmi:id=\"");
+            int _identityHashCode_6 = System.identityHashCode(e);
+            String _plus = (Integer.valueOf(_identityHashCode_6) + "_01");
+            _builder.append(_plus, "\t");
+            _builder.append("\" name=\"\" visibility=\"public\" event=\"");
+            int _identityHashCode_7 = System.identityHashCode(e);
+            String _plus_1 = (Integer.valueOf(_identityHashCode_7) + "_02");
+            _builder.append(_plus_1, "\t");
+            _builder.append("\"/>");
+            _builder.newLineIfNotEmpty();
+          }
+        }
+        _builder.append("</transition>");
+        _builder.newLine();
       }
     }
-    {
-      ExpCS _postcondition_1 = e.getPostcondition();
-      boolean _tripleNotEquals_4 = (_postcondition_1 != null);
-      if (_tripleNotEquals_4) {
-        _builder.append("\t");
-        CharSequence _compileOwnedRule_1 = this.compileOwnedRule(e.getPostcondition(), Integer.valueOf(System.identityHashCode(e.getPostcondition())).toString(), "", "");
-        _builder.append(_compileOwnedRule_1, "\t");
-        _builder.newLineIfNotEmpty();
-      }
-    }
-    {
-      OperationDeclaration _operation = e.getOperation();
-      boolean _tripleNotEquals_5 = (_operation != null);
-      if (_tripleNotEquals_5) {
-        _builder.append("\t");
-        _builder.append("<trigger xmi:id=\"");
-        int _identityHashCode_6 = System.identityHashCode(e);
-        String _plus = (Integer.valueOf(_identityHashCode_6) + "_01");
-        _builder.append(_plus, "\t");
-        _builder.append("\" name=\"\" visibility=\"public\" event=\"");
-        int _identityHashCode_7 = System.identityHashCode(e);
-        String _plus_1 = (Integer.valueOf(_identityHashCode_7) + "_02");
-        _builder.append(_plus_1, "\t");
-        _builder.append("\"/>");
-        _builder.newLineIfNotEmpty();
-      }
-    }
-    _builder.append("</transition>");
-    _builder.newLine();
     return _builder;
   }
   

@@ -1,0 +1,72 @@
+model ModelP05
+
+class MaquinasEstados
+	attributes
+		pruebaatributo : Integer init: 0
+		
+	operations
+		pruebaoperacion(param1 : Real) : Integer
+		
+	constraints
+		inv pruebainvariante: not self.oclIsUndefined()
+		
+	statemachines
+		psm maquina1
+		states
+			i : initial
+			f : final
+		transitions
+			i -> f
+		end
+		
+		psm unnamed1
+		states
+			unnamed1 : initial
+			estado1
+			unnamed2
+		transitions
+			unnamed1 -> estado1
+			estado1 -> unnamed2 {[self.pruebaatributo < 10] pruebaoperacion() [self.pruebaatributo >= 10]}
+			estado1 -> estado1 {[self.pruebaatributo >= 10] pruebaoperacion()}
+			estado1 -> estado1 {[self.pruebaatributo < 10] pruebaoperacion() [self.pruebaatributo < 10]}
+			unnamed2 -> estado1
+		end
+		
+		psm unnamed2
+		states
+			s : initial
+			f	[self.pruebaatributo > 0]
+			estado1
+			estado2 [self.pruebaatributo < 20]
+			f1 : final
+			estado3
+		transitions
+			s -> f
+			f -> estado1	{ pruebaoperacion() }
+			estado1 -> estado2	
+			estado2 -> f1	{ [self.pruebaatributo < 20] pruebaoperacion()}
+			estado2 -> estado3  { [self.pruebaatributo >= 20] pruebaoperacion()}
+			estado3 -> estado3  { pruebaoperacion() [self.pruebaatributo < 10]}
+			estado3 -> f1	{ pruebaoperacion() [self.pruebaatributo >= 10]} 
+		end
+		
+		--psm unestado
+		--states
+			--s : initial
+		--transitions
+		--end
+		
+		--psm sinestados
+		--states
+		--transitions
+		--end
+		
+		--psm notransitions
+		--states
+			--s : initial
+			--estado1
+			--estado2
+			--f : final
+		--transitions
+		--end
+end

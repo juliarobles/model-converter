@@ -25,6 +25,7 @@ public class U6_StateMachine {
 	static String analyzeStateMachine(StateMachine stateMachine, List<String> namesUsedParticular, U9_CountUnnamed countUnnamed) {
 		StringBuilder sBuilder = new StringBuilder("");
 		EList<Region> regions = stateMachine.getRegions();
+		int transitions = 0, states = 0;
 		initialFound = false;
 		
 		sBuilder.append("\t\tpsm " + U9_Auxiliary.checkUnnamed(stateMachine.getName(), namesUsedParticular, countUnnamed) + "\n");
@@ -34,22 +35,33 @@ public class U6_StateMachine {
 		
 		sBuilder.append("\t\tstates\n");
 		for(Region region : regions) {
-			analyzeRegionStates(region, namesUsedParticularStates, countUnnamedStates, sBuilder);
+			states += analyzeRegionStates(region, namesUsedParticularStates, countUnnamedStates, sBuilder);
 		}
 		
 		sBuilder.append("\t\ttransitions\n");
 		for(Region region : regions) {
-			analyzeRegionTransitions(region, sBuilder);
+			transitions += analyzeRegionTransitions(region, sBuilder);
 		}
 		
-		sBuilder.append("\t\tend\n");
+		sBuilder.append("\t\tend");
 		
-		return sBuilder.toString();
+		if(transitions == 0 || states < 2) {
+			System.out.println("WARNING: Protocol State Machine with no transitions or at least two states found. It will be commented.");
+			return "--" + sBuilder.toString().replaceAll("\n", "\n--") + "\n";
+		}
+		
+		return sBuilder.toString() + "\n";
 	}
 
-	private static void analyzeRegionStates(Region region, List<String> namesUsedParticular, U9_CountUnnamed countUnnamed, StringBuilder sBuilder) {
+	private static int analyzeRegionStates(Region region, List<String> namesUsedParticular, U9_CountUnnamed countUnnamed, StringBuilder sBuilder) {
+		int states = 0;
 		for(Vertex vertex : region.getSubvertices()) {
-			if(vertex instanceof State) {
+			if (vertex instanceof FinalState) {
+				states++;
+				vertex.setName(U9_Auxiliary.checkUnnamed(vertex.getName(), namesUsedParticular, countUnnamed));
+				sBuilder.append("\t\t\t" + vertex.getName() + " : final\n");
+			} else if (vertex instanceof State) {
+				states++;
 				vertex.setName(U9_Auxiliary.checkUnnamed(vertex.getName(), namesUsedParticular, countUnnamed));
 				String aux = "\t\t\t" + vertex.getName();
 				
@@ -59,8 +71,8 @@ public class U6_StateMachine {
 				}
 				
 				sBuilder.append(aux + "\n");
-				
 			} else if (vertex instanceof Pseudostate) {
+				states++;
 				Pseudostate pseudostate = (Pseudostate) vertex;
 				vertex.setName(U9_Auxiliary.checkUnnamed(vertex.getName(), namesUsedParticular, countUnnamed));
 				if(!initialFound && pseudostate.getKind() == PseudostateKind.INITIAL_LITERAL) {
@@ -70,16 +82,16 @@ public class U6_StateMachine {
 					sBuilder.append("\t\t\t" + vertex.getName() + "\n");
 				}
 				
-			} else if (vertex instanceof FinalState) {
-				vertex.setName(U9_Auxiliary.checkUnnamed(vertex.getName(), namesUsedParticular, countUnnamed));
-				sBuilder.append("\t\t\t" + vertex.getName() + " : final\n");
 			}
 		}
+		return states;
 	}
 	
-	private static void analyzeRegionTransitions(Region region, StringBuilder sBuilder) {		
+	private static int analyzeRegionTransitions(Region region, StringBuilder sBuilder) {		
+		int transitions = 0;
 		for(Transition transition : region.getTransitions()) {
 			if(transition.getTarget() != null && transition.getSource() != null) {
+				transitions++;
 				String aux = "\t\t\t" + transition.getSource().getName() + " -> " + transition.getTarget().getName();
 				
 				EList<Trigger> triggers = transition.getTriggers();
@@ -105,6 +117,7 @@ public class U6_StateMachine {
 				sBuilder.append(aux + "\n");
 			}
 		}
+		return transitions;
 		
 	}
 }

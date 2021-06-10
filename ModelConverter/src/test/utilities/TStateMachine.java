@@ -1,6 +1,8 @@
 package test.utilities;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 class TStateMachine {
@@ -20,6 +22,14 @@ class TStateMachine {
 
 	public void addTransition(TTransition transition) {
 		transitions.add(transition);
+	}
+	
+	public int getStatesSize() {
+		return states.size();
+	}
+
+	public int getTransitionsSize() {
+		return transitions.size();
 	}
 
 	@Override
@@ -54,13 +64,14 @@ class TStateMachine {
 		if (states == null) {
 			if (other.states != null)
 				return false;
-		} else if (!states.equals(other.states))
+		} else if (!states.containsAll(other.states) || !other.states.containsAll(states))
 			return false;
 		if (transitions == null) {
 			if (other.transitions != null)
 				return false;
-		} else if (!transitions.equals(other.transitions))
-			return false;
+		} else {
+			if (!transitions.containsAll(other.transitions) || !other.transitions.containsAll(transitions)) return false;
+		}
 		return true;
 	}
 }

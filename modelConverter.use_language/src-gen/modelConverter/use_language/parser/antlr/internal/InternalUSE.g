@@ -2200,17 +2200,19 @@ ruleTransition returns [EObject current=null]
 	(
 		(
 			(
+				lv_source_0_0=RULE_ID
 				{
-					/* */
+					newLeafNode(lv_source_0_0, grammarAccess.getTransitionAccess().getSourceIDTerminalRuleCall_0_0());
 				}
 				{
 					if ($current==null) {
 						$current = createModelElement(grammarAccess.getTransitionRule());
 					}
-				}
-				otherlv_0=RULE_ID
-				{
-					newLeafNode(otherlv_0, grammarAccess.getTransitionAccess().getSourceStateCrossReference_0_0());
+					setWithLastConsumed(
+						$current,
+						"source",
+						lv_source_0_0,
+						"org.eclipse.xtext.common.Terminals.ID");
 				}
 			)
 		)
@@ -2220,17 +2222,19 @@ ruleTransition returns [EObject current=null]
 		}
 		(
 			(
+				lv_target_2_0=RULE_ID
 				{
-					/* */
+					newLeafNode(lv_target_2_0, grammarAccess.getTransitionAccess().getTargetIDTerminalRuleCall_2_0());
 				}
 				{
 					if ($current==null) {
 						$current = createModelElement(grammarAccess.getTransitionRule());
 					}
-				}
-				otherlv_2=RULE_ID
-				{
-					newLeafNode(otherlv_2, grammarAccess.getTransitionAccess().getTargetStateCrossReference_2_0());
+					setWithLastConsumed(
+						$current,
+						"target",
+						lv_target_2_0,
+						"org.eclipse.xtext.common.Terminals.ID");
 				}
 			)
 		)

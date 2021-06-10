@@ -19,7 +19,7 @@ class Hereda
 			end
 		
 		operacionQueryConOCL(param1 : String) : Integer = self.prueba + 3
-		operacionReturnClass(param1 : Integer, param2 : Enumerado, param3 : AC, param4 : Hereda) : Hereda = self
+		operacionQueryReturnClass(param1 : Integer, param2 : Enumerado, param3 : AC, param4 : Hereda) : Hereda = self
 		operacionReturnEnum() : Enumerado
 			begin
 			end

@@ -131,7 +131,7 @@ State:
 	name=ID ((':' isInitial?='initial') | (':' isFinal?='final') | ('[' invariant=ExpCS ']'))?;
 	
 Transition:
-	source=[State] '->' target=[State]  ('{' ('[' precondition=ExpCS ']')? operation=[OperationDeclaration] '(' ')' ('[' postcondition=ExpCS ']')? '}')?
+	source=ID '->' target=ID   ('{' ('[' precondition=ExpCS ']')? operation=[OperationDeclaration] '(' ')' ('[' postcondition=ExpCS ']')? '}')?
 ;
 	
 //------------CONSTRAINTS---------------

@@ -54,7 +54,9 @@ class TClass{
 	}
 	
 	public void addStateMachine(TStateMachine stateMachine) {
-		stateMachines.add(stateMachine);
+		if(stateMachine.getStatesSize() > 1 && stateMachine.getTransitionsSize() > 0) {
+			stateMachines.add(stateMachine);
+		}
 	}
 	
 	public void addInheritance(String tclass) {

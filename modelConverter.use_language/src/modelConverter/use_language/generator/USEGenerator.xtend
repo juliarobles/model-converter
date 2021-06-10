@@ -82,6 +82,7 @@ import modelConverter.use_language.use.Transition
 import modelConverter.use_language.use.State
 import java.util.List
 import modelConverter.use_language.use.AllClass
+import modelConverter.use_language.use.StateMachine
 
 /**
  * Generates code from your model files on save.
@@ -177,7 +178,7 @@ class USEGenerator extends AbstractGenerator {
 			<ownedBehavior xmi:type="uml:ProtocolStateMachine" xmi:id="«System.identityHashCode(statemachine)»" name="«statemachine.getName»">
 				<region xmi:id="«System.identityHashCode(statemachine) + "_01"»" name="" visibility="public">
 					«FOR transition : statemachine.getTransitions»
-						«transition.compileTransition»
+						«transition.compileTransition(statemachine)»
 					«ENDFOR»
 					«FOR state : statemachine.getStates»
 						«state.compileState»
@@ -201,8 +202,18 @@ class USEGenerator extends AbstractGenerator {
 		«ENDIF»
 	'''
 
-	private def compileTransition(Transition e)'''
-		<transition xmi:type="uml:ProtocolTransition" xmi:id="«System.identityHashCode(e)»" name=""«IF e.getPrecondition !== null» guard="«System.identityHashCode(e.getPrecondition)»"«ENDIF» source="«System.identityHashCode(e.getSource)»" target="«System.identityHashCode(e.getTarget)»"«IF e.getPostcondition !== null» postCondition="«System.identityHashCode(e.getPostcondition)»"«ENDIF»«IF e.getPrecondition !== null» preCondition="«System.identityHashCode(e.getPrecondition)»"«ENDIF»>
+	private def getState(String id, StateMachine statemachine){
+		for (State state : statemachine.getStates){
+			if(state.getName.equals(id)){
+				return state;
+			}
+		}
+		return null;
+	}
+
+	private def compileTransition(Transition e, StateMachine statemachine)'''
+	«IF getState(e.getTarget, statemachine) != null && getState(e.getSource, statemachine) != null»
+		<transition xmi:type="uml:ProtocolTransition" xmi:id="«System.identityHashCode(e)»" name=""«IF e.getPrecondition !== null» guard="«System.identityHashCode(e.getPrecondition)»"«ENDIF» source="«System.identityHashCode(getState(e.getSource, statemachine))»" target="«System.identityHashCode(getState(e.getTarget, statemachine))»"«IF e.getPostcondition !== null» postCondition="«System.identityHashCode(e.getPostcondition)»"«ENDIF»«IF e.getPrecondition !== null» preCondition="«System.identityHashCode(e.getPrecondition)»"«ENDIF»>
 			«IF e.getPrecondition !== null»
 				«e.getPrecondition.compileOwnedRule(System.identityHashCode(e.getPrecondition).toString, "", "")»
 			«ENDIF»
@@ -213,6 +224,7 @@ class USEGenerator extends AbstractGenerator {
 				<trigger xmi:id="«System.identityHashCode(e) + "_01"»" name="" visibility="public" event="«System.identityHashCode(e) + "_02"»"/>
 			«ENDIF»
 		</transition>
+	«ENDIF»
 	'''
 
 	private def compileEventStateMachines(List<StateMachinesBase> statemachines) '''

@@ -1622,9 +1622,9 @@ public class UsePackageImpl extends EPackageImpl implements UsePackage
    * @generated
    */
   @Override
-  public EReference getTransition_Source()
+  public EAttribute getTransition_Source()
   {
-    return (EReference)transitionEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)transitionEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1633,9 +1633,9 @@ public class UsePackageImpl extends EPackageImpl implements UsePackage
    * @generated
    */
   @Override
-  public EReference getTransition_Target()
+  public EAttribute getTransition_Target()
   {
-    return (EReference)transitionEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)transitionEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -3415,8 +3415,8 @@ public class UsePackageImpl extends EPackageImpl implements UsePackage
     createEReference(stateEClass, STATE__INVARIANT);
 
     transitionEClass = createEClass(TRANSITION);
-    createEReference(transitionEClass, TRANSITION__SOURCE);
-    createEReference(transitionEClass, TRANSITION__TARGET);
+    createEAttribute(transitionEClass, TRANSITION__SOURCE);
+    createEAttribute(transitionEClass, TRANSITION__TARGET);
     createEReference(transitionEClass, TRANSITION__PRECONDITION);
     createEReference(transitionEClass, TRANSITION__OPERATION);
     createEReference(transitionEClass, TRANSITION__POSTCONDITION);
@@ -3800,8 +3800,8 @@ public class UsePackageImpl extends EPackageImpl implements UsePackage
     initEReference(getState_Invariant(), this.getExpCS(), null, "invariant", null, 0, 1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(transitionEClass, Transition.class, "Transition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getTransition_Source(), this.getState(), null, "source", null, 0, 1, Transition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getTransition_Target(), this.getState(), null, "target", null, 0, 1, Transition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getTransition_Source(), ecorePackage.getEString(), "source", null, 0, 1, Transition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getTransition_Target(), ecorePackage.getEString(), "target", null, 0, 1, Transition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getTransition_Precondition(), this.getExpCS(), null, "precondition", null, 0, 1, Transition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getTransition_Operation(), this.getOperationDeclaration(), null, "operation", null, 0, 1, Transition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getTransition_Postcondition(), this.getExpCS(), null, "postcondition", null, 0, 1, Transition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

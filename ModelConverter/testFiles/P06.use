@@ -1,0 +1,73 @@
+model ModelP06
+
+class Persona
+end
+
+association Paternidad between
+Persona [0..2] role padre
+Persona [*] role hijo
+end
+
+association Hermanos between
+Persona [*] role hermano1
+Persona [*] role hermano2
+end
+
+association Primos between
+Persona [*] role primo1
+Persona [*] role primo2
+end
+
+association Abuelos between
+Persona [0..4] role abuelo
+Persona [*] role nieto
+end
+
+association Tios between
+Persona [*] role tio
+Persona [*] role sobrino
+end
+
+constraints
+context Persona 
+	inv noReflexivoPaternidad:
+		self.padre -> excludes(self) and self.hijo -> excludes(self)
+
+	inv noReflexivoHermanos:
+		self.hermano1 -> excludes(self) and self.hermano2 -> excludes(self)
+
+	inv noReflexivoPrimos:
+		self.primo1 -> excludes(self) and self.primo2 -> excludes(self)
+		
+	inv noReflexivoTios:
+		self.tio -> excludes(self) and self.sobrino -> excludes(self)
+		
+	inv noReflexivoAbuelos:	
+		self.nieto -> excludes(self) and self.abuelo -> excludes(self)
+		
+	inv noConmutativaPaternidad:	
+		self.hijo-> notEmpty() and self.padre -> notEmpty() implies self.hijo <> self.padre
+		
+	inv noConmutativaTios:	
+		self.tio-> notEmpty() and self.sobrino -> notEmpty() implies self.tio <> self.sobrino 
+		
+	inv noConmutativaAbuelos:	
+		self.abuelo-> notEmpty() and self.nieto -> notEmpty() implies self.abuelo <> self.nieto
+	
+	inv HijosTioSonPrimos:
+		self.tio.hijo -> notEmpty() implies (self.primo1 -> union(self.primo2)) -> includesAll(self.tio.hijo)
+	
+	inv HijosPadreSonHermanos:
+		(self.padre.hijo -> asSet() -> excluding(self) -> notEmpty()) implies (self.hermano1 -> union(self.hermano2)) -> includesAll(self.padre.hijo -> asSet() -> excluding(self))
+	
+	inv HermanosPadreSonTios:
+		((self.padre.hermano1 -> union(self.padre.hermano2)) -> asSet()) -> notEmpty() implies self.tio -> includesAll(self.padre.hermano1 -> union(self.padre.hermano2))
+	
+	inv PadresPadreSonAbuelos:
+		self.padre.padre -> notEmpty() implies self.abuelo -> includesAll(self.padre.padre)
+		
+	inv HijosHermanoSonSobrinos:
+		((self.hermano1.hijo -> union(self.hermano2.hijo)) -> asSet()) -> notEmpty() implies self.sobrino -> includesAll((self.hermano1.hijo -> union(self.hermano2.hijo)) -> asSet())
+		
+	--inv soloUnaRelacionTio:
+		--self.tio-> notEmpty() implies self.tio -> intersection(self.padre -> union(self.hijo -> union (self.hermano1 -> union (self.hermano2 -> union (self.primo1 -> union (self.primo2 -> union (self.abuelo -> union (self.nieto)))))))) -> isEmpty()

@@ -28,48 +28,48 @@ import org.eclipse.emf.ecore.EObject;
 public interface Transition extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Source</b></em>' reference.
+   * Returns the value of the '<em><b>Source</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Source</em>' reference.
-   * @see #setSource(State)
+   * @return the value of the '<em>Source</em>' attribute.
+   * @see #setSource(String)
    * @see modelConverter.use_language.use.UsePackage#getTransition_Source()
    * @model
    * @generated
    */
-  State getSource();
+  String getSource();
 
   /**
-   * Sets the value of the '{@link modelConverter.use_language.use.Transition#getSource <em>Source</em>}' reference.
+   * Sets the value of the '{@link modelConverter.use_language.use.Transition#getSource <em>Source</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Source</em>' reference.
+   * @param value the new value of the '<em>Source</em>' attribute.
    * @see #getSource()
    * @generated
    */
-  void setSource(State value);
+  void setSource(String value);
 
   /**
-   * Returns the value of the '<em><b>Target</b></em>' reference.
+   * Returns the value of the '<em><b>Target</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Target</em>' reference.
-   * @see #setTarget(State)
+   * @return the value of the '<em>Target</em>' attribute.
+   * @see #setTarget(String)
    * @see modelConverter.use_language.use.UsePackage#getTransition_Target()
    * @model
    * @generated
    */
-  State getTarget();
+  String getTarget();
 
   /**
-   * Sets the value of the '{@link modelConverter.use_language.use.Transition#getTarget <em>Target</em>}' reference.
+   * Sets the value of the '{@link modelConverter.use_language.use.Transition#getTarget <em>Target</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Target</em>' reference.
+   * @param value the new value of the '<em>Target</em>' attribute.
    * @see #getTarget()
    * @generated
    */
-  void setTarget(State value);
+  void setTarget(String value);
 
   /**
    * Returns the value of the '<em><b>Precondition</b></em>' containment reference.

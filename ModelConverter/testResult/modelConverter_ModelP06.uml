@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:MagicDrawProfile="http://www.omg.org/spec/UML/20131001/MagicDrawProfile" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http://www.omg.org/spec/UML/20131001/MagicDrawProfile UML_Standard_Profile.MagicDraw_Profile.profile.uml#_nPVN7YtIEeuebcn5BqfCXQ">
+   <uml:Model xmi:id="1575544822" name="ModelP06">
+	<packagedElement xmi:type="uml:Class" xmi:id="1039267019" name="Persona">
+	<ownedRule xmi:id="1372998208" name="noReflexivoPaternidad" constrainedElement="1039267019">
+		<specification xmi:type="uml:OpaqueExpression" xmi:id="15460268081372998208" name="noReflexivoPaternidad">
+		   	<language>OCL2.0</language>
+		   	  	<body>self.padre -&gt; excludes(self) and self.hijo -&gt; excludes(self)</body>
+		  	</specification>
+	</ownedRule>
+	<ownedRule xmi:id="1629650051" name="noReflexivoHermanos" constrainedElement="1039267019">
+		<specification xmi:type="uml:OpaqueExpression" xmi:id="14117519841629650051" name="noReflexivoHermanos">
+		   	<language>OCL2.0</language>
+		   	  	<body>self.hermano1 -&gt; excludes(self) and self.hermano2 -&gt; excludes(self)</body>
+		  	</specification>
+	</ownedRule>
+	<ownedRule xmi:id="1712093234" name="noReflexivoPrimos" constrainedElement="1039267019">
+		<specification xmi:type="uml:OpaqueExpression" xmi:id="11818580561712093234" name="noReflexivoPrimos">
+		   	<language>OCL2.0</language>
+		   	  	<body>self.primo1 -&gt; excludes(self) and self.primo2 -&gt; excludes(self)</body>
+		  	</specification>
+	</ownedRule>
+	<ownedRule xmi:id="1730387338" name="noReflexivoTios" constrainedElement="1039267019">
+		<specification xmi:type="uml:OpaqueExpression" xmi:id="2253513661730387338" name="noReflexivoTios">
+		   	<language>OCL2.0</language>
+		   	  	<body>self.tio -&gt; excludes(self) and self.sobrino -&gt; excludes(self)</body>
+		  	</specification>
+	</ownedRule>
+	<ownedRule xmi:id="1942341435" name="noReflexivoAbuelos" constrainedElement="1039267019">
+		<specification xmi:type="uml:OpaqueExpression" xmi:id="1037559561942341435" name="noReflexivoAbuelos">
+		   	<language>OCL2.0</language>
+		   	  	<body>self.nieto -&gt; excludes(self) and self.abuelo -&gt; excludes(self)</body>
+		  	</specification>
+	</ownedRule>
+	<ownedRule xmi:id="385889311" name="noConmutativaPaternidad" constrainedElement="1039267019">
+		<specification xmi:type="uml:OpaqueExpression" xmi:id="493648779385889311" name="noConmutativaPaternidad">
+		   	<language>OCL2.0</language>
+		   	  	<body>self.hijo -&gt; notEmpty() and self.padre -&gt; notEmpty() implies self.hijo &lt;&gt; self.padre</body>
+		  	</specification>
+	</ownedRule>
+	<ownedRule xmi:id="312934806" name="noConmutativaTios" constrainedElement="1039267019">
+		<specification xmi:type="uml:OpaqueExpression" xmi:id="714380363312934806" name="noConmutativaTios">
+		   	<language>OCL2.0</language>
+		   	  	<body>self.tio -&gt; notEmpty() and self.sobrino -&gt; notEmpty() implies self.tio &lt;&gt; self.sobrino</body>
+		  	</specification>
+	</ownedRule>
+	<ownedRule xmi:id="984876081" name="noConmutativaAbuelos" constrainedElement="1039267019">
+		<specification xmi:type="uml:OpaqueExpression" xmi:id="169998397984876081" name="noConmutativaAbuelos">
+		   	<language>OCL2.0</language>
+		   	  	<body>self.abuelo -&gt; notEmpty() and self.nieto -&gt; notEmpty() implies self.abuelo &lt;&gt; self.nieto</body>
+		  	</specification>
+	</ownedRule>
+	<ownedRule xmi:id="500539921" name="HijosTioSonPrimos" constrainedElement="1039267019">
+		<specification xmi:type="uml:OpaqueExpression" xmi:id="1298245931500539921" name="HijosTioSonPrimos">
+		   	<language>OCL2.0</language>
+		   	  	<body>self.tio.hijo -&gt; notEmpty() implies (self.primo1 -&gt; union(self.primo2)) -&gt; includesAll(self.tio.hijo)</body>
+		  	</specification>
+	</ownedRule>
+	<ownedRule xmi:id="2093087875" name="HijosPadreSonHermanos" constrainedElement="1039267019">
+		<specification xmi:type="uml:OpaqueExpression" xmi:id="12010359702093087875" name="HijosPadreSonHermanos">
+		   	<language>OCL2.0</language>
+		   	  	<body>(self.padre.hijo -&gt; asSet() -&gt; excluding(self) -&gt; notEmpty()) implies (self.hermano1 -&gt; union(self.hermano2)) -&gt; includesAll(self.padre.hijo -&gt; asSet() -&gt; excluding(self))</body>
+		  	</specification>
+	</ownedRule>
+	<ownedRule xmi:id="1959430764" name="HermanosPadreSonTios" constrainedElement="1039267019">
+		<specification xmi:type="uml:OpaqueExpression" xmi:id="4752150321959430764" name="HermanosPadreSonTios">
+		   	<language>OCL2.0</language>
+		   	  	<body>((self.padre.hermano1 -&gt; union(self.padre.hermano2)) -&gt; asSet()) -&gt; notEmpty() implies self.tio -&gt; includesAll(self.padre.hermano1 -&gt; union(self.padre.hermano2))</body>
+		  	</specification>
+	</ownedRule>
+	<ownedRule xmi:id="712167650" name="PadresPadreSonAbuelos" constrainedElement="1039267019">
+		<specification xmi:type="uml:OpaqueExpression" xmi:id="783386885712167650" name="PadresPadreSonAbuelos">
+		   	<language>OCL2.0</language>
+		   	  	<body>self.padre.padre -&gt; notEmpty() implies self.abuelo -&gt; includesAll(self.padre.padre)</body>
+		  	</specification>
+	</ownedRule>
+	<ownedRule xmi:id="142621887" name="HijosHermanoSonSobrinos" constrainedElement="1039267019">
+		<specification xmi:type="uml:OpaqueExpression" xmi:id="906300796142621887" name="HijosHermanoSonSobrinos">
+		   	<language>OCL2.0</language>
+		   	  	<body>((self.hermano1.hijo -&gt; union(self.hermano2.hijo)) -&gt; asSet()) -&gt; notEmpty() implies self.sobrino -&gt; includesAll((self.hermano1.hijo -&gt; union(self.hermano2.hijo)) -&gt; asSet())</body>
+		  	</specification>
+	</ownedRule>
+	<ownedAttribute xmi:id="719846853" name="padre" type="1039267019" association="1223201291" >
+	<lowerValue xmi:type="uml:LiteralInteger" xmi:id="103926701912232012911" name="" value="0"/>
+	<upperValue xmi:type="uml:LiteralInteger" xmi:id="103926701912232012912" name="" value="2"/>
+		</ownedAttribute>
+	<ownedAttribute xmi:id="1544276689" name="hijo" type="1039267019" association="1223201291" >
+	<lowerValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="103926701912232012912" name=""/>
+	<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="103926701912232012912" name="" value="*"/>
+		</ownedAttribute>
+	<ownedAttribute xmi:id="1747698188" name="hermano1" type="1039267019" association="1093709154" >
+	<lowerValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="103926701910937091542" name=""/>
+	<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="103926701910937091542" name="" value="*"/>
+		</ownedAttribute>
+	<ownedAttribute xmi:id="468750863" name="hermano2" type="1039267019" association="1093709154" >
+	<lowerValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="103926701910937091542" name=""/>
+	<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="103926701910937091542" name="" value="*"/>
+		</ownedAttribute>
+	<ownedAttribute xmi:id="1519302630" name="primo1" type="1039267019" association="1640216751" >
+	<lowerValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="103926701916402167512" name=""/>
+	<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="103926701916402167512" name="" value="*"/>
+		</ownedAttribute>
+	<ownedAttribute xmi:id="4394828" name="primo2" type="1039267019" association="1640216751" >
+	<lowerValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="103926701916402167512" name=""/>
+	<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="103926701916402167512" name="" value="*"/>
+		</ownedAttribute>
+	<ownedAttribute xmi:id="1230146537" name="abuelo" type="1039267019" association="1666032079" >
+	<lowerValue xmi:type="uml:LiteralInteger" xmi:id="103926701916660320791" name="" value="0"/>
+	<upperValue xmi:type="uml:LiteralInteger" xmi:id="103926701916660320792" name="" value="4"/>
+		</ownedAttribute>
+	<ownedAttribute xmi:id="334043131" name="nieto" type="1039267019" association="1666032079" >
+	<lowerValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="103926701916660320792" name=""/>
+	<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="103926701916660320792" name="" value="*"/>
+		</ownedAttribute>
+	<ownedAttribute xmi:id="1666741668" name="tio" type="1039267019" association="20642722" >
+	<lowerValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="1039267019206427222" name=""/>
+	<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="1039267019206427222" name="" value="*"/>
+		</ownedAttribute>
+	<ownedAttribute xmi:id="956232780" name="sobrino" type="1039267019" association="20642722" >
+	<lowerValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="1039267019206427222" name=""/>
+	<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="1039267019206427222" name="" value="*"/>
+		</ownedAttribute>
+	</packagedElement>
+	<packagedElement xmi:type="uml:Association" xmi:id="1223201291" name="Paternidad" memberEnd="719846853 1544276689 "/>
+	<packagedElement xmi:type="uml:Association" xmi:id="1093709154" name="Hermanos" memberEnd="1747698188 468750863 "/>
+	<packagedElement xmi:type="uml:Association" xmi:id="1640216751" name="Primos" memberEnd="1519302630 4394828 "/>
+	<packagedElement xmi:type="uml:Association" xmi:id="1666032079" name="Abuelos" memberEnd="1230146537 334043131 "/>
+	<packagedElement xmi:type="uml:Association" xmi:id="20642722" name="Tios" memberEnd="1666741668 956232780 "/>
+	</uml:Model>
+</xmi:XMI>

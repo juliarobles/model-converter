@@ -69,12 +69,12 @@ public class U4_Operation {
 				sBuilder.append("\t\t\t\t" + value + "\n");
 			} 
 			sBuilder.append("\t\t\tend\n");
-			for(Constraint constraint : operation.getPreconditions()) {
-				sBuilder.append("\t\t\t" + analyzeOperationCondition(constraint, "pre"));
-			}
-			for(Constraint constraint : operation.getPostconditions()) {
-				sBuilder.append("\t\t\t" + analyzeOperationCondition(constraint, "post"));
-			}
+		}
+		for(Constraint constraint : operation.getPreconditions()) {
+			sBuilder.append("\t\t\t" + analyzeOperationCondition(constraint, "pre"));
+		}
+		for(Constraint constraint : operation.getPostconditions()) {
+			sBuilder.append("\t\t\t" + analyzeOperationCondition(constraint, "post"));
 		}
 		
 		return sBuilder.toString();

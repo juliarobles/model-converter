@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.uml2.uml.Enumeration;
 import org.eclipse.uml2.uml.EnumerationLiteral;
+import org.eclipse.uml2.uml.FinalState;
 import org.eclipse.uml2.uml.Generalization;
 import org.eclipse.uml2.uml.Operation;
 import org.eclipse.uml2.uml.Package;
@@ -21,6 +22,8 @@ import org.eclipse.uml2.uml.PackageableElement;
 import org.eclipse.uml2.uml.Parameter;
 import org.eclipse.uml2.uml.ParameterDirectionKind;
 import org.eclipse.uml2.uml.Property;
+import org.eclipse.uml2.uml.Pseudostate;
+import org.eclipse.uml2.uml.PseudostateKind;
 import org.eclipse.uml2.uml.Region;
 import org.eclipse.uml2.uml.State;
 import org.eclipse.uml2.uml.StateMachine;
@@ -77,7 +80,7 @@ public class MC_UMLtoTModel {
 					TOperation tOperation = new TOperation(operation.getName());
 					for(Parameter parameter : operation.getOwnedParameters()) {
 						String upperValue = (parameter != null && parameter.getUpperValue() != null) ? parameter.getUpperValue().stringValue() : null;
-						if(parameter.getDirection() != ParameterDirectionKind.RETURN_LITERAL) {
+						if(parameter.getDirection() == ParameterDirectionKind.RETURN_LITERAL) {
 							tOperation.setReturn1(new TAttribute("", checkAvailableType(packet.getModel().getName(), parameter.getType()), upperValue, parameter.isUnique(), parameter.isOrdered()));
 						} else {
 							tOperation.addParameter(new TAttribute(parameter.getName(), checkAvailableType(packet.getModel().getName(), parameter.getType()), upperValue, parameter.isUnique(), parameter.isOrdered()));
@@ -94,7 +97,7 @@ public class MC_UMLtoTModel {
 						if(constraint.getSpecification() != null && constraint.getSpecification().stringValue() != null && !constraint.getSpecification().stringValue().isBlank()) tCondition.setOcl(constraint.getSpecification().stringValue());
 						tOperation.addPostconditions(tCondition);
 					}
-					tClass.addOperation(null);
+					tClass.addOperation(tOperation);
 				}
 				for(Constraint constraint : class1.getOwnedRules()) {
 					TConstraint tConstraint = new TConstraint(constraint.getName());
@@ -107,11 +110,14 @@ public class MC_UMLtoTModel {
 						for(Vertex vertex : region.getSubvertices()) {
 							if(vertex instanceof State) {
 								TState tState = new TState(vertex.getName());
+								if(vertex instanceof FinalState) tState.setFinal(true);
 								Constraint constraint = ((State)vertex).getStateInvariant();
 								if(constraint != null && constraint.getSpecification() != null && !constraint.getSpecification().stringValue().isBlank()) tState.setInvariant(constraint.getSpecification().stringValue());
 								tStateMachine.addState(tState);
 							} else {
-								tStateMachine.addState(new TState(vertex.getName()));
+								TState tState = new TState(vertex.getName());
+								if(vertex instanceof Pseudostate && ((Pseudostate)vertex).getKind() == PseudostateKind.INITIAL_LITERAL) tState.setInitial(true);
+								tStateMachine.addState(tState);
 							}
 						}
 						for(Transition transition : region.getTransitions()) {

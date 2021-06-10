@@ -1,0 +1,143 @@
+model ModelP07
+
+-----------Clases-----------
+
+class Universidad
+end
+
+abstract class Titulacion
+end
+
+class Grado < Titulacion
+end
+
+class Posgrado < Titulacion
+end
+
+class Asignatura
+attributes
+	creditosECTS : Integer
+end
+
+class Curso
+attributes
+	anioInicio : Integer
+end
+
+class Imparticion
+end
+
+class Alumno
+operations
+	aprobada(a: Asignatura) : Boolean = self.matricula -> exists(m | m.calificacion >= 5 and m.imparticion.asignatura = a)
+end
+
+class Profesor < Alumno
+operations
+	evaluar(a: Alumno, i: Imparticion, calificacion: Real)
+		begin
+			(a.matricula -> any(m | m.alumno = a and m.imparticion = i)).calificacion := calificacion;
+		end
+	pre esSuAlumno: self.imparteProfesor.alumno -> includes(a)
+	pre esSuImparticion: self.imparteProfesor -> includes(i)
+	pre existeMatricula: self.imparteProfesor.matricula -> exists(m | m.alumno = a and m.imparticion = i)
+	post notaPuesta: (a.matricula -> any(m | m.alumno = a and m.imparticion = i)).calificacion = calificacion
+end
+
+class Titulo
+end
+
+-----------Asociaciones-----------
+
+associationclass Matricula between
+Alumno [*] role alumno
+Imparticion [*] role imparticion
+attributes
+	calificacion : Real
+end
+
+association Oferta between
+Universidad [*] role universidad
+Titulacion [*] role titulacion
+end
+
+aggregation Combinacion between
+Titulacion [*] role titulacion
+Asignatura [*] role asignatura
+end
+
+association Contenido between
+Asignatura [1] role asignatura
+Imparticion [*] role imparticion
+end
+
+association Realizacion between
+Curso [1] role curso
+Imparticion [*] role imparticion
+end
+
+association Ensenanza between
+Profesor [1] role profesor
+Imparticion [*] role imparteProfesor
+end
+
+association Obtencion between
+Alumno [*] role alumno
+Titulo [*] role titulo
+end
+
+association Composicion between
+Titulo [*] role titulo
+Universidad [1] role universidad
+end
+
+association Composicion2 between
+Titulo [*] role titulo
+Titulacion [1] role titulacion
+end
+
+association Composicion3 between
+Titulo [*] role titulo
+Curso [1] role curso
+end
+
+-----------Restricciones-----------
+constraints
+context Matricula
+	inv calificacionEntre0y10:
+		(self.calificacion >= 0 and self.calificacion <= 10) or self.calificacion.oclIsUndefined()			
+
+context Profesor
+	inv noMatriculaEnSuAsignatura:
+		self.imparticion.profesor -> excludes(self)
+
+context Alumno
+	inv todosTitulosGradosCorrectos:
+		(self.titulo -> select(t: Titulo | t.titulacion.oclIsKindOf(Grado))) 
+		-> forAll(t : Titulo | (t.titulacion.asignatura -> select(a | self.imparticion.asignatura -> includes(a) and self.aprobada(a))) 
+		-> collect(creditosECTS) -> sum() >= 240)
+	
+	inv todosTitulosPosGradosCorrectos:
+		(self.titulo -> select(t: Titulo | t.titulacion.oclIsKindOf(Posgrado))) 
+		-> forAll(t : Titulo | (t.titulacion.asignatura -> select(a | self.imparticion.asignatura -> includes(a) and self.aprobada(a))) 
+		-> collect(creditosECTS) -> sum() >= 60)
+		
+	inv tituloGradoParaPosgrado:
+		self.titulo -> select(t: Titulo | t.titulacion.oclIsKindOf(Posgrado)) -> notEmpty() 
+		implies self.titulo -> select(t: Titulo | t.titulacion.oclIsKindOf(Grado)) -> notEmpty()
+
+	inv noMatriculaEnAsigAprobada:
+		self.matricula -> forAll(m1, m2 | m1 <> m2 and m1.imparticion.asignatura = m2.imparticion.asignatura and m1.calificacion >= 5 implies m2.imparticion.curso.anioInicio <= m1.imparticion.curso.anioInicio)
+	
+	--Evitamos que un alumno pueda tener 2 titulos iguales
+	inv noTitulosDuplicados:
+		self.titulo -> forAll(m1, m2 | m1 <> m2 implies m1.titulacion <> m2.titulacion)
+	
+	--Podriamos restringir que un alumno no pueda estar matriculado en 2 imparticiones diferentes de la misma asignatura en el mismo curso 
+	--pero como no se especifica la dejamos como comentario
+	--------inv noMismaAsigMismoCurso:
+		-------self.imparticion -> forAll(i1, i2 | i1 <> i2 implies i1.curso <> i2.curso or i1.asignatura <> i2.asignatura)
+	
+context Curso
+	inv noUndefined: --Esta restriccion la ponemos para que no salga false la restriccion de noMatriculaEnAsigAprobada
+		not self.anioInicio.oclIsUndefined()

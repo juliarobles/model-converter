@@ -65,9 +65,10 @@ class TOperation {
 			return false;
 		TOperation other = (TOperation) obj;
 		if (bodyCondition == null) {
-			if (other.bodyCondition != null && !other.bodyCondition.equals("USE"))
+			if (other.bodyCondition != null && !other.bodyCondition.isBlank() && !other.bodyCondition.equals("USE") && !other.bodyCondition.equals("true"))
 				return false;
 		} else if (!bodyCondition.equals(other.bodyCondition)
+					&& (other.bodyCondition != null && !other.bodyCondition.equals("true") && bodyCondition.isBlank())
 					&& !other.bodyCondition.equals("USE")
 					&& !bodyCondition.equals("USE"))
 			return false;
@@ -84,24 +85,26 @@ class TOperation {
 		if (parameters == null) {
 			if (other.parameters != null)
 				return false;
-		} else if (!parameters.equals(other.parameters))
+		} else if (!parameters.containsAll(other.parameters) || !parameters.containsAll(other.parameters))
 			return false;
 		if (postconditions == null) {
 			if (other.postconditions != null)
 				return false;
-		} else if (!postconditions.equals(other.postconditions))
+		} else if (!postconditions.containsAll(other.postconditions) || !postconditions.containsAll(other.postconditions))
 			return false;
 		if (preconditions == null) {
 			if (other.preconditions != null)
 				return false;
-		} else if (!preconditions.equals(other.preconditions))
+		} else if (!preconditions.containsAll(other.preconditions) || !preconditions.containsAll(other.preconditions))
 			return false;
 		if (return1 == null) {
-			if (other.return1 != null && !(other.return1.equals(new TAttribute("", "String", null))))
+			if (other.return1 != null && !(other.return1.equals(new TAttribute("", "String", null))) && !(other.return1.equals(new TAttribute("", "Boolean", null))))
 				return false;
 		} else if (!return1.equals(other.return1)
-					&& !(other.return1 == null && return1.equals(new TAttribute("", "String", null))))
+					&& !(other.return1 == null && return1.equals(new TAttribute("", "String", null)))
+					&& !(other.return1 == null && return1.equals(new TAttribute("", "Boolean", null))))
 			return false;
+		System.out.println("Equals toperation " + name + " es true");
 		return true;
 	}
 

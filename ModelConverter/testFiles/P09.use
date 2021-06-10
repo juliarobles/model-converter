@@ -1,0 +1,253 @@
+model ModelP09
+
+class Configuration
+attributes
+    -- Indicates the arm's average movement speed.
+    -- Measured in cm/s.
+    speed : Real init: 1.0
+
+    maxX : Integer init: 10
+    maxY : Integer init: 10
+    maxZ : Integer init: 10
+
+    minX : Integer init: -10
+    minY : Integer init: -10
+    minZ : Integer init: -10
+end
+
+class RArm
+attributes
+    -- Used to get the arm's current position.
+    -- Measured in cm.
+    posX : Integer init: 1
+    posY : Integer init: 1
+    posZ : Integer init: 1
+
+    contracted : Boolean
+        init: false
+
+    withItem : Boolean
+        derived: not self.grabbedItem.oclIsUndefined()
+
+operations
+    itemAtPos(posX : Integer, posY : Integer, posZ: Integer) : Item =
+        Item.allInstances -> any(it | it.posX = posX and it.posY = posY and it.posZ = posZ)
+    
+    -- Returns the item at arm's position
+    itemHere() : Item = itemAtPos(self.posX, self.posY, self.posZ-1)
+
+    -- Returns true is val is between min and max
+    isInInterval(min : Integer, max : Integer, val : Integer) : Boolean =
+        if val < min or val > max then false else true endif;
+
+    -- The arm closes, grabbing what is located at its position, if there is something
+    -- OUT: The arm's grasped item, null if it doesn't grasp anything
+    grasp() : Item
+    begin
+        declare itemHere : Item;
+        
+        itemHere := self.itemHere();
+        if not itemHere.oclIsUndefined() and not itemHere.grabbed then
+            itemHere.beGrasped(self);
+            result := itemHere;
+        else
+            result := null;
+        end;
+    
+        self.contracted := true;
+    end
+    pre looseHand: not self.contracted
+    post closedHand: self.contracted
+    post grabItem: if not self@pre.itemHere().oclIsUndefined()
+                   then self.withItem and self.itemHere().grabbed
+                   else not self.withItem endif
+    post returnItem: if not self.itemHere().oclIsUndefined() 
+                     then result = self.itemHere()
+                     else result = null endif
+
+    -- The arm looses, releasing what it is holding, if it holds something
+    -- OUT: The arm's released item, null if it doesn't release anything
+    drop() : Item
+    begin
+        if not self.grabbedItem.oclIsUndefined() then
+            result := self.grabbedItem;
+            self.grabbedItem.beReleased(self);
+        else
+            result := null;
+        end;
+    
+        self.contracted := false;
+    end
+    pre closedHand: self.contracted
+    post looseHand: not self.contracted
+    post releaseItem: self.grabbedItem.oclIsUndefined()
+    post returnItem: if not self.itemHere().oclIsUndefined() 
+                     then result = self.itemHere()
+                     else result = null endif
+
+    -- The arm moves left or right
+    -- IN: movement on the X axis
+    -- OUT: invested ticks in the movement
+    moveSideways(x: Integer) : Integer
+    begin
+        self.posX := self.posX + x;
+
+        if self.withItem then
+            self.grabbedItem.posX := self.posX;
+        end;
+
+        result := (self.configuration.speed * x).round().abs();
+    end
+    pre avoidColissionX:
+        Item.allInstances->forAll(
+            it | it <> self.grabbedItem implies (it.posY = self.posY and
+                                                (it.posZ = self.posZ or (if self.withItem then it.posZ = self.posZ-1 else false endif)) implies
+                                                if x >= 0 then
+                                                    not isInInterval(self.posX, self.posX+x, it.posX)
+                                                else
+                                                    not isInInterval(self.posX+x, self.posX, it.posX)
+                                                endif
+                                                )
+        )
+    pre movXInsideRange: self.posX + x >= self.configuration.minX and self.posX + x <= self.configuration.maxX
+    
+    post newPosXInsideRange: self.posX >= self.configuration.minX and self.posX <= self.configuration.maxX
+    post movXDone: self.posX = self.posX@pre + x
+    post spentTimeValid: result >= 0
+    post ItemMoved: self.withItem implies self.grabbedItem = self.itemHere()
+
+    -- The arm moves forward or backward
+    -- IN: movement on the Y axis
+    -- OUT: invested ticks in the movement
+    moveForward(y: Integer) : Integer
+    begin
+        self.posY := self.posY + y;
+        
+        if self.withItem then
+            self.grabbedItem.posY := self.posY;
+        end;
+        
+        result := (self.configuration.speed * y).round().abs();
+    end
+     pre avoidColissionY:
+        Item.allInstances->forAll(
+            it | it <> self.grabbedItem implies (it.posX = self.posX and 
+                                                (it.posZ = self.posZ or (if self.withItem then it.posZ = self.posZ-1 else false endif)) implies
+                                                if y >= 0 then
+                                                    not isInInterval(self.posY, self.posY+y, it.posY)
+                                                else
+                                                    not isInInterval(self.posY+y, self.posY, it.posY)
+                                                endif)
+        )
+    pre movYInsideRange: self.posY + y >= self.configuration.minY and self.posY + y <= self.configuration.maxY
+    post newPosYInsideRange: self.posY >= self.configuration.minY and self.posY <= self.configuration.maxY
+    post movYDone: self.posY = self.posY@pre + y
+    post spentTimeValid: result >= 0
+    post ItemMoved: self.withItem implies self.grabbedItem = self.itemHere()
+
+    -- The arm moves up or down
+    -- IN: movement on the Z axis
+    -- OUT: invested ticks in the movement
+    moveUp(z: Integer) : Integer
+    begin
+        self.posZ := self.posZ + z;
+        
+        if self.withItem then
+            self.grabbedItem.posZ := self.posZ-1;
+        end;
+        
+        result := (self.configuration.speed * z).round().abs();
+    end
+    pre avoidColissionZ:
+        Item.allInstances->forAll(
+            it | it <> self.grabbedItem implies (it.posX = self.posX and
+                                                it.posY = self.posY implies
+                                                if z >= 0 then
+                                                    not isInInterval(self.posZ, self.posZ+z, it.posZ)
+                                                else
+                                                    if self.withItem then
+                                                        not isInInterval(self.posZ+z-1, self.posZ, it.posZ)
+                                                    else
+                                                        not isInInterval(self.posZ+z, self.posZ, it.posZ)
+                                                    endif
+                                                endif)
+        )
+    pre movZInsideRange: self.posZ + z >= self.configuration.minZ and 
+                         self.posZ + z <= self.configuration.maxZ
+    post newPosZInsideRange: self.posZ >= self.configuration.minZ and 
+                             self.posZ <= self.configuration.maxZ
+    post movZDone: self.posZ = self.posZ@pre + z
+    post spentTimeValid: result >= 0
+    post ItemMoved: self.withItem implies self.grabbedItem = self.itemHere()
+
+constraints
+    -- Each axis' maximum value must be bigger than its minimum
+    inv minXEqualOrLessThanMaxX:
+        self.configuration.minX <= self.configuration.maxX
+
+    inv minYEqualOrLessThanMaxY:
+        self.configuration.minY <= self.configuration.maxY
+
+    inv minZEqualOrLessThanMaxZ:
+        self.configuration.minZ <= self.configuration.maxZ
+
+    -- Each axis' current position must be inside its own limits
+    inv posXValid:
+        self.posX >= self.configuration.minX and self.posX <= self.configuration.maxX
+
+    inv posYValid:
+        self.posY >= self.configuration.minY and self.posY <= self.configuration.maxY
+
+    inv posZValid:
+        self.posZ >= self.configuration.minZ and self.posZ <= self.configuration.maxZ
+
+    -- Holding an item without the arm contracted isn't possible
+    inv grabWithArmContracted:
+        self.withItem implies self.contracted
+end
+
+class Item
+attributes
+    posX : Integer init: 1
+    posY : Integer init: 1
+    posZ : Integer init: 1
+
+    grabbed : Boolean
+        derived: not self.arm.oclIsUndefined()
+
+operations
+    beGrasped(a : RArm)
+    begin
+        insert (a, self) into Grabbing;
+    end
+    pre notAlreadyGrasped: not self.grabbed
+    post correctlyGrasped: self.grabbed and self.arm = a
+
+    beReleased(a : RArm)
+    begin
+        delete (a, self) from Grabbing;
+    end
+    pre alreadyGrasped: self.arm = a
+    post correctlyReleased: not self.grabbed
+
+constraints
+    -- An item can't be at another item's position
+    inv InDiffPos:
+        Item.allInstances()->forAll(i1, i2 : Item | i1 <> i2 implies 
+                                                        i1.posX <> i2.posX and 
+                                                        i1.posY <> i2.posY and 
+                                                        i1.posZ <> i2.posZ)
+end
+
+-- ASSOCIATIONS
+-- Associates a RArm within its configuration
+association Configure between
+    Configuration [1] role configuration
+    RArm [1] role arm
+end
+
+-- Associates a RArm with the item it grasps
+association Grabbing between
+    RArm [0..1] role arm
+    Item [0..1] role grabbedItem
+end

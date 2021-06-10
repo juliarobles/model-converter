@@ -249,4 +249,11 @@ class TestModelConverter {
 		Generators.chooseGeneratorBySourceFile(destiny + "/modelConverter_ModelP08.uml", destiny);
 		assertTrue(ModelCheck.checkModelsAreEquivalentUSEUSE(source + "/P08.use", destiny + "/modelConverter_ModelP08.use"));
 	}
+	
+	@Test
+	void testP09_USEToUMLToUSE() {
+		Generators.chooseGeneratorBySourceFile(source + "/P09.use", destiny);
+		Generators.chooseGeneratorBySourceFile(destiny + "/modelConverter_ModelP09.uml", destiny);
+		assertTrue(ModelCheck.checkModelsAreEquivalentUSEUSE(source + "/P09.use", destiny + "/modelConverter_ModelP09.use"));
+	}
 }

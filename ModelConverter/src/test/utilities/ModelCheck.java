@@ -22,7 +22,10 @@ public class ModelCheck {
 	}
 	
 	public static boolean checkModelsAreEquivalentUSEUSE(String modelUSE1, String modelUSE2) {
-		Injector injector = new USEStandaloneSetup().createInjectorAndDoEMFRegistration();
+		TModel tModelUSE1 = MC_USEtoTModel.getModelFromFileUSE(modelUSE1);
+		TModel tModelUSE2 = MC_USEtoTModel.getModelFromFileUSE(modelUSE2);
+		return tModelUSE1.equals(tModelUSE2);
+		/*Injector injector = new USEStandaloneSetup().createInjectorAndDoEMFRegistration();
         ResourceSet rs = injector.getInstance(ResourceSet.class);
         Resource tModelUSE1 = rs.getResource(URI.createFileURI(modelUSE1), true);
         
@@ -30,7 +33,7 @@ public class ModelCheck {
         ResourceSet rs2 = injector2.getInstance(ResourceSet.class);
         Resource tModelUSE2 = rs2.getResource(URI.createFileURI(modelUSE2), true);
 		
-		return tModelUSE1.getAllContents().equals(tModelUSE2.getAllContents());
+		return tModelUSE1.getAllContents().equals(tModelUSE2.getAllContents());*/
 	}
 	
 	

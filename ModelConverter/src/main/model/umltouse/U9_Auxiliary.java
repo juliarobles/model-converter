@@ -31,12 +31,26 @@ public class U9_Auxiliary {
 		return res;
 	}
 	
-	static String checkRoleNotNull(String role, String classRole) {
+	static String checkRoleNotNull(String role, String classRole, List<String> nameClassMemberEnd) {
+		String roleRes = role;
+		boolean reflexive = false;
 		if (role != null && !role.isBlank()) {
-			role = searchRoleExist(role, classRole);
+			for(String nameClass : nameClassMemberEnd) {
+				if(!nameClass.equals(classRole) || reflexive) {
+					role = searchRoleExist(role, nameClass);
+				} else {
+					reflexive = true;
+				}
+			}
 			return " role " + role;
 		} else {
-			role = searchRoleExist(classRole.toLowerCase(), classRole);
+			for(String nameClass : nameClassMemberEnd) {
+				if(!nameClass.equals(classRole) || reflexive) {
+					role = searchRoleExist(classRole.toLowerCase(), nameClass);
+				}else {
+					reflexive = true;
+				}
+			}
 			if(role.equals(classRole.toLowerCase())) {
 				return "";
 			} else {

@@ -11,15 +11,13 @@ import org.eclipse.uml2.uml.UMLPackage;
 
 public class U3_Association {
 	
-	static void getAll(Package packet, StringBuilder sBuilder) {
-		U9_CountUnnamed countUnnamed = new U9_CountUnnamed();
-		List<String> namesUsed = new ArrayList<>();
+	static void getAll(Package packet, StringBuilder sBuilder, U9_CountUnnamed countUnnamed) {
 		for (PackageableElement pe : packet.getPackagedElements()) {
 			//https://stackoverflow.com/questions/61668719/read-sequence-diagram-from-xmi-using-emf
 			if(pe.eClass() == UMLPackage.Literals.ASSOCIATION) {
 				Association c = (Association) pe;
 				if(U9_Auxiliary.isNavigable(c)) {
-					analyzeAssociation((Association) pe, sBuilder, countUnnamed, namesUsed);
+					analyzeAssociation((Association) pe, sBuilder, countUnnamed, General.namesUsedGeneral);
 				}
 			}
 		}
@@ -29,6 +27,11 @@ public class U3_Association {
 		List<String> memberEnds = new ArrayList<>();
 		String tipoRelacionFinal = "association";
 		String tipoRelacionVariable, lowerValue, upperValue;
+		
+		List<String> nameClassMemberEnd = new ArrayList<>();
+		for(Property property : association.getMemberEnds()) {
+			nameClassMemberEnd.add(property.getType().getName());
+		}
 		
 		for(Property property : association.getMemberEnds()) {
 			tipoRelacionVariable = property.getAggregation().getName();
@@ -42,11 +45,11 @@ public class U3_Association {
 				}
 				memberEnds.add("\t" + property.getType().getName() + " " 
 								+ U9_Auxiliary.multToString(lowerValue, upperValue) 
-								+ U9_Auxiliary.checkRoleNotNull(property.getName(), property.getType().getName()) + "\n");
+								+ U9_Auxiliary.checkRoleNotNull(property.getName(), property.getType().getName(), nameClassMemberEnd) + "\n");
 			} else {
 				memberEnds.add(0, "\t" + property.getType().getName() + " " 
 									+ U9_Auxiliary.multToString(lowerValue, upperValue) 
-									+ U9_Auxiliary.checkRoleNotNull(property.getName(), property.getType().getName()) + "\n");
+									+ U9_Auxiliary.checkRoleNotNull(property.getName(), property.getType().getName(), nameClassMemberEnd) + "\n");
 			}
 			
 			//sBuilder.append("\tNavegable: " + booleanToYesOrNo(property.isNavigable()) + "\n");

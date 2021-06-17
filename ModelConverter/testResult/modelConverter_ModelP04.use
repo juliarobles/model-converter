@@ -1,0 +1,83 @@
+model ModelP04
+
+enum Enumerado {Value1}
+
+class Hereda
+	attributes
+		prueba : Integer init: 0
+	operations
+		operacionNormal()
+			begin
+			end
+
+		unnamed1()
+			begin
+			end
+
+		operacionQuery() : Boolean = true
+
+		unnamed2() : Boolean = true
+
+		operacionNormalSOILReturnInteger() : Integer
+			begin
+				self.prueba := self.prueba + 4;
+self.prueba := self.prueba - 2;
+result := self.prueba
+			end
+
+		operacionQueryConOCL(param1 : String) : Integer = self.prueba + 3
+			pre preCond: not param1.oclIsUndefined()
+			post postCond: not param1.oclIsUndefined()
+
+		operacionQueryReturnClass(param1 : Integer, param2 : Enumerado, param3 : AC, param4 : Hereda) : Hereda = self
+
+		operacionReturnEnum() : Enumerado
+			begin
+			end
+			pre : true
+			post : true
+
+		operacionReturnString() : Sequence(String)
+			begin
+			end
+			pre precond: not self.oclIsUndefined()
+			pre otraprecond: not self.oclIsUndefined()
+			post postcond: not self.oclIsUndefined()
+
+		operacionReturnReal() : Set(Real)
+			begin
+			end
+
+		operacionReturnAssociationClass() : AC
+			begin
+			end
+
+end
+
+class USTA3u5xFzWZNMiDKmgjrWFxGYwNwT6H5uJrztE2HNmJe8AJ43JL23VLkGgj8UuanBUxyy5qF6V46bgnWAvFe5kZS3TYyNg8uE4C < Hereda
+end
+
+associationclass AC between
+	Hereda [1] role hereda1
+	Hereda [1] role hereda2
+end
+
+constraints
+context AC
+	inv restAC:
+		true
+
+context Hereda
+	inv:
+		true
+	inv igualdos:
+		self.prueba = 2
+	inv:
+		true
+	inv nombre:
+		not self.oclIsUndefined()
+
+context USTA3u5xFzWZNMiDKmgjrWFxGYwNwT6H5uJrztE2HNmJe8AJ43JL23VLkGgj8UuanBUxyy5qF6V46bgnWAvFe5kZS3TYyNg8uE4C
+	inv:
+		true
+

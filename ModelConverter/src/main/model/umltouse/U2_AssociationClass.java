@@ -1,5 +1,8 @@
 package main.model.umltouse;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.eclipse.uml2.uml.AssociationClass;
 import org.eclipse.uml2.uml.PackageableElement;
 import org.eclipse.uml2.uml.Property;
@@ -20,12 +23,18 @@ public class U2_AssociationClass {
 	private static void analyzeAssociationClass(AssociationClass associationClass, StringBuilder sBuilder, U9_CountUnnamed countUnnamed) {
 		String lowerValue, upperValue;
 		sBuilder.append(U1_Class.classStatement(associationClass, "associationclass", countUnnamed) + " between\n");
+		
+		List<String> nameClassMemberEnd = new ArrayList<>();
+		for(Property property : associationClass.getMemberEnds()) {
+			nameClassMemberEnd.add(property.getType().getName());
+		}
+		
 		for(Property property : associationClass.getMemberEnds()) {
 			lowerValue = (property.getLowerValue() == null)? "1" : property.getLowerValue().stringValue();
 			upperValue = (property.getUpperValue() == null)? "1" : property.getUpperValue().stringValue();
 			sBuilder.append("\t" + property.getType().getName() + " " 
 					+ U9_Auxiliary.multToString(lowerValue, upperValue) 
-					+ U9_Auxiliary.checkRoleNotNull(property.getName(), property.getType().getName()) + "\n");
+					+ U9_Auxiliary.checkRoleNotNull(property.getName(), property.getType().getName(), nameClassMemberEnd) + "\n");
 		}
 		sBuilder.append(U1_Class.classContents(associationClass));
 	}

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:MagicDrawProfile="http://www.omg.org/spec/UML/20131001/MagicDrawProfile" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http://www.omg.org/spec/UML/20131001/MagicDrawProfile UML_Standard_Profile.MagicDraw_Profile.profile.uml#_nPVN7YtIEeuebcn5BqfCXQ">
+   <uml:Model xmi:id="994101094" name="ModelP02">
+	<packagedElement xmi:type="uml:Enumeration" xmi:id="1555566594" name="Enumerado" visibility="public">
+	<ownedLiteral xmi:id="455550900" name="Valor1" visibility="public"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:Class" xmi:id="116539587" isAbstract="true" name="unnamed1">
+	<ownedAttribute xmi:id="1711897002" name="b" type="652718269" association="166565737" >
+	<lowerValue xmi:type="uml:LiteralInteger" xmi:id="6527182691665657371" name="" value="1"/>
+	<upperValue xmi:type="uml:LiteralInteger" xmi:id="6527182691665657372" name="" value="1"/>
+		</ownedAttribute>
+	</packagedElement>
+	<packagedElement xmi:type="uml:Class" xmi:id="652718269" name="unnamed2">
+	<generalization xmi:id="804718919" general="116539587"/>
+	<ownedAttribute xmi:id="345009807" name="a" type="116539587" association="166565737" >
+	<lowerValue xmi:type="uml:LiteralInteger" xmi:id="1165395871665657371" name="" value="1"/>
+	<upperValue xmi:type="uml:LiteralInteger" xmi:id="1165395871665657372" name="" value="1"/>
+		</ownedAttribute>
+	</packagedElement>
+	<packagedElement xmi:type="uml:AssociationClass" xmi:id="166565737" name="unnamed3" isAbstract="true" memberEnd="345009807 1711897002 ">
+	<ownedAttribute xmi:id="307315018" name="unnamed1" type="116539587" isOrdered="true" isUnique="false">
+	<lowerValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="307315018_01" name="" visibility="public"/>
+	<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="307315018_02" name="" visibility="public" value="*"/>	
+	</ownedAttribute>
+	<ownedAttribute xmi:id="801450492" name="unnamed2" type="1555566594">
+	<lowerValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="801450492_01" name="" visibility="public"/>
+	<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="801450492_02" name="" visibility="public" value="*"/>	
+	</ownedAttribute>
+	<ownedAttribute xmi:id="97733006" name="attBag" type="166565737" isUnique="false">
+	<lowerValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="97733006_01" name="" visibility="public"/>
+	<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="97733006_02" name="" visibility="public" value="*"/>	
+	</ownedAttribute>
+	<ownedAttribute xmi:id="372933612" name="unnamed3"  isOrdered="true" isUnique="false">
+	<type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+	<lowerValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="372933612_01" name="" visibility="public"/>
+	<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="372933612_02" name="" visibility="public" value="*"/>
+	</ownedAttribute>
+	<ownedAttribute xmi:id="600062902" name="attSetInteger" >
+	<type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+	<lowerValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="600062902_01" name="" visibility="public"/>
+	<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="600062902_02" name="" visibility="public" value="*"/>
+	</ownedAttribute>
+	<ownedAttribute xmi:id="1781559139" name="unnamed4"  isUnique="false">
+	<type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+	<lowerValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="1781559139_01" name="" visibility="public"/>
+	<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="1781559139_02" name="" visibility="public" value="*"/>
+	</ownedAttribute>
+	<ownedAttribute xmi:id="250964606" name="attBoolean"  isOrdered="true" isUnique="false">
+	<type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+	<lowerValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="250964606_01" name="" visibility="public"/>
+	<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="250964606_02" name="" visibility="public" value="*"/>
+	</ownedAttribute>
+	</packagedElement>		
+	</uml:Model>
+</xmi:XMI>

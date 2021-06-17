@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:MagicDrawProfile="http://www.omg.org/spec/UML/20131001/MagicDrawProfile" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http://www.omg.org/spec/UML/20131001/MagicDrawProfile UML_Standard_Profile.MagicDraw_Profile.profile.uml#_nPVN7YtIEeuebcn5BqfCXQ">
+   <uml:Model xmi:id="106464261" name="ModelP03">
+	<packagedElement xmi:type="uml:Enumeration" xmi:id="1648482962" name="A" visibility="public">
+	<ownedLiteral xmi:id="1543252724" name="requiredValue" visibility="public"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:Enumeration" xmi:id="1189974725" name="unnamed1" visibility="public">
+	<ownedLiteral xmi:id="1601741301" name="Value1" visibility="public"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:Enumeration" xmi:id="151842721" name="EnumCinco" visibility="public">
+	<ownedLiteral xmi:id="1300498067" name="Value1" visibility="public"/>
+	<ownedLiteral xmi:id="72259729" name="Value2" visibility="public"/>
+	<ownedLiteral xmi:id="1046456678" name="Value3" visibility="public"/>
+	<ownedLiteral xmi:id="615698513" name="Value4" visibility="public"/>
+	<ownedLiteral xmi:id="1240459978" name="Value5" visibility="public"/>
+	</packagedElement>
+	<packagedElement xmi:type="uml:Class" xmi:id="495169413" name="A1">
+	<ownedAttribute xmi:id="469096971" name="attEnum" type="151842721">
+	</ownedAttribute>
+	<ownedAttribute xmi:id="157597672" name="attClass" type="743673671">
+	</ownedAttribute>
+	<ownedAttribute xmi:id="272041059" name="attAssoClass" type="172479328">
+	</ownedAttribute>
+	<ownedAttribute xmi:id="235064857" name="noNavegable" type="743673671">
+	</ownedAttribute>
+	<ownedAttribute xmi:id="1148405851" name="rol1" type="743673671" association="1681961360" >
+	<lowerValue xmi:type="uml:LiteralInteger" xmi:id="74367367116819613601" name="" value="1"/>
+	<upperValue xmi:type="uml:LiteralInteger" xmi:id="74367367116819613602" name="" value="5"/>
+		</ownedAttribute>
+	<ownedAttribute xmi:id="382974149" name="b1" type="743673671" association="998321325" aggregation="composite">
+	<lowerValue xmi:type="uml:LiteralInteger" xmi:id="7436736719983213251" name="" value="1"/>
+	<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="7436736719983213252" name="" value="*"/>
+		</ownedAttribute>
+	<ownedAttribute xmi:id="1255145284" name="rol4" type="743673671" association="994417624" aggregation="shared">
+	<lowerValue xmi:type="uml:LiteralInteger" xmi:id="7436736719944176241" name="" value="3"/>
+	<upperValue xmi:type="uml:LiteralInteger" xmi:id="7436736719944176242" name="" value="3"/>
+		</ownedAttribute>
+	<ownedAttribute xmi:id="386267965" name="" type="743673671" association="172479328" >
+	<lowerValue xmi:type="uml:LiteralInteger" xmi:id="7436736711724793281" name="" value="1"/>
+	<upperValue xmi:type="uml:LiteralInteger" xmi:id="7436736711724793282" name="" value="1"/>
+		</ownedAttribute>
+	</packagedElement>
+	<packagedElement xmi:type="uml:Class" xmi:id="743673671" name="B">
+	<ownedAttribute xmi:id="1521259035" name="a11" type="495169413" association="1681961360" >
+	<lowerValue xmi:type="uml:LiteralInteger" xmi:id="49516941316819613601" name="" value="0"/>
+	<upperValue xmi:type="uml:LiteralInteger" xmi:id="49516941316819613602" name="" value="1"/>
+		</ownedAttribute>
+	<ownedAttribute xmi:id="896803712" name="rol2" type="495169413" association="998321325" >
+	<lowerValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="4951694139983213252" name=""/>
+	<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="4951694139983213252" name="" value="*"/>
+		</ownedAttribute>
+	<ownedAttribute xmi:id="1010271040" name="rol4" type="495169413" association="994417624" >
+	<lowerValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="4951694139944176242" name=""/>
+	<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="4951694139944176242" name="" value="*"/>
+		</ownedAttribute>
+	<ownedAttribute xmi:id="326411468" name="" type="743673671" association="1492790462" >
+	<lowerValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="74367367114927904622" name=""/>
+	<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="74367367114927904622" name="" value="*"/>
+		</ownedAttribute>
+	<ownedAttribute xmi:id="1871601646" name="rolb" type="743673671" association="1492790462" >
+	<lowerValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="74367367114927904622" name=""/>
+	<upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="74367367114927904622" name="" value="*"/>
+		</ownedAttribute>
+	<ownedAttribute xmi:id="1458001236" name="" type="495169413" association="172479328" >
+	<lowerValue xmi:type="uml:LiteralInteger" xmi:id="4951694131724793281" name="" value="0"/>
+	<upperValue xmi:type="uml:LiteralInteger" xmi:id="4951694131724793282" name="" value="0"/>
+		</ownedAttribute>
+	</packagedElement>
+	<packagedElement xmi:type="uml:Class" xmi:id="1684704260" name="unnamed2">
+	</packagedElement>
+	<packagedElement xmi:type="uml:AssociationClass" xmi:id="1492790462" name="ACR" memberEnd="326411468 1871601646 ">
+	</packagedElement>		
+	<packagedElement xmi:type="uml:AssociationClass" xmi:id="172479328" name="AC" memberEnd="386267965 1458001236 ">
+	<generalization xmi:id="823618497" general="1492790462"/>
+	</packagedElement>		
+	<packagedElement xmi:type="uml:Association" xmi:id="1681961360" name="A2" memberEnd="1148405851 1521259035 "/>
+	<packagedElement xmi:type="uml:Association" xmi:id="998321325" name="unnamed3" memberEnd="896803712 382974149 "/>
+	<packagedElement xmi:type="uml:Association" xmi:id="994417624" name="unnamed4" memberEnd="1010271040 1255145284 "/>
+	</uml:Model>
+</xmi:XMI>

@@ -68,6 +68,8 @@ public class TMemberEnd {
 					&& !(role.isBlank() && other.role == null)
 					&& !(role.isBlank() && other.role != null && other.role.contains(nameClass.toLowerCase()))
 					&& !((other.role == null || other.role.isBlank()) && role.contains(nameClass.toLowerCase()))
+					&& !((other.role != null && role.contains(other.role.substring(0, other.role.length()-1))))
+					&& !((other.role != null && other.role.contains(role.substring(0, role.length()-1))))
 					&& !((other.role != null && role.contains(other.role) && role.length() == other.role.length()+1))
 					&& !((other.role != null && other.role.contains(role) && other.role.length() == role.length()+1)))
 			return false;

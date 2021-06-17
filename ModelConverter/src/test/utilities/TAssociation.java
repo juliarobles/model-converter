@@ -73,6 +73,8 @@ public class TAssociation {
 					&& !(name.isBlank() && other.name == null)
 					&& !(name.isBlank() && other.name.contains("unnamed"))
 					&& !((other.name == null || other.name.isBlank()) && name.contains("unnamed"))
+					&& !((other.name != null && name.contains(other.name.substring(0, other.name.length()-1))))
+					&& !((other.name != null && other.name.contains(name.substring(0, name.length()-1))))
 					&& !((other.name != null && name.contains(other.name) && name.length() == other.name.length()+1))
 					&& !((other.name != null && other.name.contains(name) && other.name.length() == name.length()+1)))
 			return false;

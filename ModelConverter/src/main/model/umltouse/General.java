@@ -39,7 +39,7 @@ public class General {
 		U0_Enumeration.getAll(packet, sBuilder, countUnnamed);
 		U1_Class.getAll(packet, sBuilder, countUnnamed);
 		U2_AssociationClass.getAll(packet, sBuilder, countUnnamed);
-		U3_Association.getAll(packet, sBuilder);
+		U3_Association.getAll(packet, sBuilder, countUnnamed);
 		U5_Constraint.printAllConstraints(sBuilder, allconstraints);
 		
 		Auxiliary.stringToFileNew(destination, "modelConverter_" + nameModel, ".use", sBuilder.toString());

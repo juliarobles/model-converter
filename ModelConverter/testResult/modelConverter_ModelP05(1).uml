@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:MagicDrawProfile="http://www.omg.org/spec/UML/20131001/MagicDrawProfile" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http://www.omg.org/spec/UML/20131001/MagicDrawProfile UML_Standard_Profile.MagicDraw_Profile.profile.uml#_nPVN7YtIEeuebcn5BqfCXQ">
+   <uml:Model xmi:id="1931502642" name="ModelP05">
+	<packagedElement xmi:type="uml:Class" xmi:id="483161537" name="MaquinasEstados">
+	<ownedRule xmi:id="67116596" name="pruebainvariante" constrainedElement="483161537">
+		<specification xmi:type="uml:OpaqueExpression" xmi:id="45016396567116596" name="pruebainvariante">
+		   	<language>OCL2.0</language>
+		   	  	<body>not self.oclIsUndefined()</body>
+		  	</specification>
+	</ownedRule>
+	<ownedAttribute xmi:id="1934009381" name="pruebaatributo" >
+	<type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+	<defaultValue xmi:type="uml:LiteralString" xmi:id="1934009381_03" name="" visibility="public" value="0"/>
+	</ownedAttribute>
+	<ownedOperation xmi:id="588027469" name="pruebaoperacion"  postcondition="" precondition="" >
+		<ownedParameter xmi:id="9054667121683044430" name=""  direction="return">
+		<type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+		</ownedParameter>
+		<ownedParameter xmi:id="1791688464" name="param1" >
+		<type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+		</ownedParameter>
+	</ownedOperation>	
+	<ownedBehavior xmi:type="uml:ProtocolStateMachine" xmi:id="774878856" name="maquina1">
+		<region xmi:id="774878856_01" name="" visibility="public">
+			<transition xmi:type="uml:ProtocolTransition" xmi:id="1234815047" name="" source="1922330117" target="299859643">
+			</transition>
+			<subvertex xmi:type="uml:Pseudostate" xmi:id="1922330117" name="i"/>
+			<subvertex xmi:type="uml:FinalState" xmi:id="299859643" name="f"/>
+		</region>
+	</ownedBehavior>
+	<ownedBehavior xmi:type="uml:ProtocolStateMachine" xmi:id="866658768" name="unnamed1">
+		<region xmi:id="866658768_01" name="" visibility="public">
+			<transition xmi:type="uml:ProtocolTransition" xmi:id="72068905" name="" source="578272757" target="1463798224">
+			</transition>
+			<transition xmi:type="uml:ProtocolTransition" xmi:id="2102125561" name="" guard="667666375" source="1463798224" target="1423032678" postCondition="1494123168" preCondition="667666375">
+				<ownedRule xmi:id="667666375" name="" >
+					<specification xmi:type="uml:OpaqueExpression" xmi:id="667666375667666375" name="">
+					   	<language>OCL2.0</language>
+					   	  	<body>self.pruebaatributo &lt; 10</body>
+					  	</specification>
+				</ownedRule>
+				<ownedRule xmi:id="1494123168" name="" >
+					<specification xmi:type="uml:OpaqueExpression" xmi:id="14941231681494123168" name="">
+					   	<language>OCL2.0</language>
+					   	  	<body>self.pruebaatributo &gt;= 10</body>
+					  	</specification>
+				</ownedRule>
+				<trigger xmi:id="2102125561_01" name="" visibility="public" event="2102125561_02"/>
+			</transition>
+			<transition xmi:type="uml:ProtocolTransition" xmi:id="501434780" name="" source="1423032678" target="1463798224">
+			</transition>
+			<transition xmi:type="uml:ProtocolTransition" xmi:id="1710214228" name="" guard="1898440748" source="1463798224" target="1463798224" preCondition="1898440748">
+				<ownedRule xmi:id="1898440748" name="" >
+					<specification xmi:type="uml:OpaqueExpression" xmi:id="18984407481898440748" name="">
+					   	<language>OCL2.0</language>
+					   	  	<body>self.pruebaatributo &gt;= 10</body>
+					  	</specification>
+				</ownedRule>
+				<trigger xmi:id="1710214228_01" name="" visibility="public" event="1710214228_02"/>
+			</transition>
+			<transition xmi:type="uml:ProtocolTransition" xmi:id="263382519" name="" guard="1638803425" source="1463798224" target="1463798224" postCondition="92278478" preCondition="1638803425">
+				<ownedRule xmi:id="1638803425" name="" >
+					<specification xmi:type="uml:OpaqueExpression" xmi:id="16388034251638803425" name="">
+					   	<language>OCL2.0</language>
+					   	  	<body>self.pruebaatributo &lt; 10</body>
+					  	</specification>
+				</ownedRule>
+				<ownedRule xmi:id="92278478" name="" >
+					<specification xmi:type="uml:OpaqueExpression" xmi:id="9227847892278478" name="">
+					   	<language>OCL2.0</language>
+					   	  	<body>self.pruebaatributo &lt; 10</body>
+					  	</specification>
+				</ownedRule>
+				<trigger xmi:id="263382519_01" name="" visibility="public" event="263382519_02"/>
+			</transition>
+			<subvertex xmi:type="uml:Pseudostate" xmi:id="578272757" name="unnamed1"/>
+			<subvertex xmi:type="uml:State" xmi:id="1463798224" name="estado1" >
+			</subvertex>
+			<subvertex xmi:type="uml:State" xmi:id="1423032678" name="unnamed2" >
+			</subvertex>
+		</region>
+	</ownedBehavior>
+	<ownedBehavior xmi:type="uml:ProtocolStateMachine" xmi:id="780098813" name="unnamed2">
+		<region xmi:id="780098813_01" name="" visibility="public">
+			<transition xmi:type="uml:ProtocolTransition" xmi:id="257884011" name="" source="1255451853" target="1024825990">
+			</transition>
+			<transition xmi:type="uml:ProtocolTransition" xmi:id="2140326498" name="" source="1024825990" target="1925750636">
+				<trigger xmi:id="2140326498_01" name="" visibility="public" event="2140326498_02"/>
+			</transition>
+			<transition xmi:type="uml:ProtocolTransition" xmi:id="42754738" name="" source="1925750636" target="1282404852">
+			</transition>
+			<transition xmi:type="uml:ProtocolTransition" xmi:id="1163088488" name="" guard="1024346126" source="1282404852" target="902205443" preCondition="1024346126">
+				<ownedRule xmi:id="1024346126" name="" >
+					<specification xmi:type="uml:OpaqueExpression" xmi:id="10243461261024346126" name="">
+					   	<language>OCL2.0</language>
+					   	  	<body>self.pruebaatributo &lt; 20</body>
+					  	</specification>
+				</ownedRule>
+				<trigger xmi:id="1163088488_01" name="" visibility="public" event="1163088488_02"/>
+			</transition>
+			<transition xmi:type="uml:ProtocolTransition" xmi:id="1647843748" name="" guard="1124793573" source="1282404852" target="1581540598" preCondition="1124793573">
+				<ownedRule xmi:id="1124793573" name="" >
+					<specification xmi:type="uml:OpaqueExpression" xmi:id="11247935731124793573" name="">
+					   	<language>OCL2.0</language>
+					   	  	<body>self.pruebaatributo &gt;= 20</body>
+					  	</specification>
+				</ownedRule>
+				<trigger xmi:id="1647843748_01" name="" visibility="public" event="1647843748_02"/>
+			</transition>
+			<transition xmi:type="uml:ProtocolTransition" xmi:id="1401592765" name="" source="1581540598" target="1581540598" postCondition="282535776">
+				<ownedRule xmi:id="282535776" name="" >
+					<specification xmi:type="uml:OpaqueExpression" xmi:id="282535776282535776" name="">
+					   	<language>OCL2.0</language>
+					   	  	<body>self.pruebaatributo &lt; 10</body>
+					  	</specification>
+				</ownedRule>
+				<trigger xmi:id="1401592765_01" name="" visibility="public" event="1401592765_02"/>
+			</transition>
+			<transition xmi:type="uml:ProtocolTransition" xmi:id="463366172" name="" source="1581540598" target="902205443" postCondition="700860780">
+				<ownedRule xmi:id="700860780" name="" >
+					<specification xmi:type="uml:OpaqueExpression" xmi:id="700860780700860780" name="">
+					   	<language>OCL2.0</language>
+					   	  	<body>self.pruebaatributo &gt;= 10</body>
+					  	</specification>
+				</ownedRule>
+				<trigger xmi:id="463366172_01" name="" visibility="public" event="463366172_02"/>
+			</transition>
+			<subvertex xmi:type="uml:Pseudostate" xmi:id="1255451853" name="s"/>
+			<subvertex xmi:type="uml:State" xmi:id="1024825990" name="f"  stateInvariant="1477468183">
+			<ownedRule xmi:id="1477468183" name="" >
+				<specification xmi:type="uml:OpaqueExpression" xmi:id="14774681831477468183" name="">
+				   	<language>OCL2.0</language>
+				   	  	<body>self.pruebaatributo &gt; 0</body>
+				  	</specification>
+			</ownedRule>
+			</subvertex>
+			<subvertex xmi:type="uml:State" xmi:id="1925750636" name="estado1" >
+			</subvertex>
+			<subvertex xmi:type="uml:State" xmi:id="1282404852" name="estado2"  stateInvariant="1517284289">
+			<ownedRule xmi:id="1517284289" name="" >
+				<specification xmi:type="uml:OpaqueExpression" xmi:id="15172842891517284289" name="">
+				   	<language>OCL2.0</language>
+				   	  	<body>self.pruebaatributo &lt; 20</body>
+				  	</specification>
+			</ownedRule>
+			</subvertex>
+			<subvertex xmi:type="uml:FinalState" xmi:id="902205443" name="f1"/>
+			<subvertex xmi:type="uml:State" xmi:id="1581540598" name="estado3" >
+			</subvertex>
+		</region>
+	</ownedBehavior>
+	</packagedElement>
+	<packagedElement xmi:type="uml:CallEvent" xmi:id="2102125561_02" name="" operation="588027469"/>
+	<packagedElement xmi:type="uml:CallEvent" xmi:id="1710214228_02" name="" operation="588027469"/>
+	<packagedElement xmi:type="uml:CallEvent" xmi:id="263382519_02" name="" operation="588027469"/>
+	<packagedElement xmi:type="uml:CallEvent" xmi:id="2140326498_02" name="" operation="588027469"/>
+	<packagedElement xmi:type="uml:CallEvent" xmi:id="1163088488_02" name="" operation="588027469"/>
+	<packagedElement xmi:type="uml:CallEvent" xmi:id="1647843748_02" name="" operation="588027469"/>
+	<packagedElement xmi:type="uml:CallEvent" xmi:id="1401592765_02" name="" operation="588027469"/>
+	<packagedElement xmi:type="uml:CallEvent" xmi:id="463366172_02" name="" operation="588027469"/>
+	</uml:Model>
+</xmi:XMI>

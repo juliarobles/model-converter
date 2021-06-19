@@ -11,6 +11,8 @@ import org.eclipse.uml2.uml.UMLPackage;
 
 public class U0_Enumeration {
 	
+	private U0_Enumeration() {}
+	
 	static void getAll(Package packet, StringBuilder sBuilder, U9_CountUnnamed countUnnamed) {
 		for (PackageableElement pe : packet.getPackagedElements()) {
 			//https://stackoverflow.com/questions/61668719/read-sequence-diagram-from-xmi-using-emf

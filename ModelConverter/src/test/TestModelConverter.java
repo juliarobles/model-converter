@@ -40,12 +40,25 @@ class TestModelConverter {
 	}
 	
 	@Test
-	void test2_BothPathNameAreInvalid() {
+	void test2_BothPathNameAreInvalid1() {
 		PrintStream originalErr = System.err;
 		ByteArrayOutputStream errContent = new ByteArrayOutputStream();
 		System.setErr(new PrintStream(errContent));
 		
 		Generators.chooseGeneratorBySourceFile(null, "");
+		assertEquals("ERROR: Both fields must be completed.".strip(), errContent.toString().strip());
+		
+		System.setErr(originalErr);
+		
+	}
+	
+	@Test
+	void test2_BothPathNameAreInvalid2() {
+		PrintStream originalErr = System.err;
+		ByteArrayOutputStream errContent = new ByteArrayOutputStream();
+		System.setErr(new PrintStream(errContent));
+		
+		Generators.chooseGeneratorBySourceFile(source + "/P01.use", "");
 		assertEquals("ERROR: Both fields must be completed.".strip(), errContent.toString().strip());
 		
 		System.setErr(originalErr);
@@ -90,12 +103,12 @@ class TestModelConverter {
 	
 	@Test
 	void test3_GrammarMistakesUSEFile() {
-		Generators.chooseGeneratorBySourceFile(source + "/USEROTO.use", destiny);
+		Generators.chooseGeneratorBySourceFile(source + "/P10.use", destiny);
 	}
 	
 	@Test
 	void test3_GrammarMistakesUMLFile() {
-		Generators.chooseGeneratorBySourceFile(source + "/UMLROTO.use", destiny);
+		Generators.chooseGeneratorBySourceFile(source + "/P10.uml", destiny);
 	}
 	
 	@Test
@@ -230,30 +243,34 @@ class TestModelConverter {
 	}
 	
 	@Test
-	void testP06_USEToUMLToUSE() {
+	void testP06_USEToUMLToUSEToUML() {
 		Generators.chooseGeneratorBySourceFile(source + "/P06.use", destiny);
 		Generators.chooseGeneratorBySourceFile(destiny + "/modelConverter_ModelP06.uml", destiny);
-		assertTrue(ModelCheck.checkModelsAreEquivalentUSEUSE(source + "/P06.use", destiny + "/modelConverter_ModelP06.use"));
+		Generators.chooseGeneratorBySourceFile(destiny + "/modelConverter_ModelP06.use", destiny);
+		assertTrue(ModelCheck.checkModelsAreEquivalentUMLUML(destiny + "/modelConverter_ModelP06.uml", destiny + "/modelConverter_ModelP06(1).uml"));
 	}
 	
 	@Test
-	void testP07_USEToUMLToUSE() {
+	void testP07_USEToUMLToUSEToUML() {
 		Generators.chooseGeneratorBySourceFile(source + "/P07.use", destiny);
 		Generators.chooseGeneratorBySourceFile(destiny + "/modelConverter_ModelP07.uml", destiny);
-		assertTrue(ModelCheck.checkModelsAreEquivalentUSEUSE(source + "/P07.use", destiny + "/modelConverter_ModelP07.use"));
+		Generators.chooseGeneratorBySourceFile(destiny + "/modelConverter_ModelP07.use", destiny);
+		assertTrue(ModelCheck.checkModelsAreEquivalentUMLUML(destiny + "/modelConverter_ModelP07.uml", destiny + "/modelConverter_ModelP07(1).uml"));
 	}
 	
 	@Test
-	void testP08_USEToUMLToUSE() {
+	void testP08_USEToUMLToUSEToUML() {
 		Generators.chooseGeneratorBySourceFile(source + "/P08.use", destiny);
 		Generators.chooseGeneratorBySourceFile(destiny + "/modelConverter_ModelP08.uml", destiny);
-		assertTrue(ModelCheck.checkModelsAreEquivalentUSEUSE(source + "/P08.use", destiny + "/modelConverter_ModelP08.use"));
+		Generators.chooseGeneratorBySourceFile(destiny + "/modelConverter_ModelP08.use", destiny);
+		assertTrue(ModelCheck.checkModelsAreEquivalentUMLUML(destiny + "/modelConverter_ModelP08.uml", destiny + "/modelConverter_ModelP08(1).uml"));
 	}
 	
 	@Test
-	void testP09_USEToUMLToUSE() {
+	void testP09_USEToUMLToUSEToUML() {
 		Generators.chooseGeneratorBySourceFile(source + "/P09.use", destiny);
 		Generators.chooseGeneratorBySourceFile(destiny + "/modelConverter_ModelP09.uml", destiny);
-		assertTrue(ModelCheck.checkModelsAreEquivalentUSEUSE(source + "/P09.use", destiny + "/modelConverter_ModelP09.use"));
+		Generators.chooseGeneratorBySourceFile(destiny + "/modelConverter_ModelP09.use", destiny);
+		assertTrue(ModelCheck.checkModelsAreEquivalentUMLUML(destiny + "/modelConverter_ModelP09.uml", destiny + "/modelConverter_ModelP09(1).uml"));
 	}
 }

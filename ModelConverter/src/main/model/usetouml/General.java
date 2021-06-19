@@ -29,17 +29,23 @@ public class General {
 
         IResourceValidator validator = injector.getInstance(IResourceValidator.class);
         List<Issue> issues = validator.validate(r, CheckMode.ALL, CancelIndicator.NullImpl);
+        boolean continueb = true;
         for (Issue i : issues) {
         	System.out.println(i);
+        	if(i.isSyntaxError()) {
+        		continueb = false;
+        	}
         }
+        
+        if(continueb) {
+        	GeneratorDelegate generator = injector.getInstance(GeneratorDelegate.class);
+            JavaIoFileSystemAccess fsa = injector.getInstance(JavaIoFileSystemAccess.class);
+            fsa.setOutputPath(destiny);
+            GeneratorContext context = new GeneratorContext();
+            context.setCancelIndicator(CancelIndicator.NullImpl);
 
-        GeneratorDelegate generator = injector.getInstance(GeneratorDelegate.class);
-        JavaIoFileSystemAccess fsa = injector.getInstance(JavaIoFileSystemAccess.class);
-        fsa.setOutputPath(destiny);
-        GeneratorContext context = new GeneratorContext();
-        context.setCancelIndicator(CancelIndicator.NullImpl);
-
-        generator.generate(r, fsa, context);
+            generator.generate(r, fsa, context);
+        }
         
         tempFile.deleteOnExit();
 	}

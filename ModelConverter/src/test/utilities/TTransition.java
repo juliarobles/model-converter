@@ -33,26 +33,6 @@ public class TTransition {
 	public void setOperation(String operation) {
 		this.operation = operation;
 	}
-	
-	public String getTarget() {
-		return target;
-	}
-
-	public String getSource() {
-		return source;
-	}
-
-	public String getPreCondition() {
-		return preCondition;
-	}
-
-	public String getPostCondition() {
-		return postCondition;
-	}
-
-	public String getOperation() {
-		return operation;
-	}
 
 	@Override
 	public int hashCode() {

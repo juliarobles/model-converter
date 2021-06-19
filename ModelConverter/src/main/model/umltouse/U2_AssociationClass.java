@@ -10,6 +10,8 @@ import org.eclipse.uml2.uml.Package;
 import org.eclipse.uml2.uml.UMLPackage;
 
 public class U2_AssociationClass {
+	
+	private U2_AssociationClass() {}
 
 	static void getAll(Package packet, StringBuilder sBuilder, U9_CountUnnamed countUnnamed) {
 		for (PackageableElement pe : packet.getPackagedElements()) {

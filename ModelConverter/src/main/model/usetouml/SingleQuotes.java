@@ -34,7 +34,7 @@ public class SingleQuotes {
                 			line = input.nextLine();
                 		}
             			if(isContain(line, ENDSOIL)) {
-            				sBuilder.append(auxLine);
+            				sBuilder.append(auxLine+"\n");
             			} else {
             				nofin = false;
             				if(!next) {
@@ -97,11 +97,6 @@ public class SingleQuotes {
 		}
 		return false;
    }
-	
-	private static int indexOfEndWord(String line, String word, boolean first) {
-		int res = (first) ? line.indexOf(word) : line.lastIndexOf(word);
-		return (res < 0) ? res : res+word.length();
-	}
 	
 	private static void deleteLastLineBreak(StringBuilder sBuilder) {
 		while(sBuilder.charAt(sBuilder.length()-1) == '\n' || sBuilder.charAt(sBuilder.length()-1) == ' ') {

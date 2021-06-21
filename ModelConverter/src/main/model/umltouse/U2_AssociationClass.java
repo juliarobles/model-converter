@@ -23,7 +23,7 @@ public class U2_AssociationClass {
 	}
 	
 	private static void analyzeAssociationClass(AssociationClass associationClass, StringBuilder sBuilder, U9_CountUnnamed countUnnamed) {
-		String lowerValue, upperValue;
+		String lowerValue, upperValue, ordered;
 		sBuilder.append(U1_Class.classStatement(associationClass, "associationclass", countUnnamed) + " between\n");
 		
 		List<String> nameClassMemberEnd = new ArrayList<>();
@@ -32,11 +32,12 @@ public class U2_AssociationClass {
 		}
 		
 		for(Property property : associationClass.getMemberEnds()) {
+			ordered = (property.isOrdered()) ? " ordered" : "";
 			lowerValue = (property.getLowerValue() == null)? "1" : property.getLowerValue().stringValue();
 			upperValue = (property.getUpperValue() == null)? "1" : property.getUpperValue().stringValue();
 			sBuilder.append("\t" + property.getType().getName() + " " 
 					+ U9_Auxiliary.multToString(lowerValue, upperValue) 
-					+ U9_Auxiliary.checkRoleNotNull(property.getName(), property.getType().getName(), nameClassMemberEnd) + "\n");
+					+ U9_Auxiliary.checkRoleNotNull(property.getName(), property.getType().getName(), nameClassMemberEnd) + ordered +"\n");
 		}
 		sBuilder.append(U1_Class.classContents(associationClass));
 	}

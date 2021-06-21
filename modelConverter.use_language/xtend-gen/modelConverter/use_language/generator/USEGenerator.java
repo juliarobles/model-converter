@@ -637,7 +637,14 @@ public class USEGenerator extends AbstractGenerator {
             _builder.append("\" type=\"");
             int _identityHashCode_1 = System.identityHashCode(end.getType());
             _builder.append(_identityHashCode_1);
-            _builder.append("\" association=\"");
+            _builder.append("\"");
+            {
+              boolean _isOrdered = end.isOrdered();
+              if (_isOrdered) {
+                _builder.append(" isOrdered=\"true\"");
+              }
+            }
+            _builder.append(" association=\"");
             _builder.append(id);
             _builder.append("\" ");
             {

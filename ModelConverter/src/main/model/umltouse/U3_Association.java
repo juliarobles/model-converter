@@ -28,7 +28,7 @@ public class U3_Association {
 	private static String analyzeAssociation(Association association, StringBuilder sBuilder, U9_CountUnnamed countUnnamed, List<String> namesUsed) {
 		List<String> memberEnds = new ArrayList<>();
 		String tipoRelacionFinal = "association";
-		String tipoRelacionVariable, lowerValue, upperValue;
+		String tipoRelacionVariable, lowerValue, upperValue, ordered;
 		
 		List<String> nameClassMemberEnd = new ArrayList<>();
 		for(Property property : association.getMemberEnds()) {
@@ -36,6 +36,7 @@ public class U3_Association {
 		}
 		
 		for(Property property : association.getMemberEnds()) {
+			ordered = (property.isOrdered()) ? " ordered" : "";
 			tipoRelacionVariable = property.getAggregation().getName();
 			lowerValue = (property.getLowerValue() == null)? "1" : property.getLowerValue().stringValue();
 			upperValue = (property.getUpperValue() == null)? "1" : property.getUpperValue().stringValue();
@@ -47,11 +48,11 @@ public class U3_Association {
 				}
 				memberEnds.add("\t" + property.getType().getName() + " " 
 								+ U9_Auxiliary.multToString(lowerValue, upperValue) 
-								+ U9_Auxiliary.checkRoleNotNull(property.getName(), property.getType().getName(), nameClassMemberEnd) + "\n");
+								+ U9_Auxiliary.checkRoleNotNull(property.getName(), property.getType().getName(), nameClassMemberEnd) + ordered + "\n");
 			} else {
 				memberEnds.add(0, "\t" + property.getType().getName() + " " 
 									+ U9_Auxiliary.multToString(lowerValue, upperValue) 
-									+ U9_Auxiliary.checkRoleNotNull(property.getName(), property.getType().getName(), nameClassMemberEnd) + "\n");
+									+ U9_Auxiliary.checkRoleNotNull(property.getName(), property.getType().getName(), nameClassMemberEnd) + ordered + "\n");
 			}
 			
 			//sBuilder.append("\tNavegable: " + booleanToYesOrNo(property.isNavigable()) + "\n");

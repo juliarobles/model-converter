@@ -244,7 +244,7 @@ class USEGenerator extends AbstractGenerator {
 	private def compileAssociationEnd(AllClass e, Iterable<AssociationEnd> list, int id, String aggregation, Boolean reflexive) '''
 		«FOR end : list»
 			«IF reflexive || end.getType() != e »
-			<ownedAttribute xmi:id="«System.identityHashCode(end)»" name="«end.getRole»" type="«System.identityHashCode(end.getType)»" association="«id»" «IF end == list.get(Iterables.size(list)-1)»«aggregation»«ENDIF»>
+			<ownedAttribute xmi:id="«System.identityHashCode(end)»" name="«end.getRole»" type="«System.identityHashCode(end.getType)»"«IF end.isOrdered» isOrdered="true"«ENDIF» association="«id»" «IF end == list.get(Iterables.size(list)-1)»«aggregation»«ENDIF»>
 			«IF end.getMul !== null && end.getMul.getMinValue !== null && end.getMul.getMinValue.length > 0»
 				«IF !end.getMul.getMinValue.get(0).equals("*")»
 					<lowerValue xmi:type="«end.getMul.getMinValue.get(0).getTypeMul»" xmi:id="«System.identityHashCode(end.getType).toString() + id + "1"»" name="" value="«end.getMul.getMinValue.get(0)»"/>

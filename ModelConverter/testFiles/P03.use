@@ -22,7 +22,7 @@ end
 
 associationclass ACR between
 	B [*]
-	B [*] role rolb
+	B [*] role rolb ordered
 end
 
 associationclass AC < ACR between
@@ -32,7 +32,7 @@ end
 
 association A between
 	A1 [0..1] role a11 --Sin rol en MD
-	B [1..5] role rol1
+	B [1..5] role rol1 ordered
 end
 
 composition unnamed1 between

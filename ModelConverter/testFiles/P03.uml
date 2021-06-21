@@ -17,7 +17,7 @@
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_19_0_2_b7002e9_1623268073121_211655_5058" name="" visibility="public" value="1"/>
       </ownedAttribute>
       <ownedAttribute xmi:id="_19_0_2_b7002e9_1623268111535_304800_5066" name="noNavegable" visibility="private" type="_19_0_2_b7002e9_1623267822449_572478_4931" association="_19_0_2_b7002e9_1623268111535_902543_5065"/>
-      <ownedAttribute xmi:id="_19_0_2_b7002e9_1623268221232_425418_5083" name="rol1" visibility="private" type="_19_0_2_b7002e9_1623267822449_572478_4931" association="_19_0_2_b7002e9_1623268221232_534686_5082">
+      <ownedAttribute xmi:id="_19_0_2_b7002e9_1623268221232_425418_5083" name="rol1" visibility="private" type="_19_0_2_b7002e9_1623267822449_572478_4931" isOrdered="true" association="_19_0_2_b7002e9_1623268221232_534686_5082">
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_19_0_2_b7002e9_1623268322158_496054_5100" name="" visibility="public" value="1"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_19_0_2_b7002e9_1623268322158_689532_5101" name="" visibility="public" value="5"/>
       </ownedAttribute>
@@ -46,7 +46,7 @@
         <lowerValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_19_0_2_b7002e9_1623267960848_396020_5005" name="" visibility="public"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_19_0_2_b7002e9_1623267960849_828171_5006" name="" visibility="public" value="*"/>
       </ownedAttribute>
-      <ownedAttribute xmi:id="_19_0_2_b7002e9_1623267857702_329775_4964" name="rolb" visibility="private" type="_19_0_2_b7002e9_1623267822449_572478_4931" association="_19_0_2_b7002e9_1623267857702_21680_4962">
+      <ownedAttribute xmi:id="_19_0_2_b7002e9_1623267857702_329775_4964" name="rolb" visibility="private" type="_19_0_2_b7002e9_1623267822449_572478_4931" isOrdered="true" association="_19_0_2_b7002e9_1623267857702_21680_4962">
         <lowerValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_19_0_2_b7002e9_1623267959224_113293_5001" name="" visibility="public"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_19_0_2_b7002e9_1623267959224_524143_5002" name="" visibility="public" value="*"/>
       </ownedAttribute>

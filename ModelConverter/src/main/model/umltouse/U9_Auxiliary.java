@@ -32,7 +32,6 @@ public class U9_Auxiliary {
 	}
 	
 	static String checkRoleNotNull(String role, String classRole, List<String> nameClassMemberEnd) {
-		String roleRes = role;
 		boolean reflexive = false;
 		if (role != null && !role.isBlank()) {
 			for(String nameClass : nameClassMemberEnd) {
@@ -145,13 +144,17 @@ public class U9_Auxiliary {
 		if(type instanceof Class || type instanceof Enumeration) {
 			return type.getName();
 		} else {
-			String name = type.getName().toLowerCase();
-			if(name.contains("bool")) {
-				return "Boolean";
-			} else if (name.contains("int") || name.contains("long") || name.contains("short")) {
-				return "Integer";
-			} else if (name.contains("double") || name.contains("float") || name.contains("real")) {
-				return "Real";
+			if(type.getName() != null) {
+				String name = type.getName().toLowerCase();
+				if(name.contains("bool")) {
+					return "Boolean";
+				} else if (name.contains("int") || name.contains("long") || name.contains("short")) {
+					return "Integer";
+				} else if (name.contains("double") || name.contains("float") || name.contains("real")) {
+					return "Real";
+				} else {
+					return "String";
+				}
 			} else {
 				return "String";
 			}

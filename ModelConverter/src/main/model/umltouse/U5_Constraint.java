@@ -10,6 +10,8 @@ import org.eclipse.uml2.uml.Constraint;
 
 public class U5_Constraint {
 	
+	private U5_Constraint() {}
+	
 	static void addConstraintsToMap(Class classToAnalyze, EList<Constraint> constraints) {
 		StringBuilder sBuilder = new StringBuilder("");
 		String value, name;

@@ -10,6 +10,8 @@ import org.eclipse.uml2.uml.ParameterDirectionKind;
 
 public class U4_Operation {
 	
+	private U4_Operation() {}
+	
 	static String analyzeOperation(Operation operation, List<String> namesUsedParticular, U9_CountUnnamed countUnnamed) {
 		boolean primero = true;
 		U9_CountUnnamed countUnnamedParameter = new U9_CountUnnamed();

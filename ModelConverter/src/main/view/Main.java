@@ -193,7 +193,7 @@ public class Main {
 		frmModelConverter.getContentPane().add(progressBar);
 		
 		
-		btnConvert.addMouseListener(new ConvertController(sourceTextField, destinyTextField, progressBar));
+		btnConvert.addMouseListener(new ConvertController(sourceTextField, destinyTextField, progressBar, btnConvert));
 
 		frmModelConverter.setBounds(100, 100, 460, 482);
 		frmModelConverter.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
